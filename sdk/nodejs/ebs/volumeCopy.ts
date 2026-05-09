@@ -176,46 +176,46 @@ export interface VolumeCopyState {
     /**
      * Amazon Resource Name (ARN) of the copied EBS volume.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Availability Zone for the copied volume.
      */
-    availabilityZone?: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string | undefined>;
     /**
      * Provisioned IOPS for the copied volume. Use only with volume types that support provisioned IOPS, such as `gp3`.
      */
-    iops?: pulumi.Input<number>;
+    iops?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration. This must match the Region of the source EBS volume referenced by `sourceVolumeId`.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Size of the copied volume, in GiB.
      */
-    size?: pulumi.Input<number>;
+    size?: pulumi.Input<number | undefined>;
     /**
      * ID of the source EBS volume to copy. Changing this value forces replacement of the resource.
      */
-    sourceVolumeId?: pulumi.Input<string>;
+    sourceVolumeId?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the copied volume. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Throughput for the copied volume, in MiB/s. Valid only when `volumeType` is `gp3`.
      */
-    throughput?: pulumi.Input<number>;
-    timeouts?: pulumi.Input<inputs.ebs.VolumeCopyTimeouts>;
+    throughput?: pulumi.Input<number | undefined>;
+    timeouts?: pulumi.Input<inputs.ebs.VolumeCopyTimeouts | undefined>;
     /**
      * Type of the copied EBS volume. Valid values include `gp2`, `gp3`, `io1`, `io2`, `sc1`, `st1`, and `standard`.
      *
      * > **NOTE:** When changing the `size`, `iops` or `type` of a volume, there are [considerations](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) to be aware of.
      */
-    volumeType?: pulumi.Input<string>;
+    volumeType?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -225,15 +225,15 @@ export interface VolumeCopyArgs {
     /**
      * Provisioned IOPS for the copied volume. Use only with volume types that support provisioned IOPS, such as `gp3`.
      */
-    iops?: pulumi.Input<number>;
+    iops?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration. This must match the Region of the source EBS volume referenced by `sourceVolumeId`.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Size of the copied volume, in GiB.
      */
-    size?: pulumi.Input<number>;
+    size?: pulumi.Input<number | undefined>;
     /**
      * ID of the source EBS volume to copy. Changing this value forces replacement of the resource.
      */
@@ -241,16 +241,16 @@ export interface VolumeCopyArgs {
     /**
      * A map of tags to assign to the copied volume. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Throughput for the copied volume, in MiB/s. Valid only when `volumeType` is `gp3`.
      */
-    throughput?: pulumi.Input<number>;
-    timeouts?: pulumi.Input<inputs.ebs.VolumeCopyTimeouts>;
+    throughput?: pulumi.Input<number | undefined>;
+    timeouts?: pulumi.Input<inputs.ebs.VolumeCopyTimeouts | undefined>;
     /**
      * Type of the copied EBS volume. Valid values include `gp2`, `gp3`, `io1`, `io2`, `sc1`, `st1`, and `standard`.
      *
      * > **NOTE:** When changing the `size`, `iops` or `type` of a volume, there are [considerations](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) to be aware of.
      */
-    volumeType?: pulumi.Input<string>;
+    volumeType?: pulumi.Input<string | undefined>;
 }

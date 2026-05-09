@@ -164,41 +164,41 @@ export interface TrustedTokenIssuerState {
     /**
      * ARN of the trusted token issuer.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
      */
-    clientToken?: pulumi.Input<string>;
+    clientToken?: pulumi.Input<string | undefined>;
     /**
      * ARN of the instance of IAM Identity Center.
      */
-    instanceArn?: pulumi.Input<string>;
+    instanceArn?: pulumi.Input<string | undefined>;
     /**
      * Name of the trusted token issuer.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trustedTokenIssuerType`. Documented below.
      */
-    trustedTokenIssuerConfiguration?: pulumi.Input<inputs.ssoadmin.TrustedTokenIssuerTrustedTokenIssuerConfiguration>;
+    trustedTokenIssuerConfiguration?: pulumi.Input<inputs.ssoadmin.TrustedTokenIssuerTrustedTokenIssuerConfiguration | undefined>;
     /**
      * Specifies the type of the trusted token issuer. Valid values are `OIDC_JWT`
      *
      * The following arguments are optional:
      */
-    trustedTokenIssuerType?: pulumi.Input<string>;
+    trustedTokenIssuerType?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -208,7 +208,7 @@ export interface TrustedTokenIssuerArgs {
     /**
      * A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
      */
-    clientToken?: pulumi.Input<string>;
+    clientToken?: pulumi.Input<string | undefined>;
     /**
      * ARN of the instance of IAM Identity Center.
      */
@@ -216,15 +216,15 @@ export interface TrustedTokenIssuerArgs {
     /**
      * Name of the trusted token issuer.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trustedTokenIssuerType`. Documented below.
      */

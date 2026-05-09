@@ -144,9 +144,9 @@ def get_patch_baselines(default_baselines: Optional[_builtins.bool] = None,
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'))
-def get_patch_baselines_output(default_baselines: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                               filters: Optional[pulumi.Input[Optional[Sequence[Union['GetPatchBaselinesFilterArgs', 'GetPatchBaselinesFilterArgsDict']]]]] = None,
-                               region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_patch_baselines_output(default_baselines: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                               filters: pulumi.Input[Optional[Optional[Sequence[Union['GetPatchBaselinesFilterArgs', 'GetPatchBaselinesFilterArgsDict']]]]] = None,
+                               region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPatchBaselinesResult]:
     """
     Data source for retrieving AWS SSM (Systems Manager) Patch Baselines.

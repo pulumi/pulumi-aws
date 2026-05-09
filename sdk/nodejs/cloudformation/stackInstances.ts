@@ -239,49 +239,49 @@ export interface StackInstancesState {
     /**
      * Accounts where you want to create stack instances in the specified `regions`. You can specify either `accounts` or `deploymentTargets`, but not both.
      */
-    accounts?: pulumi.Input<pulumi.Input<string>[]>;
+    accounts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
      */
-    callAs?: pulumi.Input<string>;
+    callAs?: pulumi.Input<string | undefined>;
     /**
      * AWS Organizations accounts for which to create stack instances in the `regions`. stack sets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for most of this argument. See deploymentTargets below.
      */
-    deploymentTargets?: pulumi.Input<inputs.cloudformation.StackInstancesDeploymentTargets>;
+    deploymentTargets?: pulumi.Input<inputs.cloudformation.StackInstancesDeploymentTargets | undefined>;
     /**
      * Preferences for how AWS CloudFormation performs a stack set operation. See operationPreferences below.
      */
-    operationPreferences?: pulumi.Input<inputs.cloudformation.StackInstancesOperationPreferences>;
+    operationPreferences?: pulumi.Input<inputs.cloudformation.StackInstancesOperationPreferences | undefined>;
     /**
      * Key-value map of input parameters to override from the stack set for these instances. This argument's drift detection is limited to the first account and region since each instance can have unique parameters.
      */
-    parameterOverrides?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameterOverrides?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Regions where you want to create stack instances in the specified `accounts`.
      */
-    regions?: pulumi.Input<pulumi.Input<string>[]>;
+    regions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Whether to remove the stack instances from the stack set, but not delete the stacks. You can't reassociate a retained stack or add an existing, saved stack to a new stack set. To retain the stack, ensure `retainStacks = true` has been successfully applied _before_ an apply that would destroy the resource. Defaults to `false`.
      */
-    retainStacks?: pulumi.Input<boolean>;
+    retainStacks?: pulumi.Input<boolean | undefined>;
     /**
      * List of stack instances created from an organizational unit deployment target. This may not always be set depending on whether CloudFormation returns summaries for your configuration. See `stackInstanceSummaries`.
      */
-    stackInstanceSummaries?: pulumi.Input<pulumi.Input<inputs.cloudformation.StackInstancesStackInstanceSummary>[]>;
+    stackInstanceSummaries?: pulumi.Input<pulumi.Input<inputs.cloudformation.StackInstancesStackInstanceSummary>[] | undefined>;
     /**
      * Name or unique ID of the stack set that the stack instance is associated with.
      */
-    stackSetId?: pulumi.Input<string>;
+    stackSetId?: pulumi.Input<string | undefined>;
     /**
      * Name of the stack set.
      *
      * The following arguments are optional:
      */
-    stackSetName?: pulumi.Input<string>;
+    stackSetName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -291,35 +291,35 @@ export interface StackInstancesArgs {
     /**
      * Accounts where you want to create stack instances in the specified `regions`. You can specify either `accounts` or `deploymentTargets`, but not both.
      */
-    accounts?: pulumi.Input<pulumi.Input<string>[]>;
+    accounts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
      */
-    callAs?: pulumi.Input<string>;
+    callAs?: pulumi.Input<string | undefined>;
     /**
      * AWS Organizations accounts for which to create stack instances in the `regions`. stack sets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for most of this argument. See deploymentTargets below.
      */
-    deploymentTargets?: pulumi.Input<inputs.cloudformation.StackInstancesDeploymentTargets>;
+    deploymentTargets?: pulumi.Input<inputs.cloudformation.StackInstancesDeploymentTargets | undefined>;
     /**
      * Preferences for how AWS CloudFormation performs a stack set operation. See operationPreferences below.
      */
-    operationPreferences?: pulumi.Input<inputs.cloudformation.StackInstancesOperationPreferences>;
+    operationPreferences?: pulumi.Input<inputs.cloudformation.StackInstancesOperationPreferences | undefined>;
     /**
      * Key-value map of input parameters to override from the stack set for these instances. This argument's drift detection is limited to the first account and region since each instance can have unique parameters.
      */
-    parameterOverrides?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameterOverrides?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Regions where you want to create stack instances in the specified `accounts`.
      */
-    regions?: pulumi.Input<pulumi.Input<string>[]>;
+    regions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Whether to remove the stack instances from the stack set, but not delete the stacks. You can't reassociate a retained stack or add an existing, saved stack to a new stack set. To retain the stack, ensure `retainStacks = true` has been successfully applied _before_ an apply that would destroy the resource. Defaults to `false`.
      */
-    retainStacks?: pulumi.Input<boolean>;
+    retainStacks?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the stack set.
      *

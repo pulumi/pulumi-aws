@@ -213,58 +213,58 @@ export interface WorkflowState {
     /**
      * Amazon Resource Name (ARN) of the workflow.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Change description of the workflow.
      */
-    changeDescription?: pulumi.Input<string>;
+    changeDescription?: pulumi.Input<string | undefined>;
     /**
      * Inline YAML string with data of the workflow. Exactly one of `data` and `uri` can be specified.
      */
-    data?: pulumi.Input<string>;
+    data?: pulumi.Input<string | undefined>;
     /**
      * Date the workflow was created.
      */
-    dateCreated?: pulumi.Input<string>;
+    dateCreated?: pulumi.Input<string | undefined>;
     /**
      * Description of the workflow.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * Name of the workflow.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Owner of the workflow.
      */
-    owner?: pulumi.Input<string>;
+    owner?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags for the workflow. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Type of the workflow. Valid values: `BUILD`, `TEST`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * S3 URI with data of the workflow. Exactly one of `data` and `uri` can be specified.
      */
-    uri?: pulumi.Input<string>;
+    uri?: pulumi.Input<string | undefined>;
     /**
      * Version of the workflow.
      *
      * The following arguments are optional:
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -274,31 +274,31 @@ export interface WorkflowArgs {
     /**
      * Change description of the workflow.
      */
-    changeDescription?: pulumi.Input<string>;
+    changeDescription?: pulumi.Input<string | undefined>;
     /**
      * Inline YAML string with data of the workflow. Exactly one of `data` and `uri` can be specified.
      */
-    data?: pulumi.Input<string>;
+    data?: pulumi.Input<string | undefined>;
     /**
      * Description of the workflow.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * Name of the workflow.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags for the workflow. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Type of the workflow. Valid values: `BUILD`, `TEST`.
      */
@@ -306,7 +306,7 @@ export interface WorkflowArgs {
     /**
      * S3 URI with data of the workflow. Exactly one of `data` and `uri` can be specified.
      */
-    uri?: pulumi.Input<string>;
+    uri?: pulumi.Input<string | undefined>;
     /**
      * Version of the workflow.
      *

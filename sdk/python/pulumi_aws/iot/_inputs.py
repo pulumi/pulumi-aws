@@ -175,7 +175,7 @@ class BillingGroupMetadataArgs:
 
 
 class BillingGroupPropertiesArgsDict(TypedDict):
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A description of the Billing Group.
     """
@@ -183,7 +183,7 @@ class BillingGroupPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class BillingGroupPropertiesArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] description: A description of the Billing Group.
         """
@@ -192,27 +192,27 @@ class BillingGroupPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the Billing Group.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
 class CaCertificateRegistrationConfigArgsDict(TypedDict):
-    role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the role.
     """
-    template_body: NotRequired[pulumi.Input[_builtins.str]]
+    template_body: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The template body.
     """
-    template_name: NotRequired[pulumi.Input[_builtins.str]]
+    template_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the provisioning template.
     """
@@ -220,9 +220,9 @@ class CaCertificateRegistrationConfigArgsDict(TypedDict):
 @pulumi.input_type
 class CaCertificateRegistrationConfigArgs:
     def __init__(__self__, *,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_body: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_body: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the role.
         :param pulumi.Input[_builtins.str] template_body: The template body.
@@ -237,47 +237,47 @@ class CaCertificateRegistrationConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the role.
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="templateBody")
-    def template_body(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template_body(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The template body.
         """
         return pulumi.get(self, "template_body")
 
     @template_body.setter
-    def template_body(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template_body(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template_body", value)
 
     @_builtins.property
     @pulumi.getter(name="templateName")
-    def template_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the provisioning template.
         """
         return pulumi.get(self, "template_name")
 
     @template_name.setter
-    def template_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template_name", value)
 
 
 class CaCertificateValidityArgsDict(TypedDict):
-    not_after: NotRequired[pulumi.Input[_builtins.str]]
+    not_after: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The certificate is not valid after this date.
     """
-    not_before: NotRequired[pulumi.Input[_builtins.str]]
+    not_before: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The certificate is not valid before this date.
     """
@@ -285,8 +285,8 @@ class CaCertificateValidityArgsDict(TypedDict):
 @pulumi.input_type
 class CaCertificateValidityArgs:
     def __init__(__self__, *,
-                 not_after: Optional[pulumi.Input[_builtins.str]] = None,
-                 not_before: Optional[pulumi.Input[_builtins.str]] = None):
+                 not_after: pulumi.Input[Optional[_builtins.str]] = None,
+                 not_before: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] not_after: The certificate is not valid after this date.
         :param pulumi.Input[_builtins.str] not_before: The certificate is not valid before this date.
@@ -298,35 +298,35 @@ class CaCertificateValidityArgs:
 
     @_builtins.property
     @pulumi.getter(name="notAfter")
-    def not_after(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def not_after(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The certificate is not valid after this date.
         """
         return pulumi.get(self, "not_after")
 
     @not_after.setter
-    def not_after(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def not_after(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "not_after", value)
 
     @_builtins.property
     @pulumi.getter(name="notBefore")
-    def not_before(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def not_before(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The certificate is not valid before this date.
         """
         return pulumi.get(self, "not_before")
 
     @not_before.setter
-    def not_before(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def not_before(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "not_before", value)
 
 
 class DomainConfigurationAuthorizerConfigArgsDict(TypedDict):
-    allow_authorizer_override: NotRequired[pulumi.Input[_builtins.bool]]
+    allow_authorizer_override: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A Boolean that specifies whether the domain configuration's authorization service can be overridden.
     """
-    default_authorizer_name: NotRequired[pulumi.Input[_builtins.str]]
+    default_authorizer_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the authorization service for a domain configuration.
     """
@@ -334,8 +334,8 @@ class DomainConfigurationAuthorizerConfigArgsDict(TypedDict):
 @pulumi.input_type
 class DomainConfigurationAuthorizerConfigArgs:
     def __init__(__self__, *,
-                 allow_authorizer_override: Optional[pulumi.Input[_builtins.bool]] = None,
-                 default_authorizer_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 allow_authorizer_override: pulumi.Input[Optional[_builtins.bool]] = None,
+                 default_authorizer_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] allow_authorizer_override: A Boolean that specifies whether the domain configuration's authorization service can be overridden.
         :param pulumi.Input[_builtins.str] default_authorizer_name: The name of the authorization service for a domain configuration.
@@ -347,31 +347,31 @@ class DomainConfigurationAuthorizerConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowAuthorizerOverride")
-    def allow_authorizer_override(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_authorizer_override(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A Boolean that specifies whether the domain configuration's authorization service can be overridden.
         """
         return pulumi.get(self, "allow_authorizer_override")
 
     @allow_authorizer_override.setter
-    def allow_authorizer_override(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_authorizer_override(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_authorizer_override", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultAuthorizerName")
-    def default_authorizer_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_authorizer_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the authorization service for a domain configuration.
         """
         return pulumi.get(self, "default_authorizer_name")
 
     @default_authorizer_name.setter
-    def default_authorizer_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_authorizer_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_authorizer_name", value)
 
 
 class DomainConfigurationTlsConfigArgsDict(TypedDict):
-    security_policy: NotRequired[pulumi.Input[_builtins.str]]
+    security_policy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The security policy for a domain configuration.
     """
@@ -379,7 +379,7 @@ class DomainConfigurationTlsConfigArgsDict(TypedDict):
 @pulumi.input_type
 class DomainConfigurationTlsConfigArgs:
     def __init__(__self__, *,
-                 security_policy: Optional[pulumi.Input[_builtins.str]] = None):
+                 security_policy: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] security_policy: The security policy for a domain configuration.
         """
@@ -388,14 +388,14 @@ class DomainConfigurationTlsConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="securityPolicy")
-    def security_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def security_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The security policy for a domain configuration.
         """
         return pulumi.get(self, "security_policy")
 
     @security_policy.setter
-    def security_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def security_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "security_policy", value)
 
 
@@ -404,11 +404,11 @@ class IndexingConfigurationThingGroupIndexingConfigurationArgsDict(TypedDict):
     """
     Thing group indexing mode. Valid values: `OFF`, `ON`.
     """
-    custom_fields: NotRequired[pulumi.Input[Sequence[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgsDict']]]]
+    custom_fields: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs']]]]]
     """
     A list of thing group fields to index. This list cannot contain any managed fields. See below.
     """
-    managed_fields: NotRequired[pulumi.Input[Sequence[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgsDict']]]]
+    managed_fields: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs']]]]]
     """
     Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
     """
@@ -417,8 +417,8 @@ class IndexingConfigurationThingGroupIndexingConfigurationArgsDict(TypedDict):
 class IndexingConfigurationThingGroupIndexingConfigurationArgs:
     def __init__(__self__, *,
                  thing_group_indexing_mode: pulumi.Input[_builtins.str],
-                 custom_fields: Optional[pulumi.Input[Sequence[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs']]]] = None,
-                 managed_fields: Optional[pulumi.Input[Sequence[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs']]]] = None):
+                 custom_fields: pulumi.Input[Optional[Sequence[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs']]]] = None,
+                 managed_fields: pulumi.Input[Optional[Sequence[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] thing_group_indexing_mode: Thing group indexing mode. Valid values: `OFF`, `ON`.
         :param pulumi.Input[Sequence[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs']]] custom_fields: A list of thing group fields to index. This list cannot contain any managed fields. See below.
@@ -444,35 +444,35 @@ class IndexingConfigurationThingGroupIndexingConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="customFields")
-    def custom_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs']]]]:
+    def custom_fields(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs']]]]:
         """
         A list of thing group fields to index. This list cannot contain any managed fields. See below.
         """
         return pulumi.get(self, "custom_fields")
 
     @custom_fields.setter
-    def custom_fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs']]]]):
+    def custom_fields(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs']]]]):
         pulumi.set(self, "custom_fields", value)
 
     @_builtins.property
     @pulumi.getter(name="managedFields")
-    def managed_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs']]]]:
+    def managed_fields(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs']]]]:
         """
         Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
         """
         return pulumi.get(self, "managed_fields")
 
     @managed_fields.setter
-    def managed_fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs']]]]):
+    def managed_fields(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs']]]]):
         pulumi.set(self, "managed_fields", value)
 
 
 class IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgsDict(TypedDict):
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the field.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The data type of the field. Valid values: `Number`, `String`, `Boolean`.
     """
@@ -480,8 +480,8 @@ class IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgsDict(Ty
 @pulumi.input_type
 class IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the field.
         :param pulumi.Input[_builtins.str] type: The data type of the field. Valid values: `Number`, `String`, `Boolean`.
@@ -493,35 +493,35 @@ class IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the field.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The data type of the field. Valid values: `Number`, `String`, `Boolean`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
 class IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgsDict(TypedDict):
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the field.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The data type of the field. Valid values: `Number`, `String`, `Boolean`.
     """
@@ -529,8 +529,8 @@ class IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgsDict(T
 @pulumi.input_type
 class IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the field.
         :param pulumi.Input[_builtins.str] type: The data type of the field. Valid values: `Number`, `String`, `Boolean`.
@@ -542,26 +542,26 @@ class IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the field.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The data type of the field. Valid values: `Number`, `String`, `Boolean`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -570,27 +570,27 @@ class IndexingConfigurationThingIndexingConfigurationArgsDict(TypedDict):
     """
     Thing indexing mode. Valid values: `REGISTRY`, `REGISTRY_AND_SHADOW`, `OFF`.
     """
-    custom_fields: NotRequired[pulumi.Input[Sequence[pulumi.Input['IndexingConfigurationThingIndexingConfigurationCustomFieldArgsDict']]]]
+    custom_fields: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IndexingConfigurationThingIndexingConfigurationCustomFieldArgs']]]]]
     """
     Contains custom field names and their data type. See below.
     """
-    device_defender_indexing_mode: NotRequired[pulumi.Input[_builtins.str]]
+    device_defender_indexing_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Device Defender indexing mode. Valid values: `VIOLATIONS`, `OFF`. Default: `OFF`.
     """
-    filter: NotRequired[pulumi.Input['IndexingConfigurationThingIndexingConfigurationFilterArgsDict']]
+    filter: NotRequired[pulumi.Input[Optional['IndexingConfigurationThingIndexingConfigurationFilterArgs']]]
     """
     Required if `named_shadow_indexing_mode` is `ON`. Enables to add named shadows filtered by `filter` to fleet indexing configuration.
     """
-    managed_fields: NotRequired[pulumi.Input[Sequence[pulumi.Input['IndexingConfigurationThingIndexingConfigurationManagedFieldArgsDict']]]]
+    managed_fields: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IndexingConfigurationThingIndexingConfigurationManagedFieldArgs']]]]]
     """
     Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
     """
-    named_shadow_indexing_mode: NotRequired[pulumi.Input[_builtins.str]]
+    named_shadow_indexing_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     [Named shadow](https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html) indexing mode. Valid values: `ON`, `OFF`. Default: `OFF`.
     """
-    thing_connectivity_indexing_mode: NotRequired[pulumi.Input[_builtins.str]]
+    thing_connectivity_indexing_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Thing connectivity indexing mode. Valid values: `STATUS`, `OFF`. Default: `OFF`.
     """
@@ -599,12 +599,12 @@ class IndexingConfigurationThingIndexingConfigurationArgsDict(TypedDict):
 class IndexingConfigurationThingIndexingConfigurationArgs:
     def __init__(__self__, *,
                  thing_indexing_mode: pulumi.Input[_builtins.str],
-                 custom_fields: Optional[pulumi.Input[Sequence[pulumi.Input['IndexingConfigurationThingIndexingConfigurationCustomFieldArgs']]]] = None,
-                 device_defender_indexing_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 filter: Optional[pulumi.Input['IndexingConfigurationThingIndexingConfigurationFilterArgs']] = None,
-                 managed_fields: Optional[pulumi.Input[Sequence[pulumi.Input['IndexingConfigurationThingIndexingConfigurationManagedFieldArgs']]]] = None,
-                 named_shadow_indexing_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 thing_connectivity_indexing_mode: Optional[pulumi.Input[_builtins.str]] = None):
+                 custom_fields: pulumi.Input[Optional[Sequence[pulumi.Input['IndexingConfigurationThingIndexingConfigurationCustomFieldArgs']]]] = None,
+                 device_defender_indexing_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 filter: pulumi.Input[Optional['IndexingConfigurationThingIndexingConfigurationFilterArgs']] = None,
+                 managed_fields: pulumi.Input[Optional[Sequence[pulumi.Input['IndexingConfigurationThingIndexingConfigurationManagedFieldArgs']]]] = None,
+                 named_shadow_indexing_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 thing_connectivity_indexing_mode: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] thing_indexing_mode: Thing indexing mode. Valid values: `REGISTRY`, `REGISTRY_AND_SHADOW`, `OFF`.
         :param pulumi.Input[Sequence[pulumi.Input['IndexingConfigurationThingIndexingConfigurationCustomFieldArgs']]] custom_fields: Contains custom field names and their data type. See below.
@@ -642,83 +642,83 @@ class IndexingConfigurationThingIndexingConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="customFields")
-    def custom_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IndexingConfigurationThingIndexingConfigurationCustomFieldArgs']]]]:
+    def custom_fields(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IndexingConfigurationThingIndexingConfigurationCustomFieldArgs']]]]:
         """
         Contains custom field names and their data type. See below.
         """
         return pulumi.get(self, "custom_fields")
 
     @custom_fields.setter
-    def custom_fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IndexingConfigurationThingIndexingConfigurationCustomFieldArgs']]]]):
+    def custom_fields(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IndexingConfigurationThingIndexingConfigurationCustomFieldArgs']]]]):
         pulumi.set(self, "custom_fields", value)
 
     @_builtins.property
     @pulumi.getter(name="deviceDefenderIndexingMode")
-    def device_defender_indexing_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def device_defender_indexing_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Device Defender indexing mode. Valid values: `VIOLATIONS`, `OFF`. Default: `OFF`.
         """
         return pulumi.get(self, "device_defender_indexing_mode")
 
     @device_defender_indexing_mode.setter
-    def device_defender_indexing_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def device_defender_indexing_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "device_defender_indexing_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def filter(self) -> Optional[pulumi.Input['IndexingConfigurationThingIndexingConfigurationFilterArgs']]:
+    def filter(self) -> pulumi.Input[Optional['IndexingConfigurationThingIndexingConfigurationFilterArgs']]:
         """
         Required if `named_shadow_indexing_mode` is `ON`. Enables to add named shadows filtered by `filter` to fleet indexing configuration.
         """
         return pulumi.get(self, "filter")
 
     @filter.setter
-    def filter(self, value: Optional[pulumi.Input['IndexingConfigurationThingIndexingConfigurationFilterArgs']]):
+    def filter(self, value: pulumi.Input[Optional['IndexingConfigurationThingIndexingConfigurationFilterArgs']]):
         pulumi.set(self, "filter", value)
 
     @_builtins.property
     @pulumi.getter(name="managedFields")
-    def managed_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IndexingConfigurationThingIndexingConfigurationManagedFieldArgs']]]]:
+    def managed_fields(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IndexingConfigurationThingIndexingConfigurationManagedFieldArgs']]]]:
         """
         Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
         """
         return pulumi.get(self, "managed_fields")
 
     @managed_fields.setter
-    def managed_fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IndexingConfigurationThingIndexingConfigurationManagedFieldArgs']]]]):
+    def managed_fields(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IndexingConfigurationThingIndexingConfigurationManagedFieldArgs']]]]):
         pulumi.set(self, "managed_fields", value)
 
     @_builtins.property
     @pulumi.getter(name="namedShadowIndexingMode")
-    def named_shadow_indexing_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def named_shadow_indexing_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         [Named shadow](https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html) indexing mode. Valid values: `ON`, `OFF`. Default: `OFF`.
         """
         return pulumi.get(self, "named_shadow_indexing_mode")
 
     @named_shadow_indexing_mode.setter
-    def named_shadow_indexing_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def named_shadow_indexing_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "named_shadow_indexing_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="thingConnectivityIndexingMode")
-    def thing_connectivity_indexing_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def thing_connectivity_indexing_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Thing connectivity indexing mode. Valid values: `STATUS`, `OFF`. Default: `OFF`.
         """
         return pulumi.get(self, "thing_connectivity_indexing_mode")
 
     @thing_connectivity_indexing_mode.setter
-    def thing_connectivity_indexing_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def thing_connectivity_indexing_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "thing_connectivity_indexing_mode", value)
 
 
 class IndexingConfigurationThingIndexingConfigurationCustomFieldArgsDict(TypedDict):
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the field.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The data type of the field. Valid values: `Number`, `String`, `Boolean`.
     """
@@ -726,8 +726,8 @@ class IndexingConfigurationThingIndexingConfigurationCustomFieldArgsDict(TypedDi
 @pulumi.input_type
 class IndexingConfigurationThingIndexingConfigurationCustomFieldArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the field.
         :param pulumi.Input[_builtins.str] type: The data type of the field. Valid values: `Number`, `String`, `Boolean`.
@@ -739,31 +739,31 @@ class IndexingConfigurationThingIndexingConfigurationCustomFieldArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the field.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The data type of the field. Valid values: `Number`, `String`, `Boolean`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
 class IndexingConfigurationThingIndexingConfigurationFilterArgsDict(TypedDict):
-    named_shadow_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    named_shadow_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of shadow names that you select to index.
     """
@@ -771,7 +771,7 @@ class IndexingConfigurationThingIndexingConfigurationFilterArgsDict(TypedDict):
 @pulumi.input_type
 class IndexingConfigurationThingIndexingConfigurationFilterArgs:
     def __init__(__self__, *,
-                 named_shadow_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 named_shadow_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] named_shadow_names: List of shadow names that you select to index.
         """
@@ -780,23 +780,23 @@ class IndexingConfigurationThingIndexingConfigurationFilterArgs:
 
     @_builtins.property
     @pulumi.getter(name="namedShadowNames")
-    def named_shadow_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def named_shadow_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of shadow names that you select to index.
         """
         return pulumi.get(self, "named_shadow_names")
 
     @named_shadow_names.setter
-    def named_shadow_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def named_shadow_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "named_shadow_names", value)
 
 
 class IndexingConfigurationThingIndexingConfigurationManagedFieldArgsDict(TypedDict):
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the field.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The data type of the field. Valid values: `Number`, `String`, `Boolean`.
     """
@@ -804,8 +804,8 @@ class IndexingConfigurationThingIndexingConfigurationManagedFieldArgsDict(TypedD
 @pulumi.input_type
 class IndexingConfigurationThingIndexingConfigurationManagedFieldArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the field.
         :param pulumi.Input[_builtins.str] type: The data type of the field. Valid values: `Number`, `String`, `Boolean`.
@@ -817,26 +817,26 @@ class IndexingConfigurationThingIndexingConfigurationManagedFieldArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the field.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The data type of the field. Valid values: `Number`, `String`, `Boolean`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -845,7 +845,7 @@ class ProvisioningTemplatePreProvisioningHookArgsDict(TypedDict):
     """
     The ARN of the target function.
     """
-    payload_version: NotRequired[pulumi.Input[_builtins.str]]
+    payload_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version of the payload that was sent to the target function. The only valid (and the default) payload version is `"2020-04-01"`.
     """
@@ -854,7 +854,7 @@ class ProvisioningTemplatePreProvisioningHookArgsDict(TypedDict):
 class ProvisioningTemplatePreProvisioningHookArgs:
     def __init__(__self__, *,
                  target_arn: pulumi.Input[_builtins.str],
-                 payload_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 payload_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] target_arn: The ARN of the target function.
         :param pulumi.Input[_builtins.str] payload_version: The version of the payload that was sent to the target function. The only valid (and the default) payload version is `"2020-04-01"`.
@@ -877,31 +877,31 @@ class ProvisioningTemplatePreProvisioningHookArgs:
 
     @_builtins.property
     @pulumi.getter(name="payloadVersion")
-    def payload_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def payload_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the payload that was sent to the target function. The only valid (and the default) payload version is `"2020-04-01"`.
         """
         return pulumi.get(self, "payload_version")
 
     @payload_version.setter
-    def payload_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def payload_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "payload_version", value)
 
 
 class ThingGroupMetadataArgsDict(TypedDict):
-    creation_date: NotRequired[pulumi.Input[_builtins.str]]
-    parent_group_name: NotRequired[pulumi.Input[_builtins.str]]
+    creation_date: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    parent_group_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the parent Thing Group.
     """
-    root_to_parent_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['ThingGroupMetadataRootToParentGroupArgsDict']]]]
+    root_to_parent_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ThingGroupMetadataRootToParentGroupArgs']]]]]
 
 @pulumi.input_type
 class ThingGroupMetadataArgs:
     def __init__(__self__, *,
-                 creation_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 root_to_parent_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ThingGroupMetadataRootToParentGroupArgs']]]] = None):
+                 creation_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 root_to_parent_groups: pulumi.Input[Optional[Sequence[pulumi.Input['ThingGroupMetadataRootToParentGroupArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] parent_group_name: The name of the parent Thing Group.
         """
@@ -914,44 +914,44 @@ class ThingGroupMetadataArgs:
 
     @_builtins.property
     @pulumi.getter(name="creationDate")
-    def creation_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def creation_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "creation_date")
 
     @creation_date.setter
-    def creation_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def creation_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "creation_date", value)
 
     @_builtins.property
     @pulumi.getter(name="parentGroupName")
-    def parent_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parent_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the parent Thing Group.
         """
         return pulumi.get(self, "parent_group_name")
 
     @parent_group_name.setter
-    def parent_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parent_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parent_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="rootToParentGroups")
-    def root_to_parent_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ThingGroupMetadataRootToParentGroupArgs']]]]:
+    def root_to_parent_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ThingGroupMetadataRootToParentGroupArgs']]]]:
         return pulumi.get(self, "root_to_parent_groups")
 
     @root_to_parent_groups.setter
-    def root_to_parent_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ThingGroupMetadataRootToParentGroupArgs']]]]):
+    def root_to_parent_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ThingGroupMetadataRootToParentGroupArgs']]]]):
         pulumi.set(self, "root_to_parent_groups", value)
 
 
 class ThingGroupMetadataRootToParentGroupArgsDict(TypedDict):
-    group_arn: NotRequired[pulumi.Input[_builtins.str]]
-    group_name: NotRequired[pulumi.Input[_builtins.str]]
+    group_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    group_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class ThingGroupMetadataRootToParentGroupArgs:
     def __init__(__self__, *,
-                 group_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 group_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_name: pulumi.Input[Optional[_builtins.str]] = None):
         if group_arn is not None:
             pulumi.set(__self__, "group_arn", group_arn)
         if group_name is not None:
@@ -959,29 +959,29 @@ class ThingGroupMetadataRootToParentGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="groupArn")
-    def group_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "group_arn")
 
     @group_arn.setter
-    def group_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="groupName")
-    def group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "group_name")
 
     @group_name.setter
-    def group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_name", value)
 
 
 class ThingGroupPropertiesArgsDict(TypedDict):
-    attribute_payload: NotRequired[pulumi.Input['ThingGroupPropertiesAttributePayloadArgsDict']]
+    attribute_payload: NotRequired[pulumi.Input[Optional['ThingGroupPropertiesAttributePayloadArgs']]]
     """
     The Thing Group attributes. Defined below.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A description of the Thing Group.
     """
@@ -989,8 +989,8 @@ class ThingGroupPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ThingGroupPropertiesArgs:
     def __init__(__self__, *,
-                 attribute_payload: Optional[pulumi.Input['ThingGroupPropertiesAttributePayloadArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 attribute_payload: pulumi.Input[Optional['ThingGroupPropertiesAttributePayloadArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['ThingGroupPropertiesAttributePayloadArgs'] attribute_payload: The Thing Group attributes. Defined below.
         :param pulumi.Input[_builtins.str] description: A description of the Thing Group.
@@ -1002,31 +1002,31 @@ class ThingGroupPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="attributePayload")
-    def attribute_payload(self) -> Optional[pulumi.Input['ThingGroupPropertiesAttributePayloadArgs']]:
+    def attribute_payload(self) -> pulumi.Input[Optional['ThingGroupPropertiesAttributePayloadArgs']]:
         """
         The Thing Group attributes. Defined below.
         """
         return pulumi.get(self, "attribute_payload")
 
     @attribute_payload.setter
-    def attribute_payload(self, value: Optional[pulumi.Input['ThingGroupPropertiesAttributePayloadArgs']]):
+    def attribute_payload(self, value: pulumi.Input[Optional['ThingGroupPropertiesAttributePayloadArgs']]):
         pulumi.set(self, "attribute_payload", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the Thing Group.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
 class ThingGroupPropertiesAttributePayloadArgsDict(TypedDict):
-    attributes: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    attributes: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Key-value map.
     """
@@ -1034,7 +1034,7 @@ class ThingGroupPropertiesAttributePayloadArgsDict(TypedDict):
 @pulumi.input_type
 class ThingGroupPropertiesAttributePayloadArgs:
     def __init__(__self__, *,
-                 attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] attributes: Key-value map.
         """
@@ -1043,23 +1043,23 @@ class ThingGroupPropertiesAttributePayloadArgs:
 
     @_builtins.property
     @pulumi.getter
-    def attributes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def attributes(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map.
         """
         return pulumi.get(self, "attributes")
 
     @attributes.setter
-    def attributes(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def attributes(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "attributes", value)
 
 
 class ThingTypePropertiesArgsDict(TypedDict):
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description of the thing type.
     """
-    searchable_attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    searchable_attributes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of searchable thing attribute names.
     """
@@ -1067,8 +1067,8 @@ class ThingTypePropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ThingTypePropertiesArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 searchable_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 searchable_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] description: The description of the thing type.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] searchable_attributes: A list of searchable thing attribute names.
@@ -1080,26 +1080,26 @@ class ThingTypePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the thing type.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="searchableAttributes")
-    def searchable_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def searchable_attributes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of searchable thing attribute names.
         """
         return pulumi.get(self, "searchable_attributes")
 
     @searchable_attributes.setter
-    def searchable_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def searchable_attributes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "searchable_attributes", value)
 
 
@@ -1197,7 +1197,7 @@ class TopicRuleCloudwatchLogArgsDict(TypedDict):
     """
     The IAM role ARN that allows access to the CloudWatch alarm.
     """
-    batch_mode: NotRequired[pulumi.Input[_builtins.bool]]
+    batch_mode: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     The payload that contains a JSON array of records will be sent to CloudWatch via a batch call.
     """
@@ -1207,7 +1207,7 @@ class TopicRuleCloudwatchLogArgs:
     def __init__(__self__, *,
                  log_group_name: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
-                 batch_mode: Optional[pulumi.Input[_builtins.bool]] = None):
+                 batch_mode: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] log_group_name: The CloudWatch log group name.
         :param pulumi.Input[_builtins.str] role_arn: The IAM role ARN that allows access to the CloudWatch alarm.
@@ -1244,14 +1244,14 @@ class TopicRuleCloudwatchLogArgs:
 
     @_builtins.property
     @pulumi.getter(name="batchMode")
-    def batch_mode(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def batch_mode(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The payload that contains a JSON array of records will be sent to CloudWatch via a batch call.
         """
         return pulumi.get(self, "batch_mode")
 
     @batch_mode.setter
-    def batch_mode(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def batch_mode(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "batch_mode", value)
 
 
@@ -1276,7 +1276,7 @@ class TopicRuleCloudwatchMetricArgsDict(TypedDict):
     """
     The IAM role ARN that allows access to the CloudWatch metric.
     """
-    metric_timestamp: NotRequired[pulumi.Input[_builtins.str]]
+    metric_timestamp: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An optional Unix timestamp (http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp).
     """
@@ -1289,7 +1289,7 @@ class TopicRuleCloudwatchMetricArgs:
                  metric_unit: pulumi.Input[_builtins.str],
                  metric_value: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
-                 metric_timestamp: Optional[pulumi.Input[_builtins.str]] = None):
+                 metric_timestamp: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] metric_name: The CloudWatch metric name.
         :param pulumi.Input[_builtins.str] metric_namespace: The CloudWatch metric namespace name.
@@ -1368,14 +1368,14 @@ class TopicRuleCloudwatchMetricArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricTimestamp")
-    def metric_timestamp(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metric_timestamp(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An optional Unix timestamp (http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp).
         """
         return pulumi.get(self, "metric_timestamp")
 
     @metric_timestamp.setter
-    def metric_timestamp(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metric_timestamp(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metric_timestamp", value)
 
 
@@ -1392,7 +1392,7 @@ class TopicRuleDestinationVpcConfigurationArgsDict(TypedDict):
     """
     The ID of the VPC.
     """
-    security_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    security_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The security groups of the VPC destination.
     """
@@ -1403,7 +1403,7 @@ class TopicRuleDestinationVpcConfigurationArgs:
                  role_arn: pulumi.Input[_builtins.str],
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  vpc_id: pulumi.Input[_builtins.str],
-                 security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] role_arn: The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The subnet IDs of the VPC destination.
@@ -1454,14 +1454,14 @@ class TopicRuleDestinationVpcConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="securityGroups")
-    def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The security groups of the VPC destination.
         """
         return pulumi.get(self, "security_groups")
 
     @security_groups.setter
-    def security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_groups", value)
 
 
@@ -1482,27 +1482,27 @@ class TopicRuleDynamodbArgsDict(TypedDict):
     """
     The name of the DynamoDB table.
     """
-    hash_key_type: NotRequired[pulumi.Input[_builtins.str]]
+    hash_key_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The hash key type. Valid values are "STRING" or "NUMBER".
     """
-    operation: NotRequired[pulumi.Input[_builtins.str]]
+    operation: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The operation. Valid values are "INSERT", "UPDATE", or "DELETE".
     """
-    payload_field: NotRequired[pulumi.Input[_builtins.str]]
+    payload_field: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The action payload.
     """
-    range_key_field: NotRequired[pulumi.Input[_builtins.str]]
+    range_key_field: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The range key name.
     """
-    range_key_type: NotRequired[pulumi.Input[_builtins.str]]
+    range_key_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The range key type. Valid values are "STRING" or "NUMBER".
     """
-    range_key_value: NotRequired[pulumi.Input[_builtins.str]]
+    range_key_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The range key value.
     """
@@ -1514,12 +1514,12 @@ class TopicRuleDynamodbArgs:
                  hash_key_value: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
                  table_name: pulumi.Input[_builtins.str],
-                 hash_key_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 operation: Optional[pulumi.Input[_builtins.str]] = None,
-                 payload_field: Optional[pulumi.Input[_builtins.str]] = None,
-                 range_key_field: Optional[pulumi.Input[_builtins.str]] = None,
-                 range_key_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 range_key_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 hash_key_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 operation: pulumi.Input[Optional[_builtins.str]] = None,
+                 payload_field: pulumi.Input[Optional[_builtins.str]] = None,
+                 range_key_field: pulumi.Input[Optional[_builtins.str]] = None,
+                 range_key_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 range_key_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] hash_key_field: The hash key name.
         :param pulumi.Input[_builtins.str] hash_key_value: The hash key value.
@@ -1599,74 +1599,74 @@ class TopicRuleDynamodbArgs:
 
     @_builtins.property
     @pulumi.getter(name="hashKeyType")
-    def hash_key_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hash_key_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The hash key type. Valid values are "STRING" or "NUMBER".
         """
         return pulumi.get(self, "hash_key_type")
 
     @hash_key_type.setter
-    def hash_key_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hash_key_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hash_key_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def operation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def operation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The operation. Valid values are "INSERT", "UPDATE", or "DELETE".
         """
         return pulumi.get(self, "operation")
 
     @operation.setter
-    def operation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def operation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "operation", value)
 
     @_builtins.property
     @pulumi.getter(name="payloadField")
-    def payload_field(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def payload_field(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The action payload.
         """
         return pulumi.get(self, "payload_field")
 
     @payload_field.setter
-    def payload_field(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def payload_field(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "payload_field", value)
 
     @_builtins.property
     @pulumi.getter(name="rangeKeyField")
-    def range_key_field(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def range_key_field(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The range key name.
         """
         return pulumi.get(self, "range_key_field")
 
     @range_key_field.setter
-    def range_key_field(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def range_key_field(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "range_key_field", value)
 
     @_builtins.property
     @pulumi.getter(name="rangeKeyType")
-    def range_key_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def range_key_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The range key type. Valid values are "STRING" or "NUMBER".
         """
         return pulumi.get(self, "range_key_type")
 
     @range_key_type.setter
-    def range_key_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def range_key_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "range_key_type", value)
 
     @_builtins.property
     @pulumi.getter(name="rangeKeyValue")
-    def range_key_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def range_key_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The range key value.
         """
         return pulumi.get(self, "range_key_value")
 
     @range_key_value.setter
-    def range_key_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def range_key_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "range_key_value", value)
 
 
@@ -1675,7 +1675,7 @@ class TopicRuleDynamodbv2ArgsDict(TypedDict):
     """
     The ARN of the IAM role that grants access to the DynamoDB table.
     """
-    put_item: NotRequired[pulumi.Input['TopicRuleDynamodbv2PutItemArgsDict']]
+    put_item: NotRequired[pulumi.Input[Optional['TopicRuleDynamodbv2PutItemArgs']]]
     """
     Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
     """
@@ -1684,7 +1684,7 @@ class TopicRuleDynamodbv2ArgsDict(TypedDict):
 class TopicRuleDynamodbv2Args:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[_builtins.str],
-                 put_item: Optional[pulumi.Input['TopicRuleDynamodbv2PutItemArgs']] = None):
+                 put_item: pulumi.Input[Optional['TopicRuleDynamodbv2PutItemArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role that grants access to the DynamoDB table.
         :param pulumi.Input['TopicRuleDynamodbv2PutItemArgs'] put_item: Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
@@ -1707,14 +1707,14 @@ class TopicRuleDynamodbv2Args:
 
     @_builtins.property
     @pulumi.getter(name="putItem")
-    def put_item(self) -> Optional[pulumi.Input['TopicRuleDynamodbv2PutItemArgs']]:
+    def put_item(self) -> pulumi.Input[Optional['TopicRuleDynamodbv2PutItemArgs']]:
         """
         Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
         """
         return pulumi.get(self, "put_item")
 
     @put_item.setter
-    def put_item(self, value: Optional[pulumi.Input['TopicRuleDynamodbv2PutItemArgs']]):
+    def put_item(self, value: pulumi.Input[Optional['TopicRuleDynamodbv2PutItemArgs']]):
         pulumi.set(self, "put_item", value)
 
 
@@ -1851,48 +1851,48 @@ class TopicRuleElasticsearchArgs:
 
 
 class TopicRuleErrorActionArgsDict(TypedDict):
-    cloudwatch_alarm: NotRequired[pulumi.Input['TopicRuleErrorActionCloudwatchAlarmArgsDict']]
-    cloudwatch_logs: NotRequired[pulumi.Input['TopicRuleErrorActionCloudwatchLogsArgsDict']]
-    cloudwatch_metric: NotRequired[pulumi.Input['TopicRuleErrorActionCloudwatchMetricArgsDict']]
-    dynamodb: NotRequired[pulumi.Input['TopicRuleErrorActionDynamodbArgsDict']]
-    dynamodbv2: NotRequired[pulumi.Input['TopicRuleErrorActionDynamodbv2ArgsDict']]
-    elasticsearch: NotRequired[pulumi.Input['TopicRuleErrorActionElasticsearchArgsDict']]
-    firehose: NotRequired[pulumi.Input['TopicRuleErrorActionFirehoseArgsDict']]
-    http: NotRequired[pulumi.Input['TopicRuleErrorActionHttpArgsDict']]
-    iot_analytics: NotRequired[pulumi.Input['TopicRuleErrorActionIotAnalyticsArgsDict']]
-    iot_events: NotRequired[pulumi.Input['TopicRuleErrorActionIotEventsArgsDict']]
-    kafka: NotRequired[pulumi.Input['TopicRuleErrorActionKafkaArgsDict']]
-    kinesis: NotRequired[pulumi.Input['TopicRuleErrorActionKinesisArgsDict']]
-    lambda_: NotRequired[pulumi.Input['TopicRuleErrorActionLambdaArgsDict']]
-    republish: NotRequired[pulumi.Input['TopicRuleErrorActionRepublishArgsDict']]
-    s3: NotRequired[pulumi.Input['TopicRuleErrorActionS3ArgsDict']]
-    sns: NotRequired[pulumi.Input['TopicRuleErrorActionSnsArgsDict']]
-    sqs: NotRequired[pulumi.Input['TopicRuleErrorActionSqsArgsDict']]
-    step_functions: NotRequired[pulumi.Input['TopicRuleErrorActionStepFunctionsArgsDict']]
-    timestream: NotRequired[pulumi.Input['TopicRuleErrorActionTimestreamArgsDict']]
+    cloudwatch_alarm: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionCloudwatchAlarmArgs']]]
+    cloudwatch_logs: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionCloudwatchLogsArgs']]]
+    cloudwatch_metric: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionCloudwatchMetricArgs']]]
+    dynamodb: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionDynamodbArgs']]]
+    dynamodbv2: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionDynamodbv2Args']]]
+    elasticsearch: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionElasticsearchArgs']]]
+    firehose: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionFirehoseArgs']]]
+    http: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionHttpArgs']]]
+    iot_analytics: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionIotAnalyticsArgs']]]
+    iot_events: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionIotEventsArgs']]]
+    kafka: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionKafkaArgs']]]
+    kinesis: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionKinesisArgs']]]
+    lambda_: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionLambdaArgs']]]
+    republish: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionRepublishArgs']]]
+    s3: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionS3Args']]]
+    sns: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionSnsArgs']]]
+    sqs: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionSqsArgs']]]
+    step_functions: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionStepFunctionsArgs']]]
+    timestream: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionTimestreamArgs']]]
 
 @pulumi.input_type
 class TopicRuleErrorActionArgs:
     def __init__(__self__, *,
-                 cloudwatch_alarm: Optional[pulumi.Input['TopicRuleErrorActionCloudwatchAlarmArgs']] = None,
-                 cloudwatch_logs: Optional[pulumi.Input['TopicRuleErrorActionCloudwatchLogsArgs']] = None,
-                 cloudwatch_metric: Optional[pulumi.Input['TopicRuleErrorActionCloudwatchMetricArgs']] = None,
-                 dynamodb: Optional[pulumi.Input['TopicRuleErrorActionDynamodbArgs']] = None,
-                 dynamodbv2: Optional[pulumi.Input['TopicRuleErrorActionDynamodbv2Args']] = None,
-                 elasticsearch: Optional[pulumi.Input['TopicRuleErrorActionElasticsearchArgs']] = None,
-                 firehose: Optional[pulumi.Input['TopicRuleErrorActionFirehoseArgs']] = None,
-                 http: Optional[pulumi.Input['TopicRuleErrorActionHttpArgs']] = None,
-                 iot_analytics: Optional[pulumi.Input['TopicRuleErrorActionIotAnalyticsArgs']] = None,
-                 iot_events: Optional[pulumi.Input['TopicRuleErrorActionIotEventsArgs']] = None,
-                 kafka: Optional[pulumi.Input['TopicRuleErrorActionKafkaArgs']] = None,
-                 kinesis: Optional[pulumi.Input['TopicRuleErrorActionKinesisArgs']] = None,
-                 lambda_: Optional[pulumi.Input['TopicRuleErrorActionLambdaArgs']] = None,
-                 republish: Optional[pulumi.Input['TopicRuleErrorActionRepublishArgs']] = None,
-                 s3: Optional[pulumi.Input['TopicRuleErrorActionS3Args']] = None,
-                 sns: Optional[pulumi.Input['TopicRuleErrorActionSnsArgs']] = None,
-                 sqs: Optional[pulumi.Input['TopicRuleErrorActionSqsArgs']] = None,
-                 step_functions: Optional[pulumi.Input['TopicRuleErrorActionStepFunctionsArgs']] = None,
-                 timestream: Optional[pulumi.Input['TopicRuleErrorActionTimestreamArgs']] = None):
+                 cloudwatch_alarm: pulumi.Input[Optional['TopicRuleErrorActionCloudwatchAlarmArgs']] = None,
+                 cloudwatch_logs: pulumi.Input[Optional['TopicRuleErrorActionCloudwatchLogsArgs']] = None,
+                 cloudwatch_metric: pulumi.Input[Optional['TopicRuleErrorActionCloudwatchMetricArgs']] = None,
+                 dynamodb: pulumi.Input[Optional['TopicRuleErrorActionDynamodbArgs']] = None,
+                 dynamodbv2: pulumi.Input[Optional['TopicRuleErrorActionDynamodbv2Args']] = None,
+                 elasticsearch: pulumi.Input[Optional['TopicRuleErrorActionElasticsearchArgs']] = None,
+                 firehose: pulumi.Input[Optional['TopicRuleErrorActionFirehoseArgs']] = None,
+                 http: pulumi.Input[Optional['TopicRuleErrorActionHttpArgs']] = None,
+                 iot_analytics: pulumi.Input[Optional['TopicRuleErrorActionIotAnalyticsArgs']] = None,
+                 iot_events: pulumi.Input[Optional['TopicRuleErrorActionIotEventsArgs']] = None,
+                 kafka: pulumi.Input[Optional['TopicRuleErrorActionKafkaArgs']] = None,
+                 kinesis: pulumi.Input[Optional['TopicRuleErrorActionKinesisArgs']] = None,
+                 lambda_: pulumi.Input[Optional['TopicRuleErrorActionLambdaArgs']] = None,
+                 republish: pulumi.Input[Optional['TopicRuleErrorActionRepublishArgs']] = None,
+                 s3: pulumi.Input[Optional['TopicRuleErrorActionS3Args']] = None,
+                 sns: pulumi.Input[Optional['TopicRuleErrorActionSnsArgs']] = None,
+                 sqs: pulumi.Input[Optional['TopicRuleErrorActionSqsArgs']] = None,
+                 step_functions: pulumi.Input[Optional['TopicRuleErrorActionStepFunctionsArgs']] = None,
+                 timestream: pulumi.Input[Optional['TopicRuleErrorActionTimestreamArgs']] = None):
         if cloudwatch_alarm is not None:
             pulumi.set(__self__, "cloudwatch_alarm", cloudwatch_alarm)
         if cloudwatch_logs is not None:
@@ -1934,173 +1934,173 @@ class TopicRuleErrorActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="cloudwatchAlarm")
-    def cloudwatch_alarm(self) -> Optional[pulumi.Input['TopicRuleErrorActionCloudwatchAlarmArgs']]:
+    def cloudwatch_alarm(self) -> pulumi.Input[Optional['TopicRuleErrorActionCloudwatchAlarmArgs']]:
         return pulumi.get(self, "cloudwatch_alarm")
 
     @cloudwatch_alarm.setter
-    def cloudwatch_alarm(self, value: Optional[pulumi.Input['TopicRuleErrorActionCloudwatchAlarmArgs']]):
+    def cloudwatch_alarm(self, value: pulumi.Input[Optional['TopicRuleErrorActionCloudwatchAlarmArgs']]):
         pulumi.set(self, "cloudwatch_alarm", value)
 
     @_builtins.property
     @pulumi.getter(name="cloudwatchLogs")
-    def cloudwatch_logs(self) -> Optional[pulumi.Input['TopicRuleErrorActionCloudwatchLogsArgs']]:
+    def cloudwatch_logs(self) -> pulumi.Input[Optional['TopicRuleErrorActionCloudwatchLogsArgs']]:
         return pulumi.get(self, "cloudwatch_logs")
 
     @cloudwatch_logs.setter
-    def cloudwatch_logs(self, value: Optional[pulumi.Input['TopicRuleErrorActionCloudwatchLogsArgs']]):
+    def cloudwatch_logs(self, value: pulumi.Input[Optional['TopicRuleErrorActionCloudwatchLogsArgs']]):
         pulumi.set(self, "cloudwatch_logs", value)
 
     @_builtins.property
     @pulumi.getter(name="cloudwatchMetric")
-    def cloudwatch_metric(self) -> Optional[pulumi.Input['TopicRuleErrorActionCloudwatchMetricArgs']]:
+    def cloudwatch_metric(self) -> pulumi.Input[Optional['TopicRuleErrorActionCloudwatchMetricArgs']]:
         return pulumi.get(self, "cloudwatch_metric")
 
     @cloudwatch_metric.setter
-    def cloudwatch_metric(self, value: Optional[pulumi.Input['TopicRuleErrorActionCloudwatchMetricArgs']]):
+    def cloudwatch_metric(self, value: pulumi.Input[Optional['TopicRuleErrorActionCloudwatchMetricArgs']]):
         pulumi.set(self, "cloudwatch_metric", value)
 
     @_builtins.property
     @pulumi.getter
-    def dynamodb(self) -> Optional[pulumi.Input['TopicRuleErrorActionDynamodbArgs']]:
+    def dynamodb(self) -> pulumi.Input[Optional['TopicRuleErrorActionDynamodbArgs']]:
         return pulumi.get(self, "dynamodb")
 
     @dynamodb.setter
-    def dynamodb(self, value: Optional[pulumi.Input['TopicRuleErrorActionDynamodbArgs']]):
+    def dynamodb(self, value: pulumi.Input[Optional['TopicRuleErrorActionDynamodbArgs']]):
         pulumi.set(self, "dynamodb", value)
 
     @_builtins.property
     @pulumi.getter
-    def dynamodbv2(self) -> Optional[pulumi.Input['TopicRuleErrorActionDynamodbv2Args']]:
+    def dynamodbv2(self) -> pulumi.Input[Optional['TopicRuleErrorActionDynamodbv2Args']]:
         return pulumi.get(self, "dynamodbv2")
 
     @dynamodbv2.setter
-    def dynamodbv2(self, value: Optional[pulumi.Input['TopicRuleErrorActionDynamodbv2Args']]):
+    def dynamodbv2(self, value: pulumi.Input[Optional['TopicRuleErrorActionDynamodbv2Args']]):
         pulumi.set(self, "dynamodbv2", value)
 
     @_builtins.property
     @pulumi.getter
-    def elasticsearch(self) -> Optional[pulumi.Input['TopicRuleErrorActionElasticsearchArgs']]:
+    def elasticsearch(self) -> pulumi.Input[Optional['TopicRuleErrorActionElasticsearchArgs']]:
         return pulumi.get(self, "elasticsearch")
 
     @elasticsearch.setter
-    def elasticsearch(self, value: Optional[pulumi.Input['TopicRuleErrorActionElasticsearchArgs']]):
+    def elasticsearch(self, value: pulumi.Input[Optional['TopicRuleErrorActionElasticsearchArgs']]):
         pulumi.set(self, "elasticsearch", value)
 
     @_builtins.property
     @pulumi.getter
-    def firehose(self) -> Optional[pulumi.Input['TopicRuleErrorActionFirehoseArgs']]:
+    def firehose(self) -> pulumi.Input[Optional['TopicRuleErrorActionFirehoseArgs']]:
         return pulumi.get(self, "firehose")
 
     @firehose.setter
-    def firehose(self, value: Optional[pulumi.Input['TopicRuleErrorActionFirehoseArgs']]):
+    def firehose(self, value: pulumi.Input[Optional['TopicRuleErrorActionFirehoseArgs']]):
         pulumi.set(self, "firehose", value)
 
     @_builtins.property
     @pulumi.getter
-    def http(self) -> Optional[pulumi.Input['TopicRuleErrorActionHttpArgs']]:
+    def http(self) -> pulumi.Input[Optional['TopicRuleErrorActionHttpArgs']]:
         return pulumi.get(self, "http")
 
     @http.setter
-    def http(self, value: Optional[pulumi.Input['TopicRuleErrorActionHttpArgs']]):
+    def http(self, value: pulumi.Input[Optional['TopicRuleErrorActionHttpArgs']]):
         pulumi.set(self, "http", value)
 
     @_builtins.property
     @pulumi.getter(name="iotAnalytics")
-    def iot_analytics(self) -> Optional[pulumi.Input['TopicRuleErrorActionIotAnalyticsArgs']]:
+    def iot_analytics(self) -> pulumi.Input[Optional['TopicRuleErrorActionIotAnalyticsArgs']]:
         return pulumi.get(self, "iot_analytics")
 
     @iot_analytics.setter
-    def iot_analytics(self, value: Optional[pulumi.Input['TopicRuleErrorActionIotAnalyticsArgs']]):
+    def iot_analytics(self, value: pulumi.Input[Optional['TopicRuleErrorActionIotAnalyticsArgs']]):
         pulumi.set(self, "iot_analytics", value)
 
     @_builtins.property
     @pulumi.getter(name="iotEvents")
-    def iot_events(self) -> Optional[pulumi.Input['TopicRuleErrorActionIotEventsArgs']]:
+    def iot_events(self) -> pulumi.Input[Optional['TopicRuleErrorActionIotEventsArgs']]:
         return pulumi.get(self, "iot_events")
 
     @iot_events.setter
-    def iot_events(self, value: Optional[pulumi.Input['TopicRuleErrorActionIotEventsArgs']]):
+    def iot_events(self, value: pulumi.Input[Optional['TopicRuleErrorActionIotEventsArgs']]):
         pulumi.set(self, "iot_events", value)
 
     @_builtins.property
     @pulumi.getter
-    def kafka(self) -> Optional[pulumi.Input['TopicRuleErrorActionKafkaArgs']]:
+    def kafka(self) -> pulumi.Input[Optional['TopicRuleErrorActionKafkaArgs']]:
         return pulumi.get(self, "kafka")
 
     @kafka.setter
-    def kafka(self, value: Optional[pulumi.Input['TopicRuleErrorActionKafkaArgs']]):
+    def kafka(self, value: pulumi.Input[Optional['TopicRuleErrorActionKafkaArgs']]):
         pulumi.set(self, "kafka", value)
 
     @_builtins.property
     @pulumi.getter
-    def kinesis(self) -> Optional[pulumi.Input['TopicRuleErrorActionKinesisArgs']]:
+    def kinesis(self) -> pulumi.Input[Optional['TopicRuleErrorActionKinesisArgs']]:
         return pulumi.get(self, "kinesis")
 
     @kinesis.setter
-    def kinesis(self, value: Optional[pulumi.Input['TopicRuleErrorActionKinesisArgs']]):
+    def kinesis(self, value: pulumi.Input[Optional['TopicRuleErrorActionKinesisArgs']]):
         pulumi.set(self, "kinesis", value)
 
     @_builtins.property
     @pulumi.getter(name="lambda")
-    def lambda_(self) -> Optional[pulumi.Input['TopicRuleErrorActionLambdaArgs']]:
+    def lambda_(self) -> pulumi.Input[Optional['TopicRuleErrorActionLambdaArgs']]:
         return pulumi.get(self, "lambda_")
 
     @lambda_.setter
-    def lambda_(self, value: Optional[pulumi.Input['TopicRuleErrorActionLambdaArgs']]):
+    def lambda_(self, value: pulumi.Input[Optional['TopicRuleErrorActionLambdaArgs']]):
         pulumi.set(self, "lambda_", value)
 
     @_builtins.property
     @pulumi.getter
-    def republish(self) -> Optional[pulumi.Input['TopicRuleErrorActionRepublishArgs']]:
+    def republish(self) -> pulumi.Input[Optional['TopicRuleErrorActionRepublishArgs']]:
         return pulumi.get(self, "republish")
 
     @republish.setter
-    def republish(self, value: Optional[pulumi.Input['TopicRuleErrorActionRepublishArgs']]):
+    def republish(self, value: pulumi.Input[Optional['TopicRuleErrorActionRepublishArgs']]):
         pulumi.set(self, "republish", value)
 
     @_builtins.property
     @pulumi.getter
-    def s3(self) -> Optional[pulumi.Input['TopicRuleErrorActionS3Args']]:
+    def s3(self) -> pulumi.Input[Optional['TopicRuleErrorActionS3Args']]:
         return pulumi.get(self, "s3")
 
     @s3.setter
-    def s3(self, value: Optional[pulumi.Input['TopicRuleErrorActionS3Args']]):
+    def s3(self, value: pulumi.Input[Optional['TopicRuleErrorActionS3Args']]):
         pulumi.set(self, "s3", value)
 
     @_builtins.property
     @pulumi.getter
-    def sns(self) -> Optional[pulumi.Input['TopicRuleErrorActionSnsArgs']]:
+    def sns(self) -> pulumi.Input[Optional['TopicRuleErrorActionSnsArgs']]:
         return pulumi.get(self, "sns")
 
     @sns.setter
-    def sns(self, value: Optional[pulumi.Input['TopicRuleErrorActionSnsArgs']]):
+    def sns(self, value: pulumi.Input[Optional['TopicRuleErrorActionSnsArgs']]):
         pulumi.set(self, "sns", value)
 
     @_builtins.property
     @pulumi.getter
-    def sqs(self) -> Optional[pulumi.Input['TopicRuleErrorActionSqsArgs']]:
+    def sqs(self) -> pulumi.Input[Optional['TopicRuleErrorActionSqsArgs']]:
         return pulumi.get(self, "sqs")
 
     @sqs.setter
-    def sqs(self, value: Optional[pulumi.Input['TopicRuleErrorActionSqsArgs']]):
+    def sqs(self, value: pulumi.Input[Optional['TopicRuleErrorActionSqsArgs']]):
         pulumi.set(self, "sqs", value)
 
     @_builtins.property
     @pulumi.getter(name="stepFunctions")
-    def step_functions(self) -> Optional[pulumi.Input['TopicRuleErrorActionStepFunctionsArgs']]:
+    def step_functions(self) -> pulumi.Input[Optional['TopicRuleErrorActionStepFunctionsArgs']]:
         return pulumi.get(self, "step_functions")
 
     @step_functions.setter
-    def step_functions(self, value: Optional[pulumi.Input['TopicRuleErrorActionStepFunctionsArgs']]):
+    def step_functions(self, value: pulumi.Input[Optional['TopicRuleErrorActionStepFunctionsArgs']]):
         pulumi.set(self, "step_functions", value)
 
     @_builtins.property
     @pulumi.getter
-    def timestream(self) -> Optional[pulumi.Input['TopicRuleErrorActionTimestreamArgs']]:
+    def timestream(self) -> pulumi.Input[Optional['TopicRuleErrorActionTimestreamArgs']]:
         return pulumi.get(self, "timestream")
 
     @timestream.setter
-    def timestream(self, value: Optional[pulumi.Input['TopicRuleErrorActionTimestreamArgs']]):
+    def timestream(self, value: pulumi.Input[Optional['TopicRuleErrorActionTimestreamArgs']]):
         pulumi.set(self, "timestream", value)
 
 
@@ -2198,7 +2198,7 @@ class TopicRuleErrorActionCloudwatchLogsArgsDict(TypedDict):
     """
     The IAM role ARN that allows access to the CloudWatch alarm.
     """
-    batch_mode: NotRequired[pulumi.Input[_builtins.bool]]
+    batch_mode: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     The payload that contains a JSON array of records will be sent to CloudWatch via a batch call.
     """
@@ -2208,7 +2208,7 @@ class TopicRuleErrorActionCloudwatchLogsArgs:
     def __init__(__self__, *,
                  log_group_name: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
-                 batch_mode: Optional[pulumi.Input[_builtins.bool]] = None):
+                 batch_mode: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] log_group_name: The CloudWatch log group name.
         :param pulumi.Input[_builtins.str] role_arn: The IAM role ARN that allows access to the CloudWatch alarm.
@@ -2245,14 +2245,14 @@ class TopicRuleErrorActionCloudwatchLogsArgs:
 
     @_builtins.property
     @pulumi.getter(name="batchMode")
-    def batch_mode(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def batch_mode(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The payload that contains a JSON array of records will be sent to CloudWatch via a batch call.
         """
         return pulumi.get(self, "batch_mode")
 
     @batch_mode.setter
-    def batch_mode(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def batch_mode(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "batch_mode", value)
 
 
@@ -2277,7 +2277,7 @@ class TopicRuleErrorActionCloudwatchMetricArgsDict(TypedDict):
     """
     The IAM role ARN that allows access to the CloudWatch metric.
     """
-    metric_timestamp: NotRequired[pulumi.Input[_builtins.str]]
+    metric_timestamp: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An optional Unix timestamp (http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp).
     """
@@ -2290,7 +2290,7 @@ class TopicRuleErrorActionCloudwatchMetricArgs:
                  metric_unit: pulumi.Input[_builtins.str],
                  metric_value: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
-                 metric_timestamp: Optional[pulumi.Input[_builtins.str]] = None):
+                 metric_timestamp: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] metric_name: The CloudWatch metric name.
         :param pulumi.Input[_builtins.str] metric_namespace: The CloudWatch metric namespace name.
@@ -2369,14 +2369,14 @@ class TopicRuleErrorActionCloudwatchMetricArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricTimestamp")
-    def metric_timestamp(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metric_timestamp(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An optional Unix timestamp (http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp).
         """
         return pulumi.get(self, "metric_timestamp")
 
     @metric_timestamp.setter
-    def metric_timestamp(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metric_timestamp(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metric_timestamp", value)
 
 
@@ -2397,27 +2397,27 @@ class TopicRuleErrorActionDynamodbArgsDict(TypedDict):
     """
     The name of the DynamoDB table.
     """
-    hash_key_type: NotRequired[pulumi.Input[_builtins.str]]
+    hash_key_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The hash key type. Valid values are "STRING" or "NUMBER".
     """
-    operation: NotRequired[pulumi.Input[_builtins.str]]
+    operation: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The operation. Valid values are "INSERT", "UPDATE", or "DELETE".
     """
-    payload_field: NotRequired[pulumi.Input[_builtins.str]]
+    payload_field: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The action payload.
     """
-    range_key_field: NotRequired[pulumi.Input[_builtins.str]]
+    range_key_field: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The range key name.
     """
-    range_key_type: NotRequired[pulumi.Input[_builtins.str]]
+    range_key_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The range key type. Valid values are "STRING" or "NUMBER".
     """
-    range_key_value: NotRequired[pulumi.Input[_builtins.str]]
+    range_key_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The range key value.
     """
@@ -2429,12 +2429,12 @@ class TopicRuleErrorActionDynamodbArgs:
                  hash_key_value: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
                  table_name: pulumi.Input[_builtins.str],
-                 hash_key_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 operation: Optional[pulumi.Input[_builtins.str]] = None,
-                 payload_field: Optional[pulumi.Input[_builtins.str]] = None,
-                 range_key_field: Optional[pulumi.Input[_builtins.str]] = None,
-                 range_key_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 range_key_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 hash_key_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 operation: pulumi.Input[Optional[_builtins.str]] = None,
+                 payload_field: pulumi.Input[Optional[_builtins.str]] = None,
+                 range_key_field: pulumi.Input[Optional[_builtins.str]] = None,
+                 range_key_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 range_key_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] hash_key_field: The hash key name.
         :param pulumi.Input[_builtins.str] hash_key_value: The hash key value.
@@ -2514,74 +2514,74 @@ class TopicRuleErrorActionDynamodbArgs:
 
     @_builtins.property
     @pulumi.getter(name="hashKeyType")
-    def hash_key_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hash_key_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The hash key type. Valid values are "STRING" or "NUMBER".
         """
         return pulumi.get(self, "hash_key_type")
 
     @hash_key_type.setter
-    def hash_key_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hash_key_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hash_key_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def operation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def operation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The operation. Valid values are "INSERT", "UPDATE", or "DELETE".
         """
         return pulumi.get(self, "operation")
 
     @operation.setter
-    def operation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def operation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "operation", value)
 
     @_builtins.property
     @pulumi.getter(name="payloadField")
-    def payload_field(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def payload_field(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The action payload.
         """
         return pulumi.get(self, "payload_field")
 
     @payload_field.setter
-    def payload_field(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def payload_field(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "payload_field", value)
 
     @_builtins.property
     @pulumi.getter(name="rangeKeyField")
-    def range_key_field(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def range_key_field(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The range key name.
         """
         return pulumi.get(self, "range_key_field")
 
     @range_key_field.setter
-    def range_key_field(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def range_key_field(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "range_key_field", value)
 
     @_builtins.property
     @pulumi.getter(name="rangeKeyType")
-    def range_key_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def range_key_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The range key type. Valid values are "STRING" or "NUMBER".
         """
         return pulumi.get(self, "range_key_type")
 
     @range_key_type.setter
-    def range_key_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def range_key_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "range_key_type", value)
 
     @_builtins.property
     @pulumi.getter(name="rangeKeyValue")
-    def range_key_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def range_key_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The range key value.
         """
         return pulumi.get(self, "range_key_value")
 
     @range_key_value.setter
-    def range_key_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def range_key_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "range_key_value", value)
 
 
@@ -2590,7 +2590,7 @@ class TopicRuleErrorActionDynamodbv2ArgsDict(TypedDict):
     """
     The ARN of the IAM role that grants access to the DynamoDB table.
     """
-    put_item: NotRequired[pulumi.Input['TopicRuleErrorActionDynamodbv2PutItemArgsDict']]
+    put_item: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionDynamodbv2PutItemArgs']]]
     """
     Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
     """
@@ -2599,7 +2599,7 @@ class TopicRuleErrorActionDynamodbv2ArgsDict(TypedDict):
 class TopicRuleErrorActionDynamodbv2Args:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[_builtins.str],
-                 put_item: Optional[pulumi.Input['TopicRuleErrorActionDynamodbv2PutItemArgs']] = None):
+                 put_item: pulumi.Input[Optional['TopicRuleErrorActionDynamodbv2PutItemArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role that grants access to the DynamoDB table.
         :param pulumi.Input['TopicRuleErrorActionDynamodbv2PutItemArgs'] put_item: Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
@@ -2622,14 +2622,14 @@ class TopicRuleErrorActionDynamodbv2Args:
 
     @_builtins.property
     @pulumi.getter(name="putItem")
-    def put_item(self) -> Optional[pulumi.Input['TopicRuleErrorActionDynamodbv2PutItemArgs']]:
+    def put_item(self) -> pulumi.Input[Optional['TopicRuleErrorActionDynamodbv2PutItemArgs']]:
         """
         Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
         """
         return pulumi.get(self, "put_item")
 
     @put_item.setter
-    def put_item(self, value: Optional[pulumi.Input['TopicRuleErrorActionDynamodbv2PutItemArgs']]):
+    def put_item(self, value: pulumi.Input[Optional['TopicRuleErrorActionDynamodbv2PutItemArgs']]):
         pulumi.set(self, "put_item", value)
 
 
@@ -2774,11 +2774,11 @@ class TopicRuleErrorActionFirehoseArgsDict(TypedDict):
     """
     The IAM role ARN that grants access to the Amazon Kinesis Firehose stream.
     """
-    batch_mode: NotRequired[pulumi.Input[_builtins.bool]]
+    batch_mode: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     The payload that contains a JSON array of records will be sent to Kinesis Firehose via a batch call.
     """
-    separator: NotRequired[pulumi.Input[_builtins.str]]
+    separator: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A character separator that is used to separate records written to the Firehose stream. Valid values are: '\\n' (newline), '\\t' (tab), '\\r\\n' (Windows newline), ',' (comma).
     """
@@ -2788,8 +2788,8 @@ class TopicRuleErrorActionFirehoseArgs:
     def __init__(__self__, *,
                  delivery_stream_name: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
-                 batch_mode: Optional[pulumi.Input[_builtins.bool]] = None,
-                 separator: Optional[pulumi.Input[_builtins.str]] = None):
+                 batch_mode: pulumi.Input[Optional[_builtins.bool]] = None,
+                 separator: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] delivery_stream_name: The delivery stream name.
         :param pulumi.Input[_builtins.str] role_arn: The IAM role ARN that grants access to the Amazon Kinesis Firehose stream.
@@ -2829,26 +2829,26 @@ class TopicRuleErrorActionFirehoseArgs:
 
     @_builtins.property
     @pulumi.getter(name="batchMode")
-    def batch_mode(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def batch_mode(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The payload that contains a JSON array of records will be sent to Kinesis Firehose via a batch call.
         """
         return pulumi.get(self, "batch_mode")
 
     @batch_mode.setter
-    def batch_mode(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def batch_mode(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "batch_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def separator(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def separator(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A character separator that is used to separate records written to the Firehose stream. Valid values are: '\\n' (newline), '\\t' (tab), '\\r\\n' (Windows newline), ',' (comma).
         """
         return pulumi.get(self, "separator")
 
     @separator.setter
-    def separator(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def separator(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "separator", value)
 
 
@@ -2857,11 +2857,11 @@ class TopicRuleErrorActionHttpArgsDict(TypedDict):
     """
     The HTTPS URL.
     """
-    confirmation_url: NotRequired[pulumi.Input[_builtins.str]]
+    confirmation_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The HTTPS URL used to verify ownership of `url`.
     """
-    http_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['TopicRuleErrorActionHttpHttpHeaderArgsDict']]]]
+    http_headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleErrorActionHttpHttpHeaderArgs']]]]]
     """
     Custom HTTP header IoT Core should send. It is possible to define more than one custom header.
     """
@@ -2870,8 +2870,8 @@ class TopicRuleErrorActionHttpArgsDict(TypedDict):
 class TopicRuleErrorActionHttpArgs:
     def __init__(__self__, *,
                  url: pulumi.Input[_builtins.str],
-                 confirmation_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 http_headers: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleErrorActionHttpHttpHeaderArgs']]]] = None):
+                 confirmation_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_headers: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleErrorActionHttpHttpHeaderArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] url: The HTTPS URL.
         :param pulumi.Input[_builtins.str] confirmation_url: The HTTPS URL used to verify ownership of `url`.
@@ -2897,26 +2897,26 @@ class TopicRuleErrorActionHttpArgs:
 
     @_builtins.property
     @pulumi.getter(name="confirmationUrl")
-    def confirmation_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def confirmation_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The HTTPS URL used to verify ownership of `url`.
         """
         return pulumi.get(self, "confirmation_url")
 
     @confirmation_url.setter
-    def confirmation_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def confirmation_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "confirmation_url", value)
 
     @_builtins.property
     @pulumi.getter(name="httpHeaders")
-    def http_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleErrorActionHttpHttpHeaderArgs']]]]:
+    def http_headers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleErrorActionHttpHttpHeaderArgs']]]]:
         """
         Custom HTTP header IoT Core should send. It is possible to define more than one custom header.
         """
         return pulumi.get(self, "http_headers")
 
     @http_headers.setter
-    def http_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleErrorActionHttpHttpHeaderArgs']]]]):
+    def http_headers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleErrorActionHttpHttpHeaderArgs']]]]):
         pulumi.set(self, "http_headers", value)
 
 
@@ -2976,7 +2976,7 @@ class TopicRuleErrorActionIotAnalyticsArgsDict(TypedDict):
     """
     The ARN of the IAM role that grants access.
     """
-    batch_mode: NotRequired[pulumi.Input[_builtins.bool]]
+    batch_mode: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     The payload that contains a JSON array of records will be sent to IoT Analytics via a batch call.
     """
@@ -2986,7 +2986,7 @@ class TopicRuleErrorActionIotAnalyticsArgs:
     def __init__(__self__, *,
                  channel_name: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
-                 batch_mode: Optional[pulumi.Input[_builtins.bool]] = None):
+                 batch_mode: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] channel_name: Name of AWS IOT Analytics channel.
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role that grants access.
@@ -3023,14 +3023,14 @@ class TopicRuleErrorActionIotAnalyticsArgs:
 
     @_builtins.property
     @pulumi.getter(name="batchMode")
-    def batch_mode(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def batch_mode(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The payload that contains a JSON array of records will be sent to IoT Analytics via a batch call.
         """
         return pulumi.get(self, "batch_mode")
 
     @batch_mode.setter
-    def batch_mode(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def batch_mode(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "batch_mode", value)
 
 
@@ -3043,11 +3043,11 @@ class TopicRuleErrorActionIotEventsArgsDict(TypedDict):
     """
     The ARN of the IAM role that grants access.
     """
-    batch_mode: NotRequired[pulumi.Input[_builtins.bool]]
+    batch_mode: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     The payload that contains a JSON array of records will be sent to IoT Events via a batch call.
     """
-    message_id: NotRequired[pulumi.Input[_builtins.str]]
+    message_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector.
     """
@@ -3057,8 +3057,8 @@ class TopicRuleErrorActionIotEventsArgs:
     def __init__(__self__, *,
                  input_name: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
-                 batch_mode: Optional[pulumi.Input[_builtins.bool]] = None,
-                 message_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 batch_mode: pulumi.Input[Optional[_builtins.bool]] = None,
+                 message_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] input_name: The name of the AWS IoT Events input.
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role that grants access.
@@ -3098,26 +3098,26 @@ class TopicRuleErrorActionIotEventsArgs:
 
     @_builtins.property
     @pulumi.getter(name="batchMode")
-    def batch_mode(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def batch_mode(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The payload that contains a JSON array of records will be sent to IoT Events via a batch call.
         """
         return pulumi.get(self, "batch_mode")
 
     @batch_mode.setter
-    def batch_mode(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def batch_mode(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "batch_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="messageId")
-    def message_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector.
         """
         return pulumi.get(self, "message_id")
 
     @message_id.setter
-    def message_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message_id", value)
 
 
@@ -3134,15 +3134,15 @@ class TopicRuleErrorActionKafkaArgsDict(TypedDict):
     """
     The Kafka topic for messages to be sent to the Kafka broker.
     """
-    headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['TopicRuleErrorActionKafkaHeaderArgsDict']]]]
+    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleErrorActionKafkaHeaderArgs']]]]]
     """
     The list of Kafka headers that you specify. Nested arguments below.
     """
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Kafka message key.
     """
-    partition: NotRequired[pulumi.Input[_builtins.str]]
+    partition: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Kafka message partition.
     """
@@ -3153,9 +3153,9 @@ class TopicRuleErrorActionKafkaArgs:
                  client_properties: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]],
                  destination_arn: pulumi.Input[_builtins.str],
                  topic: pulumi.Input[_builtins.str],
-                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleErrorActionKafkaHeaderArgs']]]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None):
+                 headers: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleErrorActionKafkaHeaderArgs']]]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] client_properties: Properties of the Apache Kafka producer client. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html).
         :param pulumi.Input[_builtins.str] destination_arn: The ARN of Kafka action's VPC `iot.TopicRuleDestination`.
@@ -3212,38 +3212,38 @@ class TopicRuleErrorActionKafkaArgs:
 
     @_builtins.property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleErrorActionKafkaHeaderArgs']]]]:
+    def headers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleErrorActionKafkaHeaderArgs']]]]:
         """
         The list of Kafka headers that you specify. Nested arguments below.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleErrorActionKafkaHeaderArgs']]]]):
+    def headers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleErrorActionKafkaHeaderArgs']]]]):
         pulumi.set(self, "headers", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Kafka message key.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter
-    def partition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Kafka message partition.
         """
         return pulumi.get(self, "partition")
 
     @partition.setter
-    def partition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partition", value)
 
 
@@ -3303,7 +3303,7 @@ class TopicRuleErrorActionKinesisArgsDict(TypedDict):
     """
     The name of the Amazon Kinesis stream.
     """
-    partition_key: NotRequired[pulumi.Input[_builtins.str]]
+    partition_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The partition key.
     """
@@ -3313,7 +3313,7 @@ class TopicRuleErrorActionKinesisArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[_builtins.str],
                  stream_name: pulumi.Input[_builtins.str],
-                 partition_key: Optional[pulumi.Input[_builtins.str]] = None):
+                 partition_key: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role that grants access to the Amazon Kinesis stream.
         :param pulumi.Input[_builtins.str] stream_name: The name of the Amazon Kinesis stream.
@@ -3350,14 +3350,14 @@ class TopicRuleErrorActionKinesisArgs:
 
     @_builtins.property
     @pulumi.getter(name="partitionKey")
-    def partition_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partition_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The partition key.
         """
         return pulumi.get(self, "partition_key")
 
     @partition_key.setter
-    def partition_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partition_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partition_key", value)
 
 
@@ -3398,7 +3398,7 @@ class TopicRuleErrorActionRepublishArgsDict(TypedDict):
     """
     The name of the MQTT topic the message should be republished to.
     """
-    qos: NotRequired[pulumi.Input[_builtins.int]]
+    qos: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
     """
@@ -3408,7 +3408,7 @@ class TopicRuleErrorActionRepublishArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[_builtins.str],
                  topic: pulumi.Input[_builtins.str],
-                 qos: Optional[pulumi.Input[_builtins.int]] = None):
+                 qos: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role that grants access.
         :param pulumi.Input[_builtins.str] topic: The name of the MQTT topic the message should be republished to.
@@ -3445,14 +3445,14 @@ class TopicRuleErrorActionRepublishArgs:
 
     @_builtins.property
     @pulumi.getter
-    def qos(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def qos(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
         """
         return pulumi.get(self, "qos")
 
     @qos.setter
-    def qos(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def qos(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "qos", value)
 
 
@@ -3469,7 +3469,7 @@ class TopicRuleErrorActionS3ArgsDict(TypedDict):
     """
     The ARN of the IAM role that grants access.
     """
-    canned_acl: NotRequired[pulumi.Input[_builtins.str]]
+    canned_acl: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
     """
@@ -3480,7 +3480,7 @@ class TopicRuleErrorActionS3Args:
                  bucket_name: pulumi.Input[_builtins.str],
                  key: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
-                 canned_acl: Optional[pulumi.Input[_builtins.str]] = None):
+                 canned_acl: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] bucket_name: The Amazon S3 bucket name.
         :param pulumi.Input[_builtins.str] key: The object key.
@@ -3531,14 +3531,14 @@ class TopicRuleErrorActionS3Args:
 
     @_builtins.property
     @pulumi.getter(name="cannedAcl")
-    def canned_acl(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def canned_acl(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
         """
         return pulumi.get(self, "canned_acl")
 
     @canned_acl.setter
-    def canned_acl(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def canned_acl(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "canned_acl", value)
 
 
@@ -3551,7 +3551,7 @@ class TopicRuleErrorActionSnsArgsDict(TypedDict):
     """
     The ARN of the SNS topic.
     """
-    message_format: NotRequired[pulumi.Input[_builtins.str]]
+    message_format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The message format of the message to publish. Accepted values are "JSON" and "RAW".
     """
@@ -3561,7 +3561,7 @@ class TopicRuleErrorActionSnsArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[_builtins.str],
                  target_arn: pulumi.Input[_builtins.str],
-                 message_format: Optional[pulumi.Input[_builtins.str]] = None):
+                 message_format: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role that grants access.
         :param pulumi.Input[_builtins.str] target_arn: The ARN of the SNS topic.
@@ -3598,14 +3598,14 @@ class TopicRuleErrorActionSnsArgs:
 
     @_builtins.property
     @pulumi.getter(name="messageFormat")
-    def message_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The message format of the message to publish. Accepted values are "JSON" and "RAW".
         """
         return pulumi.get(self, "message_format")
 
     @message_format.setter
-    def message_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message_format", value)
 
 
@@ -3684,7 +3684,7 @@ class TopicRuleErrorActionStepFunctionsArgsDict(TypedDict):
     """
     The name of the Step Functions state machine whose execution will be started.
     """
-    execution_name_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    execution_name_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The prefix used to generate, along with a UUID, the unique state machine execution name.
     """
@@ -3694,7 +3694,7 @@ class TopicRuleErrorActionStepFunctionsArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[_builtins.str],
                  state_machine_name: pulumi.Input[_builtins.str],
-                 execution_name_prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 execution_name_prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role that grants access to start execution of the state machine.
         :param pulumi.Input[_builtins.str] state_machine_name: The name of the Step Functions state machine whose execution will be started.
@@ -3731,14 +3731,14 @@ class TopicRuleErrorActionStepFunctionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="executionNamePrefix")
-    def execution_name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def execution_name_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The prefix used to generate, along with a UUID, the unique state machine execution name.
         """
         return pulumi.get(self, "execution_name_prefix")
 
     @execution_name_prefix.setter
-    def execution_name_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def execution_name_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "execution_name_prefix", value)
 
 
@@ -3759,7 +3759,7 @@ class TopicRuleErrorActionTimestreamArgsDict(TypedDict):
     """
     The name of the database table into which to write the measure records.
     """
-    timestamp: NotRequired[pulumi.Input['TopicRuleErrorActionTimestreamTimestampArgsDict']]
+    timestamp: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionTimestreamTimestampArgs']]]
     """
     Configuration block specifying an application-defined value to replace the default value assigned to the Timestream record's timestamp in the time column. Nested arguments below.
     """
@@ -3771,7 +3771,7 @@ class TopicRuleErrorActionTimestreamArgs:
                  dimensions: pulumi.Input[Sequence[pulumi.Input['TopicRuleErrorActionTimestreamDimensionArgs']]],
                  role_arn: pulumi.Input[_builtins.str],
                  table_name: pulumi.Input[_builtins.str],
-                 timestamp: Optional[pulumi.Input['TopicRuleErrorActionTimestreamTimestampArgs']] = None):
+                 timestamp: pulumi.Input[Optional['TopicRuleErrorActionTimestreamTimestampArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] database_name: The name of an Amazon Timestream database.
         :param pulumi.Input[Sequence[pulumi.Input['TopicRuleErrorActionTimestreamDimensionArgs']]] dimensions: Configuration blocks with metadata attributes of the time series that are written in each measure record. Nested arguments below.
@@ -3836,14 +3836,14 @@ class TopicRuleErrorActionTimestreamArgs:
 
     @_builtins.property
     @pulumi.getter
-    def timestamp(self) -> Optional[pulumi.Input['TopicRuleErrorActionTimestreamTimestampArgs']]:
+    def timestamp(self) -> pulumi.Input[Optional['TopicRuleErrorActionTimestreamTimestampArgs']]:
         """
         Configuration block specifying an application-defined value to replace the default value assigned to the Timestream record's timestamp in the time column. Nested arguments below.
         """
         return pulumi.get(self, "timestamp")
 
     @timestamp.setter
-    def timestamp(self, value: Optional[pulumi.Input['TopicRuleErrorActionTimestreamTimestampArgs']]):
+    def timestamp(self, value: pulumi.Input[Optional['TopicRuleErrorActionTimestreamTimestampArgs']]):
         pulumi.set(self, "timestamp", value)
 
 
@@ -3950,11 +3950,11 @@ class TopicRuleFirehoseArgsDict(TypedDict):
     """
     The IAM role ARN that grants access to the Amazon Kinesis Firehose stream.
     """
-    batch_mode: NotRequired[pulumi.Input[_builtins.bool]]
+    batch_mode: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     The payload that contains a JSON array of records will be sent to Kinesis Firehose via a batch call.
     """
-    separator: NotRequired[pulumi.Input[_builtins.str]]
+    separator: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A character separator that is used to separate records written to the Firehose stream. Valid values are: '\\n' (newline), '\\t' (tab), '\\r\\n' (Windows newline), ',' (comma).
     """
@@ -3964,8 +3964,8 @@ class TopicRuleFirehoseArgs:
     def __init__(__self__, *,
                  delivery_stream_name: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
-                 batch_mode: Optional[pulumi.Input[_builtins.bool]] = None,
-                 separator: Optional[pulumi.Input[_builtins.str]] = None):
+                 batch_mode: pulumi.Input[Optional[_builtins.bool]] = None,
+                 separator: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] delivery_stream_name: The delivery stream name.
         :param pulumi.Input[_builtins.str] role_arn: The IAM role ARN that grants access to the Amazon Kinesis Firehose stream.
@@ -4005,26 +4005,26 @@ class TopicRuleFirehoseArgs:
 
     @_builtins.property
     @pulumi.getter(name="batchMode")
-    def batch_mode(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def batch_mode(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The payload that contains a JSON array of records will be sent to Kinesis Firehose via a batch call.
         """
         return pulumi.get(self, "batch_mode")
 
     @batch_mode.setter
-    def batch_mode(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def batch_mode(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "batch_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def separator(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def separator(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A character separator that is used to separate records written to the Firehose stream. Valid values are: '\\n' (newline), '\\t' (tab), '\\r\\n' (Windows newline), ',' (comma).
         """
         return pulumi.get(self, "separator")
 
     @separator.setter
-    def separator(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def separator(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "separator", value)
 
 
@@ -4033,11 +4033,11 @@ class TopicRuleHttpArgsDict(TypedDict):
     """
     The HTTPS URL.
     """
-    confirmation_url: NotRequired[pulumi.Input[_builtins.str]]
+    confirmation_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The HTTPS URL used to verify ownership of `url`.
     """
-    http_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['TopicRuleHttpHttpHeaderArgsDict']]]]
+    http_headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleHttpHttpHeaderArgs']]]]]
     """
     Custom HTTP header IoT Core should send. It is possible to define more than one custom header.
     """
@@ -4046,8 +4046,8 @@ class TopicRuleHttpArgsDict(TypedDict):
 class TopicRuleHttpArgs:
     def __init__(__self__, *,
                  url: pulumi.Input[_builtins.str],
-                 confirmation_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 http_headers: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleHttpHttpHeaderArgs']]]] = None):
+                 confirmation_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_headers: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleHttpHttpHeaderArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] url: The HTTPS URL.
         :param pulumi.Input[_builtins.str] confirmation_url: The HTTPS URL used to verify ownership of `url`.
@@ -4073,26 +4073,26 @@ class TopicRuleHttpArgs:
 
     @_builtins.property
     @pulumi.getter(name="confirmationUrl")
-    def confirmation_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def confirmation_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The HTTPS URL used to verify ownership of `url`.
         """
         return pulumi.get(self, "confirmation_url")
 
     @confirmation_url.setter
-    def confirmation_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def confirmation_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "confirmation_url", value)
 
     @_builtins.property
     @pulumi.getter(name="httpHeaders")
-    def http_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleHttpHttpHeaderArgs']]]]:
+    def http_headers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleHttpHttpHeaderArgs']]]]:
         """
         Custom HTTP header IoT Core should send. It is possible to define more than one custom header.
         """
         return pulumi.get(self, "http_headers")
 
     @http_headers.setter
-    def http_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleHttpHttpHeaderArgs']]]]):
+    def http_headers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleHttpHttpHeaderArgs']]]]):
         pulumi.set(self, "http_headers", value)
 
 
@@ -4152,7 +4152,7 @@ class TopicRuleIotAnalyticArgsDict(TypedDict):
     """
     The ARN of the IAM role that grants access.
     """
-    batch_mode: NotRequired[pulumi.Input[_builtins.bool]]
+    batch_mode: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     The payload that contains a JSON array of records will be sent to IoT Analytics via a batch call.
     """
@@ -4162,7 +4162,7 @@ class TopicRuleIotAnalyticArgs:
     def __init__(__self__, *,
                  channel_name: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
-                 batch_mode: Optional[pulumi.Input[_builtins.bool]] = None):
+                 batch_mode: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] channel_name: Name of AWS IOT Analytics channel.
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role that grants access.
@@ -4199,14 +4199,14 @@ class TopicRuleIotAnalyticArgs:
 
     @_builtins.property
     @pulumi.getter(name="batchMode")
-    def batch_mode(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def batch_mode(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The payload that contains a JSON array of records will be sent to IoT Analytics via a batch call.
         """
         return pulumi.get(self, "batch_mode")
 
     @batch_mode.setter
-    def batch_mode(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def batch_mode(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "batch_mode", value)
 
 
@@ -4219,11 +4219,11 @@ class TopicRuleIotEventArgsDict(TypedDict):
     """
     The ARN of the IAM role that grants access.
     """
-    batch_mode: NotRequired[pulumi.Input[_builtins.bool]]
+    batch_mode: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     The payload that contains a JSON array of records will be sent to IoT Events via a batch call.
     """
-    message_id: NotRequired[pulumi.Input[_builtins.str]]
+    message_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector.
     """
@@ -4233,8 +4233,8 @@ class TopicRuleIotEventArgs:
     def __init__(__self__, *,
                  input_name: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
-                 batch_mode: Optional[pulumi.Input[_builtins.bool]] = None,
-                 message_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 batch_mode: pulumi.Input[Optional[_builtins.bool]] = None,
+                 message_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] input_name: The name of the AWS IoT Events input.
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role that grants access.
@@ -4274,26 +4274,26 @@ class TopicRuleIotEventArgs:
 
     @_builtins.property
     @pulumi.getter(name="batchMode")
-    def batch_mode(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def batch_mode(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The payload that contains a JSON array of records will be sent to IoT Events via a batch call.
         """
         return pulumi.get(self, "batch_mode")
 
     @batch_mode.setter
-    def batch_mode(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def batch_mode(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "batch_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="messageId")
-    def message_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector.
         """
         return pulumi.get(self, "message_id")
 
     @message_id.setter
-    def message_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message_id", value)
 
 
@@ -4310,15 +4310,15 @@ class TopicRuleKafkaArgsDict(TypedDict):
     """
     The Kafka topic for messages to be sent to the Kafka broker.
     """
-    headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['TopicRuleKafkaHeaderArgsDict']]]]
+    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleKafkaHeaderArgs']]]]]
     """
     The list of Kafka headers that you specify. Nested arguments below.
     """
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Kafka message key.
     """
-    partition: NotRequired[pulumi.Input[_builtins.str]]
+    partition: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Kafka message partition.
     """
@@ -4329,9 +4329,9 @@ class TopicRuleKafkaArgs:
                  client_properties: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]],
                  destination_arn: pulumi.Input[_builtins.str],
                  topic: pulumi.Input[_builtins.str],
-                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleKafkaHeaderArgs']]]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None):
+                 headers: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleKafkaHeaderArgs']]]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] client_properties: Properties of the Apache Kafka producer client. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html).
         :param pulumi.Input[_builtins.str] destination_arn: The ARN of Kafka action's VPC `iot.TopicRuleDestination`.
@@ -4388,38 +4388,38 @@ class TopicRuleKafkaArgs:
 
     @_builtins.property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleKafkaHeaderArgs']]]]:
+    def headers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleKafkaHeaderArgs']]]]:
         """
         The list of Kafka headers that you specify. Nested arguments below.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleKafkaHeaderArgs']]]]):
+    def headers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleKafkaHeaderArgs']]]]):
         pulumi.set(self, "headers", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Kafka message key.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter
-    def partition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Kafka message partition.
         """
         return pulumi.get(self, "partition")
 
     @partition.setter
-    def partition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partition", value)
 
 
@@ -4479,7 +4479,7 @@ class TopicRuleKinesisArgsDict(TypedDict):
     """
     The name of the Amazon Kinesis stream.
     """
-    partition_key: NotRequired[pulumi.Input[_builtins.str]]
+    partition_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The partition key.
     """
@@ -4489,7 +4489,7 @@ class TopicRuleKinesisArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[_builtins.str],
                  stream_name: pulumi.Input[_builtins.str],
-                 partition_key: Optional[pulumi.Input[_builtins.str]] = None):
+                 partition_key: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role that grants access to the Amazon Kinesis stream.
         :param pulumi.Input[_builtins.str] stream_name: The name of the Amazon Kinesis stream.
@@ -4526,14 +4526,14 @@ class TopicRuleKinesisArgs:
 
     @_builtins.property
     @pulumi.getter(name="partitionKey")
-    def partition_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partition_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The partition key.
         """
         return pulumi.get(self, "partition_key")
 
     @partition_key.setter
-    def partition_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partition_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partition_key", value)
 
 
@@ -4574,7 +4574,7 @@ class TopicRuleRepublishArgsDict(TypedDict):
     """
     The name of the MQTT topic the message should be republished to.
     """
-    qos: NotRequired[pulumi.Input[_builtins.int]]
+    qos: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
     """
@@ -4584,7 +4584,7 @@ class TopicRuleRepublishArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[_builtins.str],
                  topic: pulumi.Input[_builtins.str],
-                 qos: Optional[pulumi.Input[_builtins.int]] = None):
+                 qos: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role that grants access.
         :param pulumi.Input[_builtins.str] topic: The name of the MQTT topic the message should be republished to.
@@ -4621,14 +4621,14 @@ class TopicRuleRepublishArgs:
 
     @_builtins.property
     @pulumi.getter
-    def qos(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def qos(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
         """
         return pulumi.get(self, "qos")
 
     @qos.setter
-    def qos(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def qos(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "qos", value)
 
 
@@ -4645,7 +4645,7 @@ class TopicRuleS3ArgsDict(TypedDict):
     """
     The ARN of the IAM role that grants access.
     """
-    canned_acl: NotRequired[pulumi.Input[_builtins.str]]
+    canned_acl: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
     """
@@ -4656,7 +4656,7 @@ class TopicRuleS3Args:
                  bucket_name: pulumi.Input[_builtins.str],
                  key: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
-                 canned_acl: Optional[pulumi.Input[_builtins.str]] = None):
+                 canned_acl: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] bucket_name: The Amazon S3 bucket name.
         :param pulumi.Input[_builtins.str] key: The object key.
@@ -4707,14 +4707,14 @@ class TopicRuleS3Args:
 
     @_builtins.property
     @pulumi.getter(name="cannedAcl")
-    def canned_acl(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def canned_acl(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
         """
         return pulumi.get(self, "canned_acl")
 
     @canned_acl.setter
-    def canned_acl(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def canned_acl(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "canned_acl", value)
 
 
@@ -4727,7 +4727,7 @@ class TopicRuleSnsArgsDict(TypedDict):
     """
     The ARN of the SNS topic.
     """
-    message_format: NotRequired[pulumi.Input[_builtins.str]]
+    message_format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The message format of the message to publish. Accepted values are "JSON" and "RAW".
     """
@@ -4737,7 +4737,7 @@ class TopicRuleSnsArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[_builtins.str],
                  target_arn: pulumi.Input[_builtins.str],
-                 message_format: Optional[pulumi.Input[_builtins.str]] = None):
+                 message_format: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role that grants access.
         :param pulumi.Input[_builtins.str] target_arn: The ARN of the SNS topic.
@@ -4774,14 +4774,14 @@ class TopicRuleSnsArgs:
 
     @_builtins.property
     @pulumi.getter(name="messageFormat")
-    def message_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The message format of the message to publish. Accepted values are "JSON" and "RAW".
         """
         return pulumi.get(self, "message_format")
 
     @message_format.setter
-    def message_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message_format", value)
 
 
@@ -4860,7 +4860,7 @@ class TopicRuleStepFunctionArgsDict(TypedDict):
     """
     The name of the Step Functions state machine whose execution will be started.
     """
-    execution_name_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    execution_name_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The prefix used to generate, along with a UUID, the unique state machine execution name.
     """
@@ -4870,7 +4870,7 @@ class TopicRuleStepFunctionArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[_builtins.str],
                  state_machine_name: pulumi.Input[_builtins.str],
-                 execution_name_prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 execution_name_prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role that grants access to start execution of the state machine.
         :param pulumi.Input[_builtins.str] state_machine_name: The name of the Step Functions state machine whose execution will be started.
@@ -4907,14 +4907,14 @@ class TopicRuleStepFunctionArgs:
 
     @_builtins.property
     @pulumi.getter(name="executionNamePrefix")
-    def execution_name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def execution_name_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The prefix used to generate, along with a UUID, the unique state machine execution name.
         """
         return pulumi.get(self, "execution_name_prefix")
 
     @execution_name_prefix.setter
-    def execution_name_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def execution_name_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "execution_name_prefix", value)
 
 
@@ -4935,7 +4935,7 @@ class TopicRuleTimestreamArgsDict(TypedDict):
     """
     The name of the database table into which to write the measure records.
     """
-    timestamp: NotRequired[pulumi.Input['TopicRuleTimestreamTimestampArgsDict']]
+    timestamp: NotRequired[pulumi.Input[Optional['TopicRuleTimestreamTimestampArgs']]]
     """
     Configuration block specifying an application-defined value to replace the default value assigned to the Timestream record's timestamp in the time column. Nested arguments below.
     """
@@ -4947,7 +4947,7 @@ class TopicRuleTimestreamArgs:
                  dimensions: pulumi.Input[Sequence[pulumi.Input['TopicRuleTimestreamDimensionArgs']]],
                  role_arn: pulumi.Input[_builtins.str],
                  table_name: pulumi.Input[_builtins.str],
-                 timestamp: Optional[pulumi.Input['TopicRuleTimestreamTimestampArgs']] = None):
+                 timestamp: pulumi.Input[Optional['TopicRuleTimestreamTimestampArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] database_name: The name of an Amazon Timestream database.
         :param pulumi.Input[Sequence[pulumi.Input['TopicRuleTimestreamDimensionArgs']]] dimensions: Configuration blocks with metadata attributes of the time series that are written in each measure record. Nested arguments below.
@@ -5012,14 +5012,14 @@ class TopicRuleTimestreamArgs:
 
     @_builtins.property
     @pulumi.getter
-    def timestamp(self) -> Optional[pulumi.Input['TopicRuleTimestreamTimestampArgs']]:
+    def timestamp(self) -> pulumi.Input[Optional['TopicRuleTimestreamTimestampArgs']]:
         """
         Configuration block specifying an application-defined value to replace the default value assigned to the Timestream record's timestamp in the time column. Nested arguments below.
         """
         return pulumi.get(self, "timestamp")
 
     @timestamp.setter
-    def timestamp(self, value: Optional[pulumi.Input['TopicRuleTimestreamTimestampArgs']]):
+    def timestamp(self, value: pulumi.Input[Optional['TopicRuleTimestreamTimestampArgs']]):
         pulumi.set(self, "timestamp", value)
 
 

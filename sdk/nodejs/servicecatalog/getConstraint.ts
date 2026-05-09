@@ -125,11 +125,11 @@ export interface GetConstraintOutputArgs {
     /**
      * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
      */
-    acceptLanguage?: pulumi.Input<string>;
+    acceptLanguage?: pulumi.Input<string | undefined>;
     /**
      * Description of the constraint.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Constraint identifier.
      *
@@ -139,5 +139,5 @@ export interface GetConstraintOutputArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

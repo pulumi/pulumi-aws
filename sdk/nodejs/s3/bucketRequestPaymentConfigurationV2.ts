@@ -138,21 +138,21 @@ export interface BucketRequestPaymentConfigurationV2State {
     /**
      * Name of the bucket.
      */
-    bucket?: pulumi.Input<string>;
+    bucket?: pulumi.Input<string | undefined>;
     /**
      * Account ID of the expected bucket owner.
      *
      * @deprecated expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
      */
-    expectedBucketOwner?: pulumi.Input<string>;
+    expectedBucketOwner?: pulumi.Input<string | undefined>;
     /**
      * Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
      */
-    payer?: pulumi.Input<string>;
+    payer?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -168,7 +168,7 @@ export interface BucketRequestPaymentConfigurationV2Args {
      *
      * @deprecated expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
      */
-    expectedBucketOwner?: pulumi.Input<string>;
+    expectedBucketOwner?: pulumi.Input<string | undefined>;
     /**
      * Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
      */
@@ -176,5 +176,5 @@ export interface BucketRequestPaymentConfigurationV2Args {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

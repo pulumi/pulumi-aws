@@ -146,10 +146,10 @@ def get_images(image_ids: Optional[Sequence[Union['GetImagesImageIdArgs', 'GetIm
         region=pulumi.get(__ret__, 'region'),
         registry_id=pulumi.get(__ret__, 'registry_id'),
         repository_name=pulumi.get(__ret__, 'repository_name'))
-def get_images_output(image_ids: Optional[pulumi.Input[Optional[Sequence[Union['GetImagesImageIdArgs', 'GetImagesImageIdArgsDict']]]]] = None,
-                      region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      registry_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      repository_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_images_output(image_ids: pulumi.Input[Optional[Optional[Sequence[Union['GetImagesImageIdArgs', 'GetImagesImageIdArgsDict']]]]] = None,
+                      region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      registry_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      repository_name: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImagesResult]:
     """
     The ECR Public Images data source allows the list of images in a specified public repository to be retrieved.

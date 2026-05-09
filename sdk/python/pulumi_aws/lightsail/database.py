@@ -25,16 +25,16 @@ class DatabaseArgs:
                  master_password: pulumi.Input[_builtins.str],
                  master_username: pulumi.Input[_builtins.str],
                  relational_database_name: pulumi.Input[_builtins.str],
-                 apply_immediately: Optional[pulumi.Input[_builtins.bool]] = None,
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 backup_retention_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 final_snapshot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_backup_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 publicly_accessible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_final_snapshot: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 apply_immediately: pulumi.Input[Optional[_builtins.bool]] = None,
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 backup_retention_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 final_snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_backup_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_final_snapshot: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Database resource.
 
@@ -160,157 +160,157 @@ class DatabaseArgs:
 
     @_builtins.property
     @pulumi.getter(name="applyImmediately")
-    def apply_immediately(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def apply_immediately(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to apply changes immediately. When false, applies changes during the preferred maintenance window. Some changes may cause an outage.
         """
         return pulumi.get(self, "apply_immediately")
 
     @apply_immediately.setter
-    def apply_immediately(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def apply_immediately(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "apply_immediately", value)
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def availability_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Availability Zone in which to create your database. Use the us-east-2a case-sensitive format.
         """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
-    def availability_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def availability_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "availability_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="backupRetentionEnabled")
-    def backup_retention_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def backup_retention_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable automated backup retention for your database. When false, disables automated backup retention for your database. Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database.
         """
         return pulumi.get(self, "backup_retention_enabled")
 
     @backup_retention_enabled.setter
-    def backup_retention_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def backup_retention_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "backup_retention_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="finalSnapshotName")
-    def final_snapshot_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def final_snapshot_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the database snapshot created if skip final snapshot is false, which is the default value for that parameter.
         """
         return pulumi.get(self, "final_snapshot_name")
 
     @final_snapshot_name.setter
-    def final_snapshot_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def final_snapshot_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "final_snapshot_name", value)
 
     @_builtins.property
     @pulumi.getter(name="preferredBackupWindow")
-    def preferred_backup_window(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def preferred_backup_window(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Daily time range during which automated backups are created for your database if automated backups are enabled. Must be in the hh24:mi-hh24:mi format. Example: `16:00-16:30`. Specified in Coordinated Universal Time (UTC).
         """
         return pulumi.get(self, "preferred_backup_window")
 
     @preferred_backup_window.setter
-    def preferred_backup_window(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def preferred_backup_window(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "preferred_backup_window", value)
 
     @_builtins.property
     @pulumi.getter(name="preferredMaintenanceWindow")
-    def preferred_maintenance_window(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def preferred_maintenance_window(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Weekly time range during which system maintenance can occur on your database. Must be in the ddd:hh24:mi-ddd:hh24:mi format. Specified in Coordinated Universal Time (UTC). Example: `Tue:17:00-Tue:17:30`
         """
         return pulumi.get(self, "preferred_maintenance_window")
 
     @preferred_maintenance_window.setter
-    def preferred_maintenance_window(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def preferred_maintenance_window(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "preferred_maintenance_window", value)
 
     @_builtins.property
     @pulumi.getter(name="publiclyAccessible")
-    def publicly_accessible(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def publicly_accessible(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the database is accessible to resources outside of your Lightsail account. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.
         """
         return pulumi.get(self, "publicly_accessible")
 
     @publicly_accessible.setter
-    def publicly_accessible(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def publicly_accessible(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "publicly_accessible", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="skipFinalSnapshot")
-    def skip_final_snapshot(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_final_snapshot(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether a final database snapshot is created before your database is deleted. If true is specified, no database snapshot is created. If false is specified, a database snapshot is created before your database is deleted. You must specify the final relational database snapshot name parameter if the skip final snapshot parameter is false.
         """
         return pulumi.get(self, "skip_final_snapshot")
 
     @skip_final_snapshot.setter
-    def skip_final_snapshot(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_final_snapshot(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_final_snapshot", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _DatabaseState:
     def __init__(__self__, *,
-                 apply_immediately: Optional[pulumi.Input[_builtins.bool]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 backup_retention_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 blueprint_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 bundle_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ca_certificate_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 cpu_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 created_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_size: Optional[pulumi.Input[_builtins.float]] = None,
-                 engine: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 final_snapshot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 master_database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 master_endpoint_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 master_endpoint_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 master_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 master_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_backup_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 publicly_accessible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ram_size: Optional[pulumi.Input[_builtins.float]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 relational_database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_final_snapshot: Optional[pulumi.Input[_builtins.bool]] = None,
-                 support_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 apply_immediately: pulumi.Input[Optional[_builtins.bool]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 backup_retention_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 blueprint_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 bundle_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ca_certificate_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 cpu_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 created_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_size: pulumi.Input[Optional[_builtins.float]] = None,
+                 engine: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 final_snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 master_database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 master_endpoint_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 master_endpoint_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 master_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 master_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_backup_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ram_size: pulumi.Input[Optional[_builtins.float]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 relational_database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_final_snapshot: pulumi.Input[Optional[_builtins.bool]] = None,
+                 support_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Database resources.
 
@@ -407,283 +407,283 @@ class _DatabaseState:
 
     @_builtins.property
     @pulumi.getter(name="applyImmediately")
-    def apply_immediately(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def apply_immediately(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to apply changes immediately. When false, applies changes during the preferred maintenance window. Some changes may cause an outage.
         """
         return pulumi.get(self, "apply_immediately")
 
     @apply_immediately.setter
-    def apply_immediately(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def apply_immediately(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "apply_immediately", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the database (matches `id`).
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def availability_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Availability Zone in which to create your database. Use the us-east-2a case-sensitive format.
         """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
-    def availability_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def availability_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "availability_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="backupRetentionEnabled")
-    def backup_retention_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def backup_retention_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable automated backup retention for your database. When false, disables automated backup retention for your database. Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database.
         """
         return pulumi.get(self, "backup_retention_enabled")
 
     @backup_retention_enabled.setter
-    def backup_retention_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def backup_retention_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "backup_retention_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="blueprintId")
-    def blueprint_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def blueprint_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Blueprint ID for your database. A blueprint describes the major engine version of a database. You can get a list of database blueprints IDs by using the AWS CLI command: `aws lightsail get-relational-database-blueprints`
         """
         return pulumi.get(self, "blueprint_id")
 
     @blueprint_id.setter
-    def blueprint_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def blueprint_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "blueprint_id", value)
 
     @_builtins.property
     @pulumi.getter(name="bundleId")
-    def bundle_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bundle_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Bundle ID for your database. A bundle describes the performance specifications for your database (see list below). You can get a list of database bundle IDs by using the AWS CLI command: `aws lightsail get-relational-database-bundles`.
         """
         return pulumi.get(self, "bundle_id")
 
     @bundle_id.setter
-    def bundle_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bundle_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bundle_id", value)
 
     @_builtins.property
     @pulumi.getter(name="caCertificateIdentifier")
-    def ca_certificate_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ca_certificate_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Certificate associated with the database.
         """
         return pulumi.get(self, "ca_certificate_identifier")
 
     @ca_certificate_identifier.setter
-    def ca_certificate_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ca_certificate_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ca_certificate_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="cpuCount")
-    def cpu_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cpu_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of vCPUs for the database.
         """
         return pulumi.get(self, "cpu_count")
 
     @cpu_count.setter
-    def cpu_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cpu_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cpu_count", value)
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date and time when the database was created.
         """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
-    def created_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_at", value)
 
     @_builtins.property
     @pulumi.getter(name="diskSize")
-    def disk_size(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def disk_size(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Size of the disk for the database.
         """
         return pulumi.get(self, "disk_size")
 
     @disk_size.setter
-    def disk_size(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def disk_size(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "disk_size", value)
 
     @_builtins.property
     @pulumi.getter
-    def engine(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def engine(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Database software (for example, MySQL).
         """
         return pulumi.get(self, "engine")
 
     @engine.setter
-    def engine(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def engine(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "engine", value)
 
     @_builtins.property
     @pulumi.getter(name="engineVersion")
-    def engine_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def engine_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Database engine version (for example, 5.7.23).
         """
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
-    def engine_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def engine_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "engine_version", value)
 
     @_builtins.property
     @pulumi.getter(name="finalSnapshotName")
-    def final_snapshot_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def final_snapshot_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the database snapshot created if skip final snapshot is false, which is the default value for that parameter.
         """
         return pulumi.get(self, "final_snapshot_name")
 
     @final_snapshot_name.setter
-    def final_snapshot_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def final_snapshot_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "final_snapshot_name", value)
 
     @_builtins.property
     @pulumi.getter(name="masterDatabaseName")
-    def master_database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def master_database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the master database created when the Lightsail database resource is created.
         """
         return pulumi.get(self, "master_database_name")
 
     @master_database_name.setter
-    def master_database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def master_database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "master_database_name", value)
 
     @_builtins.property
     @pulumi.getter(name="masterEndpointAddress")
-    def master_endpoint_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def master_endpoint_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Master endpoint FQDN for the database.
         """
         return pulumi.get(self, "master_endpoint_address")
 
     @master_endpoint_address.setter
-    def master_endpoint_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def master_endpoint_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "master_endpoint_address", value)
 
     @_builtins.property
     @pulumi.getter(name="masterEndpointPort")
-    def master_endpoint_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def master_endpoint_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Master endpoint network port for the database.
         """
         return pulumi.get(self, "master_endpoint_port")
 
     @master_endpoint_port.setter
-    def master_endpoint_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def master_endpoint_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "master_endpoint_port", value)
 
     @_builtins.property
     @pulumi.getter(name="masterPassword")
-    def master_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def master_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Password for the master user of your database. The password can include any printable ASCII character except "/", \"\"\", or "@".
         """
         return pulumi.get(self, "master_password")
 
     @master_password.setter
-    def master_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def master_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "master_password", value)
 
     @_builtins.property
     @pulumi.getter(name="masterUsername")
-    def master_username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def master_username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Master user name for your database.
         """
         return pulumi.get(self, "master_username")
 
     @master_username.setter
-    def master_username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def master_username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "master_username", value)
 
     @_builtins.property
     @pulumi.getter(name="preferredBackupWindow")
-    def preferred_backup_window(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def preferred_backup_window(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Daily time range during which automated backups are created for your database if automated backups are enabled. Must be in the hh24:mi-hh24:mi format. Example: `16:00-16:30`. Specified in Coordinated Universal Time (UTC).
         """
         return pulumi.get(self, "preferred_backup_window")
 
     @preferred_backup_window.setter
-    def preferred_backup_window(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def preferred_backup_window(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "preferred_backup_window", value)
 
     @_builtins.property
     @pulumi.getter(name="preferredMaintenanceWindow")
-    def preferred_maintenance_window(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def preferred_maintenance_window(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Weekly time range during which system maintenance can occur on your database. Must be in the ddd:hh24:mi-ddd:hh24:mi format. Specified in Coordinated Universal Time (UTC). Example: `Tue:17:00-Tue:17:30`
         """
         return pulumi.get(self, "preferred_maintenance_window")
 
     @preferred_maintenance_window.setter
-    def preferred_maintenance_window(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def preferred_maintenance_window(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "preferred_maintenance_window", value)
 
     @_builtins.property
     @pulumi.getter(name="publiclyAccessible")
-    def publicly_accessible(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def publicly_accessible(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the database is accessible to resources outside of your Lightsail account. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.
         """
         return pulumi.get(self, "publicly_accessible")
 
     @publicly_accessible.setter
-    def publicly_accessible(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def publicly_accessible(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "publicly_accessible", value)
 
     @_builtins.property
     @pulumi.getter(name="ramSize")
-    def ram_size(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def ram_size(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Amount of RAM in GB for the database.
         """
         return pulumi.get(self, "ram_size")
 
     @ram_size.setter
-    def ram_size(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def ram_size(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "ram_size", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="relationalDatabaseName")
-    def relational_database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def relational_database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name to use for your Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
 
@@ -692,67 +692,67 @@ class _DatabaseState:
         return pulumi.get(self, "relational_database_name")
 
     @relational_database_name.setter
-    def relational_database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def relational_database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "relational_database_name", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryAvailabilityZone")
-    def secondary_availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_availability_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Secondary Availability Zone of a high availability database. The secondary database is used for failover support of a high availability database.
         """
         return pulumi.get(self, "secondary_availability_zone")
 
     @secondary_availability_zone.setter
-    def secondary_availability_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_availability_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_availability_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="skipFinalSnapshot")
-    def skip_final_snapshot(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_final_snapshot(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether a final database snapshot is created before your database is deleted. If true is specified, no database snapshot is created. If false is specified, a database snapshot is created before your database is deleted. You must specify the final relational database snapshot name parameter if the skip final snapshot parameter is false.
         """
         return pulumi.get(self, "skip_final_snapshot")
 
     @skip_final_snapshot.setter
-    def skip_final_snapshot(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_final_snapshot(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_final_snapshot", value)
 
     @_builtins.property
     @pulumi.getter(name="supportCode")
-    def support_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def support_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
         """
         return pulumi.get(self, "support_code")
 
     @support_code.setter
-    def support_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def support_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "support_code", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
 
@@ -762,22 +762,22 @@ class Database(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 apply_immediately: Optional[pulumi.Input[_builtins.bool]] = None,
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 backup_retention_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 blueprint_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 bundle_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 final_snapshot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 master_database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 master_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 master_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_backup_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 publicly_accessible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 relational_database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_final_snapshot: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 apply_immediately: pulumi.Input[Optional[_builtins.bool]] = None,
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 backup_retention_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 blueprint_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 bundle_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 final_snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 master_database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 master_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 master_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_backup_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 relational_database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_final_snapshot: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Lightsail database. Use this resource to create and manage fully managed database instances with automated backups, monitoring, and maintenance in Lightsail.
@@ -1131,22 +1131,22 @@ class Database(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 apply_immediately: Optional[pulumi.Input[_builtins.bool]] = None,
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 backup_retention_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 blueprint_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 bundle_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 final_snapshot_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 master_database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 master_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 master_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_backup_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 publicly_accessible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 relational_database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_final_snapshot: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 apply_immediately: pulumi.Input[Optional[_builtins.bool]] = None,
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 backup_retention_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 blueprint_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 bundle_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 final_snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 master_database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 master_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 master_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_backup_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 relational_database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_final_snapshot: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1209,35 +1209,35 @@ class Database(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            apply_immediately: Optional[pulumi.Input[_builtins.bool]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-            backup_retention_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            blueprint_id: Optional[pulumi.Input[_builtins.str]] = None,
-            bundle_id: Optional[pulumi.Input[_builtins.str]] = None,
-            ca_certificate_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-            cpu_count: Optional[pulumi.Input[_builtins.int]] = None,
-            created_at: Optional[pulumi.Input[_builtins.str]] = None,
-            disk_size: Optional[pulumi.Input[_builtins.float]] = None,
-            engine: Optional[pulumi.Input[_builtins.str]] = None,
-            engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-            final_snapshot_name: Optional[pulumi.Input[_builtins.str]] = None,
-            master_database_name: Optional[pulumi.Input[_builtins.str]] = None,
-            master_endpoint_address: Optional[pulumi.Input[_builtins.str]] = None,
-            master_endpoint_port: Optional[pulumi.Input[_builtins.int]] = None,
-            master_password: Optional[pulumi.Input[_builtins.str]] = None,
-            master_username: Optional[pulumi.Input[_builtins.str]] = None,
-            preferred_backup_window: Optional[pulumi.Input[_builtins.str]] = None,
-            preferred_maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
-            publicly_accessible: Optional[pulumi.Input[_builtins.bool]] = None,
-            ram_size: Optional[pulumi.Input[_builtins.float]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            relational_database_name: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-            skip_final_snapshot: Optional[pulumi.Input[_builtins.bool]] = None,
-            support_code: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Database':
+            apply_immediately: pulumi.Input[Optional[_builtins.bool]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            backup_retention_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            blueprint_id: pulumi.Input[Optional[_builtins.str]] = None,
+            bundle_id: pulumi.Input[Optional[_builtins.str]] = None,
+            ca_certificate_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            cpu_count: pulumi.Input[Optional[_builtins.int]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            disk_size: pulumi.Input[Optional[_builtins.float]] = None,
+            engine: pulumi.Input[Optional[_builtins.str]] = None,
+            engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+            final_snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
+            master_database_name: pulumi.Input[Optional[_builtins.str]] = None,
+            master_endpoint_address: pulumi.Input[Optional[_builtins.str]] = None,
+            master_endpoint_port: pulumi.Input[Optional[_builtins.int]] = None,
+            master_password: pulumi.Input[Optional[_builtins.str]] = None,
+            master_username: pulumi.Input[Optional[_builtins.str]] = None,
+            preferred_backup_window: pulumi.Input[Optional[_builtins.str]] = None,
+            preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+            publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
+            ram_size: pulumi.Input[Optional[_builtins.float]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            relational_database_name: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            skip_final_snapshot: pulumi.Input[Optional[_builtins.bool]] = None,
+            support_code: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Database':
         """
         Get an existing Database resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

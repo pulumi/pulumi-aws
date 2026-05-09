@@ -24,11 +24,11 @@ class SafetyRuleArgs:
                  control_panel_arn: pulumi.Input[_builtins.str],
                  rule_config: pulumi.Input['SafetyRuleRuleConfigArgs'],
                  wait_period_ms: pulumi.Input[_builtins.int],
-                 asserted_controls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 gating_controls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_controls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 asserted_controls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 gating_controls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_controls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SafetyRule resource.
 
@@ -97,79 +97,79 @@ class SafetyRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="assertedControls")
-    def asserted_controls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def asserted_controls(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed.
         """
         return pulumi.get(self, "asserted_controls")
 
     @asserted_controls.setter
-    def asserted_controls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def asserted_controls(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "asserted_controls", value)
 
     @_builtins.property
     @pulumi.getter(name="gatingControls")
-    def gating_controls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def gating_controls(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Gating controls for the new gating rule. That is, routing controls that are evaluated by the rule configuration that you specify.
         """
         return pulumi.get(self, "gating_controls")
 
     @gating_controls.setter
-    def gating_controls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def gating_controls(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "gating_controls", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name describing the safety rule.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="targetControls")
-    def target_controls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def target_controls(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Routing controls that can only be set or unset if the specified `rule_config` evaluates to true for the specified `gating_controls`.
         """
         return pulumi.get(self, "target_controls")
 
     @target_controls.setter
-    def target_controls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def target_controls(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "target_controls", value)
 
 
 @pulumi.input_type
 class _SafetyRuleState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 asserted_controls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 control_panel_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 gating_controls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_config: Optional[pulumi.Input['SafetyRuleRuleConfigArgs']] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_controls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 wait_period_ms: Optional[pulumi.Input[_builtins.int]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 asserted_controls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 control_panel_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 gating_controls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_config: pulumi.Input[Optional['SafetyRuleRuleConfigArgs']] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_controls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 wait_period_ms: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering SafetyRule resources.
 
@@ -212,127 +212,127 @@ class _SafetyRuleState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the safety rule.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="assertedControls")
-    def asserted_controls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def asserted_controls(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed.
         """
         return pulumi.get(self, "asserted_controls")
 
     @asserted_controls.setter
-    def asserted_controls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def asserted_controls(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "asserted_controls", value)
 
     @_builtins.property
     @pulumi.getter(name="controlPanelArn")
-    def control_panel_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def control_panel_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the control panel in which this safety rule will reside.
         """
         return pulumi.get(self, "control_panel_arn")
 
     @control_panel_arn.setter
-    def control_panel_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def control_panel_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "control_panel_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="gatingControls")
-    def gating_controls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def gating_controls(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Gating controls for the new gating rule. That is, routing controls that are evaluated by the rule configuration that you specify.
         """
         return pulumi.get(self, "gating_controls")
 
     @gating_controls.setter
-    def gating_controls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def gating_controls(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "gating_controls", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name describing the safety rule.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleConfig")
-    def rule_config(self) -> Optional[pulumi.Input['SafetyRuleRuleConfigArgs']]:
+    def rule_config(self) -> pulumi.Input[Optional['SafetyRuleRuleConfigArgs']]:
         """
         Configuration block for safety rule criteria. See below.
         """
         return pulumi.get(self, "rule_config")
 
     @rule_config.setter
-    def rule_config(self, value: Optional[pulumi.Input['SafetyRuleRuleConfigArgs']]):
+    def rule_config(self, value: pulumi.Input[Optional['SafetyRuleRuleConfigArgs']]):
         pulumi.set(self, "rule_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Status of the safety rule. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="targetControls")
-    def target_controls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def target_controls(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Routing controls that can only be set or unset if the specified `rule_config` evaluates to true for the specified `gating_controls`.
         """
         return pulumi.get(self, "target_controls")
 
     @target_controls.setter
-    def target_controls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def target_controls(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "target_controls", value)
 
     @_builtins.property
     @pulumi.getter(name="waitPeriodMs")
-    def wait_period_ms(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def wait_period_ms(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
 
@@ -341,7 +341,7 @@ class _SafetyRuleState:
         return pulumi.get(self, "wait_period_ms")
 
     @wait_period_ms.setter
-    def wait_period_ms(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def wait_period_ms(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "wait_period_ms", value)
 
 
@@ -351,14 +351,14 @@ class SafetyRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 asserted_controls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 control_panel_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 gating_controls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_config: Optional[pulumi.Input[Union['SafetyRuleRuleConfigArgs', 'SafetyRuleRuleConfigArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_controls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 wait_period_ms: Optional[pulumi.Input[_builtins.int]] = None,
+                 asserted_controls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 control_panel_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 gating_controls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_config: pulumi.Input[Optional[Union['SafetyRuleRuleConfigArgs', 'SafetyRuleRuleConfigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_controls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 wait_period_ms: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Provides an AWS Route 53 Recovery Control Config Safety Rule
@@ -488,14 +488,14 @@ class SafetyRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 asserted_controls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 control_panel_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 gating_controls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_config: Optional[pulumi.Input[Union['SafetyRuleRuleConfigArgs', 'SafetyRuleRuleConfigArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_controls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 wait_period_ms: Optional[pulumi.Input[_builtins.int]] = None,
+                 asserted_controls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 control_panel_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 gating_controls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_config: pulumi.Input[Optional[Union['SafetyRuleRuleConfigArgs', 'SafetyRuleRuleConfigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_controls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 wait_period_ms: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -532,17 +532,17 @@ class SafetyRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            asserted_controls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            control_panel_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            gating_controls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            rule_config: Optional[pulumi.Input[Union['SafetyRuleRuleConfigArgs', 'SafetyRuleRuleConfigArgsDict']]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            target_controls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            wait_period_ms: Optional[pulumi.Input[_builtins.int]] = None) -> 'SafetyRule':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            asserted_controls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            control_panel_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            gating_controls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            rule_config: pulumi.Input[Optional[Union['SafetyRuleRuleConfigArgs', 'SafetyRuleRuleConfigArgsDict']]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            target_controls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            wait_period_ms: pulumi.Input[Optional[_builtins.int]] = None) -> 'SafetyRule':
         """
         Get an existing SafetyRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -121,7 +121,7 @@ export interface GetMultiRegionAccessPointOutputArgs {
     /**
      * The AWS account ID of the S3 Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The name of the Multi-Region Access Point.
      */
@@ -129,5 +129,5 @@ export interface GetMultiRegionAccessPointOutputArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

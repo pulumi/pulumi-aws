@@ -114,8 +114,8 @@ def get_instances(filters: Optional[Sequence[Union['GetInstancesFilterArgs', 'Ge
         id=pulumi.get(__ret__, 'id'),
         ids=pulumi.get(__ret__, 'ids'),
         region=pulumi.get(__ret__, 'region'))
-def get_instances_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetInstancesFilterArgs', 'GetInstancesFilterArgsDict']]]]] = None,
-                         region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_instances_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetInstancesFilterArgs', 'GetInstancesFilterArgsDict']]]]] = None,
+                         region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstancesResult]:
     """
     Use this data source to get the instance IDs of SSM managed instances.

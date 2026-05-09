@@ -125,17 +125,17 @@ export interface LbCertificateAttachmentState {
     /**
      * Name of your SSL/TLS certificate.
      */
-    certificateName?: pulumi.Input<string>;
+    certificateName?: pulumi.Input<string | undefined>;
     /**
      * Name of the load balancer to which you want to associate the SSL/TLS certificate.
      *
      * The following arguments are optional:
      */
-    lbName?: pulumi.Input<string>;
+    lbName?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -155,5 +155,5 @@ export interface LbCertificateAttachmentArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

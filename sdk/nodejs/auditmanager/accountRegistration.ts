@@ -122,23 +122,23 @@ export interface AccountRegistrationState {
     /**
      * Identifier for the delegated administrator account.
      */
-    delegatedAdminAccount?: pulumi.Input<string>;
+    delegatedAdminAccount?: pulumi.Input<string | undefined>;
     /**
      * Flag to deregister AuditManager in the account upon destruction. Defaults to `false` (ie. AuditManager will remain active in the account, even if this resource is removed).
      */
-    deregisterOnDestroy?: pulumi.Input<boolean>;
+    deregisterOnDestroy?: pulumi.Input<boolean | undefined>;
     /**
      * KMS key identifier.
      */
-    kmsKey?: pulumi.Input<string>;
+    kmsKey?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Status of the account registration request.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -148,17 +148,17 @@ export interface AccountRegistrationArgs {
     /**
      * Identifier for the delegated administrator account.
      */
-    delegatedAdminAccount?: pulumi.Input<string>;
+    delegatedAdminAccount?: pulumi.Input<string | undefined>;
     /**
      * Flag to deregister AuditManager in the account upon destruction. Defaults to `false` (ie. AuditManager will remain active in the account, even if this resource is removed).
      */
-    deregisterOnDestroy?: pulumi.Input<boolean>;
+    deregisterOnDestroy?: pulumi.Input<boolean | undefined>;
     /**
      * KMS key identifier.
      */
-    kmsKey?: pulumi.Input<string>;
+    kmsKey?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

@@ -195,23 +195,23 @@ export interface MethodSettingsState {
     /**
      * Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*&#47;*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
      */
-    methodPath?: pulumi.Input<string>;
+    methodPath?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ID of the REST API
      */
-    restApi?: pulumi.Input<string | RestApi>;
+    restApi?: pulumi.Input<string | RestApi | undefined>;
     /**
      * Settings block, see below.
      */
-    settings?: pulumi.Input<inputs.apigateway.MethodSettingsSettings>;
+    settings?: pulumi.Input<inputs.apigateway.MethodSettingsSettings | undefined>;
     /**
      * Name of the stage
      */
-    stageName?: pulumi.Input<string>;
+    stageName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -225,7 +225,7 @@ export interface MethodSettingsArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ID of the REST API
      */

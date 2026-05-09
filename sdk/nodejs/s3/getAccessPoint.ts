@@ -134,7 +134,7 @@ export interface GetAccessPointOutputArgs {
     /**
      * AWS account ID for the account that owns the specified access point.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * Name of the access point.
      */
@@ -142,5 +142,5 @@ export interface GetAccessPointOutputArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

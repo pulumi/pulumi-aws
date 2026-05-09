@@ -156,10 +156,10 @@ def get_instance_type_offerings(engine_type: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'),
         storage_type=pulumi.get(__ret__, 'storage_type'))
-def get_instance_type_offerings_output(engine_type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                       host_instance_type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                       region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                       storage_type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_instance_type_offerings_output(engine_type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                       host_instance_type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                       region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                       storage_type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceTypeOfferingsResult]:
     """
     Provides details about available MQ broker instance type offerings. Use this data source to discover supported instance types, storage types, and deployment modes for Amazon MQ brokers.

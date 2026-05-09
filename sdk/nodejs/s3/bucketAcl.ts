@@ -257,25 +257,25 @@ export interface BucketAclState {
     /**
      * Configuration block that sets the ACL permissions for an object per grantee. See below.
      */
-    accessControlPolicy?: pulumi.Input<inputs.s3.BucketAclAccessControlPolicy>;
+    accessControlPolicy?: pulumi.Input<inputs.s3.BucketAclAccessControlPolicy | undefined>;
     /**
      * Specifies the Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
      */
-    acl?: pulumi.Input<string>;
+    acl?: pulumi.Input<string | undefined>;
     /**
      * Bucket to which to apply the ACL.
      */
-    bucket?: pulumi.Input<string>;
+    bucket?: pulumi.Input<string | undefined>;
     /**
      * Account ID of the expected bucket owner.
      *
      * @deprecated expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
      */
-    expectedBucketOwner?: pulumi.Input<string>;
+    expectedBucketOwner?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -285,11 +285,11 @@ export interface BucketAclArgs {
     /**
      * Configuration block that sets the ACL permissions for an object per grantee. See below.
      */
-    accessControlPolicy?: pulumi.Input<inputs.s3.BucketAclAccessControlPolicy>;
+    accessControlPolicy?: pulumi.Input<inputs.s3.BucketAclAccessControlPolicy | undefined>;
     /**
      * Specifies the Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
      */
-    acl?: pulumi.Input<string>;
+    acl?: pulumi.Input<string | undefined>;
     /**
      * Bucket to which to apply the ACL.
      */
@@ -299,9 +299,9 @@ export interface BucketAclArgs {
      *
      * @deprecated expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
      */
-    expectedBucketOwner?: pulumi.Input<string>;
+    expectedBucketOwner?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

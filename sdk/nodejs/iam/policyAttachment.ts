@@ -150,23 +150,23 @@ export interface PolicyAttachmentState {
     /**
      * Group(s) the policy should be applied to.
      */
-    groups?: pulumi.Input<pulumi.Input<string | Group>[]>;
+    groups?: pulumi.Input<pulumi.Input<string | Group>[] | undefined>;
     /**
      * Name of the attachment. This cannot be an empty string.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
      */
-    policyArn?: pulumi.Input<string>;
+    policyArn?: pulumi.Input<string | undefined>;
     /**
      * Role(s) the policy should be applied to.
      */
-    roles?: pulumi.Input<pulumi.Input<string | Role>[]>;
+    roles?: pulumi.Input<pulumi.Input<string | Role>[] | undefined>;
     /**
      * User(s) the policy should be applied to.
      */
-    users?: pulumi.Input<pulumi.Input<string | User>[]>;
+    users?: pulumi.Input<pulumi.Input<string | User>[] | undefined>;
 }
 
 /**
@@ -176,11 +176,11 @@ export interface PolicyAttachmentArgs {
     /**
      * Group(s) the policy should be applied to.
      */
-    groups?: pulumi.Input<pulumi.Input<string | Group>[]>;
+    groups?: pulumi.Input<pulumi.Input<string | Group>[] | undefined>;
     /**
      * Name of the attachment. This cannot be an empty string.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
      */
@@ -188,9 +188,9 @@ export interface PolicyAttachmentArgs {
     /**
      * Role(s) the policy should be applied to.
      */
-    roles?: pulumi.Input<pulumi.Input<string | Role>[]>;
+    roles?: pulumi.Input<pulumi.Input<string | Role>[] | undefined>;
     /**
      * User(s) the policy should be applied to.
      */
-    users?: pulumi.Input<pulumi.Input<string | User>[]>;
+    users?: pulumi.Input<pulumi.Input<string | User>[] | undefined>;
 }

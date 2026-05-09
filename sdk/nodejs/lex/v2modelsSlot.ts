@@ -281,55 +281,55 @@ export interface V2modelsSlotState {
     /**
      * Identifier of the bot associated with the slot.
      */
-    botId?: pulumi.Input<string>;
+    botId?: pulumi.Input<string | undefined>;
     /**
      * Version of the bot associated with the slot.
      */
-    botVersion?: pulumi.Input<string>;
+    botVersion?: pulumi.Input<string | undefined>;
     /**
      * Description of the slot.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the intent that contains the slot.
      */
-    intentId?: pulumi.Input<string>;
+    intentId?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the language and locale that the slot will be used in.
      */
-    localeId?: pulumi.Input<string>;
+    localeId?: pulumi.Input<string | undefined>;
     /**
      * Whether the slot returns multiple values in one response.
      * See the `multipleValuesSetting` argument reference below.
      */
-    multipleValuesSettings?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotMultipleValuesSetting>[]>;
+    multipleValuesSettings?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotMultipleValuesSetting>[] | undefined>;
     /**
      * Name of the slot.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Determines how slot values are used in Amazon CloudWatch logs.
      * See the `obfuscationSetting` argument reference below.
      */
-    obfuscationSettings?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotObfuscationSetting>[]>;
+    obfuscationSettings?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotObfuscationSetting>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Unique identifier associated with the slot.
      */
-    slotId?: pulumi.Input<string>;
+    slotId?: pulumi.Input<string | undefined>;
     /**
      * Unique identifier for the slot type associated with this slot.
      */
-    slotTypeId?: pulumi.Input<string>;
+    slotTypeId?: pulumi.Input<string | undefined>;
     /**
      * Specifications for the constituent sub slots and the expression for the composite slot.
      * See the `subSlotSetting` argument reference below.
      */
-    subSlotSettings?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSetting>[]>;
-    timeouts?: pulumi.Input<inputs.lex.V2modelsSlotTimeouts>;
+    subSlotSettings?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSetting>[] | undefined>;
+    timeouts?: pulumi.Input<inputs.lex.V2modelsSlotTimeouts | undefined>;
     /**
      * Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
      * If you configure this block without `prompt_specification.*.prompt_attempts_specification`, AWS will provide default `promptAttemptsSpecification` blocks for the initial prompt (map key `Initial`) and each retry attempt (map keys `Retry1`, `Retry2`, etc.).
@@ -339,7 +339,7 @@ export interface V2modelsSlotState {
      *
      * The following arguments are optional:
      */
-    valueElicitationSetting?: pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSetting>;
+    valueElicitationSetting?: pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSetting | undefined>;
 }
 
 /**
@@ -357,7 +357,7 @@ export interface V2modelsSlotArgs {
     /**
      * Description of the slot.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the intent that contains the slot.
      */
@@ -370,30 +370,30 @@ export interface V2modelsSlotArgs {
      * Whether the slot returns multiple values in one response.
      * See the `multipleValuesSetting` argument reference below.
      */
-    multipleValuesSettings?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotMultipleValuesSetting>[]>;
+    multipleValuesSettings?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotMultipleValuesSetting>[] | undefined>;
     /**
      * Name of the slot.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Determines how slot values are used in Amazon CloudWatch logs.
      * See the `obfuscationSetting` argument reference below.
      */
-    obfuscationSettings?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotObfuscationSetting>[]>;
+    obfuscationSettings?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotObfuscationSetting>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Unique identifier for the slot type associated with this slot.
      */
-    slotTypeId?: pulumi.Input<string>;
+    slotTypeId?: pulumi.Input<string | undefined>;
     /**
      * Specifications for the constituent sub slots and the expression for the composite slot.
      * See the `subSlotSetting` argument reference below.
      */
-    subSlotSettings?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSetting>[]>;
-    timeouts?: pulumi.Input<inputs.lex.V2modelsSlotTimeouts>;
+    subSlotSettings?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSetting>[] | undefined>;
+    timeouts?: pulumi.Input<inputs.lex.V2modelsSlotTimeouts | undefined>;
     /**
      * Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
      * If you configure this block without `prompt_specification.*.prompt_attempts_specification`, AWS will provide default `promptAttemptsSpecification` blocks for the initial prompt (map key `Initial`) and each retry attempt (map keys `Retry1`, `Retry2`, etc.).

@@ -24,23 +24,23 @@ __all__ = [
 ]
 
 class TrustAnchorNotificationSettingArgsDict(TypedDict):
-    channel: NotRequired[pulumi.Input[_builtins.str]]
-    configured_by: NotRequired[pulumi.Input[_builtins.str]]
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    channel: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    configured_by: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether or not the Trust Anchor should be enabled.
     """
-    event: NotRequired[pulumi.Input[_builtins.str]]
-    threshold: NotRequired[pulumi.Input[_builtins.int]]
+    event: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    threshold: NotRequired[pulumi.Input[Optional[_builtins.int]]]
 
 @pulumi.input_type
 class TrustAnchorNotificationSettingArgs:
     def __init__(__self__, *,
-                 channel: Optional[pulumi.Input[_builtins.str]] = None,
-                 configured_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 event: Optional[pulumi.Input[_builtins.str]] = None,
-                 threshold: Optional[pulumi.Input[_builtins.int]] = None):
+                 channel: pulumi.Input[Optional[_builtins.str]] = None,
+                 configured_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 event: pulumi.Input[Optional[_builtins.str]] = None,
+                 threshold: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.bool] enabled: Whether or not the Trust Anchor should be enabled.
         """
@@ -57,50 +57,50 @@ class TrustAnchorNotificationSettingArgs:
 
     @_builtins.property
     @pulumi.getter
-    def channel(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def channel(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "channel")
 
     @channel.setter
-    def channel(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def channel(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "channel", value)
 
     @_builtins.property
     @pulumi.getter(name="configuredBy")
-    def configured_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def configured_by(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "configured_by")
 
     @configured_by.setter
-    def configured_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def configured_by(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "configured_by", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not the Trust Anchor should be enabled.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def event(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "event")
 
     @event.setter
-    def event(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event", value)
 
     @_builtins.property
     @pulumi.getter
-    def threshold(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def threshold(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "threshold")
 
     @threshold.setter
-    def threshold(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def threshold(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "threshold", value)
 
 
@@ -152,17 +152,17 @@ class TrustAnchorSourceArgs:
 
 
 class TrustAnchorSourceSourceDataArgsDict(TypedDict):
-    acm_pca_arn: NotRequired[pulumi.Input[_builtins.str]]
+    acm_pca_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of an ACM Private Certificate Authority.
     """
-    x509_certificate_data: NotRequired[pulumi.Input[_builtins.str]]
+    x509_certificate_data: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class TrustAnchorSourceSourceDataArgs:
     def __init__(__self__, *,
-                 acm_pca_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 x509_certificate_data: Optional[pulumi.Input[_builtins.str]] = None):
+                 acm_pca_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 x509_certificate_data: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] acm_pca_arn: The ARN of an ACM Private Certificate Authority.
         """
@@ -173,23 +173,23 @@ class TrustAnchorSourceSourceDataArgs:
 
     @_builtins.property
     @pulumi.getter(name="acmPcaArn")
-    def acm_pca_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def acm_pca_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of an ACM Private Certificate Authority.
         """
         return pulumi.get(self, "acm_pca_arn")
 
     @acm_pca_arn.setter
-    def acm_pca_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def acm_pca_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "acm_pca_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="x509CertificateData")
-    def x509_certificate_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def x509_certificate_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "x509_certificate_data")
 
     @x509_certificate_data.setter
-    def x509_certificate_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def x509_certificate_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "x509_certificate_data", value)
 
 

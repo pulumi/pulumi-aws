@@ -21,8 +21,8 @@ __all__ = ['OtelEnrichmentArgs', 'OtelEnrichment']
 @pulumi.input_type
 class OtelEnrichmentArgs:
     def __init__(__self__, *,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input['OtelEnrichmentTimeoutsArgs']] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional['OtelEnrichmentTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a OtelEnrichment resource.
 
@@ -35,31 +35,31 @@ class OtelEnrichmentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS region where this resource is managed.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['OtelEnrichmentTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['OtelEnrichmentTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['OtelEnrichmentTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['OtelEnrichmentTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _OtelEnrichmentState:
     def __init__(__self__, *,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input['OtelEnrichmentTimeoutsArgs']] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional['OtelEnrichmentTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering OtelEnrichment resources.
 
@@ -72,23 +72,23 @@ class _OtelEnrichmentState:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS region where this resource is managed.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['OtelEnrichmentTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['OtelEnrichmentTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['OtelEnrichmentTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['OtelEnrichmentTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
@@ -98,8 +98,8 @@ class OtelEnrichment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input[Union['OtelEnrichmentTimeoutsArgs', 'OtelEnrichmentTimeoutsArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional[Union['OtelEnrichmentTimeoutsArgs', 'OtelEnrichmentTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Manages AWS CloudWatch OTel enrichment. This is a singleton resource that enables OTel enrichment at the account level.
@@ -200,8 +200,8 @@ class OtelEnrichment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input[Union['OtelEnrichmentTimeoutsArgs', 'OtelEnrichmentTimeoutsArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional[Union['OtelEnrichmentTimeoutsArgs', 'OtelEnrichmentTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -223,8 +223,8 @@ class OtelEnrichment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            timeouts: Optional[pulumi.Input[Union['OtelEnrichmentTimeoutsArgs', 'OtelEnrichmentTimeoutsArgsDict']]] = None) -> 'OtelEnrichment':
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['OtelEnrichmentTimeoutsArgs', 'OtelEnrichmentTimeoutsArgsDict']]] = None) -> 'OtelEnrichment':
         """
         Get an existing OtelEnrichment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

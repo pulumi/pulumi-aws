@@ -129,20 +129,20 @@ export interface NotificationState {
     /**
      * List of AutoScaling Group Names
      */
-    groupNames?: pulumi.Input<pulumi.Input<string>[]>;
+    groupNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of Notification Types that trigger
      * notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
      */
-    notifications?: pulumi.Input<pulumi.Input<enums.autoscaling.NotificationType>[]>;
+    notifications?: pulumi.Input<pulumi.Input<enums.autoscaling.NotificationType>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Topic ARN for notifications to be sent through
      */
-    topicArn?: pulumi.Input<string>;
+    topicArn?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -161,7 +161,7 @@ export interface NotificationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Topic ARN for notifications to be sent through
      */

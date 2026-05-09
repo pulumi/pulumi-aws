@@ -28,13 +28,13 @@ class CustomModelArgs:
                  output_data_config: pulumi.Input['CustomModelOutputDataConfigArgs'],
                  role_arn: pulumi.Input[_builtins.str],
                  training_data_config: pulumi.Input['CustomModelTrainingDataConfigArgs'],
-                 custom_model_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 customization_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['CustomModelTimeoutsArgs']] = None,
-                 validation_data_config: Optional[pulumi.Input['CustomModelValidationDataConfigArgs']] = None,
-                 vpc_config: Optional[pulumi.Input['CustomModelVpcConfigArgs']] = None):
+                 custom_model_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 customization_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['CustomModelTimeoutsArgs']] = None,
+                 validation_data_config: pulumi.Input[Optional['CustomModelValidationDataConfigArgs']] = None,
+                 vpc_config: pulumi.Input[Optional['CustomModelVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a CustomModel resource.
 
@@ -160,109 +160,109 @@ class CustomModelArgs:
 
     @_builtins.property
     @pulumi.getter(name="customModelKmsKeyId")
-    def custom_model_kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_model_kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The custom model is encrypted at rest using this key. Specify the key ARN.
         """
         return pulumi.get(self, "custom_model_kms_key_id")
 
     @custom_model_kms_key_id.setter
-    def custom_model_kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_model_kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_model_kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="customizationType")
-    def customization_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customization_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
         """
         return pulumi.get(self, "customization_type")
 
     @customization_type.setter
-    def customization_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customization_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customization_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the customization job and custom model. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['CustomModelTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['CustomModelTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['CustomModelTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['CustomModelTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter(name="validationDataConfig")
-    def validation_data_config(self) -> Optional[pulumi.Input['CustomModelValidationDataConfigArgs']]:
+    def validation_data_config(self) -> pulumi.Input[Optional['CustomModelValidationDataConfigArgs']]:
         """
         Information about the validation dataset.
         """
         return pulumi.get(self, "validation_data_config")
 
     @validation_data_config.setter
-    def validation_data_config(self, value: Optional[pulumi.Input['CustomModelValidationDataConfigArgs']]):
+    def validation_data_config(self, value: pulumi.Input[Optional['CustomModelValidationDataConfigArgs']]):
         pulumi.set(self, "validation_data_config", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcConfig")
-    def vpc_config(self) -> Optional[pulumi.Input['CustomModelVpcConfigArgs']]:
+    def vpc_config(self) -> pulumi.Input[Optional['CustomModelVpcConfigArgs']]:
         """
         Configuration parameters for the private Virtual Private Cloud (VPC) that contains the resources you are using for this job.
         """
         return pulumi.get(self, "vpc_config")
 
     @vpc_config.setter
-    def vpc_config(self, value: Optional[pulumi.Input['CustomModelVpcConfigArgs']]):
+    def vpc_config(self, value: pulumi.Input[Optional['CustomModelVpcConfigArgs']]):
         pulumi.set(self, "vpc_config", value)
 
 
 @pulumi.input_type
 class _CustomModelState:
     def __init__(__self__, *,
-                 base_model_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_model_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_model_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_model_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 customization_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 hyperparameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 job_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_data_config: Optional[pulumi.Input['CustomModelOutputDataConfigArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['CustomModelTimeoutsArgs']] = None,
-                 training_data_config: Optional[pulumi.Input['CustomModelTrainingDataConfigArgs']] = None,
-                 training_metrics: Optional[pulumi.Input[Sequence[pulumi.Input['CustomModelTrainingMetricArgs']]]] = None,
-                 validation_data_config: Optional[pulumi.Input['CustomModelValidationDataConfigArgs']] = None,
-                 validation_metrics: Optional[pulumi.Input[Sequence[pulumi.Input['CustomModelValidationMetricArgs']]]] = None,
-                 vpc_config: Optional[pulumi.Input['CustomModelVpcConfigArgs']] = None):
+                 base_model_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_model_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_model_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_model_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 customization_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 hyperparameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 job_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_data_config: pulumi.Input[Optional['CustomModelOutputDataConfigArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['CustomModelTimeoutsArgs']] = None,
+                 training_data_config: pulumi.Input[Optional['CustomModelTrainingDataConfigArgs']] = None,
+                 training_metrics: pulumi.Input[Optional[Sequence[pulumi.Input['CustomModelTrainingMetricArgs']]]] = None,
+                 validation_data_config: pulumi.Input[Optional['CustomModelValidationDataConfigArgs']] = None,
+                 validation_metrics: pulumi.Input[Optional[Sequence[pulumi.Input['CustomModelValidationMetricArgs']]]] = None,
+                 vpc_config: pulumi.Input[Optional['CustomModelVpcConfigArgs']] = None):
         """
         Input properties used for looking up and filtering CustomModel resources.
 
@@ -329,239 +329,239 @@ class _CustomModelState:
 
     @_builtins.property
     @pulumi.getter(name="baseModelIdentifier")
-    def base_model_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def base_model_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the base model.
         """
         return pulumi.get(self, "base_model_identifier")
 
     @base_model_identifier.setter
-    def base_model_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def base_model_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "base_model_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="customModelArn")
-    def custom_model_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_model_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the output model.
         """
         return pulumi.get(self, "custom_model_arn")
 
     @custom_model_arn.setter
-    def custom_model_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_model_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_model_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="customModelKmsKeyId")
-    def custom_model_kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_model_kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The custom model is encrypted at rest using this key. Specify the key ARN.
         """
         return pulumi.get(self, "custom_model_kms_key_id")
 
     @custom_model_kms_key_id.setter
-    def custom_model_kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_model_kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_model_kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="customModelName")
-    def custom_model_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_model_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name for the custom model.
         """
         return pulumi.get(self, "custom_model_name")
 
     @custom_model_name.setter
-    def custom_model_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_model_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_model_name", value)
 
     @_builtins.property
     @pulumi.getter(name="customizationType")
-    def customization_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customization_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
         """
         return pulumi.get(self, "customization_type")
 
     @customization_type.setter
-    def customization_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customization_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customization_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def hyperparameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def hyperparameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         [Parameters](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models-hp.html) related to tuning the model.
         """
         return pulumi.get(self, "hyperparameters")
 
     @hyperparameters.setter
-    def hyperparameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def hyperparameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "hyperparameters", value)
 
     @_builtins.property
     @pulumi.getter(name="jobArn")
-    def job_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def job_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the customization job.
         """
         return pulumi.get(self, "job_arn")
 
     @job_arn.setter
-    def job_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def job_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "job_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="jobName")
-    def job_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def job_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A name for the customization job.
         """
         return pulumi.get(self, "job_name")
 
     @job_name.setter
-    def job_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def job_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "job_name", value)
 
     @_builtins.property
     @pulumi.getter(name="jobStatus")
-    def job_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def job_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of the customization job. A successful job transitions from `InProgress` to `Completed` when the output model is ready to use.
         """
         return pulumi.get(self, "job_status")
 
     @job_status.setter
-    def job_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def job_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "job_status", value)
 
     @_builtins.property
     @pulumi.getter(name="outputDataConfig")
-    def output_data_config(self) -> Optional[pulumi.Input['CustomModelOutputDataConfigArgs']]:
+    def output_data_config(self) -> pulumi.Input[Optional['CustomModelOutputDataConfigArgs']]:
         """
         S3 location for the output data.
         """
         return pulumi.get(self, "output_data_config")
 
     @output_data_config.setter
-    def output_data_config(self, value: Optional[pulumi.Input['CustomModelOutputDataConfigArgs']]):
+    def output_data_config(self, value: pulumi.Input[Optional['CustomModelOutputDataConfigArgs']]):
         pulumi.set(self, "output_data_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the customization job and custom model. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['CustomModelTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['CustomModelTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['CustomModelTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['CustomModelTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter(name="trainingDataConfig")
-    def training_data_config(self) -> Optional[pulumi.Input['CustomModelTrainingDataConfigArgs']]:
+    def training_data_config(self) -> pulumi.Input[Optional['CustomModelTrainingDataConfigArgs']]:
         """
         Information about the training dataset.
         """
         return pulumi.get(self, "training_data_config")
 
     @training_data_config.setter
-    def training_data_config(self, value: Optional[pulumi.Input['CustomModelTrainingDataConfigArgs']]):
+    def training_data_config(self, value: pulumi.Input[Optional['CustomModelTrainingDataConfigArgs']]):
         pulumi.set(self, "training_data_config", value)
 
     @_builtins.property
     @pulumi.getter(name="trainingMetrics")
-    def training_metrics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomModelTrainingMetricArgs']]]]:
+    def training_metrics(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CustomModelTrainingMetricArgs']]]]:
         """
         Metrics associated with the customization job.
         """
         return pulumi.get(self, "training_metrics")
 
     @training_metrics.setter
-    def training_metrics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomModelTrainingMetricArgs']]]]):
+    def training_metrics(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CustomModelTrainingMetricArgs']]]]):
         pulumi.set(self, "training_metrics", value)
 
     @_builtins.property
     @pulumi.getter(name="validationDataConfig")
-    def validation_data_config(self) -> Optional[pulumi.Input['CustomModelValidationDataConfigArgs']]:
+    def validation_data_config(self) -> pulumi.Input[Optional['CustomModelValidationDataConfigArgs']]:
         """
         Information about the validation dataset.
         """
         return pulumi.get(self, "validation_data_config")
 
     @validation_data_config.setter
-    def validation_data_config(self, value: Optional[pulumi.Input['CustomModelValidationDataConfigArgs']]):
+    def validation_data_config(self, value: pulumi.Input[Optional['CustomModelValidationDataConfigArgs']]):
         pulumi.set(self, "validation_data_config", value)
 
     @_builtins.property
     @pulumi.getter(name="validationMetrics")
-    def validation_metrics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomModelValidationMetricArgs']]]]:
+    def validation_metrics(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CustomModelValidationMetricArgs']]]]:
         """
         The loss metric for each validator that you provided.
         """
         return pulumi.get(self, "validation_metrics")
 
     @validation_metrics.setter
-    def validation_metrics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomModelValidationMetricArgs']]]]):
+    def validation_metrics(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CustomModelValidationMetricArgs']]]]):
         pulumi.set(self, "validation_metrics", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcConfig")
-    def vpc_config(self) -> Optional[pulumi.Input['CustomModelVpcConfigArgs']]:
+    def vpc_config(self) -> pulumi.Input[Optional['CustomModelVpcConfigArgs']]:
         """
         Configuration parameters for the private Virtual Private Cloud (VPC) that contains the resources you are using for this job.
         """
         return pulumi.get(self, "vpc_config")
 
     @vpc_config.setter
-    def vpc_config(self, value: Optional[pulumi.Input['CustomModelVpcConfigArgs']]):
+    def vpc_config(self, value: pulumi.Input[Optional['CustomModelVpcConfigArgs']]):
         pulumi.set(self, "vpc_config", value)
 
 
@@ -571,20 +571,20 @@ class CustomModel(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 base_model_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_model_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_model_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 customization_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 hyperparameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 job_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_data_config: Optional[pulumi.Input[Union['CustomModelOutputDataConfigArgs', 'CustomModelOutputDataConfigArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['CustomModelTimeoutsArgs', 'CustomModelTimeoutsArgsDict']]] = None,
-                 training_data_config: Optional[pulumi.Input[Union['CustomModelTrainingDataConfigArgs', 'CustomModelTrainingDataConfigArgsDict']]] = None,
-                 validation_data_config: Optional[pulumi.Input[Union['CustomModelValidationDataConfigArgs', 'CustomModelValidationDataConfigArgsDict']]] = None,
-                 vpc_config: Optional[pulumi.Input[Union['CustomModelVpcConfigArgs', 'CustomModelVpcConfigArgsDict']]] = None,
+                 base_model_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_model_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_model_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 customization_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 hyperparameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 job_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_data_config: pulumi.Input[Optional[Union['CustomModelOutputDataConfigArgs', 'CustomModelOutputDataConfigArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['CustomModelTimeoutsArgs', 'CustomModelTimeoutsArgsDict']]] = None,
+                 training_data_config: pulumi.Input[Optional[Union['CustomModelTrainingDataConfigArgs', 'CustomModelTrainingDataConfigArgsDict']]] = None,
+                 validation_data_config: pulumi.Input[Optional[Union['CustomModelValidationDataConfigArgs', 'CustomModelValidationDataConfigArgsDict']]] = None,
+                 vpc_config: pulumi.Input[Optional[Union['CustomModelVpcConfigArgs', 'CustomModelVpcConfigArgsDict']]] = None,
                  __props__=None):
         """
         Manages an Amazon Bedrock custom model.
@@ -737,20 +737,20 @@ class CustomModel(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 base_model_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_model_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_model_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 customization_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 hyperparameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 job_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_data_config: Optional[pulumi.Input[Union['CustomModelOutputDataConfigArgs', 'CustomModelOutputDataConfigArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['CustomModelTimeoutsArgs', 'CustomModelTimeoutsArgsDict']]] = None,
-                 training_data_config: Optional[pulumi.Input[Union['CustomModelTrainingDataConfigArgs', 'CustomModelTrainingDataConfigArgsDict']]] = None,
-                 validation_data_config: Optional[pulumi.Input[Union['CustomModelValidationDataConfigArgs', 'CustomModelValidationDataConfigArgsDict']]] = None,
-                 vpc_config: Optional[pulumi.Input[Union['CustomModelVpcConfigArgs', 'CustomModelVpcConfigArgsDict']]] = None,
+                 base_model_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_model_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_model_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 customization_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 hyperparameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 job_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_data_config: pulumi.Input[Optional[Union['CustomModelOutputDataConfigArgs', 'CustomModelOutputDataConfigArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['CustomModelTimeoutsArgs', 'CustomModelTimeoutsArgsDict']]] = None,
+                 training_data_config: pulumi.Input[Optional[Union['CustomModelTrainingDataConfigArgs', 'CustomModelTrainingDataConfigArgsDict']]] = None,
+                 validation_data_config: pulumi.Input[Optional[Union['CustomModelValidationDataConfigArgs', 'CustomModelValidationDataConfigArgsDict']]] = None,
+                 vpc_config: pulumi.Input[Optional[Union['CustomModelVpcConfigArgs', 'CustomModelVpcConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -804,26 +804,26 @@ class CustomModel(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            base_model_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-            custom_model_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            custom_model_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-            custom_model_name: Optional[pulumi.Input[_builtins.str]] = None,
-            customization_type: Optional[pulumi.Input[_builtins.str]] = None,
-            hyperparameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            job_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            job_name: Optional[pulumi.Input[_builtins.str]] = None,
-            job_status: Optional[pulumi.Input[_builtins.str]] = None,
-            output_data_config: Optional[pulumi.Input[Union['CustomModelOutputDataConfigArgs', 'CustomModelOutputDataConfigArgsDict']]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: Optional[pulumi.Input[Union['CustomModelTimeoutsArgs', 'CustomModelTimeoutsArgsDict']]] = None,
-            training_data_config: Optional[pulumi.Input[Union['CustomModelTrainingDataConfigArgs', 'CustomModelTrainingDataConfigArgsDict']]] = None,
-            training_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomModelTrainingMetricArgs', 'CustomModelTrainingMetricArgsDict']]]]] = None,
-            validation_data_config: Optional[pulumi.Input[Union['CustomModelValidationDataConfigArgs', 'CustomModelValidationDataConfigArgsDict']]] = None,
-            validation_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomModelValidationMetricArgs', 'CustomModelValidationMetricArgsDict']]]]] = None,
-            vpc_config: Optional[pulumi.Input[Union['CustomModelVpcConfigArgs', 'CustomModelVpcConfigArgsDict']]] = None) -> 'CustomModel':
+            base_model_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_model_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_model_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_model_name: pulumi.Input[Optional[_builtins.str]] = None,
+            customization_type: pulumi.Input[Optional[_builtins.str]] = None,
+            hyperparameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            job_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            job_name: pulumi.Input[Optional[_builtins.str]] = None,
+            job_status: pulumi.Input[Optional[_builtins.str]] = None,
+            output_data_config: pulumi.Input[Optional[Union['CustomModelOutputDataConfigArgs', 'CustomModelOutputDataConfigArgsDict']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['CustomModelTimeoutsArgs', 'CustomModelTimeoutsArgsDict']]] = None,
+            training_data_config: pulumi.Input[Optional[Union['CustomModelTrainingDataConfigArgs', 'CustomModelTrainingDataConfigArgsDict']]] = None,
+            training_metrics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomModelTrainingMetricArgs', 'CustomModelTrainingMetricArgsDict']]]]] = None,
+            validation_data_config: pulumi.Input[Optional[Union['CustomModelValidationDataConfigArgs', 'CustomModelValidationDataConfigArgsDict']]] = None,
+            validation_metrics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomModelValidationMetricArgs', 'CustomModelValidationMetricArgsDict']]]]] = None,
+            vpc_config: pulumi.Input[Optional[Union['CustomModelVpcConfigArgs', 'CustomModelVpcConfigArgsDict']]] = None) -> 'CustomModel':
         """
         Get an existing CustomModel resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

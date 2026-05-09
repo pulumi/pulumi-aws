@@ -179,52 +179,52 @@ export interface EventSubscriptionState {
     /**
      * Amazon Resource Name (ARN) of the Redshift event notification subscription
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The AWS customer account associated with the Redshift event notification subscription
      */
-    customerAwsId?: pulumi.Input<string>;
+    customerAwsId?: pulumi.Input<string | undefined>;
     /**
      * A boolean flag to enable/disable the subscription. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * A list of event categories for a SourceType that you want to subscribe to. See https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html or run `aws redshift describe-event-categories`.
      */
-    eventCategories?: pulumi.Input<pulumi.Input<string>[]>;
+    eventCategories?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the Redshift event subscription.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`. Default value of `INFO`.
      */
-    severity?: pulumi.Input<string>;
+    severity?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the SNS topic to send events to.
      */
-    snsTopicArn?: pulumi.Input<string>;
+    snsTopicArn?: pulumi.Input<string | undefined>;
     /**
      * A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a `sourceType` must also be specified.
      */
-    sourceIds?: pulumi.Input<pulumi.Input<string>[]>;
+    sourceIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The type of source that will be generating the events. Valid options are `cluster`, `cluster-parameter-group`, `cluster-security-group`, `cluster-snapshot`, or `scheduled-action`. If not set, all sources will be subscribed to.
      */
-    sourceType?: pulumi.Input<string>;
-    status?: pulumi.Input<string>;
+    sourceType?: pulumi.Input<string | undefined>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -234,23 +234,23 @@ export interface EventSubscriptionArgs {
     /**
      * A boolean flag to enable/disable the subscription. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * A list of event categories for a SourceType that you want to subscribe to. See https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html or run `aws redshift describe-event-categories`.
      */
-    eventCategories?: pulumi.Input<pulumi.Input<string>[]>;
+    eventCategories?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the Redshift event subscription.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`. Default value of `INFO`.
      */
-    severity?: pulumi.Input<string>;
+    severity?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the SNS topic to send events to.
      */
@@ -258,13 +258,13 @@ export interface EventSubscriptionArgs {
     /**
      * A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a `sourceType` must also be specified.
      */
-    sourceIds?: pulumi.Input<pulumi.Input<string>[]>;
+    sourceIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The type of source that will be generating the events. Valid options are `cluster`, `cluster-parameter-group`, `cluster-security-group`, `cluster-snapshot`, or `scheduled-action`. If not set, all sources will be subscribed to.
      */
-    sourceType?: pulumi.Input<string>;
+    sourceType?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

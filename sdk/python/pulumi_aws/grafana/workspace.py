@@ -24,21 +24,21 @@ class WorkspaceArgs:
                  account_access_type: pulumi.Input[_builtins.str],
                  authentication_providers: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  permission_type: pulumi.Input[_builtins.str],
-                 configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 grafana_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_access_control: Optional[pulumi.Input['WorkspaceNetworkAccessControlArgs']] = None,
-                 notification_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 organization_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 organizational_units: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 stack_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_configuration: Optional[pulumi.Input['WorkspaceVpcConfigurationArgs']] = None):
+                 configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_sources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 grafana_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_access_control: pulumi.Input[Optional['WorkspaceNetworkAccessControlArgs']] = None,
+                 notification_destinations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 organization_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 organizational_units: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 stack_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vpc_configuration: pulumi.Input[Optional['WorkspaceVpcConfigurationArgs']] = None):
         """
         The set of arguments for constructing a Workspace resource.
 
@@ -137,210 +137,210 @@ class WorkspaceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def configuration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
         """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="dataSources")
-    def data_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def data_sources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, XRAY`
         """
         return pulumi.get(self, "data_sources")
 
     @data_sources.setter
-    def data_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def data_sources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "data_sources", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The workspace description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="grafanaVersion")
-    def grafana_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def grafana_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the version of Grafana to support in the new workspace. Supported values are `9.4`, `10.4` and `12.4`. If not specified, defaults to the latest version.
         """
         return pulumi.get(self, "grafana_version")
 
     @grafana_version.setter
-    def grafana_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def grafana_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "grafana_version", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the AWS KMS key for encrypting workspace data.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Grafana workspace name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkAccessControl")
-    def network_access_control(self) -> Optional[pulumi.Input['WorkspaceNetworkAccessControlArgs']]:
+    def network_access_control(self) -> pulumi.Input[Optional['WorkspaceNetworkAccessControlArgs']]:
         """
         Configuration for network access to your workspace.See Network Access Control below.
         """
         return pulumi.get(self, "network_access_control")
 
     @network_access_control.setter
-    def network_access_control(self, value: Optional[pulumi.Input['WorkspaceNetworkAccessControlArgs']]):
+    def network_access_control(self, value: pulumi.Input[Optional['WorkspaceNetworkAccessControlArgs']]):
         pulumi.set(self, "network_access_control", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationDestinations")
-    def notification_destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def notification_destinations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
         """
         return pulumi.get(self, "notification_destinations")
 
     @notification_destinations.setter
-    def notification_destinations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def notification_destinations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "notification_destinations", value)
 
     @_builtins.property
     @pulumi.getter(name="organizationRoleName")
-    def organization_role_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def organization_role_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The role name that the workspace uses to access resources through Amazon Organizations.
         """
         return pulumi.get(self, "organization_role_name")
 
     @organization_role_name.setter
-    def organization_role_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def organization_role_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "organization_role_name", value)
 
     @_builtins.property
     @pulumi.getter(name="organizationalUnits")
-    def organizational_units(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def organizational_units(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
         """
         return pulumi.get(self, "organizational_units")
 
     @organizational_units.setter
-    def organizational_units(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def organizational_units(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "organizational_units", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IAM role ARN that the workspace assumes.
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="stackSetName")
-    def stack_set_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stack_set_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
         """
         return pulumi.get(self, "stack_set_name")
 
     @stack_set_name.setter
-    def stack_set_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stack_set_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stack_set_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcConfiguration")
-    def vpc_configuration(self) -> Optional[pulumi.Input['WorkspaceVpcConfigurationArgs']]:
+    def vpc_configuration(self) -> pulumi.Input[Optional['WorkspaceVpcConfigurationArgs']]:
         """
         The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
         """
         return pulumi.get(self, "vpc_configuration")
 
     @vpc_configuration.setter
-    def vpc_configuration(self, value: Optional[pulumi.Input['WorkspaceVpcConfigurationArgs']]):
+    def vpc_configuration(self, value: pulumi.Input[Optional['WorkspaceVpcConfigurationArgs']]):
         pulumi.set(self, "vpc_configuration", value)
 
 
 @pulumi.input_type
 class _WorkspaceState:
     def __init__(__self__, *,
-                 account_access_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 grafana_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_access_control: Optional[pulumi.Input['WorkspaceNetworkAccessControlArgs']] = None,
-                 notification_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 organization_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 organizational_units: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 permission_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml_configuration_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 stack_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_configuration: Optional[pulumi.Input['WorkspaceVpcConfigurationArgs']] = None):
+                 account_access_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 authentication_providers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_sources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 grafana_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_access_control: pulumi.Input[Optional['WorkspaceNetworkAccessControlArgs']] = None,
+                 notification_destinations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 organization_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 organizational_units: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 permission_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml_configuration_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 stack_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vpc_configuration: pulumi.Input[Optional['WorkspaceVpcConfigurationArgs']] = None):
         """
         Input properties used for looking up and filtering Workspace resources.
 
@@ -415,175 +415,175 @@ class _WorkspaceState:
 
     @_builtins.property
     @pulumi.getter(name="accountAccessType")
-    def account_access_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_access_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizational_units` must also be present.
         """
         return pulumi.get(self, "account_access_type")
 
     @account_access_type.setter
-    def account_access_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_access_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_access_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the Grafana workspace.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="authenticationProviders")
-    def authentication_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def authentication_providers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
         """
         return pulumi.get(self, "authentication_providers")
 
     @authentication_providers.setter
-    def authentication_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def authentication_providers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "authentication_providers", value)
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def configuration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
         """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="dataSources")
-    def data_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def data_sources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, XRAY`
         """
         return pulumi.get(self, "data_sources")
 
     @data_sources.setter
-    def data_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def data_sources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "data_sources", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The workspace description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The endpoint of the Grafana workspace.
         """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
-    def endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="grafanaVersion")
-    def grafana_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def grafana_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the version of Grafana to support in the new workspace. Supported values are `9.4`, `10.4` and `12.4`. If not specified, defaults to the latest version.
         """
         return pulumi.get(self, "grafana_version")
 
     @grafana_version.setter
-    def grafana_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def grafana_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "grafana_version", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the AWS KMS key for encrypting workspace data.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Grafana workspace name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkAccessControl")
-    def network_access_control(self) -> Optional[pulumi.Input['WorkspaceNetworkAccessControlArgs']]:
+    def network_access_control(self) -> pulumi.Input[Optional['WorkspaceNetworkAccessControlArgs']]:
         """
         Configuration for network access to your workspace.See Network Access Control below.
         """
         return pulumi.get(self, "network_access_control")
 
     @network_access_control.setter
-    def network_access_control(self, value: Optional[pulumi.Input['WorkspaceNetworkAccessControlArgs']]):
+    def network_access_control(self, value: pulumi.Input[Optional['WorkspaceNetworkAccessControlArgs']]):
         pulumi.set(self, "network_access_control", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationDestinations")
-    def notification_destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def notification_destinations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
         """
         return pulumi.get(self, "notification_destinations")
 
     @notification_destinations.setter
-    def notification_destinations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def notification_destinations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "notification_destinations", value)
 
     @_builtins.property
     @pulumi.getter(name="organizationRoleName")
-    def organization_role_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def organization_role_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The role name that the workspace uses to access resources through Amazon Organizations.
         """
         return pulumi.get(self, "organization_role_name")
 
     @organization_role_name.setter
-    def organization_role_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def organization_role_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "organization_role_name", value)
 
     @_builtins.property
     @pulumi.getter(name="organizationalUnits")
-    def organizational_units(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def organizational_units(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
         """
         return pulumi.get(self, "organizational_units")
 
     @organizational_units.setter
-    def organizational_units(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def organizational_units(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "organizational_units", value)
 
     @_builtins.property
     @pulumi.getter(name="permissionType")
-    def permission_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def permission_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
 
@@ -592,88 +592,88 @@ class _WorkspaceState:
         return pulumi.get(self, "permission_type")
 
     @permission_type.setter
-    def permission_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def permission_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "permission_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IAM role ARN that the workspace assumes.
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="samlConfigurationStatus")
-    def saml_configuration_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def saml_configuration_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "saml_configuration_status")
 
     @saml_configuration_status.setter
-    def saml_configuration_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def saml_configuration_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "saml_configuration_status", value)
 
     @_builtins.property
     @pulumi.getter(name="stackSetName")
-    def stack_set_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stack_set_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
         """
         return pulumi.get(self, "stack_set_name")
 
     @stack_set_name.setter
-    def stack_set_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stack_set_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stack_set_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcConfiguration")
-    def vpc_configuration(self) -> Optional[pulumi.Input['WorkspaceVpcConfigurationArgs']]:
+    def vpc_configuration(self) -> pulumi.Input[Optional['WorkspaceVpcConfigurationArgs']]:
         """
         The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
         """
         return pulumi.get(self, "vpc_configuration")
 
     @vpc_configuration.setter
-    def vpc_configuration(self, value: Optional[pulumi.Input['WorkspaceVpcConfigurationArgs']]):
+    def vpc_configuration(self, value: pulumi.Input[Optional['WorkspaceVpcConfigurationArgs']]):
         pulumi.set(self, "vpc_configuration", value)
 
 
@@ -683,24 +683,24 @@ class Workspace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_access_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 grafana_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_access_control: Optional[pulumi.Input[Union['WorkspaceNetworkAccessControlArgs', 'WorkspaceNetworkAccessControlArgsDict']]] = None,
-                 notification_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 organization_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 organizational_units: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 permission_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 stack_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_configuration: Optional[pulumi.Input[Union['WorkspaceVpcConfigurationArgs', 'WorkspaceVpcConfigurationArgsDict']]] = None,
+                 account_access_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 authentication_providers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_sources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 grafana_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_access_control: pulumi.Input[Optional[Union['WorkspaceNetworkAccessControlArgs', 'WorkspaceNetworkAccessControlArgsDict']]] = None,
+                 notification_destinations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 organization_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 organizational_units: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 permission_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 stack_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vpc_configuration: pulumi.Input[Optional[Union['WorkspaceVpcConfigurationArgs', 'WorkspaceVpcConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         Provides an Amazon Managed Grafana workspace resource.
@@ -880,24 +880,24 @@ class Workspace(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_access_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 grafana_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_access_control: Optional[pulumi.Input[Union['WorkspaceNetworkAccessControlArgs', 'WorkspaceNetworkAccessControlArgsDict']]] = None,
-                 notification_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 organization_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 organizational_units: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 permission_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 stack_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_configuration: Optional[pulumi.Input[Union['WorkspaceVpcConfigurationArgs', 'WorkspaceVpcConfigurationArgsDict']]] = None,
+                 account_access_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 authentication_providers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_sources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 grafana_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_access_control: pulumi.Input[Optional[Union['WorkspaceNetworkAccessControlArgs', 'WorkspaceNetworkAccessControlArgsDict']]] = None,
+                 notification_destinations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 organization_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 organizational_units: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 permission_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 stack_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vpc_configuration: pulumi.Input[Optional[Union['WorkspaceVpcConfigurationArgs', 'WorkspaceVpcConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -945,28 +945,28 @@ class Workspace(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_access_type: Optional[pulumi.Input[_builtins.str]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            configuration: Optional[pulumi.Input[_builtins.str]] = None,
-            data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            grafana_version: Optional[pulumi.Input[_builtins.str]] = None,
-            kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            network_access_control: Optional[pulumi.Input[Union['WorkspaceNetworkAccessControlArgs', 'WorkspaceNetworkAccessControlArgsDict']]] = None,
-            notification_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            organization_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-            organizational_units: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            permission_type: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            saml_configuration_status: Optional[pulumi.Input[_builtins.str]] = None,
-            stack_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            vpc_configuration: Optional[pulumi.Input[Union['WorkspaceVpcConfigurationArgs', 'WorkspaceVpcConfigurationArgsDict']]] = None) -> 'Workspace':
+            account_access_type: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            authentication_providers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            configuration: pulumi.Input[Optional[_builtins.str]] = None,
+            data_sources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            grafana_version: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_access_control: pulumi.Input[Optional[Union['WorkspaceNetworkAccessControlArgs', 'WorkspaceNetworkAccessControlArgsDict']]] = None,
+            notification_destinations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            organization_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+            organizational_units: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            permission_type: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            saml_configuration_status: pulumi.Input[Optional[_builtins.str]] = None,
+            stack_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            vpc_configuration: pulumi.Input[Optional[Union['WorkspaceVpcConfigurationArgs', 'WorkspaceVpcConfigurationArgsDict']]] = None) -> 'Workspace':
         """
         Get an existing Workspace resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

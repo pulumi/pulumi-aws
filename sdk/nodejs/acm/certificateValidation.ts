@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  *         name: dvo.resourceRecordName,
  *         record: dvo.resourceRecordValue,
  *         type: dvo.resourceRecordType,
- *     } }), {})).map(([k, v]) => ({key: k, value: v}))) {
+ *     } }), {})).sort().map(([k, v]) => ({key: k, value: v}))) {
  *         exampleRecord.push(new aws.route53.Record(`example-${range.key}`, {
  *             allowOverwrite: true,
  *             name: range.value.name,
@@ -49,7 +49,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleCertificateValidation = new aws.acm.CertificateValidation("example", {
  *     certificateArn: exampleCertificate.arn,
- *     validationRecordFqdns: exampleRecord.apply(exampleRecord => exampleRecord.map(record => (record.fqdn))),
+ *     validationRecordFqdns: exampleRecord.apply(exampleRecord => Object.values(exampleRecord).map(record => (record.fqdn))),
  * });
  * const exampleListener = new aws.lb.Listener("example", {certificateArn: exampleCertificateValidation.certificateArn});
  * ```
@@ -83,7 +83,7 @@ import * as utilities from "../utilities";
  *         record: dvo.resourceRecordValue,
  *         type: dvo.resourceRecordType,
  *         zoneId: value,
- *     } }), {})).map(([k, v]) => ({key: k, value: v}))) {
+ *     } }), {})).sort().map(([k, v]) => ({key: k, value: v}))) {
  *         exampleRecord.push(new aws.route53.Record(`example-${range.key}`, {
  *             allowOverwrite: true,
  *             name: range.value.name,
@@ -96,7 +96,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleCertificateValidation = new aws.acm.CertificateValidation("example", {
  *     certificateArn: example.arn,
- *     validationRecordFqdns: exampleRecord.apply(exampleRecord => exampleRecord.map(record => (record.fqdn))),
+ *     validationRecordFqdns: exampleRecord.apply(exampleRecord => Object.values(exampleRecord).map(record => (record.fqdn))),
  * });
  * const exampleListener = new aws.lb.Listener("example", {certificateArn: exampleCertificateValidation.certificateArn});
  * ```
@@ -194,15 +194,15 @@ export interface CertificateValidationState {
     /**
      * ARN of the certificate that is being validated.
      */
-    certificateArn?: pulumi.Input<string>;
+    certificateArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
      */
-    validationRecordFqdns?: pulumi.Input<pulumi.Input<string>[]>;
+    validationRecordFqdns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -216,9 +216,9 @@ export interface CertificateValidationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
      */
-    validationRecordFqdns?: pulumi.Input<pulumi.Input<string>[]>;
+    validationRecordFqdns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

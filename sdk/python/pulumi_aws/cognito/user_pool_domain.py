@@ -21,9 +21,9 @@ class UserPoolDomainArgs:
     def __init__(__self__, *,
                  domain: pulumi.Input[_builtins.str],
                  user_pool_id: pulumi.Input[_builtins.str],
-                 certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_login_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_login_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a UserPoolDomain resource.
 
@@ -68,55 +68,55 @@ class UserPoolDomainArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateArn")
-    def certificate_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
         """
         return pulumi.get(self, "certificate_arn")
 
     @certificate_arn.setter
-    def certificate_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="managedLoginVersion")
-    def managed_login_version(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def managed_login_version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
         """
         return pulumi.get(self, "managed_login_version")
 
     @managed_login_version.setter
-    def managed_login_version(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def managed_login_version(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "managed_login_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _UserPoolDomainState:
     def __init__(__self__, *,
-                 aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloudfront_distribution: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloudfront_distribution_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloudfront_distribution_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_login_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloudfront_distribution: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloudfront_distribution_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloudfront_distribution_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_login_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserPoolDomain resources.
 
@@ -157,134 +157,134 @@ class _UserPoolDomainState:
 
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
-    def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS account ID for the user pool owner.
         """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
-    def aws_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateArn")
-    def certificate_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
         """
         return pulumi.get(self, "certificate_arn")
 
     @certificate_arn.setter
-    def certificate_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="cloudfrontDistribution")
-    def cloudfront_distribution(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cloudfront_distribution(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon CloudFront endpoint (e.g. `dpp0gtxikpq3y.cloudfront.net`) that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
         """
         return pulumi.get(self, "cloudfront_distribution")
 
     @cloudfront_distribution.setter
-    def cloudfront_distribution(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cloudfront_distribution(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cloudfront_distribution", value)
 
     @_builtins.property
     @pulumi.getter(name="cloudfrontDistributionArn")
-    def cloudfront_distribution_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cloudfront_distribution_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL of the CloudFront distribution. This is required to generate the ALIAS `route53.Record`
         """
         return pulumi.get(self, "cloudfront_distribution_arn")
 
     @cloudfront_distribution_arn.setter
-    def cloudfront_distribution_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cloudfront_distribution_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cloudfront_distribution_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="cloudfrontDistributionZoneId")
-    def cloudfront_distribution_zone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cloudfront_distribution_zone_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Route 53 hosted zone ID of the CloudFront distribution.
         """
         return pulumi.get(self, "cloudfront_distribution_zone_id")
 
     @cloudfront_distribution_zone_id.setter
-    def cloudfront_distribution_zone_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cloudfront_distribution_zone_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cloudfront_distribution_zone_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
         """
         return pulumi.get(self, "domain")
 
     @domain.setter
-    def domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain", value)
 
     @_builtins.property
     @pulumi.getter(name="managedLoginVersion")
-    def managed_login_version(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def managed_login_version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
         """
         return pulumi.get(self, "managed_login_version")
 
     @managed_login_version.setter
-    def managed_login_version(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def managed_login_version(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "managed_login_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="s3Bucket")
-    def s3_bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_bucket(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The S3 bucket where the static files for this domain are stored.
         """
         return pulumi.get(self, "s3_bucket")
 
     @s3_bucket.setter
-    def s3_bucket(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_bucket(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_bucket", value)
 
     @_builtins.property
     @pulumi.getter(name="userPoolId")
-    def user_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_pool_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user pool ID.
         """
         return pulumi.get(self, "user_pool_id")
 
     @user_pool_id.setter
-    def user_pool_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_pool_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_pool_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The app version.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -294,11 +294,11 @@ class UserPoolDomain(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_login_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_login_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a Cognito User Pool Domain resource.
@@ -427,11 +427,11 @@ class UserPoolDomain(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_login_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_login_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -466,17 +466,17 @@ class UserPoolDomain(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            cloudfront_distribution: Optional[pulumi.Input[_builtins.str]] = None,
-            cloudfront_distribution_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            cloudfront_distribution_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-            domain: Optional[pulumi.Input[_builtins.str]] = None,
-            managed_login_version: Optional[pulumi.Input[_builtins.int]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            s3_bucket: Optional[pulumi.Input[_builtins.str]] = None,
-            user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-            version: Optional[pulumi.Input[_builtins.str]] = None) -> 'UserPoolDomain':
+            aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            cloudfront_distribution: pulumi.Input[Optional[_builtins.str]] = None,
+            cloudfront_distribution_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            cloudfront_distribution_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+            domain: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_login_version: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            s3_bucket: pulumi.Input[Optional[_builtins.str]] = None,
+            user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> 'UserPoolDomain':
         """
         Get an existing UserPoolDomain resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

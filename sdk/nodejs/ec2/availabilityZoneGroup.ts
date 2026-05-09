@@ -110,15 +110,15 @@ export interface AvailabilityZoneGroupState {
     /**
      * Name of the Availability Zone Group.
      */
-    groupName?: pulumi.Input<string>;
+    groupName?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
      */
-    optInStatus?: pulumi.Input<string>;
+    optInStatus?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -136,5 +136,5 @@ export interface AvailabilityZoneGroupArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

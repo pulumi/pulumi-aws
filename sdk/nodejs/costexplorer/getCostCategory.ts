@@ -115,5 +115,5 @@ export interface GetCostCategoryOutputArgs {
     /**
      * Configuration block for the specific `Tag` to use for `Expression`. See below.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

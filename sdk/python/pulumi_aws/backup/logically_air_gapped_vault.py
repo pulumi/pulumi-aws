@@ -23,11 +23,11 @@ class LogicallyAirGappedVaultArgs:
     def __init__(__self__, *,
                  max_retention_days: pulumi.Input[_builtins.int],
                  min_retention_days: pulumi.Input[_builtins.int],
-                 encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['LogicallyAirGappedVaultTimeoutsArgs']] = None):
+                 encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['LogicallyAirGappedVaultTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a LogicallyAirGappedVault resource.
 
@@ -77,74 +77,74 @@ class LogicallyAirGappedVaultArgs:
 
     @_builtins.property
     @pulumi.getter(name="encryptionKeyArn")
-    def encryption_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encryption_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
         """
         return pulumi.get(self, "encryption_key_arn")
 
     @encryption_key_arn.setter
-    def encryption_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encryption_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encryption_key_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Logically Air Gapped Backup Vault to create.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Metadata that you can assign to help organize the resources that you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['LogicallyAirGappedVaultTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['LogicallyAirGappedVaultTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['LogicallyAirGappedVaultTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['LogicallyAirGappedVaultTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _LogicallyAirGappedVaultState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['LogicallyAirGappedVaultTimeoutsArgs']] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['LogicallyAirGappedVaultTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering LogicallyAirGappedVault resources.
 
@@ -178,107 +178,107 @@ class _LogicallyAirGappedVaultState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the Logically Air Gapped Backup Vault.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionKeyArn")
-    def encryption_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encryption_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
         """
         return pulumi.get(self, "encryption_key_arn")
 
     @encryption_key_arn.setter
-    def encryption_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encryption_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encryption_key_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="maxRetentionDays")
-    def max_retention_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_retention_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
         """
         return pulumi.get(self, "max_retention_days")
 
     @max_retention_days.setter
-    def max_retention_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_retention_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_retention_days", value)
 
     @_builtins.property
     @pulumi.getter(name="minRetentionDays")
-    def min_retention_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_retention_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Minimum retention period that the Logically Air Gapped Backup Vault retains recovery points.
         """
         return pulumi.get(self, "min_retention_days")
 
     @min_retention_days.setter
-    def min_retention_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_retention_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_retention_days", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Logically Air Gapped Backup Vault to create.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Metadata that you can assign to help organize the resources that you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['LogicallyAirGappedVaultTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['LogicallyAirGappedVaultTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['LogicallyAirGappedVaultTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['LogicallyAirGappedVaultTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
@@ -288,13 +288,13 @@ class LogicallyAirGappedVault(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['LogicallyAirGappedVaultTimeoutsArgs', 'LogicallyAirGappedVaultTimeoutsArgsDict']]] = None,
+                 encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['LogicallyAirGappedVaultTimeoutsArgs', 'LogicallyAirGappedVaultTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Backup Logically Air Gapped Vault.
@@ -378,13 +378,13 @@ class LogicallyAirGappedVault(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['LogicallyAirGappedVaultTimeoutsArgs', 'LogicallyAirGappedVaultTimeoutsArgsDict']]] = None,
+                 encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['LogicallyAirGappedVaultTimeoutsArgs', 'LogicallyAirGappedVaultTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -417,15 +417,15 @@ class LogicallyAirGappedVault(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            max_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-            min_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: Optional[pulumi.Input[Union['LogicallyAirGappedVaultTimeoutsArgs', 'LogicallyAirGappedVaultTimeoutsArgsDict']]] = None) -> 'LogicallyAirGappedVault':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            max_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+            min_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['LogicallyAirGappedVaultTimeoutsArgs', 'LogicallyAirGappedVaultTimeoutsArgsDict']]] = None) -> 'LogicallyAirGappedVault':
         """
         Get an existing LogicallyAirGappedVault resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -21,10 +21,10 @@ class NamespaceRegistrationArgs:
     def __init__(__self__, *,
                  consumer_identifier: pulumi.Input[_builtins.str],
                  namespace_type: pulumi.Input[_builtins.str],
-                 provisioned_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 serverless_namespace_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 serverless_workgroup_identifier: Optional[pulumi.Input[_builtins.str]] = None):
+                 provisioned_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 serverless_namespace_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 serverless_workgroup_identifier: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a NamespaceRegistration resource.
 
@@ -76,62 +76,62 @@ class NamespaceRegistrationArgs:
 
     @_builtins.property
     @pulumi.getter(name="provisionedClusterIdentifier")
-    def provisioned_cluster_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provisioned_cluster_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the provisioned cluster. Required when `namespace_type` is `provisioned`.
         """
         return pulumi.get(self, "provisioned_cluster_identifier")
 
     @provisioned_cluster_identifier.setter
-    def provisioned_cluster_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provisioned_cluster_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provisioned_cluster_identifier", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="serverlessNamespaceIdentifier")
-    def serverless_namespace_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def serverless_namespace_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the serverless namespace. Required when `namespace_type` is `serverless`. Can be either the namespace name or namespace ID (UUID).
         """
         return pulumi.get(self, "serverless_namespace_identifier")
 
     @serverless_namespace_identifier.setter
-    def serverless_namespace_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def serverless_namespace_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "serverless_namespace_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="serverlessWorkgroupIdentifier")
-    def serverless_workgroup_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def serverless_workgroup_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the serverless workgroup. Required when `namespace_type` is `serverless`.
         """
         return pulumi.get(self, "serverless_workgroup_identifier")
 
     @serverless_workgroup_identifier.setter
-    def serverless_workgroup_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def serverless_workgroup_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "serverless_workgroup_identifier", value)
 
 
 @pulumi.input_type
 class _NamespaceRegistrationState:
     def __init__(__self__, *,
-                 consumer_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioned_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 serverless_namespace_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 serverless_workgroup_identifier: Optional[pulumi.Input[_builtins.str]] = None):
+                 consumer_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioned_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 serverless_namespace_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 serverless_workgroup_identifier: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NamespaceRegistration resources.
 
@@ -159,19 +159,19 @@ class _NamespaceRegistrationState:
 
     @_builtins.property
     @pulumi.getter(name="consumerIdentifier")
-    def consumer_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def consumer_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Consumer identifier for the registration. Typically in the format `DataCatalog/<account-id>`.
         """
         return pulumi.get(self, "consumer_identifier")
 
     @consumer_identifier.setter
-    def consumer_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def consumer_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "consumer_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="namespaceType")
-    def namespace_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def namespace_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of namespace being registered. Valid values: `serverless`, `provisioned`.
 
@@ -180,55 +180,55 @@ class _NamespaceRegistrationState:
         return pulumi.get(self, "namespace_type")
 
     @namespace_type.setter
-    def namespace_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def namespace_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "namespace_type", value)
 
     @_builtins.property
     @pulumi.getter(name="provisionedClusterIdentifier")
-    def provisioned_cluster_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provisioned_cluster_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the provisioned cluster. Required when `namespace_type` is `provisioned`.
         """
         return pulumi.get(self, "provisioned_cluster_identifier")
 
     @provisioned_cluster_identifier.setter
-    def provisioned_cluster_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provisioned_cluster_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provisioned_cluster_identifier", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="serverlessNamespaceIdentifier")
-    def serverless_namespace_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def serverless_namespace_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the serverless namespace. Required when `namespace_type` is `serverless`. Can be either the namespace name or namespace ID (UUID).
         """
         return pulumi.get(self, "serverless_namespace_identifier")
 
     @serverless_namespace_identifier.setter
-    def serverless_namespace_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def serverless_namespace_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "serverless_namespace_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="serverlessWorkgroupIdentifier")
-    def serverless_workgroup_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def serverless_workgroup_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the serverless workgroup. Required when `namespace_type` is `serverless`.
         """
         return pulumi.get(self, "serverless_workgroup_identifier")
 
     @serverless_workgroup_identifier.setter
-    def serverless_workgroup_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def serverless_workgroup_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "serverless_workgroup_identifier", value)
 
 
@@ -238,12 +238,12 @@ class NamespaceRegistration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 consumer_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioned_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 serverless_namespace_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 serverless_workgroup_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+                 consumer_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioned_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 serverless_namespace_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 serverless_workgroup_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an Amazon Redshift namespace registration to the AWS Glue Data Catalog. Use this resource to enable access to a Redshift data warehouse using the Apache Iceberg REST API.
@@ -447,12 +447,12 @@ class NamespaceRegistration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 consumer_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioned_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 serverless_namespace_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 serverless_workgroup_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+                 consumer_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioned_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 serverless_namespace_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 serverless_workgroup_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -482,12 +482,12 @@ class NamespaceRegistration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            consumer_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-            namespace_type: Optional[pulumi.Input[_builtins.str]] = None,
-            provisioned_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            serverless_namespace_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-            serverless_workgroup_identifier: Optional[pulumi.Input[_builtins.str]] = None) -> 'NamespaceRegistration':
+            consumer_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            namespace_type: pulumi.Input[Optional[_builtins.str]] = None,
+            provisioned_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            serverless_namespace_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            serverless_workgroup_identifier: pulumi.Input[Optional[_builtins.str]] = None) -> 'NamespaceRegistration':
         """
         Get an existing NamespaceRegistration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

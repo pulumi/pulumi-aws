@@ -25,10 +25,10 @@ class UserDefinedFunctionArgs:
                  database_name: pulumi.Input[_builtins.str],
                  owner_name: pulumi.Input[_builtins.str],
                  owner_type: pulumi.Input[_builtins.str],
-                 catalog_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_uris: Optional[pulumi.Input[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArgs']]]] = None):
+                 catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_uris: pulumi.Input[Optional[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArgs']]]] = None):
         """
         The set of arguments for constructing a UserDefinedFunction resource.
 
@@ -104,66 +104,66 @@ class UserDefinedFunctionArgs:
 
     @_builtins.property
     @pulumi.getter(name="catalogId")
-    def catalog_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def catalog_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the Glue Catalog to create the function in. If omitted, this defaults to the AWS Account ID.
         """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
-    def catalog_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def catalog_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "catalog_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the function.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceUris")
-    def resource_uris(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArgs']]]]:
+    def resource_uris(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArgs']]]]:
         """
         The configuration block for Resource URIs. See resource uris below for more details.
         """
         return pulumi.get(self, "resource_uris")
 
     @resource_uris.setter
-    def resource_uris(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArgs']]]]):
+    def resource_uris(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArgs']]]]):
         pulumi.set(self, "resource_uris", value)
 
 
 @pulumi.input_type
 class _UserDefinedFunctionState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 catalog_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 class_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 create_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_uris: Optional[pulumi.Input[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArgs']]]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 class_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 create_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_uris: pulumi.Input[Optional[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArgs']]]] = None):
         """
         Input properties used for looking up and filtering UserDefinedFunction resources.
 
@@ -201,122 +201,122 @@ class _UserDefinedFunctionState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the Glue User Defined Function.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="catalogId")
-    def catalog_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def catalog_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the Glue Catalog to create the function in. If omitted, this defaults to the AWS Account ID.
         """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
-    def catalog_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def catalog_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "catalog_id", value)
 
     @_builtins.property
     @pulumi.getter(name="className")
-    def class_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def class_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Java class that contains the function code.
         """
         return pulumi.get(self, "class_name")
 
     @class_name.setter
-    def class_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def class_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "class_name", value)
 
     @_builtins.property
     @pulumi.getter(name="createTime")
-    def create_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time at which the function was created.
         """
         return pulumi.get(self, "create_time")
 
     @create_time.setter
-    def create_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create_time", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Database to create the Function.
         """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
-    def database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the function.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="ownerName")
-    def owner_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The owner of the function.
         """
         return pulumi.get(self, "owner_name")
 
     @owner_name.setter
-    def owner_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner_name", value)
 
     @_builtins.property
     @pulumi.getter(name="ownerType")
-    def owner_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
         """
         return pulumi.get(self, "owner_type")
 
     @owner_type.setter
-    def owner_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceUris")
-    def resource_uris(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArgs']]]]:
+    def resource_uris(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArgs']]]]:
         """
         The configuration block for Resource URIs. See resource uris below for more details.
         """
         return pulumi.get(self, "resource_uris")
 
     @resource_uris.setter
-    def resource_uris(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArgs']]]]):
+    def resource_uris(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArgs']]]]):
         pulumi.set(self, "resource_uris", value)
 
 
@@ -326,14 +326,14 @@ class UserDefinedFunction(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catalog_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 class_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_uris: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserDefinedFunctionResourceUriArgs', 'UserDefinedFunctionResourceUriArgsDict']]]]] = None,
+                 catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 class_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_uris: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserDefinedFunctionResourceUriArgs', 'UserDefinedFunctionResourceUriArgsDict']]]]] = None,
                  __props__=None):
         """
         Provides a Glue User Defined Function Resource.
@@ -431,14 +431,14 @@ class UserDefinedFunction(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catalog_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 class_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_uris: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserDefinedFunctionResourceUriArgs', 'UserDefinedFunctionResourceUriArgsDict']]]]] = None,
+                 catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 class_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_uris: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserDefinedFunctionResourceUriArgs', 'UserDefinedFunctionResourceUriArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -476,16 +476,16 @@ class UserDefinedFunction(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            catalog_id: Optional[pulumi.Input[_builtins.str]] = None,
-            class_name: Optional[pulumi.Input[_builtins.str]] = None,
-            create_time: Optional[pulumi.Input[_builtins.str]] = None,
-            database_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            owner_name: Optional[pulumi.Input[_builtins.str]] = None,
-            owner_type: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_uris: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserDefinedFunctionResourceUriArgs', 'UserDefinedFunctionResourceUriArgsDict']]]]] = None) -> 'UserDefinedFunction':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
+            class_name: pulumi.Input[Optional[_builtins.str]] = None,
+            create_time: pulumi.Input[Optional[_builtins.str]] = None,
+            database_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_name: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_type: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_uris: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserDefinedFunctionResourceUriArgs', 'UserDefinedFunctionResourceUriArgsDict']]]]] = None) -> 'UserDefinedFunction':
         """
         Get an existing UserDefinedFunction resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

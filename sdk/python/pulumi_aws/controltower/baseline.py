@@ -24,10 +24,10 @@ class BaselineArgs:
                  baseline_identifier: pulumi.Input[_builtins.str],
                  baseline_version: pulumi.Input[_builtins.str],
                  target_identifier: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input['BaselineParametersArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['BaselineTimeoutsArgs']] = None):
+                 parameters: pulumi.Input[Optional['BaselineParametersArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['BaselineTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Baseline resource.
 
@@ -92,63 +92,63 @@ class BaselineArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input['BaselineParametersArgs']]:
+    def parameters(self) -> pulumi.Input[Optional['BaselineParametersArgs']]:
         """
         A list of key-value objects that specify enablement parameters, where key is a string and value is a document of any type. See Parameter below for details.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input['BaselineParametersArgs']]):
+    def parameters(self, value: pulumi.Input[Optional['BaselineParametersArgs']]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Tags to apply to the landing zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['BaselineTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['BaselineTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['BaselineTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['BaselineTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _BaselineState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 baseline_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 baseline_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 operation_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input['BaselineParametersArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input['BaselineTimeoutsArgs']] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 baseline_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 baseline_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 operation_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional['BaselineParametersArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional['BaselineTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering Baseline resources.
 
@@ -186,100 +186,100 @@ class _BaselineState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the Baseline.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="baselineIdentifier")
-    def baseline_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def baseline_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the baseline to be enabled.
         """
         return pulumi.get(self, "baseline_identifier")
 
     @baseline_identifier.setter
-    def baseline_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def baseline_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "baseline_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="baselineVersion")
-    def baseline_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def baseline_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the baseline to be enabled.
         """
         return pulumi.get(self, "baseline_version")
 
     @baseline_version.setter
-    def baseline_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def baseline_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "baseline_version", value)
 
     @_builtins.property
     @pulumi.getter(name="operationIdentifier")
-    def operation_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def operation_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "operation_identifier")
 
     @operation_identifier.setter
-    def operation_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def operation_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "operation_identifier", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input['BaselineParametersArgs']]:
+    def parameters(self) -> pulumi.Input[Optional['BaselineParametersArgs']]:
         """
         A list of key-value objects that specify enablement parameters, where key is a string and value is a document of any type. See Parameter below for details.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input['BaselineParametersArgs']]):
+    def parameters(self, value: pulumi.Input[Optional['BaselineParametersArgs']]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Tags to apply to the landing zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the landing zone, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="targetIdentifier")
-    def target_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the target on which the baseline will be enabled. Only OUs are supported as targets.
 
@@ -288,16 +288,16 @@ class _BaselineState:
         return pulumi.get(self, "target_identifier")
 
     @target_identifier.setter
-    def target_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_identifier", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['BaselineTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['BaselineTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['BaselineTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['BaselineTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
@@ -307,13 +307,13 @@ class Baseline(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 baseline_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 baseline_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Union['BaselineParametersArgs', 'BaselineParametersArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input[Union['BaselineTimeoutsArgs', 'BaselineTimeoutsArgsDict']]] = None,
+                 baseline_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 baseline_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Union['BaselineParametersArgs', 'BaselineParametersArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional[Union['BaselineTimeoutsArgs', 'BaselineTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Control Tower Baseline.
@@ -407,13 +407,13 @@ class Baseline(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 baseline_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 baseline_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Union['BaselineParametersArgs', 'BaselineParametersArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input[Union['BaselineTimeoutsArgs', 'BaselineTimeoutsArgsDict']]] = None,
+                 baseline_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 baseline_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Union['BaselineParametersArgs', 'BaselineParametersArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional[Union['BaselineTimeoutsArgs', 'BaselineTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -449,16 +449,16 @@ class Baseline(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            baseline_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-            baseline_version: Optional[pulumi.Input[_builtins.str]] = None,
-            operation_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-            parameters: Optional[pulumi.Input[Union['BaselineParametersArgs', 'BaselineParametersArgsDict']]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            target_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-            timeouts: Optional[pulumi.Input[Union['BaselineTimeoutsArgs', 'BaselineTimeoutsArgsDict']]] = None) -> 'Baseline':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            baseline_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            baseline_version: pulumi.Input[Optional[_builtins.str]] = None,
+            operation_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Union['BaselineParametersArgs', 'BaselineParametersArgsDict']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            target_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['BaselineTimeoutsArgs', 'BaselineTimeoutsArgsDict']]] = None) -> 'Baseline':
         """
         Get an existing Baseline resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -149,8 +149,8 @@ def get_arn(arn: Optional[_builtins.str] = None,
         region=pulumi.get(__ret__, 'region'),
         resource=pulumi.get(__ret__, 'resource'),
         service=pulumi.get(__ret__, 'service'))
-def get_arn_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
-                   id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_arn_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
+                   id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetArnResult]:
     """
     Parses an ARN into its constituent parts.

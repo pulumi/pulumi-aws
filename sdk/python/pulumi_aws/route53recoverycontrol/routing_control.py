@@ -20,8 +20,8 @@ __all__ = ['RoutingControlArgs', 'RoutingControl']
 class RoutingControlArgs:
     def __init__(__self__, *,
                  cluster_arn: pulumi.Input[_builtins.str],
-                 control_panel_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 control_panel_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a RoutingControl resource.
 
@@ -51,19 +51,19 @@ class RoutingControlArgs:
 
     @_builtins.property
     @pulumi.getter(name="controlPanelArn")
-    def control_panel_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def control_panel_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the control panel in which this routing control will reside.
         """
         return pulumi.get(self, "control_panel_arn")
 
     @control_panel_arn.setter
-    def control_panel_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def control_panel_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "control_panel_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name describing the routing control.
 
@@ -72,18 +72,18 @@ class RoutingControlArgs:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _RoutingControlState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 control_panel_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 control_panel_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RoutingControl resources.
 
@@ -108,43 +108,43 @@ class _RoutingControlState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the routing control.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterArn")
-    def cluster_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the cluster in which this routing control will reside.
         """
         return pulumi.get(self, "cluster_arn")
 
     @cluster_arn.setter
-    def cluster_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="controlPanelArn")
-    def control_panel_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def control_panel_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the control panel in which this routing control will reside.
         """
         return pulumi.get(self, "control_panel_arn")
 
     @control_panel_arn.setter
-    def control_panel_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def control_panel_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "control_panel_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name describing the routing control.
 
@@ -153,19 +153,19 @@ class _RoutingControlState:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Status of routing control. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
@@ -175,9 +175,9 @@ class RoutingControl(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 control_panel_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 control_panel_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides an AWS Route 53 Recovery Control Config Routing Control.
@@ -274,9 +274,9 @@ class RoutingControl(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 control_panel_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 control_panel_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -303,11 +303,11 @@ class RoutingControl(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            cluster_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            control_panel_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None) -> 'RoutingControl':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            cluster_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            control_panel_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None) -> 'RoutingControl':
         """
         Get an existing RoutingControl resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

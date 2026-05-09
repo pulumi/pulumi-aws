@@ -164,48 +164,48 @@ export interface InvoiceUnitState {
     /**
      * ARN of the invoice unit.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Description of the invoice unit.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * AWS account ID that receives invoices for this unit. Cannot be changed after creation.
      */
-    invoiceReceiver?: pulumi.Input<string>;
+    invoiceReceiver?: pulumi.Input<string | undefined>;
     /**
      * Timestamp when the invoice unit was last modified.
      */
-    lastModified?: pulumi.Input<string>;
+    lastModified?: pulumi.Input<string | undefined>;
     /**
      * Unique name of the invoice unit. Cannot be changed after creation.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      *
      * @deprecated This attribute will be removed in a future version of the provider.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for invoice unit rules. See `rule` below.
      *
      * The following arguments are optional:
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.invoicing.InvoiceUnitRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.invoicing.InvoiceUnitRule>[] | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Whether tax inheritance is disabled for this invoice unit.
      */
-    taxInheritanceDisabled?: pulumi.Input<boolean>;
-    timeouts?: pulumi.Input<inputs.invoicing.InvoiceUnitTimeouts>;
+    taxInheritanceDisabled?: pulumi.Input<boolean | undefined>;
+    timeouts?: pulumi.Input<inputs.invoicing.InvoiceUnitTimeouts | undefined>;
 }
 
 /**
@@ -215,7 +215,7 @@ export interface InvoiceUnitArgs {
     /**
      * Description of the invoice unit.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * AWS account ID that receives invoices for this unit. Cannot be changed after creation.
      */
@@ -223,26 +223,26 @@ export interface InvoiceUnitArgs {
     /**
      * Unique name of the invoice unit. Cannot be changed after creation.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      *
      * @deprecated This attribute will be removed in a future version of the provider.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for invoice unit rules. See `rule` below.
      *
      * The following arguments are optional:
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.invoicing.InvoiceUnitRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.invoicing.InvoiceUnitRule>[] | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Whether tax inheritance is disabled for this invoice unit.
      */
-    taxInheritanceDisabled?: pulumi.Input<boolean>;
-    timeouts?: pulumi.Input<inputs.invoicing.InvoiceUnitTimeouts>;
+    taxInheritanceDisabled?: pulumi.Input<boolean | undefined>;
+    timeouts?: pulumi.Input<inputs.invoicing.InvoiceUnitTimeouts | undefined>;
 }

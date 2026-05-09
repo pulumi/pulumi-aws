@@ -144,27 +144,27 @@ export interface AliasState {
     /**
      * The Amazon Resource Name (ARN) identifying your state machine alias.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The date the state machine alias was created.
      */
-    creationDate?: pulumi.Input<string>;
+    creationDate?: pulumi.Input<string | undefined>;
     /**
      * Description of the alias.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name for the alias you are creating.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The StateMachine alias' route configuration settings. Fields documented below
      */
-    routingConfigurations?: pulumi.Input<pulumi.Input<inputs.sfn.AliasRoutingConfiguration>[]>;
+    routingConfigurations?: pulumi.Input<pulumi.Input<inputs.sfn.AliasRoutingConfiguration>[] | undefined>;
 }
 
 /**
@@ -174,15 +174,15 @@ export interface AliasArgs {
     /**
      * Description of the alias.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name for the alias you are creating.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The StateMachine alias' route configuration settings. Fields documented below
      */

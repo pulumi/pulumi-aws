@@ -157,15 +157,15 @@ export interface ReplicationConfigurationState {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The registry ID where the replication configuration was created.
      */
-    registryId?: pulumi.Input<string>;
+    registryId?: pulumi.Input<string | undefined>;
     /**
      * Replication configuration for a registry. See Replication Configuration.
      */
-    replicationConfiguration?: pulumi.Input<inputs.ecr.ReplicationConfigurationReplicationConfiguration>;
+    replicationConfiguration?: pulumi.Input<inputs.ecr.ReplicationConfigurationReplicationConfiguration | undefined>;
 }
 
 /**
@@ -175,9 +175,9 @@ export interface ReplicationConfigurationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Replication configuration for a registry. See Replication Configuration.
      */
-    replicationConfiguration?: pulumi.Input<inputs.ecr.ReplicationConfigurationReplicationConfiguration>;
+    replicationConfiguration?: pulumi.Input<inputs.ecr.ReplicationConfigurationReplicationConfiguration | undefined>;
 }

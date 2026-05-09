@@ -23,7 +23,7 @@ class ContinuousDeploymentPolicyArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[_builtins.bool],
                  staging_distribution_dns_names: pulumi.Input['ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs'],
-                 traffic_config: Optional[pulumi.Input['ContinuousDeploymentPolicyTrafficConfigArgs']] = None):
+                 traffic_config: pulumi.Input[Optional['ContinuousDeploymentPolicyTrafficConfigArgs']] = None):
         """
         The set of arguments for constructing a ContinuousDeploymentPolicy resource.
 
@@ -62,26 +62,26 @@ class ContinuousDeploymentPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="trafficConfig")
-    def traffic_config(self) -> Optional[pulumi.Input['ContinuousDeploymentPolicyTrafficConfigArgs']]:
+    def traffic_config(self) -> pulumi.Input[Optional['ContinuousDeploymentPolicyTrafficConfigArgs']]:
         """
         Parameters for routing production traffic from primary to staging distributions. See `traffic_config`.
         """
         return pulumi.get(self, "traffic_config")
 
     @traffic_config.setter
-    def traffic_config(self, value: Optional[pulumi.Input['ContinuousDeploymentPolicyTrafficConfigArgs']]):
+    def traffic_config(self, value: pulumi.Input[Optional['ContinuousDeploymentPolicyTrafficConfigArgs']]):
         pulumi.set(self, "traffic_config", value)
 
 
 @pulumi.input_type
 class _ContinuousDeploymentPolicyState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 etag: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_modified_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 staging_distribution_dns_names: Optional[pulumi.Input['ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs']] = None,
-                 traffic_config: Optional[pulumi.Input['ContinuousDeploymentPolicyTrafficConfigArgs']] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 etag: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_modified_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 staging_distribution_dns_names: pulumi.Input[Optional['ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs']] = None,
+                 traffic_config: pulumi.Input[Optional['ContinuousDeploymentPolicyTrafficConfigArgs']] = None):
         """
         Input properties used for looking up and filtering ContinuousDeploymentPolicy resources.
 
@@ -107,74 +107,74 @@ class _ContinuousDeploymentPolicyState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The continuous deployment policy ARN.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether this continuous deployment policy is enabled.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def etag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Current version of the continuous distribution policy.
         """
         return pulumi.get(self, "etag")
 
     @etag.setter
-    def etag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def etag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "etag", value)
 
     @_builtins.property
     @pulumi.getter(name="lastModifiedTime")
-    def last_modified_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_modified_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date and time the continuous deployment policy was last modified.
         """
         return pulumi.get(self, "last_modified_time")
 
     @last_modified_time.setter
-    def last_modified_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_modified_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_modified_time", value)
 
     @_builtins.property
     @pulumi.getter(name="stagingDistributionDnsNames")
-    def staging_distribution_dns_names(self) -> Optional[pulumi.Input['ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs']]:
+    def staging_distribution_dns_names(self) -> pulumi.Input[Optional['ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs']]:
         """
         CloudFront domain name of the staging distribution. See `staging_distribution_dns_names`.
         """
         return pulumi.get(self, "staging_distribution_dns_names")
 
     @staging_distribution_dns_names.setter
-    def staging_distribution_dns_names(self, value: Optional[pulumi.Input['ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs']]):
+    def staging_distribution_dns_names(self, value: pulumi.Input[Optional['ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs']]):
         pulumi.set(self, "staging_distribution_dns_names", value)
 
     @_builtins.property
     @pulumi.getter(name="trafficConfig")
-    def traffic_config(self) -> Optional[pulumi.Input['ContinuousDeploymentPolicyTrafficConfigArgs']]:
+    def traffic_config(self) -> pulumi.Input[Optional['ContinuousDeploymentPolicyTrafficConfigArgs']]:
         """
         Parameters for routing production traffic from primary to staging distributions. See `traffic_config`.
         """
         return pulumi.get(self, "traffic_config")
 
     @traffic_config.setter
-    def traffic_config(self, value: Optional[pulumi.Input['ContinuousDeploymentPolicyTrafficConfigArgs']]):
+    def traffic_config(self, value: pulumi.Input[Optional['ContinuousDeploymentPolicyTrafficConfigArgs']]):
         pulumi.set(self, "traffic_config", value)
 
 
@@ -184,9 +184,9 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 staging_distribution_dns_names: Optional[pulumi.Input[Union['ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs', 'ContinuousDeploymentPolicyStagingDistributionDnsNamesArgsDict']]] = None,
-                 traffic_config: Optional[pulumi.Input[Union['ContinuousDeploymentPolicyTrafficConfigArgs', 'ContinuousDeploymentPolicyTrafficConfigArgsDict']]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 staging_distribution_dns_names: pulumi.Input[Optional[Union['ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs', 'ContinuousDeploymentPolicyStagingDistributionDnsNamesArgsDict']]] = None,
+                 traffic_config: pulumi.Input[Optional[Union['ContinuousDeploymentPolicyTrafficConfigArgs', 'ContinuousDeploymentPolicyTrafficConfigArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS CloudFront Continuous Deployment Policy.
@@ -385,9 +385,9 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 staging_distribution_dns_names: Optional[pulumi.Input[Union['ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs', 'ContinuousDeploymentPolicyStagingDistributionDnsNamesArgsDict']]] = None,
-                 traffic_config: Optional[pulumi.Input[Union['ContinuousDeploymentPolicyTrafficConfigArgs', 'ContinuousDeploymentPolicyTrafficConfigArgsDict']]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 staging_distribution_dns_names: pulumi.Input[Optional[Union['ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs', 'ContinuousDeploymentPolicyStagingDistributionDnsNamesArgsDict']]] = None,
+                 traffic_config: pulumi.Input[Optional[Union['ContinuousDeploymentPolicyTrafficConfigArgs', 'ContinuousDeploymentPolicyTrafficConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -417,12 +417,12 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            etag: Optional[pulumi.Input[_builtins.str]] = None,
-            last_modified_time: Optional[pulumi.Input[_builtins.str]] = None,
-            staging_distribution_dns_names: Optional[pulumi.Input[Union['ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs', 'ContinuousDeploymentPolicyStagingDistributionDnsNamesArgsDict']]] = None,
-            traffic_config: Optional[pulumi.Input[Union['ContinuousDeploymentPolicyTrafficConfigArgs', 'ContinuousDeploymentPolicyTrafficConfigArgsDict']]] = None) -> 'ContinuousDeploymentPolicy':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            last_modified_time: pulumi.Input[Optional[_builtins.str]] = None,
+            staging_distribution_dns_names: pulumi.Input[Optional[Union['ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs', 'ContinuousDeploymentPolicyStagingDistributionDnsNamesArgsDict']]] = None,
+            traffic_config: pulumi.Input[Optional[Union['ContinuousDeploymentPolicyTrafficConfigArgs', 'ContinuousDeploymentPolicyTrafficConfigArgsDict']]] = None) -> 'ContinuousDeploymentPolicy':
         """
         Get an existing ContinuousDeploymentPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

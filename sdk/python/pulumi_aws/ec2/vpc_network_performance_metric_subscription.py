@@ -21,9 +21,9 @@ class VpcNetworkPerformanceMetricSubscriptionArgs:
     def __init__(__self__, *,
                  destination: pulumi.Input[_builtins.str],
                  source: pulumi.Input[_builtins.str],
-                 metric: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 statistic: Optional[pulumi.Input[_builtins.str]] = None):
+                 metric: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 statistic: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VpcNetworkPerformanceMetricSubscription resource.
 
@@ -68,50 +68,50 @@ class VpcNetworkPerformanceMetricSubscriptionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def metric(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metric(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
         """
         return pulumi.get(self, "metric")
 
     @metric.setter
-    def metric(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metric(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metric", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def statistic(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def statistic(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
         """
         return pulumi.get(self, "statistic")
 
     @statistic.setter
-    def statistic(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def statistic(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "statistic", value)
 
 
 @pulumi.input_type
 class _VpcNetworkPerformanceMetricSubscriptionState:
     def __init__(__self__, *,
-                 destination: Optional[pulumi.Input[_builtins.str]] = None,
-                 metric: Optional[pulumi.Input[_builtins.str]] = None,
-                 period: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[_builtins.str]] = None,
-                 statistic: Optional[pulumi.Input[_builtins.str]] = None):
+                 destination: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric: pulumi.Input[Optional[_builtins.str]] = None,
+                 period: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[_builtins.str]] = None,
+                 statistic: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VpcNetworkPerformanceMetricSubscription resources.
 
@@ -137,74 +137,74 @@ class _VpcNetworkPerformanceMetricSubscriptionState:
 
     @_builtins.property
     @pulumi.getter
-    def destination(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
         """
         return pulumi.get(self, "destination")
 
     @destination.setter
-    def destination(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination", value)
 
     @_builtins.property
     @pulumi.getter
-    def metric(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metric(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
         """
         return pulumi.get(self, "metric")
 
     @metric.setter
-    def metric(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metric(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metric", value)
 
     @_builtins.property
     @pulumi.getter
-    def period(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def period(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The data aggregation time for the subscription.
         """
         return pulumi.get(self, "period")
 
     @period.setter
-    def period(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def period(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "period", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source", value)
 
     @_builtins.property
     @pulumi.getter
-    def statistic(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def statistic(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
         """
         return pulumi.get(self, "statistic")
 
     @statistic.setter
-    def statistic(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def statistic(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "statistic", value)
 
 
@@ -214,11 +214,11 @@ class VpcNetworkPerformanceMetricSubscription(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination: Optional[pulumi.Input[_builtins.str]] = None,
-                 metric: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[_builtins.str]] = None,
-                 statistic: Optional[pulumi.Input[_builtins.str]] = None,
+                 destination: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[_builtins.str]] = None,
+                 statistic: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a resource to manage an Infrastructure Performance subscription.
@@ -279,11 +279,11 @@ class VpcNetworkPerformanceMetricSubscription(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination: Optional[pulumi.Input[_builtins.str]] = None,
-                 metric: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[_builtins.str]] = None,
-                 statistic: Optional[pulumi.Input[_builtins.str]] = None,
+                 destination: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[_builtins.str]] = None,
+                 statistic: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -313,12 +313,12 @@ class VpcNetworkPerformanceMetricSubscription(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            destination: Optional[pulumi.Input[_builtins.str]] = None,
-            metric: Optional[pulumi.Input[_builtins.str]] = None,
-            period: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            source: Optional[pulumi.Input[_builtins.str]] = None,
-            statistic: Optional[pulumi.Input[_builtins.str]] = None) -> 'VpcNetworkPerformanceMetricSubscription':
+            destination: pulumi.Input[Optional[_builtins.str]] = None,
+            metric: pulumi.Input[Optional[_builtins.str]] = None,
+            period: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            source: pulumi.Input[Optional[_builtins.str]] = None,
+            statistic: pulumi.Input[Optional[_builtins.str]] = None) -> 'VpcNetworkPerformanceMetricSubscription':
         """
         Get an existing VpcNetworkPerformanceMetricSubscription resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

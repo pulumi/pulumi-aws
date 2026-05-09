@@ -292,8 +292,8 @@ def get_signing_job(job_id: Optional[_builtins.str] = None,
         sources=pulumi.get(__ret__, 'sources'),
         status=pulumi.get(__ret__, 'status'),
         status_reason=pulumi.get(__ret__, 'status_reason'))
-def get_signing_job_output(job_id: Optional[pulumi.Input[_builtins.str]] = None,
-                           region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_signing_job_output(job_id: pulumi.Input[Optional[_builtins.str]] = None,
+                           region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSigningJobResult]:
     """
     Provides information about a Signer Signing Job.

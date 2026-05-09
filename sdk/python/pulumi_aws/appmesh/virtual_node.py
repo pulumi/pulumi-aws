@@ -23,10 +23,10 @@ class VirtualNodeArgs:
     def __init__(__self__, *,
                  mesh_name: pulumi.Input[_builtins.str],
                  spec: pulumi.Input['VirtualNodeSpecArgs'],
-                 mesh_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 mesh_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VirtualNode resource.
 
@@ -74,67 +74,67 @@ class VirtualNodeArgs:
 
     @_builtins.property
     @pulumi.getter(name="meshOwner")
-    def mesh_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mesh_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
         """
         return pulumi.get(self, "mesh_owner")
 
     @mesh_owner.setter
-    def mesh_owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mesh_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mesh_owner", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name to use for the virtual node. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _VirtualNodeState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_updated_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 mesh_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 mesh_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 spec: Optional[pulumi.Input['VirtualNodeSpecArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_updated_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 mesh_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 mesh_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 spec: pulumi.Input[Optional['VirtualNodeSpecArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering VirtualNode resources.
 
@@ -175,134 +175,134 @@ class _VirtualNodeState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the virtual node.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Creation date of the virtual node.
         """
         return pulumi.get(self, "created_date")
 
     @created_date.setter
-    def created_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_date", value)
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedDate")
-    def last_updated_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_updated_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Last update date of the virtual node.
         """
         return pulumi.get(self, "last_updated_date")
 
     @last_updated_date.setter
-    def last_updated_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_updated_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_updated_date", value)
 
     @_builtins.property
     @pulumi.getter(name="meshName")
-    def mesh_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mesh_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "mesh_name")
 
     @mesh_name.setter
-    def mesh_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mesh_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mesh_name", value)
 
     @_builtins.property
     @pulumi.getter(name="meshOwner")
-    def mesh_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mesh_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
         """
         return pulumi.get(self, "mesh_owner")
 
     @mesh_owner.setter
-    def mesh_owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mesh_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mesh_owner", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name to use for the virtual node. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceOwner")
-    def resource_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource owner's AWS account ID.
         """
         return pulumi.get(self, "resource_owner")
 
     @resource_owner.setter
-    def resource_owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_owner", value)
 
     @_builtins.property
     @pulumi.getter
-    def spec(self) -> Optional[pulumi.Input['VirtualNodeSpecArgs']]:
+    def spec(self) -> pulumi.Input[Optional['VirtualNodeSpecArgs']]:
         """
         Virtual node specification to apply.
         """
         return pulumi.get(self, "spec")
 
     @spec.setter
-    def spec(self, value: Optional[pulumi.Input['VirtualNodeSpecArgs']]):
+    def spec(self, value: pulumi.Input[Optional['VirtualNodeSpecArgs']]):
         pulumi.set(self, "spec", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
 
@@ -312,12 +312,12 @@ class VirtualNode(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 mesh_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 mesh_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 spec: Optional[pulumi.Input[Union['VirtualNodeSpecArgs', 'VirtualNodeSpecArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 mesh_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 mesh_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 spec: pulumi.Input[Optional[Union['VirtualNodeSpecArgs', 'VirtualNodeSpecArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides an AWS App Mesh virtual node resource.
@@ -671,12 +671,12 @@ class VirtualNode(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 mesh_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 mesh_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 spec: Optional[pulumi.Input[Union['VirtualNodeSpecArgs', 'VirtualNodeSpecArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 mesh_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 mesh_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 spec: pulumi.Input[Optional[Union['VirtualNodeSpecArgs', 'VirtualNodeSpecArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -711,17 +711,17 @@ class VirtualNode(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            created_date: Optional[pulumi.Input[_builtins.str]] = None,
-            last_updated_date: Optional[pulumi.Input[_builtins.str]] = None,
-            mesh_name: Optional[pulumi.Input[_builtins.str]] = None,
-            mesh_owner: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_owner: Optional[pulumi.Input[_builtins.str]] = None,
-            spec: Optional[pulumi.Input[Union['VirtualNodeSpecArgs', 'VirtualNodeSpecArgsDict']]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'VirtualNode':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            created_date: pulumi.Input[Optional[_builtins.str]] = None,
+            last_updated_date: pulumi.Input[Optional[_builtins.str]] = None,
+            mesh_name: pulumi.Input[Optional[_builtins.str]] = None,
+            mesh_owner: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_owner: pulumi.Input[Optional[_builtins.str]] = None,
+            spec: pulumi.Input[Optional[Union['VirtualNodeSpecArgs', 'VirtualNodeSpecArgsDict']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'VirtualNode':
         """
         Get an existing VirtualNode resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

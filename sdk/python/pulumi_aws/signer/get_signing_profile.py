@@ -243,9 +243,9 @@ def get_signing_profile(name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         version=pulumi.get(__ret__, 'version'),
         version_arn=pulumi.get(__ret__, 'version_arn'))
-def get_signing_profile_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                               region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                               tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_signing_profile_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                               region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSigningProfileResult]:
     """
     Provides information about a Signer Signing Profile.

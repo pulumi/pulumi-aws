@@ -140,31 +140,31 @@ export interface UsageLimitState {
     /**
      * The limit amount. If time-based, this amount is in Redshift Processing Units (RPU) consumed per hour. If data-based, this amount is in terabytes (TB) of data transferred between Regions in cross-account sharing. The value must be a positive number.
      */
-    amount?: pulumi.Input<number>;
+    amount?: pulumi.Input<number | undefined>;
     /**
      * Amazon Resource Name (ARN) of the Redshift Serverless Usage Limit.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The action that Amazon Redshift Serverless takes when the limit is reached. Valid values are `log`, `emit-metric`, and `deactivate`. The default is `log`.
      */
-    breachAction?: pulumi.Input<string>;
+    breachAction?: pulumi.Input<string | undefined>;
     /**
      * The time period that the amount applies to. A weekly period begins on Sunday. Valid values are `daily`, `weekly`, and `monthly`. The default is `monthly`.
      */
-    period?: pulumi.Input<string>;
+    period?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
      */
-    resourceArn?: pulumi.Input<string>;
+    resourceArn?: pulumi.Input<string | undefined>;
     /**
      * The type of Amazon Redshift Serverless usage to create a usage limit for. Valid values are `serverless-compute` or `cross-region-datasharing`.
      */
-    usageType?: pulumi.Input<string>;
+    usageType?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -178,15 +178,15 @@ export interface UsageLimitArgs {
     /**
      * The action that Amazon Redshift Serverless takes when the limit is reached. Valid values are `log`, `emit-metric`, and `deactivate`. The default is `log`.
      */
-    breachAction?: pulumi.Input<string>;
+    breachAction?: pulumi.Input<string | undefined>;
     /**
      * The time period that the amount applies to. A weekly period begins on Sunday. Valid values are `daily`, `weekly`, and `monthly`. The default is `monthly`.
      */
-    period?: pulumi.Input<string>;
+    period?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
      */

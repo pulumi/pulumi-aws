@@ -116,8 +116,8 @@ def get_db_servers(cloud_exadata_infrastructure_id: Optional[_builtins.str] = No
         db_servers=pulumi.get(__ret__, 'db_servers'),
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'))
-def get_db_servers_output(cloud_exadata_infrastructure_id: Optional[pulumi.Input[_builtins.str]] = None,
-                          region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_db_servers_output(cloud_exadata_infrastructure_id: pulumi.Input[Optional[_builtins.str]] = None,
+                          region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDbServersResult]:
     """
     Data source for manging db servers linked to exadata infrastructure of Oracle Database@AWS.

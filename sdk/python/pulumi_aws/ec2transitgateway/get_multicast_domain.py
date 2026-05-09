@@ -281,10 +281,10 @@ def get_multicast_domain(filters: Optional[Sequence[Union['GetMulticastDomainFil
         transit_gateway_attachment_id=pulumi.get(__ret__, 'transit_gateway_attachment_id'),
         transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'),
         transit_gateway_multicast_domain_id=pulumi.get(__ret__, 'transit_gateway_multicast_domain_id'))
-def get_multicast_domain_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetMulticastDomainFilterArgs', 'GetMulticastDomainFilterArgsDict']]]]] = None,
-                                region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
-                                transit_gateway_multicast_domain_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_multicast_domain_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetMulticastDomainFilterArgs', 'GetMulticastDomainFilterArgsDict']]]]] = None,
+                                region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
+                                transit_gateway_multicast_domain_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMulticastDomainResult]:
     """
     Get information on an EC2 Transit Gateway Multicast Domain.

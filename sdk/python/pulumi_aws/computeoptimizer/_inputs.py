@@ -30,11 +30,11 @@ __all__ = [
 ]
 
 class EnrollmentStatusTimeoutsArgsDict(TypedDict):
-    create: NotRequired[pulumi.Input[_builtins.str]]
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
-    update: NotRequired[pulumi.Input[_builtins.str]]
+    update: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
@@ -42,8 +42,8 @@ class EnrollmentStatusTimeoutsArgsDict(TypedDict):
 @pulumi.input_type
 class EnrollmentStatusTimeoutsArgs:
     def __init__(__self__, *,
-                 create: Optional[pulumi.Input[_builtins.str]] = None,
-                 update: Optional[pulumi.Input[_builtins.str]] = None):
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 update: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         :param pulumi.Input[_builtins.str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
@@ -55,26 +55,26 @@ class EnrollmentStatusTimeoutsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "create")
 
     @create.setter
-    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create", value)
 
     @_builtins.property
     @pulumi.getter
-    def update(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def update(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "update")
 
     @update.setter
-    def update(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def update(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "update", value)
 
 
@@ -108,11 +108,11 @@ class RecommendationPreferencesExternalMetricsPreferenceArgs:
 
 class RecommendationPreferencesPreferredResourceArgsDict(TypedDict):
     name: pulumi.Input[_builtins.str]
-    exclude_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    exclude_lists: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The preferred resource type values to exclude from the recommendation candidates. If this isn’t specified, all supported resources are included by default.
     """
-    include_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    include_lists: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The preferred resource type values to include in the recommendation candidates. You can specify the exact resource type value, such as `"m5.large"`, or use wild card expressions, such as `"m5"`. If this isn’t specified, all supported resources are included by default.
     """
@@ -121,8 +121,8 @@ class RecommendationPreferencesPreferredResourceArgsDict(TypedDict):
 class RecommendationPreferencesPreferredResourceArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 exclude_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 include_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 exclude_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 include_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] exclude_lists: The preferred resource type values to exclude from the recommendation candidates. If this isn’t specified, all supported resources are included by default.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] include_lists: The preferred resource type values to include in the recommendation candidates. You can specify the exact resource type value, such as `"m5.large"`, or use wild card expressions, such as `"m5"`. If this isn’t specified, all supported resources are included by default.
@@ -144,26 +144,26 @@ class RecommendationPreferencesPreferredResourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="excludeLists")
-    def exclude_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def exclude_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The preferred resource type values to exclude from the recommendation candidates. If this isn’t specified, all supported resources are included by default.
         """
         return pulumi.get(self, "exclude_lists")
 
     @exclude_lists.setter
-    def exclude_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def exclude_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "exclude_lists", value)
 
     @_builtins.property
     @pulumi.getter(name="includeLists")
-    def include_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def include_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The preferred resource type values to include in the recommendation candidates. You can specify the exact resource type value, such as `"m5.large"`, or use wild card expressions, such as `"m5"`. If this isn’t specified, all supported resources are included by default.
         """
         return pulumi.get(self, "include_lists")
 
     @include_lists.setter
-    def include_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def include_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "include_lists", value)
 
 
@@ -266,7 +266,7 @@ class RecommendationPreferencesUtilizationPreferenceMetricParametersArgsDict(Typ
     """
     The headroom value in percentage used for the specified metric parameter. Valid values: `PERCENT_30`, `PERCENT_20`, `PERCENT_10`, `PERCENT_0`.
     """
-    threshold: NotRequired[pulumi.Input[_builtins.str]]
+    threshold: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The threshold value used for the specified metric parameter. You can only specify the threshold value for CPU utilization. Valid values: `P90`, `P95`, `P99_5`.
     """
@@ -275,7 +275,7 @@ class RecommendationPreferencesUtilizationPreferenceMetricParametersArgsDict(Typ
 class RecommendationPreferencesUtilizationPreferenceMetricParametersArgs:
     def __init__(__self__, *,
                  headroom: pulumi.Input[_builtins.str],
-                 threshold: Optional[pulumi.Input[_builtins.str]] = None):
+                 threshold: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] headroom: The headroom value in percentage used for the specified metric parameter. Valid values: `PERCENT_30`, `PERCENT_20`, `PERCENT_10`, `PERCENT_0`.
         :param pulumi.Input[_builtins.str] threshold: The threshold value used for the specified metric parameter. You can only specify the threshold value for CPU utilization. Valid values: `P90`, `P95`, `P99_5`.
@@ -298,14 +298,14 @@ class RecommendationPreferencesUtilizationPreferenceMetricParametersArgs:
 
     @_builtins.property
     @pulumi.getter
-    def threshold(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def threshold(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The threshold value used for the specified metric parameter. You can only specify the threshold value for CPU utilization. Valid values: `P90`, `P95`, `P99_5`.
         """
         return pulumi.get(self, "threshold")
 
     @threshold.setter
-    def threshold(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def threshold(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "threshold", value)
 
 

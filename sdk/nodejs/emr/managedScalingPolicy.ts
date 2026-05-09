@@ -139,23 +139,23 @@ export interface ManagedScalingPolicyState {
     /**
      * ID of the EMR cluster
      */
-    clusterId?: pulumi.Input<string>;
+    clusterId?: pulumi.Input<string | undefined>;
     /**
      * Configuration block with compute limit settings. Described below.
      */
-    computeLimits?: pulumi.Input<pulumi.Input<inputs.emr.ManagedScalingPolicyComputeLimit>[]>;
+    computeLimits?: pulumi.Input<pulumi.Input<inputs.emr.ManagedScalingPolicyComputeLimit>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Specifies the scaling strategy. When set to `ADVANCED`, the `utilizationPerformanceIndex` argument can be used to configure an advanced scaling strategy. An advanced scaling strategy requires Amazon EMR on EC2 version 7.0 or later. Valid values: `ADVANCED`, `DEFAULT`.
      */
-    scalingStrategy?: pulumi.Input<string>;
+    scalingStrategy?: pulumi.Input<string | undefined>;
     /**
      * Integer value that represents the advanced scaling strategy. Higher values optimize for performance, while lower values optimize for resource conservation. A value of `50` provides a balance between performance and resource conservation. See [the AWS documentation](https://docs.aws.amazon.com/emr/latest/ManagementGuide/managed-scaling-allocation-strategy-optimized.html#managed-scaling-allocation-strategy-optimized-getting-started) for more details. Required when `scalingStrategy` is set to `ADVANCED`. Valid values: `1`, `25`, `50`, `75`, `100`.
      */
-    utilizationPerformanceIndex?: pulumi.Input<number>;
+    utilizationPerformanceIndex?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -173,13 +173,13 @@ export interface ManagedScalingPolicyArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Specifies the scaling strategy. When set to `ADVANCED`, the `utilizationPerformanceIndex` argument can be used to configure an advanced scaling strategy. An advanced scaling strategy requires Amazon EMR on EC2 version 7.0 or later. Valid values: `ADVANCED`, `DEFAULT`.
      */
-    scalingStrategy?: pulumi.Input<string>;
+    scalingStrategy?: pulumi.Input<string | undefined>;
     /**
      * Integer value that represents the advanced scaling strategy. Higher values optimize for performance, while lower values optimize for resource conservation. A value of `50` provides a balance between performance and resource conservation. See [the AWS documentation](https://docs.aws.amazon.com/emr/latest/ManagementGuide/managed-scaling-allocation-strategy-optimized.html#managed-scaling-allocation-strategy-optimized-getting-started) for more details. Required when `scalingStrategy` is set to `ADVANCED`. Valid values: `1`, `25`, `50`, `75`, `100`.
      */
-    utilizationPerformanceIndex?: pulumi.Input<number>;
+    utilizationPerformanceIndex?: pulumi.Input<number | undefined>;
 }

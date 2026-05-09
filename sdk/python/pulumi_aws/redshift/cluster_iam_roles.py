@@ -20,9 +20,9 @@ __all__ = ['ClusterIamRolesArgs', 'ClusterIamRoles']
 class ClusterIamRolesArgs:
     def __init__(__self__, *,
                  cluster_identifier: pulumi.Input[_builtins.str],
-                 default_iam_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 iam_role_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 default_iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 iam_role_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ClusterIamRoles resource.
 
@@ -53,48 +53,48 @@ class ClusterIamRolesArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultIamRoleArn")
-    def default_iam_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_iam_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
         """
         return pulumi.get(self, "default_iam_role_arn")
 
     @default_iam_role_arn.setter
-    def default_iam_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_iam_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_iam_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="iamRoleArns")
-    def iam_role_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def iam_role_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
         """
         return pulumi.get(self, "iam_role_arns")
 
     @iam_role_arns.setter
-    def iam_role_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def iam_role_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "iam_role_arns", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _ClusterIamRolesState:
     def __init__(__self__, *,
-                 cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_iam_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 iam_role_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 iam_role_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ClusterIamRoles resources.
 
@@ -114,50 +114,50 @@ class _ClusterIamRolesState:
 
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
-    def cluster_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Redshift Cluster IAM Roles.
         """
         return pulumi.get(self, "cluster_identifier")
 
     @cluster_identifier.setter
-    def cluster_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultIamRoleArn")
-    def default_iam_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_iam_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
         """
         return pulumi.get(self, "default_iam_role_arn")
 
     @default_iam_role_arn.setter
-    def default_iam_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_iam_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_iam_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="iamRoleArns")
-    def iam_role_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def iam_role_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
         """
         return pulumi.get(self, "iam_role_arns")
 
     @iam_role_arns.setter
-    def iam_role_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def iam_role_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "iam_role_arns", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
@@ -167,10 +167,10 @@ class ClusterIamRoles(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_iam_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 iam_role_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 iam_role_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a Redshift Cluster IAM Roles resource.
@@ -250,10 +250,10 @@ class ClusterIamRoles(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_iam_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 iam_role_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 iam_role_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -279,10 +279,10 @@ class ClusterIamRoles(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-            default_iam_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            iam_role_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None) -> 'ClusterIamRoles':
+            cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            default_iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            iam_role_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> 'ClusterIamRoles':
         """
         Get an existing ClusterIamRoles resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

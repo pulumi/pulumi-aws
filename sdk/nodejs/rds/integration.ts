@@ -246,11 +246,11 @@ export interface IntegrationState {
      * For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context).
      * You can only include this parameter if you specify the `kmsKeyId` parameter.
      */
-    additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * ARN of the Integration.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Data filters for the integration.
      * These filters determine which tables from the source database are sent to the target Amazon Redshift data warehouse.
@@ -258,46 +258,46 @@ export interface IntegrationState {
      * Multiple expressions are separated by a comma.
      * See the [Amazon RDS data filtering guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.html) for additional details.
      */
-    dataFilter?: pulumi.Input<string>;
+    dataFilter?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the Integration. This value can be used when creating the target database to [receive results of zero-ETL integrations](https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_DATABASE.html#r_CREATE_DATABASE-integration).
      */
-    integrationIdentifier?: pulumi.Input<string>;
+    integrationIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Name of the integration.
      */
-    integrationName?: pulumi.Input<string>;
+    integrationName?: pulumi.Input<string | undefined>;
     /**
      * KMS key identifier for the key to use to encrypt the integration.
      * If you don't specify an encryption key, RDS uses a default AWS owned key.
      * If you use the default AWS owned key, you should ignore `kmsKeyId` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN of the database to use as the source for replication.
      */
-    sourceArn?: pulumi.Input<string>;
+    sourceArn?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
      * For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-integration.html).
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * ARN of the Redshift data warehouse to use as the target for replication.
      *
      * The following arguments are optional:
      */
-    targetArn?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.rds.IntegrationTimeouts>;
+    targetArn?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.rds.IntegrationTimeouts | undefined>;
 }
 
 /**
@@ -309,7 +309,7 @@ export interface IntegrationArgs {
      * For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context).
      * You can only include this parameter if you specify the `kmsKeyId` parameter.
      */
-    additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Data filters for the integration.
      * These filters determine which tables from the source database are sent to the target Amazon Redshift data warehouse.
@@ -317,7 +317,7 @@ export interface IntegrationArgs {
      * Multiple expressions are separated by a comma.
      * See the [Amazon RDS data filtering guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.html) for additional details.
      */
-    dataFilter?: pulumi.Input<string>;
+    dataFilter?: pulumi.Input<string | undefined>;
     /**
      * Name of the integration.
      */
@@ -327,11 +327,11 @@ export interface IntegrationArgs {
      * If you don't specify an encryption key, RDS uses a default AWS owned key.
      * If you use the default AWS owned key, you should ignore `kmsKeyId` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN of the database to use as the source for replication.
      */
@@ -341,12 +341,12 @@ export interface IntegrationArgs {
      *
      * For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-integration.html).
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * ARN of the Redshift data warehouse to use as the target for replication.
      *
      * The following arguments are optional:
      */
     targetArn: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.rds.IntegrationTimeouts>;
+    timeouts?: pulumi.Input<inputs.rds.IntegrationTimeouts | undefined>;
 }

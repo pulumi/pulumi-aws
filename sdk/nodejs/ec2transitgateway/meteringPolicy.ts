@@ -170,34 +170,34 @@ export interface MeteringPolicyState {
     /**
      * EC2 Transit Gateway Metering Policy ARN.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Set of Transit Gateway attachment IDs to designate as middlebox attachments for this metering policy.
      */
-    middleboxAttachmentIds?: pulumi.Input<pulumi.Input<string>[]>;
+    middleboxAttachmentIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value tags for the EC2 Transit Gateway Metering Policy. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.ec2transitgateway.MeteringPolicyTimeouts>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.ec2transitgateway.MeteringPolicyTimeouts | undefined>;
     /**
      * EC2 Transit Gateway identifier.
      *
      * The following arguments are optional:
      */
-    transitGatewayId?: pulumi.Input<string>;
+    transitGatewayId?: pulumi.Input<string | undefined>;
     /**
      * EC2 Transit Gateway Metering Policy identifier.
      */
-    transitGatewayMeteringPolicyId?: pulumi.Input<string>;
+    transitGatewayMeteringPolicyId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -207,16 +207,16 @@ export interface MeteringPolicyArgs {
     /**
      * Set of Transit Gateway attachment IDs to designate as middlebox attachments for this metering policy.
      */
-    middleboxAttachmentIds?: pulumi.Input<pulumi.Input<string>[]>;
+    middleboxAttachmentIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value tags for the EC2 Transit Gateway Metering Policy. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.ec2transitgateway.MeteringPolicyTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.ec2transitgateway.MeteringPolicyTimeouts | undefined>;
     /**
      * EC2 Transit Gateway identifier.
      *

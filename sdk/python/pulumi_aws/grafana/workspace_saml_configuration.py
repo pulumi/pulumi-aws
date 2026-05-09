@@ -21,18 +21,18 @@ class WorkspaceSamlConfigurationArgs:
     def __init__(__self__, *,
                  editor_role_values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  workspace_id: pulumi.Input[_builtins.str],
-                 admin_role_values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allowed_organizations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 email_assertion: Optional[pulumi.Input[_builtins.str]] = None,
-                 groups_assertion: Optional[pulumi.Input[_builtins.str]] = None,
-                 idp_metadata_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 idp_metadata_xml: Optional[pulumi.Input[_builtins.str]] = None,
-                 login_assertion: Optional[pulumi.Input[_builtins.str]] = None,
-                 login_validity_duration: Optional[pulumi.Input[_builtins.int]] = None,
-                 name_assertion: Optional[pulumi.Input[_builtins.str]] = None,
-                 org_assertion: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_assertion: Optional[pulumi.Input[_builtins.str]] = None):
+                 admin_role_values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_organizations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 email_assertion: pulumi.Input[Optional[_builtins.str]] = None,
+                 groups_assertion: pulumi.Input[Optional[_builtins.str]] = None,
+                 idp_metadata_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 idp_metadata_xml: pulumi.Input[Optional[_builtins.str]] = None,
+                 login_assertion: pulumi.Input[Optional[_builtins.str]] = None,
+                 login_validity_duration: pulumi.Input[Optional[_builtins.int]] = None,
+                 name_assertion: pulumi.Input[Optional[_builtins.str]] = None,
+                 org_assertion: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_assertion: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkspaceSamlConfiguration resource.
 
@@ -108,167 +108,167 @@ class WorkspaceSamlConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="adminRoleValues")
-    def admin_role_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def admin_role_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The admin role values.
         """
         return pulumi.get(self, "admin_role_values")
 
     @admin_role_values.setter
-    def admin_role_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def admin_role_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "admin_role_values", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedOrganizations")
-    def allowed_organizations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_organizations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The allowed organizations.
         """
         return pulumi.get(self, "allowed_organizations")
 
     @allowed_organizations.setter
-    def allowed_organizations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_organizations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_organizations", value)
 
     @_builtins.property
     @pulumi.getter(name="emailAssertion")
-    def email_assertion(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email_assertion(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The email assertion.
         """
         return pulumi.get(self, "email_assertion")
 
     @email_assertion.setter
-    def email_assertion(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email_assertion(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email_assertion", value)
 
     @_builtins.property
     @pulumi.getter(name="groupsAssertion")
-    def groups_assertion(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def groups_assertion(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The groups assertion.
         """
         return pulumi.get(self, "groups_assertion")
 
     @groups_assertion.setter
-    def groups_assertion(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def groups_assertion(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "groups_assertion", value)
 
     @_builtins.property
     @pulumi.getter(name="idpMetadataUrl")
-    def idp_metadata_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def idp_metadata_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IDP Metadata URL. Note that either `idp_metadata_url` or `idp_metadata_xml` (but not both) must be specified.
         """
         return pulumi.get(self, "idp_metadata_url")
 
     @idp_metadata_url.setter
-    def idp_metadata_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def idp_metadata_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "idp_metadata_url", value)
 
     @_builtins.property
     @pulumi.getter(name="idpMetadataXml")
-    def idp_metadata_xml(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def idp_metadata_xml(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IDP Metadata XML. Note that either `idp_metadata_url` or `idp_metadata_xml` (but not both) must be specified.
         """
         return pulumi.get(self, "idp_metadata_xml")
 
     @idp_metadata_xml.setter
-    def idp_metadata_xml(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def idp_metadata_xml(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "idp_metadata_xml", value)
 
     @_builtins.property
     @pulumi.getter(name="loginAssertion")
-    def login_assertion(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def login_assertion(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The login assertion.
         """
         return pulumi.get(self, "login_assertion")
 
     @login_assertion.setter
-    def login_assertion(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def login_assertion(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "login_assertion", value)
 
     @_builtins.property
     @pulumi.getter(name="loginValidityDuration")
-    def login_validity_duration(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def login_validity_duration(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The login validity duration.
         """
         return pulumi.get(self, "login_validity_duration")
 
     @login_validity_duration.setter
-    def login_validity_duration(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def login_validity_duration(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "login_validity_duration", value)
 
     @_builtins.property
     @pulumi.getter(name="nameAssertion")
-    def name_assertion(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name_assertion(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name assertion.
         """
         return pulumi.get(self, "name_assertion")
 
     @name_assertion.setter
-    def name_assertion(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name_assertion(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name_assertion", value)
 
     @_builtins.property
     @pulumi.getter(name="orgAssertion")
-    def org_assertion(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def org_assertion(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The org assertion.
         """
         return pulumi.get(self, "org_assertion")
 
     @org_assertion.setter
-    def org_assertion(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def org_assertion(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "org_assertion", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="roleAssertion")
-    def role_assertion(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_assertion(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The role assertion.
         """
         return pulumi.get(self, "role_assertion")
 
     @role_assertion.setter
-    def role_assertion(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_assertion(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_assertion", value)
 
 
 @pulumi.input_type
 class _WorkspaceSamlConfigurationState:
     def __init__(__self__, *,
-                 admin_role_values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allowed_organizations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 editor_role_values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 email_assertion: Optional[pulumi.Input[_builtins.str]] = None,
-                 groups_assertion: Optional[pulumi.Input[_builtins.str]] = None,
-                 idp_metadata_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 idp_metadata_xml: Optional[pulumi.Input[_builtins.str]] = None,
-                 login_assertion: Optional[pulumi.Input[_builtins.str]] = None,
-                 login_validity_duration: Optional[pulumi.Input[_builtins.int]] = None,
-                 name_assertion: Optional[pulumi.Input[_builtins.str]] = None,
-                 org_assertion: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_assertion: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 admin_role_values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_organizations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 editor_role_values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 email_assertion: pulumi.Input[Optional[_builtins.str]] = None,
+                 groups_assertion: pulumi.Input[Optional[_builtins.str]] = None,
+                 idp_metadata_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 idp_metadata_xml: pulumi.Input[Optional[_builtins.str]] = None,
+                 login_assertion: pulumi.Input[Optional[_builtins.str]] = None,
+                 login_validity_duration: pulumi.Input[Optional[_builtins.int]] = None,
+                 name_assertion: pulumi.Input[Optional[_builtins.str]] = None,
+                 org_assertion: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_assertion: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkspaceSamlConfiguration resources.
 
@@ -323,175 +323,175 @@ class _WorkspaceSamlConfigurationState:
 
     @_builtins.property
     @pulumi.getter(name="adminRoleValues")
-    def admin_role_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def admin_role_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The admin role values.
         """
         return pulumi.get(self, "admin_role_values")
 
     @admin_role_values.setter
-    def admin_role_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def admin_role_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "admin_role_values", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedOrganizations")
-    def allowed_organizations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_organizations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The allowed organizations.
         """
         return pulumi.get(self, "allowed_organizations")
 
     @allowed_organizations.setter
-    def allowed_organizations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_organizations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_organizations", value)
 
     @_builtins.property
     @pulumi.getter(name="editorRoleValues")
-    def editor_role_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def editor_role_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The editor role values.
         """
         return pulumi.get(self, "editor_role_values")
 
     @editor_role_values.setter
-    def editor_role_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def editor_role_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "editor_role_values", value)
 
     @_builtins.property
     @pulumi.getter(name="emailAssertion")
-    def email_assertion(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email_assertion(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The email assertion.
         """
         return pulumi.get(self, "email_assertion")
 
     @email_assertion.setter
-    def email_assertion(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email_assertion(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email_assertion", value)
 
     @_builtins.property
     @pulumi.getter(name="groupsAssertion")
-    def groups_assertion(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def groups_assertion(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The groups assertion.
         """
         return pulumi.get(self, "groups_assertion")
 
     @groups_assertion.setter
-    def groups_assertion(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def groups_assertion(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "groups_assertion", value)
 
     @_builtins.property
     @pulumi.getter(name="idpMetadataUrl")
-    def idp_metadata_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def idp_metadata_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IDP Metadata URL. Note that either `idp_metadata_url` or `idp_metadata_xml` (but not both) must be specified.
         """
         return pulumi.get(self, "idp_metadata_url")
 
     @idp_metadata_url.setter
-    def idp_metadata_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def idp_metadata_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "idp_metadata_url", value)
 
     @_builtins.property
     @pulumi.getter(name="idpMetadataXml")
-    def idp_metadata_xml(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def idp_metadata_xml(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IDP Metadata XML. Note that either `idp_metadata_url` or `idp_metadata_xml` (but not both) must be specified.
         """
         return pulumi.get(self, "idp_metadata_xml")
 
     @idp_metadata_xml.setter
-    def idp_metadata_xml(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def idp_metadata_xml(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "idp_metadata_xml", value)
 
     @_builtins.property
     @pulumi.getter(name="loginAssertion")
-    def login_assertion(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def login_assertion(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The login assertion.
         """
         return pulumi.get(self, "login_assertion")
 
     @login_assertion.setter
-    def login_assertion(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def login_assertion(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "login_assertion", value)
 
     @_builtins.property
     @pulumi.getter(name="loginValidityDuration")
-    def login_validity_duration(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def login_validity_duration(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The login validity duration.
         """
         return pulumi.get(self, "login_validity_duration")
 
     @login_validity_duration.setter
-    def login_validity_duration(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def login_validity_duration(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "login_validity_duration", value)
 
     @_builtins.property
     @pulumi.getter(name="nameAssertion")
-    def name_assertion(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name_assertion(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name assertion.
         """
         return pulumi.get(self, "name_assertion")
 
     @name_assertion.setter
-    def name_assertion(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name_assertion(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name_assertion", value)
 
     @_builtins.property
     @pulumi.getter(name="orgAssertion")
-    def org_assertion(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def org_assertion(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The org assertion.
         """
         return pulumi.get(self, "org_assertion")
 
     @org_assertion.setter
-    def org_assertion(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def org_assertion(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "org_assertion", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="roleAssertion")
-    def role_assertion(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_assertion(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The role assertion.
         """
         return pulumi.get(self, "role_assertion")
 
     @role_assertion.setter
-    def role_assertion(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_assertion(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_assertion", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of the SAML configuration.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceId")
-    def workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The workspace id.
 
@@ -500,7 +500,7 @@ class _WorkspaceSamlConfigurationState:
         return pulumi.get(self, "workspace_id")
 
     @workspace_id.setter
-    def workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workspace_id", value)
 
 
@@ -510,20 +510,20 @@ class WorkspaceSamlConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 admin_role_values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allowed_organizations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 editor_role_values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 email_assertion: Optional[pulumi.Input[_builtins.str]] = None,
-                 groups_assertion: Optional[pulumi.Input[_builtins.str]] = None,
-                 idp_metadata_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 idp_metadata_xml: Optional[pulumi.Input[_builtins.str]] = None,
-                 login_assertion: Optional[pulumi.Input[_builtins.str]] = None,
-                 login_validity_duration: Optional[pulumi.Input[_builtins.int]] = None,
-                 name_assertion: Optional[pulumi.Input[_builtins.str]] = None,
-                 org_assertion: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_assertion: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 admin_role_values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_organizations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 editor_role_values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 email_assertion: pulumi.Input[Optional[_builtins.str]] = None,
+                 groups_assertion: pulumi.Input[Optional[_builtins.str]] = None,
+                 idp_metadata_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 idp_metadata_xml: pulumi.Input[Optional[_builtins.str]] = None,
+                 login_assertion: pulumi.Input[Optional[_builtins.str]] = None,
+                 login_validity_duration: pulumi.Input[Optional[_builtins.int]] = None,
+                 name_assertion: pulumi.Input[Optional[_builtins.str]] = None,
+                 org_assertion: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_assertion: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides an Amazon Managed Grafana workspace SAML configuration resource.
@@ -655,20 +655,20 @@ class WorkspaceSamlConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 admin_role_values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allowed_organizations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 editor_role_values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 email_assertion: Optional[pulumi.Input[_builtins.str]] = None,
-                 groups_assertion: Optional[pulumi.Input[_builtins.str]] = None,
-                 idp_metadata_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 idp_metadata_xml: Optional[pulumi.Input[_builtins.str]] = None,
-                 login_assertion: Optional[pulumi.Input[_builtins.str]] = None,
-                 login_validity_duration: Optional[pulumi.Input[_builtins.int]] = None,
-                 name_assertion: Optional[pulumi.Input[_builtins.str]] = None,
-                 org_assertion: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_assertion: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 admin_role_values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_organizations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 editor_role_values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 email_assertion: pulumi.Input[Optional[_builtins.str]] = None,
+                 groups_assertion: pulumi.Input[Optional[_builtins.str]] = None,
+                 idp_metadata_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 idp_metadata_xml: pulumi.Input[Optional[_builtins.str]] = None,
+                 login_assertion: pulumi.Input[Optional[_builtins.str]] = None,
+                 login_validity_duration: pulumi.Input[Optional[_builtins.int]] = None,
+                 name_assertion: pulumi.Input[Optional[_builtins.str]] = None,
+                 org_assertion: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_assertion: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -707,21 +707,21 @@ class WorkspaceSamlConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            admin_role_values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            allowed_organizations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            editor_role_values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            email_assertion: Optional[pulumi.Input[_builtins.str]] = None,
-            groups_assertion: Optional[pulumi.Input[_builtins.str]] = None,
-            idp_metadata_url: Optional[pulumi.Input[_builtins.str]] = None,
-            idp_metadata_xml: Optional[pulumi.Input[_builtins.str]] = None,
-            login_assertion: Optional[pulumi.Input[_builtins.str]] = None,
-            login_validity_duration: Optional[pulumi.Input[_builtins.int]] = None,
-            name_assertion: Optional[pulumi.Input[_builtins.str]] = None,
-            org_assertion: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            role_assertion: Optional[pulumi.Input[_builtins.str]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            workspace_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'WorkspaceSamlConfiguration':
+            admin_role_values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            allowed_organizations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            editor_role_values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            email_assertion: pulumi.Input[Optional[_builtins.str]] = None,
+            groups_assertion: pulumi.Input[Optional[_builtins.str]] = None,
+            idp_metadata_url: pulumi.Input[Optional[_builtins.str]] = None,
+            idp_metadata_xml: pulumi.Input[Optional[_builtins.str]] = None,
+            login_assertion: pulumi.Input[Optional[_builtins.str]] = None,
+            login_validity_duration: pulumi.Input[Optional[_builtins.int]] = None,
+            name_assertion: pulumi.Input[Optional[_builtins.str]] = None,
+            org_assertion: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_assertion: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'WorkspaceSamlConfiguration':
         """
         Get an existing WorkspaceSamlConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -213,49 +213,49 @@ export interface LifecyclePolicyState {
     /**
      * Amazon Resource Name (ARN) of the lifecycle policy.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * description for the lifecycle policy.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
      */
-    executionRole?: pulumi.Input<string>;
+    executionRole?: pulumi.Input<string | undefined>;
     /**
      * The name of the lifecycle policy to create.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Configuration block with policy details. Detailed below.
      */
-    policyDetails?: pulumi.Input<pulumi.Input<inputs.imagebuilder.LifecyclePolicyPolicyDetail>[]>;
+    policyDetails?: pulumi.Input<pulumi.Input<inputs.imagebuilder.LifecyclePolicyPolicyDetail>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
      *
      * The following arguments are optional:
      */
-    resourceSelection?: pulumi.Input<inputs.imagebuilder.LifecyclePolicyResourceSelection>;
+    resourceSelection?: pulumi.Input<inputs.imagebuilder.LifecyclePolicyResourceSelection | undefined>;
     /**
      * The type of Image Builder resource that the lifecycle policy applies to. Valid values: `AMI_IMAGE` or `CONTAINER_IMAGE`.
      */
-    resourceType?: pulumi.Input<string>;
+    resourceType?: pulumi.Input<string | undefined>;
     /**
      * The status of the lifecycle policy.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags for the Image Builder Lifecycle Policy. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -265,7 +265,7 @@ export interface LifecyclePolicyArgs {
     /**
      * description for the lifecycle policy.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
      */
@@ -273,7 +273,7 @@ export interface LifecyclePolicyArgs {
     /**
      * The name of the lifecycle policy to create.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Configuration block with policy details. Detailed below.
      */
@@ -281,7 +281,7 @@ export interface LifecyclePolicyArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
      *
@@ -295,9 +295,9 @@ export interface LifecyclePolicyArgs {
     /**
      * The status of the lifecycle policy.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags for the Image Builder Lifecycle Policy. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

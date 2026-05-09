@@ -30,11 +30,11 @@ __all__ = [
 ]
 
 class TableMagneticStoreWritePropertiesArgsDict(TypedDict):
-    enable_magnetic_store_writes: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_magnetic_store_writes: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A flag to enable magnetic store writes.
     """
-    magnetic_store_rejected_data_location: NotRequired[pulumi.Input['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgsDict']]
+    magnetic_store_rejected_data_location: NotRequired[pulumi.Input[Optional['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs']]]
     """
     The location to write error reports for records rejected asynchronously during magnetic store writes. See Magnetic Store Rejected Data Location below for more details.
     """
@@ -42,8 +42,8 @@ class TableMagneticStoreWritePropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class TableMagneticStoreWritePropertiesArgs:
     def __init__(__self__, *,
-                 enable_magnetic_store_writes: Optional[pulumi.Input[_builtins.bool]] = None,
-                 magnetic_store_rejected_data_location: Optional[pulumi.Input['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs']] = None):
+                 enable_magnetic_store_writes: pulumi.Input[Optional[_builtins.bool]] = None,
+                 magnetic_store_rejected_data_location: pulumi.Input[Optional['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs']] = None):
         """
         :param pulumi.Input[_builtins.bool] enable_magnetic_store_writes: A flag to enable magnetic store writes.
         :param pulumi.Input['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs'] magnetic_store_rejected_data_location: The location to write error reports for records rejected asynchronously during magnetic store writes. See Magnetic Store Rejected Data Location below for more details.
@@ -55,31 +55,31 @@ class TableMagneticStoreWritePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="enableMagneticStoreWrites")
-    def enable_magnetic_store_writes(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_magnetic_store_writes(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A flag to enable magnetic store writes.
         """
         return pulumi.get(self, "enable_magnetic_store_writes")
 
     @enable_magnetic_store_writes.setter
-    def enable_magnetic_store_writes(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_magnetic_store_writes(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_magnetic_store_writes", value)
 
     @_builtins.property
     @pulumi.getter(name="magneticStoreRejectedDataLocation")
-    def magnetic_store_rejected_data_location(self) -> Optional[pulumi.Input['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs']]:
+    def magnetic_store_rejected_data_location(self) -> pulumi.Input[Optional['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs']]:
         """
         The location to write error reports for records rejected asynchronously during magnetic store writes. See Magnetic Store Rejected Data Location below for more details.
         """
         return pulumi.get(self, "magnetic_store_rejected_data_location")
 
     @magnetic_store_rejected_data_location.setter
-    def magnetic_store_rejected_data_location(self, value: Optional[pulumi.Input['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs']]):
+    def magnetic_store_rejected_data_location(self, value: pulumi.Input[Optional['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs']]):
         pulumi.set(self, "magnetic_store_rejected_data_location", value)
 
 
 class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgsDict(TypedDict):
-    s3_configuration: NotRequired[pulumi.Input['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgsDict']]
+    s3_configuration: NotRequired[pulumi.Input[Optional['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgs']]]
     """
     Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See S3 Configuration below for more details.
     """
@@ -87,7 +87,7 @@ class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgsDict
 @pulumi.input_type
 class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs:
     def __init__(__self__, *,
-                 s3_configuration: Optional[pulumi.Input['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgs']] = None):
+                 s3_configuration: pulumi.Input[Optional['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgs']] = None):
         """
         :param pulumi.Input['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgs'] s3_configuration: Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See S3 Configuration below for more details.
         """
@@ -96,31 +96,31 @@ class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs:
 
     @_builtins.property
     @pulumi.getter(name="s3Configuration")
-    def s3_configuration(self) -> Optional[pulumi.Input['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgs']]:
+    def s3_configuration(self) -> pulumi.Input[Optional['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgs']]:
         """
         Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See S3 Configuration below for more details.
         """
         return pulumi.get(self, "s3_configuration")
 
     @s3_configuration.setter
-    def s3_configuration(self, value: Optional[pulumi.Input['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgs']]):
+    def s3_configuration(self, value: pulumi.Input[Optional['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgs']]):
         pulumi.set(self, "s3_configuration", value)
 
 
 class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgsDict(TypedDict):
-    bucket_name: NotRequired[pulumi.Input[_builtins.str]]
+    bucket_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Bucket name of the customer S3 bucket.
     """
-    encryption_option: NotRequired[pulumi.Input[_builtins.str]]
+    encryption_option: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Encryption option for the customer s3 location. Options are S3 server side encryption with an S3-managed key or KMS managed key. Valid values are `SSE_KMS` and `SSE_S3`.
     """
-    kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    kms_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     KMS key arn for the customer s3 location when encrypting with a KMS managed key.
     """
-    object_key_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    object_key_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Object key prefix for the customer S3 location.
     """
@@ -128,10 +128,10 @@ class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Config
 @pulumi.input_type
 class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgs:
     def __init__(__self__, *,
-                 bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_option: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_key_prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_option: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_key_prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] bucket_name: Bucket name of the customer S3 bucket.
         :param pulumi.Input[_builtins.str] encryption_option: Encryption option for the customer s3 location. Options are S3 server side encryption with an S3-managed key or KMS managed key. Valid values are `SSE_KMS` and `SSE_S3`.
@@ -149,50 +149,50 @@ class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Config
 
     @_builtins.property
     @pulumi.getter(name="bucketName")
-    def bucket_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Bucket name of the customer S3 bucket.
         """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
-    def bucket_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket_name", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionOption")
-    def encryption_option(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encryption_option(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Encryption option for the customer s3 location. Options are S3 server side encryption with an S3-managed key or KMS managed key. Valid values are `SSE_KMS` and `SSE_S3`.
         """
         return pulumi.get(self, "encryption_option")
 
     @encryption_option.setter
-    def encryption_option(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encryption_option(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encryption_option", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         KMS key arn for the customer s3 location when encrypting with a KMS managed key.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="objectKeyPrefix")
-    def object_key_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def object_key_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Object key prefix for the customer S3 location.
         """
         return pulumi.get(self, "object_key_prefix")
 
     @object_key_prefix.setter
-    def object_key_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def object_key_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "object_key_prefix", value)
 
 
@@ -244,7 +244,7 @@ class TableRetentionPropertiesArgs:
 
 
 class TableSchemaArgsDict(TypedDict):
-    composite_partition_key: NotRequired[pulumi.Input['TableSchemaCompositePartitionKeyArgsDict']]
+    composite_partition_key: NotRequired[pulumi.Input[Optional['TableSchemaCompositePartitionKeyArgs']]]
     """
     A non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed. See Composite Partition Key below for more details.
     """
@@ -252,7 +252,7 @@ class TableSchemaArgsDict(TypedDict):
 @pulumi.input_type
 class TableSchemaArgs:
     def __init__(__self__, *,
-                 composite_partition_key: Optional[pulumi.Input['TableSchemaCompositePartitionKeyArgs']] = None):
+                 composite_partition_key: pulumi.Input[Optional['TableSchemaCompositePartitionKeyArgs']] = None):
         """
         :param pulumi.Input['TableSchemaCompositePartitionKeyArgs'] composite_partition_key: A non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed. See Composite Partition Key below for more details.
         """
@@ -261,14 +261,14 @@ class TableSchemaArgs:
 
     @_builtins.property
     @pulumi.getter(name="compositePartitionKey")
-    def composite_partition_key(self) -> Optional[pulumi.Input['TableSchemaCompositePartitionKeyArgs']]:
+    def composite_partition_key(self) -> pulumi.Input[Optional['TableSchemaCompositePartitionKeyArgs']]:
         """
         A non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed. See Composite Partition Key below for more details.
         """
         return pulumi.get(self, "composite_partition_key")
 
     @composite_partition_key.setter
-    def composite_partition_key(self, value: Optional[pulumi.Input['TableSchemaCompositePartitionKeyArgs']]):
+    def composite_partition_key(self, value: pulumi.Input[Optional['TableSchemaCompositePartitionKeyArgs']]):
         pulumi.set(self, "composite_partition_key", value)
 
 
@@ -277,11 +277,11 @@ class TableSchemaCompositePartitionKeyArgsDict(TypedDict):
     """
     The type of the partition key. Valid values: `DIMENSION`, `MEASURE`.
     """
-    enforcement_in_record: NotRequired[pulumi.Input[_builtins.str]]
+    enforcement_in_record: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The level of enforcement for the specification of a dimension key in ingested records. Valid values: `REQUIRED`, `OPTIONAL`.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the attribute used for a dimension key.
     """
@@ -290,8 +290,8 @@ class TableSchemaCompositePartitionKeyArgsDict(TypedDict):
 class TableSchemaCompositePartitionKeyArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 enforcement_in_record: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 enforcement_in_record: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: The type of the partition key. Valid values: `DIMENSION`, `MEASURE`.
         :param pulumi.Input[_builtins.str] enforcement_in_record: The level of enforcement for the specification of a dimension key in ingested records. Valid values: `REQUIRED`, `OPTIONAL`.
@@ -317,26 +317,26 @@ class TableSchemaCompositePartitionKeyArgs:
 
     @_builtins.property
     @pulumi.getter(name="enforcementInRecord")
-    def enforcement_in_record(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def enforcement_in_record(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The level of enforcement for the specification of a dimension key in ingested records. Valid values: `REQUIRED`, `OPTIONAL`.
         """
         return pulumi.get(self, "enforcement_in_record")
 
     @enforcement_in_record.setter
-    def enforcement_in_record(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def enforcement_in_record(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "enforcement_in_record", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the attribute used for a dimension key.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 

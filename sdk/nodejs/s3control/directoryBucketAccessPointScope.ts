@@ -148,19 +148,19 @@ export interface DirectoryBucketAccessPointScopeState {
     /**
      * The AWS account ID that owns the specified access point.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The name of the access point that you want to apply the scope to.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * . Scope is used to restrict access to specific prefixes, API operations, or a combination of both. To remove the `scope`, set it to `{permissions=[] prefixes=[]}`. The default scope is `{permissions=[] prefixes=[]}`.
      */
-    scope?: pulumi.Input<inputs.s3control.DirectoryBucketAccessPointScopeScope>;
+    scope?: pulumi.Input<inputs.s3control.DirectoryBucketAccessPointScopeScope | undefined>;
 }
 
 /**
@@ -174,11 +174,11 @@ export interface DirectoryBucketAccessPointScopeArgs {
     /**
      * The name of the access point that you want to apply the scope to.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * . Scope is used to restrict access to specific prefixes, API operations, or a combination of both. To remove the `scope`, set it to `{permissions=[] prefixes=[]}`. The default scope is `{permissions=[] prefixes=[]}`.
      */

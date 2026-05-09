@@ -140,31 +140,31 @@ export interface PartnerState {
     /**
      * The Amazon Web Services account ID that owns the cluster.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The cluster identifier of the cluster that receives data from the partner.
      */
-    clusterIdentifier?: pulumi.Input<string>;
+    clusterIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The name of the database that receives data from the partner.
      */
-    databaseName?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string | undefined>;
     /**
      * The name of the partner that is authorized to send data.
      */
-    partnerName?: pulumi.Input<string>;
+    partnerName?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * (Optional) The partner integration status.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * (Optional) The status message provided by the partner.
      */
-    statusMessage?: pulumi.Input<string>;
+    statusMessage?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -190,5 +190,5 @@ export interface PartnerArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

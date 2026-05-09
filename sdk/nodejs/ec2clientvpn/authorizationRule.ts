@@ -138,27 +138,27 @@ export interface AuthorizationRuleState {
     /**
      * The ID of the group to which the authorization rule grants access. One of `accessGroupId` or `authorizeAllGroups` must be set.
      */
-    accessGroupId?: pulumi.Input<string>;
+    accessGroupId?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether the authorization rule grants access to all clients. One of `accessGroupId` or `authorizeAllGroups` must be set.
      */
-    authorizeAllGroups?: pulumi.Input<boolean>;
+    authorizeAllGroups?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Client VPN endpoint.
      */
-    clientVpnEndpointId?: pulumi.Input<string>;
+    clientVpnEndpointId?: pulumi.Input<string | undefined>;
     /**
      * A brief description of the authorization rule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The IPv4 or IPv6 address range, in CIDR notation, of the network to which the authorization rule applies.
      */
-    targetNetworkCidr?: pulumi.Input<string>;
+    targetNetworkCidr?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -168,11 +168,11 @@ export interface AuthorizationRuleArgs {
     /**
      * The ID of the group to which the authorization rule grants access. One of `accessGroupId` or `authorizeAllGroups` must be set.
      */
-    accessGroupId?: pulumi.Input<string>;
+    accessGroupId?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether the authorization rule grants access to all clients. One of `accessGroupId` or `authorizeAllGroups` must be set.
      */
-    authorizeAllGroups?: pulumi.Input<boolean>;
+    authorizeAllGroups?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Client VPN endpoint.
      */
@@ -180,11 +180,11 @@ export interface AuthorizationRuleArgs {
     /**
      * A brief description of the authorization rule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The IPv4 or IPv6 address range, in CIDR notation, of the network to which the authorization rule applies.
      */

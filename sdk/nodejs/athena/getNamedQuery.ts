@@ -100,9 +100,9 @@ export interface GetNamedQueryOutputArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The workgroup to which the query belongs. Defaults to `primary`.
      */
-    workgroup?: pulumi.Input<string>;
+    workgroup?: pulumi.Input<string | undefined>;
 }

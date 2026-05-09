@@ -93,7 +93,7 @@ export interface GetRolePolicyAttachmentsOutputArgs {
     /**
      * Path prefix for filtering the results.
      */
-    pathPrefix?: pulumi.Input<string>;
+    pathPrefix?: pulumi.Input<string | undefined>;
     /**
      * Name of the IAM role.
      *

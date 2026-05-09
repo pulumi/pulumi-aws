@@ -130,25 +130,25 @@ export interface RoutingControlState {
     /**
      * ARN of the routing control.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * ARN of the cluster in which this routing control will reside.
      */
-    clusterArn?: pulumi.Input<string>;
+    clusterArn?: pulumi.Input<string | undefined>;
     /**
      * ARN of the control panel in which this routing control will reside.
      */
-    controlPanelArn?: pulumi.Input<string>;
+    controlPanelArn?: pulumi.Input<string | undefined>;
     /**
      * The name describing the routing control.
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Status of routing control. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -162,11 +162,11 @@ export interface RoutingControlArgs {
     /**
      * ARN of the control panel in which this routing control will reside.
      */
-    controlPanelArn?: pulumi.Input<string>;
+    controlPanelArn?: pulumi.Input<string | undefined>;
     /**
      * The name describing the routing control.
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

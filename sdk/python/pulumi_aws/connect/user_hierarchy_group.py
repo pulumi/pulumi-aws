@@ -22,10 +22,10 @@ __all__ = ['UserHierarchyGroupArgs', 'UserHierarchyGroup']
 class UserHierarchyGroupArgs:
     def __init__(__self__, *,
                  instance_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a UserHierarchyGroup resource.
 
@@ -60,43 +60,43 @@ class UserHierarchyGroupArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the user hierarchy group. Must not be more than 100 characters.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="parentGroupId")
-    def parent_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parent_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
         """
         return pulumi.get(self, "parent_group_id")
 
     @parent_group_id.setter
-    def parent_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parent_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parent_group_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Tags to apply to the hierarchy group. If configured with a provider
         `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -104,23 +104,23 @@ class UserHierarchyGroupArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _UserHierarchyGroupState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 hierarchy_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 hierarchy_paths: Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathArgs']]]] = None,
-                 instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 level_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 hierarchy_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 hierarchy_paths: pulumi.Input[Optional[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathArgs']]]] = None,
+                 instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 level_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering UserHierarchyGroup resources.
 
@@ -159,103 +159,103 @@ class _UserHierarchyGroupState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the hierarchy group.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="hierarchyGroupId")
-    def hierarchy_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hierarchy_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier for the hierarchy group.
         """
         return pulumi.get(self, "hierarchy_group_id")
 
     @hierarchy_group_id.setter
-    def hierarchy_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hierarchy_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hierarchy_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="hierarchyPaths")
-    def hierarchy_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathArgs']]]]:
+    def hierarchy_paths(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathArgs']]]]:
         """
         A block that contains information about the levels in the hierarchy group. The `hierarchy_path` block is documented below.
         """
         return pulumi.get(self, "hierarchy_paths")
 
     @hierarchy_paths.setter
-    def hierarchy_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathArgs']]]]):
+    def hierarchy_paths(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathArgs']]]]):
         pulumi.set(self, "hierarchy_paths", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceId")
-    def instance_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier of the hosting Amazon Connect Instance.
         """
         return pulumi.get(self, "instance_id")
 
     @instance_id.setter
-    def instance_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_id", value)
 
     @_builtins.property
     @pulumi.getter(name="levelId")
-    def level_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def level_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the level in the hierarchy group.
         """
         return pulumi.get(self, "level_id")
 
     @level_id.setter
-    def level_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def level_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "level_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the user hierarchy group. Must not be more than 100 characters.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="parentGroupId")
-    def parent_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parent_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
         """
         return pulumi.get(self, "parent_group_id")
 
     @parent_group_id.setter
-    def parent_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parent_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parent_group_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Tags to apply to the hierarchy group. If configured with a provider
         `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -263,19 +263,19 @@ class _UserHierarchyGroupState:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
 
@@ -285,11 +285,11 @@ class UserHierarchyGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides an Amazon Connect User Hierarchy Group resource. For more information see
@@ -425,11 +425,11 @@ class UserHierarchyGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -461,16 +461,16 @@ class UserHierarchyGroup(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            hierarchy_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            hierarchy_paths: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserHierarchyGroupHierarchyPathArgs', 'UserHierarchyGroupHierarchyPathArgsDict']]]]] = None,
-            instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-            level_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            parent_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'UserHierarchyGroup':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            hierarchy_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            hierarchy_paths: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserHierarchyGroupHierarchyPathArgs', 'UserHierarchyGroupHierarchyPathArgsDict']]]]] = None,
+            instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+            level_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parent_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'UserHierarchyGroup':
         """
         Get an existing UserHierarchyGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

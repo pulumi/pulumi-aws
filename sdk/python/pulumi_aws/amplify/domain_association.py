@@ -24,10 +24,10 @@ class DomainAssociationArgs:
                  app_id: pulumi.Input[_builtins.str],
                  domain_name: pulumi.Input[_builtins.str],
                  sub_domains: pulumi.Input[Sequence[pulumi.Input['DomainAssociationSubDomainArgs']]],
-                 certificate_settings: Optional[pulumi.Input['DomainAssociationCertificateSettingsArgs']] = None,
-                 enable_auto_sub_domain: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 wait_for_verification: Optional[pulumi.Input[_builtins.bool]] = None):
+                 certificate_settings: pulumi.Input[Optional['DomainAssociationCertificateSettingsArgs']] = None,
+                 enable_auto_sub_domain: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 wait_for_verification: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a DomainAssociation resource.
 
@@ -89,65 +89,65 @@ class DomainAssociationArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateSettings")
-    def certificate_settings(self) -> Optional[pulumi.Input['DomainAssociationCertificateSettingsArgs']]:
+    def certificate_settings(self) -> pulumi.Input[Optional['DomainAssociationCertificateSettingsArgs']]:
         """
         The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
         """
         return pulumi.get(self, "certificate_settings")
 
     @certificate_settings.setter
-    def certificate_settings(self, value: Optional[pulumi.Input['DomainAssociationCertificateSettingsArgs']]):
+    def certificate_settings(self, value: pulumi.Input[Optional['DomainAssociationCertificateSettingsArgs']]):
         pulumi.set(self, "certificate_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="enableAutoSubDomain")
-    def enable_auto_sub_domain(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_auto_sub_domain(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables the automated creation of subdomains for branches.
         """
         return pulumi.get(self, "enable_auto_sub_domain")
 
     @enable_auto_sub_domain.setter
-    def enable_auto_sub_domain(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_auto_sub_domain(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_auto_sub_domain", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="waitForVerification")
-    def wait_for_verification(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def wait_for_verification(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
         """
         return pulumi.get(self, "wait_for_verification")
 
     @wait_for_verification.setter
-    def wait_for_verification(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def wait_for_verification(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "wait_for_verification", value)
 
 
 @pulumi.input_type
 class _DomainAssociationState:
     def __init__(__self__, *,
-                 app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_settings: Optional[pulumi.Input['DomainAssociationCertificateSettingsArgs']] = None,
-                 certificate_verification_dns_record: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_auto_sub_domain: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 sub_domains: Optional[pulumi.Input[Sequence[pulumi.Input['DomainAssociationSubDomainArgs']]]] = None,
-                 wait_for_verification: Optional[pulumi.Input[_builtins.bool]] = None):
+                 app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_settings: pulumi.Input[Optional['DomainAssociationCertificateSettingsArgs']] = None,
+                 certificate_verification_dns_record: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_auto_sub_domain: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 sub_domains: pulumi.Input[Optional[Sequence[pulumi.Input['DomainAssociationSubDomainArgs']]]] = None,
+                 wait_for_verification: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering DomainAssociation resources.
 
@@ -182,110 +182,110 @@ class _DomainAssociationState:
 
     @_builtins.property
     @pulumi.getter(name="appId")
-    def app_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique ID for an Amplify app.
         """
         return pulumi.get(self, "app_id")
 
     @app_id.setter
-    def app_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN for the domain association.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateSettings")
-    def certificate_settings(self) -> Optional[pulumi.Input['DomainAssociationCertificateSettingsArgs']]:
+    def certificate_settings(self) -> pulumi.Input[Optional['DomainAssociationCertificateSettingsArgs']]:
         """
         The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
         """
         return pulumi.get(self, "certificate_settings")
 
     @certificate_settings.setter
-    def certificate_settings(self, value: Optional[pulumi.Input['DomainAssociationCertificateSettingsArgs']]):
+    def certificate_settings(self, value: pulumi.Input[Optional['DomainAssociationCertificateSettingsArgs']]):
         pulumi.set(self, "certificate_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateVerificationDnsRecord")
-    def certificate_verification_dns_record(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_verification_dns_record(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
         """
         return pulumi.get(self, "certificate_verification_dns_record")
 
     @certificate_verification_dns_record.setter
-    def certificate_verification_dns_record(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_verification_dns_record(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_verification_dns_record", value)
 
     @_builtins.property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Domain name for the domain association.
         """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
-    def domain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_name", value)
 
     @_builtins.property
     @pulumi.getter(name="enableAutoSubDomain")
-    def enable_auto_sub_domain(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_auto_sub_domain(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables the automated creation of subdomains for branches.
         """
         return pulumi.get(self, "enable_auto_sub_domain")
 
     @enable_auto_sub_domain.setter
-    def enable_auto_sub_domain(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_auto_sub_domain(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_auto_sub_domain", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="subDomains")
-    def sub_domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainAssociationSubDomainArgs']]]]:
+    def sub_domains(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DomainAssociationSubDomainArgs']]]]:
         """
         Setting for the subdomain. Documented below.
         """
         return pulumi.get(self, "sub_domains")
 
     @sub_domains.setter
-    def sub_domains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DomainAssociationSubDomainArgs']]]]):
+    def sub_domains(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DomainAssociationSubDomainArgs']]]]):
         pulumi.set(self, "sub_domains", value)
 
     @_builtins.property
     @pulumi.getter(name="waitForVerification")
-    def wait_for_verification(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def wait_for_verification(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
         """
         return pulumi.get(self, "wait_for_verification")
 
     @wait_for_verification.setter
-    def wait_for_verification(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def wait_for_verification(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "wait_for_verification", value)
 
 
@@ -295,13 +295,13 @@ class DomainAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_settings: Optional[pulumi.Input[Union['DomainAssociationCertificateSettingsArgs', 'DomainAssociationCertificateSettingsArgsDict']]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_auto_sub_domain: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 sub_domains: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DomainAssociationSubDomainArgs', 'DomainAssociationSubDomainArgsDict']]]]] = None,
-                 wait_for_verification: Optional[pulumi.Input[_builtins.bool]] = None,
+                 app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_settings: pulumi.Input[Optional[Union['DomainAssociationCertificateSettingsArgs', 'DomainAssociationCertificateSettingsArgsDict']]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_auto_sub_domain: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 sub_domains: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DomainAssociationSubDomainArgs', 'DomainAssociationSubDomainArgsDict']]]]] = None,
+                 wait_for_verification: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Provides an Amplify Domain Association resource.
@@ -420,13 +420,13 @@ class DomainAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_settings: Optional[pulumi.Input[Union['DomainAssociationCertificateSettingsArgs', 'DomainAssociationCertificateSettingsArgsDict']]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_auto_sub_domain: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 sub_domains: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DomainAssociationSubDomainArgs', 'DomainAssociationSubDomainArgsDict']]]]] = None,
-                 wait_for_verification: Optional[pulumi.Input[_builtins.bool]] = None,
+                 app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_settings: pulumi.Input[Optional[Union['DomainAssociationCertificateSettingsArgs', 'DomainAssociationCertificateSettingsArgsDict']]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_auto_sub_domain: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 sub_domains: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DomainAssociationSubDomainArgs', 'DomainAssociationSubDomainArgsDict']]]]] = None,
+                 wait_for_verification: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -461,15 +461,15 @@ class DomainAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            app_id: Optional[pulumi.Input[_builtins.str]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            certificate_settings: Optional[pulumi.Input[Union['DomainAssociationCertificateSettingsArgs', 'DomainAssociationCertificateSettingsArgsDict']]] = None,
-            certificate_verification_dns_record: Optional[pulumi.Input[_builtins.str]] = None,
-            domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-            enable_auto_sub_domain: Optional[pulumi.Input[_builtins.bool]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            sub_domains: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DomainAssociationSubDomainArgs', 'DomainAssociationSubDomainArgsDict']]]]] = None,
-            wait_for_verification: Optional[pulumi.Input[_builtins.bool]] = None) -> 'DomainAssociation':
+            app_id: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_settings: pulumi.Input[Optional[Union['DomainAssociationCertificateSettingsArgs', 'DomainAssociationCertificateSettingsArgsDict']]] = None,
+            certificate_verification_dns_record: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            enable_auto_sub_domain: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            sub_domains: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DomainAssociationSubDomainArgs', 'DomainAssociationSubDomainArgsDict']]]]] = None,
+            wait_for_verification: pulumi.Input[Optional[_builtins.bool]] = None) -> 'DomainAssociation':
         """
         Get an existing DomainAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -192,11 +192,11 @@ def get_permission_set(arn: Optional[_builtins.str] = None,
         relay_state=pulumi.get(__ret__, 'relay_state'),
         session_duration=pulumi.get(__ret__, 'session_duration'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_permission_set_output(arn: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                              instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                              name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                              region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                              tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_permission_set_output(arn: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                              name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPermissionSetResult]:
     """
     Use this data source to get a Single Sign-On (SSO) Permission Set.

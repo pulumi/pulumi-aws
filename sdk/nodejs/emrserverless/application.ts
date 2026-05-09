@@ -316,76 +316,76 @@ export interface ApplicationState {
     /**
      * The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
      */
-    architecture?: pulumi.Input<string>;
+    architecture?: pulumi.Input<string | undefined>;
     /**
      * ARN of the cluster.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The configuration for an application to automatically start on job submission.
      */
-    autoStartConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationAutoStartConfiguration>;
+    autoStartConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationAutoStartConfiguration | undefined>;
     /**
      * The configuration for an application to automatically stop after a certain amount of time being idle.
      */
-    autoStopConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationAutoStopConfiguration>;
+    autoStopConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationAutoStopConfiguration | undefined>;
     /**
      * The image configuration applied to all worker types.
      */
-    imageConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationImageConfiguration>;
+    imageConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationImageConfiguration | undefined>;
     /**
      * The capacity to initialize when the application is created.
      */
-    initialCapacities?: pulumi.Input<pulumi.Input<inputs.emrserverless.ApplicationInitialCapacity>[]>;
+    initialCapacities?: pulumi.Input<pulumi.Input<inputs.emrserverless.ApplicationInitialCapacity>[] | undefined>;
     /**
      * Enables the interactive use cases to use when running an application.
      */
-    interactiveConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationInteractiveConfiguration>;
-    jobLevelCostAllocationConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationJobLevelCostAllocationConfiguration>;
+    interactiveConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationInteractiveConfiguration | undefined>;
+    jobLevelCostAllocationConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationJobLevelCostAllocationConfiguration | undefined>;
     /**
      * The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
      */
-    maximumCapacity?: pulumi.Input<inputs.emrserverless.ApplicationMaximumCapacity>;
+    maximumCapacity?: pulumi.Input<inputs.emrserverless.ApplicationMaximumCapacity | undefined>;
     /**
      * The configuration setting for monitoring.
      */
-    monitoringConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationMonitoringConfiguration>;
+    monitoringConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationMonitoringConfiguration | undefined>;
     /**
      * The name of the application.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The network configuration for customer VPC connectivity.
      */
-    networkConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationNetworkConfiguration>;
+    networkConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationNetworkConfiguration | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The EMR release version associated with the application.
      */
-    releaseLabel?: pulumi.Input<string>;
+    releaseLabel?: pulumi.Input<string | undefined>;
     /**
      * A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
      */
-    runtimeConfigurations?: pulumi.Input<pulumi.Input<inputs.emrserverless.ApplicationRuntimeConfiguration>[]>;
+    runtimeConfigurations?: pulumi.Input<pulumi.Input<inputs.emrserverless.ApplicationRuntimeConfiguration>[] | undefined>;
     /**
      * Scheduler configuration for batch and streaming jobs running on this application. Supported with release labels `emr-7.0.0` and above. See schedulerConfiguration Arguments below.
      */
-    schedulerConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationSchedulerConfiguration>;
+    schedulerConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationSchedulerConfiguration | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The type of application you want to start, such as `spark` or `hive`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -395,48 +395,48 @@ export interface ApplicationArgs {
     /**
      * The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
      */
-    architecture?: pulumi.Input<string>;
+    architecture?: pulumi.Input<string | undefined>;
     /**
      * The configuration for an application to automatically start on job submission.
      */
-    autoStartConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationAutoStartConfiguration>;
+    autoStartConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationAutoStartConfiguration | undefined>;
     /**
      * The configuration for an application to automatically stop after a certain amount of time being idle.
      */
-    autoStopConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationAutoStopConfiguration>;
+    autoStopConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationAutoStopConfiguration | undefined>;
     /**
      * The image configuration applied to all worker types.
      */
-    imageConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationImageConfiguration>;
+    imageConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationImageConfiguration | undefined>;
     /**
      * The capacity to initialize when the application is created.
      */
-    initialCapacities?: pulumi.Input<pulumi.Input<inputs.emrserverless.ApplicationInitialCapacity>[]>;
+    initialCapacities?: pulumi.Input<pulumi.Input<inputs.emrserverless.ApplicationInitialCapacity>[] | undefined>;
     /**
      * Enables the interactive use cases to use when running an application.
      */
-    interactiveConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationInteractiveConfiguration>;
-    jobLevelCostAllocationConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationJobLevelCostAllocationConfiguration>;
+    interactiveConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationInteractiveConfiguration | undefined>;
+    jobLevelCostAllocationConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationJobLevelCostAllocationConfiguration | undefined>;
     /**
      * The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
      */
-    maximumCapacity?: pulumi.Input<inputs.emrserverless.ApplicationMaximumCapacity>;
+    maximumCapacity?: pulumi.Input<inputs.emrserverless.ApplicationMaximumCapacity | undefined>;
     /**
      * The configuration setting for monitoring.
      */
-    monitoringConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationMonitoringConfiguration>;
+    monitoringConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationMonitoringConfiguration | undefined>;
     /**
      * The name of the application.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The network configuration for customer VPC connectivity.
      */
-    networkConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationNetworkConfiguration>;
+    networkConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationNetworkConfiguration | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The EMR release version associated with the application.
      */
@@ -444,15 +444,15 @@ export interface ApplicationArgs {
     /**
      * A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
      */
-    runtimeConfigurations?: pulumi.Input<pulumi.Input<inputs.emrserverless.ApplicationRuntimeConfiguration>[]>;
+    runtimeConfigurations?: pulumi.Input<pulumi.Input<inputs.emrserverless.ApplicationRuntimeConfiguration>[] | undefined>;
     /**
      * Scheduler configuration for batch and streaming jobs running on this application. Supported with release labels `emr-7.0.0` and above. See schedulerConfiguration Arguments below.
      */
-    schedulerConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationSchedulerConfiguration>;
+    schedulerConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationSchedulerConfiguration | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The type of application you want to start, such as `spark` or `hive`.
      */

@@ -221,58 +221,58 @@ export interface ServerlessCollectionState {
     /**
      * Amazon Resource Name (ARN) of the collection.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
      */
-    collectionEndpoint?: pulumi.Input<string>;
+    collectionEndpoint?: pulumi.Input<string | undefined>;
     /**
      * Name of the collection group to associate with this collection.
      */
-    collectionGroupName?: pulumi.Input<string>;
+    collectionGroupName?: pulumi.Input<string | undefined>;
     /**
      * Collection-specific endpoint used to access OpenSearch Dashboards.
      */
-    dashboardEndpoint?: pulumi.Input<string>;
+    dashboardEndpoint?: pulumi.Input<string | undefined>;
     /**
      * Description of the collection.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for direct collection encryption settings. See `encryptionConfig` below for details.
      */
-    encryptionConfigs?: pulumi.Input<pulumi.Input<inputs.opensearch.ServerlessCollectionEncryptionConfig>[]>;
+    encryptionConfigs?: pulumi.Input<pulumi.Input<inputs.opensearch.ServerlessCollectionEncryptionConfig>[] | undefined>;
     /**
      * The ARN of the Amazon Web Services KMS key used to encrypt the collection.
      */
-    kmsKeyArn?: pulumi.Input<string>;
+    kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
      * Name of the collection.
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
      */
-    standbyReplicas?: pulumi.Input<string>;
+    standbyReplicas?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.opensearch.ServerlessCollectionTimeouts>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.opensearch.ServerlessCollectionTimeouts | undefined>;
     /**
      * Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -282,36 +282,36 @@ export interface ServerlessCollectionArgs {
     /**
      * Name of the collection group to associate with this collection.
      */
-    collectionGroupName?: pulumi.Input<string>;
+    collectionGroupName?: pulumi.Input<string | undefined>;
     /**
      * Description of the collection.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for direct collection encryption settings. See `encryptionConfig` below for details.
      */
-    encryptionConfigs?: pulumi.Input<pulumi.Input<inputs.opensearch.ServerlessCollectionEncryptionConfig>[]>;
+    encryptionConfigs?: pulumi.Input<pulumi.Input<inputs.opensearch.ServerlessCollectionEncryptionConfig>[] | undefined>;
     /**
      * Name of the collection.
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
      */
-    standbyReplicas?: pulumi.Input<string>;
+    standbyReplicas?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.opensearch.ServerlessCollectionTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.opensearch.ServerlessCollectionTimeouts | undefined>;
     /**
      * Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }

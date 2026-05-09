@@ -21,18 +21,18 @@ class PlatformApplicationArgs:
     def __init__(__self__, *,
                  platform: pulumi.Input[_builtins.str],
                  platform_credential: pulumi.Input[_builtins.str],
-                 apple_platform_bundle_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 apple_platform_team_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_delivery_failure_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_endpoint_created_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_endpoint_deleted_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_endpoint_updated_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 failure_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 platform_principal: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 success_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 success_feedback_sample_rate: Optional[pulumi.Input[_builtins.str]] = None):
+                 apple_platform_bundle_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 apple_platform_team_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_delivery_failure_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_endpoint_created_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_endpoint_deleted_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_endpoint_updated_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 failure_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 platform_principal: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 success_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 success_feedback_sample_rate: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PlatformApplication resource.
 
@@ -106,139 +106,139 @@ class PlatformApplicationArgs:
 
     @_builtins.property
     @pulumi.getter(name="applePlatformBundleId")
-    def apple_platform_bundle_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def apple_platform_bundle_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The bundle identifier that's assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
         """
         return pulumi.get(self, "apple_platform_bundle_id")
 
     @apple_platform_bundle_id.setter
-    def apple_platform_bundle_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def apple_platform_bundle_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "apple_platform_bundle_id", value)
 
     @_builtins.property
     @pulumi.getter(name="applePlatformTeamId")
-    def apple_platform_team_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def apple_platform_team_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier that's assigned to your Apple developer account team. Must be 10 alphanumeric characters.
         """
         return pulumi.get(self, "apple_platform_team_id")
 
     @apple_platform_team_id.setter
-    def apple_platform_team_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def apple_platform_team_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "apple_platform_team_id", value)
 
     @_builtins.property
     @pulumi.getter(name="eventDeliveryFailureTopicArn")
-    def event_delivery_failure_topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_delivery_failure_topic_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
         """
         return pulumi.get(self, "event_delivery_failure_topic_arn")
 
     @event_delivery_failure_topic_arn.setter
-    def event_delivery_failure_topic_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_delivery_failure_topic_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_delivery_failure_topic_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="eventEndpointCreatedTopicArn")
-    def event_endpoint_created_topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_endpoint_created_topic_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the SNS Topic triggered when a new platform endpoint is added to your platform application.
         """
         return pulumi.get(self, "event_endpoint_created_topic_arn")
 
     @event_endpoint_created_topic_arn.setter
-    def event_endpoint_created_topic_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_endpoint_created_topic_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_endpoint_created_topic_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="eventEndpointDeletedTopicArn")
-    def event_endpoint_deleted_topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_endpoint_deleted_topic_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
         """
         return pulumi.get(self, "event_endpoint_deleted_topic_arn")
 
     @event_endpoint_deleted_topic_arn.setter
-    def event_endpoint_deleted_topic_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_endpoint_deleted_topic_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_endpoint_deleted_topic_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="eventEndpointUpdatedTopicArn")
-    def event_endpoint_updated_topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_endpoint_updated_topic_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the SNS Topic triggered when an existing platform endpoint is changed from your platform application.
         """
         return pulumi.get(self, "event_endpoint_updated_topic_arn")
 
     @event_endpoint_updated_topic_arn.setter
-    def event_endpoint_updated_topic_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_endpoint_updated_topic_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_endpoint_updated_topic_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="failureFeedbackRoleArn")
-    def failure_feedback_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def failure_feedback_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IAM role ARN permitted to receive failure feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
         """
         return pulumi.get(self, "failure_feedback_role_arn")
 
     @failure_feedback_role_arn.setter
-    def failure_feedback_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def failure_feedback_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "failure_feedback_role_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The friendly name for the SNS platform application
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="platformPrincipal")
-    def platform_principal(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def platform_principal(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
         """
         return pulumi.get(self, "platform_principal")
 
     @platform_principal.setter
-    def platform_principal(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def platform_principal(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "platform_principal", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="successFeedbackRoleArn")
-    def success_feedback_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def success_feedback_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
         """
         return pulumi.get(self, "success_feedback_role_arn")
 
     @success_feedback_role_arn.setter
-    def success_feedback_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def success_feedback_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "success_feedback_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="successFeedbackSampleRate")
-    def success_feedback_sample_rate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def success_feedback_sample_rate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The sample rate percentage (0-100) of successfully delivered messages.
 
@@ -247,28 +247,28 @@ class PlatformApplicationArgs:
         return pulumi.get(self, "success_feedback_sample_rate")
 
     @success_feedback_sample_rate.setter
-    def success_feedback_sample_rate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def success_feedback_sample_rate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "success_feedback_sample_rate", value)
 
 
 @pulumi.input_type
 class _PlatformApplicationState:
     def __init__(__self__, *,
-                 apple_platform_bundle_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 apple_platform_team_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_delivery_failure_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_endpoint_created_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_endpoint_deleted_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_endpoint_updated_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 failure_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 platform: Optional[pulumi.Input[_builtins.str]] = None,
-                 platform_credential: Optional[pulumi.Input[_builtins.str]] = None,
-                 platform_principal: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 success_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 success_feedback_sample_rate: Optional[pulumi.Input[_builtins.str]] = None):
+                 apple_platform_bundle_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 apple_platform_team_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_delivery_failure_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_endpoint_created_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_endpoint_deleted_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_endpoint_updated_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 failure_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 platform: pulumi.Input[Optional[_builtins.str]] = None,
+                 platform_credential: pulumi.Input[Optional[_builtins.str]] = None,
+                 platform_principal: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 success_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 success_feedback_sample_rate: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PlatformApplication resources.
 
@@ -323,175 +323,175 @@ class _PlatformApplicationState:
 
     @_builtins.property
     @pulumi.getter(name="applePlatformBundleId")
-    def apple_platform_bundle_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def apple_platform_bundle_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The bundle identifier that's assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
         """
         return pulumi.get(self, "apple_platform_bundle_id")
 
     @apple_platform_bundle_id.setter
-    def apple_platform_bundle_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def apple_platform_bundle_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "apple_platform_bundle_id", value)
 
     @_builtins.property
     @pulumi.getter(name="applePlatformTeamId")
-    def apple_platform_team_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def apple_platform_team_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier that's assigned to your Apple developer account team. Must be 10 alphanumeric characters.
         """
         return pulumi.get(self, "apple_platform_team_id")
 
     @apple_platform_team_id.setter
-    def apple_platform_team_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def apple_platform_team_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "apple_platform_team_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the SNS platform application
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="eventDeliveryFailureTopicArn")
-    def event_delivery_failure_topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_delivery_failure_topic_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
         """
         return pulumi.get(self, "event_delivery_failure_topic_arn")
 
     @event_delivery_failure_topic_arn.setter
-    def event_delivery_failure_topic_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_delivery_failure_topic_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_delivery_failure_topic_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="eventEndpointCreatedTopicArn")
-    def event_endpoint_created_topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_endpoint_created_topic_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the SNS Topic triggered when a new platform endpoint is added to your platform application.
         """
         return pulumi.get(self, "event_endpoint_created_topic_arn")
 
     @event_endpoint_created_topic_arn.setter
-    def event_endpoint_created_topic_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_endpoint_created_topic_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_endpoint_created_topic_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="eventEndpointDeletedTopicArn")
-    def event_endpoint_deleted_topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_endpoint_deleted_topic_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
         """
         return pulumi.get(self, "event_endpoint_deleted_topic_arn")
 
     @event_endpoint_deleted_topic_arn.setter
-    def event_endpoint_deleted_topic_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_endpoint_deleted_topic_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_endpoint_deleted_topic_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="eventEndpointUpdatedTopicArn")
-    def event_endpoint_updated_topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_endpoint_updated_topic_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the SNS Topic triggered when an existing platform endpoint is changed from your platform application.
         """
         return pulumi.get(self, "event_endpoint_updated_topic_arn")
 
     @event_endpoint_updated_topic_arn.setter
-    def event_endpoint_updated_topic_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_endpoint_updated_topic_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_endpoint_updated_topic_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="failureFeedbackRoleArn")
-    def failure_feedback_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def failure_feedback_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IAM role ARN permitted to receive failure feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
         """
         return pulumi.get(self, "failure_feedback_role_arn")
 
     @failure_feedback_role_arn.setter
-    def failure_feedback_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def failure_feedback_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "failure_feedback_role_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The friendly name for the SNS platform application
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def platform(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def platform(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The platform that the app is registered with. See [Platform](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for supported platforms.
         """
         return pulumi.get(self, "platform")
 
     @platform.setter
-    def platform(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def platform(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "platform", value)
 
     @_builtins.property
     @pulumi.getter(name="platformCredential")
-    def platform_credential(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def platform_credential(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Application Platform credential. See [Credential](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
         """
         return pulumi.get(self, "platform_credential")
 
     @platform_credential.setter
-    def platform_credential(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def platform_credential(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "platform_credential", value)
 
     @_builtins.property
     @pulumi.getter(name="platformPrincipal")
-    def platform_principal(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def platform_principal(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
         """
         return pulumi.get(self, "platform_principal")
 
     @platform_principal.setter
-    def platform_principal(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def platform_principal(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "platform_principal", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="successFeedbackRoleArn")
-    def success_feedback_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def success_feedback_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
         """
         return pulumi.get(self, "success_feedback_role_arn")
 
     @success_feedback_role_arn.setter
-    def success_feedback_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def success_feedback_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "success_feedback_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="successFeedbackSampleRate")
-    def success_feedback_sample_rate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def success_feedback_sample_rate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The sample rate percentage (0-100) of successfully delivered messages.
 
@@ -500,7 +500,7 @@ class _PlatformApplicationState:
         return pulumi.get(self, "success_feedback_sample_rate")
 
     @success_feedback_sample_rate.setter
-    def success_feedback_sample_rate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def success_feedback_sample_rate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "success_feedback_sample_rate", value)
 
 
@@ -510,20 +510,20 @@ class PlatformApplication(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 apple_platform_bundle_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 apple_platform_team_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_delivery_failure_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_endpoint_created_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_endpoint_deleted_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_endpoint_updated_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 failure_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 platform: Optional[pulumi.Input[_builtins.str]] = None,
-                 platform_credential: Optional[pulumi.Input[_builtins.str]] = None,
-                 platform_principal: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 success_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 success_feedback_sample_rate: Optional[pulumi.Input[_builtins.str]] = None,
+                 apple_platform_bundle_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 apple_platform_team_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_delivery_failure_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_endpoint_created_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_endpoint_deleted_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_endpoint_updated_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 failure_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 platform: pulumi.Input[Optional[_builtins.str]] = None,
+                 platform_credential: pulumi.Input[Optional[_builtins.str]] = None,
+                 platform_principal: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 success_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 success_feedback_sample_rate: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides an SNS platform application resource
@@ -673,20 +673,20 @@ class PlatformApplication(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 apple_platform_bundle_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 apple_platform_team_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_delivery_failure_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_endpoint_created_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_endpoint_deleted_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_endpoint_updated_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 failure_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 platform: Optional[pulumi.Input[_builtins.str]] = None,
-                 platform_credential: Optional[pulumi.Input[_builtins.str]] = None,
-                 platform_principal: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 success_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 success_feedback_sample_rate: Optional[pulumi.Input[_builtins.str]] = None,
+                 apple_platform_bundle_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 apple_platform_team_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_delivery_failure_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_endpoint_created_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_endpoint_deleted_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_endpoint_updated_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 failure_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 platform: pulumi.Input[Optional[_builtins.str]] = None,
+                 platform_credential: pulumi.Input[Optional[_builtins.str]] = None,
+                 platform_principal: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 success_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 success_feedback_sample_rate: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -727,21 +727,21 @@ class PlatformApplication(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            apple_platform_bundle_id: Optional[pulumi.Input[_builtins.str]] = None,
-            apple_platform_team_id: Optional[pulumi.Input[_builtins.str]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            event_delivery_failure_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            event_endpoint_created_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            event_endpoint_deleted_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            event_endpoint_updated_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            failure_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            platform: Optional[pulumi.Input[_builtins.str]] = None,
-            platform_credential: Optional[pulumi.Input[_builtins.str]] = None,
-            platform_principal: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            success_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            success_feedback_sample_rate: Optional[pulumi.Input[_builtins.str]] = None) -> 'PlatformApplication':
+            apple_platform_bundle_id: pulumi.Input[Optional[_builtins.str]] = None,
+            apple_platform_team_id: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            event_delivery_failure_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            event_endpoint_created_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            event_endpoint_deleted_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            event_endpoint_updated_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            failure_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            platform: pulumi.Input[Optional[_builtins.str]] = None,
+            platform_credential: pulumi.Input[Optional[_builtins.str]] = None,
+            platform_principal: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            success_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            success_feedback_sample_rate: pulumi.Input[Optional[_builtins.str]] = None) -> 'PlatformApplication':
         """
         Get an existing PlatformApplication resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

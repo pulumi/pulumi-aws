@@ -197,10 +197,10 @@ def get_files_access_point(id: Optional[_builtins.str] = None,
         root_directories=pulumi.get(__ret__, 'root_directories'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_files_access_point_output(id: Optional[pulumi.Input[_builtins.str]] = None,
-                                  posix_users: Optional[pulumi.Input[Optional[Sequence[Union['GetFilesAccessPointPosixUserArgs', 'GetFilesAccessPointPosixUserArgsDict']]]]] = None,
-                                  region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                  root_directories: Optional[pulumi.Input[Optional[Sequence[Union['GetFilesAccessPointRootDirectoryArgs', 'GetFilesAccessPointRootDirectoryArgsDict']]]]] = None,
+def get_files_access_point_output(id: pulumi.Input[Optional[_builtins.str]] = None,
+                                  posix_users: pulumi.Input[Optional[Optional[Sequence[Union['GetFilesAccessPointPosixUserArgs', 'GetFilesAccessPointPosixUserArgsDict']]]]] = None,
+                                  region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                  root_directories: pulumi.Input[Optional[Optional[Sequence[Union['GetFilesAccessPointRootDirectoryArgs', 'GetFilesAccessPointRootDirectoryArgsDict']]]]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFilesAccessPointResult]:
     """
     Data source for managing an S3 Files Access Point.

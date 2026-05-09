@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * const example = aws.eks.getClusters({});
  * const exampleGetCluster = example.then(example => std.toset({
  *     input: example.names,
- * })).then(invoke => .reduce((__obj, [__key, __value]) => ({ ...__obj, [__key]: aws.eks.getCluster({
+ * })).then(invoke => .reduce((__obj, [__key, __value]) => ({ ...__obj, [String(__key)]: aws.eks.getCluster({
  *     name: __value,
  * }) }), {}));
  * ```
@@ -67,7 +67,7 @@ export interface GetClustersResult {
  * const example = aws.eks.getClusters({});
  * const exampleGetCluster = example.then(example => std.toset({
  *     input: example.names,
- * })).then(invoke => .reduce((__obj, [__key, __value]) => ({ ...__obj, [__key]: aws.eks.getCluster({
+ * })).then(invoke => .reduce((__obj, [__key, __value]) => ({ ...__obj, [String(__key)]: aws.eks.getCluster({
  *     name: __value,
  * }) }), {}));
  * ```
@@ -87,5 +87,5 @@ export interface GetClustersOutputArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

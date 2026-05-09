@@ -152,31 +152,31 @@ export interface IdentityProviderState {
     /**
      * The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
      */
-    attributeMapping?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    attributeMapping?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The list of identity providers.
      */
-    idpIdentifiers?: pulumi.Input<pulumi.Input<string>[]>;
+    idpIdentifiers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The map of identity details, such as access token
      */
-    providerDetails?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    providerDetails?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The provider name
      */
-    providerName?: pulumi.Input<string>;
+    providerName?: pulumi.Input<string | undefined>;
     /**
      * The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
      */
-    providerType?: pulumi.Input<string>;
+    providerType?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The user pool id
      */
-    userPoolId?: pulumi.Input<string>;
+    userPoolId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -186,11 +186,11 @@ export interface IdentityProviderArgs {
     /**
      * The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
      */
-    attributeMapping?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    attributeMapping?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The list of identity providers.
      */
-    idpIdentifiers?: pulumi.Input<pulumi.Input<string>[]>;
+    idpIdentifiers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The map of identity details, such as access token
      */
@@ -206,7 +206,7 @@ export interface IdentityProviderArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The user pool id
      */

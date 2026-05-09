@@ -151,22 +151,22 @@ export interface MultiplexProgramState {
     /**
      * Multiplex ID.
      */
-    multiplexId?: pulumi.Input<string>;
+    multiplexId?: pulumi.Input<string | undefined>;
     /**
      * MultiplexProgram settings. See Multiplex Program Settings for more details.
      *
      * The following arguments are optional:
      */
-    multiplexProgramSettings?: pulumi.Input<inputs.medialive.MultiplexProgramMultiplexProgramSettings>;
+    multiplexProgramSettings?: pulumi.Input<inputs.medialive.MultiplexProgramMultiplexProgramSettings | undefined>;
     /**
      * Unique program name.
      */
-    programName?: pulumi.Input<string>;
+    programName?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.medialive.MultiplexProgramTimeouts>;
+    region?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.medialive.MultiplexProgramTimeouts | undefined>;
 }
 
 /**
@@ -182,7 +182,7 @@ export interface MultiplexProgramArgs {
      *
      * The following arguments are optional:
      */
-    multiplexProgramSettings?: pulumi.Input<inputs.medialive.MultiplexProgramMultiplexProgramSettings>;
+    multiplexProgramSettings?: pulumi.Input<inputs.medialive.MultiplexProgramMultiplexProgramSettings | undefined>;
     /**
      * Unique program name.
      */
@@ -190,6 +190,6 @@ export interface MultiplexProgramArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.medialive.MultiplexProgramTimeouts>;
+    region?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.medialive.MultiplexProgramTimeouts | undefined>;
 }

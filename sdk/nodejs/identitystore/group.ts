@@ -140,33 +140,33 @@ export interface GroupState {
     /**
      * ARN of the Group.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * A string containing the description of the group.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A string containing the name of the group. This value is commonly displayed when the group is referenced.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * A list of external IDs that contains the identifiers issued to this resource by an external identity provider. See External IDs below.
      */
-    externalIds?: pulumi.Input<pulumi.Input<inputs.identitystore.GroupExternalId>[]>;
+    externalIds?: pulumi.Input<pulumi.Input<inputs.identitystore.GroupExternalId>[] | undefined>;
     /**
      * The identifier of the newly created group in the identity store.
      */
-    groupId?: pulumi.Input<string>;
+    groupId?: pulumi.Input<string | undefined>;
     /**
      * The globally unique identifier for the identity store.
      *
      * The following arguments are optional:
      */
-    identityStoreId?: pulumi.Input<string>;
+    identityStoreId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -176,7 +176,7 @@ export interface GroupArgs {
     /**
      * A string containing the description of the group.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A string containing the name of the group. This value is commonly displayed when the group is referenced.
      */
@@ -190,5 +190,5 @@ export interface GroupArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

@@ -117,8 +117,8 @@ export interface DrtAccessRoleArnAssociationState {
     /**
      * The Amazon Resource Name (ARN) of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
      */
-    roleArn?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.shield.DrtAccessRoleArnAssociationTimeouts>;
+    roleArn?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.shield.DrtAccessRoleArnAssociationTimeouts | undefined>;
 }
 
 /**
@@ -129,5 +129,5 @@ export interface DrtAccessRoleArnAssociationArgs {
      * The Amazon Resource Name (ARN) of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
      */
     roleArn: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.shield.DrtAccessRoleArnAssociationTimeouts>;
+    timeouts?: pulumi.Input<inputs.shield.DrtAccessRoleArnAssociationTimeouts | undefined>;
 }

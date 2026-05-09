@@ -24,25 +24,25 @@ class BrokerArgs:
                  engine_type: pulumi.Input[_builtins.str],
                  engine_version: pulumi.Input[_builtins.str],
                  host_instance_type: pulumi.Input[_builtins.str],
-                 apply_immediately: Optional[pulumi.Input[_builtins.bool]] = None,
-                 authentication_strategy: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_minor_version_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
-                 broker_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration: Optional[pulumi.Input['BrokerConfigurationArgs']] = None,
-                 data_replication_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_replication_primary_broker_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_options: Optional[pulumi.Input['BrokerEncryptionOptionsArgs']] = None,
-                 ldap_server_metadata: Optional[pulumi.Input['BrokerLdapServerMetadataArgs']] = None,
-                 logs: Optional[pulumi.Input['BrokerLogsArgs']] = None,
-                 maintenance_window_start_time: Optional[pulumi.Input['BrokerMaintenanceWindowStartTimeArgs']] = None,
-                 publicly_accessible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 storage_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input['BrokerUserArgs']]]] = None):
+                 apply_immediately: pulumi.Input[Optional[_builtins.bool]] = None,
+                 authentication_strategy: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_minor_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
+                 broker_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration: pulumi.Input[Optional['BrokerConfigurationArgs']] = None,
+                 data_replication_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_replication_primary_broker_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_options: pulumi.Input[Optional['BrokerEncryptionOptionsArgs']] = None,
+                 ldap_server_metadata: pulumi.Input[Optional['BrokerLdapServerMetadataArgs']] = None,
+                 logs: pulumi.Input[Optional['BrokerLogsArgs']] = None,
+                 maintenance_window_start_time: pulumi.Input[Optional['BrokerMaintenanceWindowStartTimeArgs']] = None,
+                 publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 users: pulumi.Input[Optional[Sequence[pulumi.Input['BrokerUserArgs']]]] = None):
         """
         The set of arguments for constructing a Broker resource.
 
@@ -153,262 +153,262 @@ class BrokerArgs:
 
     @_builtins.property
     @pulumi.getter(name="applyImmediately")
-    def apply_immediately(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def apply_immediately(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to apply broker modifications immediately. Default is `false`.
         """
         return pulumi.get(self, "apply_immediately")
 
     @apply_immediately.setter
-    def apply_immediately(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def apply_immediately(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "apply_immediately", value)
 
     @_builtins.property
     @pulumi.getter(name="authenticationStrategy")
-    def authentication_strategy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authentication_strategy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Authentication strategy used to secure the broker. Valid values are `simple` and `ldap`. `ldap` is not supported for `engine_type` `RabbitMQ`.
         """
         return pulumi.get(self, "authentication_strategy")
 
     @authentication_strategy.setter
-    def authentication_strategy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authentication_strategy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authentication_strategy", value)
 
     @_builtins.property
     @pulumi.getter(name="autoMinorVersionUpgrade")
-    def auto_minor_version_upgrade(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_minor_version_upgrade(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to automatically upgrade to new minor versions of brokers as Amazon MQ makes releases available.
         """
         return pulumi.get(self, "auto_minor_version_upgrade")
 
     @auto_minor_version_upgrade.setter
-    def auto_minor_version_upgrade(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_minor_version_upgrade(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_minor_version_upgrade", value)
 
     @_builtins.property
     @pulumi.getter(name="brokerName")
-    def broker_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def broker_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the broker.
         """
         return pulumi.get(self, "broker_name")
 
     @broker_name.setter
-    def broker_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def broker_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "broker_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input['BrokerConfigurationArgs']]:
+    def configuration(self) -> pulumi.Input[Optional['BrokerConfigurationArgs']]:
         """
         Configuration block for broker configuration. Applies to `engine_type` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
         """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input['BrokerConfigurationArgs']]):
+    def configuration(self, value: pulumi.Input[Optional['BrokerConfigurationArgs']]):
         pulumi.set(self, "configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="dataReplicationMode")
-    def data_replication_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_replication_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether this broker is part of a data replication pair. Valid values are `CRDR` and `NONE`.
         """
         return pulumi.get(self, "data_replication_mode")
 
     @data_replication_mode.setter
-    def data_replication_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_replication_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_replication_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="dataReplicationPrimaryBrokerArn")
-    def data_replication_primary_broker_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_replication_primary_broker_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the primary broker used to replicate data in a data replication pair. Required when `data_replication_mode` is `CRDR`.
         """
         return pulumi.get(self, "data_replication_primary_broker_arn")
 
     @data_replication_primary_broker_arn.setter
-    def data_replication_primary_broker_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_replication_primary_broker_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_replication_primary_broker_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="deploymentMode")
-    def deployment_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def deployment_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Deployment mode of the broker. Valid values are `SINGLE_INSTANCE`, `ACTIVE_STANDBY_MULTI_AZ`, and `CLUSTER_MULTI_AZ`. Default is `SINGLE_INSTANCE`.
         """
         return pulumi.get(self, "deployment_mode")
 
     @deployment_mode.setter
-    def deployment_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def deployment_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deployment_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionOptions")
-    def encryption_options(self) -> Optional[pulumi.Input['BrokerEncryptionOptionsArgs']]:
+    def encryption_options(self) -> pulumi.Input[Optional['BrokerEncryptionOptionsArgs']]:
         """
         Configuration block containing encryption options. Detailed below.
         """
         return pulumi.get(self, "encryption_options")
 
     @encryption_options.setter
-    def encryption_options(self, value: Optional[pulumi.Input['BrokerEncryptionOptionsArgs']]):
+    def encryption_options(self, value: pulumi.Input[Optional['BrokerEncryptionOptionsArgs']]):
         pulumi.set(self, "encryption_options", value)
 
     @_builtins.property
     @pulumi.getter(name="ldapServerMetadata")
-    def ldap_server_metadata(self) -> Optional[pulumi.Input['BrokerLdapServerMetadataArgs']]:
+    def ldap_server_metadata(self) -> pulumi.Input[Optional['BrokerLdapServerMetadataArgs']]:
         """
         Configuration block for the LDAP server used to authenticate and authorize connections. Not supported for `engine_type` `RabbitMQ`. Detailed below.
         """
         return pulumi.get(self, "ldap_server_metadata")
 
     @ldap_server_metadata.setter
-    def ldap_server_metadata(self, value: Optional[pulumi.Input['BrokerLdapServerMetadataArgs']]):
+    def ldap_server_metadata(self, value: pulumi.Input[Optional['BrokerLdapServerMetadataArgs']]):
         pulumi.set(self, "ldap_server_metadata", value)
 
     @_builtins.property
     @pulumi.getter
-    def logs(self) -> Optional[pulumi.Input['BrokerLogsArgs']]:
+    def logs(self) -> pulumi.Input[Optional['BrokerLogsArgs']]:
         """
         Configuration block for the logging configuration. Detailed below.
         """
         return pulumi.get(self, "logs")
 
     @logs.setter
-    def logs(self, value: Optional[pulumi.Input['BrokerLogsArgs']]):
+    def logs(self, value: pulumi.Input[Optional['BrokerLogsArgs']]):
         pulumi.set(self, "logs", value)
 
     @_builtins.property
     @pulumi.getter(name="maintenanceWindowStartTime")
-    def maintenance_window_start_time(self) -> Optional[pulumi.Input['BrokerMaintenanceWindowStartTimeArgs']]:
+    def maintenance_window_start_time(self) -> pulumi.Input[Optional['BrokerMaintenanceWindowStartTimeArgs']]:
         """
         Configuration block for the maintenance window start time. Detailed below.
         """
         return pulumi.get(self, "maintenance_window_start_time")
 
     @maintenance_window_start_time.setter
-    def maintenance_window_start_time(self, value: Optional[pulumi.Input['BrokerMaintenanceWindowStartTimeArgs']]):
+    def maintenance_window_start_time(self, value: pulumi.Input[Optional['BrokerMaintenanceWindowStartTimeArgs']]):
         pulumi.set(self, "maintenance_window_start_time", value)
 
     @_builtins.property
     @pulumi.getter(name="publiclyAccessible")
-    def publicly_accessible(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def publicly_accessible(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
         """
         return pulumi.get(self, "publicly_accessible")
 
     @publicly_accessible.setter
-    def publicly_accessible(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def publicly_accessible(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "publicly_accessible", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroups")
-    def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of security group IDs assigned to the broker.
         """
         return pulumi.get(self, "security_groups")
 
     @security_groups.setter
-    def security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="storageType")
-    def storage_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Storage type of the broker. For `engine_type` `ActiveMQ`, valid values are `efs` and `ebs` (AWS-default is `efs`). For `engine_type` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
         """
         return pulumi.get(self, "storage_type")
 
     @storage_type.setter
-    def storage_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_type", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subnet_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires multiple subnets.
         """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
-    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subnet_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subnet_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the broker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BrokerUserArgs']]]]:
+    def users(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BrokerUserArgs']]]]:
         """
         Configuration block for broker users. For `engine_type` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
         """
         return pulumi.get(self, "users")
 
     @users.setter
-    def users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BrokerUserArgs']]]]):
+    def users(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BrokerUserArgs']]]]):
         pulumi.set(self, "users", value)
 
 
 @pulumi.input_type
 class _BrokerState:
     def __init__(__self__, *,
-                 apply_immediately: Optional[pulumi.Input[_builtins.bool]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 authentication_strategy: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_minor_version_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
-                 broker_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration: Optional[pulumi.Input['BrokerConfigurationArgs']] = None,
-                 data_replication_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_replication_primary_broker_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_options: Optional[pulumi.Input['BrokerEncryptionOptionsArgs']] = None,
-                 engine_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 instances: Optional[pulumi.Input[Sequence[pulumi.Input['BrokerInstanceArgs']]]] = None,
-                 ldap_server_metadata: Optional[pulumi.Input['BrokerLdapServerMetadataArgs']] = None,
-                 logs: Optional[pulumi.Input['BrokerLogsArgs']] = None,
-                 maintenance_window_start_time: Optional[pulumi.Input['BrokerMaintenanceWindowStartTimeArgs']] = None,
-                 pending_data_replication_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 publicly_accessible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 storage_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input['BrokerUserArgs']]]] = None):
+                 apply_immediately: pulumi.Input[Optional[_builtins.bool]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 authentication_strategy: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_minor_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
+                 broker_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration: pulumi.Input[Optional['BrokerConfigurationArgs']] = None,
+                 data_replication_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_replication_primary_broker_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_options: pulumi.Input[Optional['BrokerEncryptionOptionsArgs']] = None,
+                 engine_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 instances: pulumi.Input[Optional[Sequence[pulumi.Input['BrokerInstanceArgs']]]] = None,
+                 ldap_server_metadata: pulumi.Input[Optional['BrokerLdapServerMetadataArgs']] = None,
+                 logs: pulumi.Input[Optional['BrokerLogsArgs']] = None,
+                 maintenance_window_start_time: pulumi.Input[Optional['BrokerMaintenanceWindowStartTimeArgs']] = None,
+                 pending_data_replication_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 users: pulumi.Input[Optional[Sequence[pulumi.Input['BrokerUserArgs']]]] = None):
         """
         Input properties used for looking up and filtering Broker resources.
 
@@ -496,151 +496,151 @@ class _BrokerState:
 
     @_builtins.property
     @pulumi.getter(name="applyImmediately")
-    def apply_immediately(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def apply_immediately(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to apply broker modifications immediately. Default is `false`.
         """
         return pulumi.get(self, "apply_immediately")
 
     @apply_immediately.setter
-    def apply_immediately(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def apply_immediately(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "apply_immediately", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the broker.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="authenticationStrategy")
-    def authentication_strategy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authentication_strategy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Authentication strategy used to secure the broker. Valid values are `simple` and `ldap`. `ldap` is not supported for `engine_type` `RabbitMQ`.
         """
         return pulumi.get(self, "authentication_strategy")
 
     @authentication_strategy.setter
-    def authentication_strategy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authentication_strategy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authentication_strategy", value)
 
     @_builtins.property
     @pulumi.getter(name="autoMinorVersionUpgrade")
-    def auto_minor_version_upgrade(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_minor_version_upgrade(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to automatically upgrade to new minor versions of brokers as Amazon MQ makes releases available.
         """
         return pulumi.get(self, "auto_minor_version_upgrade")
 
     @auto_minor_version_upgrade.setter
-    def auto_minor_version_upgrade(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_minor_version_upgrade(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_minor_version_upgrade", value)
 
     @_builtins.property
     @pulumi.getter(name="brokerName")
-    def broker_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def broker_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the broker.
         """
         return pulumi.get(self, "broker_name")
 
     @broker_name.setter
-    def broker_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def broker_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "broker_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input['BrokerConfigurationArgs']]:
+    def configuration(self) -> pulumi.Input[Optional['BrokerConfigurationArgs']]:
         """
         Configuration block for broker configuration. Applies to `engine_type` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
         """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input['BrokerConfigurationArgs']]):
+    def configuration(self, value: pulumi.Input[Optional['BrokerConfigurationArgs']]):
         pulumi.set(self, "configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="dataReplicationMode")
-    def data_replication_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_replication_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether this broker is part of a data replication pair. Valid values are `CRDR` and `NONE`.
         """
         return pulumi.get(self, "data_replication_mode")
 
     @data_replication_mode.setter
-    def data_replication_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_replication_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_replication_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="dataReplicationPrimaryBrokerArn")
-    def data_replication_primary_broker_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_replication_primary_broker_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the primary broker used to replicate data in a data replication pair. Required when `data_replication_mode` is `CRDR`.
         """
         return pulumi.get(self, "data_replication_primary_broker_arn")
 
     @data_replication_primary_broker_arn.setter
-    def data_replication_primary_broker_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_replication_primary_broker_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_replication_primary_broker_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="deploymentMode")
-    def deployment_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def deployment_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Deployment mode of the broker. Valid values are `SINGLE_INSTANCE`, `ACTIVE_STANDBY_MULTI_AZ`, and `CLUSTER_MULTI_AZ`. Default is `SINGLE_INSTANCE`.
         """
         return pulumi.get(self, "deployment_mode")
 
     @deployment_mode.setter
-    def deployment_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def deployment_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deployment_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionOptions")
-    def encryption_options(self) -> Optional[pulumi.Input['BrokerEncryptionOptionsArgs']]:
+    def encryption_options(self) -> pulumi.Input[Optional['BrokerEncryptionOptionsArgs']]:
         """
         Configuration block containing encryption options. Detailed below.
         """
         return pulumi.get(self, "encryption_options")
 
     @encryption_options.setter
-    def encryption_options(self, value: Optional[pulumi.Input['BrokerEncryptionOptionsArgs']]):
+    def encryption_options(self, value: pulumi.Input[Optional['BrokerEncryptionOptionsArgs']]):
         pulumi.set(self, "encryption_options", value)
 
     @_builtins.property
     @pulumi.getter(name="engineType")
-    def engine_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def engine_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
         """
         return pulumi.get(self, "engine_type")
 
     @engine_type.setter
-    def engine_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def engine_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "engine_type", value)
 
     @_builtins.property
     @pulumi.getter(name="engineVersion")
-    def engine_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def engine_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version of the broker engine.
         """
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
-    def engine_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def engine_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "engine_version", value)
 
     @_builtins.property
     @pulumi.getter(name="hostInstanceType")
-    def host_instance_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_instance_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Broker's instance type. For example, `mq.t3.micro`, `mq.m5.large`.
 
@@ -649,163 +649,163 @@ class _BrokerState:
         return pulumi.get(self, "host_instance_type")
 
     @host_instance_type.setter
-    def host_instance_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_instance_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_instance_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def instances(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BrokerInstanceArgs']]]]:
+    def instances(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BrokerInstanceArgs']]]]:
         """
         List of information about allocated brokers (both active & standby).
         """
         return pulumi.get(self, "instances")
 
     @instances.setter
-    def instances(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BrokerInstanceArgs']]]]):
+    def instances(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BrokerInstanceArgs']]]]):
         pulumi.set(self, "instances", value)
 
     @_builtins.property
     @pulumi.getter(name="ldapServerMetadata")
-    def ldap_server_metadata(self) -> Optional[pulumi.Input['BrokerLdapServerMetadataArgs']]:
+    def ldap_server_metadata(self) -> pulumi.Input[Optional['BrokerLdapServerMetadataArgs']]:
         """
         Configuration block for the LDAP server used to authenticate and authorize connections. Not supported for `engine_type` `RabbitMQ`. Detailed below.
         """
         return pulumi.get(self, "ldap_server_metadata")
 
     @ldap_server_metadata.setter
-    def ldap_server_metadata(self, value: Optional[pulumi.Input['BrokerLdapServerMetadataArgs']]):
+    def ldap_server_metadata(self, value: pulumi.Input[Optional['BrokerLdapServerMetadataArgs']]):
         pulumi.set(self, "ldap_server_metadata", value)
 
     @_builtins.property
     @pulumi.getter
-    def logs(self) -> Optional[pulumi.Input['BrokerLogsArgs']]:
+    def logs(self) -> pulumi.Input[Optional['BrokerLogsArgs']]:
         """
         Configuration block for the logging configuration. Detailed below.
         """
         return pulumi.get(self, "logs")
 
     @logs.setter
-    def logs(self, value: Optional[pulumi.Input['BrokerLogsArgs']]):
+    def logs(self, value: pulumi.Input[Optional['BrokerLogsArgs']]):
         pulumi.set(self, "logs", value)
 
     @_builtins.property
     @pulumi.getter(name="maintenanceWindowStartTime")
-    def maintenance_window_start_time(self) -> Optional[pulumi.Input['BrokerMaintenanceWindowStartTimeArgs']]:
+    def maintenance_window_start_time(self) -> pulumi.Input[Optional['BrokerMaintenanceWindowStartTimeArgs']]:
         """
         Configuration block for the maintenance window start time. Detailed below.
         """
         return pulumi.get(self, "maintenance_window_start_time")
 
     @maintenance_window_start_time.setter
-    def maintenance_window_start_time(self, value: Optional[pulumi.Input['BrokerMaintenanceWindowStartTimeArgs']]):
+    def maintenance_window_start_time(self, value: pulumi.Input[Optional['BrokerMaintenanceWindowStartTimeArgs']]):
         pulumi.set(self, "maintenance_window_start_time", value)
 
     @_builtins.property
     @pulumi.getter(name="pendingDataReplicationMode")
-    def pending_data_replication_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pending_data_replication_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Data replication mode that will be applied after reboot.
         """
         return pulumi.get(self, "pending_data_replication_mode")
 
     @pending_data_replication_mode.setter
-    def pending_data_replication_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pending_data_replication_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pending_data_replication_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="publiclyAccessible")
-    def publicly_accessible(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def publicly_accessible(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
         """
         return pulumi.get(self, "publicly_accessible")
 
     @publicly_accessible.setter
-    def publicly_accessible(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def publicly_accessible(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "publicly_accessible", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroups")
-    def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of security group IDs assigned to the broker.
         """
         return pulumi.get(self, "security_groups")
 
     @security_groups.setter
-    def security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="storageType")
-    def storage_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Storage type of the broker. For `engine_type` `ActiveMQ`, valid values are `efs` and `ebs` (AWS-default is `efs`). For `engine_type` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
         """
         return pulumi.get(self, "storage_type")
 
     @storage_type.setter
-    def storage_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_type", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subnet_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires multiple subnets.
         """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
-    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subnet_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subnet_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the broker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BrokerUserArgs']]]]:
+    def users(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BrokerUserArgs']]]]:
         """
         Configuration block for broker users. For `engine_type` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
         """
         return pulumi.get(self, "users")
 
     @users.setter
-    def users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BrokerUserArgs']]]]):
+    def users(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BrokerUserArgs']]]]):
         pulumi.set(self, "users", value)
 
 
@@ -815,28 +815,28 @@ class Broker(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 apply_immediately: Optional[pulumi.Input[_builtins.bool]] = None,
-                 authentication_strategy: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_minor_version_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
-                 broker_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration: Optional[pulumi.Input[Union['BrokerConfigurationArgs', 'BrokerConfigurationArgsDict']]] = None,
-                 data_replication_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_replication_primary_broker_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_options: Optional[pulumi.Input[Union['BrokerEncryptionOptionsArgs', 'BrokerEncryptionOptionsArgsDict']]] = None,
-                 engine_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 ldap_server_metadata: Optional[pulumi.Input[Union['BrokerLdapServerMetadataArgs', 'BrokerLdapServerMetadataArgsDict']]] = None,
-                 logs: Optional[pulumi.Input[Union['BrokerLogsArgs', 'BrokerLogsArgsDict']]] = None,
-                 maintenance_window_start_time: Optional[pulumi.Input[Union['BrokerMaintenanceWindowStartTimeArgs', 'BrokerMaintenanceWindowStartTimeArgsDict']]] = None,
-                 publicly_accessible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 storage_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BrokerUserArgs', 'BrokerUserArgsDict']]]]] = None,
+                 apply_immediately: pulumi.Input[Optional[_builtins.bool]] = None,
+                 authentication_strategy: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_minor_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
+                 broker_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration: pulumi.Input[Optional[Union['BrokerConfigurationArgs', 'BrokerConfigurationArgsDict']]] = None,
+                 data_replication_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_replication_primary_broker_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_options: pulumi.Input[Optional[Union['BrokerEncryptionOptionsArgs', 'BrokerEncryptionOptionsArgsDict']]] = None,
+                 engine_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 ldap_server_metadata: pulumi.Input[Optional[Union['BrokerLdapServerMetadataArgs', 'BrokerLdapServerMetadataArgsDict']]] = None,
+                 logs: pulumi.Input[Optional[Union['BrokerLogsArgs', 'BrokerLogsArgsDict']]] = None,
+                 maintenance_window_start_time: pulumi.Input[Optional[Union['BrokerMaintenanceWindowStartTimeArgs', 'BrokerMaintenanceWindowStartTimeArgsDict']]] = None,
+                 publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 users: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BrokerUserArgs', 'BrokerUserArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages an AWS MQ broker. Use to create and manage message brokers for ActiveMQ and RabbitMQ engines.
@@ -861,7 +861,7 @@ class Broker(pulumi.CustomResource):
             broker_name="example",
             configuration={
                 "id": test["id"],
-                "revision": test["latestRevision"],
+                "revision": int(test["latestRevision"]),
             },
             engine_type="ActiveMQ",
             engine_version="5.17.6",
@@ -883,7 +883,7 @@ class Broker(pulumi.CustomResource):
             broker_name="example",
             configuration={
                 "id": test["id"],
-                "revision": test["latestRevision"],
+                "revision": int(test["latestRevision"]),
             },
             engine_type="ActiveMQ",
             engine_version="5.17.6",
@@ -1011,7 +1011,7 @@ class Broker(pulumi.CustomResource):
             broker_name="example",
             configuration={
                 "id": test["id"],
-                "revision": test["latestRevision"],
+                "revision": int(test["latestRevision"]),
             },
             engine_type="ActiveMQ",
             engine_version="5.17.6",
@@ -1033,7 +1033,7 @@ class Broker(pulumi.CustomResource):
             broker_name="example",
             configuration={
                 "id": test["id"],
-                "revision": test["latestRevision"],
+                "revision": int(test["latestRevision"]),
             },
             engine_type="ActiveMQ",
             engine_version="5.17.6",
@@ -1120,28 +1120,28 @@ class Broker(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 apply_immediately: Optional[pulumi.Input[_builtins.bool]] = None,
-                 authentication_strategy: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_minor_version_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
-                 broker_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration: Optional[pulumi.Input[Union['BrokerConfigurationArgs', 'BrokerConfigurationArgsDict']]] = None,
-                 data_replication_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_replication_primary_broker_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_options: Optional[pulumi.Input[Union['BrokerEncryptionOptionsArgs', 'BrokerEncryptionOptionsArgsDict']]] = None,
-                 engine_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 ldap_server_metadata: Optional[pulumi.Input[Union['BrokerLdapServerMetadataArgs', 'BrokerLdapServerMetadataArgsDict']]] = None,
-                 logs: Optional[pulumi.Input[Union['BrokerLogsArgs', 'BrokerLogsArgsDict']]] = None,
-                 maintenance_window_start_time: Optional[pulumi.Input[Union['BrokerMaintenanceWindowStartTimeArgs', 'BrokerMaintenanceWindowStartTimeArgsDict']]] = None,
-                 publicly_accessible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 storage_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BrokerUserArgs', 'BrokerUserArgsDict']]]]] = None,
+                 apply_immediately: pulumi.Input[Optional[_builtins.bool]] = None,
+                 authentication_strategy: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_minor_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
+                 broker_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration: pulumi.Input[Optional[Union['BrokerConfigurationArgs', 'BrokerConfigurationArgsDict']]] = None,
+                 data_replication_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_replication_primary_broker_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_options: pulumi.Input[Optional[Union['BrokerEncryptionOptionsArgs', 'BrokerEncryptionOptionsArgsDict']]] = None,
+                 engine_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 ldap_server_metadata: pulumi.Input[Optional[Union['BrokerLdapServerMetadataArgs', 'BrokerLdapServerMetadataArgsDict']]] = None,
+                 logs: pulumi.Input[Optional[Union['BrokerLogsArgs', 'BrokerLogsArgsDict']]] = None,
+                 maintenance_window_start_time: pulumi.Input[Optional[Union['BrokerMaintenanceWindowStartTimeArgs', 'BrokerMaintenanceWindowStartTimeArgsDict']]] = None,
+                 publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 users: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BrokerUserArgs', 'BrokerUserArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1193,32 +1193,32 @@ class Broker(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            apply_immediately: Optional[pulumi.Input[_builtins.bool]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            authentication_strategy: Optional[pulumi.Input[_builtins.str]] = None,
-            auto_minor_version_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
-            broker_name: Optional[pulumi.Input[_builtins.str]] = None,
-            configuration: Optional[pulumi.Input[Union['BrokerConfigurationArgs', 'BrokerConfigurationArgsDict']]] = None,
-            data_replication_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            data_replication_primary_broker_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            deployment_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            encryption_options: Optional[pulumi.Input[Union['BrokerEncryptionOptionsArgs', 'BrokerEncryptionOptionsArgsDict']]] = None,
-            engine_type: Optional[pulumi.Input[_builtins.str]] = None,
-            engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-            host_instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-            instances: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BrokerInstanceArgs', 'BrokerInstanceArgsDict']]]]] = None,
-            ldap_server_metadata: Optional[pulumi.Input[Union['BrokerLdapServerMetadataArgs', 'BrokerLdapServerMetadataArgsDict']]] = None,
-            logs: Optional[pulumi.Input[Union['BrokerLogsArgs', 'BrokerLogsArgsDict']]] = None,
-            maintenance_window_start_time: Optional[pulumi.Input[Union['BrokerMaintenanceWindowStartTimeArgs', 'BrokerMaintenanceWindowStartTimeArgsDict']]] = None,
-            pending_data_replication_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            publicly_accessible: Optional[pulumi.Input[_builtins.bool]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            storage_type: Optional[pulumi.Input[_builtins.str]] = None,
-            subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            users: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BrokerUserArgs', 'BrokerUserArgsDict']]]]] = None) -> 'Broker':
+            apply_immediately: pulumi.Input[Optional[_builtins.bool]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            authentication_strategy: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_minor_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
+            broker_name: pulumi.Input[Optional[_builtins.str]] = None,
+            configuration: pulumi.Input[Optional[Union['BrokerConfigurationArgs', 'BrokerConfigurationArgsDict']]] = None,
+            data_replication_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            data_replication_primary_broker_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            deployment_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            encryption_options: pulumi.Input[Optional[Union['BrokerEncryptionOptionsArgs', 'BrokerEncryptionOptionsArgsDict']]] = None,
+            engine_type: pulumi.Input[Optional[_builtins.str]] = None,
+            engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+            host_instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+            instances: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BrokerInstanceArgs', 'BrokerInstanceArgsDict']]]]] = None,
+            ldap_server_metadata: pulumi.Input[Optional[Union['BrokerLdapServerMetadataArgs', 'BrokerLdapServerMetadataArgsDict']]] = None,
+            logs: pulumi.Input[Optional[Union['BrokerLogsArgs', 'BrokerLogsArgsDict']]] = None,
+            maintenance_window_start_time: pulumi.Input[Optional[Union['BrokerMaintenanceWindowStartTimeArgs', 'BrokerMaintenanceWindowStartTimeArgsDict']]] = None,
+            pending_data_replication_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            users: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BrokerUserArgs', 'BrokerUserArgsDict']]]]] = None) -> 'Broker':
         """
         Get an existing Broker resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

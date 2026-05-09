@@ -124,25 +124,25 @@ export interface PrincipalPortfolioAssociationState {
     /**
      * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
      */
-    acceptLanguage?: pulumi.Input<string>;
+    acceptLanguage?: pulumi.Input<string | undefined>;
     /**
      * Portfolio identifier.
      */
-    portfolioId?: pulumi.Input<string>;
+    portfolioId?: pulumi.Input<string | undefined>;
     /**
      * Principal ARN.
      *
      * The following arguments are optional:
      */
-    principalArn?: pulumi.Input<string>;
+    principalArn?: pulumi.Input<string | undefined>;
     /**
      * Principal type. Setting this argument empty (e.g., `principalType = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
      */
-    principalType?: pulumi.Input<string>;
+    principalType?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -152,7 +152,7 @@ export interface PrincipalPortfolioAssociationArgs {
     /**
      * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
      */
-    acceptLanguage?: pulumi.Input<string>;
+    acceptLanguage?: pulumi.Input<string | undefined>;
     /**
      * Portfolio identifier.
      */
@@ -166,9 +166,9 @@ export interface PrincipalPortfolioAssociationArgs {
     /**
      * Principal type. Setting this argument empty (e.g., `principalType = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
      */
-    principalType?: pulumi.Input<string>;
+    principalType?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

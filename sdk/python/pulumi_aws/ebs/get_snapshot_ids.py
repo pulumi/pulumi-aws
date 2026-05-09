@@ -148,10 +148,10 @@ def get_snapshot_ids(filters: Optional[Sequence[Union['GetSnapshotIdsFilterArgs'
         owners=pulumi.get(__ret__, 'owners'),
         region=pulumi.get(__ret__, 'region'),
         restorable_by_user_ids=pulumi.get(__ret__, 'restorable_by_user_ids'))
-def get_snapshot_ids_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetSnapshotIdsFilterArgs', 'GetSnapshotIdsFilterArgsDict']]]]] = None,
-                            owners: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                            region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                            restorable_by_user_ids: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
+def get_snapshot_ids_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetSnapshotIdsFilterArgs', 'GetSnapshotIdsFilterArgsDict']]]]] = None,
+                            owners: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                            region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                            restorable_by_user_ids: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSnapshotIdsResult]:
     """
     Use this data source to get a list of EBS Snapshot IDs matching the specified

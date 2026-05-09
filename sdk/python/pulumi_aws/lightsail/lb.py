@@ -20,11 +20,11 @@ __all__ = ['LbArgs', 'Lb']
 class LbArgs:
     def __init__(__self__, *,
                  instance_port: pulumi.Input[_builtins.int],
-                 health_check_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 health_check_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Lb resource.
 
@@ -63,31 +63,31 @@ class LbArgs:
 
     @_builtins.property
     @pulumi.getter(name="healthCheckPath")
-    def health_check_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def health_check_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Health check path of the load balancer. Default value `/`.
         """
         return pulumi.get(self, "health_check_path")
 
     @health_check_path.setter
-    def health_check_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def health_check_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "health_check_path", value)
 
     @_builtins.property
     @pulumi.getter(name="ipAddressType")
-    def ip_address_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_address_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IP address type of the load balancer. Valid values: `dualstack`, `ipv4`. Default value `dualstack`.
         """
         return pulumi.get(self, "ip_address_type")
 
     @ip_address_type.setter
-    def ip_address_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_address_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_address_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Lightsail load balancer.
 
@@ -96,50 +96,50 @@ class LbArgs:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _LbState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_check_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_ports: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 support_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_check_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_ports: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 support_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Lb resources.
 
@@ -188,79 +188,79 @@ class _LbState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the Lightsail load balancer.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Timestamp when the load balancer was created.
         """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
-    def created_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_at", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsName")
-    def dns_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         DNS name of the load balancer.
         """
         return pulumi.get(self, "dns_name")
 
     @dns_name.setter
-    def dns_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_name", value)
 
     @_builtins.property
     @pulumi.getter(name="healthCheckPath")
-    def health_check_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def health_check_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Health check path of the load balancer. Default value `/`.
         """
         return pulumi.get(self, "health_check_path")
 
     @health_check_path.setter
-    def health_check_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def health_check_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "health_check_path", value)
 
     @_builtins.property
     @pulumi.getter(name="instancePort")
-    def instance_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def instance_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Instance port the load balancer will connect to.
         """
         return pulumi.get(self, "instance_port")
 
     @instance_port.setter
-    def instance_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def instance_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "instance_port", value)
 
     @_builtins.property
     @pulumi.getter(name="ipAddressType")
-    def ip_address_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_address_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IP address type of the load balancer. Valid values: `dualstack`, `ipv4`. Default value `dualstack`.
         """
         return pulumi.get(self, "ip_address_type")
 
     @ip_address_type.setter
-    def ip_address_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_address_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_address_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Lightsail load balancer.
 
@@ -269,79 +269,79 @@ class _LbState:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Protocol of the load balancer.
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="publicPorts")
-    def public_ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def public_ports(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         Public ports of the load balancer.
         """
         return pulumi.get(self, "public_ports")
 
     @public_ports.setter
-    def public_ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def public_ports(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "public_ports", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="supportCode")
-    def support_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def support_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Support code for the load balancer. Include this code in your email to support when you have questions about a load balancer in Lightsail. This code enables our support team to look up your Lightsail information more easily.
         """
         return pulumi.get(self, "support_code")
 
     @support_code.setter
-    def support_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def support_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "support_code", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
 
@@ -351,12 +351,12 @@ class Lb(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 health_check_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 health_check_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Lightsail load balancer resource.
@@ -448,12 +448,12 @@ class Lb(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 health_check_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 health_check_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -488,19 +488,19 @@ class Lb(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            created_at: Optional[pulumi.Input[_builtins.str]] = None,
-            dns_name: Optional[pulumi.Input[_builtins.str]] = None,
-            health_check_path: Optional[pulumi.Input[_builtins.str]] = None,
-            instance_port: Optional[pulumi.Input[_builtins.int]] = None,
-            ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            protocol: Optional[pulumi.Input[_builtins.str]] = None,
-            public_ports: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            support_code: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Lb':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+            health_check_path: pulumi.Input[Optional[_builtins.str]] = None,
+            instance_port: pulumi.Input[Optional[_builtins.int]] = None,
+            ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            public_ports: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            support_code: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Lb':
         """
         Get an existing Lb resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

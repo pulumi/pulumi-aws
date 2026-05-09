@@ -95,13 +95,13 @@ export interface GetApiKeysOutputArgs {
     /**
      * Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
      */
-    customerId?: pulumi.Input<string>;
+    customerId?: pulumi.Input<string | undefined>;
     /**
      * Set this value to `true` if you wish the result contains the key value. Defaults to `false`.
      */
-    includeValues?: pulumi.Input<boolean>;
+    includeValues?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

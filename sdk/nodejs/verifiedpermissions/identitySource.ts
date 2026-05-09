@@ -164,19 +164,19 @@ export interface IdentitySourceState {
     /**
      * Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
      */
-    configuration?: pulumi.Input<inputs.verifiedpermissions.IdentitySourceConfiguration>;
+    configuration?: pulumi.Input<inputs.verifiedpermissions.IdentitySourceConfiguration | undefined>;
     /**
      * Specifies the ID of the policy store in which you want to store this identity source.
      */
-    policyStoreId?: pulumi.Input<string>;
+    policyStoreId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
      */
-    principalEntityType?: pulumi.Input<string>;
+    principalEntityType?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -194,9 +194,9 @@ export interface IdentitySourceArgs {
     /**
      * Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
      */
-    principalEntityType?: pulumi.Input<string>;
+    principalEntityType?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

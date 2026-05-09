@@ -182,39 +182,39 @@ export interface ReportGroupState {
     /**
      * The ARN of Report Group.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The date and time this Report Group was created.
      */
-    created?: pulumi.Input<string>;
+    created?: pulumi.Input<string | undefined>;
     /**
      * If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
      */
-    deleteReports?: pulumi.Input<boolean>;
+    deleteReports?: pulumi.Input<boolean | undefined>;
     /**
      * Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
      */
-    exportConfig?: pulumi.Input<inputs.codebuild.ReportGroupExportConfig>;
+    exportConfig?: pulumi.Input<inputs.codebuild.ReportGroupExportConfig | undefined>;
     /**
      * The name of a Report Group.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value mapping of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The type of the Report Group. Valid value are `TEST` and `CODE_COVERAGE`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -224,7 +224,7 @@ export interface ReportGroupArgs {
     /**
      * If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
      */
-    deleteReports?: pulumi.Input<boolean>;
+    deleteReports?: pulumi.Input<boolean | undefined>;
     /**
      * Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
      */
@@ -232,15 +232,15 @@ export interface ReportGroupArgs {
     /**
      * The name of a Report Group.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value mapping of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The type of the Report Group. Valid value are `TEST` and `CODE_COVERAGE`.
      */

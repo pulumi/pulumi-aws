@@ -22,12 +22,12 @@ __all__ = ['RouteServerArgs', 'RouteServer']
 class RouteServerArgs:
     def __init__(__self__, *,
                  amazon_side_asn: pulumi.Input[_builtins.int],
-                 persist_routes: Optional[pulumi.Input[_builtins.str]] = None,
-                 persist_routes_duration: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 sns_notifications_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['RouteServerTimeoutsArgs']] = None):
+                 persist_routes: pulumi.Input[Optional[_builtins.str]] = None,
+                 persist_routes_duration: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 sns_notifications_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['RouteServerTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a RouteServer resource.
 
@@ -70,88 +70,88 @@ class RouteServerArgs:
 
     @_builtins.property
     @pulumi.getter(name="persistRoutes")
-    def persist_routes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def persist_routes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates whether routes should be persisted after all BGP sessions are terminated. Valid values are `enable`, `disable`, `reset`
         """
         return pulumi.get(self, "persist_routes")
 
     @persist_routes.setter
-    def persist_routes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def persist_routes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "persist_routes", value)
 
     @_builtins.property
     @pulumi.getter(name="persistRoutesDuration")
-    def persist_routes_duration(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def persist_routes_duration(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `persist_routes` is enabled.
         """
         return pulumi.get(self, "persist_routes_duration")
 
     @persist_routes_duration.setter
-    def persist_routes_duration(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def persist_routes_duration(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "persist_routes_duration", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="snsNotificationsEnabled")
-    def sns_notifications_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def sns_notifications_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether SNS notifications should be enabled for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS`.
         """
         return pulumi.get(self, "sns_notifications_enabled")
 
     @sns_notifications_enabled.setter
-    def sns_notifications_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def sns_notifications_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "sns_notifications_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['RouteServerTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['RouteServerTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['RouteServerTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['RouteServerTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _RouteServerState:
     def __init__(__self__, *,
-                 amazon_side_asn: Optional[pulumi.Input[_builtins.int]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 persist_routes: Optional[pulumi.Input[_builtins.str]] = None,
-                 persist_routes_duration: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 sns_notifications_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['RouteServerTimeoutsArgs']] = None):
+                 amazon_side_asn: pulumi.Input[Optional[_builtins.int]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 persist_routes: pulumi.Input[Optional[_builtins.str]] = None,
+                 persist_routes_duration: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 sns_notifications_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['RouteServerTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering RouteServer resources.
 
@@ -193,7 +193,7 @@ class _RouteServerState:
 
     @_builtins.property
     @pulumi.getter(name="amazonSideAsn")
-    def amazon_side_asn(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def amazon_side_asn(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295.
 
@@ -202,124 +202,124 @@ class _RouteServerState:
         return pulumi.get(self, "amazon_side_asn")
 
     @amazon_side_asn.setter
-    def amazon_side_asn(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def amazon_side_asn(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "amazon_side_asn", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the route server.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="persistRoutes")
-    def persist_routes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def persist_routes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates whether routes should be persisted after all BGP sessions are terminated. Valid values are `enable`, `disable`, `reset`
         """
         return pulumi.get(self, "persist_routes")
 
     @persist_routes.setter
-    def persist_routes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def persist_routes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "persist_routes", value)
 
     @_builtins.property
     @pulumi.getter(name="persistRoutesDuration")
-    def persist_routes_duration(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def persist_routes_duration(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `persist_routes` is enabled.
         """
         return pulumi.get(self, "persist_routes_duration")
 
     @persist_routes_duration.setter
-    def persist_routes_duration(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def persist_routes_duration(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "persist_routes_duration", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="routeServerId")
-    def route_server_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def route_server_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique identifier of the route server.
         """
         return pulumi.get(self, "route_server_id")
 
     @route_server_id.setter
-    def route_server_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def route_server_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "route_server_id", value)
 
     @_builtins.property
     @pulumi.getter(name="snsNotificationsEnabled")
-    def sns_notifications_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def sns_notifications_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether SNS notifications should be enabled for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS`.
         """
         return pulumi.get(self, "sns_notifications_enabled")
 
     @sns_notifications_enabled.setter
-    def sns_notifications_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def sns_notifications_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "sns_notifications_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="snsTopicArn")
-    def sns_topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sns_topic_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the SNS topic where notifications are published.
         """
         return pulumi.get(self, "sns_topic_arn")
 
     @sns_topic_arn.setter
-    def sns_topic_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sns_topic_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sns_topic_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['RouteServerTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['RouteServerTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['RouteServerTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['RouteServerTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
@@ -329,13 +329,13 @@ class RouteServer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 amazon_side_asn: Optional[pulumi.Input[_builtins.int]] = None,
-                 persist_routes: Optional[pulumi.Input[_builtins.str]] = None,
-                 persist_routes_duration: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 sns_notifications_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['RouteServerTimeoutsArgs', 'RouteServerTimeoutsArgsDict']]] = None,
+                 amazon_side_asn: pulumi.Input[Optional[_builtins.int]] = None,
+                 persist_routes: pulumi.Input[Optional[_builtins.str]] = None,
+                 persist_routes_duration: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 sns_notifications_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['RouteServerTimeoutsArgs', 'RouteServerTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Provides a resource for managing a VPC (Virtual Private Cloud) Route Server.
@@ -455,13 +455,13 @@ class RouteServer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 amazon_side_asn: Optional[pulumi.Input[_builtins.int]] = None,
-                 persist_routes: Optional[pulumi.Input[_builtins.str]] = None,
-                 persist_routes_duration: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 sns_notifications_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['RouteServerTimeoutsArgs', 'RouteServerTimeoutsArgsDict']]] = None,
+                 amazon_side_asn: pulumi.Input[Optional[_builtins.int]] = None,
+                 persist_routes: pulumi.Input[Optional[_builtins.str]] = None,
+                 persist_routes_duration: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 sns_notifications_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['RouteServerTimeoutsArgs', 'RouteServerTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -494,17 +494,17 @@ class RouteServer(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            amazon_side_asn: Optional[pulumi.Input[_builtins.int]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            persist_routes: Optional[pulumi.Input[_builtins.str]] = None,
-            persist_routes_duration: Optional[pulumi.Input[_builtins.int]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            route_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-            sns_notifications_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: Optional[pulumi.Input[Union['RouteServerTimeoutsArgs', 'RouteServerTimeoutsArgsDict']]] = None) -> 'RouteServer':
+            amazon_side_asn: pulumi.Input[Optional[_builtins.int]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            persist_routes: pulumi.Input[Optional[_builtins.str]] = None,
+            persist_routes_duration: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            route_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+            sns_notifications_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['RouteServerTimeoutsArgs', 'RouteServerTimeoutsArgsDict']]] = None) -> 'RouteServer':
         """
         Get an existing RouteServer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

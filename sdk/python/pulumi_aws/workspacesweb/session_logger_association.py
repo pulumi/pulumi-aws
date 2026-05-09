@@ -21,7 +21,7 @@ class SessionLoggerAssociationArgs:
     def __init__(__self__, *,
                  portal_arn: pulumi.Input[_builtins.str],
                  session_logger_arn: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SessionLoggerAssociation resource.
 
@@ -64,23 +64,23 @@ class SessionLoggerAssociationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _SessionLoggerAssociationState:
     def __init__(__self__, *,
-                 portal_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 session_logger_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 portal_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_logger_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SessionLoggerAssociation resources.
 
@@ -99,31 +99,31 @@ class _SessionLoggerAssociationState:
 
     @_builtins.property
     @pulumi.getter(name="portalArn")
-    def portal_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def portal_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the web portal.
         """
         return pulumi.get(self, "portal_arn")
 
     @portal_arn.setter
-    def portal_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def portal_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "portal_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="sessionLoggerArn")
-    def session_logger_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def session_logger_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the session logger.
 
@@ -132,7 +132,7 @@ class _SessionLoggerAssociationState:
         return pulumi.get(self, "session_logger_arn")
 
     @session_logger_arn.setter
-    def session_logger_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def session_logger_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "session_logger_arn", value)
 
 
@@ -142,9 +142,9 @@ class SessionLoggerAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 portal_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 session_logger_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 portal_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_logger_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing an AWS WorkSpaces Web Session Logger Association.
@@ -283,9 +283,9 @@ class SessionLoggerAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 portal_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 session_logger_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 portal_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_logger_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -312,9 +312,9 @@ class SessionLoggerAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            portal_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            session_logger_arn: Optional[pulumi.Input[_builtins.str]] = None) -> 'SessionLoggerAssociation':
+            portal_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            session_logger_arn: pulumi.Input[Optional[_builtins.str]] = None) -> 'SessionLoggerAssociation':
         """
         Get an existing SessionLoggerAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

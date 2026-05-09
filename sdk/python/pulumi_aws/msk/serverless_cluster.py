@@ -23,9 +23,9 @@ class ServerlessClusterArgs:
     def __init__(__self__, *,
                  client_authentication: pulumi.Input['ServerlessClusterClientAuthenticationArgs'],
                  vpc_configs: pulumi.Input[Sequence[pulumi.Input['ServerlessClusterVpcConfigArgs']]],
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ServerlessCluster resource.
 
@@ -70,53 +70,53 @@ class ServerlessClusterArgs:
 
     @_builtins.property
     @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the serverless cluster.
         """
         return pulumi.get(self, "cluster_name")
 
     @cluster_name.setter
-    def cluster_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _ServerlessClusterState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 bootstrap_brokers_sasl_iam: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_authentication: Optional[pulumi.Input['ServerlessClusterClientAuthenticationArgs']] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_uuid: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_configs: Optional[pulumi.Input[Sequence[pulumi.Input['ServerlessClusterVpcConfigArgs']]]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 bootstrap_brokers_sasl_iam: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_authentication: pulumi.Input[Optional['ServerlessClusterClientAuthenticationArgs']] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_uuid: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vpc_configs: pulumi.Input[Optional[Sequence[pulumi.Input['ServerlessClusterVpcConfigArgs']]]] = None):
         """
         Input properties used for looking up and filtering ServerlessCluster resources.
 
@@ -151,110 +151,110 @@ class _ServerlessClusterState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the serverless cluster.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="bootstrapBrokersSaslIam")
-    def bootstrap_brokers_sasl_iam(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bootstrap_brokers_sasl_iam(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `boot-abcdefg.c2.kafka-serverless.eu-central-1.amazonaws.com:9098`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         """
         return pulumi.get(self, "bootstrap_brokers_sasl_iam")
 
     @bootstrap_brokers_sasl_iam.setter
-    def bootstrap_brokers_sasl_iam(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bootstrap_brokers_sasl_iam(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bootstrap_brokers_sasl_iam", value)
 
     @_builtins.property
     @pulumi.getter(name="clientAuthentication")
-    def client_authentication(self) -> Optional[pulumi.Input['ServerlessClusterClientAuthenticationArgs']]:
+    def client_authentication(self) -> pulumi.Input[Optional['ServerlessClusterClientAuthenticationArgs']]:
         """
         Specifies client authentication information for the serverless cluster. See below.
         """
         return pulumi.get(self, "client_authentication")
 
     @client_authentication.setter
-    def client_authentication(self, value: Optional[pulumi.Input['ServerlessClusterClientAuthenticationArgs']]):
+    def client_authentication(self, value: pulumi.Input[Optional['ServerlessClusterClientAuthenticationArgs']]):
         pulumi.set(self, "client_authentication", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the serverless cluster.
         """
         return pulumi.get(self, "cluster_name")
 
     @cluster_name.setter
-    def cluster_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_name", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterUuid")
-    def cluster_uuid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_uuid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         UUID of the serverless cluster, for use in IAM policies.
         """
         return pulumi.get(self, "cluster_uuid")
 
     @cluster_uuid.setter
-    def cluster_uuid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_uuid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_uuid", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcConfigs")
-    def vpc_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServerlessClusterVpcConfigArgs']]]]:
+    def vpc_configs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServerlessClusterVpcConfigArgs']]]]:
         """
         VPC configuration information. See below.
         """
         return pulumi.get(self, "vpc_configs")
 
     @vpc_configs.setter
-    def vpc_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServerlessClusterVpcConfigArgs']]]]):
+    def vpc_configs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServerlessClusterVpcConfigArgs']]]]):
         pulumi.set(self, "vpc_configs", value)
 
 
@@ -264,11 +264,11 @@ class ServerlessCluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_authentication: Optional[pulumi.Input[Union['ServerlessClusterClientAuthenticationArgs', 'ServerlessClusterClientAuthenticationArgsDict']]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServerlessClusterVpcConfigArgs', 'ServerlessClusterVpcConfigArgsDict']]]]] = None,
+                 client_authentication: pulumi.Input[Optional[Union['ServerlessClusterClientAuthenticationArgs', 'ServerlessClusterClientAuthenticationArgsDict']]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vpc_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerlessClusterVpcConfigArgs', 'ServerlessClusterVpcConfigArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages an Amazon MSK Serverless cluster.
@@ -381,11 +381,11 @@ class ServerlessCluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_authentication: Optional[pulumi.Input[Union['ServerlessClusterClientAuthenticationArgs', 'ServerlessClusterClientAuthenticationArgsDict']]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServerlessClusterVpcConfigArgs', 'ServerlessClusterVpcConfigArgsDict']]]]] = None,
+                 client_authentication: pulumi.Input[Optional[Union['ServerlessClusterClientAuthenticationArgs', 'ServerlessClusterClientAuthenticationArgsDict']]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vpc_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerlessClusterVpcConfigArgs', 'ServerlessClusterVpcConfigArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -418,15 +418,15 @@ class ServerlessCluster(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            bootstrap_brokers_sasl_iam: Optional[pulumi.Input[_builtins.str]] = None,
-            client_authentication: Optional[pulumi.Input[Union['ServerlessClusterClientAuthenticationArgs', 'ServerlessClusterClientAuthenticationArgsDict']]] = None,
-            cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-            cluster_uuid: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            vpc_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServerlessClusterVpcConfigArgs', 'ServerlessClusterVpcConfigArgsDict']]]]] = None) -> 'ServerlessCluster':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            bootstrap_brokers_sasl_iam: pulumi.Input[Optional[_builtins.str]] = None,
+            client_authentication: pulumi.Input[Optional[Union['ServerlessClusterClientAuthenticationArgs', 'ServerlessClusterClientAuthenticationArgsDict']]] = None,
+            cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+            cluster_uuid: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            vpc_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerlessClusterVpcConfigArgs', 'ServerlessClusterVpcConfigArgsDict']]]]] = None) -> 'ServerlessCluster':
         """
         Get an existing ServerlessCluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -46,7 +46,7 @@ namespace Pulumi.Aws.SecurityHub
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["securityControlDefinitions"] = Output.Tuple(example, Std.Index.Contains.Invoke(new()
+        ///         ["securityControlDefinitions"] = Output.Tuple(example, Std.Contains.Invoke(new()
         ///         {
         ///             Input = new[]
         ///             {
@@ -102,7 +102,7 @@ namespace Pulumi.Aws.SecurityHub
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["securityControlDefinitions"] = Output.Tuple(example, Std.Index.Contains.Invoke(new()
+        ///         ["securityControlDefinitions"] = Output.Tuple(example, Std.Contains.Invoke(new()
         ///         {
         ///             Input = new[]
         ///             {
@@ -158,7 +158,7 @@ namespace Pulumi.Aws.SecurityHub
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["securityControlDefinitions"] = Output.Tuple(example, Std.Index.Contains.Invoke(new()
+        ///         ["securityControlDefinitions"] = Output.Tuple(example, Std.Contains.Invoke(new()
         ///         {
         ///             Input = new[]
         ///             {

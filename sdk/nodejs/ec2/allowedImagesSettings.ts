@@ -135,15 +135,15 @@ export interface AllowedImagesSettingsState {
     /**
      * List of image criteria. Maximum of 10 criterion blocks allowed. See `imageCriterion` below.
      */
-    imageCriterions?: pulumi.Input<pulumi.Input<inputs.ec2.AllowedImagesSettingsImageCriterion>[]>;
+    imageCriterions?: pulumi.Input<pulumi.Input<inputs.ec2.AllowedImagesSettingsImageCriterion>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * State of the allowed images settings. Valid values are `enabled` or `audit-mode`.
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -153,11 +153,11 @@ export interface AllowedImagesSettingsArgs {
     /**
      * List of image criteria. Maximum of 10 criterion blocks allowed. See `imageCriterion` below.
      */
-    imageCriterions?: pulumi.Input<pulumi.Input<inputs.ec2.AllowedImagesSettingsImageCriterion>[]>;
+    imageCriterions?: pulumi.Input<pulumi.Input<inputs.ec2.AllowedImagesSettingsImageCriterion>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * State of the allowed images settings. Valid values are `enabled` or `audit-mode`.
      */

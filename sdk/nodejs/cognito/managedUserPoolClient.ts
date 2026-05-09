@@ -258,109 +258,109 @@ export interface ManagedUserPoolClientState {
     /**
      * Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.access_token`.
      */
-    accessTokenValidity?: pulumi.Input<number>;
+    accessTokenValidity?: pulumi.Input<number | undefined>;
     /**
      * List of allowed OAuth flows, including `code`, `implicit`, and `clientCredentials`. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
      */
-    allowedOauthFlows?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedOauthFlows?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Whether the client is allowed to use OAuth 2.0 features. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure the following arguments: `callbackUrls`, `logoutUrls`, `allowedOauthScopes` and `allowedOauthFlows`.
      */
-    allowedOauthFlowsUserPoolClient?: pulumi.Input<boolean>;
+    allowedOauthFlowsUserPoolClient?: pulumi.Input<boolean | undefined>;
     /**
      * List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
      */
-    allowedOauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedOauthScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
      */
-    analyticsConfiguration?: pulumi.Input<inputs.cognito.ManagedUserPoolClientAnalyticsConfiguration>;
+    analyticsConfiguration?: pulumi.Input<inputs.cognito.ManagedUserPoolClientAnalyticsConfiguration | undefined>;
     /**
      * Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `authSessionValidity` are between `3` and `15`, with a default value of `3`.
      */
-    authSessionValidity?: pulumi.Input<number>;
+    authSessionValidity?: pulumi.Input<number | undefined>;
     /**
      * List of allowed callback URLs for the identity providers. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
      */
-    callbackUrls?: pulumi.Input<pulumi.Input<string>[]>;
+    callbackUrls?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Client secret of the user pool client.
      */
-    clientSecret?: pulumi.Input<string>;
+    clientSecret?: pulumi.Input<string | undefined>;
     /**
      * Default redirect URI and must be included in the list of callback URLs.
      */
-    defaultRedirectUri?: pulumi.Input<string>;
+    defaultRedirectUri?: pulumi.Input<string | undefined>;
     /**
      * Enables the propagation of additional user context data.
      */
-    enablePropagateAdditionalUserContextData?: pulumi.Input<boolean>;
+    enablePropagateAdditionalUserContextData?: pulumi.Input<boolean | undefined>;
     /**
      * Enables or disables token revocation.
      */
-    enableTokenRevocation?: pulumi.Input<boolean>;
+    enableTokenRevocation?: pulumi.Input<boolean | undefined>;
     /**
      * List of authentication flows. The available options include ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, and ALLOW_REFRESH_TOKEN_AUTH.
      */
-    explicitAuthFlows?: pulumi.Input<pulumi.Input<string>[]>;
+    explicitAuthFlows?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.id_token`.
      */
-    idTokenValidity?: pulumi.Input<number>;
+    idTokenValidity?: pulumi.Input<number | undefined>;
     /**
      * List of allowed logout URLs for the identity providers. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
      */
-    logoutUrls?: pulumi.Input<pulumi.Input<string>[]>;
+    logoutUrls?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Name of the user pool client.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Regular expression that matches the name of the existing User Pool Client to be managed. It must only match one User Pool Client.
      */
-    namePattern?: pulumi.Input<string>;
+    namePattern?: pulumi.Input<string | undefined>;
     /**
      * String that matches the beginning of the name of the  existing User Pool Client to be managed. It must match only one User Pool Client.
      *
      * The following arguments are optional:
      */
-    namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string | undefined>;
     /**
      * Setting determines the errors and responses returned by Cognito APIs when a user does not exist in the user pool during authentication, account confirmation, and password recovery.
      */
-    preventUserExistenceErrors?: pulumi.Input<string>;
+    preventUserExistenceErrors?: pulumi.Input<string | undefined>;
     /**
      * List of user pool attributes that the application client can read from.
      */
-    readAttributes?: pulumi.Input<pulumi.Input<string>[]>;
+    readAttributes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A block that specifies the configuration of refresh token rotation. Detailed below.
      */
-    refreshTokenRotation?: pulumi.Input<inputs.cognito.ManagedUserPoolClientRefreshTokenRotation>;
+    refreshTokenRotation?: pulumi.Input<inputs.cognito.ManagedUserPoolClientRefreshTokenRotation | undefined>;
     /**
      * Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
      */
-    refreshTokenValidity?: pulumi.Input<number>;
+    refreshTokenValidity?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * List of provider names for the identity providers that are supported on this client. It uses the `providerName` attribute of the `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
      */
-    supportedIdentityProviders?: pulumi.Input<pulumi.Input<string>[]>;
+    supportedIdentityProviders?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Configuration block for representing the validity times in units. See details below. Detailed below.
      */
-    tokenValidityUnits?: pulumi.Input<inputs.cognito.ManagedUserPoolClientTokenValidityUnits>;
+    tokenValidityUnits?: pulumi.Input<inputs.cognito.ManagedUserPoolClientTokenValidityUnits | undefined>;
     /**
      * User pool that the client belongs to.
      */
-    userPoolId?: pulumi.Input<string>;
+    userPoolId?: pulumi.Input<string | undefined>;
     /**
      * List of user pool attributes that the application client can write to.
      */
-    writeAttributes?: pulumi.Input<pulumi.Input<string>[]>;
+    writeAttributes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -370,93 +370,93 @@ export interface ManagedUserPoolClientArgs {
     /**
      * Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.access_token`.
      */
-    accessTokenValidity?: pulumi.Input<number>;
+    accessTokenValidity?: pulumi.Input<number | undefined>;
     /**
      * List of allowed OAuth flows, including `code`, `implicit`, and `clientCredentials`. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
      */
-    allowedOauthFlows?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedOauthFlows?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Whether the client is allowed to use OAuth 2.0 features. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure the following arguments: `callbackUrls`, `logoutUrls`, `allowedOauthScopes` and `allowedOauthFlows`.
      */
-    allowedOauthFlowsUserPoolClient?: pulumi.Input<boolean>;
+    allowedOauthFlowsUserPoolClient?: pulumi.Input<boolean | undefined>;
     /**
      * List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
      */
-    allowedOauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedOauthScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
      */
-    analyticsConfiguration?: pulumi.Input<inputs.cognito.ManagedUserPoolClientAnalyticsConfiguration>;
+    analyticsConfiguration?: pulumi.Input<inputs.cognito.ManagedUserPoolClientAnalyticsConfiguration | undefined>;
     /**
      * Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `authSessionValidity` are between `3` and `15`, with a default value of `3`.
      */
-    authSessionValidity?: pulumi.Input<number>;
+    authSessionValidity?: pulumi.Input<number | undefined>;
     /**
      * List of allowed callback URLs for the identity providers. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
      */
-    callbackUrls?: pulumi.Input<pulumi.Input<string>[]>;
+    callbackUrls?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Default redirect URI and must be included in the list of callback URLs.
      */
-    defaultRedirectUri?: pulumi.Input<string>;
+    defaultRedirectUri?: pulumi.Input<string | undefined>;
     /**
      * Enables the propagation of additional user context data.
      */
-    enablePropagateAdditionalUserContextData?: pulumi.Input<boolean>;
+    enablePropagateAdditionalUserContextData?: pulumi.Input<boolean | undefined>;
     /**
      * Enables or disables token revocation.
      */
-    enableTokenRevocation?: pulumi.Input<boolean>;
+    enableTokenRevocation?: pulumi.Input<boolean | undefined>;
     /**
      * List of authentication flows. The available options include ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, and ALLOW_REFRESH_TOKEN_AUTH.
      */
-    explicitAuthFlows?: pulumi.Input<pulumi.Input<string>[]>;
+    explicitAuthFlows?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.id_token`.
      */
-    idTokenValidity?: pulumi.Input<number>;
+    idTokenValidity?: pulumi.Input<number | undefined>;
     /**
      * List of allowed logout URLs for the identity providers. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
      */
-    logoutUrls?: pulumi.Input<pulumi.Input<string>[]>;
+    logoutUrls?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Regular expression that matches the name of the existing User Pool Client to be managed. It must only match one User Pool Client.
      */
-    namePattern?: pulumi.Input<string>;
+    namePattern?: pulumi.Input<string | undefined>;
     /**
      * String that matches the beginning of the name of the  existing User Pool Client to be managed. It must match only one User Pool Client.
      *
      * The following arguments are optional:
      */
-    namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string | undefined>;
     /**
      * Setting determines the errors and responses returned by Cognito APIs when a user does not exist in the user pool during authentication, account confirmation, and password recovery.
      */
-    preventUserExistenceErrors?: pulumi.Input<string>;
+    preventUserExistenceErrors?: pulumi.Input<string | undefined>;
     /**
      * List of user pool attributes that the application client can read from.
      */
-    readAttributes?: pulumi.Input<pulumi.Input<string>[]>;
+    readAttributes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A block that specifies the configuration of refresh token rotation. Detailed below.
      */
-    refreshTokenRotation?: pulumi.Input<inputs.cognito.ManagedUserPoolClientRefreshTokenRotation>;
+    refreshTokenRotation?: pulumi.Input<inputs.cognito.ManagedUserPoolClientRefreshTokenRotation | undefined>;
     /**
      * Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
      */
-    refreshTokenValidity?: pulumi.Input<number>;
+    refreshTokenValidity?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * List of provider names for the identity providers that are supported on this client. It uses the `providerName` attribute of the `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
      */
-    supportedIdentityProviders?: pulumi.Input<pulumi.Input<string>[]>;
+    supportedIdentityProviders?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Configuration block for representing the validity times in units. See details below. Detailed below.
      */
-    tokenValidityUnits?: pulumi.Input<inputs.cognito.ManagedUserPoolClientTokenValidityUnits>;
+    tokenValidityUnits?: pulumi.Input<inputs.cognito.ManagedUserPoolClientTokenValidityUnits | undefined>;
     /**
      * User pool that the client belongs to.
      */
@@ -464,5 +464,5 @@ export interface ManagedUserPoolClientArgs {
     /**
      * List of user pool attributes that the application client can write to.
      */
-    writeAttributes?: pulumi.Input<pulumi.Input<string>[]>;
+    writeAttributes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

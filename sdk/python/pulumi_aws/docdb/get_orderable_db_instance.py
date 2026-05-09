@@ -181,13 +181,13 @@ def get_orderable_db_instance(engine: Optional[_builtins.str] = None,
         preferred_instance_classes=pulumi.get(__ret__, 'preferred_instance_classes'),
         region=pulumi.get(__ret__, 'region'),
         vpc=pulumi.get(__ret__, 'vpc'))
-def get_orderable_db_instance_output(engine: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                     engine_version: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                     instance_class: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                     license_model: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                     preferred_instance_classes: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                                     region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                     vpc: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
+def get_orderable_db_instance_output(engine: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                     engine_version: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                     instance_class: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                     license_model: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                     preferred_instance_classes: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                                     region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                     vpc: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrderableDbInstanceResult]:
     """
     Information about DocumentDB orderable DB instances.

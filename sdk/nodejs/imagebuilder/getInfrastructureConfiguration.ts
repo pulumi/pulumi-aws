@@ -160,13 +160,13 @@ export interface GetInfrastructureConfigurationOutputArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags for the infrastructure created by the infrastructure configuration.
      */
-    resourceTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    resourceTags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Key-value map of resource tags for the infrastructure configuration.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

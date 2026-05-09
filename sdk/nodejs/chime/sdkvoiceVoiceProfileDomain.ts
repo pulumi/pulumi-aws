@@ -138,25 +138,25 @@ export interface SdkvoiceVoiceProfileDomainState {
     /**
      * ARN of the Voice Profile Domain.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Description of Voice Profile Domain.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of Voice Profile Domain.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Configuration for server side encryption.
      */
-    serverSideEncryptionConfiguration?: pulumi.Input<inputs.chime.SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    serverSideEncryptionConfiguration?: pulumi.Input<inputs.chime.SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -166,18 +166,18 @@ export interface SdkvoiceVoiceProfileDomainArgs {
     /**
      * Description of Voice Profile Domain.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of Voice Profile Domain.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Configuration for server side encryption.
      */
     serverSideEncryptionConfiguration: pulumi.Input<inputs.chime.SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

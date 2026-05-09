@@ -161,38 +161,38 @@ export interface VocabularyState {
     /**
      * ARN of the Vocabulary.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Generated download URI.
      */
-    downloadUri?: pulumi.Input<string>;
+    downloadUri?: pulumi.Input<string | undefined>;
     /**
      * The language code you selected for your vocabulary.
      */
-    languageCode?: pulumi.Input<string>;
+    languageCode?: pulumi.Input<string | undefined>;
     /**
      * A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
      */
-    phrases?: pulumi.Input<pulumi.Input<string>[]>;
+    phrases?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
      */
-    vocabularyFileUri?: pulumi.Input<string>;
+    vocabularyFileUri?: pulumi.Input<string | undefined>;
     /**
      * The name of the Vocabulary.
      *
      * The following arguments are optional:
      */
-    vocabularyName?: pulumi.Input<string>;
+    vocabularyName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -206,19 +206,19 @@ export interface VocabularyArgs {
     /**
      * A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
      */
-    phrases?: pulumi.Input<pulumi.Input<string>[]>;
+    phrases?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
      */
-    vocabularyFileUri?: pulumi.Input<string>;
+    vocabularyFileUri?: pulumi.Input<string | undefined>;
     /**
      * The name of the Vocabulary.
      *

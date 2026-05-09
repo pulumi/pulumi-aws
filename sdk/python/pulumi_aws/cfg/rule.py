@@ -22,14 +22,14 @@ __all__ = ['RuleArgs', 'Rule']
 class RuleArgs:
     def __init__(__self__, *,
                  source: pulumi.Input['RuleSourceArgs'],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 evaluation_modes: Optional[pulumi.Input[Sequence[pulumi.Input['RuleEvaluationModeArgs']]]] = None,
-                 input_parameters: Optional[pulumi.Input[_builtins.str]] = None,
-                 maximum_execution_frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input['RuleScopeArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 evaluation_modes: pulumi.Input[Optional[Sequence[pulumi.Input['RuleEvaluationModeArgs']]]] = None,
+                 input_parameters: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_execution_frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional['RuleScopeArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Rule resource.
 
@@ -75,116 +75,116 @@ class RuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the rule
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="evaluationModes")
-    def evaluation_modes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleEvaluationModeArgs']]]]:
+    def evaluation_modes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RuleEvaluationModeArgs']]]]:
         """
         The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
         """
         return pulumi.get(self, "evaluation_modes")
 
     @evaluation_modes.setter
-    def evaluation_modes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleEvaluationModeArgs']]]]):
+    def evaluation_modes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RuleEvaluationModeArgs']]]]):
         pulumi.set(self, "evaluation_modes", value)
 
     @_builtins.property
     @pulumi.getter(name="inputParameters")
-    def input_parameters(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def input_parameters(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string in JSON format that is passed to the AWS Config rule Lambda function.
         """
         return pulumi.get(self, "input_parameters")
 
     @input_parameters.setter
-    def input_parameters(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def input_parameters(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "input_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumExecutionFrequency")
-    def maximum_execution_frequency(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def maximum_execution_frequency(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The maximum frequency with which AWS Config runs evaluations for a rule.
         """
         return pulumi.get(self, "maximum_execution_frequency")
 
     @maximum_execution_frequency.setter
-    def maximum_execution_frequency(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def maximum_execution_frequency(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "maximum_execution_frequency", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the rule
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input['RuleScopeArgs']]:
+    def scope(self) -> pulumi.Input[Optional['RuleScopeArgs']]:
         """
         Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input['RuleScopeArgs']]):
+    def scope(self, value: pulumi.Input[Optional['RuleScopeArgs']]):
         pulumi.set(self, "scope", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _RuleState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 evaluation_modes: Optional[pulumi.Input[Sequence[pulumi.Input['RuleEvaluationModeArgs']]]] = None,
-                 input_parameters: Optional[pulumi.Input[_builtins.str]] = None,
-                 maximum_execution_frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input['RuleScopeArgs']] = None,
-                 source: Optional[pulumi.Input['RuleSourceArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 evaluation_modes: pulumi.Input[Optional[Sequence[pulumi.Input['RuleEvaluationModeArgs']]]] = None,
+                 input_parameters: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_execution_frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional['RuleScopeArgs']] = None,
+                 source: pulumi.Input[Optional['RuleSourceArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Rule resources.
 
@@ -228,146 +228,146 @@ class _RuleState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the config rule
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the rule
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="evaluationModes")
-    def evaluation_modes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleEvaluationModeArgs']]]]:
+    def evaluation_modes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RuleEvaluationModeArgs']]]]:
         """
         The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
         """
         return pulumi.get(self, "evaluation_modes")
 
     @evaluation_modes.setter
-    def evaluation_modes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleEvaluationModeArgs']]]]):
+    def evaluation_modes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RuleEvaluationModeArgs']]]]):
         pulumi.set(self, "evaluation_modes", value)
 
     @_builtins.property
     @pulumi.getter(name="inputParameters")
-    def input_parameters(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def input_parameters(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string in JSON format that is passed to the AWS Config rule Lambda function.
         """
         return pulumi.get(self, "input_parameters")
 
     @input_parameters.setter
-    def input_parameters(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def input_parameters(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "input_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumExecutionFrequency")
-    def maximum_execution_frequency(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def maximum_execution_frequency(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The maximum frequency with which AWS Config runs evaluations for a rule.
         """
         return pulumi.get(self, "maximum_execution_frequency")
 
     @maximum_execution_frequency.setter
-    def maximum_execution_frequency(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def maximum_execution_frequency(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "maximum_execution_frequency", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the rule
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleId")
-    def rule_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rule_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the config rule
         """
         return pulumi.get(self, "rule_id")
 
     @rule_id.setter
-    def rule_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rule_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rule_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input['RuleScopeArgs']]:
+    def scope(self) -> pulumi.Input[Optional['RuleScopeArgs']]:
         """
         Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input['RuleScopeArgs']]):
+    def scope(self, value: pulumi.Input[Optional['RuleScopeArgs']]):
         pulumi.set(self, "scope", value)
 
     @_builtins.property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input['RuleSourceArgs']]:
+    def source(self) -> pulumi.Input[Optional['RuleSourceArgs']]:
         """
         Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input['RuleSourceArgs']]):
+    def source(self, value: pulumi.Input[Optional['RuleSourceArgs']]):
         pulumi.set(self, "source", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
 
@@ -377,15 +377,15 @@ class Rule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 evaluation_modes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleEvaluationModeArgs', 'RuleEvaluationModeArgsDict']]]]] = None,
-                 input_parameters: Optional[pulumi.Input[_builtins.str]] = None,
-                 maximum_execution_frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[Union['RuleScopeArgs', 'RuleScopeArgsDict']]] = None,
-                 source: Optional[pulumi.Input[Union['RuleSourceArgs', 'RuleSourceArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 evaluation_modes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleEvaluationModeArgs', 'RuleEvaluationModeArgsDict']]]]] = None,
+                 input_parameters: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_execution_frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[Union['RuleScopeArgs', 'RuleScopeArgsDict']]] = None,
+                 source: pulumi.Input[Optional[Union['RuleSourceArgs', 'RuleSourceArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides an AWS Config Rule.
@@ -664,15 +664,15 @@ class Rule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 evaluation_modes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleEvaluationModeArgs', 'RuleEvaluationModeArgsDict']]]]] = None,
-                 input_parameters: Optional[pulumi.Input[_builtins.str]] = None,
-                 maximum_execution_frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[Union['RuleScopeArgs', 'RuleScopeArgsDict']]] = None,
-                 source: Optional[pulumi.Input[Union['RuleSourceArgs', 'RuleSourceArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 evaluation_modes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleEvaluationModeArgs', 'RuleEvaluationModeArgsDict']]]]] = None,
+                 input_parameters: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_execution_frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[Union['RuleScopeArgs', 'RuleScopeArgsDict']]] = None,
+                 source: pulumi.Input[Optional[Union['RuleSourceArgs', 'RuleSourceArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -706,18 +706,18 @@ class Rule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            evaluation_modes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleEvaluationModeArgs', 'RuleEvaluationModeArgsDict']]]]] = None,
-            input_parameters: Optional[pulumi.Input[_builtins.str]] = None,
-            maximum_execution_frequency: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-            scope: Optional[pulumi.Input[Union['RuleScopeArgs', 'RuleScopeArgsDict']]] = None,
-            source: Optional[pulumi.Input[Union['RuleSourceArgs', 'RuleSourceArgsDict']]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Rule':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            evaluation_modes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleEvaluationModeArgs', 'RuleEvaluationModeArgsDict']]]]] = None,
+            input_parameters: pulumi.Input[Optional[_builtins.str]] = None,
+            maximum_execution_frequency: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+            scope: pulumi.Input[Optional[Union['RuleScopeArgs', 'RuleScopeArgsDict']]] = None,
+            source: pulumi.Input[Optional[Union['RuleSourceArgs', 'RuleSourceArgsDict']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Rule':
         """
         Get an existing Rule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

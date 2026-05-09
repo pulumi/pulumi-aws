@@ -213,46 +213,46 @@ export interface LinkState {
     /**
      * ARN of the link.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Label that is assigned to this link.
      */
-    label?: pulumi.Input<string>;
+    label?: pulumi.Input<string | undefined>;
     /**
      * Human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
      */
-    labelTemplate?: pulumi.Input<string>;
+    labelTemplate?: pulumi.Input<string | undefined>;
     /**
      * Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `linkConfiguration` Block for details.
      */
-    linkConfiguration?: pulumi.Input<inputs.oam.LinkLinkConfiguration>;
+    linkConfiguration?: pulumi.Input<inputs.oam.LinkLinkConfiguration | undefined>;
     /**
      * ID string that AWS generated as part of the link ARN.
      */
-    linkId?: pulumi.Input<string>;
+    linkId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Types of data that the source account shares with the monitoring account.
      */
-    resourceTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    resourceTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * ARN of the sink that is used for this link.
      */
-    sinkArn?: pulumi.Input<string>;
+    sinkArn?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the sink to use to create this link.
      *
      * The following arguments are optional:
      */
-    sinkIdentifier?: pulumi.Input<string>;
+    sinkIdentifier?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -266,11 +266,11 @@ export interface LinkArgs {
     /**
      * Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `linkConfiguration` Block for details.
      */
-    linkConfiguration?: pulumi.Input<inputs.oam.LinkLinkConfiguration>;
+    linkConfiguration?: pulumi.Input<inputs.oam.LinkLinkConfiguration | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Types of data that the source account shares with the monitoring account.
      */
@@ -284,5 +284,5 @@ export interface LinkArgs {
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

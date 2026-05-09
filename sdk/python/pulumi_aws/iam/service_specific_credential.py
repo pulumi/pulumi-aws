@@ -21,8 +21,8 @@ class ServiceSpecificCredentialArgs:
     def __init__(__self__, *,
                  service_name: pulumi.Input[_builtins.str],
                  user_name: pulumi.Input[_builtins.str],
-                 credential_age_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 credential_age_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceSpecificCredential resource.
 
@@ -64,43 +64,43 @@ class ServiceSpecificCredentialArgs:
 
     @_builtins.property
     @pulumi.getter(name="credentialAgeDays")
-    def credential_age_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def credential_age_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of days until the service specific credential expires. This field is only valid for Bedrock API keys and must be between 1 and 36600 (approximately 100 years). When not specified, the credential will not expire.
         """
         return pulumi.get(self, "credential_age_days")
 
     @credential_age_days.setter
-    def credential_age_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def credential_age_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "credential_age_days", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status to be assigned to the service-specific credential. Valid values are `Active`, `Inactive`, and `Expired`. Default value is `Active`. Note that `Expired` is only used for read operations and cannot be set manually.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
 @pulumi.input_type
 class _ServiceSpecificCredentialState:
     def __init__(__self__, *,
-                 create_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 credential_age_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 expiration_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_credential_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_credential_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_specific_credential_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_user_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 create_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 credential_age_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 expiration_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_credential_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_credential_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_specific_credential_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_user_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceSpecificCredential resources.
 
@@ -141,134 +141,134 @@ class _ServiceSpecificCredentialState:
 
     @_builtins.property
     @pulumi.getter(name="createDate")
-    def create_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date and time, in RFC3339 format, when the service-specific credential was created.
         """
         return pulumi.get(self, "create_date")
 
     @create_date.setter
-    def create_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create_date", value)
 
     @_builtins.property
     @pulumi.getter(name="credentialAgeDays")
-    def credential_age_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def credential_age_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of days until the service specific credential expires. This field is only valid for Bedrock API keys and must be between 1 and 36600 (approximately 100 years). When not specified, the credential will not expire.
         """
         return pulumi.get(self, "credential_age_days")
 
     @credential_age_days.setter
-    def credential_age_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def credential_age_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "credential_age_days", value)
 
     @_builtins.property
     @pulumi.getter(name="expirationDate")
-    def expiration_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expiration_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date and time, in RFC3339 format, when the service specific credential expires. This field is only present for Bedrock API keys that were created with an expiration period.
         """
         return pulumi.get(self, "expiration_date")
 
     @expiration_date.setter
-    def expiration_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expiration_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expiration_date", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceCredentialAlias")
-    def service_credential_alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_credential_alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         For Bedrock API keys, this is the public portion of the credential that includes the IAM user name and a suffix containing version and creation information.
         """
         return pulumi.get(self, "service_credential_alias")
 
     @service_credential_alias.setter
-    def service_credential_alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_credential_alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_credential_alias", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceCredentialSecret")
-    def service_credential_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_credential_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         For Bedrock API keys, this is the secret portion of the credential that should be used to authenticate API calls. This value is only available when the credential is created.
         """
         return pulumi.get(self, "service_credential_secret")
 
     @service_credential_secret.setter
-    def service_credential_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_credential_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_credential_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceName")
-    def service_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials. Supported services are `codecommit.amazonaws.com`, `bedrock.amazonaws.com`, and `cassandra.amazonaws.com`.
         """
         return pulumi.get(self, "service_name")
 
     @service_name.setter
-    def service_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_name", value)
 
     @_builtins.property
     @pulumi.getter(name="servicePassword")
-    def service_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The generated password for the service-specific credential. This value is only available when the credential is created.
         """
         return pulumi.get(self, "service_password")
 
     @service_password.setter
-    def service_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_password", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceSpecificCredentialId")
-    def service_specific_credential_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_specific_credential_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique identifier for the service-specific credential.
         """
         return pulumi.get(self, "service_specific_credential_id")
 
     @service_specific_credential_id.setter
-    def service_specific_credential_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_specific_credential_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_specific_credential_id", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceUserName")
-    def service_user_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_user_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The generated user name for the service-specific credential. This value is generated by combining the IAM user's name combined with the ID number of the AWS account, as in `jane-at-123456789012`, for example.
         """
         return pulumi.get(self, "service_user_name")
 
     @service_user_name.setter
-    def service_user_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_user_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_user_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status to be assigned to the service-specific credential. Valid values are `Active`, `Inactive`, and `Expired`. Default value is `Active`. Note that `Expired` is only used for read operations and cannot be set manually.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="userName")
-    def user_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the IAM user that is to be associated with the credentials. The new service-specific credentials have the same permissions as the associated user except that they can be used only to access the specified service.
         """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
-    def user_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name", value)
 
 
@@ -278,10 +278,10 @@ class ServiceSpecificCredential(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credential_age_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 credential_age_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides an IAM Service Specific Credential.
@@ -389,10 +389,10 @@ class ServiceSpecificCredential(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credential_age_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 credential_age_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -429,17 +429,17 @@ class ServiceSpecificCredential(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            create_date: Optional[pulumi.Input[_builtins.str]] = None,
-            credential_age_days: Optional[pulumi.Input[_builtins.int]] = None,
-            expiration_date: Optional[pulumi.Input[_builtins.str]] = None,
-            service_credential_alias: Optional[pulumi.Input[_builtins.str]] = None,
-            service_credential_secret: Optional[pulumi.Input[_builtins.str]] = None,
-            service_name: Optional[pulumi.Input[_builtins.str]] = None,
-            service_password: Optional[pulumi.Input[_builtins.str]] = None,
-            service_specific_credential_id: Optional[pulumi.Input[_builtins.str]] = None,
-            service_user_name: Optional[pulumi.Input[_builtins.str]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            user_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'ServiceSpecificCredential':
+            create_date: pulumi.Input[Optional[_builtins.str]] = None,
+            credential_age_days: pulumi.Input[Optional[_builtins.int]] = None,
+            expiration_date: pulumi.Input[Optional[_builtins.str]] = None,
+            service_credential_alias: pulumi.Input[Optional[_builtins.str]] = None,
+            service_credential_secret: pulumi.Input[Optional[_builtins.str]] = None,
+            service_name: pulumi.Input[Optional[_builtins.str]] = None,
+            service_password: pulumi.Input[Optional[_builtins.str]] = None,
+            service_specific_credential_id: pulumi.Input[Optional[_builtins.str]] = None,
+            service_user_name: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            user_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'ServiceSpecificCredential':
         """
         Get an existing ServiceSpecificCredential resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

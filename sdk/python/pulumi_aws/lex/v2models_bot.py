@@ -24,14 +24,14 @@ class V2modelsBotArgs:
                  data_privacies: pulumi.Input[Sequence[pulumi.Input['V2modelsBotDataPrivacyArgs']]],
                  idle_session_ttl_in_seconds: pulumi.Input[_builtins.int],
                  role_arn: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 members: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsBotMemberArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 test_bot_alias_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['V2modelsBotTimeoutsArgs']] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 members: pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsBotMemberArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 test_bot_alias_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['V2modelsBotTimeoutsArgs']] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a V2modelsBot resource.
 
@@ -108,114 +108,114 @@ class V2modelsBotArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the bot. It appears in lists to help you identify a particular bot.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsBotMemberArgs']]]]:
+    def members(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsBotMemberArgs']]]]:
         """
         List of bot members in a network to be created. See `bot_members`.
         """
         return pulumi.get(self, "members")
 
     @members.setter
-    def members(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsBotMemberArgs']]]]):
+    def members(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsBotMemberArgs']]]]):
         pulumi.set(self, "members", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         List of tags to add to the bot. You can only add tags when you create a bot.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="testBotAliasTags")
-    def test_bot_alias_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def test_bot_alias_tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
         """
         return pulumi.get(self, "test_bot_alias_tags")
 
     @test_bot_alias_tags.setter
-    def test_bot_alias_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def test_bot_alias_tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "test_bot_alias_tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['V2modelsBotTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['V2modelsBotTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['V2modelsBotTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['V2modelsBotTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
 class _V2modelsBotState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_privacies: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsBotDataPrivacyArgs']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 idle_session_ttl_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 members: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsBotMemberArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 test_bot_alias_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['V2modelsBotTimeoutsArgs']] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_privacies: pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsBotDataPrivacyArgs']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 idle_session_ttl_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 members: pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsBotMemberArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 test_bot_alias_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['V2modelsBotTimeoutsArgs']] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering V2modelsBot resources.
 
@@ -261,88 +261,88 @@ class _V2modelsBotState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="dataPrivacies")
-    def data_privacies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsBotDataPrivacyArgs']]]]:
+    def data_privacies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsBotDataPrivacyArgs']]]]:
         """
         Provides information on additional privacy protections Amazon Lex should use with the bot's data. See `data_privacy`
         """
         return pulumi.get(self, "data_privacies")
 
     @data_privacies.setter
-    def data_privacies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsBotDataPrivacyArgs']]]]):
+    def data_privacies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsBotDataPrivacyArgs']]]]):
         pulumi.set(self, "data_privacies", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the bot. It appears in lists to help you identify a particular bot.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="idleSessionTtlInSeconds")
-    def idle_session_ttl_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def idle_session_ttl_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot. You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
         """
         return pulumi.get(self, "idle_session_ttl_in_seconds")
 
     @idle_session_ttl_in_seconds.setter
-    def idle_session_ttl_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def idle_session_ttl_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "idle_session_ttl_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter
-    def members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsBotMemberArgs']]]]:
+    def members(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsBotMemberArgs']]]]:
         """
         List of bot members in a network to be created. See `bot_members`.
         """
         return pulumi.get(self, "members")
 
     @members.setter
-    def members(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsBotMemberArgs']]]]):
+    def members(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsBotMemberArgs']]]]):
         pulumi.set(self, "members", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of an IAM role that has permission to access the bot.
 
@@ -351,61 +351,61 @@ class _V2modelsBotState:
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         List of tags to add to the bot. You can only add tags when you create a bot.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="testBotAliasTags")
-    def test_bot_alias_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def test_bot_alias_tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
         """
         return pulumi.get(self, "test_bot_alias_tags")
 
     @test_bot_alias_tags.setter
-    def test_bot_alias_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def test_bot_alias_tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "test_bot_alias_tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['V2modelsBotTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['V2modelsBotTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['V2modelsBotTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['V2modelsBotTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -415,17 +415,17 @@ class V2modelsBot(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_privacies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsBotDataPrivacyArgs', 'V2modelsBotDataPrivacyArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 idle_session_ttl_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsBotMemberArgs', 'V2modelsBotMemberArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 test_bot_alias_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['V2modelsBotTimeoutsArgs', 'V2modelsBotTimeoutsArgsDict']]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 data_privacies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2modelsBotDataPrivacyArgs', 'V2modelsBotDataPrivacyArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 idle_session_ttl_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2modelsBotMemberArgs', 'V2modelsBotMemberArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 test_bot_alias_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['V2modelsBotTimeoutsArgs', 'V2modelsBotTimeoutsArgsDict']]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Lex V2 Models Bot.
@@ -565,17 +565,17 @@ class V2modelsBot(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_privacies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsBotDataPrivacyArgs', 'V2modelsBotDataPrivacyArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 idle_session_ttl_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsBotMemberArgs', 'V2modelsBotMemberArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 test_bot_alias_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['V2modelsBotTimeoutsArgs', 'V2modelsBotTimeoutsArgsDict']]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 data_privacies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2modelsBotDataPrivacyArgs', 'V2modelsBotDataPrivacyArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 idle_session_ttl_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2modelsBotMemberArgs', 'V2modelsBotMemberArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 test_bot_alias_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['V2modelsBotTimeoutsArgs', 'V2modelsBotTimeoutsArgsDict']]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -614,19 +614,19 @@ class V2modelsBot(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            data_privacies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsBotDataPrivacyArgs', 'V2modelsBotDataPrivacyArgsDict']]]]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            idle_session_ttl_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-            members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsBotMemberArgs', 'V2modelsBotMemberArgsDict']]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            test_bot_alias_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: Optional[pulumi.Input[Union['V2modelsBotTimeoutsArgs', 'V2modelsBotTimeoutsArgsDict']]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None) -> 'V2modelsBot':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            data_privacies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2modelsBotDataPrivacyArgs', 'V2modelsBotDataPrivacyArgsDict']]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            idle_session_ttl_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2modelsBotMemberArgs', 'V2modelsBotMemberArgsDict']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            test_bot_alias_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['V2modelsBotTimeoutsArgs', 'V2modelsBotTimeoutsArgsDict']]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> 'V2modelsBot':
         """
         Get an existing V2modelsBot resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

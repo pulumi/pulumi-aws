@@ -24,11 +24,11 @@ class CaCertificateArgs:
                  active: pulumi.Input[_builtins.bool],
                  allow_auto_registration: pulumi.Input[_builtins.bool],
                  ca_certificate_pem: pulumi.Input[_builtins.str],
-                 certificate_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 registration_config: Optional[pulumi.Input['CaCertificateRegistrationConfigArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 verification_certificate_pem: Optional[pulumi.Input[_builtins.str]] = None):
+                 certificate_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 registration_config: pulumi.Input[Optional['CaCertificateRegistrationConfigArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 verification_certificate_pem: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CaCertificate resource.
 
@@ -94,55 +94,55 @@ class CaCertificateArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateMode")
-    def certificate_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The certificate mode in which the CA will be registered. Valid values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
         """
         return pulumi.get(self, "certificate_mode")
 
     @certificate_mode.setter
-    def certificate_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="registrationConfig")
-    def registration_config(self) -> Optional[pulumi.Input['CaCertificateRegistrationConfigArgs']]:
+    def registration_config(self) -> pulumi.Input[Optional['CaCertificateRegistrationConfigArgs']]:
         """
         Information about the registration configuration. See below.
         """
         return pulumi.get(self, "registration_config")
 
     @registration_config.setter
-    def registration_config(self, value: Optional[pulumi.Input['CaCertificateRegistrationConfigArgs']]):
+    def registration_config(self, value: pulumi.Input[Optional['CaCertificateRegistrationConfigArgs']]):
         pulumi.set(self, "registration_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="verificationCertificatePem")
-    def verification_certificate_pem(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def verification_certificate_pem(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         PEM encoded verification certificate containing the common name of a registration code. Review
         [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Required if `certificate_mode` is `DEFAULT`.
@@ -150,26 +150,26 @@ class CaCertificateArgs:
         return pulumi.get(self, "verification_certificate_pem")
 
     @verification_certificate_pem.setter
-    def verification_certificate_pem(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def verification_certificate_pem(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "verification_certificate_pem", value)
 
 
 @pulumi.input_type
 class _CaCertificateState:
     def __init__(__self__, *,
-                 active: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allow_auto_registration: Optional[pulumi.Input[_builtins.bool]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 ca_certificate_pem: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 generation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 registration_config: Optional[pulumi.Input['CaCertificateRegistrationConfigArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 validities: Optional[pulumi.Input[Sequence[pulumi.Input['CaCertificateValidityArgs']]]] = None,
-                 verification_certificate_pem: Optional[pulumi.Input[_builtins.str]] = None):
+                 active: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_auto_registration: pulumi.Input[Optional[_builtins.bool]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 ca_certificate_pem: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 generation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 registration_config: pulumi.Input[Optional['CaCertificateRegistrationConfigArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 validities: pulumi.Input[Optional[Sequence[pulumi.Input['CaCertificateValidityArgs']]]] = None,
+                 verification_certificate_pem: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CaCertificate resources.
 
@@ -217,151 +217,151 @@ class _CaCertificateState:
 
     @_builtins.property
     @pulumi.getter
-    def active(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def active(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean flag to indicate if the certificate should be active for device authentication.
         """
         return pulumi.get(self, "active")
 
     @active.setter
-    def active(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def active(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "active", value)
 
     @_builtins.property
     @pulumi.getter(name="allowAutoRegistration")
-    def allow_auto_registration(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_auto_registration(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean flag to indicate if the certificate should be active for device regisration.
         """
         return pulumi.get(self, "allow_auto_registration")
 
     @allow_auto_registration.setter
-    def allow_auto_registration(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_auto_registration(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_auto_registration", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the created CA certificate.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="caCertificatePem")
-    def ca_certificate_pem(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ca_certificate_pem(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         PEM encoded CA certificate.
         """
         return pulumi.get(self, "ca_certificate_pem")
 
     @ca_certificate_pem.setter
-    def ca_certificate_pem(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ca_certificate_pem(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ca_certificate_pem", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateMode")
-    def certificate_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The certificate mode in which the CA will be registered. Valid values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
         """
         return pulumi.get(self, "certificate_mode")
 
     @certificate_mode.setter
-    def certificate_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="customerVersion")
-    def customer_version(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def customer_version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The customer version of the CA certificate.
         """
         return pulumi.get(self, "customer_version")
 
     @customer_version.setter
-    def customer_version(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def customer_version(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "customer_version", value)
 
     @_builtins.property
     @pulumi.getter(name="generationId")
-    def generation_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def generation_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The generation ID of the CA certificate.
         """
         return pulumi.get(self, "generation_id")
 
     @generation_id.setter
-    def generation_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def generation_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "generation_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="registrationConfig")
-    def registration_config(self) -> Optional[pulumi.Input['CaCertificateRegistrationConfigArgs']]:
+    def registration_config(self) -> pulumi.Input[Optional['CaCertificateRegistrationConfigArgs']]:
         """
         Information about the registration configuration. See below.
         """
         return pulumi.get(self, "registration_config")
 
     @registration_config.setter
-    def registration_config(self, value: Optional[pulumi.Input['CaCertificateRegistrationConfigArgs']]):
+    def registration_config(self, value: pulumi.Input[Optional['CaCertificateRegistrationConfigArgs']]):
         pulumi.set(self, "registration_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def validities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CaCertificateValidityArgs']]]]:
+    def validities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CaCertificateValidityArgs']]]]:
         """
         When the CA certificate is valid.
         """
         return pulumi.get(self, "validities")
 
     @validities.setter
-    def validities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CaCertificateValidityArgs']]]]):
+    def validities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CaCertificateValidityArgs']]]]):
         pulumi.set(self, "validities", value)
 
     @_builtins.property
     @pulumi.getter(name="verificationCertificatePem")
-    def verification_certificate_pem(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def verification_certificate_pem(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         PEM encoded verification certificate containing the common name of a registration code. Review
         [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Required if `certificate_mode` is `DEFAULT`.
@@ -369,7 +369,7 @@ class _CaCertificateState:
         return pulumi.get(self, "verification_certificate_pem")
 
     @verification_certificate_pem.setter
-    def verification_certificate_pem(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def verification_certificate_pem(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "verification_certificate_pem", value)
 
 
@@ -379,14 +379,14 @@ class CaCertificate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 active: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allow_auto_registration: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ca_certificate_pem: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 registration_config: Optional[pulumi.Input[Union['CaCertificateRegistrationConfigArgs', 'CaCertificateRegistrationConfigArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 verification_certificate_pem: Optional[pulumi.Input[_builtins.str]] = None,
+                 active: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_auto_registration: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ca_certificate_pem: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 registration_config: pulumi.Input[Optional[Union['CaCertificateRegistrationConfigArgs', 'CaCertificateRegistrationConfigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 verification_certificate_pem: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Creates and manages an AWS IoT CA Certificate.
@@ -519,14 +519,14 @@ class CaCertificate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 active: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allow_auto_registration: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ca_certificate_pem: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 registration_config: Optional[pulumi.Input[Union['CaCertificateRegistrationConfigArgs', 'CaCertificateRegistrationConfigArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 verification_certificate_pem: Optional[pulumi.Input[_builtins.str]] = None,
+                 active: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_auto_registration: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ca_certificate_pem: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 registration_config: pulumi.Input[Optional[Union['CaCertificateRegistrationConfigArgs', 'CaCertificateRegistrationConfigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 verification_certificate_pem: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -567,19 +567,19 @@ class CaCertificate(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            active: Optional[pulumi.Input[_builtins.bool]] = None,
-            allow_auto_registration: Optional[pulumi.Input[_builtins.bool]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            ca_certificate_pem: Optional[pulumi.Input[_builtins.str]] = None,
-            certificate_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            customer_version: Optional[pulumi.Input[_builtins.int]] = None,
-            generation_id: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            registration_config: Optional[pulumi.Input[Union['CaCertificateRegistrationConfigArgs', 'CaCertificateRegistrationConfigArgsDict']]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            validities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CaCertificateValidityArgs', 'CaCertificateValidityArgsDict']]]]] = None,
-            verification_certificate_pem: Optional[pulumi.Input[_builtins.str]] = None) -> 'CaCertificate':
+            active: pulumi.Input[Optional[_builtins.bool]] = None,
+            allow_auto_registration: pulumi.Input[Optional[_builtins.bool]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            ca_certificate_pem: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            customer_version: pulumi.Input[Optional[_builtins.int]] = None,
+            generation_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            registration_config: pulumi.Input[Optional[Union['CaCertificateRegistrationConfigArgs', 'CaCertificateRegistrationConfigArgsDict']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            validities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CaCertificateValidityArgs', 'CaCertificateValidityArgsDict']]]]] = None,
+            verification_certificate_pem: pulumi.Input[Optional[_builtins.str]] = None) -> 'CaCertificate':
         """
         Get an existing CaCertificate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -160,22 +160,22 @@ export interface GetServiceOutputArgs {
     /**
      * DNS name of the service (_e.g.,_ `rds.us-east-1.amazonaws.com`). One of `dnsName`, `reverseDnsName`, or `serviceId` is required.
      */
-    dnsName?: pulumi.Input<string>;
-    id?: pulumi.Input<string>;
+    dnsName?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Region of the service (_e.g.,_ `us-west-2`, `ap-northeast-1`). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Reverse DNS name of the service (_e.g.,_ `com.amazonaws.us-west-2.s3`). One of `dnsName`, `reverseDnsName`, or `serviceId` is required.
      */
-    reverseDnsName?: pulumi.Input<string>;
+    reverseDnsName?: pulumi.Input<string | undefined>;
     /**
      * Prefix of the service (_e.g.,_ `com.amazonaws` in AWS Commercial, `cn.com.amazonaws` in AWS China).
      */
-    reverseDnsPrefix?: pulumi.Input<string>;
+    reverseDnsPrefix?: pulumi.Input<string | undefined>;
     /**
      * Service endpoint ID (_e.g.,_ `s3`, `rds`, `ec2`). One of `dnsName`, `reverseDnsName`, or `serviceId` is required. A service's endpoint ID can be found in the [_AWS General Reference_](https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html).
      */
-    serviceId?: pulumi.Input<string>;
+    serviceId?: pulumi.Input<string | undefined>;
 }

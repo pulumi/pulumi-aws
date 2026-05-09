@@ -104,7 +104,7 @@ def get_registration_code(region: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'),
         registration_code=pulumi.get(__ret__, 'registration_code'))
-def get_registration_code_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_registration_code_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRegistrationCodeResult]:
     """
     Gets a registration code used to register a CA certificate with AWS IoT.

@@ -260,7 +260,7 @@ def get_organization(return_organization_only: Optional[_builtins.bool] = None,
         non_master_accounts=pulumi.get(__ret__, 'non_master_accounts'),
         return_organization_only=pulumi.get(__ret__, 'return_organization_only'),
         roots=pulumi.get(__ret__, 'roots'))
-def get_organization_output(return_organization_only: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
+def get_organization_output(return_organization_only: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationResult]:
     """
     Get information about the organization that the users account belongs to.

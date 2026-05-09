@@ -104,15 +104,15 @@ export interface OrganizationAdminAccountRegistrationState {
     /**
      * Identifier for the organization administrator account.
      */
-    adminAccountId?: pulumi.Input<string>;
+    adminAccountId?: pulumi.Input<string | undefined>;
     /**
      * Identifier for the organization.
      */
-    organizationId?: pulumi.Input<string>;
+    organizationId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -126,5 +126,5 @@ export interface OrganizationAdminAccountRegistrationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

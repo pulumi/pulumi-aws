@@ -213,30 +213,30 @@ export interface GetNatGatewayOutputArgs {
      * NAT Gateways in the current Region. The given filters must match exactly one
      * NAT Gateway whose data will be exported as attributes.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetNatGatewayFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetNatGatewayFilterArgs>[] | undefined>;
     /**
      * ID of the specific NAT Gateway to retrieve.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * State of the NAT Gateway (pending | failed | available | deleting | deleted ).
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
     /**
      * ID of subnet that the NAT Gateway resides in.
      */
-    subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string | undefined>;
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired NAT Gateway.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * ID of the VPC that the NAT Gateway resides in.
      */
-    vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string | undefined>;
 }

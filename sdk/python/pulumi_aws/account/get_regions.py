@@ -114,8 +114,8 @@ def get_regions(account_id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         region_opt_status_contains=pulumi.get(__ret__, 'region_opt_status_contains'),
         regions=pulumi.get(__ret__, 'regions'))
-def get_regions_output(account_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                       region_opt_status_contains: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
+def get_regions_output(account_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       region_opt_status_contains: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRegionsResult]:
     """
     The `account_get_regions` data source lets you query AWS region information for any account in your AWS Organization. It uses the AWS Account REST Service to show all regions, including those that are enabled, disabled, or in the process of being enabled or disabled. You can list regions for any organization account, see all possible region opt-in statuses (`ENABLED`, `ENABLING`, `DISABLING`, `DISABLED`, `ENABLED_BY_DEFAULT`), and check which regions are being enabled or disabled.

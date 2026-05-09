@@ -146,10 +146,10 @@ def get_addon_version(addon_name: Optional[_builtins.str] = None,
         most_recent=pulumi.get(__ret__, 'most_recent'),
         region=pulumi.get(__ret__, 'region'),
         version=pulumi.get(__ret__, 'version'))
-def get_addon_version_output(addon_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             kubernetes_version: Optional[pulumi.Input[_builtins.str]] = None,
-                             most_recent: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                             region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_addon_version_output(addon_name: pulumi.Input[Optional[_builtins.str]] = None,
+                             kubernetes_version: pulumi.Input[Optional[_builtins.str]] = None,
+                             most_recent: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                             region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAddonVersionResult]:
     """
     Retrieve information about a specific EKS add-on version compatible with an EKS cluster version.

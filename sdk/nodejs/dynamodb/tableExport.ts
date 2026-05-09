@@ -261,75 +261,75 @@ export interface TableExportState {
     /**
      * ARN of the Table Export.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Billable size of the table export.
      */
-    billedSizeInBytes?: pulumi.Input<number>;
+    billedSizeInBytes?: pulumi.Input<number | undefined>;
     /**
      * Time at which the export task completed.
      */
-    endTime?: pulumi.Input<string>;
+    endTime?: pulumi.Input<string | undefined>;
     /**
      * Format for the exported data. Valid values are: `DYNAMODB_JSON`, `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
      */
-    exportFormat?: pulumi.Input<string>;
+    exportFormat?: pulumi.Input<string | undefined>;
     /**
      * Status of the export - export can be in one of the following states `IN_PROGRESS`, `COMPLETED`, or `FAILED`.
      */
-    exportStatus?: pulumi.Input<string>;
+    exportStatus?: pulumi.Input<string | undefined>;
     /**
      * Time in RFC3339 format from which to export table data. The table export will be a snapshot of the table's state at this point in time. Omitting this value will result in a snapshot from the current time.
      */
-    exportTime?: pulumi.Input<string>;
+    exportTime?: pulumi.Input<string | undefined>;
     /**
      * Whether to execute as a full export or incremental export. Valid values are: `FULL_EXPORT`, `INCREMENTAL_EXPORT`. Defaults to `FULL_EXPORT`. If `INCREMENTAL_EXPORT` is provided, the `incrementalExportSpecification` argument must also be provided.
      * `incrementalExportSpecification` - (Optional, Forces new resource) Parameters specific to an incremental export. See `incrementalExportSpecification` Block for details.
      */
-    exportType?: pulumi.Input<string>;
-    incrementalExportSpecification?: pulumi.Input<inputs.dynamodb.TableExportIncrementalExportSpecification>;
+    exportType?: pulumi.Input<string | undefined>;
+    incrementalExportSpecification?: pulumi.Input<inputs.dynamodb.TableExportIncrementalExportSpecification | undefined>;
     /**
      * Number of items exported.
      */
-    itemCount?: pulumi.Input<number>;
+    itemCount?: pulumi.Input<number | undefined>;
     /**
      * Name of the manifest file for the export task. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Manifest) for more information on this manifest file.
      */
-    manifestFilesS3Key?: pulumi.Input<string>;
+    manifestFilesS3Key?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Name of the Amazon S3 bucket to export the snapshot to. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport_Requesting.html#S3DataExport_Requesting_Permissions) for information on how configure this S3 bucket.
      */
-    s3Bucket?: pulumi.Input<string>;
+    s3Bucket?: pulumi.Input<string | undefined>;
     /**
      * ID of the AWS account that owns the bucket the export will be stored in.
      */
-    s3BucketOwner?: pulumi.Input<string>;
+    s3BucketOwner?: pulumi.Input<string | undefined>;
     /**
      * Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
      */
-    s3Prefix?: pulumi.Input<string>;
+    s3Prefix?: pulumi.Input<string | undefined>;
     /**
      * Type of encryption used on the bucket where export data will be stored. Valid values are: `AES256`, `KMS`.
      */
-    s3SseAlgorithm?: pulumi.Input<string>;
+    s3SseAlgorithm?: pulumi.Input<string | undefined>;
     /**
      * ID of the AWS KMS managed key used to encrypt the S3 bucket where export data will be stored (if applicable).
      */
-    s3SseKmsKeyId?: pulumi.Input<string>;
+    s3SseKmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * Time at which the export task began.
      */
-    startTime?: pulumi.Input<string>;
+    startTime?: pulumi.Input<string | undefined>;
     /**
      * ARN associated with the table to export.
      *
      * The following arguments are optional:
      */
-    tableArn?: pulumi.Input<string>;
+    tableArn?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -339,21 +339,21 @@ export interface TableExportArgs {
     /**
      * Format for the exported data. Valid values are: `DYNAMODB_JSON`, `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
      */
-    exportFormat?: pulumi.Input<string>;
+    exportFormat?: pulumi.Input<string | undefined>;
     /**
      * Time in RFC3339 format from which to export table data. The table export will be a snapshot of the table's state at this point in time. Omitting this value will result in a snapshot from the current time.
      */
-    exportTime?: pulumi.Input<string>;
+    exportTime?: pulumi.Input<string | undefined>;
     /**
      * Whether to execute as a full export or incremental export. Valid values are: `FULL_EXPORT`, `INCREMENTAL_EXPORT`. Defaults to `FULL_EXPORT`. If `INCREMENTAL_EXPORT` is provided, the `incrementalExportSpecification` argument must also be provided.
      * `incrementalExportSpecification` - (Optional, Forces new resource) Parameters specific to an incremental export. See `incrementalExportSpecification` Block for details.
      */
-    exportType?: pulumi.Input<string>;
-    incrementalExportSpecification?: pulumi.Input<inputs.dynamodb.TableExportIncrementalExportSpecification>;
+    exportType?: pulumi.Input<string | undefined>;
+    incrementalExportSpecification?: pulumi.Input<inputs.dynamodb.TableExportIncrementalExportSpecification | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Name of the Amazon S3 bucket to export the snapshot to. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport_Requesting.html#S3DataExport_Requesting_Permissions) for information on how configure this S3 bucket.
      */
@@ -361,19 +361,19 @@ export interface TableExportArgs {
     /**
      * ID of the AWS account that owns the bucket the export will be stored in.
      */
-    s3BucketOwner?: pulumi.Input<string>;
+    s3BucketOwner?: pulumi.Input<string | undefined>;
     /**
      * Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
      */
-    s3Prefix?: pulumi.Input<string>;
+    s3Prefix?: pulumi.Input<string | undefined>;
     /**
      * Type of encryption used on the bucket where export data will be stored. Valid values are: `AES256`, `KMS`.
      */
-    s3SseAlgorithm?: pulumi.Input<string>;
+    s3SseAlgorithm?: pulumi.Input<string | undefined>;
     /**
      * ID of the AWS KMS managed key used to encrypt the S3 bucket where export data will be stored (if applicable).
      */
-    s3SseKmsKeyId?: pulumi.Input<string>;
+    s3SseKmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * ARN associated with the table to export.
      *

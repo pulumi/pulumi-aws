@@ -20,7 +20,7 @@ __all__ = ['StandardsSubscriptionArgs', 'StandardsSubscription']
 class StandardsSubscriptionArgs:
     def __init__(__self__, *,
                  standards_arn: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a StandardsSubscription resource.
 
@@ -73,23 +73,23 @@ class StandardsSubscriptionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _StandardsSubscriptionState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 standards_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 standards_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering StandardsSubscription resources.
 
@@ -120,31 +120,31 @@ class _StandardsSubscriptionState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of a resource that represents your subscription to a supported standard.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="standardsArn")
-    def standards_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def standards_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of a standard - see below.
 
@@ -165,7 +165,7 @@ class _StandardsSubscriptionState:
         return pulumi.get(self, "standards_arn")
 
     @standards_arn.setter
-    def standards_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def standards_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "standards_arn", value)
 
 
@@ -175,8 +175,8 @@ class StandardsSubscription(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 standards_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 standards_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Subscribes to a Security Hub standard.
@@ -282,8 +282,8 @@ class StandardsSubscription(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 standards_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 standards_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -308,9 +308,9 @@ class StandardsSubscription(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            standards_arn: Optional[pulumi.Input[_builtins.str]] = None) -> 'StandardsSubscription':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            standards_arn: pulumi.Input[Optional[_builtins.str]] = None) -> 'StandardsSubscription':
         """
         Get an existing StandardsSubscription resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -41,7 +41,7 @@ namespace Pulumi.Aws.Ec2
     ///         CidrBlock = "10.1.0.0/16",
     ///     });
     /// 
-    ///     var peer = Aws.Index.GetCallerIdentity.Invoke();
+    ///     var peer = Aws.GetCallerIdentity.Invoke();
     /// 
     ///     // Requester's side of the connection.
     ///     var peerVpcPeeringConnection = new Aws.Ec2.VpcPeeringConnection("peer", new()

@@ -61,7 +61,7 @@ import * as utilities from "../utilities";
  *     plugins: [{
  *         customPlugin: {
  *             arn: exampleAwsMskconnectCustomPlugin.arn,
- *             revision: exampleAwsMskconnectCustomPlugin.latestRevision,
+ *             revision: Number(exampleAwsMskconnectCustomPlugin.latestRevision),
  *         },
  *     }],
  *     serviceExecutionRoleArn: exampleAwsIamRole.arn,
@@ -261,73 +261,73 @@ export interface ConnectorState {
     /**
      * The Amazon Resource Name (ARN) of the connector.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Information about the capacity allocated to the connector. See `capacity` Block for details.
      */
-    capacity?: pulumi.Input<inputs.mskconnect.ConnectorCapacity>;
+    capacity?: pulumi.Input<inputs.mskconnect.ConnectorCapacity | undefined>;
     /**
      * A map of keys to values that represent the configuration for the connector.
      */
-    connectorConfiguration?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    connectorConfiguration?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A summary description of the connector.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies which Apache Kafka cluster to connect to. See `kafkaCluster` Block for details.
      */
-    kafkaCluster?: pulumi.Input<inputs.mskconnect.ConnectorKafkaCluster>;
+    kafkaCluster?: pulumi.Input<inputs.mskconnect.ConnectorKafkaCluster | undefined>;
     /**
      * Details of the client authentication used by the Apache Kafka cluster. See `kafkaClusterClientAuthentication` Block for details.
      */
-    kafkaClusterClientAuthentication?: pulumi.Input<inputs.mskconnect.ConnectorKafkaClusterClientAuthentication>;
+    kafkaClusterClientAuthentication?: pulumi.Input<inputs.mskconnect.ConnectorKafkaClusterClientAuthentication | undefined>;
     /**
      * Details of encryption in transit to the Apache Kafka cluster. See `kafkaClusterEncryptionInTransit` Block for details.
      */
-    kafkaClusterEncryptionInTransit?: pulumi.Input<inputs.mskconnect.ConnectorKafkaClusterEncryptionInTransit>;
+    kafkaClusterEncryptionInTransit?: pulumi.Input<inputs.mskconnect.ConnectorKafkaClusterEncryptionInTransit | undefined>;
     /**
      * The version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster's version and the plugins.
      */
-    kafkaconnectVersion?: pulumi.Input<string>;
+    kafkaconnectVersion?: pulumi.Input<string | undefined>;
     /**
      * Details about log delivery. See `logDelivery` Block for details.
      */
-    logDelivery?: pulumi.Input<inputs.mskconnect.ConnectorLogDelivery>;
+    logDelivery?: pulumi.Input<inputs.mskconnect.ConnectorLogDelivery | undefined>;
     /**
      * The name of the connector.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies which plugins to use for the connector. See `plugin` Block for details.
      */
-    plugins?: pulumi.Input<pulumi.Input<inputs.mskconnect.ConnectorPlugin>[]>;
+    plugins?: pulumi.Input<pulumi.Input<inputs.mskconnect.ConnectorPlugin>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
      *
      * The following arguments are optional:
      */
-    serviceExecutionRoleArn?: pulumi.Input<string>;
+    serviceExecutionRoleArn?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The current version of the connector.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
     /**
      * Specifies which worker configuration to use with the connector. See `workerConfiguration` Block for details.
      */
-    workerConfiguration?: pulumi.Input<inputs.mskconnect.ConnectorWorkerConfiguration>;
+    workerConfiguration?: pulumi.Input<inputs.mskconnect.ConnectorWorkerConfiguration | undefined>;
 }
 
 /**
@@ -345,7 +345,7 @@ export interface ConnectorArgs {
     /**
      * A summary description of the connector.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies which Apache Kafka cluster to connect to. See `kafkaCluster` Block for details.
      */
@@ -365,11 +365,11 @@ export interface ConnectorArgs {
     /**
      * Details about log delivery. See `logDelivery` Block for details.
      */
-    logDelivery?: pulumi.Input<inputs.mskconnect.ConnectorLogDelivery>;
+    logDelivery?: pulumi.Input<inputs.mskconnect.ConnectorLogDelivery | undefined>;
     /**
      * The name of the connector.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies which plugins to use for the connector. See `plugin` Block for details.
      */
@@ -377,7 +377,7 @@ export interface ConnectorArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
      *
@@ -387,9 +387,9 @@ export interface ConnectorArgs {
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies which worker configuration to use with the connector. See `workerConfiguration` Block for details.
      */
-    workerConfiguration?: pulumi.Input<inputs.mskconnect.ConnectorWorkerConfiguration>;
+    workerConfiguration?: pulumi.Input<inputs.mskconnect.ConnectorWorkerConfiguration | undefined>;
 }

@@ -105,8 +105,8 @@ def get_hosted_zone_id(load_balancer_type: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         load_balancer_type=pulumi.get(__ret__, 'load_balancer_type'),
         region=pulumi.get(__ret__, 'region'))
-def get_hosted_zone_id_output(load_balancer_type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                              region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_hosted_zone_id_output(load_balancer_type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHostedZoneIdResult]:
     """
     Use this data source to get the HostedZoneId of the AWS Elastic Load Balancing (ELB) in a given region for the purpose of using in an AWS Route53 Alias. Specify the ELB type (`network` or `application`) to return the relevant the associated HostedZoneId. Ref: [ELB service endpoints](https://docs.aws.amazon.com/general/latest/gr/elb.html#elb_region)

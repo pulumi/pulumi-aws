@@ -382,79 +382,79 @@ export interface FlowLogState {
     /**
      * ARN of the Flow Log.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * ARN of the IAM role in the destination account used for cross-account delivery of flow logs.
      */
-    deliverCrossAccountRole?: pulumi.Input<string>;
+    deliverCrossAccountRole?: pulumi.Input<string | undefined>;
     /**
      * Describes the destination options for a flow log. More details below.
      */
-    destinationOptions?: pulumi.Input<inputs.ec2.FlowLogDestinationOptions>;
+    destinationOptions?: pulumi.Input<inputs.ec2.FlowLogDestinationOptions | undefined>;
     /**
      * Elastic Network Interface ID to attach to.
      */
-    eniId?: pulumi.Input<string>;
+    eniId?: pulumi.Input<string | undefined>;
     /**
      * ARN of the IAM role used to post flow logs. Corresponds to `DeliverLogsPermissionArn` in the [AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFlowLogs.html).
      */
-    iamRoleArn?: pulumi.Input<string>;
+    iamRoleArn?: pulumi.Input<string | undefined>;
     /**
      * ARN of the logging destination.
      */
-    logDestination?: pulumi.Input<string>;
+    logDestination?: pulumi.Input<string | undefined>;
     /**
      * Logging destination type. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
      */
-    logDestinationType?: pulumi.Input<string>;
+    logDestinationType?: pulumi.Input<string | undefined>;
     /**
      * The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
      */
-    logFormat?: pulumi.Input<string>;
+    logFormat?: pulumi.Input<string | undefined>;
     /**
      * The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
      * Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
      * When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
      */
-    maxAggregationInterval?: pulumi.Input<number>;
+    maxAggregationInterval?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Regional NAT Gateway ID to attach to.
      */
-    regionalNatGatewayId?: pulumi.Input<string>;
+    regionalNatGatewayId?: pulumi.Input<string | undefined>;
     /**
      * Subnet ID to attach to.
      */
-    subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eniId`, `regionalNatGatewayId`, `subnetId`, or `vpcId` is specified.
      */
-    trafficType?: pulumi.Input<string>;
+    trafficType?: pulumi.Input<string | undefined>;
     /**
      * Transit Gateway Attachment ID to attach to.
      */
-    transitGatewayAttachmentId?: pulumi.Input<string>;
+    transitGatewayAttachmentId?: pulumi.Input<string | undefined>;
     /**
      * Transit Gateway ID to attach to.
      */
-    transitGatewayId?: pulumi.Input<string>;
+    transitGatewayId?: pulumi.Input<string | undefined>;
     /**
      * VPC ID to attach to.
      *
      * > **NOTE:** One of `eniId`, `regionalNatGatewayId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
      */
-    vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -464,69 +464,69 @@ export interface FlowLogArgs {
     /**
      * ARN of the IAM role in the destination account used for cross-account delivery of flow logs.
      */
-    deliverCrossAccountRole?: pulumi.Input<string>;
+    deliverCrossAccountRole?: pulumi.Input<string | undefined>;
     /**
      * Describes the destination options for a flow log. More details below.
      */
-    destinationOptions?: pulumi.Input<inputs.ec2.FlowLogDestinationOptions>;
+    destinationOptions?: pulumi.Input<inputs.ec2.FlowLogDestinationOptions | undefined>;
     /**
      * Elastic Network Interface ID to attach to.
      */
-    eniId?: pulumi.Input<string>;
+    eniId?: pulumi.Input<string | undefined>;
     /**
      * ARN of the IAM role used to post flow logs. Corresponds to `DeliverLogsPermissionArn` in the [AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFlowLogs.html).
      */
-    iamRoleArn?: pulumi.Input<string>;
+    iamRoleArn?: pulumi.Input<string | undefined>;
     /**
      * ARN of the logging destination.
      */
-    logDestination?: pulumi.Input<string>;
+    logDestination?: pulumi.Input<string | undefined>;
     /**
      * Logging destination type. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
      */
-    logDestinationType?: pulumi.Input<string>;
+    logDestinationType?: pulumi.Input<string | undefined>;
     /**
      * The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
      */
-    logFormat?: pulumi.Input<string>;
+    logFormat?: pulumi.Input<string | undefined>;
     /**
      * The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
      * Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
      * When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
      */
-    maxAggregationInterval?: pulumi.Input<number>;
+    maxAggregationInterval?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Regional NAT Gateway ID to attach to.
      */
-    regionalNatGatewayId?: pulumi.Input<string>;
+    regionalNatGatewayId?: pulumi.Input<string | undefined>;
     /**
      * Subnet ID to attach to.
      */
-    subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eniId`, `regionalNatGatewayId`, `subnetId`, or `vpcId` is specified.
      */
-    trafficType?: pulumi.Input<string>;
+    trafficType?: pulumi.Input<string | undefined>;
     /**
      * Transit Gateway Attachment ID to attach to.
      */
-    transitGatewayAttachmentId?: pulumi.Input<string>;
+    transitGatewayAttachmentId?: pulumi.Input<string | undefined>;
     /**
      * Transit Gateway ID to attach to.
      */
-    transitGatewayId?: pulumi.Input<string>;
+    transitGatewayId?: pulumi.Input<string | undefined>;
     /**
      * VPC ID to attach to.
      *
      * > **NOTE:** One of `eniId`, `regionalNatGatewayId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
      */
-    vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string | undefined>;
 }

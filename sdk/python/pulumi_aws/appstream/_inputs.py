@@ -44,11 +44,11 @@ __all__ = [
 ]
 
 class DirectoryConfigCertificateBasedAuthPropertiesArgsDict(TypedDict):
-    certificate_authority_arn: NotRequired[pulumi.Input[_builtins.str]]
+    certificate_authority_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the AWS Certificate Manager Private CA resource.
     """
-    status: NotRequired[pulumi.Input[_builtins.str]]
+    status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The status of the certificate-based authentication properties. Valid values - ["DISABLED", "ENABLED", "ENABLED_NO_DIRECTORY_LOGIN_FALLBACK"].
     """
@@ -56,8 +56,8 @@ class DirectoryConfigCertificateBasedAuthPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class DirectoryConfigCertificateBasedAuthPropertiesArgs:
     def __init__(__self__, *,
-                 certificate_authority_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 certificate_authority_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] certificate_authority_arn: The ARN of the AWS Certificate Manager Private CA resource.
         :param pulumi.Input[_builtins.str] status: The status of the certificate-based authentication properties. Valid values - ["DISABLED", "ENABLED", "ENABLED_NO_DIRECTORY_LOGIN_FALLBACK"].
@@ -69,26 +69,26 @@ class DirectoryConfigCertificateBasedAuthPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateAuthorityArn")
-    def certificate_authority_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_authority_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the AWS Certificate Manager Private CA resource.
         """
         return pulumi.get(self, "certificate_authority_arn")
 
     @certificate_authority_arn.setter
-    def certificate_authority_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_authority_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_authority_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of the certificate-based authentication properties. Valid values - ["DISABLED", "ENABLED", "ENABLED_NO_DIRECTORY_LOGIN_FALLBACK"].
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
@@ -140,23 +140,23 @@ class DirectoryConfigServiceAccountCredentialsArgs:
 
 
 class FleetComputeCapacityArgsDict(TypedDict):
-    available: NotRequired[pulumi.Input[_builtins.int]]
+    available: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Number of currently available instances that can be used to stream sessions.
     """
-    desired_instances: NotRequired[pulumi.Input[_builtins.int]]
+    desired_instances: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Desired number of streaming instances.
     """
-    desired_sessions: NotRequired[pulumi.Input[_builtins.int]]
+    desired_sessions: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Desired number of user sessions for a multi-session fleet. This is not allowed for single-session fleets.
     """
-    in_use: NotRequired[pulumi.Input[_builtins.int]]
+    in_use: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Number of instances in use for streaming.
     """
-    running: NotRequired[pulumi.Input[_builtins.int]]
+    running: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Total number of simultaneous streaming instances that are running.
     """
@@ -164,11 +164,11 @@ class FleetComputeCapacityArgsDict(TypedDict):
 @pulumi.input_type
 class FleetComputeCapacityArgs:
     def __init__(__self__, *,
-                 available: Optional[pulumi.Input[_builtins.int]] = None,
-                 desired_instances: Optional[pulumi.Input[_builtins.int]] = None,
-                 desired_sessions: Optional[pulumi.Input[_builtins.int]] = None,
-                 in_use: Optional[pulumi.Input[_builtins.int]] = None,
-                 running: Optional[pulumi.Input[_builtins.int]] = None):
+                 available: pulumi.Input[Optional[_builtins.int]] = None,
+                 desired_instances: pulumi.Input[Optional[_builtins.int]] = None,
+                 desired_sessions: pulumi.Input[Optional[_builtins.int]] = None,
+                 in_use: pulumi.Input[Optional[_builtins.int]] = None,
+                 running: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] available: Number of currently available instances that can be used to stream sessions.
         :param pulumi.Input[_builtins.int] desired_instances: Desired number of streaming instances.
@@ -189,71 +189,71 @@ class FleetComputeCapacityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def available(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def available(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of currently available instances that can be used to stream sessions.
         """
         return pulumi.get(self, "available")
 
     @available.setter
-    def available(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def available(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "available", value)
 
     @_builtins.property
     @pulumi.getter(name="desiredInstances")
-    def desired_instances(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def desired_instances(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Desired number of streaming instances.
         """
         return pulumi.get(self, "desired_instances")
 
     @desired_instances.setter
-    def desired_instances(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def desired_instances(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "desired_instances", value)
 
     @_builtins.property
     @pulumi.getter(name="desiredSessions")
-    def desired_sessions(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def desired_sessions(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Desired number of user sessions for a multi-session fleet. This is not allowed for single-session fleets.
         """
         return pulumi.get(self, "desired_sessions")
 
     @desired_sessions.setter
-    def desired_sessions(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def desired_sessions(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "desired_sessions", value)
 
     @_builtins.property
     @pulumi.getter(name="inUse")
-    def in_use(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def in_use(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of instances in use for streaming.
         """
         return pulumi.get(self, "in_use")
 
     @in_use.setter
-    def in_use(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def in_use(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "in_use", value)
 
     @_builtins.property
     @pulumi.getter
-    def running(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def running(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Total number of simultaneous streaming instances that are running.
         """
         return pulumi.get(self, "running")
 
     @running.setter
-    def running(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def running(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "running", value)
 
 
 class FleetDomainJoinInfoArgsDict(TypedDict):
-    directory_name: NotRequired[pulumi.Input[_builtins.str]]
+    directory_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Fully qualified name of the directory (for example, corp.example.com).
     """
-    organizational_unit_distinguished_name: NotRequired[pulumi.Input[_builtins.str]]
+    organizational_unit_distinguished_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Distinguished name of the organizational unit for computer accounts.
     """
@@ -261,8 +261,8 @@ class FleetDomainJoinInfoArgsDict(TypedDict):
 @pulumi.input_type
 class FleetDomainJoinInfoArgs:
     def __init__(__self__, *,
-                 directory_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 organizational_unit_distinguished_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 directory_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 organizational_unit_distinguished_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] directory_name: Fully qualified name of the directory (for example, corp.example.com).
         :param pulumi.Input[_builtins.str] organizational_unit_distinguished_name: Distinguished name of the organizational unit for computer accounts.
@@ -274,35 +274,35 @@ class FleetDomainJoinInfoArgs:
 
     @_builtins.property
     @pulumi.getter(name="directoryName")
-    def directory_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def directory_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully qualified name of the directory (for example, corp.example.com).
         """
         return pulumi.get(self, "directory_name")
 
     @directory_name.setter
-    def directory_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def directory_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "directory_name", value)
 
     @_builtins.property
     @pulumi.getter(name="organizationalUnitDistinguishedName")
-    def organizational_unit_distinguished_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def organizational_unit_distinguished_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Distinguished name of the organizational unit for computer accounts.
         """
         return pulumi.get(self, "organizational_unit_distinguished_name")
 
     @organizational_unit_distinguished_name.setter
-    def organizational_unit_distinguished_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def organizational_unit_distinguished_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "organizational_unit_distinguished_name", value)
 
 
 class FleetVpcConfigArgsDict(TypedDict):
-    security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    security_group_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Identifiers of the security groups for the fleet or image builder.
     """
-    subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    subnet_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance.
     """
@@ -310,8 +310,8 @@ class FleetVpcConfigArgsDict(TypedDict):
 @pulumi.input_type
 class FleetVpcConfigArgs:
     def __init__(__self__, *,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: Identifiers of the security groups for the fleet or image builder.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: Identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance.
@@ -323,26 +323,26 @@ class FleetVpcConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Identifiers of the security groups for the fleet or image builder.
         """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
-    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_group_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subnet_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance.
         """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
-    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subnet_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subnet_ids", value)
 
 
@@ -351,7 +351,7 @@ class ImageBuilderAccessEndpointArgsDict(TypedDict):
     """
     Type of interface endpoint. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html).
     """
-    vpce_id: NotRequired[pulumi.Input[_builtins.str]]
+    vpce_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Identifier (ID) of the interface VPC endpoint.
     """
@@ -360,7 +360,7 @@ class ImageBuilderAccessEndpointArgsDict(TypedDict):
 class ImageBuilderAccessEndpointArgs:
     def __init__(__self__, *,
                  endpoint_type: pulumi.Input[_builtins.str],
-                 vpce_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 vpce_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] endpoint_type: Type of interface endpoint. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html).
         :param pulumi.Input[_builtins.str] vpce_id: Identifier (ID) of the interface VPC endpoint.
@@ -383,23 +383,23 @@ class ImageBuilderAccessEndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="vpceId")
-    def vpce_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpce_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier (ID) of the interface VPC endpoint.
         """
         return pulumi.get(self, "vpce_id")
 
     @vpce_id.setter
-    def vpce_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpce_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpce_id", value)
 
 
 class ImageBuilderDomainJoinInfoArgsDict(TypedDict):
-    directory_name: NotRequired[pulumi.Input[_builtins.str]]
+    directory_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Fully qualified name of the directory (for example, corp.example.com).
     """
-    organizational_unit_distinguished_name: NotRequired[pulumi.Input[_builtins.str]]
+    organizational_unit_distinguished_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Distinguished name of the organizational unit for computer accounts.
     """
@@ -407,8 +407,8 @@ class ImageBuilderDomainJoinInfoArgsDict(TypedDict):
 @pulumi.input_type
 class ImageBuilderDomainJoinInfoArgs:
     def __init__(__self__, *,
-                 directory_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 organizational_unit_distinguished_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 directory_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 organizational_unit_distinguished_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] directory_name: Fully qualified name of the directory (for example, corp.example.com).
         :param pulumi.Input[_builtins.str] organizational_unit_distinguished_name: Distinguished name of the organizational unit for computer accounts.
@@ -420,35 +420,35 @@ class ImageBuilderDomainJoinInfoArgs:
 
     @_builtins.property
     @pulumi.getter(name="directoryName")
-    def directory_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def directory_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully qualified name of the directory (for example, corp.example.com).
         """
         return pulumi.get(self, "directory_name")
 
     @directory_name.setter
-    def directory_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def directory_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "directory_name", value)
 
     @_builtins.property
     @pulumi.getter(name="organizationalUnitDistinguishedName")
-    def organizational_unit_distinguished_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def organizational_unit_distinguished_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Distinguished name of the organizational unit for computer accounts.
         """
         return pulumi.get(self, "organizational_unit_distinguished_name")
 
     @organizational_unit_distinguished_name.setter
-    def organizational_unit_distinguished_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def organizational_unit_distinguished_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "organizational_unit_distinguished_name", value)
 
 
 class ImageBuilderVpcConfigArgsDict(TypedDict):
-    security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    security_group_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Identifiers of the security groups for the image builder or image builder.
     """
-    subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    subnet_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Identifier of the subnet to which a network interface is attached from the image builder instance.
     """
@@ -456,8 +456,8 @@ class ImageBuilderVpcConfigArgsDict(TypedDict):
 @pulumi.input_type
 class ImageBuilderVpcConfigArgs:
     def __init__(__self__, *,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: Identifiers of the security groups for the image builder or image builder.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: Identifier of the subnet to which a network interface is attached from the image builder instance.
@@ -469,26 +469,26 @@ class ImageBuilderVpcConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Identifiers of the security groups for the image builder or image builder.
         """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
-    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_group_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subnet_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Identifier of the subnet to which a network interface is attached from the image builder instance.
         """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
-    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subnet_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subnet_ids", value)
 
 
@@ -498,7 +498,7 @@ class StackAccessEndpointArgsDict(TypedDict):
     Type of the interface endpoint.
     See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
     """
-    vpce_id: NotRequired[pulumi.Input[_builtins.str]]
+    vpce_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ID of the VPC in which the interface endpoint is used.
     """
@@ -507,7 +507,7 @@ class StackAccessEndpointArgsDict(TypedDict):
 class StackAccessEndpointArgs:
     def __init__(__self__, *,
                  endpoint_type: pulumi.Input[_builtins.str],
-                 vpce_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 vpce_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] endpoint_type: Type of the interface endpoint.
                See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
@@ -532,14 +532,14 @@ class StackAccessEndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="vpceId")
-    def vpce_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpce_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the VPC in which the interface endpoint is used.
         """
         return pulumi.get(self, "vpce_id")
 
     @vpce_id.setter
-    def vpce_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpce_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpce_id", value)
 
 
@@ -548,7 +548,7 @@ class StackApplicationSettingsArgsDict(TypedDict):
     """
     Whether application settings should be persisted.
     """
-    settings_group: NotRequired[pulumi.Input[_builtins.str]]
+    settings_group: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the settings group.
     Required when `enabled` is `true`.
@@ -559,7 +559,7 @@ class StackApplicationSettingsArgsDict(TypedDict):
 class StackApplicationSettingsArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[_builtins.bool],
-                 settings_group: Optional[pulumi.Input[_builtins.str]] = None):
+                 settings_group: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] enabled: Whether application settings should be persisted.
         :param pulumi.Input[_builtins.str] settings_group: Name of the settings group.
@@ -584,7 +584,7 @@ class StackApplicationSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="settingsGroup")
-    def settings_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def settings_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the settings group.
         Required when `enabled` is `true`.
@@ -593,7 +593,7 @@ class StackApplicationSettingsArgs:
         return pulumi.get(self, "settings_group")
 
     @settings_group.setter
-    def settings_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def settings_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "settings_group", value)
 
 
@@ -603,11 +603,11 @@ class StackStorageConnectorArgsDict(TypedDict):
     Type of storage connector.
     Valid values are `HOMEFOLDERS`, `GOOGLE_DRIVE`, or `ONE_DRIVE`.
     """
-    domains: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    domains: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Names of the domains for the account.
     """
-    resource_identifier: NotRequired[pulumi.Input[_builtins.str]]
+    resource_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ARN of the storage connector.
     """
@@ -616,8 +616,8 @@ class StackStorageConnectorArgsDict(TypedDict):
 class StackStorageConnectorArgs:
     def __init__(__self__, *,
                  connector_type: pulumi.Input[_builtins.str],
-                 domains: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resource_identifier: Optional[pulumi.Input[_builtins.str]] = None):
+                 domains: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resource_identifier: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] connector_type: Type of storage connector.
                Valid values are `HOMEFOLDERS`, `GOOGLE_DRIVE`, or `ONE_DRIVE`.
@@ -645,31 +645,31 @@ class StackStorageConnectorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def domains(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Names of the domains for the account.
         """
         return pulumi.get(self, "domains")
 
     @domains.setter
-    def domains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def domains(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "domains", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceIdentifier")
-    def resource_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the storage connector.
         """
         return pulumi.get(self, "resource_identifier")
 
     @resource_identifier.setter
-    def resource_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_identifier", value)
 
 
 class StackStreamingExperienceSettingsArgsDict(TypedDict):
-    preferred_protocol: NotRequired[pulumi.Input[_builtins.str]]
+    preferred_protocol: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The preferred protocol that you want to use while streaming your application.
     Valid values are `TCP` and `UDP`.
@@ -678,7 +678,7 @@ class StackStreamingExperienceSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class StackStreamingExperienceSettingsArgs:
     def __init__(__self__, *,
-                 preferred_protocol: Optional[pulumi.Input[_builtins.str]] = None):
+                 preferred_protocol: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] preferred_protocol: The preferred protocol that you want to use while streaming your application.
                Valid values are `TCP` and `UDP`.
@@ -688,7 +688,7 @@ class StackStreamingExperienceSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="preferredProtocol")
-    def preferred_protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def preferred_protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The preferred protocol that you want to use while streaming your application.
         Valid values are `TCP` and `UDP`.
@@ -696,7 +696,7 @@ class StackStreamingExperienceSettingsArgs:
         return pulumi.get(self, "preferred_protocol")
 
     @preferred_protocol.setter
-    def preferred_protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def preferred_protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "preferred_protocol", value)
 
 

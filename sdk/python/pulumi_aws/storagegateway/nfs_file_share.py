@@ -25,23 +25,23 @@ class NfsFileShareArgs:
                  gateway_arn: pulumi.Input[_builtins.str],
                  location_arn: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
-                 audit_destination_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 bucket_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_attributes: Optional[pulumi.Input['NfsFileShareCacheAttributesArgs']] = None,
-                 default_storage_class: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_share_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 guess_mime_type_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kms_encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 nfs_file_share_defaults: Optional[pulumi.Input['NfsFileShareNfsFileShareDefaultsArgs']] = None,
-                 notification_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_acl: Optional[pulumi.Input[_builtins.str]] = None,
-                 read_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 requester_pays: Optional[pulumi.Input[_builtins.bool]] = None,
-                 squash: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_endpoint_dns_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 audit_destination_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 bucket_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_attributes: pulumi.Input[Optional['NfsFileShareCacheAttributesArgs']] = None,
+                 default_storage_class: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_share_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 guess_mime_type_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kms_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 nfs_file_share_defaults: pulumi.Input[Optional['NfsFileShareNfsFileShareDefaultsArgs']] = None,
+                 notification_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_acl: pulumi.Input[Optional[_builtins.str]] = None,
+                 read_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 requester_pays: pulumi.Input[Optional[_builtins.bool]] = None,
+                 squash: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vpc_endpoint_dns_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a NfsFileShare resource.
 
@@ -156,237 +156,237 @@ class NfsFileShareArgs:
 
     @_builtins.property
     @pulumi.getter(name="auditDestinationArn")
-    def audit_destination_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def audit_destination_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the storage used for audit logs.
         """
         return pulumi.get(self, "audit_destination_arn")
 
     @audit_destination_arn.setter
-    def audit_destination_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def audit_destination_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "audit_destination_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="bucketRegion")
-    def bucket_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The region of the S3 bucket used by the file share. Required when specifying `vpc_endpoint_dns_name`.
         """
         return pulumi.get(self, "bucket_region")
 
     @bucket_region.setter
-    def bucket_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket_region", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheAttributes")
-    def cache_attributes(self) -> Optional[pulumi.Input['NfsFileShareCacheAttributesArgs']]:
+    def cache_attributes(self) -> pulumi.Input[Optional['NfsFileShareCacheAttributesArgs']]:
         """
         Refresh cache information. see Cache Attributes for more details.
         """
         return pulumi.get(self, "cache_attributes")
 
     @cache_attributes.setter
-    def cache_attributes(self, value: Optional[pulumi.Input['NfsFileShareCacheAttributesArgs']]):
+    def cache_attributes(self, value: pulumi.Input[Optional['NfsFileShareCacheAttributesArgs']]):
         pulumi.set(self, "cache_attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultStorageClass")
-    def default_storage_class(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_storage_class(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
         """
         return pulumi.get(self, "default_storage_class")
 
     @default_storage_class.setter
-    def default_storage_class(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_storage_class(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_storage_class", value)
 
     @_builtins.property
     @pulumi.getter(name="fileShareName")
-    def file_share_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def file_share_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
         """
         return pulumi.get(self, "file_share_name")
 
     @file_share_name.setter
-    def file_share_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def file_share_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "file_share_name", value)
 
     @_builtins.property
     @pulumi.getter(name="guessMimeTypeEnabled")
-    def guess_mime_type_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def guess_mime_type_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
         """
         return pulumi.get(self, "guess_mime_type_enabled")
 
     @guess_mime_type_enabled.setter
-    def guess_mime_type_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def guess_mime_type_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "guess_mime_type_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsEncrypted")
-    def kms_encrypted(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def kms_encrypted(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
         """
         return pulumi.get(self, "kms_encrypted")
 
     @kms_encrypted.setter
-    def kms_encrypted(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def kms_encrypted(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "kms_encrypted", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
         """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
-    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="nfsFileShareDefaults")
-    def nfs_file_share_defaults(self) -> Optional[pulumi.Input['NfsFileShareNfsFileShareDefaultsArgs']]:
+    def nfs_file_share_defaults(self) -> pulumi.Input[Optional['NfsFileShareNfsFileShareDefaultsArgs']]:
         """
         Nested argument with file share default values. More information below. see NFS File Share Defaults for more details.
         """
         return pulumi.get(self, "nfs_file_share_defaults")
 
     @nfs_file_share_defaults.setter
-    def nfs_file_share_defaults(self, value: Optional[pulumi.Input['NfsFileShareNfsFileShareDefaultsArgs']]):
+    def nfs_file_share_defaults(self, value: pulumi.Input[Optional['NfsFileShareNfsFileShareDefaultsArgs']]):
         pulumi.set(self, "nfs_file_share_defaults", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationPolicy")
-    def notification_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notification_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
         """
         return pulumi.get(self, "notification_policy")
 
     @notification_policy.setter
-    def notification_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notification_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notification_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="objectAcl")
-    def object_acl(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def object_acl(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Access Control List permission for S3 objects. Defaults to `private`.
         """
         return pulumi.get(self, "object_acl")
 
     @object_acl.setter
-    def object_acl(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def object_acl(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "object_acl", value)
 
     @_builtins.property
     @pulumi.getter(name="readOnly")
-    def read_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def read_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
         """
         return pulumi.get(self, "read_only")
 
     @read_only.setter
-    def read_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def read_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "read_only", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="requesterPays")
-    def requester_pays(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def requester_pays(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
         """
         return pulumi.get(self, "requester_pays")
 
     @requester_pays.setter
-    def requester_pays(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def requester_pays(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "requester_pays", value)
 
     @_builtins.property
     @pulumi.getter
-    def squash(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def squash(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Maps a user to anonymous user. Defaults to `RootSquash`. Valid values: `RootSquash` (only root is mapped to anonymous user), `NoSquash` (no one is mapped to anonymous user), `AllSquash` (everyone is mapped to anonymous user)
         """
         return pulumi.get(self, "squash")
 
     @squash.setter
-    def squash(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def squash(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "squash", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcEndpointDnsName")
-    def vpc_endpoint_dns_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_endpoint_dns_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The DNS name of the VPC endpoint for S3 PrivateLink.
         """
         return pulumi.get(self, "vpc_endpoint_dns_name")
 
     @vpc_endpoint_dns_name.setter
-    def vpc_endpoint_dns_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_endpoint_dns_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_endpoint_dns_name", value)
 
 
 @pulumi.input_type
 class _NfsFileShareState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 audit_destination_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 bucket_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_attributes: Optional[pulumi.Input['NfsFileShareCacheAttributesArgs']] = None,
-                 client_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 default_storage_class: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_share_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 fileshare_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 guess_mime_type_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kms_encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 location_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 nfs_file_share_defaults: Optional[pulumi.Input['NfsFileShareNfsFileShareDefaultsArgs']] = None,
-                 notification_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_acl: Optional[pulumi.Input[_builtins.str]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None,
-                 read_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 requester_pays: Optional[pulumi.Input[_builtins.bool]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 squash: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_endpoint_dns_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 audit_destination_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 bucket_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_attributes: pulumi.Input[Optional['NfsFileShareCacheAttributesArgs']] = None,
+                 client_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 default_storage_class: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_share_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 fileshare_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 guess_mime_type_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kms_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 location_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 nfs_file_share_defaults: pulumi.Input[Optional['NfsFileShareNfsFileShareDefaultsArgs']] = None,
+                 notification_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_acl: pulumi.Input[Optional[_builtins.str]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None,
+                 read_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 requester_pays: pulumi.Input[Optional[_builtins.bool]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 squash: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vpc_endpoint_dns_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NfsFileShare resources.
 
@@ -469,302 +469,302 @@ class _NfsFileShareState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) of the NFS File Share.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="auditDestinationArn")
-    def audit_destination_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def audit_destination_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the storage used for audit logs.
         """
         return pulumi.get(self, "audit_destination_arn")
 
     @audit_destination_arn.setter
-    def audit_destination_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def audit_destination_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "audit_destination_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="bucketRegion")
-    def bucket_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The region of the S3 bucket used by the file share. Required when specifying `vpc_endpoint_dns_name`.
         """
         return pulumi.get(self, "bucket_region")
 
     @bucket_region.setter
-    def bucket_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket_region", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheAttributes")
-    def cache_attributes(self) -> Optional[pulumi.Input['NfsFileShareCacheAttributesArgs']]:
+    def cache_attributes(self) -> pulumi.Input[Optional['NfsFileShareCacheAttributesArgs']]:
         """
         Refresh cache information. see Cache Attributes for more details.
         """
         return pulumi.get(self, "cache_attributes")
 
     @cache_attributes.setter
-    def cache_attributes(self, value: Optional[pulumi.Input['NfsFileShareCacheAttributesArgs']]):
+    def cache_attributes(self, value: pulumi.Input[Optional['NfsFileShareCacheAttributesArgs']]):
         pulumi.set(self, "cache_attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="clientLists")
-    def client_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def client_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
         """
         return pulumi.get(self, "client_lists")
 
     @client_lists.setter
-    def client_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def client_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "client_lists", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultStorageClass")
-    def default_storage_class(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_storage_class(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
         """
         return pulumi.get(self, "default_storage_class")
 
     @default_storage_class.setter
-    def default_storage_class(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_storage_class(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_storage_class", value)
 
     @_builtins.property
     @pulumi.getter(name="fileShareName")
-    def file_share_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def file_share_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
         """
         return pulumi.get(self, "file_share_name")
 
     @file_share_name.setter
-    def file_share_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def file_share_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "file_share_name", value)
 
     @_builtins.property
     @pulumi.getter(name="fileshareId")
-    def fileshare_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fileshare_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the NFS File Share.
         """
         return pulumi.get(self, "fileshare_id")
 
     @fileshare_id.setter
-    def fileshare_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fileshare_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fileshare_id", value)
 
     @_builtins.property
     @pulumi.getter(name="gatewayArn")
-    def gateway_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gateway_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) of the file gateway.
         """
         return pulumi.get(self, "gateway_arn")
 
     @gateway_arn.setter
-    def gateway_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gateway_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gateway_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="guessMimeTypeEnabled")
-    def guess_mime_type_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def guess_mime_type_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
         """
         return pulumi.get(self, "guess_mime_type_enabled")
 
     @guess_mime_type_enabled.setter
-    def guess_mime_type_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def guess_mime_type_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "guess_mime_type_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsEncrypted")
-    def kms_encrypted(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def kms_encrypted(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
         """
         return pulumi.get(self, "kms_encrypted")
 
     @kms_encrypted.setter
-    def kms_encrypted(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def kms_encrypted(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "kms_encrypted", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
         """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
-    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="locationArn")
-    def location_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the backed storage used for storing file data.
         """
         return pulumi.get(self, "location_arn")
 
     @location_arn.setter
-    def location_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="nfsFileShareDefaults")
-    def nfs_file_share_defaults(self) -> Optional[pulumi.Input['NfsFileShareNfsFileShareDefaultsArgs']]:
+    def nfs_file_share_defaults(self) -> pulumi.Input[Optional['NfsFileShareNfsFileShareDefaultsArgs']]:
         """
         Nested argument with file share default values. More information below. see NFS File Share Defaults for more details.
         """
         return pulumi.get(self, "nfs_file_share_defaults")
 
     @nfs_file_share_defaults.setter
-    def nfs_file_share_defaults(self, value: Optional[pulumi.Input['NfsFileShareNfsFileShareDefaultsArgs']]):
+    def nfs_file_share_defaults(self, value: pulumi.Input[Optional['NfsFileShareNfsFileShareDefaultsArgs']]):
         pulumi.set(self, "nfs_file_share_defaults", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationPolicy")
-    def notification_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notification_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
         """
         return pulumi.get(self, "notification_policy")
 
     @notification_policy.setter
-    def notification_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notification_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notification_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="objectAcl")
-    def object_acl(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def object_acl(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Access Control List permission for S3 objects. Defaults to `private`.
         """
         return pulumi.get(self, "object_acl")
 
     @object_acl.setter
-    def object_acl(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def object_acl(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "object_acl", value)
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         File share path used by the NFS client to identify the mount point.
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
     @_builtins.property
     @pulumi.getter(name="readOnly")
-    def read_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def read_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
         """
         return pulumi.get(self, "read_only")
 
     @read_only.setter
-    def read_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def read_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "read_only", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="requesterPays")
-    def requester_pays(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def requester_pays(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
         """
         return pulumi.get(self, "requester_pays")
 
     @requester_pays.setter
-    def requester_pays(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def requester_pays(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "requester_pays", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def squash(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def squash(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Maps a user to anonymous user. Defaults to `RootSquash`. Valid values: `RootSquash` (only root is mapped to anonymous user), `NoSquash` (no one is mapped to anonymous user), `AllSquash` (everyone is mapped to anonymous user)
         """
         return pulumi.get(self, "squash")
 
     @squash.setter
-    def squash(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def squash(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "squash", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcEndpointDnsName")
-    def vpc_endpoint_dns_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_endpoint_dns_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The DNS name of the VPC endpoint for S3 PrivateLink.
         """
         return pulumi.get(self, "vpc_endpoint_dns_name")
 
     @vpc_endpoint_dns_name.setter
-    def vpc_endpoint_dns_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_endpoint_dns_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_endpoint_dns_name", value)
 
 
@@ -774,27 +774,27 @@ class NfsFileShare(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 audit_destination_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 bucket_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_attributes: Optional[pulumi.Input[Union['NfsFileShareCacheAttributesArgs', 'NfsFileShareCacheAttributesArgsDict']]] = None,
-                 client_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 default_storage_class: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_share_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 guess_mime_type_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kms_encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 location_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 nfs_file_share_defaults: Optional[pulumi.Input[Union['NfsFileShareNfsFileShareDefaultsArgs', 'NfsFileShareNfsFileShareDefaultsArgsDict']]] = None,
-                 notification_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_acl: Optional[pulumi.Input[_builtins.str]] = None,
-                 read_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 requester_pays: Optional[pulumi.Input[_builtins.bool]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 squash: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_endpoint_dns_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 audit_destination_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 bucket_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_attributes: pulumi.Input[Optional[Union['NfsFileShareCacheAttributesArgs', 'NfsFileShareCacheAttributesArgsDict']]] = None,
+                 client_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 default_storage_class: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_share_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 guess_mime_type_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kms_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 location_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 nfs_file_share_defaults: pulumi.Input[Optional[Union['NfsFileShareNfsFileShareDefaultsArgs', 'NfsFileShareNfsFileShareDefaultsArgsDict']]] = None,
+                 notification_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_acl: pulumi.Input[Optional[_builtins.str]] = None,
+                 read_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 requester_pays: pulumi.Input[Optional[_builtins.bool]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 squash: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vpc_endpoint_dns_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an AWS Storage Gateway NFS File Share.
@@ -891,27 +891,27 @@ class NfsFileShare(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 audit_destination_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 bucket_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_attributes: Optional[pulumi.Input[Union['NfsFileShareCacheAttributesArgs', 'NfsFileShareCacheAttributesArgsDict']]] = None,
-                 client_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 default_storage_class: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_share_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 guess_mime_type_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kms_encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 location_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 nfs_file_share_defaults: Optional[pulumi.Input[Union['NfsFileShareNfsFileShareDefaultsArgs', 'NfsFileShareNfsFileShareDefaultsArgsDict']]] = None,
-                 notification_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_acl: Optional[pulumi.Input[_builtins.str]] = None,
-                 read_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 requester_pays: Optional[pulumi.Input[_builtins.bool]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 squash: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_endpoint_dns_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 audit_destination_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 bucket_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_attributes: pulumi.Input[Optional[Union['NfsFileShareCacheAttributesArgs', 'NfsFileShareCacheAttributesArgsDict']]] = None,
+                 client_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 default_storage_class: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_share_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 guess_mime_type_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kms_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 location_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 nfs_file_share_defaults: pulumi.Input[Optional[Union['NfsFileShareNfsFileShareDefaultsArgs', 'NfsFileShareNfsFileShareDefaultsArgsDict']]] = None,
+                 notification_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_acl: pulumi.Input[Optional[_builtins.str]] = None,
+                 read_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 requester_pays: pulumi.Input[Optional[_builtins.bool]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 squash: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vpc_endpoint_dns_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -964,31 +964,31 @@ class NfsFileShare(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            audit_destination_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            bucket_region: Optional[pulumi.Input[_builtins.str]] = None,
-            cache_attributes: Optional[pulumi.Input[Union['NfsFileShareCacheAttributesArgs', 'NfsFileShareCacheAttributesArgsDict']]] = None,
-            client_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            default_storage_class: Optional[pulumi.Input[_builtins.str]] = None,
-            file_share_name: Optional[pulumi.Input[_builtins.str]] = None,
-            fileshare_id: Optional[pulumi.Input[_builtins.str]] = None,
-            gateway_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            guess_mime_type_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            kms_encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-            kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            location_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            nfs_file_share_defaults: Optional[pulumi.Input[Union['NfsFileShareNfsFileShareDefaultsArgs', 'NfsFileShareNfsFileShareDefaultsArgsDict']]] = None,
-            notification_policy: Optional[pulumi.Input[_builtins.str]] = None,
-            object_acl: Optional[pulumi.Input[_builtins.str]] = None,
-            path: Optional[pulumi.Input[_builtins.str]] = None,
-            read_only: Optional[pulumi.Input[_builtins.bool]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            requester_pays: Optional[pulumi.Input[_builtins.bool]] = None,
-            role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            squash: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            vpc_endpoint_dns_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'NfsFileShare':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            audit_destination_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            bucket_region: pulumi.Input[Optional[_builtins.str]] = None,
+            cache_attributes: pulumi.Input[Optional[Union['NfsFileShareCacheAttributesArgs', 'NfsFileShareCacheAttributesArgsDict']]] = None,
+            client_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            default_storage_class: pulumi.Input[Optional[_builtins.str]] = None,
+            file_share_name: pulumi.Input[Optional[_builtins.str]] = None,
+            fileshare_id: pulumi.Input[Optional[_builtins.str]] = None,
+            gateway_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            guess_mime_type_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            kms_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+            kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            location_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            nfs_file_share_defaults: pulumi.Input[Optional[Union['NfsFileShareNfsFileShareDefaultsArgs', 'NfsFileShareNfsFileShareDefaultsArgsDict']]] = None,
+            notification_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            object_acl: pulumi.Input[Optional[_builtins.str]] = None,
+            path: pulumi.Input[Optional[_builtins.str]] = None,
+            read_only: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            requester_pays: pulumi.Input[Optional[_builtins.bool]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            squash: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            vpc_endpoint_dns_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'NfsFileShare':
         """
         Get an existing NfsFileShare resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

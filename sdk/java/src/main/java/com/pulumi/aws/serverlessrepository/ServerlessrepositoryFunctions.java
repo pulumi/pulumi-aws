@@ -31,8 +31,8 @@ public final class ServerlessrepositoryFunctions {
      * import com.pulumi.aws.serverlessrepository.inputs.GetApplicationArgs;
      * import com.pulumi.aws.serverlessrepository.CloudFormationStack;
      * import com.pulumi.aws.serverlessrepository.CloudFormationStackArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -80,8 +80,8 @@ public final class ServerlessrepositoryFunctions {
      * import com.pulumi.aws.serverlessrepository.inputs.GetApplicationArgs;
      * import com.pulumi.aws.serverlessrepository.CloudFormationStack;
      * import com.pulumi.aws.serverlessrepository.CloudFormationStackArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -129,8 +129,8 @@ public final class ServerlessrepositoryFunctions {
      * import com.pulumi.aws.serverlessrepository.inputs.GetApplicationArgs;
      * import com.pulumi.aws.serverlessrepository.CloudFormationStack;
      * import com.pulumi.aws.serverlessrepository.CloudFormationStackArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -178,8 +178,8 @@ public final class ServerlessrepositoryFunctions {
      * import com.pulumi.aws.serverlessrepository.inputs.GetApplicationArgs;
      * import com.pulumi.aws.serverlessrepository.CloudFormationStack;
      * import com.pulumi.aws.serverlessrepository.CloudFormationStackArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -227,8 +227,8 @@ public final class ServerlessrepositoryFunctions {
      * import com.pulumi.aws.serverlessrepository.inputs.GetApplicationArgs;
      * import com.pulumi.aws.serverlessrepository.CloudFormationStack;
      * import com.pulumi.aws.serverlessrepository.CloudFormationStackArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

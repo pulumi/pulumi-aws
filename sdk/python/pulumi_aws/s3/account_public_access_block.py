@@ -19,11 +19,11 @@ __all__ = ['AccountPublicAccessBlockArgs', 'AccountPublicAccessBlock']
 @pulumi.input_type
 class AccountPublicAccessBlockArgs:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 block_public_acls: Optional[pulumi.Input[_builtins.bool]] = None,
-                 block_public_policy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ignore_public_acls: Optional[pulumi.Input[_builtins.bool]] = None,
-                 restrict_public_buckets: Optional[pulumi.Input[_builtins.bool]] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 block_public_acls: pulumi.Input[Optional[_builtins.bool]] = None,
+                 block_public_policy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ignore_public_acls: pulumi.Input[Optional[_builtins.bool]] = None,
+                 restrict_public_buckets: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a AccountPublicAccessBlock resource.
 
@@ -51,19 +51,19 @@ class AccountPublicAccessBlockArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS account ID to configure. Defaults to automatically determined account ID of the this provider AWS provider.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="blockPublicAcls")
-    def block_public_acls(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def block_public_acls(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
         * PUT Bucket acl and PUT Object acl calls will fail if the specified ACL allows public access.
@@ -72,12 +72,12 @@ class AccountPublicAccessBlockArgs:
         return pulumi.get(self, "block_public_acls")
 
     @block_public_acls.setter
-    def block_public_acls(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def block_public_acls(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "block_public_acls", value)
 
     @_builtins.property
     @pulumi.getter(name="blockPublicPolicy")
-    def block_public_policy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def block_public_policy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `false`. Enabling this setting does not affect existing bucket policies. When set to `true` causes Amazon S3 to:
         * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
@@ -85,12 +85,12 @@ class AccountPublicAccessBlockArgs:
         return pulumi.get(self, "block_public_policy")
 
     @block_public_policy.setter
-    def block_public_policy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def block_public_policy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "block_public_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="ignorePublicAcls")
-    def ignore_public_acls(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_public_acls(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `false`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
         * Ignore all public ACLs on buckets in this account and any objects that they contain.
@@ -98,12 +98,12 @@ class AccountPublicAccessBlockArgs:
         return pulumi.get(self, "ignore_public_acls")
 
     @ignore_public_acls.setter
-    def ignore_public_acls(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_public_acls(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_public_acls", value)
 
     @_builtins.property
     @pulumi.getter(name="restrictPublicBuckets")
-    def restrict_public_buckets(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def restrict_public_buckets(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `false`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
         * Only the bucket owner and AWS Services can access buckets with public policies.
@@ -111,18 +111,18 @@ class AccountPublicAccessBlockArgs:
         return pulumi.get(self, "restrict_public_buckets")
 
     @restrict_public_buckets.setter
-    def restrict_public_buckets(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def restrict_public_buckets(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "restrict_public_buckets", value)
 
 
 @pulumi.input_type
 class _AccountPublicAccessBlockState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 block_public_acls: Optional[pulumi.Input[_builtins.bool]] = None,
-                 block_public_policy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ignore_public_acls: Optional[pulumi.Input[_builtins.bool]] = None,
-                 restrict_public_buckets: Optional[pulumi.Input[_builtins.bool]] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 block_public_acls: pulumi.Input[Optional[_builtins.bool]] = None,
+                 block_public_policy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ignore_public_acls: pulumi.Input[Optional[_builtins.bool]] = None,
+                 restrict_public_buckets: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering AccountPublicAccessBlock resources.
 
@@ -150,19 +150,19 @@ class _AccountPublicAccessBlockState:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS account ID to configure. Defaults to automatically determined account ID of the this provider AWS provider.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="blockPublicAcls")
-    def block_public_acls(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def block_public_acls(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
         * PUT Bucket acl and PUT Object acl calls will fail if the specified ACL allows public access.
@@ -171,12 +171,12 @@ class _AccountPublicAccessBlockState:
         return pulumi.get(self, "block_public_acls")
 
     @block_public_acls.setter
-    def block_public_acls(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def block_public_acls(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "block_public_acls", value)
 
     @_builtins.property
     @pulumi.getter(name="blockPublicPolicy")
-    def block_public_policy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def block_public_policy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `false`. Enabling this setting does not affect existing bucket policies. When set to `true` causes Amazon S3 to:
         * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
@@ -184,12 +184,12 @@ class _AccountPublicAccessBlockState:
         return pulumi.get(self, "block_public_policy")
 
     @block_public_policy.setter
-    def block_public_policy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def block_public_policy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "block_public_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="ignorePublicAcls")
-    def ignore_public_acls(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_public_acls(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `false`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
         * Ignore all public ACLs on buckets in this account and any objects that they contain.
@@ -197,12 +197,12 @@ class _AccountPublicAccessBlockState:
         return pulumi.get(self, "ignore_public_acls")
 
     @ignore_public_acls.setter
-    def ignore_public_acls(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_public_acls(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_public_acls", value)
 
     @_builtins.property
     @pulumi.getter(name="restrictPublicBuckets")
-    def restrict_public_buckets(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def restrict_public_buckets(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `false`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
         * Only the bucket owner and AWS Services can access buckets with public policies.
@@ -210,7 +210,7 @@ class _AccountPublicAccessBlockState:
         return pulumi.get(self, "restrict_public_buckets")
 
     @restrict_public_buckets.setter
-    def restrict_public_buckets(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def restrict_public_buckets(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "restrict_public_buckets", value)
 
 
@@ -220,11 +220,11 @@ class AccountPublicAccessBlock(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 block_public_acls: Optional[pulumi.Input[_builtins.bool]] = None,
-                 block_public_policy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ignore_public_acls: Optional[pulumi.Input[_builtins.bool]] = None,
-                 restrict_public_buckets: Optional[pulumi.Input[_builtins.bool]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 block_public_acls: pulumi.Input[Optional[_builtins.bool]] = None,
+                 block_public_policy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ignore_public_acls: pulumi.Input[Optional[_builtins.bool]] = None,
+                 restrict_public_buckets: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manages S3 account-level Public Access Block configuration. For more information about these settings, see the [AWS S3 Block Public Access documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html).
@@ -314,11 +314,11 @@ class AccountPublicAccessBlock(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 block_public_acls: Optional[pulumi.Input[_builtins.bool]] = None,
-                 block_public_policy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ignore_public_acls: Optional[pulumi.Input[_builtins.bool]] = None,
-                 restrict_public_buckets: Optional[pulumi.Input[_builtins.bool]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 block_public_acls: pulumi.Input[Optional[_builtins.bool]] = None,
+                 block_public_policy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ignore_public_acls: pulumi.Input[Optional[_builtins.bool]] = None,
+                 restrict_public_buckets: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -343,11 +343,11 @@ class AccountPublicAccessBlock(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            block_public_acls: Optional[pulumi.Input[_builtins.bool]] = None,
-            block_public_policy: Optional[pulumi.Input[_builtins.bool]] = None,
-            ignore_public_acls: Optional[pulumi.Input[_builtins.bool]] = None,
-            restrict_public_buckets: Optional[pulumi.Input[_builtins.bool]] = None) -> 'AccountPublicAccessBlock':
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            block_public_acls: pulumi.Input[Optional[_builtins.bool]] = None,
+            block_public_policy: pulumi.Input[Optional[_builtins.bool]] = None,
+            ignore_public_acls: pulumi.Input[Optional[_builtins.bool]] = None,
+            restrict_public_buckets: pulumi.Input[Optional[_builtins.bool]] = None) -> 'AccountPublicAccessBlock':
         """
         Get an existing AccountPublicAccessBlock resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

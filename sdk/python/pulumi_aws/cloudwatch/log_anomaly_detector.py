@@ -21,13 +21,13 @@ class LogAnomalyDetectorArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[_builtins.bool],
                  log_group_arn_lists: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 anomaly_visibility_time: Optional[pulumi.Input[_builtins.int]] = None,
-                 detector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 evaluation_frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 filter_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 anomaly_visibility_time: pulumi.Input[Optional[_builtins.int]] = None,
+                 detector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 evaluation_frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 filter_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LogAnomalyDetector resource.
 
@@ -83,100 +83,100 @@ class LogAnomalyDetectorArgs:
 
     @_builtins.property
     @pulumi.getter(name="anomalyVisibilityTime")
-    def anomaly_visibility_time(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def anomaly_visibility_time(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in `anomaly_visibility_time`, it will be considered normal going forward and will not be detected as an anomaly. Valid Range: Minimum value of 7. Maximum value of 90.
         """
         return pulumi.get(self, "anomaly_visibility_time")
 
     @anomaly_visibility_time.setter
-    def anomaly_visibility_time(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def anomaly_visibility_time(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "anomaly_visibility_time", value)
 
     @_builtins.property
     @pulumi.getter(name="detectorName")
-    def detector_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def detector_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name for this anomaly detector.
         """
         return pulumi.get(self, "detector_name")
 
     @detector_name.setter
-    def detector_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def detector_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "detector_name", value)
 
     @_builtins.property
     @pulumi.getter(name="evaluationFrequency")
-    def evaluation_frequency(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def evaluation_frequency(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies how often the anomaly detector is to run and look for anomalies. Set this value according to the frequency that the log group receives new logs. For example, if the log group receives new log events every 10 minutes, then 15 minutes might be a good setting for `evaluation_frequency`. Valid Values: `ONE_MIN | FIVE_MIN | TEN_MIN | FIFTEEN_MIN | THIRTY_MIN | ONE_HOUR`.
         """
         return pulumi.get(self, "evaluation_frequency")
 
     @evaluation_frequency.setter
-    def evaluation_frequency(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def evaluation_frequency(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "evaluation_frequency", value)
 
     @_builtins.property
     @pulumi.getter(name="filterPattern")
-    def filter_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def filter_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
         """
         return pulumi.get(self, "filter_pattern")
 
     @filter_pattern.setter
-    def filter_pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def filter_pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "filter_pattern", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optionally assigns a AWS KMS key to secure this anomaly detector and its findings. If a key is assigned, the anomalies found and the model used by this detector are encrypted at rest with the key. If a key is assigned to an anomaly detector, a user must have permissions for both this key and for the anomaly detector to retrieve information about the anomalies that it finds.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _LogAnomalyDetectorState:
     def __init__(__self__, *,
-                 anomaly_visibility_time: Optional[pulumi.Input[_builtins.int]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 detector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 evaluation_frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 filter_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_group_arn_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 anomaly_visibility_time: pulumi.Input[Optional[_builtins.int]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 detector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 evaluation_frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 filter_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_group_arn_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering LogAnomalyDetector resources.
 
@@ -216,88 +216,88 @@ class _LogAnomalyDetectorState:
 
     @_builtins.property
     @pulumi.getter(name="anomalyVisibilityTime")
-    def anomaly_visibility_time(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def anomaly_visibility_time(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in `anomaly_visibility_time`, it will be considered normal going forward and will not be detected as an anomaly. Valid Range: Minimum value of 7. Maximum value of 90.
         """
         return pulumi.get(self, "anomaly_visibility_time")
 
     @anomaly_visibility_time.setter
-    def anomaly_visibility_time(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def anomaly_visibility_time(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "anomaly_visibility_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the log anomaly detector that you just created.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="detectorName")
-    def detector_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def detector_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name for this anomaly detector.
         """
         return pulumi.get(self, "detector_name")
 
     @detector_name.setter
-    def detector_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def detector_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "detector_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="evaluationFrequency")
-    def evaluation_frequency(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def evaluation_frequency(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies how often the anomaly detector is to run and look for anomalies. Set this value according to the frequency that the log group receives new logs. For example, if the log group receives new log events every 10 minutes, then 15 minutes might be a good setting for `evaluation_frequency`. Valid Values: `ONE_MIN | FIVE_MIN | TEN_MIN | FIFTEEN_MIN | THIRTY_MIN | ONE_HOUR`.
         """
         return pulumi.get(self, "evaluation_frequency")
 
     @evaluation_frequency.setter
-    def evaluation_frequency(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def evaluation_frequency(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "evaluation_frequency", value)
 
     @_builtins.property
     @pulumi.getter(name="filterPattern")
-    def filter_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def filter_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
         """
         return pulumi.get(self, "filter_pattern")
 
     @filter_pattern.setter
-    def filter_pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def filter_pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "filter_pattern", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optionally assigns a AWS KMS key to secure this anomaly detector and its findings. If a key is assigned, the anomalies found and the model used by this detector are encrypted at rest with the key. If a key is assigned to an anomaly detector, a user must have permissions for both this key and for the anomaly detector to retrieve information about the anomalies that it finds.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="logGroupArnLists")
-    def log_group_arn_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def log_group_arn_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Array containing the ARN of the log group that this anomaly detector will watch. You can specify only one log group ARN.
 
@@ -306,37 +306,37 @@ class _LogAnomalyDetectorState:
         return pulumi.get(self, "log_group_arn_lists")
 
     @log_group_arn_lists.setter
-    def log_group_arn_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def log_group_arn_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "log_group_arn_lists", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
 
@@ -346,15 +346,15 @@ class LogAnomalyDetector(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 anomaly_visibility_time: Optional[pulumi.Input[_builtins.int]] = None,
-                 detector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 evaluation_frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 filter_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_group_arn_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 anomaly_visibility_time: pulumi.Input[Optional[_builtins.int]] = None,
+                 detector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 evaluation_frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 filter_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_group_arn_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Resource for managing an AWS CloudWatch Logs Log Anomaly Detector.
@@ -365,9 +365,10 @@ class LogAnomalyDetector(pulumi.CustomResource):
 
         ```python
         import pulumi
+        from typing import Any
         import pulumi_aws as aws
 
-        test = []
+        test: list[Any] = []
         for range in [{"value": i} for i in range(0, 2)]:
             test.append(aws.cloudwatch.LogGroup(f"test-{range['value']}", name=f"testing-{range['value']}"))
         test_log_anomaly_detector = aws.cloudwatch.LogAnomalyDetector("test",
@@ -414,9 +415,10 @@ class LogAnomalyDetector(pulumi.CustomResource):
 
         ```python
         import pulumi
+        from typing import Any
         import pulumi_aws as aws
 
-        test = []
+        test: list[Any] = []
         for range in [{"value": i} for i in range(0, 2)]:
             test.append(aws.cloudwatch.LogGroup(f"test-{range['value']}", name=f"testing-{range['value']}"))
         test_log_anomaly_detector = aws.cloudwatch.LogAnomalyDetector("test",
@@ -451,15 +453,15 @@ class LogAnomalyDetector(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 anomaly_visibility_time: Optional[pulumi.Input[_builtins.int]] = None,
-                 detector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 evaluation_frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 filter_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_group_arn_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 anomaly_visibility_time: pulumi.Input[Optional[_builtins.int]] = None,
+                 detector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 evaluation_frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 filter_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_group_arn_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -494,17 +496,17 @@ class LogAnomalyDetector(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            anomaly_visibility_time: Optional[pulumi.Input[_builtins.int]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            detector_name: Optional[pulumi.Input[_builtins.str]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            evaluation_frequency: Optional[pulumi.Input[_builtins.str]] = None,
-            filter_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-            kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-            log_group_arn_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'LogAnomalyDetector':
+            anomaly_visibility_time: pulumi.Input[Optional[_builtins.int]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            detector_name: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            evaluation_frequency: pulumi.Input[Optional[_builtins.str]] = None,
+            filter_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            log_group_arn_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'LogAnomalyDetector':
         """
         Get an existing LogAnomalyDetector resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -142,5 +142,5 @@ export interface GetBillingServiceAccountOutputArgs {
     /**
      * ID of the AWS billing service account.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
 }

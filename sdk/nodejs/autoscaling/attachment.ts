@@ -117,19 +117,19 @@ export interface AttachmentState {
     /**
      * Name of ASG to associate with the ELB.
      */
-    autoscalingGroupName?: pulumi.Input<string>;
+    autoscalingGroupName?: pulumi.Input<string | undefined>;
     /**
      * Name of the ELB.
      */
-    elb?: pulumi.Input<string>;
+    elb?: pulumi.Input<string | undefined>;
     /**
      * ARN of a load balancer target group.
      */
-    lbTargetGroupArn?: pulumi.Input<string>;
+    lbTargetGroupArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -143,13 +143,13 @@ export interface AttachmentArgs {
     /**
      * Name of the ELB.
      */
-    elb?: pulumi.Input<string>;
+    elb?: pulumi.Input<string | undefined>;
     /**
      * ARN of a load balancer target group.
      */
-    lbTargetGroupArn?: pulumi.Input<string>;
+    lbTargetGroupArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

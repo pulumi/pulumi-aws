@@ -21,11 +21,11 @@ __all__ = ['ProjectArgs', 'Project']
 @pulumi.input_type
 class ProjectArgs:
     def __init__(__self__, *,
-                 data_delivery: Optional[pulumi.Input['ProjectDataDeliveryArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 data_delivery: pulumi.Input[Optional['ProjectDataDeliveryArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Project resource.
 
@@ -48,83 +48,83 @@ class ProjectArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataDelivery")
-    def data_delivery(self) -> Optional[pulumi.Input['ProjectDataDeliveryArgs']]:
+    def data_delivery(self) -> pulumi.Input[Optional['ProjectDataDeliveryArgs']]:
         """
         A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
         """
         return pulumi.get(self, "data_delivery")
 
     @data_delivery.setter
-    def data_delivery(self, value: Optional[pulumi.Input['ProjectDataDeliveryArgs']]):
+    def data_delivery(self, value: pulumi.Input[Optional['ProjectDataDeliveryArgs']]):
         pulumi.set(self, "data_delivery", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the description of the project.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A name for the project.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Tags to apply to the project. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _ProjectState:
     def __init__(__self__, *,
-                 active_experiment_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 active_launch_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_delivery: Optional[pulumi.Input['ProjectDataDeliveryArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 experiment_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 feature_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 last_updated_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 launch_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 active_experiment_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 active_launch_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_delivery: pulumi.Input[Optional['ProjectDataDeliveryArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 experiment_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 feature_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 last_updated_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 launch_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Project resources.
 
@@ -177,182 +177,182 @@ class _ProjectState:
 
     @_builtins.property
     @pulumi.getter(name="activeExperimentCount")
-    def active_experiment_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def active_experiment_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of ongoing experiments currently in the project.
         """
         return pulumi.get(self, "active_experiment_count")
 
     @active_experiment_count.setter
-    def active_experiment_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def active_experiment_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "active_experiment_count", value)
 
     @_builtins.property
     @pulumi.getter(name="activeLaunchCount")
-    def active_launch_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def active_launch_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of ongoing launches currently in the project.
         """
         return pulumi.get(self, "active_launch_count")
 
     @active_launch_count.setter
-    def active_launch_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def active_launch_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "active_launch_count", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the project.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date and time that the project is created.
         """
         return pulumi.get(self, "created_time")
 
     @created_time.setter
-    def created_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_time", value)
 
     @_builtins.property
     @pulumi.getter(name="dataDelivery")
-    def data_delivery(self) -> Optional[pulumi.Input['ProjectDataDeliveryArgs']]:
+    def data_delivery(self) -> pulumi.Input[Optional['ProjectDataDeliveryArgs']]:
         """
         A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
         """
         return pulumi.get(self, "data_delivery")
 
     @data_delivery.setter
-    def data_delivery(self, value: Optional[pulumi.Input['ProjectDataDeliveryArgs']]):
+    def data_delivery(self, value: pulumi.Input[Optional['ProjectDataDeliveryArgs']]):
         pulumi.set(self, "data_delivery", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the description of the project.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="experimentCount")
-    def experiment_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def experiment_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of experiments currently in the project. This includes all experiments that have been created and not deleted, whether they are ongoing or not.
         """
         return pulumi.get(self, "experiment_count")
 
     @experiment_count.setter
-    def experiment_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def experiment_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "experiment_count", value)
 
     @_builtins.property
     @pulumi.getter(name="featureCount")
-    def feature_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def feature_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of features currently in the project.
         """
         return pulumi.get(self, "feature_count")
 
     @feature_count.setter
-    def feature_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def feature_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "feature_count", value)
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedTime")
-    def last_updated_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_updated_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date and time that the project was most recently updated.
         """
         return pulumi.get(self, "last_updated_time")
 
     @last_updated_time.setter
-    def last_updated_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_updated_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_updated_time", value)
 
     @_builtins.property
     @pulumi.getter(name="launchCount")
-    def launch_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def launch_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of launches currently in the project. This includes all launches that have been created and not deleted, whether they are ongoing or not.
         """
         return pulumi.get(self, "launch_count")
 
     @launch_count.setter
-    def launch_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def launch_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "launch_count", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A name for the project.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The current state of the project. Valid values are `AVAILABLE` and `UPDATING`.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Tags to apply to the project. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
 
@@ -362,11 +362,11 @@ class Project(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_delivery: Optional[pulumi.Input[Union['ProjectDataDeliveryArgs', 'ProjectDataDeliveryArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 data_delivery: pulumi.Input[Optional[Union['ProjectDataDeliveryArgs', 'ProjectDataDeliveryArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a CloudWatch Evidently Project resource.
@@ -535,11 +535,11 @@ class Project(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_delivery: Optional[pulumi.Input[Union['ProjectDataDeliveryArgs', 'ProjectDataDeliveryArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 data_delivery: pulumi.Input[Optional[Union['ProjectDataDeliveryArgs', 'ProjectDataDeliveryArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -574,21 +574,21 @@ class Project(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            active_experiment_count: Optional[pulumi.Input[_builtins.int]] = None,
-            active_launch_count: Optional[pulumi.Input[_builtins.int]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            created_time: Optional[pulumi.Input[_builtins.str]] = None,
-            data_delivery: Optional[pulumi.Input[Union['ProjectDataDeliveryArgs', 'ProjectDataDeliveryArgsDict']]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            experiment_count: Optional[pulumi.Input[_builtins.int]] = None,
-            feature_count: Optional[pulumi.Input[_builtins.int]] = None,
-            last_updated_time: Optional[pulumi.Input[_builtins.str]] = None,
-            launch_count: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Project':
+            active_experiment_count: pulumi.Input[Optional[_builtins.int]] = None,
+            active_launch_count: pulumi.Input[Optional[_builtins.int]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            created_time: pulumi.Input[Optional[_builtins.str]] = None,
+            data_delivery: pulumi.Input[Optional[Union['ProjectDataDeliveryArgs', 'ProjectDataDeliveryArgsDict']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            experiment_count: pulumi.Input[Optional[_builtins.int]] = None,
+            feature_count: pulumi.Input[Optional[_builtins.int]] = None,
+            last_updated_time: pulumi.Input[Optional[_builtins.str]] = None,
+            launch_count: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Project':
         """
         Get an existing Project resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

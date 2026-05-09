@@ -24,19 +24,19 @@ class WebAclArgs:
                  default_action: pulumi.Input['WebAclDefaultActionArgs'],
                  scope: pulumi.Input[_builtins.str],
                  visibility_config: pulumi.Input['WebAclVisibilityConfigArgs'],
-                 association_config: Optional[pulumi.Input['WebAclAssociationConfigArgs']] = None,
-                 captcha_config: Optional[pulumi.Input['WebAclCaptchaConfigArgs']] = None,
-                 challenge_config: Optional[pulumi.Input['WebAclChallengeConfigArgs']] = None,
-                 custom_response_bodies: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclCustomResponseBodyArgs']]]] = None,
-                 data_protection_config: Optional[pulumi.Input['WebAclDataProtectionConfigArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 token_domains: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 association_config: pulumi.Input[Optional['WebAclAssociationConfigArgs']] = None,
+                 captcha_config: pulumi.Input[Optional['WebAclCaptchaConfigArgs']] = None,
+                 challenge_config: pulumi.Input[Optional['WebAclChallengeConfigArgs']] = None,
+                 custom_response_bodies: pulumi.Input[Optional[Sequence[pulumi.Input['WebAclCustomResponseBodyArgs']]]] = None,
+                 data_protection_config: pulumi.Input[Optional['WebAclDataProtectionConfigArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input['WebAclRuleArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 token_domains: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a WebAcl resource.
 
@@ -125,185 +125,185 @@ class WebAclArgs:
 
     @_builtins.property
     @pulumi.getter(name="associationConfig")
-    def association_config(self) -> Optional[pulumi.Input['WebAclAssociationConfigArgs']]:
+    def association_config(self) -> pulumi.Input[Optional['WebAclAssociationConfigArgs']]:
         """
         Specifies custom configurations for the associations between the web ACL and protected resources. See `association_config` below for details.
         """
         return pulumi.get(self, "association_config")
 
     @association_config.setter
-    def association_config(self, value: Optional[pulumi.Input['WebAclAssociationConfigArgs']]):
+    def association_config(self, value: pulumi.Input[Optional['WebAclAssociationConfigArgs']]):
         pulumi.set(self, "association_config", value)
 
     @_builtins.property
     @pulumi.getter(name="captchaConfig")
-    def captcha_config(self) -> Optional[pulumi.Input['WebAclCaptchaConfigArgs']]:
+    def captcha_config(self) -> pulumi.Input[Optional['WebAclCaptchaConfigArgs']]:
         """
         Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captcha_config` below for details.
         """
         return pulumi.get(self, "captcha_config")
 
     @captcha_config.setter
-    def captcha_config(self, value: Optional[pulumi.Input['WebAclCaptchaConfigArgs']]):
+    def captcha_config(self, value: pulumi.Input[Optional['WebAclCaptchaConfigArgs']]):
         pulumi.set(self, "captcha_config", value)
 
     @_builtins.property
     @pulumi.getter(name="challengeConfig")
-    def challenge_config(self) -> Optional[pulumi.Input['WebAclChallengeConfigArgs']]:
+    def challenge_config(self) -> pulumi.Input[Optional['WebAclChallengeConfigArgs']]:
         """
         Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challenge_config` below for details.
         """
         return pulumi.get(self, "challenge_config")
 
     @challenge_config.setter
-    def challenge_config(self, value: Optional[pulumi.Input['WebAclChallengeConfigArgs']]):
+    def challenge_config(self, value: pulumi.Input[Optional['WebAclChallengeConfigArgs']]):
         pulumi.set(self, "challenge_config", value)
 
     @_builtins.property
     @pulumi.getter(name="customResponseBodies")
-    def custom_response_bodies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclCustomResponseBodyArgs']]]]:
+    def custom_response_bodies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WebAclCustomResponseBodyArgs']]]]:
         """
         Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
         """
         return pulumi.get(self, "custom_response_bodies")
 
     @custom_response_bodies.setter
-    def custom_response_bodies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclCustomResponseBodyArgs']]]]):
+    def custom_response_bodies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WebAclCustomResponseBodyArgs']]]]):
         pulumi.set(self, "custom_response_bodies", value)
 
     @_builtins.property
     @pulumi.getter(name="dataProtectionConfig")
-    def data_protection_config(self) -> Optional[pulumi.Input['WebAclDataProtectionConfigArgs']]:
+    def data_protection_config(self) -> pulumi.Input[Optional['WebAclDataProtectionConfigArgs']]:
         """
         Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `data_protection_config` below for details.
         """
         return pulumi.get(self, "data_protection_config")
 
     @data_protection_config.setter
-    def data_protection_config(self, value: Optional[pulumi.Input['WebAclDataProtectionConfigArgs']]):
+    def data_protection_config(self, value: pulumi.Input[Optional['WebAclDataProtectionConfigArgs']]):
         pulumi.set(self, "data_protection_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Friendly description of the WebACL.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Friendly name of the WebACL. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
-    def name_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name_prefix", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleJson")
-    def rule_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rule_json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing web ACL into a configuration with `rule_json` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
         """
         return pulumi.get(self, "rule_json")
 
     @rule_json.setter
-    def rule_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rule_json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rule_json", value)
 
     @_builtins.property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]]]:
+    def rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WebAclRuleArgs']]]]:
         """
         **`rule` blocks in this resource have several known limitations.** Consider using `wafv2.WebAclRule` to manage rules as separate resources instead. Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]]]):
+    def rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WebAclRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of key-value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tokenDomains")
-    def token_domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def token_domains(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
         """
         return pulumi.get(self, "token_domains")
 
     @token_domains.setter
-    def token_domains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def token_domains(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "token_domains", value)
 
 
 @pulumi.input_type
 class _WebAclState:
     def __init__(__self__, *,
-                 application_integration_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 association_config: Optional[pulumi.Input['WebAclAssociationConfigArgs']] = None,
-                 capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 captcha_config: Optional[pulumi.Input['WebAclCaptchaConfigArgs']] = None,
-                 challenge_config: Optional[pulumi.Input['WebAclChallengeConfigArgs']] = None,
-                 custom_response_bodies: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclCustomResponseBodyArgs']]]] = None,
-                 data_protection_config: Optional[pulumi.Input['WebAclDataProtectionConfigArgs']] = None,
-                 default_action: Optional[pulumi.Input['WebAclDefaultActionArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 lock_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 token_domains: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 visibility_config: Optional[pulumi.Input['WebAclVisibilityConfigArgs']] = None):
+                 application_integration_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 association_config: pulumi.Input[Optional['WebAclAssociationConfigArgs']] = None,
+                 capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 captcha_config: pulumi.Input[Optional['WebAclCaptchaConfigArgs']] = None,
+                 challenge_config: pulumi.Input[Optional['WebAclChallengeConfigArgs']] = None,
+                 custom_response_bodies: pulumi.Input[Optional[Sequence[pulumi.Input['WebAclCustomResponseBodyArgs']]]] = None,
+                 data_protection_config: pulumi.Input[Optional['WebAclDataProtectionConfigArgs']] = None,
+                 default_action: pulumi.Input[Optional['WebAclDefaultActionArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 lock_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input['WebAclRuleArgs']]]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 token_domains: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 visibility_config: pulumi.Input[Optional['WebAclVisibilityConfigArgs']] = None):
         """
         Input properties used for looking up and filtering WebAcl resources.
 
@@ -373,251 +373,251 @@ class _WebAclState:
 
     @_builtins.property
     @pulumi.getter(name="applicationIntegrationUrl")
-    def application_integration_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_integration_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL to use in SDK integrations with managed rule groups.
         """
         return pulumi.get(self, "application_integration_url")
 
     @application_integration_url.setter
-    def application_integration_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_integration_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_integration_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the WAF WebACL.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="associationConfig")
-    def association_config(self) -> Optional[pulumi.Input['WebAclAssociationConfigArgs']]:
+    def association_config(self) -> pulumi.Input[Optional['WebAclAssociationConfigArgs']]:
         """
         Specifies custom configurations for the associations between the web ACL and protected resources. See `association_config` below for details.
         """
         return pulumi.get(self, "association_config")
 
     @association_config.setter
-    def association_config(self, value: Optional[pulumi.Input['WebAclAssociationConfigArgs']]):
+    def association_config(self, value: pulumi.Input[Optional['WebAclAssociationConfigArgs']]):
         pulumi.set(self, "association_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Web ACL capacity units (WCUs) currently being used by this web ACL.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="captchaConfig")
-    def captcha_config(self) -> Optional[pulumi.Input['WebAclCaptchaConfigArgs']]:
+    def captcha_config(self) -> pulumi.Input[Optional['WebAclCaptchaConfigArgs']]:
         """
         Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captcha_config` below for details.
         """
         return pulumi.get(self, "captcha_config")
 
     @captcha_config.setter
-    def captcha_config(self, value: Optional[pulumi.Input['WebAclCaptchaConfigArgs']]):
+    def captcha_config(self, value: pulumi.Input[Optional['WebAclCaptchaConfigArgs']]):
         pulumi.set(self, "captcha_config", value)
 
     @_builtins.property
     @pulumi.getter(name="challengeConfig")
-    def challenge_config(self) -> Optional[pulumi.Input['WebAclChallengeConfigArgs']]:
+    def challenge_config(self) -> pulumi.Input[Optional['WebAclChallengeConfigArgs']]:
         """
         Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challenge_config` below for details.
         """
         return pulumi.get(self, "challenge_config")
 
     @challenge_config.setter
-    def challenge_config(self, value: Optional[pulumi.Input['WebAclChallengeConfigArgs']]):
+    def challenge_config(self, value: pulumi.Input[Optional['WebAclChallengeConfigArgs']]):
         pulumi.set(self, "challenge_config", value)
 
     @_builtins.property
     @pulumi.getter(name="customResponseBodies")
-    def custom_response_bodies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclCustomResponseBodyArgs']]]]:
+    def custom_response_bodies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WebAclCustomResponseBodyArgs']]]]:
         """
         Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
         """
         return pulumi.get(self, "custom_response_bodies")
 
     @custom_response_bodies.setter
-    def custom_response_bodies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclCustomResponseBodyArgs']]]]):
+    def custom_response_bodies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WebAclCustomResponseBodyArgs']]]]):
         pulumi.set(self, "custom_response_bodies", value)
 
     @_builtins.property
     @pulumi.getter(name="dataProtectionConfig")
-    def data_protection_config(self) -> Optional[pulumi.Input['WebAclDataProtectionConfigArgs']]:
+    def data_protection_config(self) -> pulumi.Input[Optional['WebAclDataProtectionConfigArgs']]:
         """
         Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `data_protection_config` below for details.
         """
         return pulumi.get(self, "data_protection_config")
 
     @data_protection_config.setter
-    def data_protection_config(self, value: Optional[pulumi.Input['WebAclDataProtectionConfigArgs']]):
+    def data_protection_config(self, value: pulumi.Input[Optional['WebAclDataProtectionConfigArgs']]):
         pulumi.set(self, "data_protection_config", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultAction")
-    def default_action(self) -> Optional[pulumi.Input['WebAclDefaultActionArgs']]:
+    def default_action(self) -> pulumi.Input[Optional['WebAclDefaultActionArgs']]:
         """
         Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
         """
         return pulumi.get(self, "default_action")
 
     @default_action.setter
-    def default_action(self, value: Optional[pulumi.Input['WebAclDefaultActionArgs']]):
+    def default_action(self, value: pulumi.Input[Optional['WebAclDefaultActionArgs']]):
         pulumi.set(self, "default_action", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Friendly description of the WebACL.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="lockToken")
-    def lock_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lock_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "lock_token")
 
     @lock_token.setter
-    def lock_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lock_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lock_token", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Friendly name of the WebACL. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
-    def name_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name_prefix", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleJson")
-    def rule_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rule_json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing web ACL into a configuration with `rule_json` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
         """
         return pulumi.get(self, "rule_json")
 
     @rule_json.setter
-    def rule_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rule_json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rule_json", value)
 
     @_builtins.property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]]]:
+    def rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WebAclRuleArgs']]]]:
         """
         **`rule` blocks in this resource have several known limitations.** Consider using `wafv2.WebAclRule` to manage rules as separate resources instead. Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]]]):
+    def rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WebAclRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scope", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of key-value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="tokenDomains")
-    def token_domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def token_domains(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
         """
         return pulumi.get(self, "token_domains")
 
     @token_domains.setter
-    def token_domains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def token_domains(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "token_domains", value)
 
     @_builtins.property
     @pulumi.getter(name="visibilityConfig")
-    def visibility_config(self) -> Optional[pulumi.Input['WebAclVisibilityConfigArgs']]:
+    def visibility_config(self) -> pulumi.Input[Optional['WebAclVisibilityConfigArgs']]:
         """
         Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
         """
         return pulumi.get(self, "visibility_config")
 
     @visibility_config.setter
-    def visibility_config(self, value: Optional[pulumi.Input['WebAclVisibilityConfigArgs']]):
+    def visibility_config(self, value: pulumi.Input[Optional['WebAclVisibilityConfigArgs']]):
         pulumi.set(self, "visibility_config", value)
 
 
@@ -627,22 +627,22 @@ class WebAcl(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 association_config: Optional[pulumi.Input[Union['WebAclAssociationConfigArgs', 'WebAclAssociationConfigArgsDict']]] = None,
-                 captcha_config: Optional[pulumi.Input[Union['WebAclCaptchaConfigArgs', 'WebAclCaptchaConfigArgsDict']]] = None,
-                 challenge_config: Optional[pulumi.Input[Union['WebAclChallengeConfigArgs', 'WebAclChallengeConfigArgsDict']]] = None,
-                 custom_response_bodies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebAclCustomResponseBodyArgs', 'WebAclCustomResponseBodyArgsDict']]]]] = None,
-                 data_protection_config: Optional[pulumi.Input[Union['WebAclDataProtectionConfigArgs', 'WebAclDataProtectionConfigArgsDict']]] = None,
-                 default_action: Optional[pulumi.Input[Union['WebAclDefaultActionArgs', 'WebAclDefaultActionArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebAclRuleArgs', 'WebAclRuleArgsDict']]]]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 token_domains: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 visibility_config: Optional[pulumi.Input[Union['WebAclVisibilityConfigArgs', 'WebAclVisibilityConfigArgsDict']]] = None,
+                 association_config: pulumi.Input[Optional[Union['WebAclAssociationConfigArgs', 'WebAclAssociationConfigArgsDict']]] = None,
+                 captcha_config: pulumi.Input[Optional[Union['WebAclCaptchaConfigArgs', 'WebAclCaptchaConfigArgsDict']]] = None,
+                 challenge_config: pulumi.Input[Optional[Union['WebAclChallengeConfigArgs', 'WebAclChallengeConfigArgsDict']]] = None,
+                 custom_response_bodies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebAclCustomResponseBodyArgs', 'WebAclCustomResponseBodyArgsDict']]]]] = None,
+                 data_protection_config: pulumi.Input[Optional[Union['WebAclDataProtectionConfigArgs', 'WebAclDataProtectionConfigArgsDict']]] = None,
+                 default_action: pulumi.Input[Optional[Union['WebAclDefaultActionArgs', 'WebAclDefaultActionArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebAclRuleArgs', 'WebAclRuleArgsDict']]]]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 token_domains: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 visibility_config: pulumi.Input[Optional[Union['WebAclVisibilityConfigArgs', 'WebAclVisibilityConfigArgsDict']]] = None,
                  __props__=None):
         """
         Creates a WAFv2 Web ACL resource.
@@ -716,22 +716,22 @@ class WebAcl(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 association_config: Optional[pulumi.Input[Union['WebAclAssociationConfigArgs', 'WebAclAssociationConfigArgsDict']]] = None,
-                 captcha_config: Optional[pulumi.Input[Union['WebAclCaptchaConfigArgs', 'WebAclCaptchaConfigArgsDict']]] = None,
-                 challenge_config: Optional[pulumi.Input[Union['WebAclChallengeConfigArgs', 'WebAclChallengeConfigArgsDict']]] = None,
-                 custom_response_bodies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebAclCustomResponseBodyArgs', 'WebAclCustomResponseBodyArgsDict']]]]] = None,
-                 data_protection_config: Optional[pulumi.Input[Union['WebAclDataProtectionConfigArgs', 'WebAclDataProtectionConfigArgsDict']]] = None,
-                 default_action: Optional[pulumi.Input[Union['WebAclDefaultActionArgs', 'WebAclDefaultActionArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebAclRuleArgs', 'WebAclRuleArgsDict']]]]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 token_domains: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 visibility_config: Optional[pulumi.Input[Union['WebAclVisibilityConfigArgs', 'WebAclVisibilityConfigArgsDict']]] = None,
+                 association_config: pulumi.Input[Optional[Union['WebAclAssociationConfigArgs', 'WebAclAssociationConfigArgsDict']]] = None,
+                 captcha_config: pulumi.Input[Optional[Union['WebAclCaptchaConfigArgs', 'WebAclCaptchaConfigArgsDict']]] = None,
+                 challenge_config: pulumi.Input[Optional[Union['WebAclChallengeConfigArgs', 'WebAclChallengeConfigArgsDict']]] = None,
+                 custom_response_bodies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebAclCustomResponseBodyArgs', 'WebAclCustomResponseBodyArgsDict']]]]] = None,
+                 data_protection_config: pulumi.Input[Optional[Union['WebAclDataProtectionConfigArgs', 'WebAclDataProtectionConfigArgsDict']]] = None,
+                 default_action: pulumi.Input[Optional[Union['WebAclDefaultActionArgs', 'WebAclDefaultActionArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebAclRuleArgs', 'WebAclRuleArgsDict']]]]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 token_domains: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 visibility_config: pulumi.Input[Optional[Union['WebAclVisibilityConfigArgs', 'WebAclVisibilityConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -778,27 +778,27 @@ class WebAcl(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            application_integration_url: Optional[pulumi.Input[_builtins.str]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            association_config: Optional[pulumi.Input[Union['WebAclAssociationConfigArgs', 'WebAclAssociationConfigArgsDict']]] = None,
-            capacity: Optional[pulumi.Input[_builtins.int]] = None,
-            captcha_config: Optional[pulumi.Input[Union['WebAclCaptchaConfigArgs', 'WebAclCaptchaConfigArgsDict']]] = None,
-            challenge_config: Optional[pulumi.Input[Union['WebAclChallengeConfigArgs', 'WebAclChallengeConfigArgsDict']]] = None,
-            custom_response_bodies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebAclCustomResponseBodyArgs', 'WebAclCustomResponseBodyArgsDict']]]]] = None,
-            data_protection_config: Optional[pulumi.Input[Union['WebAclDataProtectionConfigArgs', 'WebAclDataProtectionConfigArgsDict']]] = None,
-            default_action: Optional[pulumi.Input[Union['WebAclDefaultActionArgs', 'WebAclDefaultActionArgsDict']]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            lock_token: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            rule_json: Optional[pulumi.Input[_builtins.str]] = None,
-            rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebAclRuleArgs', 'WebAclRuleArgsDict']]]]] = None,
-            scope: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            token_domains: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            visibility_config: Optional[pulumi.Input[Union['WebAclVisibilityConfigArgs', 'WebAclVisibilityConfigArgsDict']]] = None) -> 'WebAcl':
+            application_integration_url: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            association_config: pulumi.Input[Optional[Union['WebAclAssociationConfigArgs', 'WebAclAssociationConfigArgsDict']]] = None,
+            capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            captcha_config: pulumi.Input[Optional[Union['WebAclCaptchaConfigArgs', 'WebAclCaptchaConfigArgsDict']]] = None,
+            challenge_config: pulumi.Input[Optional[Union['WebAclChallengeConfigArgs', 'WebAclChallengeConfigArgsDict']]] = None,
+            custom_response_bodies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebAclCustomResponseBodyArgs', 'WebAclCustomResponseBodyArgsDict']]]]] = None,
+            data_protection_config: pulumi.Input[Optional[Union['WebAclDataProtectionConfigArgs', 'WebAclDataProtectionConfigArgsDict']]] = None,
+            default_action: pulumi.Input[Optional[Union['WebAclDefaultActionArgs', 'WebAclDefaultActionArgsDict']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            lock_token: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            rule_json: pulumi.Input[Optional[_builtins.str]] = None,
+            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebAclRuleArgs', 'WebAclRuleArgsDict']]]]] = None,
+            scope: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            token_domains: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            visibility_config: pulumi.Input[Optional[Union['WebAclVisibilityConfigArgs', 'WebAclVisibilityConfigArgsDict']]] = None) -> 'WebAcl':
         """
         Get an existing WebAcl resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

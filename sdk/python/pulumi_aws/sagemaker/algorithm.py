@@ -23,13 +23,13 @@ class AlgorithmArgs:
     def __init__(__self__, *,
                  algorithm_name: pulumi.Input[_builtins.str],
                  training_specification: pulumi.Input['AlgorithmTrainingSpecificationArgs'],
-                 algorithm_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 certify_for_marketplace: Optional[pulumi.Input[_builtins.bool]] = None,
-                 inference_specification: Optional[pulumi.Input['AlgorithmInferenceSpecificationArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['AlgorithmTimeoutsArgs']] = None,
-                 validation_specification: Optional[pulumi.Input['AlgorithmValidationSpecificationArgs']] = None):
+                 algorithm_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 certify_for_marketplace: pulumi.Input[Optional[_builtins.bool]] = None,
+                 inference_specification: pulumi.Input[Optional['AlgorithmInferenceSpecificationArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['AlgorithmTimeoutsArgs']] = None,
+                 validation_specification: pulumi.Input[Optional['AlgorithmValidationSpecificationArgs']] = None):
         """
         The set of arguments for constructing a Algorithm resource.
 
@@ -85,103 +85,103 @@ class AlgorithmArgs:
 
     @_builtins.property
     @pulumi.getter(name="algorithmDescription")
-    def algorithm_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def algorithm_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the algorithm.
         """
         return pulumi.get(self, "algorithm_description")
 
     @algorithm_description.setter
-    def algorithm_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def algorithm_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "algorithm_description", value)
 
     @_builtins.property
     @pulumi.getter(name="certifyForMarketplace")
-    def certify_for_marketplace(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def certify_for_marketplace(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to certify the algorithm for AWS Marketplace.
         """
         return pulumi.get(self, "certify_for_marketplace")
 
     @certify_for_marketplace.setter
-    def certify_for_marketplace(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def certify_for_marketplace(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "certify_for_marketplace", value)
 
     @_builtins.property
     @pulumi.getter(name="inferenceSpecification")
-    def inference_specification(self) -> Optional[pulumi.Input['AlgorithmInferenceSpecificationArgs']]:
+    def inference_specification(self) -> pulumi.Input[Optional['AlgorithmInferenceSpecificationArgs']]:
         """
         Configuration for inference jobs that use this algorithm. See Inference Specification.
         """
         return pulumi.get(self, "inference_specification")
 
     @inference_specification.setter
-    def inference_specification(self, value: Optional[pulumi.Input['AlgorithmInferenceSpecificationArgs']]):
+    def inference_specification(self, value: pulumi.Input[Optional['AlgorithmInferenceSpecificationArgs']]):
         pulumi.set(self, "inference_specification", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource is managed. Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['AlgorithmTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['AlgorithmTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['AlgorithmTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['AlgorithmTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter(name="validationSpecification")
-    def validation_specification(self) -> Optional[pulumi.Input['AlgorithmValidationSpecificationArgs']]:
+    def validation_specification(self) -> pulumi.Input[Optional['AlgorithmValidationSpecificationArgs']]:
         """
         Configuration used to validate the algorithm. See Validation Specification.
         """
         return pulumi.get(self, "validation_specification")
 
     @validation_specification.setter
-    def validation_specification(self, value: Optional[pulumi.Input['AlgorithmValidationSpecificationArgs']]):
+    def validation_specification(self, value: pulumi.Input[Optional['AlgorithmValidationSpecificationArgs']]):
         pulumi.set(self, "validation_specification", value)
 
 
 @pulumi.input_type
 class _AlgorithmState:
     def __init__(__self__, *,
-                 algorithm_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 algorithm_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 algorithm_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 certify_for_marketplace: Optional[pulumi.Input[_builtins.bool]] = None,
-                 creation_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 inference_specification: Optional[pulumi.Input['AlgorithmInferenceSpecificationArgs']] = None,
-                 product_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['AlgorithmTimeoutsArgs']] = None,
-                 training_specification: Optional[pulumi.Input['AlgorithmTrainingSpecificationArgs']] = None,
-                 validation_specification: Optional[pulumi.Input['AlgorithmValidationSpecificationArgs']] = None):
+                 algorithm_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 algorithm_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 algorithm_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 certify_for_marketplace: pulumi.Input[Optional[_builtins.bool]] = None,
+                 creation_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 inference_specification: pulumi.Input[Optional['AlgorithmInferenceSpecificationArgs']] = None,
+                 product_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['AlgorithmTimeoutsArgs']] = None,
+                 training_specification: pulumi.Input[Optional['AlgorithmTrainingSpecificationArgs']] = None,
+                 validation_specification: pulumi.Input[Optional['AlgorithmValidationSpecificationArgs']] = None):
         """
         Input properties used for looking up and filtering Algorithm resources.
 
@@ -230,167 +230,167 @@ class _AlgorithmState:
 
     @_builtins.property
     @pulumi.getter(name="algorithmDescription")
-    def algorithm_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def algorithm_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the algorithm.
         """
         return pulumi.get(self, "algorithm_description")
 
     @algorithm_description.setter
-    def algorithm_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def algorithm_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "algorithm_description", value)
 
     @_builtins.property
     @pulumi.getter(name="algorithmName")
-    def algorithm_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def algorithm_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the algorithm.
         """
         return pulumi.get(self, "algorithm_name")
 
     @algorithm_name.setter
-    def algorithm_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def algorithm_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "algorithm_name", value)
 
     @_builtins.property
     @pulumi.getter(name="algorithmStatus")
-    def algorithm_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def algorithm_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Status of the algorithm.
         """
         return pulumi.get(self, "algorithm_status")
 
     @algorithm_status.setter
-    def algorithm_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def algorithm_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "algorithm_status", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the algorithm.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="certifyForMarketplace")
-    def certify_for_marketplace(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def certify_for_marketplace(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to certify the algorithm for AWS Marketplace.
         """
         return pulumi.get(self, "certify_for_marketplace")
 
     @certify_for_marketplace.setter
-    def certify_for_marketplace(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def certify_for_marketplace(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "certify_for_marketplace", value)
 
     @_builtins.property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def creation_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Time when the algorithm was created, in RFC3339 format.
         """
         return pulumi.get(self, "creation_time")
 
     @creation_time.setter
-    def creation_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def creation_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "creation_time", value)
 
     @_builtins.property
     @pulumi.getter(name="inferenceSpecification")
-    def inference_specification(self) -> Optional[pulumi.Input['AlgorithmInferenceSpecificationArgs']]:
+    def inference_specification(self) -> pulumi.Input[Optional['AlgorithmInferenceSpecificationArgs']]:
         """
         Configuration for inference jobs that use this algorithm. See Inference Specification.
         """
         return pulumi.get(self, "inference_specification")
 
     @inference_specification.setter
-    def inference_specification(self, value: Optional[pulumi.Input['AlgorithmInferenceSpecificationArgs']]):
+    def inference_specification(self, value: pulumi.Input[Optional['AlgorithmInferenceSpecificationArgs']]):
         pulumi.set(self, "inference_specification", value)
 
     @_builtins.property
     @pulumi.getter(name="productId")
-    def product_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def product_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS Marketplace product ID associated with the algorithm.
         """
         return pulumi.get(self, "product_id")
 
     @product_id.setter
-    def product_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def product_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "product_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource is managed. Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including tags inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['AlgorithmTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['AlgorithmTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['AlgorithmTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['AlgorithmTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter(name="trainingSpecification")
-    def training_specification(self) -> Optional[pulumi.Input['AlgorithmTrainingSpecificationArgs']]:
+    def training_specification(self) -> pulumi.Input[Optional['AlgorithmTrainingSpecificationArgs']]:
         """
         Configuration for training jobs that use this algorithm. See Training Specification.
         """
         return pulumi.get(self, "training_specification")
 
     @training_specification.setter
-    def training_specification(self, value: Optional[pulumi.Input['AlgorithmTrainingSpecificationArgs']]):
+    def training_specification(self, value: pulumi.Input[Optional['AlgorithmTrainingSpecificationArgs']]):
         pulumi.set(self, "training_specification", value)
 
     @_builtins.property
     @pulumi.getter(name="validationSpecification")
-    def validation_specification(self) -> Optional[pulumi.Input['AlgorithmValidationSpecificationArgs']]:
+    def validation_specification(self) -> pulumi.Input[Optional['AlgorithmValidationSpecificationArgs']]:
         """
         Configuration used to validate the algorithm. See Validation Specification.
         """
         return pulumi.get(self, "validation_specification")
 
     @validation_specification.setter
-    def validation_specification(self, value: Optional[pulumi.Input['AlgorithmValidationSpecificationArgs']]):
+    def validation_specification(self, value: pulumi.Input[Optional['AlgorithmValidationSpecificationArgs']]):
         pulumi.set(self, "validation_specification", value)
 
 
@@ -400,15 +400,15 @@ class Algorithm(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 algorithm_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 algorithm_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 certify_for_marketplace: Optional[pulumi.Input[_builtins.bool]] = None,
-                 inference_specification: Optional[pulumi.Input[Union['AlgorithmInferenceSpecificationArgs', 'AlgorithmInferenceSpecificationArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['AlgorithmTimeoutsArgs', 'AlgorithmTimeoutsArgsDict']]] = None,
-                 training_specification: Optional[pulumi.Input[Union['AlgorithmTrainingSpecificationArgs', 'AlgorithmTrainingSpecificationArgsDict']]] = None,
-                 validation_specification: Optional[pulumi.Input[Union['AlgorithmValidationSpecificationArgs', 'AlgorithmValidationSpecificationArgsDict']]] = None,
+                 algorithm_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 algorithm_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 certify_for_marketplace: pulumi.Input[Optional[_builtins.bool]] = None,
+                 inference_specification: pulumi.Input[Optional[Union['AlgorithmInferenceSpecificationArgs', 'AlgorithmInferenceSpecificationArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AlgorithmTimeoutsArgs', 'AlgorithmTimeoutsArgsDict']]] = None,
+                 training_specification: pulumi.Input[Optional[Union['AlgorithmTrainingSpecificationArgs', 'AlgorithmTrainingSpecificationArgsDict']]] = None,
+                 validation_specification: pulumi.Input[Optional[Union['AlgorithmValidationSpecificationArgs', 'AlgorithmValidationSpecificationArgsDict']]] = None,
                  __props__=None):
         """
         Manages an AWS SageMaker AI Algorithm.
@@ -1212,15 +1212,15 @@ class Algorithm(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 algorithm_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 algorithm_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 certify_for_marketplace: Optional[pulumi.Input[_builtins.bool]] = None,
-                 inference_specification: Optional[pulumi.Input[Union['AlgorithmInferenceSpecificationArgs', 'AlgorithmInferenceSpecificationArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['AlgorithmTimeoutsArgs', 'AlgorithmTimeoutsArgsDict']]] = None,
-                 training_specification: Optional[pulumi.Input[Union['AlgorithmTrainingSpecificationArgs', 'AlgorithmTrainingSpecificationArgsDict']]] = None,
-                 validation_specification: Optional[pulumi.Input[Union['AlgorithmValidationSpecificationArgs', 'AlgorithmValidationSpecificationArgsDict']]] = None,
+                 algorithm_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 algorithm_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 certify_for_marketplace: pulumi.Input[Optional[_builtins.bool]] = None,
+                 inference_specification: pulumi.Input[Optional[Union['AlgorithmInferenceSpecificationArgs', 'AlgorithmInferenceSpecificationArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AlgorithmTimeoutsArgs', 'AlgorithmTimeoutsArgsDict']]] = None,
+                 training_specification: pulumi.Input[Optional[Union['AlgorithmTrainingSpecificationArgs', 'AlgorithmTrainingSpecificationArgsDict']]] = None,
+                 validation_specification: pulumi.Input[Optional[Union['AlgorithmValidationSpecificationArgs', 'AlgorithmValidationSpecificationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1258,20 +1258,20 @@ class Algorithm(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            algorithm_description: Optional[pulumi.Input[_builtins.str]] = None,
-            algorithm_name: Optional[pulumi.Input[_builtins.str]] = None,
-            algorithm_status: Optional[pulumi.Input[_builtins.str]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            certify_for_marketplace: Optional[pulumi.Input[_builtins.bool]] = None,
-            creation_time: Optional[pulumi.Input[_builtins.str]] = None,
-            inference_specification: Optional[pulumi.Input[Union['AlgorithmInferenceSpecificationArgs', 'AlgorithmInferenceSpecificationArgsDict']]] = None,
-            product_id: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: Optional[pulumi.Input[Union['AlgorithmTimeoutsArgs', 'AlgorithmTimeoutsArgsDict']]] = None,
-            training_specification: Optional[pulumi.Input[Union['AlgorithmTrainingSpecificationArgs', 'AlgorithmTrainingSpecificationArgsDict']]] = None,
-            validation_specification: Optional[pulumi.Input[Union['AlgorithmValidationSpecificationArgs', 'AlgorithmValidationSpecificationArgsDict']]] = None) -> 'Algorithm':
+            algorithm_description: pulumi.Input[Optional[_builtins.str]] = None,
+            algorithm_name: pulumi.Input[Optional[_builtins.str]] = None,
+            algorithm_status: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            certify_for_marketplace: pulumi.Input[Optional[_builtins.bool]] = None,
+            creation_time: pulumi.Input[Optional[_builtins.str]] = None,
+            inference_specification: pulumi.Input[Optional[Union['AlgorithmInferenceSpecificationArgs', 'AlgorithmInferenceSpecificationArgsDict']]] = None,
+            product_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['AlgorithmTimeoutsArgs', 'AlgorithmTimeoutsArgsDict']]] = None,
+            training_specification: pulumi.Input[Optional[Union['AlgorithmTrainingSpecificationArgs', 'AlgorithmTrainingSpecificationArgsDict']]] = None,
+            validation_specification: pulumi.Input[Optional[Union['AlgorithmValidationSpecificationArgs', 'AlgorithmValidationSpecificationArgsDict']]] = None) -> 'Algorithm':
         """
         Get an existing Algorithm resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

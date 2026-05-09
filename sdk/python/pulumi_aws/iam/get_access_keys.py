@@ -98,7 +98,7 @@ def get_access_keys(user: Optional[_builtins.str] = None,
         access_keys=pulumi.get(__ret__, 'access_keys'),
         id=pulumi.get(__ret__, 'id'),
         user=pulumi.get(__ret__, 'user'))
-def get_access_keys_output(user: Optional[pulumi.Input[_builtins.str]] = None,
+def get_access_keys_output(user: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessKeysResult]:
     """
     This data source can be used to fetch information about IAM access keys of a

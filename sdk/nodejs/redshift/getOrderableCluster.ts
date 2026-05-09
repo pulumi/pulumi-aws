@@ -115,21 +115,21 @@ export interface GetOrderableClusterOutputArgs {
     /**
      * Reshift Cluster typeE.g., `multi-node` or `single-node`
      */
-    clusterType?: pulumi.Input<string>;
+    clusterType?: pulumi.Input<string | undefined>;
     /**
      * Redshift Cluster versionE.g., `1.0`
      */
-    clusterVersion?: pulumi.Input<string>;
+    clusterVersion?: pulumi.Input<string | undefined>;
     /**
      * Redshift Cluster node typeE.g., `dc2.8xlarge`
      */
-    nodeType?: pulumi.Input<string>;
+    nodeType?: pulumi.Input<string | undefined>;
     /**
      * Ordered list of preferred Redshift Cluster node types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
      */
-    preferredNodeTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    preferredNodeTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

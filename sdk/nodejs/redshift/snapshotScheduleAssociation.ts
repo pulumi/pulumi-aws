@@ -118,15 +118,15 @@ export interface SnapshotScheduleAssociationState {
     /**
      * The cluster identifier.
      */
-    clusterIdentifier?: pulumi.Input<string>;
+    clusterIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The snapshot schedule identifier.
      */
-    scheduleIdentifier?: pulumi.Input<string>;
+    scheduleIdentifier?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -140,7 +140,7 @@ export interface SnapshotScheduleAssociationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The snapshot schedule identifier.
      */

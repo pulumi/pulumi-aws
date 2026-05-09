@@ -62,8 +62,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetArnArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -102,8 +102,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetArnArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -142,8 +142,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetArnArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -182,8 +182,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetArnArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -222,8 +222,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetArnArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -281,8 +281,8 @@ public final class AwsFunctions {
      * import com.pulumi.std.inputs.CidrsubnetArgs;
      * import com.pulumi.aws.ec2.Subnet;
      * import com.pulumi.aws.ec2.SubnetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -377,8 +377,8 @@ public final class AwsFunctions {
      * import com.pulumi.std.inputs.CidrsubnetArgs;
      * import com.pulumi.aws.ec2.Subnet;
      * import com.pulumi.aws.ec2.SubnetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -473,8 +473,8 @@ public final class AwsFunctions {
      * import com.pulumi.std.inputs.CidrsubnetArgs;
      * import com.pulumi.aws.ec2.Subnet;
      * import com.pulumi.aws.ec2.SubnetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -569,8 +569,8 @@ public final class AwsFunctions {
      * import com.pulumi.std.inputs.CidrsubnetArgs;
      * import com.pulumi.aws.ec2.Subnet;
      * import com.pulumi.aws.ec2.SubnetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -665,8 +665,8 @@ public final class AwsFunctions {
      * import com.pulumi.std.inputs.CidrsubnetArgs;
      * import com.pulumi.aws.ec2.Subnet;
      * import com.pulumi.aws.ec2.SubnetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -761,8 +761,8 @@ public final class AwsFunctions {
      * import com.pulumi.std.inputs.CidrsubnetArgs;
      * import com.pulumi.aws.ec2.Subnet;
      * import com.pulumi.aws.ec2.SubnetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -857,8 +857,8 @@ public final class AwsFunctions {
      * import com.pulumi.std.inputs.CidrsubnetArgs;
      * import com.pulumi.aws.ec2.Subnet;
      * import com.pulumi.aws.ec2.SubnetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -945,8 +945,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
      * import com.pulumi.aws.ec2.Subnet;
      * import com.pulumi.aws.ec2.SubnetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -990,8 +990,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1029,8 +1029,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1083,8 +1083,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
      * import com.pulumi.aws.ec2.Subnet;
      * import com.pulumi.aws.ec2.SubnetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1128,8 +1128,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1167,8 +1167,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1221,8 +1221,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
      * import com.pulumi.aws.ec2.Subnet;
      * import com.pulumi.aws.ec2.SubnetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1266,8 +1266,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1305,8 +1305,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1359,8 +1359,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
      * import com.pulumi.aws.ec2.Subnet;
      * import com.pulumi.aws.ec2.SubnetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1404,8 +1404,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1443,8 +1443,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1497,8 +1497,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
      * import com.pulumi.aws.ec2.Subnet;
      * import com.pulumi.aws.ec2.SubnetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1542,8 +1542,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1581,8 +1581,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1635,8 +1635,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
      * import com.pulumi.aws.ec2.Subnet;
      * import com.pulumi.aws.ec2.SubnetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1680,8 +1680,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1719,8 +1719,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1773,8 +1773,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
      * import com.pulumi.aws.ec2.Subnet;
      * import com.pulumi.aws.ec2.SubnetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1818,8 +1818,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1857,8 +1857,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1908,8 +1908,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
      * import com.pulumi.aws.s3.BucketPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1997,8 +1997,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
      * import com.pulumi.aws.s3.BucketPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2086,8 +2086,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
      * import com.pulumi.aws.s3.BucketPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2175,8 +2175,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
      * import com.pulumi.aws.s3.BucketPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2264,8 +2264,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
      * import com.pulumi.aws.s3.BucketPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2353,8 +2353,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
      * import com.pulumi.aws.s3.BucketPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2442,8 +2442,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
      * import com.pulumi.aws.s3.BucketPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2524,8 +2524,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2567,8 +2567,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2610,8 +2610,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2653,8 +2653,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2696,8 +2696,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2739,8 +2739,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2782,8 +2782,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2828,8 +2828,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetDefaultTagsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2873,8 +2873,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetDefaultTagsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2918,8 +2918,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetDefaultTagsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2963,8 +2963,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetDefaultTagsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3008,8 +3008,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetDefaultTagsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3053,8 +3053,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetDefaultTagsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3098,8 +3098,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetDefaultTagsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3142,8 +3142,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.ec2.SecurityGroup;
      * import com.pulumi.aws.ec2.SecurityGroupArgs;
      * import com.pulumi.aws.ec2.inputs.SecurityGroupIngressArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3203,8 +3203,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.ec2.SecurityGroup;
      * import com.pulumi.aws.ec2.SecurityGroupArgs;
      * import com.pulumi.aws.ec2.inputs.SecurityGroupIngressArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3264,8 +3264,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.ec2.SecurityGroup;
      * import com.pulumi.aws.ec2.SecurityGroupArgs;
      * import com.pulumi.aws.ec2.inputs.SecurityGroupIngressArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3325,8 +3325,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.ec2.SecurityGroup;
      * import com.pulumi.aws.ec2.SecurityGroupArgs;
      * import com.pulumi.aws.ec2.inputs.SecurityGroupIngressArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3386,8 +3386,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.ec2.SecurityGroup;
      * import com.pulumi.aws.ec2.SecurityGroupArgs;
      * import com.pulumi.aws.ec2.inputs.SecurityGroupIngressArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3447,8 +3447,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.inputs.GetPartitionArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3497,8 +3497,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.inputs.GetPartitionArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3547,8 +3547,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.inputs.GetPartitionArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3597,8 +3597,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.inputs.GetPartitionArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3647,8 +3647,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.inputs.GetPartitionArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3697,8 +3697,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.inputs.GetPartitionArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3747,8 +3747,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.inputs.GetPartitionArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3802,8 +3802,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetRegionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3849,8 +3849,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetRegionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3896,8 +3896,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetRegionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3943,8 +3943,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetRegionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3990,8 +3990,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetRegionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4037,8 +4037,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetRegionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4084,8 +4084,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetRegionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4125,8 +4125,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetRegionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4157,8 +4157,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetRegionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4190,8 +4190,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetRegionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4236,8 +4236,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetRegionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4268,8 +4268,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetRegionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4301,8 +4301,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetRegionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4347,8 +4347,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetRegionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4379,8 +4379,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetRegionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4412,8 +4412,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetRegionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4458,8 +4458,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetRegionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4490,8 +4490,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetRegionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4523,8 +4523,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetRegionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4569,8 +4569,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetRegionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4601,8 +4601,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetRegionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4634,8 +4634,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetRegionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4680,8 +4680,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetRegionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4712,8 +4712,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetRegionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4745,8 +4745,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetRegionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4791,8 +4791,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetRegionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4823,8 +4823,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetRegionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4856,8 +4856,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetRegionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4903,8 +4903,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetRegionArgs;
      * import com.pulumi.aws.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4940,8 +4940,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4973,8 +4973,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5016,8 +5016,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetRegionArgs;
      * import com.pulumi.aws.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5053,8 +5053,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5086,8 +5086,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5129,8 +5129,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetRegionArgs;
      * import com.pulumi.aws.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5166,8 +5166,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5199,8 +5199,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5242,8 +5242,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetRegionArgs;
      * import com.pulumi.aws.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5279,8 +5279,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5312,8 +5312,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5355,8 +5355,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetRegionArgs;
      * import com.pulumi.aws.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5392,8 +5392,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5425,8 +5425,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5468,8 +5468,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetRegionArgs;
      * import com.pulumi.aws.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5505,8 +5505,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5538,8 +5538,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5581,8 +5581,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetRegionArgs;
      * import com.pulumi.aws.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5618,8 +5618,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5651,8 +5651,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5691,8 +5691,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetServicePrincipalArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5736,8 +5736,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetServicePrincipalArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5781,8 +5781,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetServicePrincipalArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5826,8 +5826,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetServicePrincipalArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5871,8 +5871,8 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetServicePrincipalArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

@@ -140,7 +140,7 @@ export interface GetCapacityBlockOfferingOutputArgs {
     /**
      * The date and time at which the Capacity Block Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      */
-    endDateRange?: pulumi.Input<string>;
+    endDateRange?: pulumi.Input<string | undefined>;
     /**
      * The number of instances for which to reserve capacity.
      */
@@ -152,9 +152,9 @@ export interface GetCapacityBlockOfferingOutputArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The date and time at which the Capacity Block Reservation starts. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      */
-    startDateRange?: pulumi.Input<string>;
+    startDateRange?: pulumi.Input<string | undefined>;
 }

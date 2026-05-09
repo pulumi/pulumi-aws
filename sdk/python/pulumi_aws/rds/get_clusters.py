@@ -129,8 +129,8 @@ def get_clusters(filters: Optional[Sequence[Union['GetClustersFilterArgs', 'GetC
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'))
-def get_clusters_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetClustersFilterArgs', 'GetClustersFilterArgsDict']]]]] = None,
-                        region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_clusters_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetClustersFilterArgs', 'GetClustersFilterArgsDict']]]]] = None,
+                        region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClustersResult]:
     """
     Data source for managing an AWS RDS (Relational Database) Clusters.

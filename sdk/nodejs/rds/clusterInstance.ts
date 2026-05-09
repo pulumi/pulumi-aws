@@ -348,151 +348,151 @@ export interface ClusterInstanceState {
     /**
      * Specifies whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.
      */
-    applyImmediately?: pulumi.Input<boolean>;
+    applyImmediately?: pulumi.Input<boolean | undefined>;
     /**
      * Amazon Resource Name (ARN) of cluster instance
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
      */
-    autoMinorVersionUpgrade?: pulumi.Input<boolean>;
+    autoMinorVersionUpgrade?: pulumi.Input<boolean | undefined>;
     /**
      * EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) about the details.
      */
-    availabilityZone?: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the CA certificate for the DB instance.
      */
-    caCertIdentifier?: pulumi.Input<string>;
+    caCertIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the `aws.rds.Cluster` in which to launch this instance.
      */
-    clusterIdentifier?: pulumi.Input<string>;
+    clusterIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
      */
-    copyTagsToSnapshot?: pulumi.Input<boolean>;
+    copyTagsToSnapshot?: pulumi.Input<boolean | undefined>;
     /**
      * Instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
      */
-    customIamInstanceProfile?: pulumi.Input<string>;
+    customIamInstanceProfile?: pulumi.Input<string | undefined>;
     /**
      * Name of the DB parameter group to associate with this instance.
      */
-    dbParameterGroupName?: pulumi.Input<string>;
+    dbParameterGroupName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the DB subnet group to associate with this DB instance. The default behavior varies depending on whether `dbSubnetGroupName` is specified. Please refer to official [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) to understand how `dbSubnetGroupName` and `publiclyAccessible` parameters affect DB instance behaviour. **NOTE:** This must match the `dbSubnetGroupName` of the attached `aws.rds.Cluster`.
      */
-    dbSubnetGroupName?: pulumi.Input<string>;
+    dbSubnetGroupName?: pulumi.Input<string | undefined>;
     /**
      * Region-unique, immutable identifier for the DB instance.
      */
-    dbiResourceId?: pulumi.Input<string>;
+    dbiResourceId?: pulumi.Input<string | undefined>;
     /**
      * DNS address for this instance. May not be writable
      */
-    endpoint?: pulumi.Input<string>;
+    endpoint?: pulumi.Input<string | undefined>;
     /**
      * Name of the database engine to be used for the RDS cluster instance.
      * Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
      */
-    engine?: pulumi.Input<enums.rds.EngineType>;
+    engine?: pulumi.Input<enums.rds.EngineType | undefined>;
     /**
      * Database engine version. Please note that to upgrade the `engineVersion` of the instance, it must be done on the `aws.rds.Cluster` `engineVersion`. Trying to upgrade in `awsClusterInstance` will not update the `engineVersion`.
      */
-    engineVersion?: pulumi.Input<string>;
+    engineVersion?: pulumi.Input<string | undefined>;
     /**
      * Database engine version
      */
-    engineVersionActual?: pulumi.Input<string>;
+    engineVersionActual?: pulumi.Input<string | undefined>;
     /**
      * Forces an instance to be destroyed when a part of a read replica cluster. **Note:** will promote the read replica to a standalone cluster before instance deletion.
      */
-    forceDestroy?: pulumi.Input<boolean>;
+    forceDestroy?: pulumi.Input<boolean | undefined>;
     /**
      * Identifier for the RDS instance, if omitted, Pulumi will assign a random, unique identifier.
      */
-    identifier?: pulumi.Input<string>;
+    identifier?: pulumi.Input<string | undefined>;
     /**
      * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
      */
-    identifierPrefix?: pulumi.Input<string>;
+    identifierPrefix?: pulumi.Input<string | undefined>;
     /**
      * Instance class to use. For details on CPU and memory, see [Scaling Aurora DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html). Aurora uses `db.*` instance classes/types. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) for currently available instance classes and complete details. For Aurora Serverless v2 use `db.serverless`.
      */
-    instanceClass?: pulumi.Input<string | enums.rds.InstanceType>;
+    instanceClass?: pulumi.Input<string | enums.rds.InstanceType | undefined>;
     /**
      * ARN for the KMS encryption key if one is set to the cluster.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
      */
-    monitoringInterval?: pulumi.Input<number>;
+    monitoringInterval?: pulumi.Input<number | undefined>;
     /**
      * ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html) what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
      */
-    monitoringRoleArn?: pulumi.Input<string>;
+    monitoringRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Network type of the DB instance.
      */
-    networkType?: pulumi.Input<string>;
+    networkType?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether Performance Insights is enabled or not. **NOTE:** When Performance Insights is configured at the cluster level through `aws.rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster's configuration.
      */
-    performanceInsightsEnabled?: pulumi.Input<boolean>;
+    performanceInsightsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true.
      */
-    performanceInsightsKmsKeyId?: pulumi.Input<string>;
+    performanceInsightsKmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
      */
-    performanceInsightsRetentionPeriod?: pulumi.Input<number>;
+    performanceInsightsRetentionPeriod?: pulumi.Input<number | undefined>;
     /**
      * Database port
      */
-    port?: pulumi.Input<number>;
+    port?: pulumi.Input<number | undefined>;
     /**
      * Daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00". **NOTE:** If `preferredBackupWindow` is set at the cluster level, this argument **must** be omitted.
      */
-    preferredBackupWindow?: pulumi.Input<string>;
+    preferredBackupWindow?: pulumi.Input<string | undefined>;
     /**
      * Window to perform maintenance in. Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
      */
-    preferredMaintenanceWindow?: pulumi.Input<string>;
+    preferredMaintenanceWindow?: pulumi.Input<string | undefined>;
     /**
      * Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoted to writer.
      */
-    promotionTier?: pulumi.Input<number>;
+    promotionTier?: pulumi.Input<number | undefined>;
     /**
      * Bool to control if instance is publicly accessible. Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more details on controlling this property.
      */
-    publiclyAccessible?: pulumi.Input<boolean>;
+    publiclyAccessible?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the DB cluster is encrypted.
      */
-    storageEncrypted?: pulumi.Input<boolean>;
+    storageEncrypted?: pulumi.Input<boolean | undefined>;
     /**
      * Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
      * For more detailed documentation about each argument, refer to
      * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
      */
-    writer?: pulumi.Input<boolean>;
+    writer?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -502,19 +502,19 @@ export interface ClusterInstanceArgs {
     /**
      * Specifies whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.
      */
-    applyImmediately?: pulumi.Input<boolean>;
+    applyImmediately?: pulumi.Input<boolean | undefined>;
     /**
      * Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
      */
-    autoMinorVersionUpgrade?: pulumi.Input<boolean>;
+    autoMinorVersionUpgrade?: pulumi.Input<boolean | undefined>;
     /**
      * EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) about the details.
      */
-    availabilityZone?: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the CA certificate for the DB instance.
      */
-    caCertIdentifier?: pulumi.Input<string>;
+    caCertIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the `aws.rds.Cluster` in which to launch this instance.
      */
@@ -522,19 +522,19 @@ export interface ClusterInstanceArgs {
     /**
      * Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
      */
-    copyTagsToSnapshot?: pulumi.Input<boolean>;
+    copyTagsToSnapshot?: pulumi.Input<boolean | undefined>;
     /**
      * Instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
      */
-    customIamInstanceProfile?: pulumi.Input<string>;
+    customIamInstanceProfile?: pulumi.Input<string | undefined>;
     /**
      * Name of the DB parameter group to associate with this instance.
      */
-    dbParameterGroupName?: pulumi.Input<string>;
+    dbParameterGroupName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the DB subnet group to associate with this DB instance. The default behavior varies depending on whether `dbSubnetGroupName` is specified. Please refer to official [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) to understand how `dbSubnetGroupName` and `publiclyAccessible` parameters affect DB instance behaviour. **NOTE:** This must match the `dbSubnetGroupName` of the attached `aws.rds.Cluster`.
      */
-    dbSubnetGroupName?: pulumi.Input<string>;
+    dbSubnetGroupName?: pulumi.Input<string | undefined>;
     /**
      * Name of the database engine to be used for the RDS cluster instance.
      * Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
@@ -543,19 +543,19 @@ export interface ClusterInstanceArgs {
     /**
      * Database engine version. Please note that to upgrade the `engineVersion` of the instance, it must be done on the `aws.rds.Cluster` `engineVersion`. Trying to upgrade in `awsClusterInstance` will not update the `engineVersion`.
      */
-    engineVersion?: pulumi.Input<string>;
+    engineVersion?: pulumi.Input<string | undefined>;
     /**
      * Forces an instance to be destroyed when a part of a read replica cluster. **Note:** will promote the read replica to a standalone cluster before instance deletion.
      */
-    forceDestroy?: pulumi.Input<boolean>;
+    forceDestroy?: pulumi.Input<boolean | undefined>;
     /**
      * Identifier for the RDS instance, if omitted, Pulumi will assign a random, unique identifier.
      */
-    identifier?: pulumi.Input<string>;
+    identifier?: pulumi.Input<string | undefined>;
     /**
      * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
      */
-    identifierPrefix?: pulumi.Input<string>;
+    identifierPrefix?: pulumi.Input<string | undefined>;
     /**
      * Instance class to use. For details on CPU and memory, see [Scaling Aurora DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html). Aurora uses `db.*` instance classes/types. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) for currently available instance classes and complete details. For Aurora Serverless v2 use `db.serverless`.
      */
@@ -563,48 +563,48 @@ export interface ClusterInstanceArgs {
     /**
      * Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
      */
-    monitoringInterval?: pulumi.Input<number>;
+    monitoringInterval?: pulumi.Input<number | undefined>;
     /**
      * ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html) what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
      */
-    monitoringRoleArn?: pulumi.Input<string>;
+    monitoringRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether Performance Insights is enabled or not. **NOTE:** When Performance Insights is configured at the cluster level through `aws.rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster's configuration.
      */
-    performanceInsightsEnabled?: pulumi.Input<boolean>;
+    performanceInsightsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true.
      */
-    performanceInsightsKmsKeyId?: pulumi.Input<string>;
+    performanceInsightsKmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
      */
-    performanceInsightsRetentionPeriod?: pulumi.Input<number>;
+    performanceInsightsRetentionPeriod?: pulumi.Input<number | undefined>;
     /**
      * Daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00". **NOTE:** If `preferredBackupWindow` is set at the cluster level, this argument **must** be omitted.
      */
-    preferredBackupWindow?: pulumi.Input<string>;
+    preferredBackupWindow?: pulumi.Input<string | undefined>;
     /**
      * Window to perform maintenance in. Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
      */
-    preferredMaintenanceWindow?: pulumi.Input<string>;
+    preferredMaintenanceWindow?: pulumi.Input<string | undefined>;
     /**
      * Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoted to writer.
      */
-    promotionTier?: pulumi.Input<number>;
+    promotionTier?: pulumi.Input<number | undefined>;
     /**
      * Bool to control if instance is publicly accessible. Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more details on controlling this property.
      */
-    publiclyAccessible?: pulumi.Input<boolean>;
+    publiclyAccessible?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
      * For more detailed documentation about each argument, refer to
      * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

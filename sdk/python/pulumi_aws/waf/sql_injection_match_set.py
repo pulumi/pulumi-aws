@@ -21,8 +21,8 @@ __all__ = ['SqlInjectionMatchSetArgs', 'SqlInjectionMatchSet']
 @pulumi.input_type
 class SqlInjectionMatchSetArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sql_injection_match_tuples: Optional[pulumi.Input[Sequence[pulumi.Input['SqlInjectionMatchSetSqlInjectionMatchTupleArgs']]]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sql_injection_match_tuples: pulumi.Input[Optional[Sequence[pulumi.Input['SqlInjectionMatchSetSqlInjectionMatchTupleArgs']]]] = None):
         """
         The set of arguments for constructing a SqlInjectionMatchSet resource.
 
@@ -36,35 +36,35 @@ class SqlInjectionMatchSetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name or description of the SQL Injection Match Set.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="sqlInjectionMatchTuples")
-    def sql_injection_match_tuples(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SqlInjectionMatchSetSqlInjectionMatchTupleArgs']]]]:
+    def sql_injection_match_tuples(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SqlInjectionMatchSetSqlInjectionMatchTupleArgs']]]]:
         """
         The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
         """
         return pulumi.get(self, "sql_injection_match_tuples")
 
     @sql_injection_match_tuples.setter
-    def sql_injection_match_tuples(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SqlInjectionMatchSetSqlInjectionMatchTupleArgs']]]]):
+    def sql_injection_match_tuples(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SqlInjectionMatchSetSqlInjectionMatchTupleArgs']]]]):
         pulumi.set(self, "sql_injection_match_tuples", value)
 
 
 @pulumi.input_type
 class _SqlInjectionMatchSetState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sql_injection_match_tuples: Optional[pulumi.Input[Sequence[pulumi.Input['SqlInjectionMatchSetSqlInjectionMatchTupleArgs']]]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sql_injection_match_tuples: pulumi.Input[Optional[Sequence[pulumi.Input['SqlInjectionMatchSetSqlInjectionMatchTupleArgs']]]] = None):
         """
         Input properties used for looking up and filtering SqlInjectionMatchSet resources.
 
@@ -81,38 +81,38 @@ class _SqlInjectionMatchSetState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) of the SQL injection match set.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name or description of the SQL Injection Match Set.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="sqlInjectionMatchTuples")
-    def sql_injection_match_tuples(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SqlInjectionMatchSetSqlInjectionMatchTupleArgs']]]]:
+    def sql_injection_match_tuples(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SqlInjectionMatchSetSqlInjectionMatchTupleArgs']]]]:
         """
         The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
         """
         return pulumi.get(self, "sql_injection_match_tuples")
 
     @sql_injection_match_tuples.setter
-    def sql_injection_match_tuples(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SqlInjectionMatchSetSqlInjectionMatchTupleArgs']]]]):
+    def sql_injection_match_tuples(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SqlInjectionMatchSetSqlInjectionMatchTupleArgs']]]]):
         pulumi.set(self, "sql_injection_match_tuples", value)
 
 
@@ -122,8 +122,8 @@ class SqlInjectionMatchSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sql_injection_match_tuples: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SqlInjectionMatchSetSqlInjectionMatchTupleArgs', 'SqlInjectionMatchSetSqlInjectionMatchTupleArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sql_injection_match_tuples: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SqlInjectionMatchSetSqlInjectionMatchTupleArgs', 'SqlInjectionMatchSetSqlInjectionMatchTupleArgsDict']]]]] = None,
                  __props__=None):
         """
         Provides a WAF SQL Injection Match Set Resource
@@ -207,8 +207,8 @@ class SqlInjectionMatchSet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sql_injection_match_tuples: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SqlInjectionMatchSetSqlInjectionMatchTupleArgs', 'SqlInjectionMatchSetSqlInjectionMatchTupleArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sql_injection_match_tuples: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SqlInjectionMatchSetSqlInjectionMatchTupleArgs', 'SqlInjectionMatchSetSqlInjectionMatchTupleArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -231,9 +231,9 @@ class SqlInjectionMatchSet(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            sql_injection_match_tuples: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SqlInjectionMatchSetSqlInjectionMatchTupleArgs', 'SqlInjectionMatchSetSqlInjectionMatchTupleArgsDict']]]]] = None) -> 'SqlInjectionMatchSet':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            sql_injection_match_tuples: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SqlInjectionMatchSetSqlInjectionMatchTupleArgs', 'SqlInjectionMatchSetSqlInjectionMatchTupleArgsDict']]]]] = None) -> 'SqlInjectionMatchSet':
         """
         Get an existing SqlInjectionMatchSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

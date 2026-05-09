@@ -158,37 +158,37 @@ export interface ProfilesResourceAssociationState {
     /**
      * Name of the Profile Resource Association.
      */
-    name?: pulumi.Input<string>;
-    ownerId?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
+    ownerId?: pulumi.Input<string | undefined>;
     /**
      * ID of the profile associated with the VPC.
      */
-    profileId?: pulumi.Input<string>;
+    profileId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Resource ID of the resource to be associated with the profile.
      */
-    resourceArn?: pulumi.Input<string>;
+    resourceArn?: pulumi.Input<string | undefined>;
     /**
      * Resource properties for the resource to be associated with the profile.
      */
-    resourceProperties?: pulumi.Input<string>;
+    resourceProperties?: pulumi.Input<string | undefined>;
     /**
      * Type of resource associated with the profile.
      */
-    resourceType?: pulumi.Input<string>;
+    resourceType?: pulumi.Input<string | undefined>;
     /**
      * Status of the Profile Association. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Status message of the Profile Resource Association.
      */
-    statusMessage?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.route53.ProfilesResourceAssociationTimeouts>;
+    statusMessage?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.route53.ProfilesResourceAssociationTimeouts | undefined>;
 }
 
 /**
@@ -198,7 +198,7 @@ export interface ProfilesResourceAssociationArgs {
     /**
      * Name of the Profile Resource Association.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * ID of the profile associated with the VPC.
      */
@@ -206,7 +206,7 @@ export interface ProfilesResourceAssociationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Resource ID of the resource to be associated with the profile.
      */
@@ -214,6 +214,6 @@ export interface ProfilesResourceAssociationArgs {
     /**
      * Resource properties for the resource to be associated with the profile.
      */
-    resourceProperties?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.route53.ProfilesResourceAssociationTimeouts>;
+    resourceProperties?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.route53.ProfilesResourceAssociationTimeouts | undefined>;
 }

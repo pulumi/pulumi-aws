@@ -131,25 +131,25 @@ export interface ContributorManagedInsightRuleState {
     /**
      * ARN of the Contributor Managed Insight Rule.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
      */
-    resourceArn?: pulumi.Input<string>;
-    ruleName?: pulumi.Input<string>;
-    state?: pulumi.Input<string>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    resourceArn?: pulumi.Input<string | undefined>;
+    ruleName?: pulumi.Input<string | undefined>;
+    state?: pulumi.Input<string | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Template name for the managed Contributor Insights rule, as returned by ListManagedInsightRules.
      *
      * The following arguments are optional:
      */
-    templateName?: pulumi.Input<string>;
+    templateName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -159,13 +159,13 @@ export interface ContributorManagedInsightRuleArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
      */
     resourceArn: pulumi.Input<string>;
-    state?: pulumi.Input<string>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    state?: pulumi.Input<string | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Template name for the managed Contributor Insights rule, as returned by ListManagedInsightRules.
      *

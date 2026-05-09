@@ -315,12 +315,12 @@ def get_image(arn: Optional[_builtins.str] = None,
         state=pulumi.get(__ret__, 'state'),
         state_change_reasons=pulumi.get(__ret__, 'state_change_reasons'),
         type=pulumi.get(__ret__, 'type'))
-def get_image_output(arn: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                     most_recent: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                     name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                     name_regex: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                     region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                     type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_image_output(arn: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                     most_recent: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                     name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                     name_regex: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                     region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                     type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImageResult]:
     """
     Data source for managing an AWS AppStream 2.0 Image.

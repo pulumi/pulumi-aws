@@ -35,8 +35,8 @@ public final class SesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ses.SesFunctions;
      * import com.pulumi.aws.ses.inputs.GetActiveReceiptRuleSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -74,8 +74,8 @@ public final class SesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ses.SesFunctions;
      * import com.pulumi.aws.ses.inputs.GetActiveReceiptRuleSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -113,8 +113,8 @@ public final class SesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ses.SesFunctions;
      * import com.pulumi.aws.ses.inputs.GetActiveReceiptRuleSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -152,8 +152,8 @@ public final class SesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ses.SesFunctions;
      * import com.pulumi.aws.ses.inputs.GetActiveReceiptRuleSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -191,8 +191,8 @@ public final class SesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ses.SesFunctions;
      * import com.pulumi.aws.ses.inputs.GetActiveReceiptRuleSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -230,8 +230,8 @@ public final class SesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ses.SesFunctions;
      * import com.pulumi.aws.ses.inputs.GetActiveReceiptRuleSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -269,8 +269,8 @@ public final class SesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ses.SesFunctions;
      * import com.pulumi.aws.ses.inputs.GetActiveReceiptRuleSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -308,8 +308,8 @@ public final class SesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ses.SesFunctions;
      * import com.pulumi.aws.ses.inputs.GetDomainIdentityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -348,8 +348,8 @@ public final class SesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ses.SesFunctions;
      * import com.pulumi.aws.ses.inputs.GetDomainIdentityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -388,8 +388,8 @@ public final class SesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ses.SesFunctions;
      * import com.pulumi.aws.ses.inputs.GetDomainIdentityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -428,8 +428,8 @@ public final class SesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ses.SesFunctions;
      * import com.pulumi.aws.ses.inputs.GetDomainIdentityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -468,8 +468,8 @@ public final class SesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ses.SesFunctions;
      * import com.pulumi.aws.ses.inputs.GetDomainIdentityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -508,8 +508,8 @@ public final class SesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ses.SesFunctions;
      * import com.pulumi.aws.ses.inputs.GetEmailIdentityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -548,8 +548,8 @@ public final class SesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ses.SesFunctions;
      * import com.pulumi.aws.ses.inputs.GetEmailIdentityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -588,8 +588,8 @@ public final class SesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ses.SesFunctions;
      * import com.pulumi.aws.ses.inputs.GetEmailIdentityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -628,8 +628,8 @@ public final class SesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ses.SesFunctions;
      * import com.pulumi.aws.ses.inputs.GetEmailIdentityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -668,8 +668,8 @@ public final class SesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ses.SesFunctions;
      * import com.pulumi.aws.ses.inputs.GetEmailIdentityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

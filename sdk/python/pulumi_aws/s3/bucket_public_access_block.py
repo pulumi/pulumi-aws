@@ -20,12 +20,12 @@ __all__ = ['BucketPublicAccessBlockArgs', 'BucketPublicAccessBlock']
 class BucketPublicAccessBlockArgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[_builtins.str],
-                 block_public_acls: Optional[pulumi.Input[_builtins.bool]] = None,
-                 block_public_policy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ignore_public_acls: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 restrict_public_buckets: Optional[pulumi.Input[_builtins.bool]] = None,
-                 skip_destroy: Optional[pulumi.Input[_builtins.bool]] = None):
+                 block_public_acls: pulumi.Input[Optional[_builtins.bool]] = None,
+                 block_public_policy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ignore_public_acls: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 restrict_public_buckets: pulumi.Input[Optional[_builtins.bool]] = None,
+                 skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a BucketPublicAccessBlock resource.
 
@@ -70,7 +70,7 @@ class BucketPublicAccessBlockArgs:
 
     @_builtins.property
     @pulumi.getter(name="blockPublicAcls")
-    def block_public_acls(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def block_public_acls(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether Amazon S3 should block public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
         * PUT Bucket ACL and PUT Object ACL calls will fail if the specified ACL allows public access.
@@ -79,12 +79,12 @@ class BucketPublicAccessBlockArgs:
         return pulumi.get(self, "block_public_acls")
 
     @block_public_acls.setter
-    def block_public_acls(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def block_public_acls(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "block_public_acls", value)
 
     @_builtins.property
     @pulumi.getter(name="blockPublicPolicy")
-    def block_public_policy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def block_public_policy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether Amazon S3 should block public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the existing bucket policy. When set to `true` causes Amazon S3 to:
         * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
@@ -92,12 +92,12 @@ class BucketPublicAccessBlockArgs:
         return pulumi.get(self, "block_public_policy")
 
     @block_public_policy.setter
-    def block_public_policy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def block_public_policy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "block_public_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="ignorePublicAcls")
-    def ignore_public_acls(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_public_acls(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether Amazon S3 should ignore public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
         * Ignore public ACLs on this bucket and any objects that it contains.
@@ -105,24 +105,24 @@ class BucketPublicAccessBlockArgs:
         return pulumi.get(self, "ignore_public_acls")
 
     @ignore_public_acls.setter
-    def ignore_public_acls(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_public_acls(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_public_acls", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="restrictPublicBuckets")
-    def restrict_public_buckets(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def restrict_public_buckets(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether Amazon S3 should restrict public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the previously stored bucket policy, except that public and cross-account access within the public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
         * Only the bucket owner and AWS Services can access this buckets if it has a public policy.
@@ -130,32 +130,32 @@ class BucketPublicAccessBlockArgs:
         return pulumi.get(self, "restrict_public_buckets")
 
     @restrict_public_buckets.setter
-    def restrict_public_buckets(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def restrict_public_buckets(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "restrict_public_buckets", value)
 
     @_builtins.property
     @pulumi.getter(name="skipDestroy")
-    def skip_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_destroy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to retain the public access block upon destruction. If set to `true`, the resource is simply removed from state instead. This may be desirable in certain scenarios to prevent the removal of a public access block before deletion of the associated bucket.
         """
         return pulumi.get(self, "skip_destroy")
 
     @skip_destroy.setter
-    def skip_destroy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_destroy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_destroy", value)
 
 
 @pulumi.input_type
 class _BucketPublicAccessBlockState:
     def __init__(__self__, *,
-                 block_public_acls: Optional[pulumi.Input[_builtins.bool]] = None,
-                 block_public_policy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_public_acls: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 restrict_public_buckets: Optional[pulumi.Input[_builtins.bool]] = None,
-                 skip_destroy: Optional[pulumi.Input[_builtins.bool]] = None):
+                 block_public_acls: pulumi.Input[Optional[_builtins.bool]] = None,
+                 block_public_policy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_public_acls: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 restrict_public_buckets: pulumi.Input[Optional[_builtins.bool]] = None,
+                 skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering BucketPublicAccessBlock resources.
 
@@ -189,7 +189,7 @@ class _BucketPublicAccessBlockState:
 
     @_builtins.property
     @pulumi.getter(name="blockPublicAcls")
-    def block_public_acls(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def block_public_acls(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether Amazon S3 should block public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
         * PUT Bucket ACL and PUT Object ACL calls will fail if the specified ACL allows public access.
@@ -198,12 +198,12 @@ class _BucketPublicAccessBlockState:
         return pulumi.get(self, "block_public_acls")
 
     @block_public_acls.setter
-    def block_public_acls(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def block_public_acls(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "block_public_acls", value)
 
     @_builtins.property
     @pulumi.getter(name="blockPublicPolicy")
-    def block_public_policy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def block_public_policy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether Amazon S3 should block public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the existing bucket policy. When set to `true` causes Amazon S3 to:
         * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
@@ -211,24 +211,24 @@ class _BucketPublicAccessBlockState:
         return pulumi.get(self, "block_public_policy")
 
     @block_public_policy.setter
-    def block_public_policy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def block_public_policy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "block_public_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         S3 Bucket to which this Public Access Block configuration should be applied.
         """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
-    def bucket(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket", value)
 
     @_builtins.property
     @pulumi.getter(name="ignorePublicAcls")
-    def ignore_public_acls(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_public_acls(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether Amazon S3 should ignore public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
         * Ignore public ACLs on this bucket and any objects that it contains.
@@ -236,24 +236,24 @@ class _BucketPublicAccessBlockState:
         return pulumi.get(self, "ignore_public_acls")
 
     @ignore_public_acls.setter
-    def ignore_public_acls(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_public_acls(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_public_acls", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="restrictPublicBuckets")
-    def restrict_public_buckets(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def restrict_public_buckets(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether Amazon S3 should restrict public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the previously stored bucket policy, except that public and cross-account access within the public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
         * Only the bucket owner and AWS Services can access this buckets if it has a public policy.
@@ -261,19 +261,19 @@ class _BucketPublicAccessBlockState:
         return pulumi.get(self, "restrict_public_buckets")
 
     @restrict_public_buckets.setter
-    def restrict_public_buckets(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def restrict_public_buckets(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "restrict_public_buckets", value)
 
     @_builtins.property
     @pulumi.getter(name="skipDestroy")
-    def skip_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_destroy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to retain the public access block upon destruction. If set to `true`, the resource is simply removed from state instead. This may be desirable in certain scenarios to prevent the removal of a public access block before deletion of the associated bucket.
         """
         return pulumi.get(self, "skip_destroy")
 
     @skip_destroy.setter
-    def skip_destroy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_destroy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_destroy", value)
 
 
@@ -283,13 +283,13 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 block_public_acls: Optional[pulumi.Input[_builtins.bool]] = None,
-                 block_public_policy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_public_acls: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 restrict_public_buckets: Optional[pulumi.Input[_builtins.bool]] = None,
-                 skip_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
+                 block_public_acls: pulumi.Input[Optional[_builtins.bool]] = None,
+                 block_public_policy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_public_acls: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 restrict_public_buckets: pulumi.Input[Optional[_builtins.bool]] = None,
+                 skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manages S3 bucket-level Public Access Block configuration. For more information about these settings, see the [AWS S3 Block Public Access documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html).
@@ -389,13 +389,13 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 block_public_acls: Optional[pulumi.Input[_builtins.bool]] = None,
-                 block_public_policy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_public_acls: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 restrict_public_buckets: Optional[pulumi.Input[_builtins.bool]] = None,
-                 skip_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
+                 block_public_acls: pulumi.Input[Optional[_builtins.bool]] = None,
+                 block_public_policy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_public_acls: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 restrict_public_buckets: pulumi.Input[Optional[_builtins.bool]] = None,
+                 skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -424,13 +424,13 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            block_public_acls: Optional[pulumi.Input[_builtins.bool]] = None,
-            block_public_policy: Optional[pulumi.Input[_builtins.bool]] = None,
-            bucket: Optional[pulumi.Input[_builtins.str]] = None,
-            ignore_public_acls: Optional[pulumi.Input[_builtins.bool]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            restrict_public_buckets: Optional[pulumi.Input[_builtins.bool]] = None,
-            skip_destroy: Optional[pulumi.Input[_builtins.bool]] = None) -> 'BucketPublicAccessBlock':
+            block_public_acls: pulumi.Input[Optional[_builtins.bool]] = None,
+            block_public_policy: pulumi.Input[Optional[_builtins.bool]] = None,
+            bucket: pulumi.Input[Optional[_builtins.str]] = None,
+            ignore_public_acls: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            restrict_public_buckets: pulumi.Input[Optional[_builtins.bool]] = None,
+            skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None) -> 'BucketPublicAccessBlock':
         """
         Get an existing BucketPublicAccessBlock resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

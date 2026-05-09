@@ -220,46 +220,46 @@ export interface AgentcoreBrowserState {
     /**
      * ARN of the Browser.
      */
-    browserArn?: pulumi.Input<string>;
+    browserArn?: pulumi.Input<string | undefined>;
     /**
      * Unique identifier of the Browser.
      */
-    browserId?: pulumi.Input<string>;
+    browserId?: pulumi.Input<string | undefined>;
     /**
      * Description of the browser.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * ARN of the IAM role that the browser assumes for execution.
      */
-    executionRoleArn?: pulumi.Input<string>;
+    executionRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Name of the browser.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Network configuration for the browser. See `networkConfiguration` below.
      *
      * The following arguments are optional:
      */
-    networkConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreBrowserNetworkConfiguration>;
+    networkConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreBrowserNetworkConfiguration | undefined>;
     /**
      * Recording configuration for browser sessions. See `recording` below.
      */
-    recording?: pulumi.Input<inputs.bedrock.AgentcoreBrowserRecording>;
+    recording?: pulumi.Input<inputs.bedrock.AgentcoreBrowserRecording | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.bedrock.AgentcoreBrowserTimeouts>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.bedrock.AgentcoreBrowserTimeouts | undefined>;
 }
 
 /**
@@ -269,15 +269,15 @@ export interface AgentcoreBrowserArgs {
     /**
      * Description of the browser.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * ARN of the IAM role that the browser assumes for execution.
      */
-    executionRoleArn?: pulumi.Input<string>;
+    executionRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Name of the browser.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Network configuration for the browser. See `networkConfiguration` below.
      *
@@ -287,14 +287,14 @@ export interface AgentcoreBrowserArgs {
     /**
      * Recording configuration for browser sessions. See `recording` below.
      */
-    recording?: pulumi.Input<inputs.bedrock.AgentcoreBrowserRecording>;
+    recording?: pulumi.Input<inputs.bedrock.AgentcoreBrowserRecording | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.bedrock.AgentcoreBrowserTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.bedrock.AgentcoreBrowserTimeouts | undefined>;
 }

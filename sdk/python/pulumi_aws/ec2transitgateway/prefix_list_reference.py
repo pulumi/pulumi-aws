@@ -21,9 +21,9 @@ class PrefixListReferenceArgs:
     def __init__(__self__, *,
                  prefix_list_id: pulumi.Input[_builtins.str],
                  transit_gateway_route_table_id: pulumi.Input[_builtins.str],
-                 blackhole: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 transit_gateway_attachment_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 blackhole: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PrefixListReference resource.
 
@@ -72,50 +72,50 @@ class PrefixListReferenceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def blackhole(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def blackhole(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
         """
         return pulumi.get(self, "blackhole")
 
     @blackhole.setter
-    def blackhole(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def blackhole(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "blackhole", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="transitGatewayAttachmentId")
-    def transit_gateway_attachment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def transit_gateway_attachment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of EC2 Transit Gateway Attachment.
         """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
     @transit_gateway_attachment_id.setter
-    def transit_gateway_attachment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def transit_gateway_attachment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "transit_gateway_attachment_id", value)
 
 
 @pulumi.input_type
 class _PrefixListReferenceState:
     def __init__(__self__, *,
-                 blackhole: Optional[pulumi.Input[_builtins.bool]] = None,
-                 prefix_list_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 prefix_list_owner_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 transit_gateway_attachment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 transit_gateway_route_table_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 blackhole: pulumi.Input[Optional[_builtins.bool]] = None,
+                 prefix_list_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix_list_owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 transit_gateway_route_table_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PrefixListReference resources.
 
@@ -142,64 +142,64 @@ class _PrefixListReferenceState:
 
     @_builtins.property
     @pulumi.getter
-    def blackhole(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def blackhole(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
         """
         return pulumi.get(self, "blackhole")
 
     @blackhole.setter
-    def blackhole(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def blackhole(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "blackhole", value)
 
     @_builtins.property
     @pulumi.getter(name="prefixListId")
-    def prefix_list_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def prefix_list_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of EC2 Prefix List.
         """
         return pulumi.get(self, "prefix_list_id")
 
     @prefix_list_id.setter
-    def prefix_list_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def prefix_list_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "prefix_list_id", value)
 
     @_builtins.property
     @pulumi.getter(name="prefixListOwnerId")
-    def prefix_list_owner_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def prefix_list_owner_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "prefix_list_owner_id")
 
     @prefix_list_owner_id.setter
-    def prefix_list_owner_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def prefix_list_owner_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "prefix_list_owner_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="transitGatewayAttachmentId")
-    def transit_gateway_attachment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def transit_gateway_attachment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of EC2 Transit Gateway Attachment.
         """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
     @transit_gateway_attachment_id.setter
-    def transit_gateway_attachment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def transit_gateway_attachment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "transit_gateway_attachment_id", value)
 
     @_builtins.property
     @pulumi.getter(name="transitGatewayRouteTableId")
-    def transit_gateway_route_table_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def transit_gateway_route_table_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of EC2 Transit Gateway Route Table.
 
@@ -208,7 +208,7 @@ class _PrefixListReferenceState:
         return pulumi.get(self, "transit_gateway_route_table_id")
 
     @transit_gateway_route_table_id.setter
-    def transit_gateway_route_table_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def transit_gateway_route_table_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "transit_gateway_route_table_id", value)
 
 
@@ -218,11 +218,11 @@ class PrefixListReference(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 blackhole: Optional[pulumi.Input[_builtins.bool]] = None,
-                 prefix_list_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 transit_gateway_attachment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 transit_gateway_route_table_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 blackhole: pulumi.Input[Optional[_builtins.bool]] = None,
+                 prefix_list_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 transit_gateway_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an EC2 Transit Gateway Prefix List Reference.
@@ -331,11 +331,11 @@ class PrefixListReference(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 blackhole: Optional[pulumi.Input[_builtins.bool]] = None,
-                 prefix_list_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 transit_gateway_attachment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 transit_gateway_route_table_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 blackhole: pulumi.Input[Optional[_builtins.bool]] = None,
+                 prefix_list_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 transit_gateway_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -365,12 +365,12 @@ class PrefixListReference(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            blackhole: Optional[pulumi.Input[_builtins.bool]] = None,
-            prefix_list_id: Optional[pulumi.Input[_builtins.str]] = None,
-            prefix_list_owner_id: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            transit_gateway_attachment_id: Optional[pulumi.Input[_builtins.str]] = None,
-            transit_gateway_route_table_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'PrefixListReference':
+            blackhole: pulumi.Input[Optional[_builtins.bool]] = None,
+            prefix_list_id: pulumi.Input[Optional[_builtins.str]] = None,
+            prefix_list_owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            transit_gateway_route_table_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'PrefixListReference':
         """
         Get an existing PrefixListReference resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

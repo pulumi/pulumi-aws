@@ -21,9 +21,9 @@ class ContributorInsightRuleArgs:
     def __init__(__self__, *,
                  rule_definition: pulumi.Input[_builtins.str],
                  rule_name: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ContributorInsightRule resource.
 
@@ -71,48 +71,48 @@ class ContributorInsightRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleState")
-    def rule_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rule_state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         State of the rule. Valid values are `ENABLED` and `DISABLED`.
         """
         return pulumi.get(self, "rule_state")
 
     @rule_state.setter
-    def rule_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rule_state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rule_state", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _ContributorInsightRuleState:
     def __init__(__self__, *,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_definition: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_definition: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ContributorInsightRule resources.
 
@@ -141,43 +141,43 @@ class _ContributorInsightRuleState:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceArn")
-    def resource_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the Contributor Insight Rule.
         """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
-    def resource_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleDefinition")
-    def rule_definition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rule_definition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Definition of the rule, as a JSON object. For details on the valid syntax, see [Contributor Insights Rule Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html).
         """
         return pulumi.get(self, "rule_definition")
 
     @rule_definition.setter
-    def rule_definition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rule_definition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rule_definition", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleName")
-    def rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique name of the rule.
 
@@ -186,37 +186,37 @@ class _ContributorInsightRuleState:
         return pulumi.get(self, "rule_name")
 
     @rule_name.setter
-    def rule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rule_name", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleState")
-    def rule_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rule_state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         State of the rule. Valid values are `ENABLED` and `DISABLED`.
         """
         return pulumi.get(self, "rule_state")
 
     @rule_state.setter
-    def rule_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rule_state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rule_state", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
 
@@ -226,11 +226,11 @@ class ContributorInsightRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_definition: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_definition: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Resource for managing an AWS CloudWatch Contributor Insight Rule.
@@ -314,11 +314,11 @@ class ContributorInsightRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_definition: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_definition: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -349,13 +349,13 @@ class ContributorInsightRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            rule_definition: Optional[pulumi.Input[_builtins.str]] = None,
-            rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-            rule_state: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'ContributorInsightRule':
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            rule_definition: pulumi.Input[Optional[_builtins.str]] = None,
+            rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+            rule_state: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'ContributorInsightRule':
         """
         Get an existing ContributorInsightRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

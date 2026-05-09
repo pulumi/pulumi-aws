@@ -24,10 +24,10 @@ class ProvisionedModelThroughputArgs:
                  model_arn: pulumi.Input[_builtins.str],
                  model_units: pulumi.Input[_builtins.int],
                  provisioned_model_name: pulumi.Input[_builtins.str],
-                 commitment_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['ProvisionedModelThroughputTimeoutsArgs']] = None):
+                 commitment_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['ProvisionedModelThroughputTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a ProvisionedModelThroughput resource.
 
@@ -88,62 +88,62 @@ class ProvisionedModelThroughputArgs:
 
     @_builtins.property
     @pulumi.getter(name="commitmentDuration")
-    def commitment_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def commitment_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Commitment duration requested for the Provisioned Throughput. For custom models, you can purchase on-demand Provisioned Throughput by omitting this argument. Valid values: `OneMonth`, `SixMonths`.
         """
         return pulumi.get(self, "commitment_duration")
 
     @commitment_duration.setter
-    def commitment_duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def commitment_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "commitment_duration", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['ProvisionedModelThroughputTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['ProvisionedModelThroughputTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['ProvisionedModelThroughputTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['ProvisionedModelThroughputTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _ProvisionedModelThroughputState:
     def __init__(__self__, *,
-                 commitment_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_units: Optional[pulumi.Input[_builtins.int]] = None,
-                 provisioned_model_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioned_model_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['ProvisionedModelThroughputTimeoutsArgs']] = None):
+                 commitment_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_units: pulumi.Input[Optional[_builtins.int]] = None,
+                 provisioned_model_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioned_model_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['ProvisionedModelThroughputTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering ProvisionedModelThroughput resources.
 
@@ -177,107 +177,107 @@ class _ProvisionedModelThroughputState:
 
     @_builtins.property
     @pulumi.getter(name="commitmentDuration")
-    def commitment_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def commitment_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Commitment duration requested for the Provisioned Throughput. For custom models, you can purchase on-demand Provisioned Throughput by omitting this argument. Valid values: `OneMonth`, `SixMonths`.
         """
         return pulumi.get(self, "commitment_duration")
 
     @commitment_duration.setter
-    def commitment_duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def commitment_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "commitment_duration", value)
 
     @_builtins.property
     @pulumi.getter(name="modelArn")
-    def model_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def model_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the model to associate with this Provisioned Throughput.
         """
         return pulumi.get(self, "model_arn")
 
     @model_arn.setter
-    def model_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def model_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "model_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="modelUnits")
-    def model_units(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def model_units(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of model units to allocate. A model unit delivers a specific throughput level for the specified model.
         """
         return pulumi.get(self, "model_units")
 
     @model_units.setter
-    def model_units(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def model_units(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "model_units", value)
 
     @_builtins.property
     @pulumi.getter(name="provisionedModelArn")
-    def provisioned_model_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provisioned_model_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the Provisioned Throughput.
         """
         return pulumi.get(self, "provisioned_model_arn")
 
     @provisioned_model_arn.setter
-    def provisioned_model_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provisioned_model_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provisioned_model_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="provisionedModelName")
-    def provisioned_model_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provisioned_model_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique name for this Provisioned Throughput.
         """
         return pulumi.get(self, "provisioned_model_name")
 
     @provisioned_model_name.setter
-    def provisioned_model_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provisioned_model_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provisioned_model_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['ProvisionedModelThroughputTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['ProvisionedModelThroughputTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['ProvisionedModelThroughputTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['ProvisionedModelThroughputTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
@@ -287,13 +287,13 @@ class ProvisionedModelThroughput(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 commitment_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_units: Optional[pulumi.Input[_builtins.int]] = None,
-                 provisioned_model_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['ProvisionedModelThroughputTimeoutsArgs', 'ProvisionedModelThroughputTimeoutsArgsDict']]] = None,
+                 commitment_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_units: pulumi.Input[Optional[_builtins.int]] = None,
+                 provisioned_model_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ProvisionedModelThroughputTimeoutsArgs', 'ProvisionedModelThroughputTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Manages [Provisioned Throughput](https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html) for an Amazon Bedrock model.
@@ -387,13 +387,13 @@ class ProvisionedModelThroughput(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 commitment_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_units: Optional[pulumi.Input[_builtins.int]] = None,
-                 provisioned_model_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['ProvisionedModelThroughputTimeoutsArgs', 'ProvisionedModelThroughputTimeoutsArgsDict']]] = None,
+                 commitment_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_units: pulumi.Input[Optional[_builtins.int]] = None,
+                 provisioned_model_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ProvisionedModelThroughputTimeoutsArgs', 'ProvisionedModelThroughputTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -428,15 +428,15 @@ class ProvisionedModelThroughput(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            commitment_duration: Optional[pulumi.Input[_builtins.str]] = None,
-            model_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            model_units: Optional[pulumi.Input[_builtins.int]] = None,
-            provisioned_model_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            provisioned_model_name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: Optional[pulumi.Input[Union['ProvisionedModelThroughputTimeoutsArgs', 'ProvisionedModelThroughputTimeoutsArgsDict']]] = None) -> 'ProvisionedModelThroughput':
+            commitment_duration: pulumi.Input[Optional[_builtins.str]] = None,
+            model_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            model_units: pulumi.Input[Optional[_builtins.int]] = None,
+            provisioned_model_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            provisioned_model_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['ProvisionedModelThroughputTimeoutsArgs', 'ProvisionedModelThroughputTimeoutsArgsDict']]] = None) -> 'ProvisionedModelThroughput':
         """
         Get an existing ProvisionedModelThroughput resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

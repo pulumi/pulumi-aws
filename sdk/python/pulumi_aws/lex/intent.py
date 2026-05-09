@@ -22,18 +22,18 @@ __all__ = ['IntentArgs', 'Intent']
 class IntentArgs:
     def __init__(__self__, *,
                  fulfillment_activity: pulumi.Input['IntentFulfillmentActivityArgs'],
-                 conclusion_statement: Optional[pulumi.Input['IntentConclusionStatementArgs']] = None,
-                 confirmation_prompt: Optional[pulumi.Input['IntentConfirmationPromptArgs']] = None,
-                 create_version: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dialog_code_hook: Optional[pulumi.Input['IntentDialogCodeHookArgs']] = None,
-                 follow_up_prompt: Optional[pulumi.Input['IntentFollowUpPromptArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_intent_signature: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rejection_statement: Optional[pulumi.Input['IntentRejectionStatementArgs']] = None,
-                 sample_utterances: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 slots: Optional[pulumi.Input[Sequence[pulumi.Input['IntentSlotArgs']]]] = None):
+                 conclusion_statement: pulumi.Input[Optional['IntentConclusionStatementArgs']] = None,
+                 confirmation_prompt: pulumi.Input[Optional['IntentConfirmationPromptArgs']] = None,
+                 create_version: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dialog_code_hook: pulumi.Input[Optional['IntentDialogCodeHookArgs']] = None,
+                 follow_up_prompt: pulumi.Input[Optional['IntentFollowUpPromptArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_intent_signature: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rejection_statement: pulumi.Input[Optional['IntentRejectionStatementArgs']] = None,
+                 sample_utterances: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 slots: pulumi.Input[Optional[Sequence[pulumi.Input['IntentSlotArgs']]]] = None):
         """
         The set of arguments for constructing a Intent resource.
 
@@ -115,7 +115,7 @@ class IntentArgs:
 
     @_builtins.property
     @pulumi.getter(name="conclusionStatement")
-    def conclusion_statement(self) -> Optional[pulumi.Input['IntentConclusionStatementArgs']]:
+    def conclusion_statement(self) -> pulumi.Input[Optional['IntentConclusionStatementArgs']]:
         """
         The statement that you want Amazon Lex to convey to the user
         after the intent is successfully fulfilled by the Lambda function. This element is relevant only if
@@ -126,12 +126,12 @@ class IntentArgs:
         return pulumi.get(self, "conclusion_statement")
 
     @conclusion_statement.setter
-    def conclusion_statement(self, value: Optional[pulumi.Input['IntentConclusionStatementArgs']]):
+    def conclusion_statement(self, value: pulumi.Input[Optional['IntentConclusionStatementArgs']]):
         pulumi.set(self, "conclusion_statement", value)
 
     @_builtins.property
     @pulumi.getter(name="confirmationPrompt")
-    def confirmation_prompt(self) -> Optional[pulumi.Input['IntentConfirmationPromptArgs']]:
+    def confirmation_prompt(self) -> pulumi.Input[Optional['IntentConfirmationPromptArgs']]:
         """
         Prompts the user to confirm the intent. This question should
         have a yes or no answer. You you must provide both the `rejection_statement` and `confirmation_prompt`,
@@ -140,12 +140,12 @@ class IntentArgs:
         return pulumi.get(self, "confirmation_prompt")
 
     @confirmation_prompt.setter
-    def confirmation_prompt(self, value: Optional[pulumi.Input['IntentConfirmationPromptArgs']]):
+    def confirmation_prompt(self, value: pulumi.Input[Optional['IntentConfirmationPromptArgs']]):
         pulumi.set(self, "confirmation_prompt", value)
 
     @_builtins.property
     @pulumi.getter(name="createVersion")
-    def create_version(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def create_version(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determines if a new slot type version is created when the initial
         resource is created and on each update. Defaults to `false`.
@@ -153,24 +153,24 @@ class IntentArgs:
         return pulumi.get(self, "create_version")
 
     @create_version.setter
-    def create_version(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def create_version(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "create_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the intent. Must be less than or equal to 200 characters in length.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="dialogCodeHook")
-    def dialog_code_hook(self) -> Optional[pulumi.Input['IntentDialogCodeHookArgs']]:
+    def dialog_code_hook(self) -> pulumi.Input[Optional['IntentDialogCodeHookArgs']]:
         """
         Specifies a Lambda function to invoke for each user input. You can
         invoke this Lambda function to personalize user interaction. Attributes are documented under code_hook.
@@ -178,12 +178,12 @@ class IntentArgs:
         return pulumi.get(self, "dialog_code_hook")
 
     @dialog_code_hook.setter
-    def dialog_code_hook(self, value: Optional[pulumi.Input['IntentDialogCodeHookArgs']]):
+    def dialog_code_hook(self, value: pulumi.Input[Optional['IntentDialogCodeHookArgs']]):
         pulumi.set(self, "dialog_code_hook", value)
 
     @_builtins.property
     @pulumi.getter(name="followUpPrompt")
-    def follow_up_prompt(self) -> Optional[pulumi.Input['IntentFollowUpPromptArgs']]:
+    def follow_up_prompt(self) -> pulumi.Input[Optional['IntentFollowUpPromptArgs']]:
         """
         Amazon Lex uses this prompt to solicit additional activity after
         fulfilling an intent. For example, after the OrderPizza intent is fulfilled, you might prompt the
@@ -193,24 +193,24 @@ class IntentArgs:
         return pulumi.get(self, "follow_up_prompt")
 
     @follow_up_prompt.setter
-    def follow_up_prompt(self, value: Optional[pulumi.Input['IntentFollowUpPromptArgs']]):
+    def follow_up_prompt(self, value: pulumi.Input[Optional['IntentFollowUpPromptArgs']]):
         pulumi.set(self, "follow_up_prompt", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the intent, not case sensitive. Must be less than or equal to 100 characters in length.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="parentIntentSignature")
-    def parent_intent_signature(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parent_intent_signature(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique identifier for the built-in intent to base this
         intent on. To find the signature for an intent, see
@@ -220,24 +220,24 @@ class IntentArgs:
         return pulumi.get(self, "parent_intent_signature")
 
     @parent_intent_signature.setter
-    def parent_intent_signature(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parent_intent_signature(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parent_intent_signature", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="rejectionStatement")
-    def rejection_statement(self) -> Optional[pulumi.Input['IntentRejectionStatementArgs']]:
+    def rejection_statement(self) -> pulumi.Input[Optional['IntentRejectionStatementArgs']]:
         """
         When the user answers "no" to the question defined in
         `confirmation_prompt`, Amazon Lex responds with this statement to acknowledge that the intent was
@@ -247,12 +247,12 @@ class IntentArgs:
         return pulumi.get(self, "rejection_statement")
 
     @rejection_statement.setter
-    def rejection_statement(self, value: Optional[pulumi.Input['IntentRejectionStatementArgs']]):
+    def rejection_statement(self, value: pulumi.Input[Optional['IntentRejectionStatementArgs']]):
         pulumi.set(self, "rejection_statement", value)
 
     @_builtins.property
     @pulumi.getter(name="sampleUtterances")
-    def sample_utterances(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def sample_utterances(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An array of utterances (strings) that a user might say to signal
         the intent. For example, "I want {PizzaSize} pizza", "Order {Quantity} {PizzaSize} pizzas".
@@ -261,12 +261,12 @@ class IntentArgs:
         return pulumi.get(self, "sample_utterances")
 
     @sample_utterances.setter
-    def sample_utterances(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def sample_utterances(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "sample_utterances", value)
 
     @_builtins.property
     @pulumi.getter
-    def slots(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntentSlotArgs']]]]:
+    def slots(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IntentSlotArgs']]]]:
         """
         An list of intent slots. At runtime, Amazon Lex elicits required slot values
         from the user using prompts defined in the slots. Attributes are documented under slot.
@@ -274,31 +274,31 @@ class IntentArgs:
         return pulumi.get(self, "slots")
 
     @slots.setter
-    def slots(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntentSlotArgs']]]]):
+    def slots(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IntentSlotArgs']]]]):
         pulumi.set(self, "slots", value)
 
 
 @pulumi.input_type
 class _IntentState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 checksum: Optional[pulumi.Input[_builtins.str]] = None,
-                 conclusion_statement: Optional[pulumi.Input['IntentConclusionStatementArgs']] = None,
-                 confirmation_prompt: Optional[pulumi.Input['IntentConfirmationPromptArgs']] = None,
-                 create_version: Optional[pulumi.Input[_builtins.bool]] = None,
-                 created_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dialog_code_hook: Optional[pulumi.Input['IntentDialogCodeHookArgs']] = None,
-                 follow_up_prompt: Optional[pulumi.Input['IntentFollowUpPromptArgs']] = None,
-                 fulfillment_activity: Optional[pulumi.Input['IntentFulfillmentActivityArgs']] = None,
-                 last_updated_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_intent_signature: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rejection_statement: Optional[pulumi.Input['IntentRejectionStatementArgs']] = None,
-                 sample_utterances: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 slots: Optional[pulumi.Input[Sequence[pulumi.Input['IntentSlotArgs']]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 checksum: pulumi.Input[Optional[_builtins.str]] = None,
+                 conclusion_statement: pulumi.Input[Optional['IntentConclusionStatementArgs']] = None,
+                 confirmation_prompt: pulumi.Input[Optional['IntentConfirmationPromptArgs']] = None,
+                 create_version: pulumi.Input[Optional[_builtins.bool]] = None,
+                 created_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dialog_code_hook: pulumi.Input[Optional['IntentDialogCodeHookArgs']] = None,
+                 follow_up_prompt: pulumi.Input[Optional['IntentFollowUpPromptArgs']] = None,
+                 fulfillment_activity: pulumi.Input[Optional['IntentFulfillmentActivityArgs']] = None,
+                 last_updated_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_intent_signature: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rejection_statement: pulumi.Input[Optional['IntentRejectionStatementArgs']] = None,
+                 sample_utterances: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 slots: pulumi.Input[Optional[Sequence[pulumi.Input['IntentSlotArgs']]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Intent resources.
 
@@ -383,19 +383,19 @@ class _IntentState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the Lex intent.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def checksum(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def checksum(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Checksum identifying the version of the intent that was created. The checksum is not
         included as an argument because the resource will add it automatically when updating the intent.
@@ -403,12 +403,12 @@ class _IntentState:
         return pulumi.get(self, "checksum")
 
     @checksum.setter
-    def checksum(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def checksum(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "checksum", value)
 
     @_builtins.property
     @pulumi.getter(name="conclusionStatement")
-    def conclusion_statement(self) -> Optional[pulumi.Input['IntentConclusionStatementArgs']]:
+    def conclusion_statement(self) -> pulumi.Input[Optional['IntentConclusionStatementArgs']]:
         """
         The statement that you want Amazon Lex to convey to the user
         after the intent is successfully fulfilled by the Lambda function. This element is relevant only if
@@ -419,12 +419,12 @@ class _IntentState:
         return pulumi.get(self, "conclusion_statement")
 
     @conclusion_statement.setter
-    def conclusion_statement(self, value: Optional[pulumi.Input['IntentConclusionStatementArgs']]):
+    def conclusion_statement(self, value: pulumi.Input[Optional['IntentConclusionStatementArgs']]):
         pulumi.set(self, "conclusion_statement", value)
 
     @_builtins.property
     @pulumi.getter(name="confirmationPrompt")
-    def confirmation_prompt(self) -> Optional[pulumi.Input['IntentConfirmationPromptArgs']]:
+    def confirmation_prompt(self) -> pulumi.Input[Optional['IntentConfirmationPromptArgs']]:
         """
         Prompts the user to confirm the intent. This question should
         have a yes or no answer. You you must provide both the `rejection_statement` and `confirmation_prompt`,
@@ -433,12 +433,12 @@ class _IntentState:
         return pulumi.get(self, "confirmation_prompt")
 
     @confirmation_prompt.setter
-    def confirmation_prompt(self, value: Optional[pulumi.Input['IntentConfirmationPromptArgs']]):
+    def confirmation_prompt(self, value: pulumi.Input[Optional['IntentConfirmationPromptArgs']]):
         pulumi.set(self, "confirmation_prompt", value)
 
     @_builtins.property
     @pulumi.getter(name="createVersion")
-    def create_version(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def create_version(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determines if a new slot type version is created when the initial
         resource is created and on each update. Defaults to `false`.
@@ -446,36 +446,36 @@ class _IntentState:
         return pulumi.get(self, "create_version")
 
     @create_version.setter
-    def create_version(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def create_version(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "create_version", value)
 
     @_builtins.property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date when the intent version was created.
         """
         return pulumi.get(self, "created_date")
 
     @created_date.setter
-    def created_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_date", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the intent. Must be less than or equal to 200 characters in length.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="dialogCodeHook")
-    def dialog_code_hook(self) -> Optional[pulumi.Input['IntentDialogCodeHookArgs']]:
+    def dialog_code_hook(self) -> pulumi.Input[Optional['IntentDialogCodeHookArgs']]:
         """
         Specifies a Lambda function to invoke for each user input. You can
         invoke this Lambda function to personalize user interaction. Attributes are documented under code_hook.
@@ -483,12 +483,12 @@ class _IntentState:
         return pulumi.get(self, "dialog_code_hook")
 
     @dialog_code_hook.setter
-    def dialog_code_hook(self, value: Optional[pulumi.Input['IntentDialogCodeHookArgs']]):
+    def dialog_code_hook(self, value: pulumi.Input[Optional['IntentDialogCodeHookArgs']]):
         pulumi.set(self, "dialog_code_hook", value)
 
     @_builtins.property
     @pulumi.getter(name="followUpPrompt")
-    def follow_up_prompt(self) -> Optional[pulumi.Input['IntentFollowUpPromptArgs']]:
+    def follow_up_prompt(self) -> pulumi.Input[Optional['IntentFollowUpPromptArgs']]:
         """
         Amazon Lex uses this prompt to solicit additional activity after
         fulfilling an intent. For example, after the OrderPizza intent is fulfilled, you might prompt the
@@ -498,12 +498,12 @@ class _IntentState:
         return pulumi.get(self, "follow_up_prompt")
 
     @follow_up_prompt.setter
-    def follow_up_prompt(self, value: Optional[pulumi.Input['IntentFollowUpPromptArgs']]):
+    def follow_up_prompt(self, value: pulumi.Input[Optional['IntentFollowUpPromptArgs']]):
         pulumi.set(self, "follow_up_prompt", value)
 
     @_builtins.property
     @pulumi.getter(name="fulfillmentActivity")
-    def fulfillment_activity(self) -> Optional[pulumi.Input['IntentFulfillmentActivityArgs']]:
+    def fulfillment_activity(self) -> pulumi.Input[Optional['IntentFulfillmentActivityArgs']]:
         """
         Describes how the intent is fulfilled. For example, after a
         user provides all of the information for a pizza order, `fulfillment_activity` defines how the bot
@@ -512,36 +512,36 @@ class _IntentState:
         return pulumi.get(self, "fulfillment_activity")
 
     @fulfillment_activity.setter
-    def fulfillment_activity(self, value: Optional[pulumi.Input['IntentFulfillmentActivityArgs']]):
+    def fulfillment_activity(self, value: pulumi.Input[Optional['IntentFulfillmentActivityArgs']]):
         pulumi.set(self, "fulfillment_activity", value)
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedDate")
-    def last_updated_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_updated_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date when the $LATEST version of this intent was updated.
         """
         return pulumi.get(self, "last_updated_date")
 
     @last_updated_date.setter
-    def last_updated_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_updated_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_updated_date", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the intent, not case sensitive. Must be less than or equal to 100 characters in length.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="parentIntentSignature")
-    def parent_intent_signature(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parent_intent_signature(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique identifier for the built-in intent to base this
         intent on. To find the signature for an intent, see
@@ -551,24 +551,24 @@ class _IntentState:
         return pulumi.get(self, "parent_intent_signature")
 
     @parent_intent_signature.setter
-    def parent_intent_signature(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parent_intent_signature(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parent_intent_signature", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="rejectionStatement")
-    def rejection_statement(self) -> Optional[pulumi.Input['IntentRejectionStatementArgs']]:
+    def rejection_statement(self) -> pulumi.Input[Optional['IntentRejectionStatementArgs']]:
         """
         When the user answers "no" to the question defined in
         `confirmation_prompt`, Amazon Lex responds with this statement to acknowledge that the intent was
@@ -578,12 +578,12 @@ class _IntentState:
         return pulumi.get(self, "rejection_statement")
 
     @rejection_statement.setter
-    def rejection_statement(self, value: Optional[pulumi.Input['IntentRejectionStatementArgs']]):
+    def rejection_statement(self, value: pulumi.Input[Optional['IntentRejectionStatementArgs']]):
         pulumi.set(self, "rejection_statement", value)
 
     @_builtins.property
     @pulumi.getter(name="sampleUtterances")
-    def sample_utterances(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def sample_utterances(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An array of utterances (strings) that a user might say to signal
         the intent. For example, "I want {PizzaSize} pizza", "Order {Quantity} {PizzaSize} pizzas".
@@ -592,12 +592,12 @@ class _IntentState:
         return pulumi.get(self, "sample_utterances")
 
     @sample_utterances.setter
-    def sample_utterances(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def sample_utterances(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "sample_utterances", value)
 
     @_builtins.property
     @pulumi.getter
-    def slots(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntentSlotArgs']]]]:
+    def slots(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IntentSlotArgs']]]]:
         """
         An list of intent slots. At runtime, Amazon Lex elicits required slot values
         from the user using prompts defined in the slots. Attributes are documented under slot.
@@ -605,19 +605,19 @@ class _IntentState:
         return pulumi.get(self, "slots")
 
     @slots.setter
-    def slots(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntentSlotArgs']]]]):
+    def slots(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IntentSlotArgs']]]]):
         pulumi.set(self, "slots", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the bot.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -627,19 +627,19 @@ class Intent(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 conclusion_statement: Optional[pulumi.Input[Union['IntentConclusionStatementArgs', 'IntentConclusionStatementArgsDict']]] = None,
-                 confirmation_prompt: Optional[pulumi.Input[Union['IntentConfirmationPromptArgs', 'IntentConfirmationPromptArgsDict']]] = None,
-                 create_version: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dialog_code_hook: Optional[pulumi.Input[Union['IntentDialogCodeHookArgs', 'IntentDialogCodeHookArgsDict']]] = None,
-                 follow_up_prompt: Optional[pulumi.Input[Union['IntentFollowUpPromptArgs', 'IntentFollowUpPromptArgsDict']]] = None,
-                 fulfillment_activity: Optional[pulumi.Input[Union['IntentFulfillmentActivityArgs', 'IntentFulfillmentActivityArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_intent_signature: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rejection_statement: Optional[pulumi.Input[Union['IntentRejectionStatementArgs', 'IntentRejectionStatementArgsDict']]] = None,
-                 sample_utterances: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 slots: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntentSlotArgs', 'IntentSlotArgsDict']]]]] = None,
+                 conclusion_statement: pulumi.Input[Optional[Union['IntentConclusionStatementArgs', 'IntentConclusionStatementArgsDict']]] = None,
+                 confirmation_prompt: pulumi.Input[Optional[Union['IntentConfirmationPromptArgs', 'IntentConfirmationPromptArgsDict']]] = None,
+                 create_version: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dialog_code_hook: pulumi.Input[Optional[Union['IntentDialogCodeHookArgs', 'IntentDialogCodeHookArgsDict']]] = None,
+                 follow_up_prompt: pulumi.Input[Optional[Union['IntentFollowUpPromptArgs', 'IntentFollowUpPromptArgsDict']]] = None,
+                 fulfillment_activity: pulumi.Input[Optional[Union['IntentFulfillmentActivityArgs', 'IntentFulfillmentActivityArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_intent_signature: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rejection_statement: pulumi.Input[Optional[Union['IntentRejectionStatementArgs', 'IntentRejectionStatementArgsDict']]] = None,
+                 sample_utterances: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 slots: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntentSlotArgs', 'IntentSlotArgsDict']]]]] = None,
                  __props__=None):
         """
         Provides an Amazon Lex Intent resource. For more information see
@@ -890,19 +890,19 @@ class Intent(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 conclusion_statement: Optional[pulumi.Input[Union['IntentConclusionStatementArgs', 'IntentConclusionStatementArgsDict']]] = None,
-                 confirmation_prompt: Optional[pulumi.Input[Union['IntentConfirmationPromptArgs', 'IntentConfirmationPromptArgsDict']]] = None,
-                 create_version: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dialog_code_hook: Optional[pulumi.Input[Union['IntentDialogCodeHookArgs', 'IntentDialogCodeHookArgsDict']]] = None,
-                 follow_up_prompt: Optional[pulumi.Input[Union['IntentFollowUpPromptArgs', 'IntentFollowUpPromptArgsDict']]] = None,
-                 fulfillment_activity: Optional[pulumi.Input[Union['IntentFulfillmentActivityArgs', 'IntentFulfillmentActivityArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_intent_signature: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rejection_statement: Optional[pulumi.Input[Union['IntentRejectionStatementArgs', 'IntentRejectionStatementArgsDict']]] = None,
-                 sample_utterances: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 slots: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntentSlotArgs', 'IntentSlotArgsDict']]]]] = None,
+                 conclusion_statement: pulumi.Input[Optional[Union['IntentConclusionStatementArgs', 'IntentConclusionStatementArgsDict']]] = None,
+                 confirmation_prompt: pulumi.Input[Optional[Union['IntentConfirmationPromptArgs', 'IntentConfirmationPromptArgsDict']]] = None,
+                 create_version: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dialog_code_hook: pulumi.Input[Optional[Union['IntentDialogCodeHookArgs', 'IntentDialogCodeHookArgsDict']]] = None,
+                 follow_up_prompt: pulumi.Input[Optional[Union['IntentFollowUpPromptArgs', 'IntentFollowUpPromptArgsDict']]] = None,
+                 fulfillment_activity: pulumi.Input[Optional[Union['IntentFulfillmentActivityArgs', 'IntentFulfillmentActivityArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_intent_signature: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rejection_statement: pulumi.Input[Optional[Union['IntentRejectionStatementArgs', 'IntentRejectionStatementArgsDict']]] = None,
+                 sample_utterances: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 slots: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntentSlotArgs', 'IntentSlotArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -942,24 +942,24 @@ class Intent(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            checksum: Optional[pulumi.Input[_builtins.str]] = None,
-            conclusion_statement: Optional[pulumi.Input[Union['IntentConclusionStatementArgs', 'IntentConclusionStatementArgsDict']]] = None,
-            confirmation_prompt: Optional[pulumi.Input[Union['IntentConfirmationPromptArgs', 'IntentConfirmationPromptArgsDict']]] = None,
-            create_version: Optional[pulumi.Input[_builtins.bool]] = None,
-            created_date: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            dialog_code_hook: Optional[pulumi.Input[Union['IntentDialogCodeHookArgs', 'IntentDialogCodeHookArgsDict']]] = None,
-            follow_up_prompt: Optional[pulumi.Input[Union['IntentFollowUpPromptArgs', 'IntentFollowUpPromptArgsDict']]] = None,
-            fulfillment_activity: Optional[pulumi.Input[Union['IntentFulfillmentActivityArgs', 'IntentFulfillmentActivityArgsDict']]] = None,
-            last_updated_date: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            parent_intent_signature: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            rejection_statement: Optional[pulumi.Input[Union['IntentRejectionStatementArgs', 'IntentRejectionStatementArgsDict']]] = None,
-            sample_utterances: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            slots: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntentSlotArgs', 'IntentSlotArgsDict']]]]] = None,
-            version: Optional[pulumi.Input[_builtins.str]] = None) -> 'Intent':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            checksum: pulumi.Input[Optional[_builtins.str]] = None,
+            conclusion_statement: pulumi.Input[Optional[Union['IntentConclusionStatementArgs', 'IntentConclusionStatementArgsDict']]] = None,
+            confirmation_prompt: pulumi.Input[Optional[Union['IntentConfirmationPromptArgs', 'IntentConfirmationPromptArgsDict']]] = None,
+            create_version: pulumi.Input[Optional[_builtins.bool]] = None,
+            created_date: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            dialog_code_hook: pulumi.Input[Optional[Union['IntentDialogCodeHookArgs', 'IntentDialogCodeHookArgsDict']]] = None,
+            follow_up_prompt: pulumi.Input[Optional[Union['IntentFollowUpPromptArgs', 'IntentFollowUpPromptArgsDict']]] = None,
+            fulfillment_activity: pulumi.Input[Optional[Union['IntentFulfillmentActivityArgs', 'IntentFulfillmentActivityArgsDict']]] = None,
+            last_updated_date: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parent_intent_signature: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            rejection_statement: pulumi.Input[Optional[Union['IntentRejectionStatementArgs', 'IntentRejectionStatementArgsDict']]] = None,
+            sample_utterances: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            slots: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntentSlotArgs', 'IntentSlotArgsDict']]]]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> 'Intent':
         """
         Get an existing Intent resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

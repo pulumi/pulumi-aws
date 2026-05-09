@@ -160,11 +160,11 @@ def get_models(by_customization_type: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         model_summaries=pulumi.get(__ret__, 'model_summaries'),
         region=pulumi.get(__ret__, 'region'))
-def get_models_output(by_customization_type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      by_inference_type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      by_output_modality: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      by_provider: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_models_output(by_customization_type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      by_inference_type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      by_output_modality: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      by_provider: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetModelsResult]:
     """
     Data source for managing AWS Bedrock Foundation Models.

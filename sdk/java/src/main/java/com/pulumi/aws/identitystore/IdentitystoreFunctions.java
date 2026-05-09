@@ -45,8 +45,8 @@ public final class IdentitystoreFunctions {
      * import com.pulumi.aws.identitystore.inputs.GetGroupArgs;
      * import com.pulumi.aws.identitystore.inputs.GetGroupAlternateIdentifierArgs;
      * import com.pulumi.aws.identitystore.inputs.GetGroupAlternateIdentifierUniqueAttributeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -99,8 +99,8 @@ public final class IdentitystoreFunctions {
      * import com.pulumi.aws.identitystore.inputs.GetGroupArgs;
      * import com.pulumi.aws.identitystore.inputs.GetGroupAlternateIdentifierArgs;
      * import com.pulumi.aws.identitystore.inputs.GetGroupAlternateIdentifierUniqueAttributeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -153,8 +153,8 @@ public final class IdentitystoreFunctions {
      * import com.pulumi.aws.identitystore.inputs.GetGroupArgs;
      * import com.pulumi.aws.identitystore.inputs.GetGroupAlternateIdentifierArgs;
      * import com.pulumi.aws.identitystore.inputs.GetGroupAlternateIdentifierUniqueAttributeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -207,8 +207,8 @@ public final class IdentitystoreFunctions {
      * import com.pulumi.aws.identitystore.inputs.GetGroupArgs;
      * import com.pulumi.aws.identitystore.inputs.GetGroupAlternateIdentifierArgs;
      * import com.pulumi.aws.identitystore.inputs.GetGroupAlternateIdentifierUniqueAttributeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -261,8 +261,8 @@ public final class IdentitystoreFunctions {
      * import com.pulumi.aws.identitystore.inputs.GetGroupArgs;
      * import com.pulumi.aws.identitystore.inputs.GetGroupAlternateIdentifierArgs;
      * import com.pulumi.aws.identitystore.inputs.GetGroupAlternateIdentifierUniqueAttributeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -318,8 +318,8 @@ public final class IdentitystoreFunctions {
      * import com.pulumi.aws.identitystore.inputs.GetGroupAlternateIdentifierArgs;
      * import com.pulumi.aws.identitystore.inputs.GetGroupAlternateIdentifierUniqueAttributeArgs;
      * import com.pulumi.aws.identitystore.inputs.GetGroupMembershipsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -379,8 +379,8 @@ public final class IdentitystoreFunctions {
      * import com.pulumi.aws.identitystore.inputs.GetGroupAlternateIdentifierArgs;
      * import com.pulumi.aws.identitystore.inputs.GetGroupAlternateIdentifierUniqueAttributeArgs;
      * import com.pulumi.aws.identitystore.inputs.GetGroupMembershipsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -440,8 +440,8 @@ public final class IdentitystoreFunctions {
      * import com.pulumi.aws.identitystore.inputs.GetGroupAlternateIdentifierArgs;
      * import com.pulumi.aws.identitystore.inputs.GetGroupAlternateIdentifierUniqueAttributeArgs;
      * import com.pulumi.aws.identitystore.inputs.GetGroupMembershipsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -501,8 +501,8 @@ public final class IdentitystoreFunctions {
      * import com.pulumi.aws.identitystore.inputs.GetGroupAlternateIdentifierArgs;
      * import com.pulumi.aws.identitystore.inputs.GetGroupAlternateIdentifierUniqueAttributeArgs;
      * import com.pulumi.aws.identitystore.inputs.GetGroupMembershipsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -562,8 +562,8 @@ public final class IdentitystoreFunctions {
      * import com.pulumi.aws.identitystore.inputs.GetGroupAlternateIdentifierArgs;
      * import com.pulumi.aws.identitystore.inputs.GetGroupAlternateIdentifierUniqueAttributeArgs;
      * import com.pulumi.aws.identitystore.inputs.GetGroupMembershipsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -620,8 +620,8 @@ public final class IdentitystoreFunctions {
      * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.identitystore.IdentitystoreFunctions;
      * import com.pulumi.aws.identitystore.inputs.GetGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -667,8 +667,8 @@ public final class IdentitystoreFunctions {
      * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.identitystore.IdentitystoreFunctions;
      * import com.pulumi.aws.identitystore.inputs.GetGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -714,8 +714,8 @@ public final class IdentitystoreFunctions {
      * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.identitystore.IdentitystoreFunctions;
      * import com.pulumi.aws.identitystore.inputs.GetGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -761,8 +761,8 @@ public final class IdentitystoreFunctions {
      * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.identitystore.IdentitystoreFunctions;
      * import com.pulumi.aws.identitystore.inputs.GetGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -808,8 +808,8 @@ public final class IdentitystoreFunctions {
      * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.identitystore.IdentitystoreFunctions;
      * import com.pulumi.aws.identitystore.inputs.GetGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -855,8 +855,8 @@ public final class IdentitystoreFunctions {
      * import com.pulumi.aws.identitystore.inputs.GetUserArgs;
      * import com.pulumi.aws.identitystore.inputs.GetUserAlternateIdentifierArgs;
      * import com.pulumi.aws.identitystore.inputs.GetUserAlternateIdentifierUniqueAttributeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -909,8 +909,8 @@ public final class IdentitystoreFunctions {
      * import com.pulumi.aws.identitystore.inputs.GetUserArgs;
      * import com.pulumi.aws.identitystore.inputs.GetUserAlternateIdentifierArgs;
      * import com.pulumi.aws.identitystore.inputs.GetUserAlternateIdentifierUniqueAttributeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -963,8 +963,8 @@ public final class IdentitystoreFunctions {
      * import com.pulumi.aws.identitystore.inputs.GetUserArgs;
      * import com.pulumi.aws.identitystore.inputs.GetUserAlternateIdentifierArgs;
      * import com.pulumi.aws.identitystore.inputs.GetUserAlternateIdentifierUniqueAttributeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1017,8 +1017,8 @@ public final class IdentitystoreFunctions {
      * import com.pulumi.aws.identitystore.inputs.GetUserArgs;
      * import com.pulumi.aws.identitystore.inputs.GetUserAlternateIdentifierArgs;
      * import com.pulumi.aws.identitystore.inputs.GetUserAlternateIdentifierUniqueAttributeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1071,8 +1071,8 @@ public final class IdentitystoreFunctions {
      * import com.pulumi.aws.identitystore.inputs.GetUserArgs;
      * import com.pulumi.aws.identitystore.inputs.GetUserAlternateIdentifierArgs;
      * import com.pulumi.aws.identitystore.inputs.GetUserAlternateIdentifierUniqueAttributeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1125,8 +1125,8 @@ public final class IdentitystoreFunctions {
      * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.identitystore.IdentitystoreFunctions;
      * import com.pulumi.aws.identitystore.inputs.GetUsersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1172,8 +1172,8 @@ public final class IdentitystoreFunctions {
      * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.identitystore.IdentitystoreFunctions;
      * import com.pulumi.aws.identitystore.inputs.GetUsersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1219,8 +1219,8 @@ public final class IdentitystoreFunctions {
      * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.identitystore.IdentitystoreFunctions;
      * import com.pulumi.aws.identitystore.inputs.GetUsersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1266,8 +1266,8 @@ public final class IdentitystoreFunctions {
      * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.identitystore.IdentitystoreFunctions;
      * import com.pulumi.aws.identitystore.inputs.GetUsersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1313,8 +1313,8 @@ public final class IdentitystoreFunctions {
      * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.identitystore.IdentitystoreFunctions;
      * import com.pulumi.aws.identitystore.inputs.GetUsersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

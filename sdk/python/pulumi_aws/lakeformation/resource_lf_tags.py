@@ -22,11 +22,11 @@ __all__ = ['ResourceLfTagsArgs', 'ResourceLfTags']
 class ResourceLfTagsArgs:
     def __init__(__self__, *,
                  lf_tags: pulumi.Input[Sequence[pulumi.Input['ResourceLfTagsLfTagArgs']]],
-                 catalog_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input['ResourceLfTagsDatabaseArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 table: Optional[pulumi.Input['ResourceLfTagsTableArgs']] = None,
-                 table_with_columns: Optional[pulumi.Input['ResourceLfTagsTableWithColumnsArgs']] = None):
+                 catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional['ResourceLfTagsDatabaseArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 table: pulumi.Input[Optional['ResourceLfTagsTableArgs']] = None,
+                 table_with_columns: pulumi.Input[Optional['ResourceLfTagsTableWithColumnsArgs']] = None):
         """
         The set of arguments for constructing a ResourceLfTags resource.
 
@@ -69,55 +69,55 @@ class ResourceLfTagsArgs:
 
     @_builtins.property
     @pulumi.getter(name="catalogId")
-    def catalog_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def catalog_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
         """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
-    def catalog_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def catalog_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "catalog_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def database(self) -> Optional[pulumi.Input['ResourceLfTagsDatabaseArgs']]:
+    def database(self) -> pulumi.Input[Optional['ResourceLfTagsDatabaseArgs']]:
         """
         Configuration block for a database resource. See below.
         """
         return pulumi.get(self, "database")
 
     @database.setter
-    def database(self, value: Optional[pulumi.Input['ResourceLfTagsDatabaseArgs']]):
+    def database(self, value: pulumi.Input[Optional['ResourceLfTagsDatabaseArgs']]):
         pulumi.set(self, "database", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def table(self) -> Optional[pulumi.Input['ResourceLfTagsTableArgs']]:
+    def table(self) -> pulumi.Input[Optional['ResourceLfTagsTableArgs']]:
         """
         Configuration block for a table resource. See below.
         """
         return pulumi.get(self, "table")
 
     @table.setter
-    def table(self, value: Optional[pulumi.Input['ResourceLfTagsTableArgs']]):
+    def table(self, value: pulumi.Input[Optional['ResourceLfTagsTableArgs']]):
         pulumi.set(self, "table", value)
 
     @_builtins.property
     @pulumi.getter(name="tableWithColumns")
-    def table_with_columns(self) -> Optional[pulumi.Input['ResourceLfTagsTableWithColumnsArgs']]:
+    def table_with_columns(self) -> pulumi.Input[Optional['ResourceLfTagsTableWithColumnsArgs']]:
         """
         Configuration block for a table with columns resource. See below.
 
@@ -126,19 +126,19 @@ class ResourceLfTagsArgs:
         return pulumi.get(self, "table_with_columns")
 
     @table_with_columns.setter
-    def table_with_columns(self, value: Optional[pulumi.Input['ResourceLfTagsTableWithColumnsArgs']]):
+    def table_with_columns(self, value: pulumi.Input[Optional['ResourceLfTagsTableWithColumnsArgs']]):
         pulumi.set(self, "table_with_columns", value)
 
 
 @pulumi.input_type
 class _ResourceLfTagsState:
     def __init__(__self__, *,
-                 catalog_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input['ResourceLfTagsDatabaseArgs']] = None,
-                 lf_tags: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceLfTagsLfTagArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 table: Optional[pulumi.Input['ResourceLfTagsTableArgs']] = None,
-                 table_with_columns: Optional[pulumi.Input['ResourceLfTagsTableWithColumnsArgs']] = None):
+                 catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional['ResourceLfTagsDatabaseArgs']] = None,
+                 lf_tags: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceLfTagsLfTagArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 table: pulumi.Input[Optional['ResourceLfTagsTableArgs']] = None,
+                 table_with_columns: pulumi.Input[Optional['ResourceLfTagsTableWithColumnsArgs']] = None):
         """
         Input properties used for looking up and filtering ResourceLfTags resources.
 
@@ -168,31 +168,31 @@ class _ResourceLfTagsState:
 
     @_builtins.property
     @pulumi.getter(name="catalogId")
-    def catalog_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def catalog_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
         """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
-    def catalog_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def catalog_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "catalog_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def database(self) -> Optional[pulumi.Input['ResourceLfTagsDatabaseArgs']]:
+    def database(self) -> pulumi.Input[Optional['ResourceLfTagsDatabaseArgs']]:
         """
         Configuration block for a database resource. See below.
         """
         return pulumi.get(self, "database")
 
     @database.setter
-    def database(self, value: Optional[pulumi.Input['ResourceLfTagsDatabaseArgs']]):
+    def database(self, value: pulumi.Input[Optional['ResourceLfTagsDatabaseArgs']]):
         pulumi.set(self, "database", value)
 
     @_builtins.property
     @pulumi.getter(name="lfTags")
-    def lf_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceLfTagsLfTagArgs']]]]:
+    def lf_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ResourceLfTagsLfTagArgs']]]]:
         """
         Set of LF-tags to attach to the resource. See below.
 
@@ -201,36 +201,36 @@ class _ResourceLfTagsState:
         return pulumi.get(self, "lf_tags")
 
     @lf_tags.setter
-    def lf_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceLfTagsLfTagArgs']]]]):
+    def lf_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceLfTagsLfTagArgs']]]]):
         pulumi.set(self, "lf_tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def table(self) -> Optional[pulumi.Input['ResourceLfTagsTableArgs']]:
+    def table(self) -> pulumi.Input[Optional['ResourceLfTagsTableArgs']]:
         """
         Configuration block for a table resource. See below.
         """
         return pulumi.get(self, "table")
 
     @table.setter
-    def table(self, value: Optional[pulumi.Input['ResourceLfTagsTableArgs']]):
+    def table(self, value: pulumi.Input[Optional['ResourceLfTagsTableArgs']]):
         pulumi.set(self, "table", value)
 
     @_builtins.property
     @pulumi.getter(name="tableWithColumns")
-    def table_with_columns(self) -> Optional[pulumi.Input['ResourceLfTagsTableWithColumnsArgs']]:
+    def table_with_columns(self) -> pulumi.Input[Optional['ResourceLfTagsTableWithColumnsArgs']]:
         """
         Configuration block for a table with columns resource. See below.
 
@@ -239,7 +239,7 @@ class _ResourceLfTagsState:
         return pulumi.get(self, "table_with_columns")
 
     @table_with_columns.setter
-    def table_with_columns(self, value: Optional[pulumi.Input['ResourceLfTagsTableWithColumnsArgs']]):
+    def table_with_columns(self, value: pulumi.Input[Optional['ResourceLfTagsTableWithColumnsArgs']]):
         pulumi.set(self, "table_with_columns", value)
 
 
@@ -249,12 +249,12 @@ class ResourceLfTags(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catalog_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[Union['ResourceLfTagsDatabaseArgs', 'ResourceLfTagsDatabaseArgsDict']]] = None,
-                 lf_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceLfTagsLfTagArgs', 'ResourceLfTagsLfTagArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 table: Optional[pulumi.Input[Union['ResourceLfTagsTableArgs', 'ResourceLfTagsTableArgsDict']]] = None,
-                 table_with_columns: Optional[pulumi.Input[Union['ResourceLfTagsTableWithColumnsArgs', 'ResourceLfTagsTableWithColumnsArgsDict']]] = None,
+                 catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[Union['ResourceLfTagsDatabaseArgs', 'ResourceLfTagsDatabaseArgsDict']]] = None,
+                 lf_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourceLfTagsLfTagArgs', 'ResourceLfTagsLfTagArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 table: pulumi.Input[Optional[Union['ResourceLfTagsTableArgs', 'ResourceLfTagsTableArgsDict']]] = None,
+                 table_with_columns: pulumi.Input[Optional[Union['ResourceLfTagsTableWithColumnsArgs', 'ResourceLfTagsTableWithColumnsArgsDict']]] = None,
                  __props__=None):
         """
         Manages an attachment between one or more existing LF-tags and an existing Lake Formation resource.
@@ -448,12 +448,12 @@ class ResourceLfTags(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catalog_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[Union['ResourceLfTagsDatabaseArgs', 'ResourceLfTagsDatabaseArgsDict']]] = None,
-                 lf_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceLfTagsLfTagArgs', 'ResourceLfTagsLfTagArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 table: Optional[pulumi.Input[Union['ResourceLfTagsTableArgs', 'ResourceLfTagsTableArgsDict']]] = None,
-                 table_with_columns: Optional[pulumi.Input[Union['ResourceLfTagsTableWithColumnsArgs', 'ResourceLfTagsTableWithColumnsArgsDict']]] = None,
+                 catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[Union['ResourceLfTagsDatabaseArgs', 'ResourceLfTagsDatabaseArgsDict']]] = None,
+                 lf_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourceLfTagsLfTagArgs', 'ResourceLfTagsLfTagArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 table: pulumi.Input[Optional[Union['ResourceLfTagsTableArgs', 'ResourceLfTagsTableArgsDict']]] = None,
+                 table_with_columns: pulumi.Input[Optional[Union['ResourceLfTagsTableWithColumnsArgs', 'ResourceLfTagsTableWithColumnsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -481,12 +481,12 @@ class ResourceLfTags(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            catalog_id: Optional[pulumi.Input[_builtins.str]] = None,
-            database: Optional[pulumi.Input[Union['ResourceLfTagsDatabaseArgs', 'ResourceLfTagsDatabaseArgsDict']]] = None,
-            lf_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceLfTagsLfTagArgs', 'ResourceLfTagsLfTagArgsDict']]]]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            table: Optional[pulumi.Input[Union['ResourceLfTagsTableArgs', 'ResourceLfTagsTableArgsDict']]] = None,
-            table_with_columns: Optional[pulumi.Input[Union['ResourceLfTagsTableWithColumnsArgs', 'ResourceLfTagsTableWithColumnsArgsDict']]] = None) -> 'ResourceLfTags':
+            catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
+            database: pulumi.Input[Optional[Union['ResourceLfTagsDatabaseArgs', 'ResourceLfTagsDatabaseArgsDict']]] = None,
+            lf_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourceLfTagsLfTagArgs', 'ResourceLfTagsLfTagArgsDict']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            table: pulumi.Input[Optional[Union['ResourceLfTagsTableArgs', 'ResourceLfTagsTableArgsDict']]] = None,
+            table_with_columns: pulumi.Input[Optional[Union['ResourceLfTagsTableWithColumnsArgs', 'ResourceLfTagsTableWithColumnsArgsDict']]] = None) -> 'ResourceLfTags':
         """
         Get an existing ResourceLfTags resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

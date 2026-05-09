@@ -32,7 +32,7 @@ namespace Pulumi.Aws.Iot
     ///         TokenKeyName = "Token-Header",
     ///         TokenSigningPublicKeys = 
     ///         {
-    ///             { "Key1", Std.Index.File.Invoke(new()
+    ///             { "Key1", Std.File.Invoke(new()
     ///             {
     ///                 Input = "test-fixtures/iot-authorizer-signing-key.pem",
     ///             }).Apply(invoke =&gt; invoke.Result) },

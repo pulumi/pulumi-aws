@@ -269,9 +269,9 @@ def get_server(region: Optional[_builtins.str] = None,
         structured_log_destinations=pulumi.get(__ret__, 'structured_log_destinations'),
         tags=pulumi.get(__ret__, 'tags'),
         url=pulumi.get(__ret__, 'url'))
-def get_server_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                      tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_server_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                      tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerResult]:
     """
     Use this data source to get the ARN of an AWS Transfer Server for use in other

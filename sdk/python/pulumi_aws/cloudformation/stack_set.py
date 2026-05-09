@@ -21,21 +21,21 @@ __all__ = ['StackSetArgs', 'StackSet']
 @pulumi.input_type
 class StackSetArgs:
     def __init__(__self__, *,
-                 administration_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_deployment: Optional[pulumi.Input['StackSetAutoDeploymentArgs']] = None,
-                 call_as: Optional[pulumi.Input[_builtins.str]] = None,
-                 capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 execution_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_execution: Optional[pulumi.Input['StackSetManagedExecutionArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 operation_preferences: Optional[pulumi.Input['StackSetOperationPreferencesArgs']] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 permission_model: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 template_body: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_url: Optional[pulumi.Input[_builtins.str]] = None):
+                 administration_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_deployment: pulumi.Input[Optional['StackSetAutoDeploymentArgs']] = None,
+                 call_as: pulumi.Input[Optional[_builtins.str]] = None,
+                 capabilities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 execution_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_execution: pulumi.Input[Optional['StackSetManagedExecutionArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 operation_preferences: pulumi.Input[Optional['StackSetOperationPreferencesArgs']] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 permission_model: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 template_body: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a StackSet resource.
 
@@ -88,206 +88,206 @@ class StackSetArgs:
 
     @_builtins.property
     @pulumi.getter(name="administrationRoleArn")
-    def administration_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def administration_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Number (ARN) of the IAM Role in the administrator account. This must be defined when using the `SELF_MANAGED` permission model.
         """
         return pulumi.get(self, "administration_role_arn")
 
     @administration_role_arn.setter
-    def administration_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def administration_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "administration_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="autoDeployment")
-    def auto_deployment(self) -> Optional[pulumi.Input['StackSetAutoDeploymentArgs']]:
+    def auto_deployment(self) -> pulumi.Input[Optional['StackSetAutoDeploymentArgs']]:
         """
         Configuration block containing the auto-deployment model for your StackSet. This can only be defined when using the `SERVICE_MANAGED` permission model.
         """
         return pulumi.get(self, "auto_deployment")
 
     @auto_deployment.setter
-    def auto_deployment(self, value: Optional[pulumi.Input['StackSetAutoDeploymentArgs']]):
+    def auto_deployment(self, value: pulumi.Input[Optional['StackSetAutoDeploymentArgs']]):
         pulumi.set(self, "auto_deployment", value)
 
     @_builtins.property
     @pulumi.getter(name="callAs")
-    def call_as(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def call_as(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
         """
         return pulumi.get(self, "call_as")
 
     @call_as.setter
-    def call_as(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def call_as(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "call_as", value)
 
     @_builtins.property
     @pulumi.getter
-    def capabilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def capabilities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of capabilities. Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_AUTO_EXPAND`.
         """
         return pulumi.get(self, "capabilities")
 
     @capabilities.setter
-    def capabilities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def capabilities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "capabilities", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the StackSet.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="executionRoleName")
-    def execution_role_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def execution_role_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole` when using the `SELF_MANAGED` permission model. This should not be defined when using the `SERVICE_MANAGED` permission model.
         """
         return pulumi.get(self, "execution_role_name")
 
     @execution_role_name.setter
-    def execution_role_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def execution_role_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "execution_role_name", value)
 
     @_builtins.property
     @pulumi.getter(name="managedExecution")
-    def managed_execution(self) -> Optional[pulumi.Input['StackSetManagedExecutionArgs']]:
+    def managed_execution(self) -> pulumi.Input[Optional['StackSetManagedExecutionArgs']]:
         """
         Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
         """
         return pulumi.get(self, "managed_execution")
 
     @managed_execution.setter
-    def managed_execution(self, value: Optional[pulumi.Input['StackSetManagedExecutionArgs']]):
+    def managed_execution(self, value: pulumi.Input[Optional['StackSetManagedExecutionArgs']]):
         pulumi.set(self, "managed_execution", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="operationPreferences")
-    def operation_preferences(self) -> Optional[pulumi.Input['StackSetOperationPreferencesArgs']]:
+    def operation_preferences(self) -> pulumi.Input[Optional['StackSetOperationPreferencesArgs']]:
         """
         Preferences for how AWS CloudFormation performs a stack set update.
         """
         return pulumi.get(self, "operation_preferences")
 
     @operation_preferences.setter
-    def operation_preferences(self, value: Optional[pulumi.Input['StackSetOperationPreferencesArgs']]):
+    def operation_preferences(self, value: pulumi.Input[Optional['StackSetOperationPreferencesArgs']]):
         pulumi.set(self, "operation_preferences", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of input parameters for the StackSet template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignore_changes` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignore_changes` argument.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="permissionModel")
-    def permission_model(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def permission_model(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Describes how the IAM roles required for your StackSet are created. Valid values: `SELF_MANAGED` (default), `SERVICE_MANAGED`.
         """
         return pulumi.get(self, "permission_model")
 
     @permission_model.setter
-    def permission_model(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def permission_model(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "permission_model", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="templateBody")
-    def template_body(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template_body(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         String containing the CloudFormation template body. Maximum size: 51,200 bytes. Conflicts with `template_url`.
         """
         return pulumi.get(self, "template_body")
 
     @template_body.setter
-    def template_body(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template_body(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template_body", value)
 
     @_builtins.property
     @pulumi.getter(name="templateUrl")
-    def template_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         String containing the location of a file containing the CloudFormation template body. The URL must point to a template that is located in an Amazon S3 bucket. Maximum location file size: 460,800 bytes. Conflicts with `template_body`.
         """
         return pulumi.get(self, "template_url")
 
     @template_url.setter
-    def template_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template_url", value)
 
 
 @pulumi.input_type
 class _StackSetState:
     def __init__(__self__, *,
-                 administration_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_deployment: Optional[pulumi.Input['StackSetAutoDeploymentArgs']] = None,
-                 call_as: Optional[pulumi.Input[_builtins.str]] = None,
-                 capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 execution_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_execution: Optional[pulumi.Input['StackSetManagedExecutionArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 operation_preferences: Optional[pulumi.Input['StackSetOperationPreferencesArgs']] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 permission_model: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 stack_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 template_body: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_url: Optional[pulumi.Input[_builtins.str]] = None):
+                 administration_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_deployment: pulumi.Input[Optional['StackSetAutoDeploymentArgs']] = None,
+                 call_as: pulumi.Input[Optional[_builtins.str]] = None,
+                 capabilities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 execution_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_execution: pulumi.Input[Optional['StackSetManagedExecutionArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 operation_preferences: pulumi.Input[Optional['StackSetOperationPreferencesArgs']] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 permission_model: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 stack_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 template_body: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering StackSet resources.
 
@@ -349,218 +349,218 @@ class _StackSetState:
 
     @_builtins.property
     @pulumi.getter(name="administrationRoleArn")
-    def administration_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def administration_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Number (ARN) of the IAM Role in the administrator account. This must be defined when using the `SELF_MANAGED` permission model.
         """
         return pulumi.get(self, "administration_role_arn")
 
     @administration_role_arn.setter
-    def administration_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def administration_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "administration_role_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) of the StackSet.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="autoDeployment")
-    def auto_deployment(self) -> Optional[pulumi.Input['StackSetAutoDeploymentArgs']]:
+    def auto_deployment(self) -> pulumi.Input[Optional['StackSetAutoDeploymentArgs']]:
         """
         Configuration block containing the auto-deployment model for your StackSet. This can only be defined when using the `SERVICE_MANAGED` permission model.
         """
         return pulumi.get(self, "auto_deployment")
 
     @auto_deployment.setter
-    def auto_deployment(self, value: Optional[pulumi.Input['StackSetAutoDeploymentArgs']]):
+    def auto_deployment(self, value: pulumi.Input[Optional['StackSetAutoDeploymentArgs']]):
         pulumi.set(self, "auto_deployment", value)
 
     @_builtins.property
     @pulumi.getter(name="callAs")
-    def call_as(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def call_as(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
         """
         return pulumi.get(self, "call_as")
 
     @call_as.setter
-    def call_as(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def call_as(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "call_as", value)
 
     @_builtins.property
     @pulumi.getter
-    def capabilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def capabilities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of capabilities. Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_AUTO_EXPAND`.
         """
         return pulumi.get(self, "capabilities")
 
     @capabilities.setter
-    def capabilities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def capabilities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "capabilities", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the StackSet.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="executionRoleName")
-    def execution_role_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def execution_role_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole` when using the `SELF_MANAGED` permission model. This should not be defined when using the `SERVICE_MANAGED` permission model.
         """
         return pulumi.get(self, "execution_role_name")
 
     @execution_role_name.setter
-    def execution_role_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def execution_role_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "execution_role_name", value)
 
     @_builtins.property
     @pulumi.getter(name="managedExecution")
-    def managed_execution(self) -> Optional[pulumi.Input['StackSetManagedExecutionArgs']]:
+    def managed_execution(self) -> pulumi.Input[Optional['StackSetManagedExecutionArgs']]:
         """
         Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
         """
         return pulumi.get(self, "managed_execution")
 
     @managed_execution.setter
-    def managed_execution(self, value: Optional[pulumi.Input['StackSetManagedExecutionArgs']]):
+    def managed_execution(self, value: pulumi.Input[Optional['StackSetManagedExecutionArgs']]):
         pulumi.set(self, "managed_execution", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="operationPreferences")
-    def operation_preferences(self) -> Optional[pulumi.Input['StackSetOperationPreferencesArgs']]:
+    def operation_preferences(self) -> pulumi.Input[Optional['StackSetOperationPreferencesArgs']]:
         """
         Preferences for how AWS CloudFormation performs a stack set update.
         """
         return pulumi.get(self, "operation_preferences")
 
     @operation_preferences.setter
-    def operation_preferences(self, value: Optional[pulumi.Input['StackSetOperationPreferencesArgs']]):
+    def operation_preferences(self, value: pulumi.Input[Optional['StackSetOperationPreferencesArgs']]):
         pulumi.set(self, "operation_preferences", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of input parameters for the StackSet template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignore_changes` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignore_changes` argument.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="permissionModel")
-    def permission_model(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def permission_model(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Describes how the IAM roles required for your StackSet are created. Valid values: `SELF_MANAGED` (default), `SERVICE_MANAGED`.
         """
         return pulumi.get(self, "permission_model")
 
     @permission_model.setter
-    def permission_model(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def permission_model(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "permission_model", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="stackSetId")
-    def stack_set_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stack_set_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique identifier of the StackSet.
         """
         return pulumi.get(self, "stack_set_id")
 
     @stack_set_id.setter
-    def stack_set_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stack_set_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stack_set_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="templateBody")
-    def template_body(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template_body(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         String containing the CloudFormation template body. Maximum size: 51,200 bytes. Conflicts with `template_url`.
         """
         return pulumi.get(self, "template_body")
 
     @template_body.setter
-    def template_body(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template_body(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template_body", value)
 
     @_builtins.property
     @pulumi.getter(name="templateUrl")
-    def template_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         String containing the location of a file containing the CloudFormation template body. The URL must point to a template that is located in an Amazon S3 bucket. Maximum location file size: 460,800 bytes. Conflicts with `template_body`.
         """
         return pulumi.get(self, "template_url")
 
     @template_url.setter
-    def template_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template_url", value)
 
 
@@ -570,21 +570,21 @@ class StackSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 administration_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_deployment: Optional[pulumi.Input[Union['StackSetAutoDeploymentArgs', 'StackSetAutoDeploymentArgsDict']]] = None,
-                 call_as: Optional[pulumi.Input[_builtins.str]] = None,
-                 capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 execution_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_execution: Optional[pulumi.Input[Union['StackSetManagedExecutionArgs', 'StackSetManagedExecutionArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 operation_preferences: Optional[pulumi.Input[Union['StackSetOperationPreferencesArgs', 'StackSetOperationPreferencesArgsDict']]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 permission_model: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 template_body: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_url: Optional[pulumi.Input[_builtins.str]] = None,
+                 administration_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_deployment: pulumi.Input[Optional[Union['StackSetAutoDeploymentArgs', 'StackSetAutoDeploymentArgsDict']]] = None,
+                 call_as: pulumi.Input[Optional[_builtins.str]] = None,
+                 capabilities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 execution_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_execution: pulumi.Input[Optional[Union['StackSetManagedExecutionArgs', 'StackSetManagedExecutionArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 operation_preferences: pulumi.Input[Optional[Union['StackSetOperationPreferencesArgs', 'StackSetOperationPreferencesArgsDict']]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 permission_model: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 template_body: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_url: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a CloudFormation StackSet. StackSets allow CloudFormation templates to be easily deployed across multiple accounts and regions via StackSet Instances (`cloudformation.StackSetInstance` resource). Additional information about StackSets can be found in the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html).
@@ -793,21 +793,21 @@ class StackSet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 administration_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_deployment: Optional[pulumi.Input[Union['StackSetAutoDeploymentArgs', 'StackSetAutoDeploymentArgsDict']]] = None,
-                 call_as: Optional[pulumi.Input[_builtins.str]] = None,
-                 capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 execution_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_execution: Optional[pulumi.Input[Union['StackSetManagedExecutionArgs', 'StackSetManagedExecutionArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 operation_preferences: Optional[pulumi.Input[Union['StackSetOperationPreferencesArgs', 'StackSetOperationPreferencesArgsDict']]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 permission_model: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 template_body: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_url: Optional[pulumi.Input[_builtins.str]] = None,
+                 administration_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_deployment: pulumi.Input[Optional[Union['StackSetAutoDeploymentArgs', 'StackSetAutoDeploymentArgsDict']]] = None,
+                 call_as: pulumi.Input[Optional[_builtins.str]] = None,
+                 capabilities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 execution_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_execution: pulumi.Input[Optional[Union['StackSetManagedExecutionArgs', 'StackSetManagedExecutionArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 operation_preferences: pulumi.Input[Optional[Union['StackSetOperationPreferencesArgs', 'StackSetOperationPreferencesArgsDict']]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 permission_model: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 template_body: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_url: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -845,24 +845,24 @@ class StackSet(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            administration_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            auto_deployment: Optional[pulumi.Input[Union['StackSetAutoDeploymentArgs', 'StackSetAutoDeploymentArgsDict']]] = None,
-            call_as: Optional[pulumi.Input[_builtins.str]] = None,
-            capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            execution_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-            managed_execution: Optional[pulumi.Input[Union['StackSetManagedExecutionArgs', 'StackSetManagedExecutionArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            operation_preferences: Optional[pulumi.Input[Union['StackSetOperationPreferencesArgs', 'StackSetOperationPreferencesArgsDict']]] = None,
-            parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            permission_model: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            stack_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            template_body: Optional[pulumi.Input[_builtins.str]] = None,
-            template_url: Optional[pulumi.Input[_builtins.str]] = None) -> 'StackSet':
+            administration_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_deployment: pulumi.Input[Optional[Union['StackSetAutoDeploymentArgs', 'StackSetAutoDeploymentArgsDict']]] = None,
+            call_as: pulumi.Input[Optional[_builtins.str]] = None,
+            capabilities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            execution_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_execution: pulumi.Input[Optional[Union['StackSetManagedExecutionArgs', 'StackSetManagedExecutionArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            operation_preferences: pulumi.Input[Optional[Union['StackSetOperationPreferencesArgs', 'StackSetOperationPreferencesArgsDict']]] = None,
+            parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            permission_model: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            stack_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            template_body: pulumi.Input[Optional[_builtins.str]] = None,
+            template_url: pulumi.Input[Optional[_builtins.str]] = None) -> 'StackSet':
         """
         Get an existing StackSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

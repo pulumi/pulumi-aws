@@ -137,37 +137,37 @@ export interface GetRandomPasswordOutputArgs {
     /**
      * String of the characters that you don't want in the password.
      */
-    excludeCharacters?: pulumi.Input<string>;
+    excludeCharacters?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether to exclude lowercase letters from the password.
      */
-    excludeLowercase?: pulumi.Input<boolean>;
+    excludeLowercase?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether to exclude numbers from the password.
      */
-    excludeNumbers?: pulumi.Input<boolean>;
+    excludeNumbers?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether to exclude the following punctuation characters from the password: ``! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~ .``
      */
-    excludePunctuation?: pulumi.Input<boolean>;
+    excludePunctuation?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether to exclude uppercase letters from the password.
      */
-    excludeUppercase?: pulumi.Input<boolean>;
+    excludeUppercase?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether to include the space character.
      */
-    includeSpace?: pulumi.Input<boolean>;
+    includeSpace?: pulumi.Input<boolean | undefined>;
     /**
      * Length of the password.
      */
-    passwordLength?: pulumi.Input<number>;
+    passwordLength?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
      */
-    requireEachIncludedType?: pulumi.Input<boolean>;
+    requireEachIncludedType?: pulumi.Input<boolean | undefined>;
 }

@@ -138,9 +138,9 @@ def get_queue(id: Optional[_builtins.str] = None,
         region=pulumi.get(__ret__, 'region'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_queue_output(id: Optional[pulumi.Input[_builtins.str]] = None,
-                     region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                     tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_queue_output(id: pulumi.Input[Optional[_builtins.str]] = None,
+                     region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                     tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQueueResult]:
     """
     Retrieve information about a AWS Elemental MediaConvert Queue.

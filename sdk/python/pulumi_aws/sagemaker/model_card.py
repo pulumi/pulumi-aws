@@ -24,10 +24,10 @@ class ModelCardArgs:
                  content: pulumi.Input[_builtins.str],
                  model_card_name: pulumi.Input[_builtins.str],
                  model_card_status: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_config: Optional[pulumi.Input['ModelCardSecurityConfigArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['ModelCardTimeoutsArgs']] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_config: pulumi.Input[Optional['ModelCardSecurityConfigArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['ModelCardTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a ModelCard resource.
 
@@ -88,62 +88,62 @@ class ModelCardArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="securityConfig")
-    def security_config(self) -> Optional[pulumi.Input['ModelCardSecurityConfigArgs']]:
+    def security_config(self) -> pulumi.Input[Optional['ModelCardSecurityConfigArgs']]:
         """
         KMS key to encrypt, decrypt, and re-encrypt model card content. Fields are documented below.
         """
         return pulumi.get(self, "security_config")
 
     @security_config.setter
-    def security_config(self, value: Optional[pulumi.Input['ModelCardSecurityConfigArgs']]):
+    def security_config(self, value: pulumi.Input[Optional['ModelCardSecurityConfigArgs']]):
         pulumi.set(self, "security_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['ModelCardTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['ModelCardTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['ModelCardTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['ModelCardTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _ModelCardState:
     def __init__(__self__, *,
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_card_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_card_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_card_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_config: Optional[pulumi.Input['ModelCardSecurityConfigArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['ModelCardTimeoutsArgs']] = None):
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_card_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_card_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_card_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_config: pulumi.Input[Optional['ModelCardSecurityConfigArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['ModelCardTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering ModelCard resources.
 
@@ -177,107 +177,107 @@ class _ModelCardState:
 
     @_builtins.property
     @pulumi.getter
-    def content(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Content of the model card in [model card JSON schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema).
         """
         return pulumi.get(self, "content")
 
     @content.setter
-    def content(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content", value)
 
     @_builtins.property
     @pulumi.getter(name="modelCardArn")
-    def model_card_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def model_card_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the model card.
         """
         return pulumi.get(self, "model_card_arn")
 
     @model_card_arn.setter
-    def model_card_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def model_card_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "model_card_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="modelCardName")
-    def model_card_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def model_card_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the model card.
         """
         return pulumi.get(self, "model_card_name")
 
     @model_card_name.setter
-    def model_card_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def model_card_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "model_card_name", value)
 
     @_builtins.property
     @pulumi.getter(name="modelCardStatus")
-    def model_card_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def model_card_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Approval status of the model card. Valid values: `Draft`, `PendingReview`, `Approved`, `Archived`.
         """
         return pulumi.get(self, "model_card_status")
 
     @model_card_status.setter
-    def model_card_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def model_card_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "model_card_status", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="securityConfig")
-    def security_config(self) -> Optional[pulumi.Input['ModelCardSecurityConfigArgs']]:
+    def security_config(self) -> pulumi.Input[Optional['ModelCardSecurityConfigArgs']]:
         """
         KMS key to encrypt, decrypt, and re-encrypt model card content. Fields are documented below.
         """
         return pulumi.get(self, "security_config")
 
     @security_config.setter
-    def security_config(self, value: Optional[pulumi.Input['ModelCardSecurityConfigArgs']]):
+    def security_config(self, value: pulumi.Input[Optional['ModelCardSecurityConfigArgs']]):
         pulumi.set(self, "security_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['ModelCardTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['ModelCardTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['ModelCardTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['ModelCardTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
@@ -287,13 +287,13 @@ class ModelCard(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_card_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_card_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_config: Optional[pulumi.Input[Union['ModelCardSecurityConfigArgs', 'ModelCardSecurityConfigArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['ModelCardTimeoutsArgs', 'ModelCardTimeoutsArgsDict']]] = None,
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_card_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_card_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_config: pulumi.Input[Optional[Union['ModelCardSecurityConfigArgs', 'ModelCardSecurityConfigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ModelCardTimeoutsArgs', 'ModelCardTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Manage an Amazon SageMaker Model Card.
@@ -399,13 +399,13 @@ class ModelCard(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_card_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_card_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_config: Optional[pulumi.Input[Union['ModelCardSecurityConfigArgs', 'ModelCardSecurityConfigArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['ModelCardTimeoutsArgs', 'ModelCardTimeoutsArgsDict']]] = None,
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_card_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_card_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_config: pulumi.Input[Optional[Union['ModelCardSecurityConfigArgs', 'ModelCardSecurityConfigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ModelCardTimeoutsArgs', 'ModelCardTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -440,15 +440,15 @@ class ModelCard(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            content: Optional[pulumi.Input[_builtins.str]] = None,
-            model_card_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            model_card_name: Optional[pulumi.Input[_builtins.str]] = None,
-            model_card_status: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            security_config: Optional[pulumi.Input[Union['ModelCardSecurityConfigArgs', 'ModelCardSecurityConfigArgsDict']]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: Optional[pulumi.Input[Union['ModelCardTimeoutsArgs', 'ModelCardTimeoutsArgsDict']]] = None) -> 'ModelCard':
+            content: pulumi.Input[Optional[_builtins.str]] = None,
+            model_card_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            model_card_name: pulumi.Input[Optional[_builtins.str]] = None,
+            model_card_status: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            security_config: pulumi.Input[Optional[Union['ModelCardSecurityConfigArgs', 'ModelCardSecurityConfigArgsDict']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['ModelCardTimeoutsArgs', 'ModelCardTimeoutsArgsDict']]] = None) -> 'ModelCard':
         """
         Get an existing ModelCard resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

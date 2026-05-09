@@ -22,9 +22,9 @@ __all__ = ['ClusterCapacityProvidersArgs', 'ClusterCapacityProviders']
 class ClusterCapacityProvidersArgs:
     def __init__(__self__, *,
                  cluster_name: pulumi.Input[_builtins.str],
-                 capacity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 default_capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 capacity_providers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 default_capacity_provider_strategies: pulumi.Input[Optional[Sequence[pulumi.Input['ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ClusterCapacityProviders resource.
 
@@ -55,48 +55,48 @@ class ClusterCapacityProvidersArgs:
 
     @_builtins.property
     @pulumi.getter(name="capacityProviders")
-    def capacity_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def capacity_providers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
         """
         return pulumi.get(self, "capacity_providers")
 
     @capacity_providers.setter
-    def capacity_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def capacity_providers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "capacity_providers", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultCapacityProviderStrategies")
-    def default_capacity_provider_strategies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs']]]]:
+    def default_capacity_provider_strategies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs']]]]:
         """
         Set of capacity provider strategies to use by default for the cluster. Detailed below.
         """
         return pulumi.get(self, "default_capacity_provider_strategies")
 
     @default_capacity_provider_strategies.setter
-    def default_capacity_provider_strategies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs']]]]):
+    def default_capacity_provider_strategies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs']]]]):
         pulumi.set(self, "default_capacity_provider_strategies", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _ClusterCapacityProvidersState:
     def __init__(__self__, *,
-                 capacity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 capacity_providers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_capacity_provider_strategies: pulumi.Input[Optional[Sequence[pulumi.Input['ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ClusterCapacityProviders resources.
 
@@ -116,50 +116,50 @@ class _ClusterCapacityProvidersState:
 
     @_builtins.property
     @pulumi.getter(name="capacityProviders")
-    def capacity_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def capacity_providers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
         """
         return pulumi.get(self, "capacity_providers")
 
     @capacity_providers.setter
-    def capacity_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def capacity_providers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "capacity_providers", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the ECS cluster to manage capacity providers for.
         """
         return pulumi.get(self, "cluster_name")
 
     @cluster_name.setter
-    def cluster_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_name", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultCapacityProviderStrategies")
-    def default_capacity_provider_strategies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs']]]]:
+    def default_capacity_provider_strategies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs']]]]:
         """
         Set of capacity provider strategies to use by default for the cluster. Detailed below.
         """
         return pulumi.get(self, "default_capacity_provider_strategies")
 
     @default_capacity_provider_strategies.setter
-    def default_capacity_provider_strategies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs']]]]):
+    def default_capacity_provider_strategies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs']]]]):
         pulumi.set(self, "default_capacity_provider_strategies", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
@@ -169,10 +169,10 @@ class ClusterCapacityProviders(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs', 'ClusterCapacityProvidersDefaultCapacityProviderStrategyArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 capacity_providers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_capacity_provider_strategies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs', 'ClusterCapacityProvidersDefaultCapacityProviderStrategyArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages the capacity providers of an ECS Cluster.
@@ -264,10 +264,10 @@ class ClusterCapacityProviders(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs', 'ClusterCapacityProvidersDefaultCapacityProviderStrategyArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 capacity_providers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_capacity_provider_strategies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs', 'ClusterCapacityProvidersDefaultCapacityProviderStrategyArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -293,10 +293,10 @@ class ClusterCapacityProviders(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            capacity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-            default_capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs', 'ClusterCapacityProvidersDefaultCapacityProviderStrategyArgsDict']]]]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None) -> 'ClusterCapacityProviders':
+            capacity_providers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+            default_capacity_provider_strategies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs', 'ClusterCapacityProvidersDefaultCapacityProviderStrategyArgsDict']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> 'ClusterCapacityProviders':
         """
         Get an existing ClusterCapacityProviders resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -122,19 +122,19 @@ export interface ClusterCapacityProvidersState {
     /**
      * Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
      */
-    capacityProviders?: pulumi.Input<pulumi.Input<string>[]>;
+    capacityProviders?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Name of the ECS cluster to manage capacity providers for.
      */
-    clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string | undefined>;
     /**
      * Set of capacity provider strategies to use by default for the cluster. Detailed below.
      */
-    defaultCapacityProviderStrategies?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterCapacityProvidersDefaultCapacityProviderStrategy>[]>;
+    defaultCapacityProviderStrategies?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterCapacityProvidersDefaultCapacityProviderStrategy>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -144,7 +144,7 @@ export interface ClusterCapacityProvidersArgs {
     /**
      * Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
      */
-    capacityProviders?: pulumi.Input<pulumi.Input<string>[]>;
+    capacityProviders?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Name of the ECS cluster to manage capacity providers for.
      */
@@ -152,9 +152,9 @@ export interface ClusterCapacityProvidersArgs {
     /**
      * Set of capacity provider strategies to use by default for the cluster. Detailed below.
      */
-    defaultCapacityProviderStrategies?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterCapacityProvidersDefaultCapacityProviderStrategy>[]>;
+    defaultCapacityProviderStrategies?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterCapacityProvidersDefaultCapacityProviderStrategy>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

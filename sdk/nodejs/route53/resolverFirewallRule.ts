@@ -224,63 +224,63 @@ export interface ResolverFirewallRuleState {
     /**
      * The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list, or a threat in a DNS Firewall Advanced rule. Valid values: `ALLOW`, `BLOCK`, `ALERT`. Note: `ALLOW` is not valid for DNS Firewall Advanced rules.
      */
-    action?: pulumi.Input<string>;
+    action?: pulumi.Input<string | undefined>;
     /**
      * The DNS record's type. This determines the format of the record value that you provided in BlockOverrideDomain. Value values: `CNAME`.
      */
-    blockOverrideDnsType?: pulumi.Input<string>;
+    blockOverrideDnsType?: pulumi.Input<string | undefined>;
     /**
      * The custom DNS record to send back in response to the query.
      */
-    blockOverrideDomain?: pulumi.Input<string>;
+    blockOverrideDomain?: pulumi.Input<string | undefined>;
     /**
      * The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record. Minimum value of 0. Maximum value of 604800.
      */
-    blockOverrideTtl?: pulumi.Input<number>;
+    blockOverrideTtl?: pulumi.Input<number | undefined>;
     /**
      * The way that you want DNS Firewall to block the request. Valid values: `NODATA`, `NXDOMAIN`, `OVERRIDE`.
      */
-    blockResponse?: pulumi.Input<string>;
+    blockResponse?: pulumi.Input<string | undefined>;
     /**
      * The confidence threshold for DNS Firewall Advanced rules. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `LOW`, `MEDIUM`, `HIGH`. Conflicts with `firewallDomainListId`.
      */
-    confidenceThreshold?: pulumi.Input<string>;
+    confidenceThreshold?: pulumi.Input<string | undefined>;
     /**
      * The type of DNS Firewall Advanced rule. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `DGA`, `DICTIONARY_DGA`, `DNS_TUNNELING`. Conflicts with `firewallDomainListId`.
      */
-    dnsThreatProtection?: pulumi.Input<string>;
+    dnsThreatProtection?: pulumi.Input<string | undefined>;
     /**
      * The ID of the domain list that you want to use in the rule. Required for standard rules. Conflicts with `dnsThreatProtection` and `confidenceThreshold`.
      */
-    firewallDomainListId?: pulumi.Input<string>;
+    firewallDomainListId?: pulumi.Input<string | undefined>;
     /**
      * Evaluate DNS redirection in the DNS redirection chain, such as CNAME, DNAME, ot ALIAS. Valid values are `INSPECT_REDIRECTION_DOMAIN` and `TRUST_REDIRECTION_DOMAIN`. Default value is `INSPECT_REDIRECTION_DOMAIN`.
      */
-    firewallDomainRedirectionAction?: pulumi.Input<string>;
+    firewallDomainRedirectionAction?: pulumi.Input<string | undefined>;
     /**
      * The unique identifier of the firewall rule group where you want to create the rule.
      */
-    firewallRuleGroupId?: pulumi.Input<string>;
+    firewallRuleGroupId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the DNS Firewall Advanced rule. Only set for DNS Firewall Advanced rules.
      */
-    firewallThreatProtectionId?: pulumi.Input<string>;
+    firewallThreatProtectionId?: pulumi.Input<string | undefined>;
     /**
      * A name that lets you identify the rule, to manage and use it.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The setting that determines the processing order of the rule in the rule group. DNS Firewall processes the rules in a rule group by order of priority, starting from the lowest setting.
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number | undefined>;
     /**
      * The query type you want the rule to evaluate. Additional details can be found [here](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
      */
-    qType?: pulumi.Input<string>;
+    qType?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -294,35 +294,35 @@ export interface ResolverFirewallRuleArgs {
     /**
      * The DNS record's type. This determines the format of the record value that you provided in BlockOverrideDomain. Value values: `CNAME`.
      */
-    blockOverrideDnsType?: pulumi.Input<string>;
+    blockOverrideDnsType?: pulumi.Input<string | undefined>;
     /**
      * The custom DNS record to send back in response to the query.
      */
-    blockOverrideDomain?: pulumi.Input<string>;
+    blockOverrideDomain?: pulumi.Input<string | undefined>;
     /**
      * The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record. Minimum value of 0. Maximum value of 604800.
      */
-    blockOverrideTtl?: pulumi.Input<number>;
+    blockOverrideTtl?: pulumi.Input<number | undefined>;
     /**
      * The way that you want DNS Firewall to block the request. Valid values: `NODATA`, `NXDOMAIN`, `OVERRIDE`.
      */
-    blockResponse?: pulumi.Input<string>;
+    blockResponse?: pulumi.Input<string | undefined>;
     /**
      * The confidence threshold for DNS Firewall Advanced rules. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `LOW`, `MEDIUM`, `HIGH`. Conflicts with `firewallDomainListId`.
      */
-    confidenceThreshold?: pulumi.Input<string>;
+    confidenceThreshold?: pulumi.Input<string | undefined>;
     /**
      * The type of DNS Firewall Advanced rule. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `DGA`, `DICTIONARY_DGA`, `DNS_TUNNELING`. Conflicts with `firewallDomainListId`.
      */
-    dnsThreatProtection?: pulumi.Input<string>;
+    dnsThreatProtection?: pulumi.Input<string | undefined>;
     /**
      * The ID of the domain list that you want to use in the rule. Required for standard rules. Conflicts with `dnsThreatProtection` and `confidenceThreshold`.
      */
-    firewallDomainListId?: pulumi.Input<string>;
+    firewallDomainListId?: pulumi.Input<string | undefined>;
     /**
      * Evaluate DNS redirection in the DNS redirection chain, such as CNAME, DNAME, ot ALIAS. Valid values are `INSPECT_REDIRECTION_DOMAIN` and `TRUST_REDIRECTION_DOMAIN`. Default value is `INSPECT_REDIRECTION_DOMAIN`.
      */
-    firewallDomainRedirectionAction?: pulumi.Input<string>;
+    firewallDomainRedirectionAction?: pulumi.Input<string | undefined>;
     /**
      * The unique identifier of the firewall rule group where you want to create the rule.
      */
@@ -330,7 +330,7 @@ export interface ResolverFirewallRuleArgs {
     /**
      * A name that lets you identify the rule, to manage and use it.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The setting that determines the processing order of the rule in the rule group. DNS Firewall processes the rules in a rule group by order of priority, starting from the lowest setting.
      */
@@ -338,9 +338,9 @@ export interface ResolverFirewallRuleArgs {
     /**
      * The query type you want the rule to evaluate. Additional details can be found [here](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
      */
-    qType?: pulumi.Input<string>;
+    qType?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

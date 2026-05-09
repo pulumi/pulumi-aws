@@ -143,35 +143,35 @@ export interface ConnectState {
     /**
      * The tunnel protocol. Valid values: `gre`. Default is `gre`.
      */
-    protocol?: pulumi.Input<string>;
+    protocol?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Boolean whether the Connect should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
      */
-    transitGatewayDefaultRouteTableAssociation?: pulumi.Input<boolean>;
+    transitGatewayDefaultRouteTableAssociation?: pulumi.Input<boolean | undefined>;
     /**
      * Boolean whether the Connect should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
      */
-    transitGatewayDefaultRouteTablePropagation?: pulumi.Input<boolean>;
+    transitGatewayDefaultRouteTablePropagation?: pulumi.Input<boolean | undefined>;
     /**
      * Identifier of EC2 Transit Gateway.
      */
-    transitGatewayId?: pulumi.Input<string>;
+    transitGatewayId?: pulumi.Input<string | undefined>;
     /**
      * The underlaying VPC attachment
      */
-    transportAttachmentId?: pulumi.Input<string>;
+    transportAttachmentId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -181,23 +181,23 @@ export interface ConnectArgs {
     /**
      * The tunnel protocol. Valid values: `gre`. Default is `gre`.
      */
-    protocol?: pulumi.Input<string>;
+    protocol?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Boolean whether the Connect should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
      */
-    transitGatewayDefaultRouteTableAssociation?: pulumi.Input<boolean>;
+    transitGatewayDefaultRouteTableAssociation?: pulumi.Input<boolean | undefined>;
     /**
      * Boolean whether the Connect should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
      */
-    transitGatewayDefaultRouteTablePropagation?: pulumi.Input<boolean>;
+    transitGatewayDefaultRouteTablePropagation?: pulumi.Input<boolean | undefined>;
     /**
      * Identifier of EC2 Transit Gateway.
      */

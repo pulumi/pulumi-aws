@@ -165,9 +165,9 @@ def get_asset(arn: Optional[_builtins.str] = None,
         rack_elevation=pulumi.get(__ret__, 'rack_elevation'),
         rack_id=pulumi.get(__ret__, 'rack_id'),
         region=pulumi.get(__ret__, 'region'))
-def get_asset_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
-                     asset_id: Optional[pulumi.Input[_builtins.str]] = None,
-                     region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_asset_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
+                     asset_id: pulumi.Input[Optional[_builtins.str]] = None,
+                     region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssetResult]:
     """
     Information about a specific hardware asset in an Outpost.

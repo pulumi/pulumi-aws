@@ -126,29 +126,29 @@ export interface SiteState {
     /**
      * Site ARN.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Description of the Site.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * ID of the Global Network to create the site in.
      *
      * The following arguments are optional:
      */
-    globalNetworkId?: pulumi.Input<string>;
+    globalNetworkId?: pulumi.Input<string | undefined>;
     /**
      * Site location. See below.
      */
-    location?: pulumi.Input<inputs.networkmanager.SiteLocation>;
+    location?: pulumi.Input<inputs.networkmanager.SiteLocation | undefined>;
     /**
      * Key-value tags for the Site. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -158,7 +158,7 @@ export interface SiteArgs {
     /**
      * Description of the Site.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * ID of the Global Network to create the site in.
      *
@@ -168,9 +168,9 @@ export interface SiteArgs {
     /**
      * Site location. See below.
      */
-    location?: pulumi.Input<inputs.networkmanager.SiteLocation>;
+    location?: pulumi.Input<inputs.networkmanager.SiteLocation | undefined>;
     /**
      * Key-value tags for the Site. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

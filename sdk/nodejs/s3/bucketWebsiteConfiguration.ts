@@ -219,46 +219,46 @@ export interface BucketWebsiteConfigurationState {
     /**
      * Name of the bucket.
      */
-    bucket?: pulumi.Input<string>;
+    bucket?: pulumi.Input<string | undefined>;
     /**
      * Name of the error document for the website. See below.
      */
-    errorDocument?: pulumi.Input<inputs.s3.BucketWebsiteConfigurationErrorDocument>;
+    errorDocument?: pulumi.Input<inputs.s3.BucketWebsiteConfigurationErrorDocument | undefined>;
     /**
      * Account ID of the expected bucket owner.
      *
      * @deprecated expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
      */
-    expectedBucketOwner?: pulumi.Input<string>;
+    expectedBucketOwner?: pulumi.Input<string | undefined>;
     /**
      * Name of the index document for the website. See below.
      */
-    indexDocument?: pulumi.Input<inputs.s3.BucketWebsiteConfigurationIndexDocument>;
+    indexDocument?: pulumi.Input<inputs.s3.BucketWebsiteConfigurationIndexDocument | undefined>;
     /**
      * Redirect behavior for every request to this bucket's website endpoint. See below. Conflicts with `errorDocument`, `indexDocument`, and `routingRule`.
      */
-    redirectAllRequestsTo?: pulumi.Input<inputs.s3.BucketWebsiteConfigurationRedirectAllRequestsTo>;
+    redirectAllRequestsTo?: pulumi.Input<inputs.s3.BucketWebsiteConfigurationRedirectAllRequestsTo | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
      * describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
      */
-    routingRuleDetails?: pulumi.Input<string>;
+    routingRuleDetails?: pulumi.Input<string | undefined>;
     /**
      * List of rules that define when a redirect is applied and the redirect behavior. See below.
      */
-    routingRules?: pulumi.Input<pulumi.Input<inputs.s3.BucketWebsiteConfigurationRoutingRule>[]>;
+    routingRules?: pulumi.Input<pulumi.Input<inputs.s3.BucketWebsiteConfigurationRoutingRule>[] | undefined>;
     /**
      * Domain of the website endpoint. This is used to create Route 53 alias records.
      */
-    websiteDomain?: pulumi.Input<string>;
+    websiteDomain?: pulumi.Input<string | undefined>;
     /**
      * Website endpoint.
      */
-    websiteEndpoint?: pulumi.Input<string>;
+    websiteEndpoint?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -272,32 +272,32 @@ export interface BucketWebsiteConfigurationArgs {
     /**
      * Name of the error document for the website. See below.
      */
-    errorDocument?: pulumi.Input<inputs.s3.BucketWebsiteConfigurationErrorDocument>;
+    errorDocument?: pulumi.Input<inputs.s3.BucketWebsiteConfigurationErrorDocument | undefined>;
     /**
      * Account ID of the expected bucket owner.
      *
      * @deprecated expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
      */
-    expectedBucketOwner?: pulumi.Input<string>;
+    expectedBucketOwner?: pulumi.Input<string | undefined>;
     /**
      * Name of the index document for the website. See below.
      */
-    indexDocument?: pulumi.Input<inputs.s3.BucketWebsiteConfigurationIndexDocument>;
+    indexDocument?: pulumi.Input<inputs.s3.BucketWebsiteConfigurationIndexDocument | undefined>;
     /**
      * Redirect behavior for every request to this bucket's website endpoint. See below. Conflicts with `errorDocument`, `indexDocument`, and `routingRule`.
      */
-    redirectAllRequestsTo?: pulumi.Input<inputs.s3.BucketWebsiteConfigurationRedirectAllRequestsTo>;
+    redirectAllRequestsTo?: pulumi.Input<inputs.s3.BucketWebsiteConfigurationRedirectAllRequestsTo | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
      * describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
      */
-    routingRuleDetails?: pulumi.Input<string>;
+    routingRuleDetails?: pulumi.Input<string | undefined>;
     /**
      * List of rules that define when a redirect is applied and the redirect behavior. See below.
      */
-    routingRules?: pulumi.Input<pulumi.Input<inputs.s3.BucketWebsiteConfigurationRoutingRule>[]>;
+    routingRules?: pulumi.Input<pulumi.Input<inputs.s3.BucketWebsiteConfigurationRoutingRule>[] | undefined>;
 }

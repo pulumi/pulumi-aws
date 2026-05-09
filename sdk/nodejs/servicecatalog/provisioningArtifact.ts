@@ -177,57 +177,57 @@ export interface ProvisioningArtifactState {
     /**
      * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). The default value is `en`.
      */
-    acceptLanguage?: pulumi.Input<string>;
+    acceptLanguage?: pulumi.Input<string | undefined>;
     /**
      * Whether the product version is active. Inactive provisioning artifacts are invisible to end users. End users cannot launch or update a provisioned product from an inactive provisioning artifact. Default is `true`.
      */
-    active?: pulumi.Input<boolean>;
+    active?: pulumi.Input<boolean | undefined>;
     /**
      * Time when the provisioning artifact was created.
      */
-    createdTime?: pulumi.Input<string>;
+    createdTime?: pulumi.Input<string | undefined>;
     /**
      * Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Whether AWS Service Catalog stops validating the specified provisioning artifact template even if it is invalid.
      */
-    disableTemplateValidation?: pulumi.Input<boolean>;
+    disableTemplateValidation?: pulumi.Input<boolean | undefined>;
     /**
      * Information set by the administrator to provide guidance to end users about which provisioning artifacts to use. Valid values are `DEFAULT` and `DEPRECATED`. The default is `DEFAULT`. Users are able to make updates to a provisioned product of a deprecated version but cannot launch new provisioned products using a deprecated version.
      */
-    guidance?: pulumi.Input<string>;
+    guidance?: pulumi.Input<string | undefined>;
     /**
      * Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the product.
      */
-    productId?: pulumi.Input<string>;
+    productId?: pulumi.Input<string | undefined>;
     /**
      * Provisioning artifact identifier.
      */
-    provisioningArtifactId?: pulumi.Input<string>;
+    provisioningArtifactId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
      */
-    templatePhysicalId?: pulumi.Input<string>;
+    templatePhysicalId?: pulumi.Input<string | undefined>;
     /**
      * Template source as URL of the CloudFormation template in Amazon S3.
      *
      * The following arguments are optional:
      */
-    templateUrl?: pulumi.Input<string>;
+    templateUrl?: pulumi.Input<string | undefined>;
     /**
      * Type of provisioning artifact. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ProvisioningArtifactProperties.html) for valid list of values.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -237,27 +237,27 @@ export interface ProvisioningArtifactArgs {
     /**
      * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). The default value is `en`.
      */
-    acceptLanguage?: pulumi.Input<string>;
+    acceptLanguage?: pulumi.Input<string | undefined>;
     /**
      * Whether the product version is active. Inactive provisioning artifacts are invisible to end users. End users cannot launch or update a provisioned product from an inactive provisioning artifact. Default is `true`.
      */
-    active?: pulumi.Input<boolean>;
+    active?: pulumi.Input<boolean | undefined>;
     /**
      * Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Whether AWS Service Catalog stops validating the specified provisioning artifact template even if it is invalid.
      */
-    disableTemplateValidation?: pulumi.Input<boolean>;
+    disableTemplateValidation?: pulumi.Input<boolean | undefined>;
     /**
      * Information set by the administrator to provide guidance to end users about which provisioning artifacts to use. Valid values are `DEFAULT` and `DEPRECATED`. The default is `DEFAULT`. Users are able to make updates to a provisioned product of a deprecated version but cannot launch new provisioned products using a deprecated version.
      */
-    guidance?: pulumi.Input<string>;
+    guidance?: pulumi.Input<string | undefined>;
     /**
      * Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the product.
      */
@@ -265,19 +265,19 @@ export interface ProvisioningArtifactArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
      */
-    templatePhysicalId?: pulumi.Input<string>;
+    templatePhysicalId?: pulumi.Input<string | undefined>;
     /**
      * Template source as URL of the CloudFormation template in Amazon S3.
      *
      * The following arguments are optional:
      */
-    templateUrl?: pulumi.Input<string>;
+    templateUrl?: pulumi.Input<string | undefined>;
     /**
      * Type of provisioning artifact. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ProvisioningArtifactProperties.html) for valid list of values.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }

@@ -83,7 +83,7 @@ def get_web_acl(name: Optional[_builtins.str] = None,
     return AwaitableGetWebAclResult(
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'))
-def get_web_acl_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_web_acl_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAclResult]:
     """
     `waf.WebAcl` Retrieves a WAF Web ACL Resource Id.

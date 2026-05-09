@@ -70,23 +70,23 @@ class CloudAutonomousVmClusterMaintenanceWindowArgsDict(TypedDict):
     """
     The preference for the maintenance window scheduling. Changing this will force terraform to create new resource.
     """
-    days_of_weeks: NotRequired[pulumi.Input[Sequence[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekArgsDict']]]]
+    days_of_weeks: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekArgs']]]]]
     """
     The days of the week when maintenance can be performed. Changing this will force terraform to create new resource.
     """
-    hours_of_days: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    hours_of_days: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]]
     """
     The hours of the day when maintenance can be performed. Changing this will force terraform to create new resource.
     """
-    lead_time_in_weeks: NotRequired[pulumi.Input[_builtins.int]]
+    lead_time_in_weeks: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The lead time in weeks before the maintenance window. Changing this will force terraform to create new resource.
     """
-    months: NotRequired[pulumi.Input[Sequence[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowMonthArgsDict']]]]
+    months: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowMonthArgs']]]]]
     """
     The months when maintenance can be performed. Changing this will force terraform to create new resource.
     """
-    weeks_of_months: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    weeks_of_months: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]]
     """
     Indicates whether to skip release updates during maintenance. Changing this will force terraform to create new resource.
     """
@@ -95,11 +95,11 @@ class CloudAutonomousVmClusterMaintenanceWindowArgsDict(TypedDict):
 class CloudAutonomousVmClusterMaintenanceWindowArgs:
     def __init__(__self__, *,
                  preference: pulumi.Input[_builtins.str],
-                 days_of_weeks: Optional[pulumi.Input[Sequence[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekArgs']]]] = None,
-                 hours_of_days: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 lead_time_in_weeks: Optional[pulumi.Input[_builtins.int]] = None,
-                 months: Optional[pulumi.Input[Sequence[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowMonthArgs']]]] = None,
-                 weeks_of_months: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None):
+                 days_of_weeks: pulumi.Input[Optional[Sequence[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekArgs']]]] = None,
+                 hours_of_days: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 lead_time_in_weeks: pulumi.Input[Optional[_builtins.int]] = None,
+                 months: pulumi.Input[Optional[Sequence[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowMonthArgs']]]] = None,
+                 weeks_of_months: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None):
         """
         :param pulumi.Input[_builtins.str] preference: The preference for the maintenance window scheduling. Changing this will force terraform to create new resource.
         :param pulumi.Input[Sequence[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekArgs']]] days_of_weeks: The days of the week when maintenance can be performed. Changing this will force terraform to create new resource.
@@ -134,62 +134,62 @@ class CloudAutonomousVmClusterMaintenanceWindowArgs:
 
     @_builtins.property
     @pulumi.getter(name="daysOfWeeks")
-    def days_of_weeks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekArgs']]]]:
+    def days_of_weeks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekArgs']]]]:
         """
         The days of the week when maintenance can be performed. Changing this will force terraform to create new resource.
         """
         return pulumi.get(self, "days_of_weeks")
 
     @days_of_weeks.setter
-    def days_of_weeks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekArgs']]]]):
+    def days_of_weeks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekArgs']]]]):
         pulumi.set(self, "days_of_weeks", value)
 
     @_builtins.property
     @pulumi.getter(name="hoursOfDays")
-    def hours_of_days(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def hours_of_days(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         The hours of the day when maintenance can be performed. Changing this will force terraform to create new resource.
         """
         return pulumi.get(self, "hours_of_days")
 
     @hours_of_days.setter
-    def hours_of_days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def hours_of_days(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "hours_of_days", value)
 
     @_builtins.property
     @pulumi.getter(name="leadTimeInWeeks")
-    def lead_time_in_weeks(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def lead_time_in_weeks(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The lead time in weeks before the maintenance window. Changing this will force terraform to create new resource.
         """
         return pulumi.get(self, "lead_time_in_weeks")
 
     @lead_time_in_weeks.setter
-    def lead_time_in_weeks(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def lead_time_in_weeks(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "lead_time_in_weeks", value)
 
     @_builtins.property
     @pulumi.getter
-    def months(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowMonthArgs']]]]:
+    def months(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowMonthArgs']]]]:
         """
         The months when maintenance can be performed. Changing this will force terraform to create new resource.
         """
         return pulumi.get(self, "months")
 
     @months.setter
-    def months(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowMonthArgs']]]]):
+    def months(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowMonthArgs']]]]):
         pulumi.set(self, "months", value)
 
     @_builtins.property
     @pulumi.getter(name="weeksOfMonths")
-    def weeks_of_months(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def weeks_of_months(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         Indicates whether to skip release updates during maintenance. Changing this will force terraform to create new resource.
         """
         return pulumi.get(self, "weeks_of_months")
 
     @weeks_of_months.setter
-    def weeks_of_months(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def weeks_of_months(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "weeks_of_months", value)
 
 
@@ -232,15 +232,15 @@ class CloudAutonomousVmClusterMaintenanceWindowMonthArgs:
 
 
 class CloudAutonomousVmClusterTimeoutsArgsDict(TypedDict):
-    create: NotRequired[pulumi.Input[_builtins.str]]
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
-    delete: NotRequired[pulumi.Input[_builtins.str]]
+    delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     """
-    update: NotRequired[pulumi.Input[_builtins.str]]
+    update: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
@@ -248,9 +248,9 @@ class CloudAutonomousVmClusterTimeoutsArgsDict(TypedDict):
 @pulumi.input_type
 class CloudAutonomousVmClusterTimeoutsArgs:
     def __init__(__self__, *,
-                 create: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete: Optional[pulumi.Input[_builtins.str]] = None,
-                 update: Optional[pulumi.Input[_builtins.str]] = None):
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete: pulumi.Input[Optional[_builtins.str]] = None,
+                 update: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
@@ -265,38 +265,38 @@ class CloudAutonomousVmClusterTimeoutsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "create")
 
     @create.setter
-    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create", value)
 
     @_builtins.property
     @pulumi.getter
-    def delete(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delete(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
         """
         return pulumi.get(self, "delete")
 
     @delete.setter
-    def delete(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delete", value)
 
     @_builtins.property
     @pulumi.getter
-    def update(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def update(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "update")
 
     @update.setter
-    def update(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def update(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "update", value)
 
 
@@ -336,23 +336,23 @@ class CloudExadataInfrastructureMaintenanceWindowArgsDict(TypedDict):
     """
     The preference for the maintenance window scheduling.
     """
-    days_of_weeks: NotRequired[pulumi.Input[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowDaysOfWeekArgsDict']]]]
+    days_of_weeks: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowDaysOfWeekArgs']]]]]
     """
     The days of the week when maintenance can be performed.
     """
-    hours_of_days: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    hours_of_days: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]]
     """
     The hours of the day when maintenance can be performed.
     """
-    lead_time_in_weeks: NotRequired[pulumi.Input[_builtins.int]]
+    lead_time_in_weeks: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The lead time in weeks before the maintenance window.
     """
-    months: NotRequired[pulumi.Input[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowMonthArgsDict']]]]
+    months: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowMonthArgs']]]]]
     """
     The months when maintenance can be performed.
     """
-    weeks_of_months: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    weeks_of_months: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]]
     """
     The weeks of the month when maintenance can be performed.
     """
@@ -364,11 +364,11 @@ class CloudExadataInfrastructureMaintenanceWindowArgs:
                  is_custom_action_timeout_enabled: pulumi.Input[_builtins.bool],
                  patching_mode: pulumi.Input[_builtins.str],
                  preference: pulumi.Input[_builtins.str],
-                 days_of_weeks: Optional[pulumi.Input[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowDaysOfWeekArgs']]]] = None,
-                 hours_of_days: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 lead_time_in_weeks: Optional[pulumi.Input[_builtins.int]] = None,
-                 months: Optional[pulumi.Input[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowMonthArgs']]]] = None,
-                 weeks_of_months: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None):
+                 days_of_weeks: pulumi.Input[Optional[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowDaysOfWeekArgs']]]] = None,
+                 hours_of_days: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 lead_time_in_weeks: pulumi.Input[Optional[_builtins.int]] = None,
+                 months: pulumi.Input[Optional[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowMonthArgs']]]] = None,
+                 weeks_of_months: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None):
         """
         :param pulumi.Input[_builtins.int] custom_action_timeout_in_mins: The custom action timeout in minutes for the maintenance window.
         :param pulumi.Input[_builtins.bool] is_custom_action_timeout_enabled: ndicates whether custom action timeout is enabled for the maintenance window.
@@ -445,62 +445,62 @@ class CloudExadataInfrastructureMaintenanceWindowArgs:
 
     @_builtins.property
     @pulumi.getter(name="daysOfWeeks")
-    def days_of_weeks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowDaysOfWeekArgs']]]]:
+    def days_of_weeks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowDaysOfWeekArgs']]]]:
         """
         The days of the week when maintenance can be performed.
         """
         return pulumi.get(self, "days_of_weeks")
 
     @days_of_weeks.setter
-    def days_of_weeks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowDaysOfWeekArgs']]]]):
+    def days_of_weeks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowDaysOfWeekArgs']]]]):
         pulumi.set(self, "days_of_weeks", value)
 
     @_builtins.property
     @pulumi.getter(name="hoursOfDays")
-    def hours_of_days(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def hours_of_days(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         The hours of the day when maintenance can be performed.
         """
         return pulumi.get(self, "hours_of_days")
 
     @hours_of_days.setter
-    def hours_of_days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def hours_of_days(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "hours_of_days", value)
 
     @_builtins.property
     @pulumi.getter(name="leadTimeInWeeks")
-    def lead_time_in_weeks(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def lead_time_in_weeks(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The lead time in weeks before the maintenance window.
         """
         return pulumi.get(self, "lead_time_in_weeks")
 
     @lead_time_in_weeks.setter
-    def lead_time_in_weeks(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def lead_time_in_weeks(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "lead_time_in_weeks", value)
 
     @_builtins.property
     @pulumi.getter
-    def months(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowMonthArgs']]]]:
+    def months(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowMonthArgs']]]]:
         """
         The months when maintenance can be performed.
         """
         return pulumi.get(self, "months")
 
     @months.setter
-    def months(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowMonthArgs']]]]):
+    def months(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowMonthArgs']]]]):
         pulumi.set(self, "months", value)
 
     @_builtins.property
     @pulumi.getter(name="weeksOfMonths")
-    def weeks_of_months(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def weeks_of_months(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         The weeks of the month when maintenance can be performed.
         """
         return pulumi.get(self, "weeks_of_months")
 
     @weeks_of_months.setter
-    def weeks_of_months(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def weeks_of_months(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "weeks_of_months", value)
 
 
@@ -543,15 +543,15 @@ class CloudExadataInfrastructureMaintenanceWindowMonthArgs:
 
 
 class CloudExadataInfrastructureTimeoutsArgsDict(TypedDict):
-    create: NotRequired[pulumi.Input[_builtins.str]]
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
-    delete: NotRequired[pulumi.Input[_builtins.str]]
+    delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     """
-    update: NotRequired[pulumi.Input[_builtins.str]]
+    update: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
@@ -559,9 +559,9 @@ class CloudExadataInfrastructureTimeoutsArgsDict(TypedDict):
 @pulumi.input_type
 class CloudExadataInfrastructureTimeoutsArgs:
     def __init__(__self__, *,
-                 create: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete: Optional[pulumi.Input[_builtins.str]] = None,
-                 update: Optional[pulumi.Input[_builtins.str]] = None):
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete: pulumi.Input[Optional[_builtins.str]] = None,
+                 update: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
@@ -576,38 +576,38 @@ class CloudExadataInfrastructureTimeoutsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "create")
 
     @create.setter
-    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create", value)
 
     @_builtins.property
     @pulumi.getter
-    def delete(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delete(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
         """
         return pulumi.get(self, "delete")
 
     @delete.setter
-    def delete(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delete", value)
 
     @_builtins.property
     @pulumi.getter
-    def update(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def update(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "update")
 
     @update.setter
-    def update(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def update(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "update", value)
 
 
@@ -753,15 +753,15 @@ class CloudVmClusterIormConfigCacheDbPlanArgs:
 
 
 class CloudVmClusterTimeoutsArgsDict(TypedDict):
-    create: NotRequired[pulumi.Input[_builtins.str]]
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
-    delete: NotRequired[pulumi.Input[_builtins.str]]
+    delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     """
-    update: NotRequired[pulumi.Input[_builtins.str]]
+    update: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
@@ -769,9 +769,9 @@ class CloudVmClusterTimeoutsArgsDict(TypedDict):
 @pulumi.input_type
 class CloudVmClusterTimeoutsArgs:
     def __init__(__self__, *,
-                 create: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete: Optional[pulumi.Input[_builtins.str]] = None,
-                 update: Optional[pulumi.Input[_builtins.str]] = None):
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete: pulumi.Input[Optional[_builtins.str]] = None,
+                 update: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
@@ -786,38 +786,38 @@ class CloudVmClusterTimeoutsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "create")
 
     @create.setter
-    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create", value)
 
     @_builtins.property
     @pulumi.getter
-    def delete(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delete(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
         """
         return pulumi.get(self, "delete")
 
     @delete.setter
-    def delete(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delete", value)
 
     @_builtins.property
     @pulumi.getter
-    def update(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def update(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "update")
 
     @update.setter
-    def update(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def update(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "update", value)
 
 
@@ -1406,15 +1406,15 @@ class NetworkOciDnsForwardingConfigArgs:
 
 
 class NetworkPeeringConnectionTimeoutsArgsDict(TypedDict):
-    create: NotRequired[pulumi.Input[_builtins.str]]
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
-    delete: NotRequired[pulumi.Input[_builtins.str]]
+    delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     """
-    update: NotRequired[pulumi.Input[_builtins.str]]
+    update: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
@@ -1422,9 +1422,9 @@ class NetworkPeeringConnectionTimeoutsArgsDict(TypedDict):
 @pulumi.input_type
 class NetworkPeeringConnectionTimeoutsArgs:
     def __init__(__self__, *,
-                 create: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete: Optional[pulumi.Input[_builtins.str]] = None,
-                 update: Optional[pulumi.Input[_builtins.str]] = None):
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete: pulumi.Input[Optional[_builtins.str]] = None,
+                 update: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
@@ -1439,51 +1439,51 @@ class NetworkPeeringConnectionTimeoutsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "create")
 
     @create.setter
-    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create", value)
 
     @_builtins.property
     @pulumi.getter
-    def delete(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delete(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
         """
         return pulumi.get(self, "delete")
 
     @delete.setter
-    def delete(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delete", value)
 
     @_builtins.property
     @pulumi.getter
-    def update(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def update(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "update")
 
     @update.setter
-    def update(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def update(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "update", value)
 
 
 class NetworkTimeoutsArgsDict(TypedDict):
-    create: NotRequired[pulumi.Input[_builtins.str]]
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
-    delete: NotRequired[pulumi.Input[_builtins.str]]
+    delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     """
-    update: NotRequired[pulumi.Input[_builtins.str]]
+    update: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
@@ -1491,9 +1491,9 @@ class NetworkTimeoutsArgsDict(TypedDict):
 @pulumi.input_type
 class NetworkTimeoutsArgs:
     def __init__(__self__, *,
-                 create: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete: Optional[pulumi.Input[_builtins.str]] = None,
-                 update: Optional[pulumi.Input[_builtins.str]] = None):
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete: pulumi.Input[Optional[_builtins.str]] = None,
+                 update: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
@@ -1508,38 +1508,38 @@ class NetworkTimeoutsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "create")
 
     @create.setter
-    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create", value)
 
     @_builtins.property
     @pulumi.getter
-    def delete(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delete(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
         """
         return pulumi.get(self, "delete")
 
     @delete.setter
-    def delete(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delete", value)
 
     @_builtins.property
     @pulumi.getter
-    def update(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def update(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "update")
 
     @update.setter
-    def update(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def update(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "update", value)
 
 

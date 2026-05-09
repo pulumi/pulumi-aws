@@ -22,10 +22,10 @@ __all__ = ['AgentcoreOauth2CredentialProviderArgs', 'AgentcoreOauth2CredentialPr
 class AgentcoreOauth2CredentialProviderArgs:
     def __init__(__self__, *,
                  credential_provider_vendor: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth2_provider_config: Optional[pulumi.Input['AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth2_provider_config: pulumi.Input[Optional['AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AgentcoreOauth2CredentialProvider resource.
 
@@ -61,19 +61,19 @@ class AgentcoreOauth2CredentialProviderArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the OAuth2 credential provider.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="oauth2ProviderConfig")
-    def oauth2_provider_config(self) -> Optional[pulumi.Input['AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs']]:
+    def oauth2_provider_config(self) -> pulumi.Input[Optional['AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs']]:
         """
         OAuth2 provider configuration. Must contain exactly one provider type. See `oauth2_provider_config` below.
 
@@ -82,45 +82,45 @@ class AgentcoreOauth2CredentialProviderArgs:
         return pulumi.get(self, "oauth2_provider_config")
 
     @oauth2_provider_config.setter
-    def oauth2_provider_config(self, value: Optional[pulumi.Input['AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs']]):
+    def oauth2_provider_config(self, value: pulumi.Input[Optional['AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs']]):
         pulumi.set(self, "oauth2_provider_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _AgentcoreOauth2CredentialProviderState:
     def __init__(__self__, *,
-                 client_secret_arns: Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreOauth2CredentialProviderClientSecretArnArgs']]]] = None,
-                 credential_provider_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 credential_provider_vendor: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth2_provider_config: Optional[pulumi.Input['AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 client_secret_arns: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreOauth2CredentialProviderClientSecretArnArgs']]]] = None,
+                 credential_provider_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 credential_provider_vendor: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth2_provider_config: pulumi.Input[Optional['AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering AgentcoreOauth2CredentialProvider resources.
 
@@ -154,55 +154,55 @@ class _AgentcoreOauth2CredentialProviderState:
 
     @_builtins.property
     @pulumi.getter(name="clientSecretArns")
-    def client_secret_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreOauth2CredentialProviderClientSecretArnArgs']]]]:
+    def client_secret_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreOauth2CredentialProviderClientSecretArnArgs']]]]:
         """
         ARN of the AWS Secrets Manager secret containing the client secret.
         """
         return pulumi.get(self, "client_secret_arns")
 
     @client_secret_arns.setter
-    def client_secret_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreOauth2CredentialProviderClientSecretArnArgs']]]]):
+    def client_secret_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreOauth2CredentialProviderClientSecretArnArgs']]]]):
         pulumi.set(self, "client_secret_arns", value)
 
     @_builtins.property
     @pulumi.getter(name="credentialProviderArn")
-    def credential_provider_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def credential_provider_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the OAuth2 credential provider.
         """
         return pulumi.get(self, "credential_provider_arn")
 
     @credential_provider_arn.setter
-    def credential_provider_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def credential_provider_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "credential_provider_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="credentialProviderVendor")
-    def credential_provider_vendor(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def credential_provider_vendor(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Vendor of the OAuth2 credential provider. Valid values: `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `Microsoft`, `SalesforceOauth2`, `SlackOauth2`.
         """
         return pulumi.get(self, "credential_provider_vendor")
 
     @credential_provider_vendor.setter
-    def credential_provider_vendor(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def credential_provider_vendor(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "credential_provider_vendor", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the OAuth2 credential provider.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="oauth2ProviderConfig")
-    def oauth2_provider_config(self) -> Optional[pulumi.Input['AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs']]:
+    def oauth2_provider_config(self) -> pulumi.Input[Optional['AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs']]:
         """
         OAuth2 provider configuration. Must contain exactly one provider type. See `oauth2_provider_config` below.
 
@@ -211,43 +211,43 @@ class _AgentcoreOauth2CredentialProviderState:
         return pulumi.get(self, "oauth2_provider_config")
 
     @oauth2_provider_config.setter
-    def oauth2_provider_config(self, value: Optional[pulumi.Input['AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs']]):
+    def oauth2_provider_config(self, value: pulumi.Input[Optional['AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs']]):
         pulumi.set(self, "oauth2_provider_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
 
@@ -257,11 +257,11 @@ class AgentcoreOauth2CredentialProvider(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credential_provider_vendor: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth2_provider_config: Optional[pulumi.Input[Union['AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs', 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 credential_provider_vendor: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth2_provider_config: pulumi.Input[Optional[Union['AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs', 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages an AWS Bedrock AgentCore OAuth2 Credential Provider. OAuth2 credential providers enable secure authentication with external OAuth2/OpenID Connect identity providers for agent runtimes.
@@ -460,11 +460,11 @@ class AgentcoreOauth2CredentialProvider(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credential_provider_vendor: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth2_provider_config: Optional[pulumi.Input[Union['AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs', 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 credential_provider_vendor: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth2_provider_config: pulumi.Input[Optional[Union['AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs', 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -494,14 +494,14 @@ class AgentcoreOauth2CredentialProvider(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            client_secret_arns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreOauth2CredentialProviderClientSecretArnArgs', 'AgentcoreOauth2CredentialProviderClientSecretArnArgsDict']]]]] = None,
-            credential_provider_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            credential_provider_vendor: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            oauth2_provider_config: Optional[pulumi.Input[Union['AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs', 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgsDict']]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'AgentcoreOauth2CredentialProvider':
+            client_secret_arns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreOauth2CredentialProviderClientSecretArnArgs', 'AgentcoreOauth2CredentialProviderClientSecretArnArgsDict']]]]] = None,
+            credential_provider_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            credential_provider_vendor: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            oauth2_provider_config: pulumi.Input[Optional[Union['AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs', 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgsDict']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'AgentcoreOauth2CredentialProvider':
         """
         Get an existing AgentcoreOauth2CredentialProvider resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

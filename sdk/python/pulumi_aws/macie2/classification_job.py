@@ -23,16 +23,16 @@ class ClassificationJobArgs:
     def __init__(__self__, *,
                  job_type: pulumi.Input[_builtins.str],
                  s3_job_definition: pulumi.Input['ClassificationJobS3JobDefinitionArgs'],
-                 custom_data_identifier_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 initial_run: Optional[pulumi.Input[_builtins.bool]] = None,
-                 job_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 sampling_percentage: Optional[pulumi.Input[_builtins.int]] = None,
-                 schedule_frequency: Optional[pulumi.Input['ClassificationJobScheduleFrequencyArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 custom_data_identifier_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 initial_run: pulumi.Input[Optional[_builtins.bool]] = None,
+                 job_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 sampling_percentage: pulumi.Input[Optional[_builtins.int]] = None,
+                 schedule_frequency: pulumi.Input[Optional['ClassificationJobScheduleFrequencyArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ClassificationJob resource.
 
@@ -98,145 +98,145 @@ class ClassificationJobArgs:
 
     @_builtins.property
     @pulumi.getter(name="customDataIdentifierIds")
-    def custom_data_identifier_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def custom_data_identifier_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The custom data identifiers to use for data analysis and classification.
         """
         return pulumi.get(self, "custom_data_identifier_ids")
 
     @custom_data_identifier_ids.setter
-    def custom_data_identifier_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def custom_data_identifier_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "custom_data_identifier_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A custom description of the job. The description can contain as many as 200 characters.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="initialRun")
-    def initial_run(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def initial_run(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to analyze all existing, eligible objects immediately after the job is created.
         """
         return pulumi.get(self, "initial_run")
 
     @initial_run.setter
-    def initial_run(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def initial_run(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "initial_run", value)
 
     @_builtins.property
     @pulumi.getter(name="jobStatus")
-    def job_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def job_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status for the job. Valid values are: `CANCELLED`, `RUNNING` and `USER_PAUSED`
         """
         return pulumi.get(self, "job_status")
 
     @job_status.setter
-    def job_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def job_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "job_status", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
-    def name_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name_prefix", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="samplingPercentage")
-    def sampling_percentage(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def sampling_percentage(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
         """
         return pulumi.get(self, "sampling_percentage")
 
     @sampling_percentage.setter
-    def sampling_percentage(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def sampling_percentage(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "sampling_percentage", value)
 
     @_builtins.property
     @pulumi.getter(name="scheduleFrequency")
-    def schedule_frequency(self) -> Optional[pulumi.Input['ClassificationJobScheduleFrequencyArgs']]:
+    def schedule_frequency(self) -> pulumi.Input[Optional['ClassificationJobScheduleFrequencyArgs']]:
         """
         The recurrence pattern for running the job. To run the job only once, don't specify a value for this property and set the value for the `job_type` property to `ONE_TIME`. (documented below)
         """
         return pulumi.get(self, "schedule_frequency")
 
     @schedule_frequency.setter
-    def schedule_frequency(self, value: Optional[pulumi.Input['ClassificationJobScheduleFrequencyArgs']]):
+    def schedule_frequency(self, value: pulumi.Input[Optional['ClassificationJobScheduleFrequencyArgs']]):
         pulumi.set(self, "schedule_frequency", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _ClassificationJobState:
     def __init__(__self__, *,
-                 created_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_data_identifier_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 initial_run: Optional[pulumi.Input[_builtins.bool]] = None,
-                 job_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_job_definition: Optional[pulumi.Input['ClassificationJobS3JobDefinitionArgs']] = None,
-                 sampling_percentage: Optional[pulumi.Input[_builtins.int]] = None,
-                 schedule_frequency: Optional[pulumi.Input['ClassificationJobScheduleFrequencyArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 user_paused_details: Optional[pulumi.Input[Sequence[pulumi.Input['ClassificationJobUserPausedDetailArgs']]]] = None):
+                 created_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_data_identifier_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 initial_run: pulumi.Input[Optional[_builtins.bool]] = None,
+                 job_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_job_definition: pulumi.Input[Optional['ClassificationJobS3JobDefinitionArgs']] = None,
+                 sampling_percentage: pulumi.Input[Optional[_builtins.int]] = None,
+                 schedule_frequency: pulumi.Input[Optional['ClassificationJobScheduleFrequencyArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 user_paused_details: pulumi.Input[Optional[Sequence[pulumi.Input['ClassificationJobUserPausedDetailArgs']]]] = None):
         """
         Input properties used for looking up and filtering ClassificationJob resources.
 
@@ -293,200 +293,200 @@ class _ClassificationJobState:
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date and time, in UTC and extended RFC 3339 format, when the job was created.
         """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
-    def created_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_at", value)
 
     @_builtins.property
     @pulumi.getter(name="customDataIdentifierIds")
-    def custom_data_identifier_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def custom_data_identifier_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The custom data identifiers to use for data analysis and classification.
         """
         return pulumi.get(self, "custom_data_identifier_ids")
 
     @custom_data_identifier_ids.setter
-    def custom_data_identifier_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def custom_data_identifier_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "custom_data_identifier_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A custom description of the job. The description can contain as many as 200 characters.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="initialRun")
-    def initial_run(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def initial_run(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to analyze all existing, eligible objects immediately after the job is created.
         """
         return pulumi.get(self, "initial_run")
 
     @initial_run.setter
-    def initial_run(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def initial_run(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "initial_run", value)
 
     @_builtins.property
     @pulumi.getter(name="jobArn")
-    def job_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def job_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "job_arn")
 
     @job_arn.setter
-    def job_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def job_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "job_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="jobId")
-    def job_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def job_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "job_id")
 
     @job_id.setter
-    def job_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def job_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "job_id", value)
 
     @_builtins.property
     @pulumi.getter(name="jobStatus")
-    def job_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def job_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status for the job. Valid values are: `CANCELLED`, `RUNNING` and `USER_PAUSED`
         """
         return pulumi.get(self, "job_status")
 
     @job_status.setter
-    def job_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def job_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "job_status", value)
 
     @_builtins.property
     @pulumi.getter(name="jobType")
-    def job_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def job_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don't specify a value for the `schedule_frequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `schedule_frequency` property to define the recurrence pattern for the job.
         """
         return pulumi.get(self, "job_type")
 
     @job_type.setter
-    def job_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def job_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "job_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
-    def name_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name_prefix", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="s3JobDefinition")
-    def s3_job_definition(self) -> Optional[pulumi.Input['ClassificationJobS3JobDefinitionArgs']]:
+    def s3_job_definition(self) -> pulumi.Input[Optional['ClassificationJobS3JobDefinitionArgs']]:
         """
         The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
         """
         return pulumi.get(self, "s3_job_definition")
 
     @s3_job_definition.setter
-    def s3_job_definition(self, value: Optional[pulumi.Input['ClassificationJobS3JobDefinitionArgs']]):
+    def s3_job_definition(self, value: pulumi.Input[Optional['ClassificationJobS3JobDefinitionArgs']]):
         pulumi.set(self, "s3_job_definition", value)
 
     @_builtins.property
     @pulumi.getter(name="samplingPercentage")
-    def sampling_percentage(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def sampling_percentage(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
         """
         return pulumi.get(self, "sampling_percentage")
 
     @sampling_percentage.setter
-    def sampling_percentage(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def sampling_percentage(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "sampling_percentage", value)
 
     @_builtins.property
     @pulumi.getter(name="scheduleFrequency")
-    def schedule_frequency(self) -> Optional[pulumi.Input['ClassificationJobScheduleFrequencyArgs']]:
+    def schedule_frequency(self) -> pulumi.Input[Optional['ClassificationJobScheduleFrequencyArgs']]:
         """
         The recurrence pattern for running the job. To run the job only once, don't specify a value for this property and set the value for the `job_type` property to `ONE_TIME`. (documented below)
         """
         return pulumi.get(self, "schedule_frequency")
 
     @schedule_frequency.setter
-    def schedule_frequency(self, value: Optional[pulumi.Input['ClassificationJobScheduleFrequencyArgs']]):
+    def schedule_frequency(self, value: pulumi.Input[Optional['ClassificationJobScheduleFrequencyArgs']]):
         pulumi.set(self, "schedule_frequency", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="userPausedDetails")
-    def user_paused_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClassificationJobUserPausedDetailArgs']]]]:
+    def user_paused_details(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ClassificationJobUserPausedDetailArgs']]]]:
         """
         If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be canceled if it isn't resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
         """
         return pulumi.get(self, "user_paused_details")
 
     @user_paused_details.setter
-    def user_paused_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClassificationJobUserPausedDetailArgs']]]]):
+    def user_paused_details(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ClassificationJobUserPausedDetailArgs']]]]):
         pulumi.set(self, "user_paused_details", value)
 
 
@@ -496,18 +496,18 @@ class ClassificationJob(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_data_identifier_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 initial_run: Optional[pulumi.Input[_builtins.bool]] = None,
-                 job_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_job_definition: Optional[pulumi.Input[Union['ClassificationJobS3JobDefinitionArgs', 'ClassificationJobS3JobDefinitionArgsDict']]] = None,
-                 sampling_percentage: Optional[pulumi.Input[_builtins.int]] = None,
-                 schedule_frequency: Optional[pulumi.Input[Union['ClassificationJobScheduleFrequencyArgs', 'ClassificationJobScheduleFrequencyArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 custom_data_identifier_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 initial_run: pulumi.Input[Optional[_builtins.bool]] = None,
+                 job_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_job_definition: pulumi.Input[Optional[Union['ClassificationJobS3JobDefinitionArgs', 'ClassificationJobS3JobDefinitionArgsDict']]] = None,
+                 sampling_percentage: pulumi.Input[Optional[_builtins.int]] = None,
+                 schedule_frequency: pulumi.Input[Optional[Union['ClassificationJobScheduleFrequencyArgs', 'ClassificationJobScheduleFrequencyArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a resource to manage an [AWS Macie Classification Job](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html).
@@ -607,18 +607,18 @@ class ClassificationJob(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_data_identifier_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 initial_run: Optional[pulumi.Input[_builtins.bool]] = None,
-                 job_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_job_definition: Optional[pulumi.Input[Union['ClassificationJobS3JobDefinitionArgs', 'ClassificationJobS3JobDefinitionArgsDict']]] = None,
-                 sampling_percentage: Optional[pulumi.Input[_builtins.int]] = None,
-                 schedule_frequency: Optional[pulumi.Input[Union['ClassificationJobScheduleFrequencyArgs', 'ClassificationJobScheduleFrequencyArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 custom_data_identifier_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 initial_run: pulumi.Input[Optional[_builtins.bool]] = None,
+                 job_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_job_definition: pulumi.Input[Optional[Union['ClassificationJobS3JobDefinitionArgs', 'ClassificationJobS3JobDefinitionArgsDict']]] = None,
+                 sampling_percentage: pulumi.Input[Optional[_builtins.int]] = None,
+                 schedule_frequency: pulumi.Input[Optional[Union['ClassificationJobScheduleFrequencyArgs', 'ClassificationJobScheduleFrequencyArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -659,23 +659,23 @@ class ClassificationJob(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            created_at: Optional[pulumi.Input[_builtins.str]] = None,
-            custom_data_identifier_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            initial_run: Optional[pulumi.Input[_builtins.bool]] = None,
-            job_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            job_id: Optional[pulumi.Input[_builtins.str]] = None,
-            job_status: Optional[pulumi.Input[_builtins.str]] = None,
-            job_type: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            s3_job_definition: Optional[pulumi.Input[Union['ClassificationJobS3JobDefinitionArgs', 'ClassificationJobS3JobDefinitionArgsDict']]] = None,
-            sampling_percentage: Optional[pulumi.Input[_builtins.int]] = None,
-            schedule_frequency: Optional[pulumi.Input[Union['ClassificationJobScheduleFrequencyArgs', 'ClassificationJobScheduleFrequencyArgsDict']]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            user_paused_details: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClassificationJobUserPausedDetailArgs', 'ClassificationJobUserPausedDetailArgsDict']]]]] = None) -> 'ClassificationJob':
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_data_identifier_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            initial_run: pulumi.Input[Optional[_builtins.bool]] = None,
+            job_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            job_id: pulumi.Input[Optional[_builtins.str]] = None,
+            job_status: pulumi.Input[Optional[_builtins.str]] = None,
+            job_type: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            s3_job_definition: pulumi.Input[Optional[Union['ClassificationJobS3JobDefinitionArgs', 'ClassificationJobS3JobDefinitionArgsDict']]] = None,
+            sampling_percentage: pulumi.Input[Optional[_builtins.int]] = None,
+            schedule_frequency: pulumi.Input[Optional[Union['ClassificationJobScheduleFrequencyArgs', 'ClassificationJobScheduleFrequencyArgsDict']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            user_paused_details: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClassificationJobUserPausedDetailArgs', 'ClassificationJobUserPausedDetailArgsDict']]]]] = None) -> 'ClassificationJob':
         """
         Get an existing ClassificationJob resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

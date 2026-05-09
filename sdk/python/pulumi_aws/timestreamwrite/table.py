@@ -23,11 +23,11 @@ class TableArgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[_builtins.str],
                  table_name: pulumi.Input[_builtins.str],
-                 magnetic_store_write_properties: Optional[pulumi.Input['TableMagneticStoreWritePropertiesArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_properties: Optional[pulumi.Input['TableRetentionPropertiesArgs']] = None,
-                 schema: Optional[pulumi.Input['TableSchemaArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 magnetic_store_write_properties: pulumi.Input[Optional['TableMagneticStoreWritePropertiesArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_properties: pulumi.Input[Optional['TableRetentionPropertiesArgs']] = None,
+                 schema: pulumi.Input[Optional['TableSchemaArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Table resource.
 
@@ -78,77 +78,77 @@ class TableArgs:
 
     @_builtins.property
     @pulumi.getter(name="magneticStoreWriteProperties")
-    def magnetic_store_write_properties(self) -> Optional[pulumi.Input['TableMagneticStoreWritePropertiesArgs']]:
+    def magnetic_store_write_properties(self) -> pulumi.Input[Optional['TableMagneticStoreWritePropertiesArgs']]:
         """
         Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
         """
         return pulumi.get(self, "magnetic_store_write_properties")
 
     @magnetic_store_write_properties.setter
-    def magnetic_store_write_properties(self, value: Optional[pulumi.Input['TableMagneticStoreWritePropertiesArgs']]):
+    def magnetic_store_write_properties(self, value: pulumi.Input[Optional['TableMagneticStoreWritePropertiesArgs']]):
         pulumi.set(self, "magnetic_store_write_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionProperties")
-    def retention_properties(self) -> Optional[pulumi.Input['TableRetentionPropertiesArgs']]:
+    def retention_properties(self) -> pulumi.Input[Optional['TableRetentionPropertiesArgs']]:
         """
         The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magnetic_store_retention_period_in_days` default to 73000 and `memory_store_retention_period_in_hours` defaults to 6.
         """
         return pulumi.get(self, "retention_properties")
 
     @retention_properties.setter
-    def retention_properties(self, value: Optional[pulumi.Input['TableRetentionPropertiesArgs']]):
+    def retention_properties(self, value: pulumi.Input[Optional['TableRetentionPropertiesArgs']]):
         pulumi.set(self, "retention_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def schema(self) -> Optional[pulumi.Input['TableSchemaArgs']]:
+    def schema(self) -> pulumi.Input[Optional['TableSchemaArgs']]:
         """
         The schema of the table. See Schema below for more details.
         """
         return pulumi.get(self, "schema")
 
     @schema.setter
-    def schema(self, value: Optional[pulumi.Input['TableSchemaArgs']]):
+    def schema(self, value: pulumi.Input[Optional['TableSchemaArgs']]):
         pulumi.set(self, "schema", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _TableState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 magnetic_store_write_properties: Optional[pulumi.Input['TableMagneticStoreWritePropertiesArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_properties: Optional[pulumi.Input['TableRetentionPropertiesArgs']] = None,
-                 schema: Optional[pulumi.Input['TableSchemaArgs']] = None,
-                 table_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 magnetic_store_write_properties: pulumi.Input[Optional['TableMagneticStoreWritePropertiesArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_properties: pulumi.Input[Optional['TableRetentionPropertiesArgs']] = None,
+                 schema: pulumi.Input[Optional['TableSchemaArgs']] = None,
+                 table_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Table resources.
 
@@ -183,110 +183,110 @@ class _TableState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN that uniquely identifies this table.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Timestream database.
         """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
-    def database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database_name", value)
 
     @_builtins.property
     @pulumi.getter(name="magneticStoreWriteProperties")
-    def magnetic_store_write_properties(self) -> Optional[pulumi.Input['TableMagneticStoreWritePropertiesArgs']]:
+    def magnetic_store_write_properties(self) -> pulumi.Input[Optional['TableMagneticStoreWritePropertiesArgs']]:
         """
         Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
         """
         return pulumi.get(self, "magnetic_store_write_properties")
 
     @magnetic_store_write_properties.setter
-    def magnetic_store_write_properties(self, value: Optional[pulumi.Input['TableMagneticStoreWritePropertiesArgs']]):
+    def magnetic_store_write_properties(self, value: pulumi.Input[Optional['TableMagneticStoreWritePropertiesArgs']]):
         pulumi.set(self, "magnetic_store_write_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionProperties")
-    def retention_properties(self) -> Optional[pulumi.Input['TableRetentionPropertiesArgs']]:
+    def retention_properties(self) -> pulumi.Input[Optional['TableRetentionPropertiesArgs']]:
         """
         The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magnetic_store_retention_period_in_days` default to 73000 and `memory_store_retention_period_in_hours` defaults to 6.
         """
         return pulumi.get(self, "retention_properties")
 
     @retention_properties.setter
-    def retention_properties(self, value: Optional[pulumi.Input['TableRetentionPropertiesArgs']]):
+    def retention_properties(self, value: pulumi.Input[Optional['TableRetentionPropertiesArgs']]):
         pulumi.set(self, "retention_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def schema(self) -> Optional[pulumi.Input['TableSchemaArgs']]:
+    def schema(self) -> pulumi.Input[Optional['TableSchemaArgs']]:
         """
         The schema of the table. See Schema below for more details.
         """
         return pulumi.get(self, "schema")
 
     @schema.setter
-    def schema(self, value: Optional[pulumi.Input['TableSchemaArgs']]):
+    def schema(self, value: pulumi.Input[Optional['TableSchemaArgs']]):
         pulumi.set(self, "schema", value)
 
     @_builtins.property
     @pulumi.getter(name="tableName")
-    def table_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def table_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Timestream table.
         """
         return pulumi.get(self, "table_name")
 
     @table_name.setter
-    def table_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def table_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "table_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
 
@@ -296,13 +296,13 @@ class Table(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 magnetic_store_write_properties: Optional[pulumi.Input[Union['TableMagneticStoreWritePropertiesArgs', 'TableMagneticStoreWritePropertiesArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_properties: Optional[pulumi.Input[Union['TableRetentionPropertiesArgs', 'TableRetentionPropertiesArgsDict']]] = None,
-                 schema: Optional[pulumi.Input[Union['TableSchemaArgs', 'TableSchemaArgsDict']]] = None,
-                 table_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 magnetic_store_write_properties: pulumi.Input[Optional[Union['TableMagneticStoreWritePropertiesArgs', 'TableMagneticStoreWritePropertiesArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_properties: pulumi.Input[Optional[Union['TableRetentionPropertiesArgs', 'TableRetentionPropertiesArgsDict']]] = None,
+                 schema: pulumi.Input[Optional[Union['TableSchemaArgs', 'TableSchemaArgsDict']]] = None,
+                 table_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a Timestream table resource.
@@ -457,13 +457,13 @@ class Table(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 magnetic_store_write_properties: Optional[pulumi.Input[Union['TableMagneticStoreWritePropertiesArgs', 'TableMagneticStoreWritePropertiesArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_properties: Optional[pulumi.Input[Union['TableRetentionPropertiesArgs', 'TableRetentionPropertiesArgsDict']]] = None,
-                 schema: Optional[pulumi.Input[Union['TableSchemaArgs', 'TableSchemaArgsDict']]] = None,
-                 table_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 magnetic_store_write_properties: pulumi.Input[Optional[Union['TableMagneticStoreWritePropertiesArgs', 'TableMagneticStoreWritePropertiesArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_properties: pulumi.Input[Optional[Union['TableRetentionPropertiesArgs', 'TableRetentionPropertiesArgsDict']]] = None,
+                 schema: pulumi.Input[Optional[Union['TableSchemaArgs', 'TableSchemaArgsDict']]] = None,
+                 table_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -496,15 +496,15 @@ class Table(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            database_name: Optional[pulumi.Input[_builtins.str]] = None,
-            magnetic_store_write_properties: Optional[pulumi.Input[Union['TableMagneticStoreWritePropertiesArgs', 'TableMagneticStoreWritePropertiesArgsDict']]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            retention_properties: Optional[pulumi.Input[Union['TableRetentionPropertiesArgs', 'TableRetentionPropertiesArgsDict']]] = None,
-            schema: Optional[pulumi.Input[Union['TableSchemaArgs', 'TableSchemaArgsDict']]] = None,
-            table_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Table':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            database_name: pulumi.Input[Optional[_builtins.str]] = None,
+            magnetic_store_write_properties: pulumi.Input[Optional[Union['TableMagneticStoreWritePropertiesArgs', 'TableMagneticStoreWritePropertiesArgsDict']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            retention_properties: pulumi.Input[Optional[Union['TableRetentionPropertiesArgs', 'TableRetentionPropertiesArgsDict']]] = None,
+            schema: pulumi.Input[Optional[Union['TableSchemaArgs', 'TableSchemaArgsDict']]] = None,
+            table_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Table':
         """
         Get an existing Table resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

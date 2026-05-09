@@ -117,17 +117,17 @@ export interface GetSpotPriceOutputArgs {
     /**
      * Availability zone in which to query Spot price information.
      */
-    availabilityZone?: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string | undefined>;
     /**
      * One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSpotPriceHistory.html) for supported filters. Detailed below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetSpotPriceFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetSpotPriceFilterArgs>[] | undefined>;
     /**
      * Type of instance for which to query Spot Price information.
      */
-    instanceType?: pulumi.Input<string>;
+    instanceType?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

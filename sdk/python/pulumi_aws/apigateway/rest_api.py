@@ -21,20 +21,20 @@ __all__ = ['RestApiArgs', 'RestApi']
 @pulumi.input_type
 class RestApiArgs:
     def __init__(__self__, *,
-                 api_key_source: Optional[pulumi.Input[_builtins.str]] = None,
-                 binary_media_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 body: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_execute_api_endpoint: Optional[pulumi.Input[_builtins.bool]] = None,
-                 endpoint_configuration: Optional[pulumi.Input['RestApiEndpointConfigurationArgs']] = None,
-                 fail_on_warnings: Optional[pulumi.Input[_builtins.bool]] = None,
-                 minimum_compression_size: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 put_rest_api_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 api_key_source: pulumi.Input[Optional[_builtins.str]] = None,
+                 binary_media_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 body: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_execute_api_endpoint: pulumi.Input[Optional[_builtins.bool]] = None,
+                 endpoint_configuration: pulumi.Input[Optional['RestApiEndpointConfigurationArgs']] = None,
+                 fail_on_warnings: pulumi.Input[Optional[_builtins.bool]] = None,
+                 minimum_compression_size: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 put_rest_api_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RestApi resource.
 
@@ -84,195 +84,195 @@ class RestApiArgs:
 
     @_builtins.property
     @pulumi.getter(name="apiKeySource")
-    def api_key_source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_key_source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Source of the API key for requests. Valid values are `HEADER` (default) and `AUTHORIZER`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-api-key-source` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-api-key-source.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         """
         return pulumi.get(self, "api_key_source")
 
     @api_key_source.setter
-    def api_key_source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_key_source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_key_source", value)
 
     @_builtins.property
     @pulumi.getter(name="binaryMediaTypes")
-    def binary_media_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def binary_media_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of binary media types supported by the REST API. By default, the REST API supports only UTF-8-encoded text payloads. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-binary-media-types` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-binary-media-types.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         """
         return pulumi.get(self, "binary_media_types")
 
     @binary_media_types.setter
-    def binary_media_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def binary_media_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "binary_media_types", value)
 
     @_builtins.property
     @pulumi.getter
-    def body(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def body(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         OpenAPI specification that defines the set of routes and integrations to create as part of the REST API. This configuration, and any updates to it, will replace all REST API configuration except values overridden in this resource configuration and other resource updates applied after this resource but before any `apigateway.Deployment` creation. More information about REST API OpenAPI support can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
         """
         return pulumi.get(self, "body")
 
     @body.setter
-    def body(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def body(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "body", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the REST API. If importing an OpenAPI specification via the `body` argument, this corresponds to the `info.description` field. If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="disableExecuteApiEndpoint")
-    def disable_execute_api_endpoint(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_execute_api_endpoint(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `disableExecuteApiEndpoint` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is `true` and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         """
         return pulumi.get(self, "disable_execute_api_endpoint")
 
     @disable_execute_api_endpoint.setter
-    def disable_execute_api_endpoint(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_execute_api_endpoint(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_execute_api_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointConfiguration")
-    def endpoint_configuration(self) -> Optional[pulumi.Input['RestApiEndpointConfigurationArgs']]:
+    def endpoint_configuration(self) -> pulumi.Input[Optional['RestApiEndpointConfigurationArgs']]:
         """
         Configuration block defining API endpoint configuration including endpoint type. Defined below.
         """
         return pulumi.get(self, "endpoint_configuration")
 
     @endpoint_configuration.setter
-    def endpoint_configuration(self, value: Optional[pulumi.Input['RestApiEndpointConfigurationArgs']]):
+    def endpoint_configuration(self, value: pulumi.Input[Optional['RestApiEndpointConfigurationArgs']]):
         pulumi.set(self, "endpoint_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="failOnWarnings")
-    def fail_on_warnings(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fail_on_warnings(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether warnings while API Gateway is creating or updating the resource should return an error or not. Defaults to `false`
         """
         return pulumi.get(self, "fail_on_warnings")
 
     @fail_on_warnings.setter
-    def fail_on_warnings(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fail_on_warnings(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fail_on_warnings", value)
 
     @_builtins.property
     @pulumi.getter(name="minimumCompressionSize")
-    def minimum_compression_size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def minimum_compression_size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Minimum response size to compress for the REST API. String containing an integer value between `-1` and `10485760` (10MB). `-1` will disable an existing compression configuration, and all other values will enable compression with the configured size. New resources can simply omit this argument to disable compression, rather than setting the value to `-1`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-minimum-compression-size` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-openapi-minimum-compression-size.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         """
         return pulumi.get(self, "minimum_compression_size")
 
     @minimum_compression_size.setter
-    def minimum_compression_size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def minimum_compression_size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "minimum_compression_size", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the REST API. If importing an OpenAPI specification via the `body` argument, this corresponds to the `info.title` field. If the argument value is different than the OpenAPI value, the argument value will override the OpenAPI value.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, set `ignore` equal to `documentation`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         JSON formatted policy document that controls access to the API Gateway. For more information about building AWS IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide. The provider will only perform drift detection of its value when present in a configuration. We recommend using the `apigateway.RestApiPolicy` resource instead. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-policy` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/openapi-extensions-policy.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         """
         return pulumi.get(self, "policy")
 
     @policy.setter
-    def policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy", value)
 
     @_builtins.property
     @pulumi.getter(name="putRestApiMode")
-    def put_rest_api_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def put_rest_api_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Mode of the PutRestApi operation when importing an OpenAPI specification via the `body` argument (create or update operation). Valid values are `merge` and `overwrite`. If unspecificed, defaults to `overwrite` (for backwards compatibility). This corresponds to the [`x-amazon-apigateway-put-integration-method` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-put-integration-method.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         """
         return pulumi.get(self, "put_rest_api_mode")
 
     @put_rest_api_mode.setter
-    def put_rest_api_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def put_rest_api_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "put_rest_api_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _RestApiState:
     def __init__(__self__, *,
-                 api_key_source: Optional[pulumi.Input[_builtins.str]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 binary_media_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 body: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_execute_api_endpoint: Optional[pulumi.Input[_builtins.bool]] = None,
-                 endpoint_configuration: Optional[pulumi.Input['RestApiEndpointConfigurationArgs']] = None,
-                 execution_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 fail_on_warnings: Optional[pulumi.Input[_builtins.bool]] = None,
-                 minimum_compression_size: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 put_rest_api_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 root_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 api_key_source: pulumi.Input[Optional[_builtins.str]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 binary_media_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 body: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_execute_api_endpoint: pulumi.Input[Optional[_builtins.bool]] = None,
+                 endpoint_configuration: pulumi.Input[Optional['RestApiEndpointConfigurationArgs']] = None,
+                 execution_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 fail_on_warnings: pulumi.Input[Optional[_builtins.bool]] = None,
+                 minimum_compression_size: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 put_rest_api_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 root_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering RestApi resources.
 
@@ -339,103 +339,103 @@ class _RestApiState:
 
     @_builtins.property
     @pulumi.getter(name="apiKeySource")
-    def api_key_source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_key_source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Source of the API key for requests. Valid values are `HEADER` (default) and `AUTHORIZER`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-api-key-source` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-api-key-source.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         """
         return pulumi.get(self, "api_key_source")
 
     @api_key_source.setter
-    def api_key_source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_key_source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_key_source", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="binaryMediaTypes")
-    def binary_media_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def binary_media_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of binary media types supported by the REST API. By default, the REST API supports only UTF-8-encoded text payloads. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-binary-media-types` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-binary-media-types.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         """
         return pulumi.get(self, "binary_media_types")
 
     @binary_media_types.setter
-    def binary_media_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def binary_media_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "binary_media_types", value)
 
     @_builtins.property
     @pulumi.getter
-    def body(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def body(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         OpenAPI specification that defines the set of routes and integrations to create as part of the REST API. This configuration, and any updates to it, will replace all REST API configuration except values overridden in this resource configuration and other resource updates applied after this resource but before any `apigateway.Deployment` creation. More information about REST API OpenAPI support can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
         """
         return pulumi.get(self, "body")
 
     @body.setter
-    def body(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def body(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "body", value)
 
     @_builtins.property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Creation date of the REST API
         """
         return pulumi.get(self, "created_date")
 
     @created_date.setter
-    def created_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_date", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the REST API. If importing an OpenAPI specification via the `body` argument, this corresponds to the `info.description` field. If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="disableExecuteApiEndpoint")
-    def disable_execute_api_endpoint(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_execute_api_endpoint(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `disableExecuteApiEndpoint` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is `true` and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         """
         return pulumi.get(self, "disable_execute_api_endpoint")
 
     @disable_execute_api_endpoint.setter
-    def disable_execute_api_endpoint(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_execute_api_endpoint(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_execute_api_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointConfiguration")
-    def endpoint_configuration(self) -> Optional[pulumi.Input['RestApiEndpointConfigurationArgs']]:
+    def endpoint_configuration(self) -> pulumi.Input[Optional['RestApiEndpointConfigurationArgs']]:
         """
         Configuration block defining API endpoint configuration including endpoint type. Defined below.
         """
         return pulumi.get(self, "endpoint_configuration")
 
     @endpoint_configuration.setter
-    def endpoint_configuration(self, value: Optional[pulumi.Input['RestApiEndpointConfigurationArgs']]):
+    def endpoint_configuration(self, value: pulumi.Input[Optional['RestApiEndpointConfigurationArgs']]):
         pulumi.set(self, "endpoint_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="executionArn")
-    def execution_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def execution_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Execution ARN part to be used in `lambda_permission`'s `source_arn`
         when allowing API Gateway to invoke a Lambda function,
@@ -444,127 +444,127 @@ class _RestApiState:
         return pulumi.get(self, "execution_arn")
 
     @execution_arn.setter
-    def execution_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def execution_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "execution_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="failOnWarnings")
-    def fail_on_warnings(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fail_on_warnings(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether warnings while API Gateway is creating or updating the resource should return an error or not. Defaults to `false`
         """
         return pulumi.get(self, "fail_on_warnings")
 
     @fail_on_warnings.setter
-    def fail_on_warnings(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fail_on_warnings(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fail_on_warnings", value)
 
     @_builtins.property
     @pulumi.getter(name="minimumCompressionSize")
-    def minimum_compression_size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def minimum_compression_size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Minimum response size to compress for the REST API. String containing an integer value between `-1` and `10485760` (10MB). `-1` will disable an existing compression configuration, and all other values will enable compression with the configured size. New resources can simply omit this argument to disable compression, rather than setting the value to `-1`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-minimum-compression-size` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-openapi-minimum-compression-size.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         """
         return pulumi.get(self, "minimum_compression_size")
 
     @minimum_compression_size.setter
-    def minimum_compression_size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def minimum_compression_size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "minimum_compression_size", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the REST API. If importing an OpenAPI specification via the `body` argument, this corresponds to the `info.title` field. If the argument value is different than the OpenAPI value, the argument value will override the OpenAPI value.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, set `ignore` equal to `documentation`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         JSON formatted policy document that controls access to the API Gateway. For more information about building AWS IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide. The provider will only perform drift detection of its value when present in a configuration. We recommend using the `apigateway.RestApiPolicy` resource instead. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-policy` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/openapi-extensions-policy.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         """
         return pulumi.get(self, "policy")
 
     @policy.setter
-    def policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy", value)
 
     @_builtins.property
     @pulumi.getter(name="putRestApiMode")
-    def put_rest_api_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def put_rest_api_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Mode of the PutRestApi operation when importing an OpenAPI specification via the `body` argument (create or update operation). Valid values are `merge` and `overwrite`. If unspecificed, defaults to `overwrite` (for backwards compatibility). This corresponds to the [`x-amazon-apigateway-put-integration-method` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-put-integration-method.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         """
         return pulumi.get(self, "put_rest_api_mode")
 
     @put_rest_api_mode.setter
-    def put_rest_api_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def put_rest_api_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "put_rest_api_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="rootResourceId")
-    def root_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def root_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource ID of the REST API's root
         """
         return pulumi.get(self, "root_resource_id")
 
     @root_resource_id.setter
-    def root_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def root_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "root_resource_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
 
@@ -574,20 +574,20 @@ class RestApi(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_key_source: Optional[pulumi.Input[_builtins.str]] = None,
-                 binary_media_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 body: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_execute_api_endpoint: Optional[pulumi.Input[_builtins.bool]] = None,
-                 endpoint_configuration: Optional[pulumi.Input[Union['RestApiEndpointConfigurationArgs', 'RestApiEndpointConfigurationArgsDict']]] = None,
-                 fail_on_warnings: Optional[pulumi.Input[_builtins.bool]] = None,
-                 minimum_compression_size: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 put_rest_api_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 api_key_source: pulumi.Input[Optional[_builtins.str]] = None,
+                 binary_media_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 body: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_execute_api_endpoint: pulumi.Input[Optional[_builtins.bool]] = None,
+                 endpoint_configuration: pulumi.Input[Optional[Union['RestApiEndpointConfigurationArgs', 'RestApiEndpointConfigurationArgsDict']]] = None,
+                 fail_on_warnings: pulumi.Input[Optional[_builtins.bool]] = None,
+                 minimum_compression_size: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 put_rest_api_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages an API Gateway REST API. The REST API can be configured via [importing an OpenAPI specification](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html) in the `body` argument (with other arguments serving as overrides) or via other provider resources to manage the resources (`apigateway.Resource` resource), methods (`apigateway.Method` resource), integrations (`apigateway.Integration` resource), etc. of the REST API. Once the REST API is configured, the `apigateway.Deployment` resource can be used along with the `apigateway.Stage` resource to publish the REST API.
@@ -673,20 +673,20 @@ class RestApi(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_key_source: Optional[pulumi.Input[_builtins.str]] = None,
-                 binary_media_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 body: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_execute_api_endpoint: Optional[pulumi.Input[_builtins.bool]] = None,
-                 endpoint_configuration: Optional[pulumi.Input[Union['RestApiEndpointConfigurationArgs', 'RestApiEndpointConfigurationArgsDict']]] = None,
-                 fail_on_warnings: Optional[pulumi.Input[_builtins.bool]] = None,
-                 minimum_compression_size: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 put_rest_api_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 api_key_source: pulumi.Input[Optional[_builtins.str]] = None,
+                 binary_media_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 body: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_execute_api_endpoint: pulumi.Input[Optional[_builtins.bool]] = None,
+                 endpoint_configuration: pulumi.Input[Optional[Union['RestApiEndpointConfigurationArgs', 'RestApiEndpointConfigurationArgsDict']]] = None,
+                 fail_on_warnings: pulumi.Input[Optional[_builtins.bool]] = None,
+                 minimum_compression_size: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 put_rest_api_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -725,25 +725,25 @@ class RestApi(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_key_source: Optional[pulumi.Input[_builtins.str]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            binary_media_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            body: Optional[pulumi.Input[_builtins.str]] = None,
-            created_date: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            disable_execute_api_endpoint: Optional[pulumi.Input[_builtins.bool]] = None,
-            endpoint_configuration: Optional[pulumi.Input[Union['RestApiEndpointConfigurationArgs', 'RestApiEndpointConfigurationArgsDict']]] = None,
-            execution_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            fail_on_warnings: Optional[pulumi.Input[_builtins.bool]] = None,
-            minimum_compression_size: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            policy: Optional[pulumi.Input[_builtins.str]] = None,
-            put_rest_api_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            root_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'RestApi':
+            api_key_source: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            binary_media_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            body: pulumi.Input[Optional[_builtins.str]] = None,
+            created_date: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            disable_execute_api_endpoint: pulumi.Input[Optional[_builtins.bool]] = None,
+            endpoint_configuration: pulumi.Input[Optional[Union['RestApiEndpointConfigurationArgs', 'RestApiEndpointConfigurationArgsDict']]] = None,
+            execution_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            fail_on_warnings: pulumi.Input[Optional[_builtins.bool]] = None,
+            minimum_compression_size: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            policy: pulumi.Input[Optional[_builtins.str]] = None,
+            put_rest_api_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            root_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'RestApi':
         """
         Get an existing RestApi resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

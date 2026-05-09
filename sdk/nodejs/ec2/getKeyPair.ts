@@ -164,25 +164,25 @@ export interface GetKeyPairOutputArgs {
      * Key Pairs. The given filters must match exactly one Key Pair
      * whose data will be exported as attributes.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetKeyPairFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetKeyPairFilterArgs>[] | undefined>;
     /**
      * Whether to include the public key material in the response.
      */
-    includePublicKey?: pulumi.Input<boolean>;
+    includePublicKey?: pulumi.Input<boolean | undefined>;
     /**
      * Key Pair name.
      */
-    keyName?: pulumi.Input<string>;
+    keyName?: pulumi.Input<string | undefined>;
     /**
      * Key Pair ID.
      */
-    keyPairId?: pulumi.Input<string>;
+    keyPairId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Any tags assigned to the Key Pair.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

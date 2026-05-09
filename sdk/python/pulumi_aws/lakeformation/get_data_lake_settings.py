@@ -227,8 +227,8 @@ def get_data_lake_settings(catalog_id: Optional[_builtins.str] = None,
         read_only_admins=pulumi.get(__ret__, 'read_only_admins'),
         region=pulumi.get(__ret__, 'region'),
         trusted_resource_owners=pulumi.get(__ret__, 'trusted_resource_owners'))
-def get_data_lake_settings_output(catalog_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                  region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_data_lake_settings_output(catalog_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                  region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataLakeSettingsResult]:
     """
     Get Lake Formation principals designated as data lake administrators and lists of principal permission entries for default create database and default create table permissions.

@@ -330,7 +330,7 @@ def get_savings_plan(savings_plan_id: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         term_duration_in_seconds=pulumi.get(__ret__, 'term_duration_in_seconds'),
         upfront_payment_amount=pulumi.get(__ret__, 'upfront_payment_amount'))
-def get_savings_plan_output(savings_plan_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_savings_plan_output(savings_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSavingsPlanResult]:
     """
     Use this data source to get information on an existing AWS Savings Plan.

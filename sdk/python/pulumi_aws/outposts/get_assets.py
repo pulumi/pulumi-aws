@@ -157,10 +157,10 @@ def get_assets(arn: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'),
         status_id_filters=pulumi.get(__ret__, 'status_id_filters'))
-def get_assets_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
-                      host_id_filters: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                      region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      status_id_filters: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
+def get_assets_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
+                      host_id_filters: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                      region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      status_id_filters: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssetsResult]:
     """
     Information about hardware assets in an Outpost.

@@ -173,62 +173,62 @@ export class DefaultVpc extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DefaultVpc resources.
  */
 export interface DefaultVpcState {
-    arn?: pulumi.Input<string>;
-    assignGeneratedIpv6CidrBlock?: pulumi.Input<boolean>;
+    arn?: pulumi.Input<string | undefined>;
+    assignGeneratedIpv6CidrBlock?: pulumi.Input<boolean | undefined>;
     /**
      * The primary IPv4 CIDR block for the VPC
      */
-    cidrBlock?: pulumi.Input<string>;
-    defaultNetworkAclId?: pulumi.Input<string>;
-    defaultRouteTableId?: pulumi.Input<string>;
-    defaultSecurityGroupId?: pulumi.Input<string>;
-    dhcpOptionsId?: pulumi.Input<string>;
-    enableDnsHostnames?: pulumi.Input<boolean>;
-    enableDnsSupport?: pulumi.Input<boolean>;
-    enableNetworkAddressUsageMetrics?: pulumi.Input<boolean>;
-    existingDefaultVpc?: pulumi.Input<boolean>;
+    cidrBlock?: pulumi.Input<string | undefined>;
+    defaultNetworkAclId?: pulumi.Input<string | undefined>;
+    defaultRouteTableId?: pulumi.Input<string | undefined>;
+    defaultSecurityGroupId?: pulumi.Input<string | undefined>;
+    dhcpOptionsId?: pulumi.Input<string | undefined>;
+    enableDnsHostnames?: pulumi.Input<boolean | undefined>;
+    enableDnsSupport?: pulumi.Input<boolean | undefined>;
+    enableNetworkAddressUsageMetrics?: pulumi.Input<boolean | undefined>;
+    existingDefaultVpc?: pulumi.Input<boolean | undefined>;
     /**
      * Whether destroying the resource deletes the default VPC. Default: `false`
      */
-    forceDestroy?: pulumi.Input<boolean>;
+    forceDestroy?: pulumi.Input<boolean | undefined>;
     /**
      * The allowed tenancy of instances launched into the VPC
      */
-    instanceTenancy?: pulumi.Input<string>;
-    ipv6AssociationId?: pulumi.Input<string>;
-    ipv6CidrBlock?: pulumi.Input<string>;
-    ipv6CidrBlockNetworkBorderGroup?: pulumi.Input<string>;
-    ipv6IpamPoolId?: pulumi.Input<string>;
-    ipv6NetmaskLength?: pulumi.Input<number>;
-    mainRouteTableId?: pulumi.Input<string>;
-    ownerId?: pulumi.Input<string>;
+    instanceTenancy?: pulumi.Input<string | undefined>;
+    ipv6AssociationId?: pulumi.Input<string | undefined>;
+    ipv6CidrBlock?: pulumi.Input<string | undefined>;
+    ipv6CidrBlockNetworkBorderGroup?: pulumi.Input<string | undefined>;
+    ipv6IpamPoolId?: pulumi.Input<string | undefined>;
+    ipv6NetmaskLength?: pulumi.Input<number | undefined>;
+    mainRouteTableId?: pulumi.Input<string | undefined>;
+    ownerId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
      */
-    region?: pulumi.Input<string>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    region?: pulumi.Input<string | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
  * The set of arguments for constructing a DefaultVpc resource.
  */
 export interface DefaultVpcArgs {
-    assignGeneratedIpv6CidrBlock?: pulumi.Input<boolean>;
-    enableDnsHostnames?: pulumi.Input<boolean>;
-    enableDnsSupport?: pulumi.Input<boolean>;
-    enableNetworkAddressUsageMetrics?: pulumi.Input<boolean>;
+    assignGeneratedIpv6CidrBlock?: pulumi.Input<boolean | undefined>;
+    enableDnsHostnames?: pulumi.Input<boolean | undefined>;
+    enableDnsSupport?: pulumi.Input<boolean | undefined>;
+    enableNetworkAddressUsageMetrics?: pulumi.Input<boolean | undefined>;
     /**
      * Whether destroying the resource deletes the default VPC. Default: `false`
      */
-    forceDestroy?: pulumi.Input<boolean>;
-    ipv6CidrBlock?: pulumi.Input<string>;
-    ipv6CidrBlockNetworkBorderGroup?: pulumi.Input<string>;
-    ipv6IpamPoolId?: pulumi.Input<string>;
-    ipv6NetmaskLength?: pulumi.Input<number>;
+    forceDestroy?: pulumi.Input<boolean | undefined>;
+    ipv6CidrBlock?: pulumi.Input<string | undefined>;
+    ipv6CidrBlockNetworkBorderGroup?: pulumi.Input<string | undefined>;
+    ipv6IpamPoolId?: pulumi.Input<string | undefined>;
+    ipv6NetmaskLength?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
      */
-    region?: pulumi.Input<string>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    region?: pulumi.Input<string | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

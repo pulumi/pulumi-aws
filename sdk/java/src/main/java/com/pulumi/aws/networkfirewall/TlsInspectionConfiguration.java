@@ -43,8 +43,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationEncryptionConfigurationArgs;
  * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationArgs;
  * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -109,8 +109,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationArgs;
  * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs;
  * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -178,8 +178,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationEncryptionConfigurationArgs;
  * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationArgs;
  * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -249,8 +249,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.networkfirewall.TlsInspectionConfigurationArgs;
  * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationEncryptionConfigurationArgs;
  * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -275,24 +275,24 @@ import javax.annotation.Nullable;
  *                 .type("CUSTOMER_KMS")
  *                 .build())
  *             .tlsInspectionConfiguration(TlsInspectionConfigurationTlsInspectionConfigurationArgs.builder()
- *                 .serverCertificateConfigurations(List.of(Map.ofEntries(
+ *                 .serverCertificateConfigurations(Arrays.asList(Map.ofEntries(
  *                     Map.entry("certificateAuthorityArn", example1.arn()),
- *                     Map.entry("checkCertificateRevocationStatus", List.of(Map.ofEntries(
+ *                     Map.entry("checkCertificateRevocationStatus", Arrays.asList(Map.ofEntries(
  *                         Map.entry("revokedStatusAction", "REJECT"),
  *                         Map.entry("unknownStatusAction", "PASS")
  *                     ))),
- *                     Map.entry("scope", List.of(Map.ofEntries(
- *                         Map.entry("protocols", List.of(6)),
- *                         Map.entry("destinationPorts", List.of(Map.ofEntries(
+ *                     Map.entry("scope", Arrays.asList(Map.ofEntries(
+ *                         Map.entry("protocols", Arrays.asList(6)),
+ *                         Map.entry("destinationPorts", Arrays.asList(Map.ofEntries(
  *                             Map.entry("fromPort", 443),
  *                             Map.entry("toPort", 443)
  *                         ))),
- *                         Map.entry("destination", List.of(Map.of("addressDefinition", "0.0.0.0/0"))),
- *                         Map.entry("sourcePorts", List.of(Map.ofEntries(
+ *                         Map.entry("destination", Arrays.asList(Map.of("addressDefinition", "0.0.0.0/0"))),
+ *                         Map.entry("sourcePorts", Arrays.asList(Map.ofEntries(
  *                             Map.entry("fromPort", 0),
  *                             Map.entry("toPort", 65535)
  *                         ))),
- *                         Map.entry("source", List.of(Map.of("addressDefinition", "0.0.0.0/0")))
+ *                         Map.entry("source", Arrays.asList(Map.of("addressDefinition", "0.0.0.0/0")))
  *                     )))
  *                 )))
  *                 .build())
@@ -318,8 +318,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationArgs;
  * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs;
  * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;

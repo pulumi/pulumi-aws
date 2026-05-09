@@ -288,29 +288,29 @@ export interface FunctionEventInvokeConfigState {
     /**
      * Configuration block with destination configuration. See below.
      */
-    destinationConfig?: pulumi.Input<inputs.lambda.FunctionEventInvokeConfigDestinationConfig>;
+    destinationConfig?: pulumi.Input<inputs.lambda.FunctionEventInvokeConfigDestinationConfig | undefined>;
     /**
      * Name or ARN of the Lambda Function, omitting any version or alias qualifier.
      *
      * The following arguments are optional:
      */
-    functionName?: pulumi.Input<string>;
+    functionName?: pulumi.Input<string | undefined>;
     /**
      * Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
      */
-    maximumEventAgeInSeconds?: pulumi.Input<number>;
+    maximumEventAgeInSeconds?: pulumi.Input<number | undefined>;
     /**
      * Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
      */
-    maximumRetryAttempts?: pulumi.Input<number>;
+    maximumRetryAttempts?: pulumi.Input<number | undefined>;
     /**
      * Lambda Function published version, `$LATEST`, or Lambda Alias name.
      */
-    qualifier?: pulumi.Input<string>;
+    qualifier?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -320,7 +320,7 @@ export interface FunctionEventInvokeConfigArgs {
     /**
      * Configuration block with destination configuration. See below.
      */
-    destinationConfig?: pulumi.Input<inputs.lambda.FunctionEventInvokeConfigDestinationConfig>;
+    destinationConfig?: pulumi.Input<inputs.lambda.FunctionEventInvokeConfigDestinationConfig | undefined>;
     /**
      * Name or ARN of the Lambda Function, omitting any version or alias qualifier.
      *
@@ -330,17 +330,17 @@ export interface FunctionEventInvokeConfigArgs {
     /**
      * Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
      */
-    maximumEventAgeInSeconds?: pulumi.Input<number>;
+    maximumEventAgeInSeconds?: pulumi.Input<number | undefined>;
     /**
      * Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
      */
-    maximumRetryAttempts?: pulumi.Input<number>;
+    maximumRetryAttempts?: pulumi.Input<number | undefined>;
     /**
      * Lambda Function published version, `$LATEST`, or Lambda Alias name.
      */
-    qualifier?: pulumi.Input<string>;
+    qualifier?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

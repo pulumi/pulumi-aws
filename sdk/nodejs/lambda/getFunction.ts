@@ -74,7 +74,7 @@ import * as utilities from "../utilities";
  *     name: "new-function",
  *     role: reference.then(reference => reference.role),
  *     handler: reference.then(reference => reference.handler),
- *     runtime: reference.then(reference => reference.runtime).apply((x) => aws.lambda.Runtime[x]),
+ *     runtime: aws.lambda.Runtime[reference.then(reference => reference.runtime)],
  *     memorySize: reference.then(reference => reference.memorySize),
  *     timeout: reference.then(reference => reference.timeout),
  *     architectures: reference.then(reference => reference.architectures),
@@ -386,7 +386,7 @@ export interface GetFunctionResult {
  *     name: "new-function",
  *     role: reference.then(reference => reference.role),
  *     handler: reference.then(reference => reference.handler),
- *     runtime: reference.then(reference => reference.runtime).apply((x) => aws.lambda.Runtime[x]),
+ *     runtime: aws.lambda.Runtime[reference.then(reference => reference.runtime)],
  *     memorySize: reference.then(reference => reference.memorySize),
  *     timeout: reference.then(reference => reference.timeout),
  *     architectures: reference.then(reference => reference.architectures),
@@ -462,13 +462,13 @@ export interface GetFunctionOutputArgs {
     /**
      * Alias name or version number of the Lambda function. E.g., `$LATEST`, `my-alias`, or `1`. When not included: the data source resolves to the most recent published version; if no published version exists: it resolves to the most recent unpublished version.
      */
-    qualifier?: pulumi.Input<string>;
+    qualifier?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of tags assigned to the Lambda Function.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

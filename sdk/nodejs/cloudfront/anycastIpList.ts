@@ -139,34 +139,34 @@ export interface AnycastIpListState {
     /**
      * The static IP addresses that are allocated to the Anycast IP list.
      */
-    anycastIps?: pulumi.Input<pulumi.Input<string>[]>;
+    anycastIps?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Anycast IP list ARN.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The current version of the Anycast IP list.
      */
-    etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * The number of static IP addresses that are allocated to the Anycast IP list. Valid values: `3`, `21`.
      */
-    ipCount?: pulumi.Input<number>;
+    ipCount?: pulumi.Input<number | undefined>;
     /**
      * Name of the Anycast IP list.
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.cloudfront.AnycastIpListTimeouts>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.cloudfront.AnycastIpListTimeouts | undefined>;
 }
 
 /**
@@ -182,10 +182,10 @@ export interface AnycastIpListArgs {
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.cloudfront.AnycastIpListTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.cloudfront.AnycastIpListTimeouts | undefined>;
 }

@@ -213,54 +213,54 @@ export interface VpcConnectionState {
     /**
      * ARN of the VPC connection.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
      */
-    availabilityStatus?: pulumi.Input<string>;
+    availabilityStatus?: pulumi.Input<string | undefined>;
     /**
      * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
      */
-    awsAccountId?: pulumi.Input<string>;
+    awsAccountId?: pulumi.Input<string | undefined>;
     /**
      * A list of IP addresses of DNS resolver endpoints for the VPC connection.
      */
-    dnsResolvers?: pulumi.Input<pulumi.Input<string>[]>;
+    dnsResolvers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The display name for the VPC connection.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The IAM role to associate with the VPC connection.
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
     /**
      * A list of security group IDs for the VPC connection.
      */
-    securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A list of subnet IDs for the VPC connection.
      *
      * The following arguments are optional:
      */
-    subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    subnetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.quicksight.VpcConnectionTimeouts>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.quicksight.VpcConnectionTimeouts | undefined>;
     /**
      * The ID of the VPC connection.
      */
-    vpcConnectionId?: pulumi.Input<string>;
+    vpcConnectionId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -270,19 +270,19 @@ export interface VpcConnectionArgs {
     /**
      * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
      */
-    awsAccountId?: pulumi.Input<string>;
+    awsAccountId?: pulumi.Input<string | undefined>;
     /**
      * A list of IP addresses of DNS resolver endpoints for the VPC connection.
      */
-    dnsResolvers?: pulumi.Input<pulumi.Input<string>[]>;
+    dnsResolvers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The display name for the VPC connection.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The IAM role to associate with the VPC connection.
      */
@@ -300,8 +300,8 @@ export interface VpcConnectionArgs {
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.quicksight.VpcConnectionTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.quicksight.VpcConnectionTimeouts | undefined>;
     /**
      * The ID of the VPC connection.
      */

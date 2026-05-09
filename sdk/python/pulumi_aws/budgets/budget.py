@@ -23,22 +23,22 @@ class BudgetArgs:
     def __init__(__self__, *,
                  budget_type: pulumi.Input[_builtins.str],
                  time_unit: pulumi.Input[_builtins.str],
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_adjust_data: Optional[pulumi.Input['BudgetAutoAdjustDataArgs']] = None,
-                 billing_view_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 cost_filters: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetCostFilterArgs']]]] = None,
-                 cost_types: Optional[pulumi.Input['BudgetCostTypesArgs']] = None,
-                 filter_expression: Optional[pulumi.Input['BudgetFilterExpressionArgs']] = None,
-                 limit_amount: Optional[pulumi.Input[_builtins.str]] = None,
-                 limit_unit: Optional[pulumi.Input[_builtins.str]] = None,
-                 metrics: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetNotificationArgs']]]] = None,
-                 planned_limits: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetPlannedLimitArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 time_period_end: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_period_start: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_adjust_data: pulumi.Input[Optional['BudgetAutoAdjustDataArgs']] = None,
+                 billing_view_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 cost_filters: pulumi.Input[Optional[Sequence[pulumi.Input['BudgetCostFilterArgs']]]] = None,
+                 cost_types: pulumi.Input[Optional['BudgetCostTypesArgs']] = None,
+                 filter_expression: pulumi.Input[Optional['BudgetFilterExpressionArgs']] = None,
+                 limit_amount: pulumi.Input[Optional[_builtins.str]] = None,
+                 limit_unit: pulumi.Input[Optional[_builtins.str]] = None,
+                 metrics: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 notifications: pulumi.Input[Optional[Sequence[pulumi.Input['BudgetNotificationArgs']]]] = None,
+                 planned_limits: pulumi.Input[Optional[Sequence[pulumi.Input['BudgetPlannedLimitArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 time_period_end: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_period_start: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Budget resource.
 
@@ -129,187 +129,187 @@ class BudgetArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the target account for budget. Will use current user's account_id by default if omitted.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="autoAdjustData")
-    def auto_adjust_data(self) -> Optional[pulumi.Input['BudgetAutoAdjustDataArgs']]:
+    def auto_adjust_data(self) -> pulumi.Input[Optional['BudgetAutoAdjustDataArgs']]:
         """
         Object containing AutoAdjustData which determines the budget amount for an auto-adjusting budget.
         """
         return pulumi.get(self, "auto_adjust_data")
 
     @auto_adjust_data.setter
-    def auto_adjust_data(self, value: Optional[pulumi.Input['BudgetAutoAdjustDataArgs']]):
+    def auto_adjust_data(self, value: pulumi.Input[Optional['BudgetAutoAdjustDataArgs']]):
         pulumi.set(self, "auto_adjust_data", value)
 
     @_builtins.property
     @pulumi.getter(name="billingViewArn")
-    def billing_view_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def billing_view_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the billing view.
         """
         return pulumi.get(self, "billing_view_arn")
 
     @billing_view_arn.setter
-    def billing_view_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def billing_view_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "billing_view_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="costFilters")
-    def cost_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BudgetCostFilterArgs']]]]:
+    def cost_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BudgetCostFilterArgs']]]]:
         """
         A list of CostFilter name/values pair to apply to budget. Conflicts with `filter_expression`.
         """
         return pulumi.get(self, "cost_filters")
 
     @cost_filters.setter
-    def cost_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetCostFilterArgs']]]]):
+    def cost_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BudgetCostFilterArgs']]]]):
         pulumi.set(self, "cost_filters", value)
 
     @_builtins.property
     @pulumi.getter(name="costTypes")
-    def cost_types(self) -> Optional[pulumi.Input['BudgetCostTypesArgs']]:
+    def cost_types(self) -> pulumi.Input[Optional['BudgetCostTypesArgs']]:
         """
         Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
         """
         return pulumi.get(self, "cost_types")
 
     @cost_types.setter
-    def cost_types(self, value: Optional[pulumi.Input['BudgetCostTypesArgs']]):
+    def cost_types(self, value: pulumi.Input[Optional['BudgetCostTypesArgs']]):
         pulumi.set(self, "cost_types", value)
 
     @_builtins.property
     @pulumi.getter(name="filterExpression")
-    def filter_expression(self) -> Optional[pulumi.Input['BudgetFilterExpressionArgs']]:
+    def filter_expression(self) -> pulumi.Input[Optional['BudgetFilterExpressionArgs']]:
         """
         Object containing Filter Expression to apply to budget. Conflicts with `cost_filter` and requires `metrics`.
         """
         return pulumi.get(self, "filter_expression")
 
     @filter_expression.setter
-    def filter_expression(self, value: Optional[pulumi.Input['BudgetFilterExpressionArgs']]):
+    def filter_expression(self, value: pulumi.Input[Optional['BudgetFilterExpressionArgs']]):
         pulumi.set(self, "filter_expression", value)
 
     @_builtins.property
     @pulumi.getter(name="limitAmount")
-    def limit_amount(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def limit_amount(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The amount of cost or usage being measured for a budget.
         """
         return pulumi.get(self, "limit_amount")
 
     @limit_amount.setter
-    def limit_amount(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def limit_amount(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "limit_amount", value)
 
     @_builtins.property
     @pulumi.getter(name="limitUnit")
-    def limit_unit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def limit_unit(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
         """
         return pulumi.get(self, "limit_unit")
 
     @limit_unit.setter
-    def limit_unit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def limit_unit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "limit_unit", value)
 
     @_builtins.property
     @pulumi.getter
-    def metrics(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metrics(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         List containing definition for how the budget data is aggregated. Conflicts with `cost_types` and requires `filter_expression`.
         """
         return pulumi.get(self, "metrics")
 
     @metrics.setter
-    def metrics(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metrics(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metrics", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of a budget. Unique within accounts.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The prefix of the name of a budget. Unique within accounts.
         """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
-    def name_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name_prefix", value)
 
     @_builtins.property
     @pulumi.getter
-    def notifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BudgetNotificationArgs']]]]:
+    def notifications(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BudgetNotificationArgs']]]]:
         """
         Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
         """
         return pulumi.get(self, "notifications")
 
     @notifications.setter
-    def notifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetNotificationArgs']]]]):
+    def notifications(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BudgetNotificationArgs']]]]):
         pulumi.set(self, "notifications", value)
 
     @_builtins.property
     @pulumi.getter(name="plannedLimits")
-    def planned_limits(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BudgetPlannedLimitArgs']]]]:
+    def planned_limits(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BudgetPlannedLimitArgs']]]]:
         """
         Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
         """
         return pulumi.get(self, "planned_limits")
 
     @planned_limits.setter
-    def planned_limits(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetPlannedLimitArgs']]]]):
+    def planned_limits(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BudgetPlannedLimitArgs']]]]):
         pulumi.set(self, "planned_limits", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="timePeriodEnd")
-    def time_period_end(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_period_end(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
         """
         return pulumi.get(self, "time_period_end")
 
     @time_period_end.setter
-    def time_period_end(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_period_end(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_period_end", value)
 
     @_builtins.property
     @pulumi.getter(name="timePeriodStart")
-    def time_period_start(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_period_start(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
 
@@ -319,33 +319,33 @@ class BudgetArgs:
         return pulumi.get(self, "time_period_start")
 
     @time_period_start.setter
-    def time_period_start(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_period_start(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_period_start", value)
 
 
 @pulumi.input_type
 class _BudgetState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_adjust_data: Optional[pulumi.Input['BudgetAutoAdjustDataArgs']] = None,
-                 billing_view_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 budget_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 cost_filters: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetCostFilterArgs']]]] = None,
-                 cost_types: Optional[pulumi.Input['BudgetCostTypesArgs']] = None,
-                 filter_expression: Optional[pulumi.Input['BudgetFilterExpressionArgs']] = None,
-                 limit_amount: Optional[pulumi.Input[_builtins.str]] = None,
-                 limit_unit: Optional[pulumi.Input[_builtins.str]] = None,
-                 metrics: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetNotificationArgs']]]] = None,
-                 planned_limits: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetPlannedLimitArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 time_period_end: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_period_start: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_unit: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_adjust_data: pulumi.Input[Optional['BudgetAutoAdjustDataArgs']] = None,
+                 billing_view_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 budget_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 cost_filters: pulumi.Input[Optional[Sequence[pulumi.Input['BudgetCostFilterArgs']]]] = None,
+                 cost_types: pulumi.Input[Optional['BudgetCostTypesArgs']] = None,
+                 filter_expression: pulumi.Input[Optional['BudgetFilterExpressionArgs']] = None,
+                 limit_amount: pulumi.Input[Optional[_builtins.str]] = None,
+                 limit_unit: pulumi.Input[Optional[_builtins.str]] = None,
+                 metrics: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 notifications: pulumi.Input[Optional[Sequence[pulumi.Input['BudgetNotificationArgs']]]] = None,
+                 planned_limits: pulumi.Input[Optional[Sequence[pulumi.Input['BudgetPlannedLimitArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 time_period_end: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_period_start: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_unit: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Budget resources.
 
@@ -418,223 +418,223 @@ class _BudgetState:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the target account for budget. Will use current user's account_id by default if omitted.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the budget.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="autoAdjustData")
-    def auto_adjust_data(self) -> Optional[pulumi.Input['BudgetAutoAdjustDataArgs']]:
+    def auto_adjust_data(self) -> pulumi.Input[Optional['BudgetAutoAdjustDataArgs']]:
         """
         Object containing AutoAdjustData which determines the budget amount for an auto-adjusting budget.
         """
         return pulumi.get(self, "auto_adjust_data")
 
     @auto_adjust_data.setter
-    def auto_adjust_data(self, value: Optional[pulumi.Input['BudgetAutoAdjustDataArgs']]):
+    def auto_adjust_data(self, value: pulumi.Input[Optional['BudgetAutoAdjustDataArgs']]):
         pulumi.set(self, "auto_adjust_data", value)
 
     @_builtins.property
     @pulumi.getter(name="billingViewArn")
-    def billing_view_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def billing_view_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the billing view.
         """
         return pulumi.get(self, "billing_view_arn")
 
     @billing_view_arn.setter
-    def billing_view_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def billing_view_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "billing_view_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="budgetType")
-    def budget_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def budget_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether this budget tracks monetary cost or usage.
         """
         return pulumi.get(self, "budget_type")
 
     @budget_type.setter
-    def budget_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def budget_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "budget_type", value)
 
     @_builtins.property
     @pulumi.getter(name="costFilters")
-    def cost_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BudgetCostFilterArgs']]]]:
+    def cost_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BudgetCostFilterArgs']]]]:
         """
         A list of CostFilter name/values pair to apply to budget. Conflicts with `filter_expression`.
         """
         return pulumi.get(self, "cost_filters")
 
     @cost_filters.setter
-    def cost_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetCostFilterArgs']]]]):
+    def cost_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BudgetCostFilterArgs']]]]):
         pulumi.set(self, "cost_filters", value)
 
     @_builtins.property
     @pulumi.getter(name="costTypes")
-    def cost_types(self) -> Optional[pulumi.Input['BudgetCostTypesArgs']]:
+    def cost_types(self) -> pulumi.Input[Optional['BudgetCostTypesArgs']]:
         """
         Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
         """
         return pulumi.get(self, "cost_types")
 
     @cost_types.setter
-    def cost_types(self, value: Optional[pulumi.Input['BudgetCostTypesArgs']]):
+    def cost_types(self, value: pulumi.Input[Optional['BudgetCostTypesArgs']]):
         pulumi.set(self, "cost_types", value)
 
     @_builtins.property
     @pulumi.getter(name="filterExpression")
-    def filter_expression(self) -> Optional[pulumi.Input['BudgetFilterExpressionArgs']]:
+    def filter_expression(self) -> pulumi.Input[Optional['BudgetFilterExpressionArgs']]:
         """
         Object containing Filter Expression to apply to budget. Conflicts with `cost_filter` and requires `metrics`.
         """
         return pulumi.get(self, "filter_expression")
 
     @filter_expression.setter
-    def filter_expression(self, value: Optional[pulumi.Input['BudgetFilterExpressionArgs']]):
+    def filter_expression(self, value: pulumi.Input[Optional['BudgetFilterExpressionArgs']]):
         pulumi.set(self, "filter_expression", value)
 
     @_builtins.property
     @pulumi.getter(name="limitAmount")
-    def limit_amount(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def limit_amount(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The amount of cost or usage being measured for a budget.
         """
         return pulumi.get(self, "limit_amount")
 
     @limit_amount.setter
-    def limit_amount(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def limit_amount(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "limit_amount", value)
 
     @_builtins.property
     @pulumi.getter(name="limitUnit")
-    def limit_unit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def limit_unit(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
         """
         return pulumi.get(self, "limit_unit")
 
     @limit_unit.setter
-    def limit_unit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def limit_unit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "limit_unit", value)
 
     @_builtins.property
     @pulumi.getter
-    def metrics(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metrics(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         List containing definition for how the budget data is aggregated. Conflicts with `cost_types` and requires `filter_expression`.
         """
         return pulumi.get(self, "metrics")
 
     @metrics.setter
-    def metrics(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metrics(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metrics", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of a budget. Unique within accounts.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The prefix of the name of a budget. Unique within accounts.
         """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
-    def name_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name_prefix", value)
 
     @_builtins.property
     @pulumi.getter
-    def notifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BudgetNotificationArgs']]]]:
+    def notifications(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BudgetNotificationArgs']]]]:
         """
         Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
         """
         return pulumi.get(self, "notifications")
 
     @notifications.setter
-    def notifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetNotificationArgs']]]]):
+    def notifications(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BudgetNotificationArgs']]]]):
         pulumi.set(self, "notifications", value)
 
     @_builtins.property
     @pulumi.getter(name="plannedLimits")
-    def planned_limits(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BudgetPlannedLimitArgs']]]]:
+    def planned_limits(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BudgetPlannedLimitArgs']]]]:
         """
         Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
         """
         return pulumi.get(self, "planned_limits")
 
     @planned_limits.setter
-    def planned_limits(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetPlannedLimitArgs']]]]):
+    def planned_limits(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BudgetPlannedLimitArgs']]]]):
         pulumi.set(self, "planned_limits", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="timePeriodEnd")
-    def time_period_end(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_period_end(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
         """
         return pulumi.get(self, "time_period_end")
 
     @time_period_end.setter
-    def time_period_end(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_period_end(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_period_end", value)
 
     @_builtins.property
     @pulumi.getter(name="timePeriodStart")
-    def time_period_start(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_period_start(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
 
@@ -644,12 +644,12 @@ class _BudgetState:
         return pulumi.get(self, "time_period_start")
 
     @time_period_start.setter
-    def time_period_start(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_period_start(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_period_start", value)
 
     @_builtins.property
     @pulumi.getter(name="timeUnit")
-    def time_unit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_unit(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
 
@@ -658,7 +658,7 @@ class _BudgetState:
         return pulumi.get(self, "time_unit")
 
     @time_unit.setter
-    def time_unit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_unit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_unit", value)
 
 
@@ -668,24 +668,24 @@ class Budget(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_adjust_data: Optional[pulumi.Input[Union['BudgetAutoAdjustDataArgs', 'BudgetAutoAdjustDataArgsDict']]] = None,
-                 billing_view_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 budget_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 cost_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BudgetCostFilterArgs', 'BudgetCostFilterArgsDict']]]]] = None,
-                 cost_types: Optional[pulumi.Input[Union['BudgetCostTypesArgs', 'BudgetCostTypesArgsDict']]] = None,
-                 filter_expression: Optional[pulumi.Input[Union['BudgetFilterExpressionArgs', 'BudgetFilterExpressionArgsDict']]] = None,
-                 limit_amount: Optional[pulumi.Input[_builtins.str]] = None,
-                 limit_unit: Optional[pulumi.Input[_builtins.str]] = None,
-                 metrics: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BudgetNotificationArgs', 'BudgetNotificationArgsDict']]]]] = None,
-                 planned_limits: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BudgetPlannedLimitArgs', 'BudgetPlannedLimitArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 time_period_end: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_period_start: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_unit: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_adjust_data: pulumi.Input[Optional[Union['BudgetAutoAdjustDataArgs', 'BudgetAutoAdjustDataArgsDict']]] = None,
+                 billing_view_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 budget_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 cost_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BudgetCostFilterArgs', 'BudgetCostFilterArgsDict']]]]] = None,
+                 cost_types: pulumi.Input[Optional[Union['BudgetCostTypesArgs', 'BudgetCostTypesArgsDict']]] = None,
+                 filter_expression: pulumi.Input[Optional[Union['BudgetFilterExpressionArgs', 'BudgetFilterExpressionArgsDict']]] = None,
+                 limit_amount: pulumi.Input[Optional[_builtins.str]] = None,
+                 limit_unit: pulumi.Input[Optional[_builtins.str]] = None,
+                 metrics: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 notifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BudgetNotificationArgs', 'BudgetNotificationArgsDict']]]]] = None,
+                 planned_limits: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BudgetPlannedLimitArgs', 'BudgetPlannedLimitArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 time_period_end: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_period_start: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_unit: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a budgets budget resource. Budgets use the cost visualization provided by Cost Explorer to show you the status of your budgets, to provide forecasts of your estimated costs, and to track your AWS usage, including your free tier usage.
@@ -710,7 +710,7 @@ class Budget(pulumi.CustomResource):
             }],
             notifications=[{
                 "comparison_operator": "GREATER_THAN",
-                "threshold": 100,
+                "threshold": float(100),
                 "threshold_type": "PERCENTAGE",
                 "notification_type": "FORECASTED",
                 "subscriber_email_addresses": ["test@example.com"],
@@ -999,7 +999,7 @@ class Budget(pulumi.CustomResource):
             },
             notifications=[{
                 "comparison_operator": "GREATER_THAN",
-                "threshold": 100,
+                "threshold": float(100),
                 "threshold_type": "PERCENTAGE",
                 "notification_type": "FORECASTED",
                 "subscriber_email_addresses": ["test@example.com"],
@@ -1070,7 +1070,7 @@ class Budget(pulumi.CustomResource):
             }],
             notifications=[{
                 "comparison_operator": "GREATER_THAN",
-                "threshold": 100,
+                "threshold": float(100),
                 "threshold_type": "PERCENTAGE",
                 "notification_type": "FORECASTED",
                 "subscriber_email_addresses": ["test@example.com"],
@@ -1359,7 +1359,7 @@ class Budget(pulumi.CustomResource):
             },
             notifications=[{
                 "comparison_operator": "GREATER_THAN",
-                "threshold": 100,
+                "threshold": float(100),
                 "threshold_type": "PERCENTAGE",
                 "notification_type": "FORECASTED",
                 "subscriber_email_addresses": ["test@example.com"],
@@ -1390,24 +1390,24 @@ class Budget(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_adjust_data: Optional[pulumi.Input[Union['BudgetAutoAdjustDataArgs', 'BudgetAutoAdjustDataArgsDict']]] = None,
-                 billing_view_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 budget_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 cost_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BudgetCostFilterArgs', 'BudgetCostFilterArgsDict']]]]] = None,
-                 cost_types: Optional[pulumi.Input[Union['BudgetCostTypesArgs', 'BudgetCostTypesArgsDict']]] = None,
-                 filter_expression: Optional[pulumi.Input[Union['BudgetFilterExpressionArgs', 'BudgetFilterExpressionArgsDict']]] = None,
-                 limit_amount: Optional[pulumi.Input[_builtins.str]] = None,
-                 limit_unit: Optional[pulumi.Input[_builtins.str]] = None,
-                 metrics: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BudgetNotificationArgs', 'BudgetNotificationArgsDict']]]]] = None,
-                 planned_limits: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BudgetPlannedLimitArgs', 'BudgetPlannedLimitArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 time_period_end: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_period_start: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_unit: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_adjust_data: pulumi.Input[Optional[Union['BudgetAutoAdjustDataArgs', 'BudgetAutoAdjustDataArgsDict']]] = None,
+                 billing_view_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 budget_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 cost_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BudgetCostFilterArgs', 'BudgetCostFilterArgsDict']]]]] = None,
+                 cost_types: pulumi.Input[Optional[Union['BudgetCostTypesArgs', 'BudgetCostTypesArgsDict']]] = None,
+                 filter_expression: pulumi.Input[Optional[Union['BudgetFilterExpressionArgs', 'BudgetFilterExpressionArgsDict']]] = None,
+                 limit_amount: pulumi.Input[Optional[_builtins.str]] = None,
+                 limit_unit: pulumi.Input[Optional[_builtins.str]] = None,
+                 metrics: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 notifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BudgetNotificationArgs', 'BudgetNotificationArgsDict']]]]] = None,
+                 planned_limits: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BudgetPlannedLimitArgs', 'BudgetPlannedLimitArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 time_period_end: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_period_start: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_unit: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1451,26 +1451,26 @@ class Budget(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            auto_adjust_data: Optional[pulumi.Input[Union['BudgetAutoAdjustDataArgs', 'BudgetAutoAdjustDataArgsDict']]] = None,
-            billing_view_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            budget_type: Optional[pulumi.Input[_builtins.str]] = None,
-            cost_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BudgetCostFilterArgs', 'BudgetCostFilterArgsDict']]]]] = None,
-            cost_types: Optional[pulumi.Input[Union['BudgetCostTypesArgs', 'BudgetCostTypesArgsDict']]] = None,
-            filter_expression: Optional[pulumi.Input[Union['BudgetFilterExpressionArgs', 'BudgetFilterExpressionArgsDict']]] = None,
-            limit_amount: Optional[pulumi.Input[_builtins.str]] = None,
-            limit_unit: Optional[pulumi.Input[_builtins.str]] = None,
-            metrics: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-            notifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BudgetNotificationArgs', 'BudgetNotificationArgsDict']]]]] = None,
-            planned_limits: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BudgetPlannedLimitArgs', 'BudgetPlannedLimitArgsDict']]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            time_period_end: Optional[pulumi.Input[_builtins.str]] = None,
-            time_period_start: Optional[pulumi.Input[_builtins.str]] = None,
-            time_unit: Optional[pulumi.Input[_builtins.str]] = None) -> 'Budget':
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_adjust_data: pulumi.Input[Optional[Union['BudgetAutoAdjustDataArgs', 'BudgetAutoAdjustDataArgsDict']]] = None,
+            billing_view_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            budget_type: pulumi.Input[Optional[_builtins.str]] = None,
+            cost_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BudgetCostFilterArgs', 'BudgetCostFilterArgsDict']]]]] = None,
+            cost_types: pulumi.Input[Optional[Union['BudgetCostTypesArgs', 'BudgetCostTypesArgsDict']]] = None,
+            filter_expression: pulumi.Input[Optional[Union['BudgetFilterExpressionArgs', 'BudgetFilterExpressionArgsDict']]] = None,
+            limit_amount: pulumi.Input[Optional[_builtins.str]] = None,
+            limit_unit: pulumi.Input[Optional[_builtins.str]] = None,
+            metrics: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            notifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BudgetNotificationArgs', 'BudgetNotificationArgsDict']]]]] = None,
+            planned_limits: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BudgetPlannedLimitArgs', 'BudgetPlannedLimitArgsDict']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            time_period_end: pulumi.Input[Optional[_builtins.str]] = None,
+            time_period_start: pulumi.Input[Optional[_builtins.str]] = None,
+            time_unit: pulumi.Input[Optional[_builtins.str]] = None) -> 'Budget':
         """
         Get an existing Budget resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

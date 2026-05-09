@@ -34,11 +34,11 @@ __all__ = [
 ]
 
 class RepositoryAssociationKmsKeyDetailsArgsDict(TypedDict):
-    encryption_option: NotRequired[pulumi.Input[_builtins.str]]
+    encryption_option: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The encryption option for a repository association. It is either owned by AWS Key Management Service (KMS) (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
     """
-    kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    kms_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the AWS KMS key that is associated with a repository association.
     """
@@ -46,8 +46,8 @@ class RepositoryAssociationKmsKeyDetailsArgsDict(TypedDict):
 @pulumi.input_type
 class RepositoryAssociationKmsKeyDetailsArgs:
     def __init__(__self__, *,
-                 encryption_option: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 encryption_option: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] encryption_option: The encryption option for a repository association. It is either owned by AWS Key Management Service (KMS) (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
         :param pulumi.Input[_builtins.str] kms_key_id: The ID of the AWS KMS key that is associated with a repository association.
@@ -59,42 +59,42 @@ class RepositoryAssociationKmsKeyDetailsArgs:
 
     @_builtins.property
     @pulumi.getter(name="encryptionOption")
-    def encryption_option(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encryption_option(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The encryption option for a repository association. It is either owned by AWS Key Management Service (KMS) (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
         """
         return pulumi.get(self, "encryption_option")
 
     @encryption_option.setter
-    def encryption_option(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encryption_option(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encryption_option", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the AWS KMS key that is associated with a repository association.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
 
 class RepositoryAssociationRepositoryArgsDict(TypedDict):
-    bitbucket: NotRequired[pulumi.Input['RepositoryAssociationRepositoryBitbucketArgsDict']]
-    codecommit: NotRequired[pulumi.Input['RepositoryAssociationRepositoryCodecommitArgsDict']]
-    github_enterprise_server: NotRequired[pulumi.Input['RepositoryAssociationRepositoryGithubEnterpriseServerArgsDict']]
-    s3_bucket: NotRequired[pulumi.Input['RepositoryAssociationRepositoryS3BucketArgsDict']]
+    bitbucket: NotRequired[pulumi.Input[Optional['RepositoryAssociationRepositoryBitbucketArgs']]]
+    codecommit: NotRequired[pulumi.Input[Optional['RepositoryAssociationRepositoryCodecommitArgs']]]
+    github_enterprise_server: NotRequired[pulumi.Input[Optional['RepositoryAssociationRepositoryGithubEnterpriseServerArgs']]]
+    s3_bucket: NotRequired[pulumi.Input[Optional['RepositoryAssociationRepositoryS3BucketArgs']]]
 
 @pulumi.input_type
 class RepositoryAssociationRepositoryArgs:
     def __init__(__self__, *,
-                 bitbucket: Optional[pulumi.Input['RepositoryAssociationRepositoryBitbucketArgs']] = None,
-                 codecommit: Optional[pulumi.Input['RepositoryAssociationRepositoryCodecommitArgs']] = None,
-                 github_enterprise_server: Optional[pulumi.Input['RepositoryAssociationRepositoryGithubEnterpriseServerArgs']] = None,
-                 s3_bucket: Optional[pulumi.Input['RepositoryAssociationRepositoryS3BucketArgs']] = None):
+                 bitbucket: pulumi.Input[Optional['RepositoryAssociationRepositoryBitbucketArgs']] = None,
+                 codecommit: pulumi.Input[Optional['RepositoryAssociationRepositoryCodecommitArgs']] = None,
+                 github_enterprise_server: pulumi.Input[Optional['RepositoryAssociationRepositoryGithubEnterpriseServerArgs']] = None,
+                 s3_bucket: pulumi.Input[Optional['RepositoryAssociationRepositoryS3BucketArgs']] = None):
         if bitbucket is not None:
             pulumi.set(__self__, "bitbucket", bitbucket)
         if codecommit is not None:
@@ -106,38 +106,38 @@ class RepositoryAssociationRepositoryArgs:
 
     @_builtins.property
     @pulumi.getter
-    def bitbucket(self) -> Optional[pulumi.Input['RepositoryAssociationRepositoryBitbucketArgs']]:
+    def bitbucket(self) -> pulumi.Input[Optional['RepositoryAssociationRepositoryBitbucketArgs']]:
         return pulumi.get(self, "bitbucket")
 
     @bitbucket.setter
-    def bitbucket(self, value: Optional[pulumi.Input['RepositoryAssociationRepositoryBitbucketArgs']]):
+    def bitbucket(self, value: pulumi.Input[Optional['RepositoryAssociationRepositoryBitbucketArgs']]):
         pulumi.set(self, "bitbucket", value)
 
     @_builtins.property
     @pulumi.getter
-    def codecommit(self) -> Optional[pulumi.Input['RepositoryAssociationRepositoryCodecommitArgs']]:
+    def codecommit(self) -> pulumi.Input[Optional['RepositoryAssociationRepositoryCodecommitArgs']]:
         return pulumi.get(self, "codecommit")
 
     @codecommit.setter
-    def codecommit(self, value: Optional[pulumi.Input['RepositoryAssociationRepositoryCodecommitArgs']]):
+    def codecommit(self, value: pulumi.Input[Optional['RepositoryAssociationRepositoryCodecommitArgs']]):
         pulumi.set(self, "codecommit", value)
 
     @_builtins.property
     @pulumi.getter(name="githubEnterpriseServer")
-    def github_enterprise_server(self) -> Optional[pulumi.Input['RepositoryAssociationRepositoryGithubEnterpriseServerArgs']]:
+    def github_enterprise_server(self) -> pulumi.Input[Optional['RepositoryAssociationRepositoryGithubEnterpriseServerArgs']]:
         return pulumi.get(self, "github_enterprise_server")
 
     @github_enterprise_server.setter
-    def github_enterprise_server(self, value: Optional[pulumi.Input['RepositoryAssociationRepositoryGithubEnterpriseServerArgs']]):
+    def github_enterprise_server(self, value: pulumi.Input[Optional['RepositoryAssociationRepositoryGithubEnterpriseServerArgs']]):
         pulumi.set(self, "github_enterprise_server", value)
 
     @_builtins.property
     @pulumi.getter(name="s3Bucket")
-    def s3_bucket(self) -> Optional[pulumi.Input['RepositoryAssociationRepositoryS3BucketArgs']]:
+    def s3_bucket(self) -> pulumi.Input[Optional['RepositoryAssociationRepositoryS3BucketArgs']]:
         return pulumi.get(self, "s3_bucket")
 
     @s3_bucket.setter
-    def s3_bucket(self, value: Optional[pulumi.Input['RepositoryAssociationRepositoryS3BucketArgs']]):
+    def s3_bucket(self, value: pulumi.Input[Optional['RepositoryAssociationRepositoryS3BucketArgs']]):
         pulumi.set(self, "s3_bucket", value)
 
 
@@ -349,17 +349,17 @@ class RepositoryAssociationRepositoryS3BucketArgs:
 
 
 class RepositoryAssociationS3RepositoryDetailArgsDict(TypedDict):
-    bucket_name: NotRequired[pulumi.Input[_builtins.str]]
+    bucket_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the S3 bucket used for associating a new S3 repository. Note: The name must begin with `codeguru-reviewer-`.
     """
-    code_artifacts: NotRequired[pulumi.Input[Sequence[pulumi.Input['RepositoryAssociationS3RepositoryDetailCodeArtifactArgsDict']]]]
+    code_artifacts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryAssociationS3RepositoryDetailCodeArtifactArgs']]]]]
 
 @pulumi.input_type
 class RepositoryAssociationS3RepositoryDetailArgs:
     def __init__(__self__, *,
-                 bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 code_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryAssociationS3RepositoryDetailCodeArtifactArgs']]]] = None):
+                 bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 code_artifacts: pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryAssociationS3RepositoryDetailCodeArtifactArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] bucket_name: The name of the S3 bucket used for associating a new S3 repository. Note: The name must begin with `codeguru-reviewer-`.
         """
@@ -370,35 +370,35 @@ class RepositoryAssociationS3RepositoryDetailArgs:
 
     @_builtins.property
     @pulumi.getter(name="bucketName")
-    def bucket_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the S3 bucket used for associating a new S3 repository. Note: The name must begin with `codeguru-reviewer-`.
         """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
-    def bucket_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket_name", value)
 
     @_builtins.property
     @pulumi.getter(name="codeArtifacts")
-    def code_artifacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryAssociationS3RepositoryDetailCodeArtifactArgs']]]]:
+    def code_artifacts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryAssociationS3RepositoryDetailCodeArtifactArgs']]]]:
         return pulumi.get(self, "code_artifacts")
 
     @code_artifacts.setter
-    def code_artifacts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryAssociationS3RepositoryDetailCodeArtifactArgs']]]]):
+    def code_artifacts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryAssociationS3RepositoryDetailCodeArtifactArgs']]]]):
         pulumi.set(self, "code_artifacts", value)
 
 
 class RepositoryAssociationS3RepositoryDetailCodeArtifactArgsDict(TypedDict):
-    build_artifacts_object_key: NotRequired[pulumi.Input[_builtins.str]]
-    source_code_artifacts_object_key: NotRequired[pulumi.Input[_builtins.str]]
+    build_artifacts_object_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    source_code_artifacts_object_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class RepositoryAssociationS3RepositoryDetailCodeArtifactArgs:
     def __init__(__self__, *,
-                 build_artifacts_object_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_code_artifacts_object_key: Optional[pulumi.Input[_builtins.str]] = None):
+                 build_artifacts_object_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_code_artifacts_object_key: pulumi.Input[Optional[_builtins.str]] = None):
         if build_artifacts_object_key is not None:
             pulumi.set(__self__, "build_artifacts_object_key", build_artifacts_object_key)
         if source_code_artifacts_object_key is not None:
@@ -406,20 +406,20 @@ class RepositoryAssociationS3RepositoryDetailCodeArtifactArgs:
 
     @_builtins.property
     @pulumi.getter(name="buildArtifactsObjectKey")
-    def build_artifacts_object_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def build_artifacts_object_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "build_artifacts_object_key")
 
     @build_artifacts_object_key.setter
-    def build_artifacts_object_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def build_artifacts_object_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "build_artifacts_object_key", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceCodeArtifactsObjectKey")
-    def source_code_artifacts_object_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_code_artifacts_object_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "source_code_artifacts_object_key")
 
     @source_code_artifacts_object_key.setter
-    def source_code_artifacts_object_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_code_artifacts_object_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_code_artifacts_object_key", value)
 
 

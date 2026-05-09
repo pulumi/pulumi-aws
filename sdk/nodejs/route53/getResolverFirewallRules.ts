@@ -114,7 +114,7 @@ export interface GetResolverFirewallRulesOutputArgs {
     /**
      * The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list.
      */
-    action?: pulumi.Input<string>;
+    action?: pulumi.Input<string | undefined>;
     /**
      * The unique identifier of the firewall rule group that you want to retrieve the rules for.
      */
@@ -122,9 +122,9 @@ export interface GetResolverFirewallRulesOutputArgs {
     /**
      * The setting that determines the processing order of the rules in a rule group.
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

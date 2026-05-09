@@ -150,17 +150,17 @@ export interface ExportState {
      * Amazon Resource Name (ARN) for this export.
      * * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
      */
-    export?: pulumi.Input<inputs.bcmdata.ExportExport>;
+    export?: pulumi.Input<inputs.bcmdata.ExportExport | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.bcmdata.ExportTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.bcmdata.ExportTimeouts | undefined>;
 }
 
 /**
@@ -170,10 +170,10 @@ export interface ExportArgs {
     /**
      * The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
      */
-    export?: pulumi.Input<inputs.bcmdata.ExportExport>;
+    export?: pulumi.Input<inputs.bcmdata.ExportExport | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.bcmdata.ExportTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.bcmdata.ExportTimeouts | undefined>;
 }

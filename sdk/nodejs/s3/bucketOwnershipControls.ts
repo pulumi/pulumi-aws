@@ -116,15 +116,15 @@ export interface BucketOwnershipControlsState {
     /**
      * Name of the bucket that you want to associate this access point with.
      */
-    bucket?: pulumi.Input<string>;
+    bucket?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Configuration block(s) with Ownership Controls rules. Detailed below.
      */
-    rule?: pulumi.Input<inputs.s3.BucketOwnershipControlsRule>;
+    rule?: pulumi.Input<inputs.s3.BucketOwnershipControlsRule | undefined>;
 }
 
 /**
@@ -138,7 +138,7 @@ export interface BucketOwnershipControlsArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Configuration block(s) with Ownership Controls rules. Detailed below.
      */

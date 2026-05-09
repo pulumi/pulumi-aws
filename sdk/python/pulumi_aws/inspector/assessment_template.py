@@ -24,10 +24,10 @@ class AssessmentTemplateArgs:
                  duration: pulumi.Input[_builtins.int],
                  rules_package_arns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  target_arn: pulumi.Input[_builtins.str],
-                 event_subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentTemplateEventSubscriptionArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 event_subscriptions: pulumi.Input[Optional[Sequence[pulumi.Input['AssessmentTemplateEventSubscriptionArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AssessmentTemplate resource.
 
@@ -89,65 +89,65 @@ class AssessmentTemplateArgs:
 
     @_builtins.property
     @pulumi.getter(name="eventSubscriptions")
-    def event_subscriptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentTemplateEventSubscriptionArgs']]]]:
+    def event_subscriptions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AssessmentTemplateEventSubscriptionArgs']]]]:
         """
         A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
         """
         return pulumi.get(self, "event_subscriptions")
 
     @event_subscriptions.setter
-    def event_subscriptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentTemplateEventSubscriptionArgs']]]]):
+    def event_subscriptions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AssessmentTemplateEventSubscriptionArgs']]]]):
         pulumi.set(self, "event_subscriptions", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the assessment template.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of tags for the Inspector assessment template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _AssessmentTemplateState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 duration: Optional[pulumi.Input[_builtins.int]] = None,
-                 event_subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentTemplateEventSubscriptionArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules_package_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 duration: pulumi.Input[Optional[_builtins.int]] = None,
+                 event_subscriptions: pulumi.Input[Optional[Sequence[pulumi.Input['AssessmentTemplateEventSubscriptionArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules_package_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AssessmentTemplate resources.
 
@@ -182,110 +182,110 @@ class _AssessmentTemplateState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The template assessment ARN.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def duration(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def duration(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The duration of the inspector run.
         """
         return pulumi.get(self, "duration")
 
     @duration.setter
-    def duration(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def duration(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "duration", value)
 
     @_builtins.property
     @pulumi.getter(name="eventSubscriptions")
-    def event_subscriptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentTemplateEventSubscriptionArgs']]]]:
+    def event_subscriptions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AssessmentTemplateEventSubscriptionArgs']]]]:
         """
         A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
         """
         return pulumi.get(self, "event_subscriptions")
 
     @event_subscriptions.setter
-    def event_subscriptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentTemplateEventSubscriptionArgs']]]]):
+    def event_subscriptions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AssessmentTemplateEventSubscriptionArgs']]]]):
         pulumi.set(self, "event_subscriptions", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the assessment template.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="rulesPackageArns")
-    def rules_package_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def rules_package_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The rules to be used during the run.
         """
         return pulumi.get(self, "rules_package_arns")
 
     @rules_package_arns.setter
-    def rules_package_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def rules_package_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "rules_package_arns", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of tags for the Inspector assessment template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="targetArn")
-    def target_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The assessment target ARN to attach the template to.
         """
         return pulumi.get(self, "target_arn")
 
     @target_arn.setter
-    def target_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_arn", value)
 
 
@@ -295,13 +295,13 @@ class AssessmentTemplate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 duration: Optional[pulumi.Input[_builtins.int]] = None,
-                 event_subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AssessmentTemplateEventSubscriptionArgs', 'AssessmentTemplateEventSubscriptionArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules_package_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 duration: pulumi.Input[Optional[_builtins.int]] = None,
+                 event_subscriptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AssessmentTemplateEventSubscriptionArgs', 'AssessmentTemplateEventSubscriptionArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules_package_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides an Inspector Classic Assessment Template
@@ -414,13 +414,13 @@ class AssessmentTemplate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 duration: Optional[pulumi.Input[_builtins.int]] = None,
-                 event_subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AssessmentTemplateEventSubscriptionArgs', 'AssessmentTemplateEventSubscriptionArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules_package_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 duration: pulumi.Input[Optional[_builtins.int]] = None,
+                 event_subscriptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AssessmentTemplateEventSubscriptionArgs', 'AssessmentTemplateEventSubscriptionArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules_package_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -455,15 +455,15 @@ class AssessmentTemplate(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            duration: Optional[pulumi.Input[_builtins.int]] = None,
-            event_subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AssessmentTemplateEventSubscriptionArgs', 'AssessmentTemplateEventSubscriptionArgsDict']]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            rules_package_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            target_arn: Optional[pulumi.Input[_builtins.str]] = None) -> 'AssessmentTemplate':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            duration: pulumi.Input[Optional[_builtins.int]] = None,
+            event_subscriptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AssessmentTemplateEventSubscriptionArgs', 'AssessmentTemplateEventSubscriptionArgsDict']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            rules_package_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            target_arn: pulumi.Input[Optional[_builtins.str]] = None) -> 'AssessmentTemplate':
         """
         Get an existing AssessmentTemplate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

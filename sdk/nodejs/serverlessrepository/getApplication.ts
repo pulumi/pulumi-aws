@@ -122,9 +122,9 @@ export interface GetApplicationOutputArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Requested version of the application. By default, retrieves the latest version.
      */
-    semanticVersion?: pulumi.Input<string>;
+    semanticVersion?: pulumi.Input<string | undefined>;
 }

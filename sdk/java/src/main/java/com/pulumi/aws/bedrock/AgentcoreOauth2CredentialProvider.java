@@ -38,8 +38,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.bedrock.AgentcoreOauth2CredentialProviderArgs;
  * import com.pulumi.aws.bedrock.inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs;
  * import com.pulumi.aws.bedrock.inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -78,8 +78,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.bedrock.AgentcoreOauth2CredentialProvider;
  * import com.pulumi.aws.bedrock.AgentcoreOauth2CredentialProviderArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -94,11 +94,11 @@ import javax.annotation.Nullable;
  *         var auth0 = new AgentcoreOauth2CredentialProvider("auth0", AgentcoreOauth2CredentialProviderArgs.builder()
  *             .name("auth0-oauth-provider")
  *             .credentialProviderVendor("CustomOauth2")
- *             .customOauth2ProviderConfig(List.of(Map.of("custom", List.of(Map.ofEntries(
+ *             .customOauth2ProviderConfig(Arrays.asList(Map.of("custom", Arrays.asList(Map.ofEntries(
  *                 Map.entry("clientIdWo", "auth0-client-id"),
  *                 Map.entry("clientSecretWo", "auth0-client-secret"),
  *                 Map.entry("clientCredentialsWoVersion", 1),
- *                 Map.entry("oauthDiscovery", List.of(Map.of("discoveryUrl", "https://dev-company.auth0.com/.well-known/openid-configuration")))
+ *                 Map.entry("oauthDiscovery", Arrays.asList(Map.of("discoveryUrl", "https://dev-company.auth0.com/.well-known/openid-configuration")))
  *             )))))
  *             .build());
  * 
@@ -122,8 +122,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.bedrock.inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigArgs;
  * import com.pulumi.aws.bedrock.inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryArgs;
  * import com.pulumi.aws.bedrock.inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;

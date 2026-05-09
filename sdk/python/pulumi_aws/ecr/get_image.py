@@ -201,12 +201,12 @@ def get_image(image_digest: Optional[_builtins.str] = None,
         region=pulumi.get(__ret__, 'region'),
         registry_id=pulumi.get(__ret__, 'registry_id'),
         repository_name=pulumi.get(__ret__, 'repository_name'))
-def get_image_output(image_digest: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                     image_tag: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                     most_recent: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                     region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                     registry_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                     repository_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_image_output(image_digest: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                     image_tag: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                     most_recent: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                     region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                     registry_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                     repository_name: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImageResult]:
     """
     The ECR Image data source allows the details of an image with a particular tag or digest to be retrieved.

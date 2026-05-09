@@ -109,7 +109,7 @@ def get_active_receipt_rule_set(region: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'),
         rule_set_name=pulumi.get(__ret__, 'rule_set_name'))
-def get_active_receipt_rule_set_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_active_receipt_rule_set_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetActiveReceiptRuleSetResult]:
     """
     Retrieve the active SES receipt rule set

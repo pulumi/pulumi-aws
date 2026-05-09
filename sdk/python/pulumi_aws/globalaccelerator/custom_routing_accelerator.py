@@ -21,12 +21,12 @@ __all__ = ['CustomRoutingAcceleratorArgs', 'CustomRoutingAccelerator']
 @pulumi.input_type
 class CustomRoutingAcceleratorArgs:
     def __init__(__self__, *,
-                 attributes: Optional[pulumi.Input['CustomRoutingAcceleratorAttributesArgs']] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 attributes: pulumi.Input[Optional['CustomRoutingAcceleratorAttributesArgs']] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CustomRoutingAccelerator resource.
 
@@ -52,91 +52,91 @@ class CustomRoutingAcceleratorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def attributes(self) -> Optional[pulumi.Input['CustomRoutingAcceleratorAttributesArgs']]:
+    def attributes(self) -> pulumi.Input[Optional['CustomRoutingAcceleratorAttributesArgs']]:
         """
         The attributes of the accelerator. Fields documented below.
         """
         return pulumi.get(self, "attributes")
 
     @attributes.setter
-    def attributes(self, value: Optional[pulumi.Input['CustomRoutingAcceleratorAttributesArgs']]):
+    def attributes(self, value: pulumi.Input[Optional['CustomRoutingAcceleratorAttributesArgs']]):
         pulumi.set(self, "attributes", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="ipAddressType")
-    def ip_address_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_address_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IP address type that an accelerator supports. For a custom routing accelerator, the value must be `"IPV4"`.
         """
         return pulumi.get(self, "ip_address_type")
 
     @ip_address_type.setter
-    def ip_address_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_address_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_address_type", value)
 
     @_builtins.property
     @pulumi.getter(name="ipAddresses")
-    def ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ip_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
         """
         return pulumi.get(self, "ip_addresses")
 
     @ip_addresses.setter
-    def ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ip_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ip_addresses", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of a custom routing accelerator.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _CustomRoutingAcceleratorState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 attributes: Optional[pulumi.Input['CustomRoutingAcceleratorAttributesArgs']] = None,
-                 dns_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hosted_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ip_sets: Optional[pulumi.Input[Sequence[pulumi.Input['CustomRoutingAcceleratorIpSetArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 attributes: pulumi.Input[Optional['CustomRoutingAcceleratorAttributesArgs']] = None,
+                 dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hosted_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ip_sets: pulumi.Input[Optional[Sequence[pulumi.Input['CustomRoutingAcceleratorIpSetArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering CustomRoutingAccelerator resources.
 
@@ -179,55 +179,55 @@ class _CustomRoutingAcceleratorState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the custom accelerator.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def attributes(self) -> Optional[pulumi.Input['CustomRoutingAcceleratorAttributesArgs']]:
+    def attributes(self) -> pulumi.Input[Optional['CustomRoutingAcceleratorAttributesArgs']]:
         """
         The attributes of the accelerator. Fields documented below.
         """
         return pulumi.get(self, "attributes")
 
     @attributes.setter
-    def attributes(self, value: Optional[pulumi.Input['CustomRoutingAcceleratorAttributesArgs']]):
+    def attributes(self, value: pulumi.Input[Optional['CustomRoutingAcceleratorAttributesArgs']]):
         pulumi.set(self, "attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsName")
-    def dns_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
         """
         return pulumi.get(self, "dns_name")
 
     @dns_name.setter
-    def dns_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="hostedZoneId")
-    def hosted_zone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hosted_zone_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         -  The Global Accelerator Route 53 zone ID that can be used to
         route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
@@ -236,79 +236,79 @@ class _CustomRoutingAcceleratorState:
         return pulumi.get(self, "hosted_zone_id")
 
     @hosted_zone_id.setter
-    def hosted_zone_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hosted_zone_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hosted_zone_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ipAddressType")
-    def ip_address_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_address_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IP address type that an accelerator supports. For a custom routing accelerator, the value must be `"IPV4"`.
         """
         return pulumi.get(self, "ip_address_type")
 
     @ip_address_type.setter
-    def ip_address_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_address_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_address_type", value)
 
     @_builtins.property
     @pulumi.getter(name="ipAddresses")
-    def ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ip_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
         """
         return pulumi.get(self, "ip_addresses")
 
     @ip_addresses.setter
-    def ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ip_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ip_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="ipSets")
-    def ip_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomRoutingAcceleratorIpSetArgs']]]]:
+    def ip_sets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CustomRoutingAcceleratorIpSetArgs']]]]:
         """
         IP address set associated with the accelerator.
         """
         return pulumi.get(self, "ip_sets")
 
     @ip_sets.setter
-    def ip_sets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomRoutingAcceleratorIpSetArgs']]]]):
+    def ip_sets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CustomRoutingAcceleratorIpSetArgs']]]]):
         pulumi.set(self, "ip_sets", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of a custom routing accelerator.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
 
@@ -318,12 +318,12 @@ class CustomRoutingAccelerator(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attributes: Optional[pulumi.Input[Union['CustomRoutingAcceleratorAttributesArgs', 'CustomRoutingAcceleratorAttributesArgsDict']]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 attributes: pulumi.Input[Optional[Union['CustomRoutingAcceleratorAttributesArgs', 'CustomRoutingAcceleratorAttributesArgsDict']]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Creates a Global Accelerator custom routing accelerator.
@@ -427,12 +427,12 @@ class CustomRoutingAccelerator(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attributes: Optional[pulumi.Input[Union['CustomRoutingAcceleratorAttributesArgs', 'CustomRoutingAcceleratorAttributesArgsDict']]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 attributes: pulumi.Input[Optional[Union['CustomRoutingAcceleratorAttributesArgs', 'CustomRoutingAcceleratorAttributesArgsDict']]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -463,17 +463,17 @@ class CustomRoutingAccelerator(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            attributes: Optional[pulumi.Input[Union['CustomRoutingAcceleratorAttributesArgs', 'CustomRoutingAcceleratorAttributesArgsDict']]] = None,
-            dns_name: Optional[pulumi.Input[_builtins.str]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            hosted_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-            ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
-            ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            ip_sets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomRoutingAcceleratorIpSetArgs', 'CustomRoutingAcceleratorIpSetArgsDict']]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'CustomRoutingAccelerator':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            attributes: pulumi.Input[Optional[Union['CustomRoutingAcceleratorAttributesArgs', 'CustomRoutingAcceleratorAttributesArgsDict']]] = None,
+            dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            hosted_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            ip_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomRoutingAcceleratorIpSetArgs', 'CustomRoutingAcceleratorIpSetArgsDict']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'CustomRoutingAccelerator':
         """
         Get an existing CustomRoutingAccelerator resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

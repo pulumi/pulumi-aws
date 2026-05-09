@@ -21,10 +21,10 @@ class AuthorizationRuleArgs:
     def __init__(__self__, *,
                  client_vpn_endpoint_id: pulumi.Input[_builtins.str],
                  target_network_cidr: pulumi.Input[_builtins.str],
-                 access_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 authorize_all_groups: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 authorize_all_groups: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AuthorizationRule resource.
 
@@ -72,62 +72,62 @@ class AuthorizationRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessGroupId")
-    def access_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the group to which the authorization rule grants access. One of `access_group_id` or `authorize_all_groups` must be set.
         """
         return pulumi.get(self, "access_group_id")
 
     @access_group_id.setter
-    def access_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="authorizeAllGroups")
-    def authorize_all_groups(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def authorize_all_groups(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the authorization rule grants access to all clients. One of `access_group_id` or `authorize_all_groups` must be set.
         """
         return pulumi.get(self, "authorize_all_groups")
 
     @authorize_all_groups.setter
-    def authorize_all_groups(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def authorize_all_groups(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "authorize_all_groups", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A brief description of the authorization rule.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _AuthorizationRuleState:
     def __init__(__self__, *,
-                 access_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 authorize_all_groups: Optional[pulumi.Input[_builtins.bool]] = None,
-                 client_vpn_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_network_cidr: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 authorize_all_groups: pulumi.Input[Optional[_builtins.bool]] = None,
+                 client_vpn_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_network_cidr: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AuthorizationRule resources.
 
@@ -153,74 +153,74 @@ class _AuthorizationRuleState:
 
     @_builtins.property
     @pulumi.getter(name="accessGroupId")
-    def access_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the group to which the authorization rule grants access. One of `access_group_id` or `authorize_all_groups` must be set.
         """
         return pulumi.get(self, "access_group_id")
 
     @access_group_id.setter
-    def access_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="authorizeAllGroups")
-    def authorize_all_groups(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def authorize_all_groups(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the authorization rule grants access to all clients. One of `access_group_id` or `authorize_all_groups` must be set.
         """
         return pulumi.get(self, "authorize_all_groups")
 
     @authorize_all_groups.setter
-    def authorize_all_groups(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def authorize_all_groups(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "authorize_all_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="clientVpnEndpointId")
-    def client_vpn_endpoint_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_vpn_endpoint_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Client VPN endpoint.
         """
         return pulumi.get(self, "client_vpn_endpoint_id")
 
     @client_vpn_endpoint_id.setter
-    def client_vpn_endpoint_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_vpn_endpoint_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_vpn_endpoint_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A brief description of the authorization rule.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="targetNetworkCidr")
-    def target_network_cidr(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_network_cidr(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IPv4 or IPv6 address range, in CIDR notation, of the network to which the authorization rule applies.
         """
         return pulumi.get(self, "target_network_cidr")
 
     @target_network_cidr.setter
-    def target_network_cidr(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_network_cidr(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_network_cidr", value)
 
 
@@ -230,12 +230,12 @@ class AuthorizationRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 authorize_all_groups: Optional[pulumi.Input[_builtins.bool]] = None,
-                 client_vpn_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_network_cidr: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 authorize_all_groups: pulumi.Input[Optional[_builtins.bool]] = None,
+                 client_vpn_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_network_cidr: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides authorization rules for AWS Client VPN endpoints. For more information on usage, please see the
@@ -337,12 +337,12 @@ class AuthorizationRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 authorize_all_groups: Optional[pulumi.Input[_builtins.bool]] = None,
-                 client_vpn_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_network_cidr: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 authorize_all_groups: pulumi.Input[Optional[_builtins.bool]] = None,
+                 client_vpn_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_network_cidr: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -372,12 +372,12 @@ class AuthorizationRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            access_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            authorize_all_groups: Optional[pulumi.Input[_builtins.bool]] = None,
-            client_vpn_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            target_network_cidr: Optional[pulumi.Input[_builtins.str]] = None) -> 'AuthorizationRule':
+            access_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            authorize_all_groups: pulumi.Input[Optional[_builtins.bool]] = None,
+            client_vpn_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            target_network_cidr: pulumi.Input[Optional[_builtins.str]] = None) -> 'AuthorizationRule':
         """
         Get an existing AuthorizationRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

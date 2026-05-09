@@ -142,27 +142,27 @@ export interface ObjectLambdaAccessPointState {
     /**
      * The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * Alias for the S3 Object Lambda Access Point.
      */
-    alias?: pulumi.Input<string>;
+    alias?: pulumi.Input<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the Object Lambda Access Point.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
      */
-    configuration?: pulumi.Input<inputs.s3control.ObjectLambdaAccessPointConfiguration>;
+    configuration?: pulumi.Input<inputs.s3control.ObjectLambdaAccessPointConfiguration | undefined>;
     /**
      * The name for this Object Lambda Access Point.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -172,7 +172,7 @@ export interface ObjectLambdaAccessPointArgs {
     /**
      * The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
      */
@@ -180,9 +180,9 @@ export interface ObjectLambdaAccessPointArgs {
     /**
      * The name for this Object Lambda Access Point.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

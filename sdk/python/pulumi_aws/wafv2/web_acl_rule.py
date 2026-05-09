@@ -23,16 +23,16 @@ class WebAclRuleInitArgs:
     def __init__(__self__, *,
                  priority: pulumi.Input[_builtins.int],
                  web_acl_arn: pulumi.Input[_builtins.str],
-                 action: Optional[pulumi.Input['WebAclRuleActionArgs']] = None,
-                 captcha_config: Optional[pulumi.Input['WebAclRuleCaptchaConfigArgs']] = None,
-                 challenge_config: Optional[pulumi.Input['WebAclRuleChallengeConfigArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 override_action: Optional[pulumi.Input['WebAclRuleOverrideActionArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_labels: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleRuleLabelArgs']]]] = None,
-                 statement: Optional[pulumi.Input['WebAclRuleStatementArgs']] = None,
-                 timeouts: Optional[pulumi.Input['WebAclRuleTimeoutsArgs']] = None,
-                 visibility_config: Optional[pulumi.Input['WebAclRuleVisibilityConfigArgs']] = None):
+                 action: pulumi.Input[Optional['WebAclRuleActionArgs']] = None,
+                 captcha_config: pulumi.Input[Optional['WebAclRuleCaptchaConfigArgs']] = None,
+                 challenge_config: pulumi.Input[Optional['WebAclRuleChallengeConfigArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 override_action: pulumi.Input[Optional['WebAclRuleOverrideActionArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_labels: pulumi.Input[Optional[Sequence[pulumi.Input['WebAclRuleRuleLabelArgs']]]] = None,
+                 statement: pulumi.Input[Optional['WebAclRuleStatementArgs']] = None,
+                 timeouts: pulumi.Input[Optional['WebAclRuleTimeoutsArgs']] = None,
+                 visibility_config: pulumi.Input[Optional['WebAclRuleVisibilityConfigArgs']] = None):
         """
         The set of arguments for constructing a WebAclRule resource.
 
@@ -101,137 +101,137 @@ class WebAclRuleInitArgs:
 
     @_builtins.property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input['WebAclRuleActionArgs']]:
+    def action(self) -> pulumi.Input[Optional['WebAclRuleActionArgs']]:
         """
         Action to take when the rule matches. See Action below. Conflicts with `override_action`.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input['WebAclRuleActionArgs']]):
+    def action(self, value: pulumi.Input[Optional['WebAclRuleActionArgs']]):
         pulumi.set(self, "action", value)
 
     @_builtins.property
     @pulumi.getter(name="captchaConfig")
-    def captcha_config(self) -> Optional[pulumi.Input['WebAclRuleCaptchaConfigArgs']]:
+    def captcha_config(self) -> pulumi.Input[Optional['WebAclRuleCaptchaConfigArgs']]:
         """
         CAPTCHA configuration that overrides the web ACL level setting. See Captcha Config below.
         """
         return pulumi.get(self, "captcha_config")
 
     @captcha_config.setter
-    def captcha_config(self, value: Optional[pulumi.Input['WebAclRuleCaptchaConfigArgs']]):
+    def captcha_config(self, value: pulumi.Input[Optional['WebAclRuleCaptchaConfigArgs']]):
         pulumi.set(self, "captcha_config", value)
 
     @_builtins.property
     @pulumi.getter(name="challengeConfig")
-    def challenge_config(self) -> Optional[pulumi.Input['WebAclRuleChallengeConfigArgs']]:
+    def challenge_config(self) -> pulumi.Input[Optional['WebAclRuleChallengeConfigArgs']]:
         """
         Challenge configuration that overrides the web ACL level setting. See Challenge Config below.
         """
         return pulumi.get(self, "challenge_config")
 
     @challenge_config.setter
-    def challenge_config(self, value: Optional[pulumi.Input['WebAclRuleChallengeConfigArgs']]):
+    def challenge_config(self, value: pulumi.Input[Optional['WebAclRuleChallengeConfigArgs']]):
         pulumi.set(self, "challenge_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the rule. Must be unique within the Web ACL.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="overrideAction")
-    def override_action(self) -> Optional[pulumi.Input['WebAclRuleOverrideActionArgs']]:
+    def override_action(self) -> pulumi.Input[Optional['WebAclRuleOverrideActionArgs']]:
         """
         Override action for managed rule groups. See Override Action below. Conflicts with `action`.
         """
         return pulumi.get(self, "override_action")
 
     @override_action.setter
-    def override_action(self, value: Optional[pulumi.Input['WebAclRuleOverrideActionArgs']]):
+    def override_action(self, value: pulumi.Input[Optional['WebAclRuleOverrideActionArgs']]):
         pulumi.set(self, "override_action", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleLabels")
-    def rule_labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleRuleLabelArgs']]]]:
+    def rule_labels(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WebAclRuleRuleLabelArgs']]]]:
         """
         Labels to apply to matching web requests. See Rule Label below.
         """
         return pulumi.get(self, "rule_labels")
 
     @rule_labels.setter
-    def rule_labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleRuleLabelArgs']]]]):
+    def rule_labels(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WebAclRuleRuleLabelArgs']]]]):
         pulumi.set(self, "rule_labels", value)
 
     @_builtins.property
     @pulumi.getter
-    def statement(self) -> Optional[pulumi.Input['WebAclRuleStatementArgs']]:
+    def statement(self) -> pulumi.Input[Optional['WebAclRuleStatementArgs']]:
         """
         Rule statement. See Statement below.
         """
         return pulumi.get(self, "statement")
 
     @statement.setter
-    def statement(self, value: Optional[pulumi.Input['WebAclRuleStatementArgs']]):
+    def statement(self, value: pulumi.Input[Optional['WebAclRuleStatementArgs']]):
         pulumi.set(self, "statement", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['WebAclRuleTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['WebAclRuleTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['WebAclRuleTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['WebAclRuleTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter(name="visibilityConfig")
-    def visibility_config(self) -> Optional[pulumi.Input['WebAclRuleVisibilityConfigArgs']]:
+    def visibility_config(self) -> pulumi.Input[Optional['WebAclRuleVisibilityConfigArgs']]:
         """
         CloudWatch metrics configuration. See Visibility Config below.
         """
         return pulumi.get(self, "visibility_config")
 
     @visibility_config.setter
-    def visibility_config(self, value: Optional[pulumi.Input['WebAclRuleVisibilityConfigArgs']]):
+    def visibility_config(self, value: pulumi.Input[Optional['WebAclRuleVisibilityConfigArgs']]):
         pulumi.set(self, "visibility_config", value)
 
 
 @pulumi.input_type
 class _WebAclRuleState:
     def __init__(__self__, *,
-                 action: Optional[pulumi.Input['WebAclRuleActionArgs']] = None,
-                 captcha_config: Optional[pulumi.Input['WebAclRuleCaptchaConfigArgs']] = None,
-                 challenge_config: Optional[pulumi.Input['WebAclRuleChallengeConfigArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 override_action: Optional[pulumi.Input['WebAclRuleOverrideActionArgs']] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_labels: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleRuleLabelArgs']]]] = None,
-                 statement: Optional[pulumi.Input['WebAclRuleStatementArgs']] = None,
-                 timeouts: Optional[pulumi.Input['WebAclRuleTimeoutsArgs']] = None,
-                 visibility_config: Optional[pulumi.Input['WebAclRuleVisibilityConfigArgs']] = None,
-                 web_acl_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 action: pulumi.Input[Optional['WebAclRuleActionArgs']] = None,
+                 captcha_config: pulumi.Input[Optional['WebAclRuleCaptchaConfigArgs']] = None,
+                 challenge_config: pulumi.Input[Optional['WebAclRuleChallengeConfigArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 override_action: pulumi.Input[Optional['WebAclRuleOverrideActionArgs']] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_labels: pulumi.Input[Optional[Sequence[pulumi.Input['WebAclRuleRuleLabelArgs']]]] = None,
+                 statement: pulumi.Input[Optional['WebAclRuleStatementArgs']] = None,
+                 timeouts: pulumi.Input[Optional['WebAclRuleTimeoutsArgs']] = None,
+                 visibility_config: pulumi.Input[Optional['WebAclRuleVisibilityConfigArgs']] = None,
+                 web_acl_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WebAclRule resources.
 
@@ -276,136 +276,136 @@ class _WebAclRuleState:
 
     @_builtins.property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input['WebAclRuleActionArgs']]:
+    def action(self) -> pulumi.Input[Optional['WebAclRuleActionArgs']]:
         """
         Action to take when the rule matches. See Action below. Conflicts with `override_action`.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input['WebAclRuleActionArgs']]):
+    def action(self, value: pulumi.Input[Optional['WebAclRuleActionArgs']]):
         pulumi.set(self, "action", value)
 
     @_builtins.property
     @pulumi.getter(name="captchaConfig")
-    def captcha_config(self) -> Optional[pulumi.Input['WebAclRuleCaptchaConfigArgs']]:
+    def captcha_config(self) -> pulumi.Input[Optional['WebAclRuleCaptchaConfigArgs']]:
         """
         CAPTCHA configuration that overrides the web ACL level setting. See Captcha Config below.
         """
         return pulumi.get(self, "captcha_config")
 
     @captcha_config.setter
-    def captcha_config(self, value: Optional[pulumi.Input['WebAclRuleCaptchaConfigArgs']]):
+    def captcha_config(self, value: pulumi.Input[Optional['WebAclRuleCaptchaConfigArgs']]):
         pulumi.set(self, "captcha_config", value)
 
     @_builtins.property
     @pulumi.getter(name="challengeConfig")
-    def challenge_config(self) -> Optional[pulumi.Input['WebAclRuleChallengeConfigArgs']]:
+    def challenge_config(self) -> pulumi.Input[Optional['WebAclRuleChallengeConfigArgs']]:
         """
         Challenge configuration that overrides the web ACL level setting. See Challenge Config below.
         """
         return pulumi.get(self, "challenge_config")
 
     @challenge_config.setter
-    def challenge_config(self, value: Optional[pulumi.Input['WebAclRuleChallengeConfigArgs']]):
+    def challenge_config(self, value: pulumi.Input[Optional['WebAclRuleChallengeConfigArgs']]):
         pulumi.set(self, "challenge_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the rule. Must be unique within the Web ACL.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="overrideAction")
-    def override_action(self) -> Optional[pulumi.Input['WebAclRuleOverrideActionArgs']]:
+    def override_action(self) -> pulumi.Input[Optional['WebAclRuleOverrideActionArgs']]:
         """
         Override action for managed rule groups. See Override Action below. Conflicts with `action`.
         """
         return pulumi.get(self, "override_action")
 
     @override_action.setter
-    def override_action(self, value: Optional[pulumi.Input['WebAclRuleOverrideActionArgs']]):
+    def override_action(self, value: pulumi.Input[Optional['WebAclRuleOverrideActionArgs']]):
         pulumi.set(self, "override_action", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Rule priority. Rules with lower priority are evaluated first.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleLabels")
-    def rule_labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleRuleLabelArgs']]]]:
+    def rule_labels(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WebAclRuleRuleLabelArgs']]]]:
         """
         Labels to apply to matching web requests. See Rule Label below.
         """
         return pulumi.get(self, "rule_labels")
 
     @rule_labels.setter
-    def rule_labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleRuleLabelArgs']]]]):
+    def rule_labels(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WebAclRuleRuleLabelArgs']]]]):
         pulumi.set(self, "rule_labels", value)
 
     @_builtins.property
     @pulumi.getter
-    def statement(self) -> Optional[pulumi.Input['WebAclRuleStatementArgs']]:
+    def statement(self) -> pulumi.Input[Optional['WebAclRuleStatementArgs']]:
         """
         Rule statement. See Statement below.
         """
         return pulumi.get(self, "statement")
 
     @statement.setter
-    def statement(self, value: Optional[pulumi.Input['WebAclRuleStatementArgs']]):
+    def statement(self, value: pulumi.Input[Optional['WebAclRuleStatementArgs']]):
         pulumi.set(self, "statement", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['WebAclRuleTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['WebAclRuleTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['WebAclRuleTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['WebAclRuleTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter(name="visibilityConfig")
-    def visibility_config(self) -> Optional[pulumi.Input['WebAclRuleVisibilityConfigArgs']]:
+    def visibility_config(self) -> pulumi.Input[Optional['WebAclRuleVisibilityConfigArgs']]:
         """
         CloudWatch metrics configuration. See Visibility Config below.
         """
         return pulumi.get(self, "visibility_config")
 
     @visibility_config.setter
-    def visibility_config(self, value: Optional[pulumi.Input['WebAclRuleVisibilityConfigArgs']]):
+    def visibility_config(self, value: pulumi.Input[Optional['WebAclRuleVisibilityConfigArgs']]):
         pulumi.set(self, "visibility_config", value)
 
     @_builtins.property
     @pulumi.getter(name="webAclArn")
-    def web_acl_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def web_acl_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the Web ACL to add the rule to.
 
@@ -414,7 +414,7 @@ class _WebAclRuleState:
         return pulumi.get(self, "web_acl_arn")
 
     @web_acl_arn.setter
-    def web_acl_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def web_acl_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "web_acl_arn", value)
 
 
@@ -424,18 +424,18 @@ class WebAclRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[Union['WebAclRuleActionArgs', 'WebAclRuleActionArgsDict']]] = None,
-                 captcha_config: Optional[pulumi.Input[Union['WebAclRuleCaptchaConfigArgs', 'WebAclRuleCaptchaConfigArgsDict']]] = None,
-                 challenge_config: Optional[pulumi.Input[Union['WebAclRuleChallengeConfigArgs', 'WebAclRuleChallengeConfigArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 override_action: Optional[pulumi.Input[Union['WebAclRuleOverrideActionArgs', 'WebAclRuleOverrideActionArgsDict']]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_labels: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebAclRuleRuleLabelArgs', 'WebAclRuleRuleLabelArgsDict']]]]] = None,
-                 statement: Optional[pulumi.Input[Union['WebAclRuleStatementArgs', 'WebAclRuleStatementArgsDict']]] = None,
-                 timeouts: Optional[pulumi.Input[Union['WebAclRuleTimeoutsArgs', 'WebAclRuleTimeoutsArgsDict']]] = None,
-                 visibility_config: Optional[pulumi.Input[Union['WebAclRuleVisibilityConfigArgs', 'WebAclRuleVisibilityConfigArgsDict']]] = None,
-                 web_acl_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 action: pulumi.Input[Optional[Union['WebAclRuleActionArgs', 'WebAclRuleActionArgsDict']]] = None,
+                 captcha_config: pulumi.Input[Optional[Union['WebAclRuleCaptchaConfigArgs', 'WebAclRuleCaptchaConfigArgsDict']]] = None,
+                 challenge_config: pulumi.Input[Optional[Union['WebAclRuleChallengeConfigArgs', 'WebAclRuleChallengeConfigArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 override_action: pulumi.Input[Optional[Union['WebAclRuleOverrideActionArgs', 'WebAclRuleOverrideActionArgsDict']]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_labels: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebAclRuleRuleLabelArgs', 'WebAclRuleRuleLabelArgsDict']]]]] = None,
+                 statement: pulumi.Input[Optional[Union['WebAclRuleStatementArgs', 'WebAclRuleStatementArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['WebAclRuleTimeoutsArgs', 'WebAclRuleTimeoutsArgsDict']]] = None,
+                 visibility_config: pulumi.Input[Optional[Union['WebAclRuleVisibilityConfigArgs', 'WebAclRuleVisibilityConfigArgsDict']]] = None,
+                 web_acl_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an individual rule within a WAFv2 Web ACL. This resource creates proper Terraform dependencies for safe deletion of referenced resources like IP sets, solving the `WAFAssociatedItemException` error that occurs when deleting IP sets that are still referenced by Web ACL rules.
@@ -1274,18 +1274,18 @@ class WebAclRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[Union['WebAclRuleActionArgs', 'WebAclRuleActionArgsDict']]] = None,
-                 captcha_config: Optional[pulumi.Input[Union['WebAclRuleCaptchaConfigArgs', 'WebAclRuleCaptchaConfigArgsDict']]] = None,
-                 challenge_config: Optional[pulumi.Input[Union['WebAclRuleChallengeConfigArgs', 'WebAclRuleChallengeConfigArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 override_action: Optional[pulumi.Input[Union['WebAclRuleOverrideActionArgs', 'WebAclRuleOverrideActionArgsDict']]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_labels: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebAclRuleRuleLabelArgs', 'WebAclRuleRuleLabelArgsDict']]]]] = None,
-                 statement: Optional[pulumi.Input[Union['WebAclRuleStatementArgs', 'WebAclRuleStatementArgsDict']]] = None,
-                 timeouts: Optional[pulumi.Input[Union['WebAclRuleTimeoutsArgs', 'WebAclRuleTimeoutsArgsDict']]] = None,
-                 visibility_config: Optional[pulumi.Input[Union['WebAclRuleVisibilityConfigArgs', 'WebAclRuleVisibilityConfigArgsDict']]] = None,
-                 web_acl_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 action: pulumi.Input[Optional[Union['WebAclRuleActionArgs', 'WebAclRuleActionArgsDict']]] = None,
+                 captcha_config: pulumi.Input[Optional[Union['WebAclRuleCaptchaConfigArgs', 'WebAclRuleCaptchaConfigArgsDict']]] = None,
+                 challenge_config: pulumi.Input[Optional[Union['WebAclRuleChallengeConfigArgs', 'WebAclRuleChallengeConfigArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 override_action: pulumi.Input[Optional[Union['WebAclRuleOverrideActionArgs', 'WebAclRuleOverrideActionArgsDict']]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_labels: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebAclRuleRuleLabelArgs', 'WebAclRuleRuleLabelArgsDict']]]]] = None,
+                 statement: pulumi.Input[Optional[Union['WebAclRuleStatementArgs', 'WebAclRuleStatementArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['WebAclRuleTimeoutsArgs', 'WebAclRuleTimeoutsArgsDict']]] = None,
+                 visibility_config: pulumi.Input[Optional[Union['WebAclRuleVisibilityConfigArgs', 'WebAclRuleVisibilityConfigArgsDict']]] = None,
+                 web_acl_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1321,18 +1321,18 @@ class WebAclRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            action: Optional[pulumi.Input[Union['WebAclRuleActionArgs', 'WebAclRuleActionArgsDict']]] = None,
-            captcha_config: Optional[pulumi.Input[Union['WebAclRuleCaptchaConfigArgs', 'WebAclRuleCaptchaConfigArgsDict']]] = None,
-            challenge_config: Optional[pulumi.Input[Union['WebAclRuleChallengeConfigArgs', 'WebAclRuleChallengeConfigArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            override_action: Optional[pulumi.Input[Union['WebAclRuleOverrideActionArgs', 'WebAclRuleOverrideActionArgsDict']]] = None,
-            priority: Optional[pulumi.Input[_builtins.int]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            rule_labels: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebAclRuleRuleLabelArgs', 'WebAclRuleRuleLabelArgsDict']]]]] = None,
-            statement: Optional[pulumi.Input[Union['WebAclRuleStatementArgs', 'WebAclRuleStatementArgsDict']]] = None,
-            timeouts: Optional[pulumi.Input[Union['WebAclRuleTimeoutsArgs', 'WebAclRuleTimeoutsArgsDict']]] = None,
-            visibility_config: Optional[pulumi.Input[Union['WebAclRuleVisibilityConfigArgs', 'WebAclRuleVisibilityConfigArgsDict']]] = None,
-            web_acl_arn: Optional[pulumi.Input[_builtins.str]] = None) -> 'WebAclRule':
+            action: pulumi.Input[Optional[Union['WebAclRuleActionArgs', 'WebAclRuleActionArgsDict']]] = None,
+            captcha_config: pulumi.Input[Optional[Union['WebAclRuleCaptchaConfigArgs', 'WebAclRuleCaptchaConfigArgsDict']]] = None,
+            challenge_config: pulumi.Input[Optional[Union['WebAclRuleChallengeConfigArgs', 'WebAclRuleChallengeConfigArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            override_action: pulumi.Input[Optional[Union['WebAclRuleOverrideActionArgs', 'WebAclRuleOverrideActionArgsDict']]] = None,
+            priority: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            rule_labels: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebAclRuleRuleLabelArgs', 'WebAclRuleRuleLabelArgsDict']]]]] = None,
+            statement: pulumi.Input[Optional[Union['WebAclRuleStatementArgs', 'WebAclRuleStatementArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['WebAclRuleTimeoutsArgs', 'WebAclRuleTimeoutsArgsDict']]] = None,
+            visibility_config: pulumi.Input[Optional[Union['WebAclRuleVisibilityConfigArgs', 'WebAclRuleVisibilityConfigArgsDict']]] = None,
+            web_acl_arn: pulumi.Input[Optional[_builtins.str]] = None) -> 'WebAclRule':
         """
         Get an existing WebAclRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

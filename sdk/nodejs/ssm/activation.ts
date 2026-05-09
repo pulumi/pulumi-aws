@@ -177,47 +177,47 @@ export interface ActivationState {
     /**
      * The code the system generates when it processes the activation.
      */
-    activationCode?: pulumi.Input<string>;
+    activationCode?: pulumi.Input<string | undefined>;
     /**
      * The description of the resource that you want to register.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.
      */
-    expirationDate?: pulumi.Input<string>;
+    expirationDate?: pulumi.Input<string | undefined>;
     /**
      * If the current activation has expired.
      */
-    expired?: pulumi.Input<boolean>;
+    expired?: pulumi.Input<boolean | undefined>;
     /**
      * The IAM Role to attach to the managed instance.
      */
-    iamRole?: pulumi.Input<string>;
+    iamRole?: pulumi.Input<string | undefined>;
     /**
      * The default name of the registered managed instance.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The number of managed instances that are currently registered using this activation.
      */
-    registrationCount?: pulumi.Input<number>;
+    registrationCount?: pulumi.Input<number | undefined>;
     /**
      * The maximum number of managed instances you want to register. The default value is 1 instance.
      */
-    registrationLimit?: pulumi.Input<number>;
+    registrationLimit?: pulumi.Input<number | undefined>;
     /**
      * A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -227,11 +227,11 @@ export interface ActivationArgs {
     /**
      * The description of the resource that you want to register.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.
      */
-    expirationDate?: pulumi.Input<string>;
+    expirationDate?: pulumi.Input<string | undefined>;
     /**
      * The IAM Role to attach to the managed instance.
      */
@@ -239,17 +239,17 @@ export interface ActivationArgs {
     /**
      * The default name of the registered managed instance.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The maximum number of managed instances you want to register. The default value is 1 instance.
      */
-    registrationLimit?: pulumi.Input<number>;
+    registrationLimit?: pulumi.Input<number | undefined>;
     /**
      * A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

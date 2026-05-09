@@ -23,7 +23,7 @@ class SchemaArgs:
     def __init__(__self__, *,
                  definition: pulumi.Input['SchemaDefinitionArgs'],
                  policy_store_id: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Schema resource.
 
@@ -62,24 +62,24 @@ class SchemaArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _SchemaState:
     def __init__(__self__, *,
-                 definition: Optional[pulumi.Input['SchemaDefinitionArgs']] = None,
-                 namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 policy_store_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 definition: pulumi.Input[Optional['SchemaDefinitionArgs']] = None,
+                 namespaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 policy_store_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Schema resources.
 
@@ -99,50 +99,50 @@ class _SchemaState:
 
     @_builtins.property
     @pulumi.getter
-    def definition(self) -> Optional[pulumi.Input['SchemaDefinitionArgs']]:
+    def definition(self) -> pulumi.Input[Optional['SchemaDefinitionArgs']]:
         """
         The definition of the schema.
         """
         return pulumi.get(self, "definition")
 
     @definition.setter
-    def definition(self, value: Optional[pulumi.Input['SchemaDefinitionArgs']]):
+    def definition(self, value: pulumi.Input[Optional['SchemaDefinitionArgs']]):
         pulumi.set(self, "definition", value)
 
     @_builtins.property
     @pulumi.getter
-    def namespaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def namespaces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) Identifies the namespaces of the entities referenced by this schema.
         """
         return pulumi.get(self, "namespaces")
 
     @namespaces.setter
-    def namespaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def namespaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "namespaces", value)
 
     @_builtins.property
     @pulumi.getter(name="policyStoreId")
-    def policy_store_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_store_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Policy Store.
         """
         return pulumi.get(self, "policy_store_id")
 
     @policy_store_id.setter
-    def policy_store_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_store_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_store_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
@@ -152,9 +152,9 @@ class Schema(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 definition: Optional[pulumi.Input[Union['SchemaDefinitionArgs', 'SchemaDefinitionArgsDict']]] = None,
-                 policy_store_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 definition: pulumi.Input[Optional[Union['SchemaDefinitionArgs', 'SchemaDefinitionArgsDict']]] = None,
+                 policy_store_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         This is a Terraform resource for managing an AWS Verified Permissions Policy Store Schema.
@@ -249,9 +249,9 @@ class Schema(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 definition: Optional[pulumi.Input[Union['SchemaDefinitionArgs', 'SchemaDefinitionArgsDict']]] = None,
-                 policy_store_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 definition: pulumi.Input[Optional[Union['SchemaDefinitionArgs', 'SchemaDefinitionArgsDict']]] = None,
+                 policy_store_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -279,10 +279,10 @@ class Schema(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            definition: Optional[pulumi.Input[Union['SchemaDefinitionArgs', 'SchemaDefinitionArgsDict']]] = None,
-            namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            policy_store_id: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None) -> 'Schema':
+            definition: pulumi.Input[Optional[Union['SchemaDefinitionArgs', 'SchemaDefinitionArgsDict']]] = None,
+            namespaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            policy_store_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> 'Schema':
         """
         Get an existing Schema resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

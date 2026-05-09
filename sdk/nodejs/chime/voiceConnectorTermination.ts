@@ -145,31 +145,31 @@ export interface VoiceConnectorTerminationState {
     /**
      * The countries to which calls are allowed, in ISO 3166-1 alpha-2 format.
      */
-    callingRegions?: pulumi.Input<pulumi.Input<string>[]>;
+    callingRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The IP addresses allowed to make calls, in CIDR format.
      */
-    cidrAllowLists?: pulumi.Input<pulumi.Input<string>[]>;
+    cidrAllowLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The limit on calls per second. Max value based on account service quota. Default value of `1`.
      */
-    cpsLimit?: pulumi.Input<number>;
+    cpsLimit?: pulumi.Input<number | undefined>;
     /**
      * The default caller ID phone number.
      */
-    defaultPhoneNumber?: pulumi.Input<string>;
+    defaultPhoneNumber?: pulumi.Input<string | undefined>;
     /**
      * When termination settings are disabled, outbound calls can not be made.
      */
-    disabled?: pulumi.Input<boolean>;
+    disabled?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Chime Voice Connector ID.
      */
-    voiceConnectorId?: pulumi.Input<string>;
+    voiceConnectorId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -187,19 +187,19 @@ export interface VoiceConnectorTerminationArgs {
     /**
      * The limit on calls per second. Max value based on account service quota. Default value of `1`.
      */
-    cpsLimit?: pulumi.Input<number>;
+    cpsLimit?: pulumi.Input<number | undefined>;
     /**
      * The default caller ID phone number.
      */
-    defaultPhoneNumber?: pulumi.Input<string>;
+    defaultPhoneNumber?: pulumi.Input<string | undefined>;
     /**
      * When termination settings are disabled, outbound calls can not be made.
      */
-    disabled?: pulumi.Input<boolean>;
+    disabled?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Chime Voice Connector ID.
      */

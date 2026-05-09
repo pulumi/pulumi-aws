@@ -23,8 +23,8 @@ class DirectoryBucketAccessPointScopeArgs:
     def __init__(__self__, *,
                  account_id: pulumi.Input[_builtins.str],
                  scope: pulumi.Input['DirectoryBucketAccessPointScopeScopeArgs'],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a DirectoryBucketAccessPointScope resource.
 
@@ -66,36 +66,36 @@ class DirectoryBucketAccessPointScopeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the access point that you want to apply the scope to.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _DirectoryBucketAccessPointScopeState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input['DirectoryBucketAccessPointScopeScopeArgs']] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional['DirectoryBucketAccessPointScopeScopeArgs']] = None):
         """
         Input properties used for looking up and filtering DirectoryBucketAccessPointScope resources.
 
@@ -115,50 +115,50 @@ class _DirectoryBucketAccessPointScopeState:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS account ID that owns the specified access point.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the access point that you want to apply the scope to.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input['DirectoryBucketAccessPointScopeScopeArgs']]:
+    def scope(self) -> pulumi.Input[Optional['DirectoryBucketAccessPointScopeScopeArgs']]:
         """
         . Scope is used to restrict access to specific prefixes, API operations, or a combination of both. To remove the `scope`, set it to `{permissions=[] prefixes=[]}`. The default scope is `{permissions=[] prefixes=[]}`.
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input['DirectoryBucketAccessPointScopeScopeArgs']]):
+    def scope(self, value: pulumi.Input[Optional['DirectoryBucketAccessPointScopeScopeArgs']]):
         pulumi.set(self, "scope", value)
 
 
@@ -168,10 +168,10 @@ class DirectoryBucketAccessPointScope(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[Union['DirectoryBucketAccessPointScopeScopeArgs', 'DirectoryBucketAccessPointScopeScopeArgsDict']]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[Union['DirectoryBucketAccessPointScopeScopeArgs', 'DirectoryBucketAccessPointScopeScopeArgsDict']]] = None,
                  __props__=None):
         """
         Provides a resource to manage the access point scope for a directory bucket.
@@ -301,10 +301,10 @@ class DirectoryBucketAccessPointScope(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[Union['DirectoryBucketAccessPointScopeScopeArgs', 'DirectoryBucketAccessPointScopeScopeArgsDict']]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[Union['DirectoryBucketAccessPointScopeScopeArgs', 'DirectoryBucketAccessPointScopeScopeArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -332,10 +332,10 @@ class DirectoryBucketAccessPointScope(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            scope: Optional[pulumi.Input[Union['DirectoryBucketAccessPointScopeScopeArgs', 'DirectoryBucketAccessPointScopeScopeArgsDict']]] = None) -> 'DirectoryBucketAccessPointScope':
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            scope: pulumi.Input[Optional[Union['DirectoryBucketAccessPointScopeScopeArgs', 'DirectoryBucketAccessPointScopeScopeArgsDict']]] = None) -> 'DirectoryBucketAccessPointScope':
         """
         Get an existing DirectoryBucketAccessPointScope resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

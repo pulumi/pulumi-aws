@@ -326,10 +326,10 @@ def get_transit_gateway(filters: Optional[Sequence[Union['GetTransitGatewayFilte
         tags=pulumi.get(__ret__, 'tags'),
         transit_gateway_cidr_blocks=pulumi.get(__ret__, 'transit_gateway_cidr_blocks'),
         vpn_ecmp_support=pulumi.get(__ret__, 'vpn_ecmp_support'))
-def get_transit_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetTransitGatewayFilterArgs', 'GetTransitGatewayFilterArgsDict']]]]] = None,
-                               id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                               region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                               tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_transit_gateway_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetTransitGatewayFilterArgs', 'GetTransitGatewayFilterArgsDict']]]]] = None,
+                               id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTransitGatewayResult]:
     """
     Get information on an EC2 Transit Gateway.

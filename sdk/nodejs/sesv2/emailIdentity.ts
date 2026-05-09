@@ -190,45 +190,45 @@ export interface EmailIdentityState {
     /**
      * ARN of the Email Identity.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
      */
-    configurationSetName?: pulumi.Input<string>;
+    configurationSetName?: pulumi.Input<string | undefined>;
     /**
      * The configuration of the DKIM authentication settings for an email domain identity.
      */
-    dkimSigningAttributes?: pulumi.Input<inputs.sesv2.EmailIdentityDkimSigningAttributes>;
+    dkimSigningAttributes?: pulumi.Input<inputs.sesv2.EmailIdentityDkimSigningAttributes | undefined>;
     /**
      * The email address or domain to verify.
      *
      * The following arguments are optional:
      */
-    emailIdentity?: pulumi.Input<string>;
+    emailIdentity?: pulumi.Input<string | undefined>;
     /**
      * The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
      */
-    identityType?: pulumi.Input<string>;
+    identityType?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The verification status of the identity. The status can be one of the following: `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
      */
-    verificationStatus?: pulumi.Input<string>;
+    verificationStatus?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether or not the identity is verified.
      */
-    verifiedForSendingStatus?: pulumi.Input<boolean>;
+    verifiedForSendingStatus?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -238,11 +238,11 @@ export interface EmailIdentityArgs {
     /**
      * The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
      */
-    configurationSetName?: pulumi.Input<string>;
+    configurationSetName?: pulumi.Input<string | undefined>;
     /**
      * The configuration of the DKIM authentication settings for an email domain identity.
      */
-    dkimSigningAttributes?: pulumi.Input<inputs.sesv2.EmailIdentityDkimSigningAttributes>;
+    dkimSigningAttributes?: pulumi.Input<inputs.sesv2.EmailIdentityDkimSigningAttributes | undefined>;
     /**
      * The email address or domain to verify.
      *
@@ -252,9 +252,9 @@ export interface EmailIdentityArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

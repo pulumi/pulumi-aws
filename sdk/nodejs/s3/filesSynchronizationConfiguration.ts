@@ -140,25 +140,25 @@ export interface FilesSynchronizationConfigurationState {
     /**
      * Expiration data rule configuration. See `expirationDataRule` below.
      */
-    expirationDataRules?: pulumi.Input<pulumi.Input<inputs.s3.FilesSynchronizationConfigurationExpirationDataRule>[]>;
+    expirationDataRules?: pulumi.Input<pulumi.Input<inputs.s3.FilesSynchronizationConfigurationExpirationDataRule>[] | undefined>;
     /**
      * File system ID. Changing this value forces replacement.
      */
-    fileSystemId?: pulumi.Input<string>;
+    fileSystemId?: pulumi.Input<string | undefined>;
     /**
      * One or more import data rules. See `importDataRule` below.
      *
      * The following arguments are optional:
      */
-    importDataRules?: pulumi.Input<pulumi.Input<inputs.s3.FilesSynchronizationConfigurationImportDataRule>[]>;
+    importDataRules?: pulumi.Input<pulumi.Input<inputs.s3.FilesSynchronizationConfigurationImportDataRule>[] | undefined>;
     /**
      * Latest synchronization configuration version number.
      */
-    latestVersionNumber?: pulumi.Input<number>;
+    latestVersionNumber?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -168,7 +168,7 @@ export interface FilesSynchronizationConfigurationArgs {
     /**
      * Expiration data rule configuration. See `expirationDataRule` below.
      */
-    expirationDataRules?: pulumi.Input<pulumi.Input<inputs.s3.FilesSynchronizationConfigurationExpirationDataRule>[]>;
+    expirationDataRules?: pulumi.Input<pulumi.Input<inputs.s3.FilesSynchronizationConfigurationExpirationDataRule>[] | undefined>;
     /**
      * File system ID. Changing this value forces replacement.
      */
@@ -178,13 +178,13 @@ export interface FilesSynchronizationConfigurationArgs {
      *
      * The following arguments are optional:
      */
-    importDataRules?: pulumi.Input<pulumi.Input<inputs.s3.FilesSynchronizationConfigurationImportDataRule>[]>;
+    importDataRules?: pulumi.Input<pulumi.Input<inputs.s3.FilesSynchronizationConfigurationImportDataRule>[] | undefined>;
     /**
      * Latest synchronization configuration version number.
      */
-    latestVersionNumber?: pulumi.Input<number>;
+    latestVersionNumber?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

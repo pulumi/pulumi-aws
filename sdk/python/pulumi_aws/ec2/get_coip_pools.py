@@ -131,9 +131,9 @@ def get_coip_pools(filters: Optional[Sequence[Union['GetCoipPoolsFilterArgs', 'G
         pool_ids=pulumi.get(__ret__, 'pool_ids'),
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_coip_pools_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetCoipPoolsFilterArgs', 'GetCoipPoolsFilterArgsDict']]]]] = None,
-                          region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                          tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_coip_pools_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetCoipPoolsFilterArgs', 'GetCoipPoolsFilterArgsDict']]]]] = None,
+                          region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCoipPoolsResult]:
     """
     Provides information for multiple EC2 Customer-Owned IP Pools, such as their identifiers.

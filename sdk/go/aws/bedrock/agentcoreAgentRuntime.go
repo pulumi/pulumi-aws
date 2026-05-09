@@ -28,87 +28,89 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Effect: pulumi.StringRef("Allow"),
-// Actions: []string{
-// "sts:AssumeRole",
-// },
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Type: "Service",
-// Identifiers: []string{
-// "bedrock-agentcore.amazonaws.com",
-// },
-// },
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// ecrPermissions, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Actions: []string{
-// "ecr:GetAuthorizationToken",
-// },
-// Effect: pulumi.StringRef("Allow"),
-// Resources: []string{
-// "*",
-// },
-// },
-// {
-// Actions: []string{
-// "ecr:BatchGetImage",
-// "ecr:GetDownloadUrlForLayer",
-// },
-// Effect: pulumi.StringRef("Allow"),
-// Resources: interface{}{
-// exampleAwsEcrRepository.Arn,
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// example, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
-// Name: pulumi.String("bedrock-agentcore-runtime-role"),
-// AssumeRolePolicy: pulumi.String(pulumi.String(assumeRole.Json)),
-// })
-// if err != nil {
-// return err
-// }
-// _, err = iam.NewRolePolicy(ctx, "example", &iam.RolePolicyArgs{
-// Role: example.ID(),
-// Policy: pulumi.String(pulumi.String(ecrPermissions.Json)),
-// })
-// if err != nil {
-// return err
-// }
-// _, err = bedrock.NewAgentcoreAgentRuntime(ctx, "example", &bedrock.AgentcoreAgentRuntimeArgs{
-// AgentRuntimeName: pulumi.String("example_agent_runtime"),
-// RoleArn: example.Arn,
-// AgentRuntimeArtifact: &bedrock.AgentcoreAgentRuntimeAgentRuntimeArtifactArgs{
-// ContainerConfiguration: &bedrock.AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs{
-// ContainerUri: pulumi.Sprintf("%v:latest", exampleAwsEcrRepository.RepositoryUrl),
-// },
-// },
-// NetworkConfiguration: &bedrock.AgentcoreAgentRuntimeNetworkConfigurationArgs{
-// NetworkMode: pulumi.String("PUBLIC"),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"bedrock-agentcore.amazonaws.com",
+//								},
+//							},
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ecrPermissions, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Actions: []string{
+//							"ecr:GetAuthorizationToken",
+//						},
+//						Effect: pulumi.StringRef("Allow"),
+//						Resources: []string{
+//							"*",
+//						},
+//					},
+//					{
+//						Actions: []string{
+//							"ecr:BatchGetImage",
+//							"ecr:GetDownloadUrlForLayer",
+//						},
+//						Effect: pulumi.StringRef("Allow"),
+//						Resources: pulumi.StringArray{
+//							exampleAwsEcrRepository.Arn,
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			example, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
+//				Name:             pulumi.String("bedrock-agentcore-runtime-role"),
+//				AssumeRolePolicy: pulumi.String(pulumi.String(assumeRole.Json)),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewRolePolicy(ctx, "example", &iam.RolePolicyArgs{
+//				Role:   example.ID(),
+//				Policy: pulumi.String(pulumi.String(ecrPermissions.Json)),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = bedrock.NewAgentcoreAgentRuntime(ctx, "example", &bedrock.AgentcoreAgentRuntimeArgs{
+//				AgentRuntimeName: pulumi.String("example_agent_runtime"),
+//				RoleArn:          example.Arn,
+//				AgentRuntimeArtifact: &bedrock.AgentcoreAgentRuntimeAgentRuntimeArtifactArgs{
+//					ContainerConfiguration: &bedrock.AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs{
+//						ContainerUri: pulumi.Sprintf("%v:latest", exampleAwsEcrRepository.RepositoryUrl),
+//					},
+//				},
+//				NetworkConfiguration: &bedrock.AgentcoreAgentRuntimeNetworkConfigurationArgs{
+//					NetworkMode: pulumi.String("PUBLIC"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ### MCP Server With Custom JWT Authorizer

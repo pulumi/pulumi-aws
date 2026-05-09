@@ -21,7 +21,7 @@ class RedrivePolicyArgs:
     def __init__(__self__, *,
                  queue_url: pulumi.Input[_builtins.str],
                  redrive_policy: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a RedrivePolicy resource.
 
@@ -60,23 +60,23 @@ class RedrivePolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _RedrivePolicyState:
     def __init__(__self__, *,
-                 queue_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 redrive_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 queue_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 redrive_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RedrivePolicy resources.
 
@@ -93,38 +93,38 @@ class _RedrivePolicyState:
 
     @_builtins.property
     @pulumi.getter(name="queueUrl")
-    def queue_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def queue_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL of the SQS Queue to which to attach the policy
         """
         return pulumi.get(self, "queue_url")
 
     @queue_url.setter
-    def queue_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def queue_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "queue_url", value)
 
     @_builtins.property
     @pulumi.getter(name="redrivePolicy")
-    def redrive_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def redrive_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The JSON redrive policy for the SQS queue. Accepts two key/val pairs: `deadLetterTargetArn` and `maxReceiveCount`. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
         """
         return pulumi.get(self, "redrive_policy")
 
     @redrive_policy.setter
-    def redrive_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def redrive_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "redrive_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
@@ -134,9 +134,9 @@ class RedrivePolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 queue_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 redrive_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 queue_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 redrive_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Allows you to set a redrive policy of an SQS Queue
@@ -243,9 +243,9 @@ class RedrivePolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 queue_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 redrive_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 queue_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 redrive_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -272,9 +272,9 @@ class RedrivePolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            queue_url: Optional[pulumi.Input[_builtins.str]] = None,
-            redrive_policy: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None) -> 'RedrivePolicy':
+            queue_url: pulumi.Input[Optional[_builtins.str]] = None,
+            redrive_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> 'RedrivePolicy':
         """
         Get an existing RedrivePolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

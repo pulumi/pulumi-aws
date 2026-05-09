@@ -21,9 +21,9 @@ class RouteArgs:
     def __init__(__self__, *,
                  destination_cidr_block: pulumi.Input[_builtins.str],
                  transit_gateway_route_table_id: pulumi.Input[_builtins.str],
-                 blackhole: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 transit_gateway_attachment_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 blackhole: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Route resource.
 
@@ -68,49 +68,49 @@ class RouteArgs:
 
     @_builtins.property
     @pulumi.getter
-    def blackhole(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def blackhole(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether to drop traffic that matches this route (default to `false`).
         """
         return pulumi.get(self, "blackhole")
 
     @blackhole.setter
-    def blackhole(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def blackhole(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "blackhole", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="transitGatewayAttachmentId")
-    def transit_gateway_attachment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def transit_gateway_attachment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of EC2 Transit Gateway Attachment (required if `blackhole` is set to false).
         """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
     @transit_gateway_attachment_id.setter
-    def transit_gateway_attachment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def transit_gateway_attachment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "transit_gateway_attachment_id", value)
 
 
 @pulumi.input_type
 class _RouteState:
     def __init__(__self__, *,
-                 blackhole: Optional[pulumi.Input[_builtins.bool]] = None,
-                 destination_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 transit_gateway_attachment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 transit_gateway_route_table_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 blackhole: pulumi.Input[Optional[_builtins.bool]] = None,
+                 destination_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 transit_gateway_route_table_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Route resources.
 
@@ -133,62 +133,62 @@ class _RouteState:
 
     @_builtins.property
     @pulumi.getter
-    def blackhole(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def blackhole(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether to drop traffic that matches this route (default to `false`).
         """
         return pulumi.get(self, "blackhole")
 
     @blackhole.setter
-    def blackhole(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def blackhole(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "blackhole", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationCidrBlock")
-    def destination_cidr_block(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_cidr_block(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IPv4 or IPv6 RFC1924 CIDR used for destination matches. Routing decisions are based on the most specific match.
         """
         return pulumi.get(self, "destination_cidr_block")
 
     @destination_cidr_block.setter
-    def destination_cidr_block(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_cidr_block(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_cidr_block", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="transitGatewayAttachmentId")
-    def transit_gateway_attachment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def transit_gateway_attachment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of EC2 Transit Gateway Attachment (required if `blackhole` is set to false).
         """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
     @transit_gateway_attachment_id.setter
-    def transit_gateway_attachment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def transit_gateway_attachment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "transit_gateway_attachment_id", value)
 
     @_builtins.property
     @pulumi.getter(name="transitGatewayRouteTableId")
-    def transit_gateway_route_table_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def transit_gateway_route_table_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of EC2 Transit Gateway Route Table.
         """
         return pulumi.get(self, "transit_gateway_route_table_id")
 
     @transit_gateway_route_table_id.setter
-    def transit_gateway_route_table_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def transit_gateway_route_table_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "transit_gateway_route_table_id", value)
 
 
@@ -198,11 +198,11 @@ class Route(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 blackhole: Optional[pulumi.Input[_builtins.bool]] = None,
-                 destination_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 transit_gateway_attachment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 transit_gateway_route_table_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 blackhole: pulumi.Input[Optional[_builtins.bool]] = None,
+                 destination_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 transit_gateway_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an EC2 Transit Gateway Route.
@@ -309,11 +309,11 @@ class Route(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 blackhole: Optional[pulumi.Input[_builtins.bool]] = None,
-                 destination_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 transit_gateway_attachment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 transit_gateway_route_table_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 blackhole: pulumi.Input[Optional[_builtins.bool]] = None,
+                 destination_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 transit_gateway_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -342,11 +342,11 @@ class Route(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            blackhole: Optional[pulumi.Input[_builtins.bool]] = None,
-            destination_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            transit_gateway_attachment_id: Optional[pulumi.Input[_builtins.str]] = None,
-            transit_gateway_route_table_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'Route':
+            blackhole: pulumi.Input[Optional[_builtins.bool]] = None,
+            destination_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            transit_gateway_route_table_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'Route':
         """
         Get an existing Route resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

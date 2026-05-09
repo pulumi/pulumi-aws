@@ -199,51 +199,51 @@ export interface GetRouteOutputArgs {
     /**
      * EC2 Carrier Gateway ID of the Route belonging to the Route Table.
      */
-    carrierGatewayId?: pulumi.Input<string>;
+    carrierGatewayId?: pulumi.Input<string | undefined>;
     /**
      * Core network ARN of the Route belonging to the Route Table.
      */
-    coreNetworkArn?: pulumi.Input<string>;
+    coreNetworkArn?: pulumi.Input<string | undefined>;
     /**
      * CIDR block of the Route belonging to the Route Table.
      */
-    destinationCidrBlock?: pulumi.Input<string>;
+    destinationCidrBlock?: pulumi.Input<string | undefined>;
     /**
      * IPv6 CIDR block of the Route belonging to the Route Table.
      */
-    destinationIpv6CidrBlock?: pulumi.Input<string>;
+    destinationIpv6CidrBlock?: pulumi.Input<string | undefined>;
     /**
      * ID of a managed prefix list destination of the Route belonging to the Route Table.
      */
-    destinationPrefixListId?: pulumi.Input<string>;
+    destinationPrefixListId?: pulumi.Input<string | undefined>;
     /**
      * Egress Only Gateway ID of the Route belonging to the Route Table.
      */
-    egressOnlyGatewayId?: pulumi.Input<string>;
+    egressOnlyGatewayId?: pulumi.Input<string | undefined>;
     /**
      * Gateway ID of the Route belonging to the Route Table.
      */
-    gatewayId?: pulumi.Input<string>;
+    gatewayId?: pulumi.Input<string | undefined>;
     /**
      * Instance ID of the Route belonging to the Route Table.
      */
-    instanceId?: pulumi.Input<string>;
+    instanceId?: pulumi.Input<string | undefined>;
     /**
      * Local Gateway ID of the Route belonging to the Route Table.
      */
-    localGatewayId?: pulumi.Input<string>;
+    localGatewayId?: pulumi.Input<string | undefined>;
     /**
      * NAT Gateway ID of the Route belonging to the Route Table.
      */
-    natGatewayId?: pulumi.Input<string>;
+    natGatewayId?: pulumi.Input<string | undefined>;
     /**
      * Network Interface ID of the Route belonging to the Route Table.
      */
-    networkInterfaceId?: pulumi.Input<string>;
+    networkInterfaceId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ID of the specific Route Table containing the Route entry.
      */
@@ -251,11 +251,11 @@ export interface GetRouteOutputArgs {
     /**
      * EC2 Transit Gateway ID of the Route belonging to the Route Table.
      */
-    transitGatewayId?: pulumi.Input<string>;
+    transitGatewayId?: pulumi.Input<string | undefined>;
     /**
      * VPC Peering Connection ID of the Route belonging to the Route Table.
      *
      * The arguments of this data source act as filters for querying the available Route in the current region. The given filters must match exactly oneRoute whose data will be exported as attributes.
      */
-    vpcPeeringConnectionId?: pulumi.Input<string>;
+    vpcPeeringConnectionId?: pulumi.Input<string | undefined>;
 }

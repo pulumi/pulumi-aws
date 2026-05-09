@@ -173,51 +173,51 @@ export interface CatalogDatabaseState {
     /**
      * ARN of the Glue Catalog Database.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
      */
-    catalogId?: pulumi.Input<string>;
+    catalogId?: pulumi.Input<string | undefined>;
     /**
      * Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
      */
-    createTableDefaultPermissions?: pulumi.Input<pulumi.Input<inputs.glue.CatalogDatabaseCreateTableDefaultPermission>[]>;
+    createTableDefaultPermissions?: pulumi.Input<pulumi.Input<inputs.glue.CatalogDatabaseCreateTableDefaultPermission>[] | undefined>;
     /**
      * Description of the database.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` below.
      */
-    federatedDatabase?: pulumi.Input<inputs.glue.CatalogDatabaseFederatedDatabase>;
+    federatedDatabase?: pulumi.Input<inputs.glue.CatalogDatabaseFederatedDatabase | undefined>;
     /**
      * Location of the database (for example, an HDFS path).
      */
-    locationUri?: pulumi.Input<string>;
+    locationUri?: pulumi.Input<string | undefined>;
     /**
      * Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * List of key-value pairs that define parameters and properties of the database.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Configuration block for a target database for resource linking. See `targetDatabase` below.
      */
-    targetDatabase?: pulumi.Input<inputs.glue.CatalogDatabaseTargetDatabase>;
+    targetDatabase?: pulumi.Input<inputs.glue.CatalogDatabaseTargetDatabase | undefined>;
 }
 
 /**
@@ -227,41 +227,41 @@ export interface CatalogDatabaseArgs {
     /**
      * ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
      */
-    catalogId?: pulumi.Input<string>;
+    catalogId?: pulumi.Input<string | undefined>;
     /**
      * Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
      */
-    createTableDefaultPermissions?: pulumi.Input<pulumi.Input<inputs.glue.CatalogDatabaseCreateTableDefaultPermission>[]>;
+    createTableDefaultPermissions?: pulumi.Input<pulumi.Input<inputs.glue.CatalogDatabaseCreateTableDefaultPermission>[] | undefined>;
     /**
      * Description of the database.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` below.
      */
-    federatedDatabase?: pulumi.Input<inputs.glue.CatalogDatabaseFederatedDatabase>;
+    federatedDatabase?: pulumi.Input<inputs.glue.CatalogDatabaseFederatedDatabase | undefined>;
     /**
      * Location of the database (for example, an HDFS path).
      */
-    locationUri?: pulumi.Input<string>;
+    locationUri?: pulumi.Input<string | undefined>;
     /**
      * Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * List of key-value pairs that define parameters and properties of the database.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Configuration block for a target database for resource linking. See `targetDatabase` below.
      */
-    targetDatabase?: pulumi.Input<inputs.glue.CatalogDatabaseTargetDatabase>;
+    targetDatabase?: pulumi.Input<inputs.glue.CatalogDatabaseTargetDatabase | undefined>;
 }

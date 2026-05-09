@@ -167,31 +167,31 @@ export interface WorkflowState {
     /**
      * The Workflow ARN.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * A textual description for the workflow.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
      */
-    onExceptionSteps?: pulumi.Input<pulumi.Input<inputs.transfer.WorkflowOnExceptionStep>[]>;
+    onExceptionSteps?: pulumi.Input<pulumi.Input<inputs.transfer.WorkflowOnExceptionStep>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
      */
-    steps?: pulumi.Input<pulumi.Input<inputs.transfer.WorkflowStep>[]>;
+    steps?: pulumi.Input<pulumi.Input<inputs.transfer.WorkflowStep>[] | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -201,15 +201,15 @@ export interface WorkflowArgs {
     /**
      * A textual description for the workflow.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
      */
-    onExceptionSteps?: pulumi.Input<pulumi.Input<inputs.transfer.WorkflowOnExceptionStep>[]>;
+    onExceptionSteps?: pulumi.Input<pulumi.Input<inputs.transfer.WorkflowOnExceptionStep>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
      */
@@ -217,5 +217,5 @@ export interface WorkflowArgs {
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

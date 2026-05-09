@@ -160,39 +160,39 @@ export interface DataIntegrationState {
     /**
      * The Amazon Resource Name (ARN) of the Data Integration.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Specifies the description of the Data Integration.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the KMS key Amazon Resource Name (ARN) for the Data Integration.
      */
-    kmsKey?: pulumi.Input<string>;
+    kmsKey?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Data Integration.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
      */
-    scheduleConfig?: pulumi.Input<inputs.appintegrations.DataIntegrationScheduleConfig>;
+    scheduleConfig?: pulumi.Input<inputs.appintegrations.DataIntegrationScheduleConfig | undefined>;
     /**
      * Specifies the URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
      */
-    sourceUri?: pulumi.Input<string>;
+    sourceUri?: pulumi.Input<string | undefined>;
     /**
      * Tags to apply to the Data Integration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -202,7 +202,7 @@ export interface DataIntegrationArgs {
     /**
      * Specifies the description of the Data Integration.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the KMS key Amazon Resource Name (ARN) for the Data Integration.
      */
@@ -210,11 +210,11 @@ export interface DataIntegrationArgs {
     /**
      * Specifies the name of the Data Integration.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
      */
@@ -226,5 +226,5 @@ export interface DataIntegrationArgs {
     /**
      * Tags to apply to the Data Integration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

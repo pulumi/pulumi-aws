@@ -21,13 +21,13 @@ __all__ = ['AgentPromptArgs', 'AgentPrompt']
 @pulumi.input_type
 class AgentPromptArgs:
     def __init__(__self__, *,
-                 customer_encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_variant: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 variants: Optional[pulumi.Input[Sequence[pulumi.Input['AgentPromptVariantArgs']]]] = None):
+                 customer_encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_variant: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 variants: pulumi.Input[Optional[Sequence[pulumi.Input['AgentPromptVariantArgs']]]] = None):
         """
         The set of arguments for constructing a AgentPrompt resource.
 
@@ -58,43 +58,43 @@ class AgentPromptArgs:
 
     @_builtins.property
     @pulumi.getter(name="customerEncryptionKeyArn")
-    def customer_encryption_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customer_encryption_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.
         """
         return pulumi.get(self, "customer_encryption_key_arn")
 
     @customer_encryption_key_arn.setter
-    def customer_encryption_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customer_encryption_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customer_encryption_key_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultVariant")
-    def default_variant(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_variant(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the default variant for your prompt.
         """
         return pulumi.get(self, "default_variant")
 
     @default_variant.setter
-    def default_variant(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_variant(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_variant", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the prompt.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the prompt.
 
@@ -103,61 +103,61 @@ class AgentPromptArgs:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def variants(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentPromptVariantArgs']]]]:
+    def variants(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentPromptVariantArgs']]]]:
         """
         A list of objects, each containing details about a variant of the prompt. See Variant for more information.
         """
         return pulumi.get(self, "variants")
 
     @variants.setter
-    def variants(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentPromptVariantArgs']]]]):
+    def variants(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AgentPromptVariantArgs']]]]):
         pulumi.set(self, "variants", value)
 
 
 @pulumi.input_type
 class _AgentPromptState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_variant: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 updated_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 variants: Optional[pulumi.Input[Sequence[pulumi.Input['AgentPromptVariantArgs']]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_variant: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 updated_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 variants: pulumi.Input[Optional[Sequence[pulumi.Input['AgentPromptVariantArgs']]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AgentPrompt resources.
 
@@ -203,67 +203,67 @@ class _AgentPromptState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) of the prompt.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Time at which the prompt was created.
         """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
-    def created_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_at", value)
 
     @_builtins.property
     @pulumi.getter(name="customerEncryptionKeyArn")
-    def customer_encryption_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customer_encryption_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.
         """
         return pulumi.get(self, "customer_encryption_key_arn")
 
     @customer_encryption_key_arn.setter
-    def customer_encryption_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customer_encryption_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customer_encryption_key_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultVariant")
-    def default_variant(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_variant(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the default variant for your prompt.
         """
         return pulumi.get(self, "default_variant")
 
     @default_variant.setter
-    def default_variant(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_variant(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_variant", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the prompt.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the prompt.
 
@@ -272,79 +272,79 @@ class _AgentPromptState:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="updatedAt")
-    def updated_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def updated_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Time at which the prompt was last updated.
         """
         return pulumi.get(self, "updated_at")
 
     @updated_at.setter
-    def updated_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def updated_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "updated_at", value)
 
     @_builtins.property
     @pulumi.getter
-    def variants(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentPromptVariantArgs']]]]:
+    def variants(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentPromptVariantArgs']]]]:
         """
         A list of objects, each containing details about a variant of the prompt. See Variant for more information.
         """
         return pulumi.get(self, "variants")
 
     @variants.setter
-    def variants(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentPromptVariantArgs']]]]):
+    def variants(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AgentPromptVariantArgs']]]]):
         pulumi.set(self, "variants", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version of the prompt. When you create a prompt, the version created is the `DRAFT` version.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -354,13 +354,13 @@ class AgentPrompt(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 customer_encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_variant: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 variants: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentPromptVariantArgs', 'AgentPromptVariantArgsDict']]]]] = None,
+                 customer_encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_variant: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 variants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentPromptVariantArgs', 'AgentPromptVariantArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Bedrock Agents Prompt.
@@ -515,13 +515,13 @@ class AgentPrompt(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 customer_encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_variant: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 variants: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentPromptVariantArgs', 'AgentPromptVariantArgsDict']]]]] = None,
+                 customer_encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_variant: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 variants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentPromptVariantArgs', 'AgentPromptVariantArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -553,18 +553,18 @@ class AgentPrompt(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            created_at: Optional[pulumi.Input[_builtins.str]] = None,
-            customer_encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            default_variant: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            updated_at: Optional[pulumi.Input[_builtins.str]] = None,
-            variants: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentPromptVariantArgs', 'AgentPromptVariantArgsDict']]]]] = None,
-            version: Optional[pulumi.Input[_builtins.str]] = None) -> 'AgentPrompt':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            customer_encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            default_variant: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            updated_at: pulumi.Input[Optional[_builtins.str]] = None,
+            variants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentPromptVariantArgs', 'AgentPromptVariantArgsDict']]]]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> 'AgentPrompt':
         """
         Get an existing AgentPrompt resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

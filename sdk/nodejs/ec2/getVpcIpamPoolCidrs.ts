@@ -176,7 +176,7 @@ export interface GetVpcIpamPoolCidrsOutputArgs {
     /**
      * Custom filter block as described below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpcIpamPoolCidrsFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpcIpamPoolCidrsFilterArgs>[] | undefined>;
     /**
      * ID of the IPAM pool you would like the list of provisioned CIDRs.
      */
@@ -184,5 +184,5 @@ export interface GetVpcIpamPoolCidrsOutputArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

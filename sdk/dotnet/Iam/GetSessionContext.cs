@@ -48,7 +48,7 @@ namespace Pulumi.Aws.Iam
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var current = Aws.Index.GetCallerIdentity.Invoke();
+        ///     var current = Aws.GetCallerIdentity.Invoke();
         /// 
         ///     var example = Aws.Iam.GetSessionContext.Invoke(new()
         ///     {
@@ -98,7 +98,7 @@ namespace Pulumi.Aws.Iam
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var current = Aws.Index.GetCallerIdentity.Invoke();
+        ///     var current = Aws.GetCallerIdentity.Invoke();
         /// 
         ///     var example = Aws.Iam.GetSessionContext.Invoke(new()
         ///     {
@@ -148,7 +148,7 @@ namespace Pulumi.Aws.Iam
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var current = Aws.Index.GetCallerIdentity.Invoke();
+        ///     var current = Aws.GetCallerIdentity.Invoke();
         /// 
         ///     var example = Aws.Iam.GetSessionContext.Invoke(new()
         ///     {

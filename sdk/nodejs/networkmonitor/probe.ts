@@ -172,49 +172,49 @@ export class Probe extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Probe resources.
  */
 export interface ProbeState {
-    addressFamily?: pulumi.Input<string>;
+    addressFamily?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the attachment.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The destination IP address. This must be either IPV4 or IPV6.
      */
-    destination?: pulumi.Input<string>;
+    destination?: pulumi.Input<string | undefined>;
     /**
      * The port associated with the destination. This is required only if the protocol is TCP and must be a number between 1 and 65536.
      */
-    destinationPort?: pulumi.Input<number>;
+    destinationPort?: pulumi.Input<number | undefined>;
     /**
      * The name of the monitor.
      */
-    monitorName?: pulumi.Input<string>;
+    monitorName?: pulumi.Input<string | undefined>;
     /**
      * The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
      */
-    packetSize?: pulumi.Input<number>;
-    probeId?: pulumi.Input<string>;
+    packetSize?: pulumi.Input<number | undefined>;
+    probeId?: pulumi.Input<string | undefined>;
     /**
      * The protocol used for the network traffic between the source and destination. This must be either TCP or ICMP.
      */
-    protocol?: pulumi.Input<string>;
+    protocol?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the subnet.
      */
-    sourceArn?: pulumi.Input<string>;
+    sourceArn?: pulumi.Input<string | undefined>;
     /**
      * Key-value tags for the monitor. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    vpcId?: pulumi.Input<string>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    vpcId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -228,7 +228,7 @@ export interface ProbeArgs {
     /**
      * The port associated with the destination. This is required only if the protocol is TCP and must be a number between 1 and 65536.
      */
-    destinationPort?: pulumi.Input<number>;
+    destinationPort?: pulumi.Input<number | undefined>;
     /**
      * The name of the monitor.
      */
@@ -236,7 +236,7 @@ export interface ProbeArgs {
     /**
      * The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
      */
-    packetSize?: pulumi.Input<number>;
+    packetSize?: pulumi.Input<number | undefined>;
     /**
      * The protocol used for the network traffic between the source and destination. This must be either TCP or ICMP.
      */
@@ -244,7 +244,7 @@ export interface ProbeArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the subnet.
      */
@@ -252,5 +252,5 @@ export interface ProbeArgs {
     /**
      * Key-value tags for the monitor. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

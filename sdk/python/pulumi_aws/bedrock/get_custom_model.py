@@ -289,8 +289,8 @@ def get_custom_model(model_id: Optional[_builtins.str] = None,
         training_metrics=pulumi.get(__ret__, 'training_metrics'),
         validation_data_configs=pulumi.get(__ret__, 'validation_data_configs'),
         validation_metrics=pulumi.get(__ret__, 'validation_metrics'))
-def get_custom_model_output(model_id: Optional[pulumi.Input[_builtins.str]] = None,
-                            region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_custom_model_output(model_id: pulumi.Input[Optional[_builtins.str]] = None,
+                            region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomModelResult]:
     """
     Returns properties of a specific Amazon Bedrock custom model.

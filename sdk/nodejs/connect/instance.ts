@@ -244,72 +244,72 @@ export interface InstanceState {
     /**
      * Amazon Resource Name (ARN) of the instance.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether auto resolve best voices is enabled. Defaults to `true`.
      */
-    autoResolveBestVoicesEnabled?: pulumi.Input<boolean>;
+    autoResolveBestVoicesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether contact flow logs are enabled. Defaults to `false`.
      */
-    contactFlowLogsEnabled?: pulumi.Input<boolean>;
+    contactFlowLogsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether contact lens is enabled. Defaults to `true`.
      */
-    contactLensEnabled?: pulumi.Input<boolean>;
+    contactLensEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * When the instance was created.
      */
-    createdTime?: pulumi.Input<string>;
+    createdTime?: pulumi.Input<string | undefined>;
     /**
      * The identifier for the directory if identityManagementType is `EXISTING_DIRECTORY`.
      */
-    directoryId?: pulumi.Input<string>;
+    directoryId?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether early media for outbound calls is enabled . Defaults to `true` if outbound calls is enabled.
      */
-    earlyMediaEnabled?: pulumi.Input<boolean>;
+    earlyMediaEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the identity management type attached to the instance. Allowed Values are: `SAML`, `CONNECT_MANAGED`, `EXISTING_DIRECTORY`.
      */
-    identityManagementType?: pulumi.Input<string>;
+    identityManagementType?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether inbound calls are enabled.
      */
-    inboundCallsEnabled?: pulumi.Input<boolean>;
+    inboundCallsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the name of the instance. Required if `directoryId` not specified.
      */
-    instanceAlias?: pulumi.Input<string>;
+    instanceAlias?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
      */
-    multiPartyConferenceEnabled?: pulumi.Input<boolean>;
+    multiPartyConferenceEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether outbound calls are enabled.
      */
-    outboundCallsEnabled?: pulumi.Input<boolean>;
+    outboundCallsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The service role of the instance.
      */
-    serviceRole?: pulumi.Input<string>;
+    serviceRole?: pulumi.Input<string | undefined>;
     /**
      * The state of the instance.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Tags to apply to the Instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -319,23 +319,23 @@ export interface InstanceArgs {
     /**
      * Specifies whether auto resolve best voices is enabled. Defaults to `true`.
      */
-    autoResolveBestVoicesEnabled?: pulumi.Input<boolean>;
+    autoResolveBestVoicesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether contact flow logs are enabled. Defaults to `false`.
      */
-    contactFlowLogsEnabled?: pulumi.Input<boolean>;
+    contactFlowLogsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether contact lens is enabled. Defaults to `true`.
      */
-    contactLensEnabled?: pulumi.Input<boolean>;
+    contactLensEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The identifier for the directory if identityManagementType is `EXISTING_DIRECTORY`.
      */
-    directoryId?: pulumi.Input<string>;
+    directoryId?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether early media for outbound calls is enabled . Defaults to `true` if outbound calls is enabled.
      */
-    earlyMediaEnabled?: pulumi.Input<boolean>;
+    earlyMediaEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the identity management type attached to the instance. Allowed Values are: `SAML`, `CONNECT_MANAGED`, `EXISTING_DIRECTORY`.
      */
@@ -347,11 +347,11 @@ export interface InstanceArgs {
     /**
      * Specifies the name of the instance. Required if `directoryId` not specified.
      */
-    instanceAlias?: pulumi.Input<string>;
+    instanceAlias?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
      */
-    multiPartyConferenceEnabled?: pulumi.Input<boolean>;
+    multiPartyConferenceEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether outbound calls are enabled.
      */
@@ -359,10 +359,10 @@ export interface InstanceArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Tags to apply to the Instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

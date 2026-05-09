@@ -405,9 +405,9 @@ def get_windows_file_system(id: Optional[_builtins.str] = None,
         throughput_capacity=pulumi.get(__ret__, 'throughput_capacity'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'),
         weekly_maintenance_start_time=pulumi.get(__ret__, 'weekly_maintenance_start_time'))
-def get_windows_file_system_output(id: Optional[pulumi.Input[_builtins.str]] = None,
-                                   region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                   tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_windows_file_system_output(id: pulumi.Input[Optional[_builtins.str]] = None,
+                                   region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                   tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWindowsFileSystemResult]:
     """
     Retrieve information on FSx Windows File System.

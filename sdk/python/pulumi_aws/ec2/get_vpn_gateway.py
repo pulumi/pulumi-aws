@@ -182,14 +182,14 @@ def get_vpn_gateway(amazon_side_asn: Optional[_builtins.str] = None,
         region=pulumi.get(__ret__, 'region'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_vpn_gateway_output(amazon_side_asn: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                           attached_vpc_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                           availability_zone: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                           filters: Optional[pulumi.Input[Optional[Sequence[Union['GetVpnGatewayFilterArgs', 'GetVpnGatewayFilterArgsDict']]]]] = None,
-                           id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                           region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                           state: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                           tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_vpn_gateway_output(amazon_side_asn: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           attached_vpc_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           availability_zone: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           filters: pulumi.Input[Optional[Optional[Sequence[Union['GetVpnGatewayFilterArgs', 'GetVpnGatewayFilterArgsDict']]]]] = None,
+                           id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           state: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpnGatewayResult]:
     """
     The VPN Gateway data source provides details about

@@ -446,11 +446,11 @@ export interface ClusterState {
     /**
      * If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is `true`.
      */
-    allowVersionUpgrade?: pulumi.Input<boolean>;
+    allowVersionUpgrade?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
      */
-    applyImmediately?: pulumi.Input<boolean>;
+    applyImmediately?: pulumi.Input<boolean | undefined>;
     /**
      * The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored.
      * No longer supported by the AWS API.
@@ -458,116 +458,116 @@ export interface ClusterState {
      *
      * @deprecated aqua_configuration_status is deprecated. This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
      */
-    aquaConfigurationStatus?: pulumi.Input<string>;
+    aquaConfigurationStatus?: pulumi.Input<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of cluster
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
      */
-    automatedSnapshotRetentionPeriod?: pulumi.Input<number>;
+    automatedSnapshotRetentionPeriod?: pulumi.Input<number | undefined>;
     /**
      * The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availabilityZoneRelocationEnabled` is `true`.
      */
-    availabilityZone?: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string | undefined>;
     /**
      * If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
      */
-    availabilityZoneRelocationEnabled?: pulumi.Input<boolean>;
+    availabilityZoneRelocationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Cluster Identifier. Must be a lower case string.
      */
-    clusterIdentifier?: pulumi.Input<string>;
+    clusterIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The namespace Amazon Resource Name (ARN) of the cluster
      */
-    clusterNamespaceArn?: pulumi.Input<string>;
+    clusterNamespaceArn?: pulumi.Input<string | undefined>;
     /**
      * The nodes in the cluster. Cluster node blocks are documented below
      */
-    clusterNodes?: pulumi.Input<pulumi.Input<inputs.redshift.ClusterClusterNode>[]>;
+    clusterNodes?: pulumi.Input<pulumi.Input<inputs.redshift.ClusterClusterNode>[] | undefined>;
     /**
      * The name of the parameter group to be associated with this cluster.
      */
-    clusterParameterGroupName?: pulumi.Input<string>;
+    clusterParameterGroupName?: pulumi.Input<string | undefined>;
     /**
      * The public key for the cluster
      */
-    clusterPublicKey?: pulumi.Input<string>;
+    clusterPublicKey?: pulumi.Input<string | undefined>;
     /**
      * The specific revision number of the database in the cluster
      */
-    clusterRevisionNumber?: pulumi.Input<string>;
+    clusterRevisionNumber?: pulumi.Input<string | undefined>;
     /**
      * The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
      */
-    clusterSubnetGroupName?: pulumi.Input<string>;
+    clusterSubnetGroupName?: pulumi.Input<string | undefined>;
     /**
      * The cluster type to use. Either `single-node` or `multi-node`.
      */
-    clusterType?: pulumi.Input<string>;
+    clusterType?: pulumi.Input<string | undefined>;
     /**
      * The version of the Amazon Redshift engine software that you want to deploy on the cluster.
      * The version selected runs on all the nodes in the cluster.
      */
-    clusterVersion?: pulumi.Input<string>;
+    clusterVersion?: pulumi.Input<string | undefined>;
     /**
      * The name of the first database to be created when the cluster is created.
      * If you do not provide a name, Amazon Redshift will create a default database called `dev`.
      */
-    databaseName?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
      */
-    defaultIamRoleArn?: pulumi.Input<string>;
+    defaultIamRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The DNS name of the cluster
      */
-    dnsName?: pulumi.Input<string>;
+    dnsName?: pulumi.Input<string | undefined>;
     /**
      * The Elastic IP (EIP) address for the cluster.
      */
-    elasticIp?: pulumi.Input<string>;
+    elasticIp?: pulumi.Input<string | undefined>;
     /**
      * If true , the data in the cluster is encrypted at rest.
      * Default is `true`.
      */
-    encrypted?: pulumi.Input<string>;
+    encrypted?: pulumi.Input<string | undefined>;
     /**
      * The connection endpoint
      */
-    endpoint?: pulumi.Input<string>;
+    endpoint?: pulumi.Input<string | undefined>;
     /**
      * If true , enhanced VPC routing is enabled.
      */
-    enhancedVpcRouting?: pulumi.Input<boolean>;
+    enhancedVpcRouting?: pulumi.Input<boolean | undefined>;
     /**
      * The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skipFinalSnapshot` must be false.
      */
-    finalSnapshotIdentifier?: pulumi.Input<string>;
+    finalSnapshotIdentifier?: pulumi.Input<string | undefined>;
     /**
      * A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
      */
-    iamRoles?: pulumi.Input<pulumi.Input<string>[]>;
+    iamRoles?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
      */
-    maintenanceTrackName?: pulumi.Input<string>;
+    maintenanceTrackName?: pulumi.Input<string | undefined>;
     /**
      * Whether to use AWS SecretsManager to manage the cluster admin credentials.
      * Conflicts with `masterPassword` and `masterPasswordWo`.
      * One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
      */
-    manageMasterPassword?: pulumi.Input<boolean>;
+    manageMasterPassword?: pulumi.Input<boolean | undefined>;
     /**
      * The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
      */
-    manualSnapshotRetentionPeriod?: pulumi.Input<number>;
+    manualSnapshotRetentionPeriod?: pulumi.Input<number | undefined>;
     /**
      * Password for the master DB user.
      * Conflicts with `manageMasterPassword` and `masterPasswordWo`.
@@ -575,15 +575,15 @@ export interface ClusterState {
      * Note that this may show up in logs, and it will be stored in the state file.
      * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
      */
-    masterPassword?: pulumi.Input<string>;
+    masterPassword?: pulumi.Input<string | undefined>;
     /**
      * ARN of the cluster admin credentials secret
      */
-    masterPasswordSecretArn?: pulumi.Input<string>;
+    masterPasswordSecretArn?: pulumi.Input<string | undefined>;
     /**
      * ID of the KMS key used to encrypt the cluster admin credentials secret.
      */
-    masterPasswordSecretKmsKeyId?: pulumi.Input<string>;
+    masterPasswordSecretKmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
      * Password for the master DB user.
@@ -592,82 +592,82 @@ export interface ClusterState {
      * Note that this may show up in logs.
      * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
      */
-    masterPasswordWo?: pulumi.Input<string>;
+    masterPasswordWo?: pulumi.Input<string | undefined>;
     /**
      * Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
      */
-    masterPasswordWoVersion?: pulumi.Input<number>;
+    masterPasswordWoVersion?: pulumi.Input<number | undefined>;
     /**
      * Username for the master DB user.
      */
-    masterUsername?: pulumi.Input<string>;
+    masterUsername?: pulumi.Input<string | undefined>;
     /**
      * Specifies if the Redshift cluster is multi-AZ.
      */
-    multiAz?: pulumi.Input<boolean>;
+    multiAz?: pulumi.Input<boolean | undefined>;
     /**
      * The node type to be provisioned for the cluster.
      */
-    nodeType?: pulumi.Input<string>;
+    nodeType?: pulumi.Input<string | undefined>;
     /**
      * The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default is 1.
      */
-    numberOfNodes?: pulumi.Input<number>;
+    numberOfNodes?: pulumi.Input<number | undefined>;
     /**
      * The AWS customer account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
      */
-    ownerAccount?: pulumi.Input<string>;
+    ownerAccount?: pulumi.Input<string | undefined>;
     /**
      * The port number on which the cluster accepts incoming connections. Valid values are between `1115` and `65535`.
      * The cluster is accessible only via the JDBC and ODBC connection strings.
      * Part of the connection string requires the port on which the cluster will listen for incoming connections.
      * Default port is `5439`.
      */
-    port?: pulumi.Input<number>;
+    port?: pulumi.Input<number | undefined>;
     /**
      * The weekly time range (in UTC) during which automated cluster maintenance can occur.
      * Format: ddd:hh24:mi-ddd:hh24:mi
      */
-    preferredMaintenanceWindow?: pulumi.Input<string>;
+    preferredMaintenanceWindow?: pulumi.Input<string | undefined>;
     /**
      * If true, the cluster can be accessed from a public network. Default is `false`.
      */
-    publiclyAccessible?: pulumi.Input<boolean>;
+    publiclyAccessible?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
      */
-    skipFinalSnapshot?: pulumi.Input<boolean>;
+    skipFinalSnapshot?: pulumi.Input<boolean | undefined>;
     /**
      * The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshotIdentifier`.
      */
-    snapshotArn?: pulumi.Input<string>;
+    snapshotArn?: pulumi.Input<string | undefined>;
     /**
      * The name of the cluster the source snapshot was created from.
      */
-    snapshotClusterIdentifier?: pulumi.Input<string>;
+    snapshotClusterIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The name of the snapshot from which to create the new cluster.  Conflicts with `snapshotArn`.
      */
-    snapshotIdentifier?: pulumi.Input<string>;
+    snapshotIdentifier?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
      * For more detailed documentation about each argument, refer to
      * the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
      */
-    vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -677,11 +677,11 @@ export interface ClusterArgs {
     /**
      * If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is `true`.
      */
-    allowVersionUpgrade?: pulumi.Input<boolean>;
+    allowVersionUpgrade?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
      */
-    applyImmediately?: pulumi.Input<boolean>;
+    applyImmediately?: pulumi.Input<boolean | undefined>;
     /**
      * The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored.
      * No longer supported by the AWS API.
@@ -689,19 +689,19 @@ export interface ClusterArgs {
      *
      * @deprecated aqua_configuration_status is deprecated. This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
      */
-    aquaConfigurationStatus?: pulumi.Input<string>;
+    aquaConfigurationStatus?: pulumi.Input<string | undefined>;
     /**
      * The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
      */
-    automatedSnapshotRetentionPeriod?: pulumi.Input<number>;
+    automatedSnapshotRetentionPeriod?: pulumi.Input<number | undefined>;
     /**
      * The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availabilityZoneRelocationEnabled` is `true`.
      */
-    availabilityZone?: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string | undefined>;
     /**
      * If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
      */
-    availabilityZoneRelocationEnabled?: pulumi.Input<boolean>;
+    availabilityZoneRelocationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Cluster Identifier. Must be a lower case string.
      */
@@ -709,68 +709,68 @@ export interface ClusterArgs {
     /**
      * The name of the parameter group to be associated with this cluster.
      */
-    clusterParameterGroupName?: pulumi.Input<string>;
+    clusterParameterGroupName?: pulumi.Input<string | undefined>;
     /**
      * The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
      */
-    clusterSubnetGroupName?: pulumi.Input<string>;
+    clusterSubnetGroupName?: pulumi.Input<string | undefined>;
     /**
      * The cluster type to use. Either `single-node` or `multi-node`.
      */
-    clusterType?: pulumi.Input<string>;
+    clusterType?: pulumi.Input<string | undefined>;
     /**
      * The version of the Amazon Redshift engine software that you want to deploy on the cluster.
      * The version selected runs on all the nodes in the cluster.
      */
-    clusterVersion?: pulumi.Input<string>;
+    clusterVersion?: pulumi.Input<string | undefined>;
     /**
      * The name of the first database to be created when the cluster is created.
      * If you do not provide a name, Amazon Redshift will create a default database called `dev`.
      */
-    databaseName?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
      */
-    defaultIamRoleArn?: pulumi.Input<string>;
+    defaultIamRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The Elastic IP (EIP) address for the cluster.
      */
-    elasticIp?: pulumi.Input<string>;
+    elasticIp?: pulumi.Input<string | undefined>;
     /**
      * If true , the data in the cluster is encrypted at rest.
      * Default is `true`.
      */
-    encrypted?: pulumi.Input<string>;
+    encrypted?: pulumi.Input<string | undefined>;
     /**
      * If true , enhanced VPC routing is enabled.
      */
-    enhancedVpcRouting?: pulumi.Input<boolean>;
+    enhancedVpcRouting?: pulumi.Input<boolean | undefined>;
     /**
      * The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skipFinalSnapshot` must be false.
      */
-    finalSnapshotIdentifier?: pulumi.Input<string>;
+    finalSnapshotIdentifier?: pulumi.Input<string | undefined>;
     /**
      * A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
      */
-    iamRoles?: pulumi.Input<pulumi.Input<string>[]>;
+    iamRoles?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
      */
-    maintenanceTrackName?: pulumi.Input<string>;
+    maintenanceTrackName?: pulumi.Input<string | undefined>;
     /**
      * Whether to use AWS SecretsManager to manage the cluster admin credentials.
      * Conflicts with `masterPassword` and `masterPasswordWo`.
      * One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
      */
-    manageMasterPassword?: pulumi.Input<boolean>;
+    manageMasterPassword?: pulumi.Input<boolean | undefined>;
     /**
      * The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
      */
-    manualSnapshotRetentionPeriod?: pulumi.Input<number>;
+    manualSnapshotRetentionPeriod?: pulumi.Input<number | undefined>;
     /**
      * Password for the master DB user.
      * Conflicts with `manageMasterPassword` and `masterPasswordWo`.
@@ -778,11 +778,11 @@ export interface ClusterArgs {
      * Note that this may show up in logs, and it will be stored in the state file.
      * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
      */
-    masterPassword?: pulumi.Input<string>;
+    masterPassword?: pulumi.Input<string | undefined>;
     /**
      * ID of the KMS key used to encrypt the cluster admin credentials secret.
      */
-    masterPasswordSecretKmsKeyId?: pulumi.Input<string>;
+    masterPasswordSecretKmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
      * Password for the master DB user.
@@ -791,19 +791,19 @@ export interface ClusterArgs {
      * Note that this may show up in logs.
      * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
      */
-    masterPasswordWo?: pulumi.Input<string>;
+    masterPasswordWo?: pulumi.Input<string | undefined>;
     /**
      * Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
      */
-    masterPasswordWoVersion?: pulumi.Input<number>;
+    masterPasswordWoVersion?: pulumi.Input<number | undefined>;
     /**
      * Username for the master DB user.
      */
-    masterUsername?: pulumi.Input<string>;
+    masterUsername?: pulumi.Input<string | undefined>;
     /**
      * Specifies if the Redshift cluster is multi-AZ.
      */
-    multiAz?: pulumi.Input<boolean>;
+    multiAz?: pulumi.Input<boolean | undefined>;
     /**
      * The node type to be provisioned for the cluster.
      */
@@ -811,56 +811,56 @@ export interface ClusterArgs {
     /**
      * The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default is 1.
      */
-    numberOfNodes?: pulumi.Input<number>;
+    numberOfNodes?: pulumi.Input<number | undefined>;
     /**
      * The AWS customer account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
      */
-    ownerAccount?: pulumi.Input<string>;
+    ownerAccount?: pulumi.Input<string | undefined>;
     /**
      * The port number on which the cluster accepts incoming connections. Valid values are between `1115` and `65535`.
      * The cluster is accessible only via the JDBC and ODBC connection strings.
      * Part of the connection string requires the port on which the cluster will listen for incoming connections.
      * Default port is `5439`.
      */
-    port?: pulumi.Input<number>;
+    port?: pulumi.Input<number | undefined>;
     /**
      * The weekly time range (in UTC) during which automated cluster maintenance can occur.
      * Format: ddd:hh24:mi-ddd:hh24:mi
      */
-    preferredMaintenanceWindow?: pulumi.Input<string>;
+    preferredMaintenanceWindow?: pulumi.Input<string | undefined>;
     /**
      * If true, the cluster can be accessed from a public network. Default is `false`.
      */
-    publiclyAccessible?: pulumi.Input<boolean>;
+    publiclyAccessible?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
      */
-    skipFinalSnapshot?: pulumi.Input<boolean>;
+    skipFinalSnapshot?: pulumi.Input<boolean | undefined>;
     /**
      * The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshotIdentifier`.
      */
-    snapshotArn?: pulumi.Input<string>;
+    snapshotArn?: pulumi.Input<string | undefined>;
     /**
      * The name of the cluster the source snapshot was created from.
      */
-    snapshotClusterIdentifier?: pulumi.Input<string>;
+    snapshotClusterIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The name of the snapshot from which to create the new cluster.  Conflicts with `snapshotArn`.
      */
-    snapshotIdentifier?: pulumi.Input<string>;
+    snapshotIdentifier?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
      * For more detailed documentation about each argument, refer to
      * the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
      */
-    vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

@@ -127,23 +127,23 @@ export interface VpcIpamPreviewNextCidrState {
     /**
      * The previewed CIDR from the pool.
      */
-    cidr?: pulumi.Input<string>;
+    cidr?: pulumi.Input<string | undefined>;
     /**
      * Exclude a particular CIDR range from being returned by the pool.
      */
-    disallowedCidrs?: pulumi.Input<pulumi.Input<string>[]>;
+    disallowedCidrs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of the pool to which you want to assign a CIDR.
      */
-    ipamPoolId?: pulumi.Input<string>;
+    ipamPoolId?: pulumi.Input<string | undefined>;
     /**
      * The netmask length of the CIDR you would like to preview from the IPAM pool.
      */
-    netmaskLength?: pulumi.Input<number>;
+    netmaskLength?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -153,7 +153,7 @@ export interface VpcIpamPreviewNextCidrArgs {
     /**
      * Exclude a particular CIDR range from being returned by the pool.
      */
-    disallowedCidrs?: pulumi.Input<pulumi.Input<string>[]>;
+    disallowedCidrs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of the pool to which you want to assign a CIDR.
      */
@@ -161,9 +161,9 @@ export interface VpcIpamPreviewNextCidrArgs {
     /**
      * The netmask length of the CIDR you would like to preview from the IPAM pool.
      */
-    netmaskLength?: pulumi.Input<number>;
+    netmaskLength?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

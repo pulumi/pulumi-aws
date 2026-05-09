@@ -226,76 +226,76 @@ export interface FaqState {
     /**
      * ARN of the FAQ.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The Unix datetime that the FAQ was created.
      */
-    createdAt?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * When the Status field value is `FAILED`, this contains a message that explains why.
      */
-    errorMessage?: pulumi.Input<string>;
+    errorMessage?: pulumi.Input<string | undefined>;
     /**
      * The identifier of the FAQ.
      */
-    faqId?: pulumi.Input<string>;
-    fileFormat?: pulumi.Input<string>;
+    faqId?: pulumi.Input<string | undefined>;
+    fileFormat?: pulumi.Input<string | undefined>;
     /**
      * The identifier of the index for a FAQ.
      */
-    indexId?: pulumi.Input<string>;
-    languageCode?: pulumi.Input<string>;
+    indexId?: pulumi.Input<string | undefined>;
+    languageCode?: pulumi.Input<string | undefined>;
     /**
      * The name that should be associated with the FAQ.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
     /**
      * The S3 location of the FAQ input data. Detailed below.
      */
-    s3Path?: pulumi.Input<inputs.kendra.FaqS3Path>;
+    s3Path?: pulumi.Input<inputs.kendra.FaqS3Path | undefined>;
     /**
      * The status of the FAQ. It is ready to use when the status is ACTIVE.
      */
-    status?: pulumi.Input<string>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    status?: pulumi.Input<string | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The date and time that the FAQ was last updated.
      */
-    updatedAt?: pulumi.Input<string>;
+    updatedAt?: pulumi.Input<string | undefined>;
 }
 
 /**
  * The set of arguments for constructing a Faq resource.
  */
 export interface FaqArgs {
-    description?: pulumi.Input<string>;
-    fileFormat?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
+    fileFormat?: pulumi.Input<string | undefined>;
     /**
      * The identifier of the index for a FAQ.
      */
     indexId: pulumi.Input<string>;
-    languageCode?: pulumi.Input<string>;
+    languageCode?: pulumi.Input<string | undefined>;
     /**
      * The name that should be associated with the FAQ.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
      */
@@ -304,5 +304,5 @@ export interface FaqArgs {
      * The S3 location of the FAQ input data. Detailed below.
      */
     s3Path: pulumi.Input<inputs.kendra.FaqS3Path>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

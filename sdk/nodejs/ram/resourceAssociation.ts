@@ -110,15 +110,15 @@ export interface ResourceAssociationState {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
      */
-    resourceArn?: pulumi.Input<string>;
+    resourceArn?: pulumi.Input<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the RAM Resource Share.
      */
-    resourceShareArn?: pulumi.Input<string>;
+    resourceShareArn?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -128,7 +128,7 @@ export interface ResourceAssociationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
      */

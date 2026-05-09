@@ -263,11 +263,11 @@ export interface GetCoreNetworkPolicyDocumentOutputArgs {
     /**
      * In a core network, all attachments use the block argument `attachmentPolicies` section to map an attachment to a segment. Instead of manually associating a segment to each attachment, attachments use tags, and then the tags are used to associate the attachment to the specified segment. Detailed below.
      */
-    attachmentPolicies?: pulumi.Input<pulumi.Input<inputs.networkmanager.GetCoreNetworkPolicyDocumentAttachmentPolicyArgs>[]>;
+    attachmentPolicies?: pulumi.Input<pulumi.Input<inputs.networkmanager.GetCoreNetworkPolicyDocumentAttachmentPolicyArgs>[] | undefined>;
     /**
      * Block argument that applies routing policies to attachments. Available in policy version `2025.11` and later. Detailed below.
      */
-    attachmentRoutingPolicyRules?: pulumi.Input<pulumi.Input<inputs.networkmanager.GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArgs>[]>;
+    attachmentRoutingPolicyRules?: pulumi.Input<pulumi.Input<inputs.networkmanager.GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArgs>[] | undefined>;
     /**
      * The core network configuration section defines the Regions where a core network should operate. For AWS Regions that are defined in the policy, the core network creates a Core Network Edge where you can connect attachments. After it's created, each Core Network Edge is peered with every other defined Region and is configured with consistent segment and routing across all Regions. Regions cannot be removed until the associated attachments are deleted. Detailed below.
      */
@@ -275,15 +275,15 @@ export interface GetCoreNetworkPolicyDocumentOutputArgs {
     /**
      * Block argument that defines the service insertion actions you want to include. Detailed below.
      */
-    networkFunctionGroups?: pulumi.Input<pulumi.Input<inputs.networkmanager.GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgs>[]>;
+    networkFunctionGroups?: pulumi.Input<pulumi.Input<inputs.networkmanager.GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgs>[] | undefined>;
     /**
      * Block argument that defines routing policies for controlling route propagation. Routing policies allow you to filter, modify, and control BGP routes advertised to and from your core network. Available in policy version `2025.11` and later. Detailed below.
      */
-    routingPolicies?: pulumi.Input<pulumi.Input<inputs.networkmanager.GetCoreNetworkPolicyDocumentRoutingPolicyArgs>[]>;
+    routingPolicies?: pulumi.Input<pulumi.Input<inputs.networkmanager.GetCoreNetworkPolicyDocumentRoutingPolicyArgs>[] | undefined>;
     /**
      * A block argument, `segmentActions` define how routing works between segments. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
      */
-    segmentActions?: pulumi.Input<pulumi.Input<inputs.networkmanager.GetCoreNetworkPolicyDocumentSegmentActionArgs>[]>;
+    segmentActions?: pulumi.Input<pulumi.Input<inputs.networkmanager.GetCoreNetworkPolicyDocumentSegmentActionArgs>[] | undefined>;
     /**
      * Block argument that defines the different segments in the network. Here you can provide descriptions, change defaults, and provide explicit Regional operational and route filters. The names defined for each segment are used in the `segmentActions` and `attachmentPolicies` section. Each segment is created, and operates, as a completely separated routing domain. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
      */
@@ -291,5 +291,5 @@ export interface GetCoreNetworkPolicyDocumentOutputArgs {
     /**
      * Version of the core network policy. Valid values: `2021.12`, `2025.11`. Default: `2021.12`.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }

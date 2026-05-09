@@ -265,7 +265,7 @@ def get_availability_zone(all_availability_zones: Optional[_builtins.bool] = Non
         vpc_id=example_vpc.id,
         cidr_block=example_vpc.cidr_block.apply(lambda cidr_block: std.cidrsubnet(input=cidr_block,
             newbits=4,
-            netnum=az_number[example.name_suffix])).apply(lambda invoke: invoke.result))
+            netnum=output(az_number[example.name_suffix]).apply(lambda x: int(x)))).apply(lambda invoke: invoke.result))
     ```
 
 
@@ -306,12 +306,12 @@ def get_availability_zone(all_availability_zones: Optional[_builtins.bool] = Non
         state=pulumi.get(__ret__, 'state'),
         zone_id=pulumi.get(__ret__, 'zone_id'),
         zone_type=pulumi.get(__ret__, 'zone_type'))
-def get_availability_zone_output(all_availability_zones: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                                 filters: Optional[pulumi.Input[Optional[Sequence[Union['GetAvailabilityZoneFilterArgs', 'GetAvailabilityZoneFilterArgsDict']]]]] = None,
-                                 name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                 region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                 state: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                 zone_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_availability_zone_output(all_availability_zones: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                                 filters: pulumi.Input[Optional[Optional[Sequence[Union['GetAvailabilityZoneFilterArgs', 'GetAvailabilityZoneFilterArgsDict']]]]] = None,
+                                 name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                 region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                 state: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                 zone_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAvailabilityZoneResult]:
     """
     `get_availability_zone` provides details about a specific availability zone (AZ)
@@ -368,7 +368,7 @@ def get_availability_zone_output(all_availability_zones: Optional[pulumi.Input[O
         vpc_id=example_vpc.id,
         cidr_block=example_vpc.cidr_block.apply(lambda cidr_block: std.cidrsubnet(input=cidr_block,
             newbits=4,
-            netnum=az_number[example.name_suffix])).apply(lambda invoke: invoke.result))
+            netnum=output(az_number[example.name_suffix]).apply(lambda x: int(x)))).apply(lambda invoke: invoke.result))
     ```
 
 

@@ -125,8 +125,8 @@ def get_resource_collection(region: Optional[_builtins.str] = None,
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_resource_collection_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                   type: Optional[pulumi.Input[_builtins.str]] = None,
+def get_resource_collection_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                   type: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceCollectionResult]:
     """
     Data source for managing an AWS DevOps Guru Resource Collection.

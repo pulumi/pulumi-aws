@@ -118,7 +118,7 @@ export interface GetPrincipalApplicationAssignmentsOutputArgs {
     /**
      * List of principals assigned to the application. See the `applicationAssignments` attribute reference below.
      */
-    applicationAssignments?: pulumi.Input<pulumi.Input<inputs.ssoadmin.GetPrincipalApplicationAssignmentsApplicationAssignmentArgs>[]>;
+    applicationAssignments?: pulumi.Input<pulumi.Input<inputs.ssoadmin.GetPrincipalApplicationAssignmentsApplicationAssignmentArgs>[] | undefined>;
     /**
      * ARN of the instance of IAM Identity Center.
      */
@@ -134,5 +134,5 @@ export interface GetPrincipalApplicationAssignmentsOutputArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

@@ -97,7 +97,7 @@ def get_delegated_administrators(service_principal: Optional[_builtins.str] = No
         delegated_administrators=pulumi.get(__ret__, 'delegated_administrators'),
         id=pulumi.get(__ret__, 'id'),
         service_principal=pulumi.get(__ret__, 'service_principal'))
-def get_delegated_administrators_output(service_principal: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_delegated_administrators_output(service_principal: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDelegatedAdministratorsResult]:
     """
     Get a list of AWS accounts that are designated as delegated administrators in this organization

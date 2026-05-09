@@ -21,9 +21,9 @@ class ProductPortfolioAssociationArgs:
     def __init__(__self__, *,
                  portfolio_id: pulumi.Input[_builtins.str],
                  product_id: pulumi.Input[_builtins.str],
-                 accept_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_portfolio_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 accept_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_portfolio_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ProductPortfolioAssociation resource.
 
@@ -72,49 +72,49 @@ class ProductPortfolioAssociationArgs:
 
     @_builtins.property
     @pulumi.getter(name="acceptLanguage")
-    def accept_language(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def accept_language(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         """
         return pulumi.get(self, "accept_language")
 
     @accept_language.setter
-    def accept_language(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def accept_language(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "accept_language", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="sourcePortfolioId")
-    def source_portfolio_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_portfolio_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the source portfolio.
         """
         return pulumi.get(self, "source_portfolio_id")
 
     @source_portfolio_id.setter
-    def source_portfolio_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_portfolio_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_portfolio_id", value)
 
 
 @pulumi.input_type
 class _ProductPortfolioAssociationState:
     def __init__(__self__, *,
-                 accept_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 portfolio_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_portfolio_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 accept_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 portfolio_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_portfolio_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProductPortfolioAssociation resources.
 
@@ -139,31 +139,31 @@ class _ProductPortfolioAssociationState:
 
     @_builtins.property
     @pulumi.getter(name="acceptLanguage")
-    def accept_language(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def accept_language(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         """
         return pulumi.get(self, "accept_language")
 
     @accept_language.setter
-    def accept_language(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def accept_language(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "accept_language", value)
 
     @_builtins.property
     @pulumi.getter(name="portfolioId")
-    def portfolio_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def portfolio_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Portfolio identifier.
         """
         return pulumi.get(self, "portfolio_id")
 
     @portfolio_id.setter
-    def portfolio_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def portfolio_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "portfolio_id", value)
 
     @_builtins.property
     @pulumi.getter(name="productId")
-    def product_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def product_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Product identifier.
 
@@ -172,31 +172,31 @@ class _ProductPortfolioAssociationState:
         return pulumi.get(self, "product_id")
 
     @product_id.setter
-    def product_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def product_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "product_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="sourcePortfolioId")
-    def source_portfolio_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_portfolio_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the source portfolio.
         """
         return pulumi.get(self, "source_portfolio_id")
 
     @source_portfolio_id.setter
-    def source_portfolio_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_portfolio_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_portfolio_id", value)
 
 
@@ -206,11 +206,11 @@ class ProductPortfolioAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accept_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 portfolio_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_portfolio_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 accept_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 portfolio_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_portfolio_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Service Catalog Product Portfolio Association.
@@ -293,11 +293,11 @@ class ProductPortfolioAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accept_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 portfolio_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_portfolio_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 accept_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 portfolio_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_portfolio_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -326,11 +326,11 @@ class ProductPortfolioAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            accept_language: Optional[pulumi.Input[_builtins.str]] = None,
-            portfolio_id: Optional[pulumi.Input[_builtins.str]] = None,
-            product_id: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            source_portfolio_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'ProductPortfolioAssociation':
+            accept_language: pulumi.Input[Optional[_builtins.str]] = None,
+            portfolio_id: pulumi.Input[Optional[_builtins.str]] = None,
+            product_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            source_portfolio_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ProductPortfolioAssociation':
         """
         Get an existing ProductPortfolioAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

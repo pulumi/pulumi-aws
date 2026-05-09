@@ -182,53 +182,53 @@ export interface KeyPairState {
     /**
      * ARN of the Lightsail key pair.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * MD5 public key fingerprint for the encrypted private key.
      */
-    encryptedFingerprint?: pulumi.Input<string>;
+    encryptedFingerprint?: pulumi.Input<string | undefined>;
     /**
      * Private key material, base 64 encoded and encrypted with the given `pgpKey`. This is only populated when creating a new key and `pgpKey` is supplied.
      */
-    encryptedPrivateKey?: pulumi.Input<string>;
+    encryptedPrivateKey?: pulumi.Input<string | undefined>;
     /**
      * MD5 public key fingerprint as specified in section 4 of RFC 4716.
      */
-    fingerprint?: pulumi.Input<string>;
+    fingerprint?: pulumi.Input<string | undefined>;
     /**
      * Name of the Lightsail Key Pair. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string | undefined>;
     /**
      * PGP key to encrypt the resulting private key material. Only used when creating a new key pair.
      */
-    pgpKey?: pulumi.Input<string>;
+    pgpKey?: pulumi.Input<string | undefined>;
     /**
      * Private key, base64 encoded. This is only populated when creating a new key, and when no `pgpKey` is provided.
      */
-    privateKey?: pulumi.Input<string>;
+    privateKey?: pulumi.Input<string | undefined>;
     /**
      * Public key material. This public key will be imported into Lightsail.
      */
-    publicKey?: pulumi.Input<string>;
+    publicKey?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
      * > **Note:** A PGP key is not required, however it is strongly encouraged. Without a PGP key, the private key material will be stored in state unencrypted. `pgpKey` is ignored if `publicKey` is supplied.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -238,27 +238,27 @@ export interface KeyPairArgs {
     /**
      * Name of the Lightsail Key Pair. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string | undefined>;
     /**
      * PGP key to encrypt the resulting private key material. Only used when creating a new key pair.
      */
-    pgpKey?: pulumi.Input<string>;
+    pgpKey?: pulumi.Input<string | undefined>;
     /**
      * Public key material. This public key will be imported into Lightsail.
      */
-    publicKey?: pulumi.Input<string>;
+    publicKey?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
      * > **Note:** A PGP key is not required, however it is strongly encouraged. Without a PGP key, the private key material will be stored in state unencrypted. `pgpKey` is ignored if `publicKey` is supplied.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

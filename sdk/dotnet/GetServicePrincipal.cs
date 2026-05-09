@@ -24,12 +24,12 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var current = Aws.Index.GetServicePrincipal.Invoke(new()
+        ///     var current = Aws.GetServicePrincipal.Invoke(new()
         ///     {
         ///         ServiceName = "s3",
         ///     });
         /// 
-        ///     var test = Aws.Index.GetServicePrincipal.Invoke(new()
+        ///     var test = Aws.GetServicePrincipal.Invoke(new()
         ///     {
         ///         ServiceName = "s3",
         ///         Region = "us-iso-east-1",
@@ -54,12 +54,12 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var current = Aws.Index.GetServicePrincipal.Invoke(new()
+        ///     var current = Aws.GetServicePrincipal.Invoke(new()
         ///     {
         ///         ServiceName = "s3",
         ///     });
         /// 
-        ///     var test = Aws.Index.GetServicePrincipal.Invoke(new()
+        ///     var test = Aws.GetServicePrincipal.Invoke(new()
         ///     {
         ///         ServiceName = "s3",
         ///         Region = "us-iso-east-1",
@@ -84,12 +84,12 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var current = Aws.Index.GetServicePrincipal.Invoke(new()
+        ///     var current = Aws.GetServicePrincipal.Invoke(new()
         ///     {
         ///         ServiceName = "s3",
         ///     });
         /// 
-        ///     var test = Aws.Index.GetServicePrincipal.Invoke(new()
+        ///     var test = Aws.GetServicePrincipal.Invoke(new()
         ///     {
         ///         ServiceName = "s3",
         ///         Region = "us-iso-east-1",

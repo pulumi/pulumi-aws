@@ -26,19 +26,19 @@ __all__ = [
 ]
 
 class CertificateDomainValidationOptionArgsDict(TypedDict):
-    domain_name: NotRequired[pulumi.Input[_builtins.str]]
+    domain_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Fully qualified domain name (FQDN) in the certificate.
     """
-    resource_record_name: NotRequired[pulumi.Input[_builtins.str]]
+    resource_record_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the DNS record to create to validate the certificate
     """
-    resource_record_type: NotRequired[pulumi.Input[_builtins.str]]
+    resource_record_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The type of DNS record to create
     """
-    resource_record_value: NotRequired[pulumi.Input[_builtins.str]]
+    resource_record_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value the DNS record needs to have
     """
@@ -46,10 +46,10 @@ class CertificateDomainValidationOptionArgsDict(TypedDict):
 @pulumi.input_type
 class CertificateDomainValidationOptionArgs:
     def __init__(__self__, *,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_record_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_record_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_record_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_record_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_record_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_record_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] domain_name: Fully qualified domain name (FQDN) in the certificate.
         :param pulumi.Input[_builtins.str] resource_record_name: The name of the DNS record to create to validate the certificate
@@ -67,59 +67,59 @@ class CertificateDomainValidationOptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully qualified domain name (FQDN) in the certificate.
         """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
-    def domain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceRecordName")
-    def resource_record_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_record_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the DNS record to create to validate the certificate
         """
         return pulumi.get(self, "resource_record_name")
 
     @resource_record_name.setter
-    def resource_record_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_record_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_record_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceRecordType")
-    def resource_record_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_record_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of DNS record to create
         """
         return pulumi.get(self, "resource_record_type")
 
     @resource_record_type.setter
-    def resource_record_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_record_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_record_type", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceRecordValue")
-    def resource_record_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_record_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value the DNS record needs to have
         """
         return pulumi.get(self, "resource_record_value")
 
     @resource_record_value.setter
-    def resource_record_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_record_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_record_value", value)
 
 
 class CertificateOptionsArgsDict(TypedDict):
-    certificate_transparency_logging_preference: NotRequired[pulumi.Input[_builtins.str]]
+    certificate_transparency_logging_preference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
     """
-    export: NotRequired[pulumi.Input[_builtins.str]]
+    export: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Whether the certificate can be exported. Valid values are `ENABLED` or `DISABLED` (default). **Note** Issuing an exportable certificate is subject to additional charges. See [AWS Certificate Manager pricing](https://aws.amazon.com/certificate-manager/pricing/) for more details.
     """
@@ -127,8 +127,8 @@ class CertificateOptionsArgsDict(TypedDict):
 @pulumi.input_type
 class CertificateOptionsArgs:
     def __init__(__self__, *,
-                 certificate_transparency_logging_preference: Optional[pulumi.Input[_builtins.str]] = None,
-                 export: Optional[pulumi.Input[_builtins.str]] = None):
+                 certificate_transparency_logging_preference: pulumi.Input[Optional[_builtins.str]] = None,
+                 export: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] certificate_transparency_logging_preference: Whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
         :param pulumi.Input[_builtins.str] export: Whether the certificate can be exported. Valid values are `ENABLED` or `DISABLED` (default). **Note** Issuing an exportable certificate is subject to additional charges. See [AWS Certificate Manager pricing](https://aws.amazon.com/certificate-manager/pricing/) for more details.
@@ -140,46 +140,46 @@ class CertificateOptionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateTransparencyLoggingPreference")
-    def certificate_transparency_logging_preference(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_transparency_logging_preference(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
         """
         return pulumi.get(self, "certificate_transparency_logging_preference")
 
     @certificate_transparency_logging_preference.setter
-    def certificate_transparency_logging_preference(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_transparency_logging_preference(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_transparency_logging_preference", value)
 
     @_builtins.property
     @pulumi.getter
-    def export(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def export(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether the certificate can be exported. Valid values are `ENABLED` or `DISABLED` (default). **Note** Issuing an exportable certificate is subject to additional charges. See [AWS Certificate Manager pricing](https://aws.amazon.com/certificate-manager/pricing/) for more details.
         """
         return pulumi.get(self, "export")
 
     @export.setter
-    def export(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def export(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "export", value)
 
 
 class CertificateRenewalSummaryArgsDict(TypedDict):
-    renewal_status: NotRequired[pulumi.Input[_builtins.str]]
+    renewal_status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The status of ACM's managed renewal of the certificate
     """
-    renewal_status_reason: NotRequired[pulumi.Input[_builtins.str]]
+    renewal_status_reason: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The reason that a renewal request was unsuccessful or is pending
     """
-    updated_at: NotRequired[pulumi.Input[_builtins.str]]
+    updated_at: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class CertificateRenewalSummaryArgs:
     def __init__(__self__, *,
-                 renewal_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 renewal_status_reason: Optional[pulumi.Input[_builtins.str]] = None,
-                 updated_at: Optional[pulumi.Input[_builtins.str]] = None):
+                 renewal_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 renewal_status_reason: pulumi.Input[Optional[_builtins.str]] = None,
+                 updated_at: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] renewal_status: The status of ACM's managed renewal of the certificate
         :param pulumi.Input[_builtins.str] renewal_status_reason: The reason that a renewal request was unsuccessful or is pending
@@ -193,35 +193,35 @@ class CertificateRenewalSummaryArgs:
 
     @_builtins.property
     @pulumi.getter(name="renewalStatus")
-    def renewal_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def renewal_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of ACM's managed renewal of the certificate
         """
         return pulumi.get(self, "renewal_status")
 
     @renewal_status.setter
-    def renewal_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def renewal_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "renewal_status", value)
 
     @_builtins.property
     @pulumi.getter(name="renewalStatusReason")
-    def renewal_status_reason(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def renewal_status_reason(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The reason that a renewal request was unsuccessful or is pending
         """
         return pulumi.get(self, "renewal_status_reason")
 
     @renewal_status_reason.setter
-    def renewal_status_reason(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def renewal_status_reason(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "renewal_status_reason", value)
 
     @_builtins.property
     @pulumi.getter(name="updatedAt")
-    def updated_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def updated_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "updated_at")
 
     @updated_at.setter
-    def updated_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def updated_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "updated_at", value)
 
 

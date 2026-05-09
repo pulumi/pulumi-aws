@@ -106,5 +106,5 @@ export interface GetViewsOutputArgs {
     /**
      * List of billing view types to retrieve. Valid values are `PRIMARY`, `BILLING_GROUP`, `CUSTOM`.
      */
-    billingViewTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    billingViewTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

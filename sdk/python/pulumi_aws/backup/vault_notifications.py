@@ -22,7 +22,7 @@ class VaultNotificationsArgs:
                  backup_vault_events: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  backup_vault_name: pulumi.Input[_builtins.str],
                  sns_topic_arn: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VaultNotifications resource.
 
@@ -75,25 +75,25 @@ class VaultNotificationsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _VaultNotificationsState:
     def __init__(__self__, *,
-                 backup_vault_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 backup_vault_events: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 backup_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 backup_vault_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 backup_vault_events: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 backup_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VaultNotifications resources.
 
@@ -116,62 +116,62 @@ class _VaultNotificationsState:
 
     @_builtins.property
     @pulumi.getter(name="backupVaultArn")
-    def backup_vault_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backup_vault_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the vault.
         """
         return pulumi.get(self, "backup_vault_arn")
 
     @backup_vault_arn.setter
-    def backup_vault_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backup_vault_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backup_vault_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="backupVaultEvents")
-    def backup_vault_events(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def backup_vault_events(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An array of events that indicate the status of jobs to back up resources to the backup vault.
         """
         return pulumi.get(self, "backup_vault_events")
 
     @backup_vault_events.setter
-    def backup_vault_events(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def backup_vault_events(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "backup_vault_events", value)
 
     @_builtins.property
     @pulumi.getter(name="backupVaultName")
-    def backup_vault_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backup_vault_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the backup vault to add notifications for.
         """
         return pulumi.get(self, "backup_vault_name")
 
     @backup_vault_name.setter
-    def backup_vault_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backup_vault_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backup_vault_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="snsTopicArn")
-    def sns_topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sns_topic_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
         """
         return pulumi.get(self, "sns_topic_arn")
 
     @sns_topic_arn.setter
-    def sns_topic_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sns_topic_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sns_topic_arn", value)
 
 
@@ -181,10 +181,10 @@ class VaultNotifications(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup_vault_events: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 backup_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 backup_vault_events: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 backup_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides an AWS Backup vault notifications resource.
@@ -298,10 +298,10 @@ class VaultNotifications(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup_vault_events: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 backup_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 backup_vault_events: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 backup_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -332,11 +332,11 @@ class VaultNotifications(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            backup_vault_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            backup_vault_events: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            backup_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None) -> 'VaultNotifications':
+            backup_vault_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            backup_vault_events: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            backup_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None) -> 'VaultNotifications':
         """
         Get an existing VaultNotifications resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

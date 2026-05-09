@@ -23,18 +23,18 @@ class GuardrailArgs:
     def __init__(__self__, *,
                  blocked_input_messaging: pulumi.Input[_builtins.str],
                  blocked_outputs_messaging: pulumi.Input[_builtins.str],
-                 content_policy_config: Optional[pulumi.Input['GuardrailContentPolicyConfigArgs']] = None,
-                 contextual_grounding_policy_config: Optional[pulumi.Input['GuardrailContextualGroundingPolicyConfigArgs']] = None,
-                 cross_region_config: Optional[pulumi.Input['GuardrailCrossRegionConfigArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 sensitive_information_policy_config: Optional[pulumi.Input['GuardrailSensitiveInformationPolicyConfigArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['GuardrailTimeoutsArgs']] = None,
-                 topic_policy_config: Optional[pulumi.Input['GuardrailTopicPolicyConfigArgs']] = None,
-                 word_policy_config: Optional[pulumi.Input['GuardrailWordPolicyConfigArgs']] = None):
+                 content_policy_config: pulumi.Input[Optional['GuardrailContentPolicyConfigArgs']] = None,
+                 contextual_grounding_policy_config: pulumi.Input[Optional['GuardrailContextualGroundingPolicyConfigArgs']] = None,
+                 cross_region_config: pulumi.Input[Optional['GuardrailCrossRegionConfigArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 sensitive_information_policy_config: pulumi.Input[Optional['GuardrailSensitiveInformationPolicyConfigArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['GuardrailTimeoutsArgs']] = None,
+                 topic_policy_config: pulumi.Input[Optional['GuardrailTopicPolicyConfigArgs']] = None,
+                 word_policy_config: pulumi.Input[Optional['GuardrailWordPolicyConfigArgs']] = None):
         """
         The set of arguments for constructing a Guardrail resource.
 
@@ -106,64 +106,64 @@ class GuardrailArgs:
 
     @_builtins.property
     @pulumi.getter(name="contentPolicyConfig")
-    def content_policy_config(self) -> Optional[pulumi.Input['GuardrailContentPolicyConfigArgs']]:
+    def content_policy_config(self) -> pulumi.Input[Optional['GuardrailContentPolicyConfigArgs']]:
         """
         Content policy config for a guardrail. See Content Policy Config for more information.
         """
         return pulumi.get(self, "content_policy_config")
 
     @content_policy_config.setter
-    def content_policy_config(self, value: Optional[pulumi.Input['GuardrailContentPolicyConfigArgs']]):
+    def content_policy_config(self, value: pulumi.Input[Optional['GuardrailContentPolicyConfigArgs']]):
         pulumi.set(self, "content_policy_config", value)
 
     @_builtins.property
     @pulumi.getter(name="contextualGroundingPolicyConfig")
-    def contextual_grounding_policy_config(self) -> Optional[pulumi.Input['GuardrailContextualGroundingPolicyConfigArgs']]:
+    def contextual_grounding_policy_config(self) -> pulumi.Input[Optional['GuardrailContextualGroundingPolicyConfigArgs']]:
         """
         Contextual grounding policy config for a guardrail. See Contextual Grounding Policy Config for more information.
         """
         return pulumi.get(self, "contextual_grounding_policy_config")
 
     @contextual_grounding_policy_config.setter
-    def contextual_grounding_policy_config(self, value: Optional[pulumi.Input['GuardrailContextualGroundingPolicyConfigArgs']]):
+    def contextual_grounding_policy_config(self, value: pulumi.Input[Optional['GuardrailContextualGroundingPolicyConfigArgs']]):
         pulumi.set(self, "contextual_grounding_policy_config", value)
 
     @_builtins.property
     @pulumi.getter(name="crossRegionConfig")
-    def cross_region_config(self) -> Optional[pulumi.Input['GuardrailCrossRegionConfigArgs']]:
+    def cross_region_config(self) -> pulumi.Input[Optional['GuardrailCrossRegionConfigArgs']]:
         return pulumi.get(self, "cross_region_config")
 
     @cross_region_config.setter
-    def cross_region_config(self, value: Optional[pulumi.Input['GuardrailCrossRegionConfigArgs']]):
+    def cross_region_config(self, value: pulumi.Input[Optional['GuardrailCrossRegionConfigArgs']]):
         pulumi.set(self, "cross_region_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the guardrail or its version.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The KMS key with which the guardrail was encrypted at rest.
         """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
-    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the guardrail.
 
@@ -172,102 +172,102 @@ class GuardrailArgs:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="sensitiveInformationPolicyConfig")
-    def sensitive_information_policy_config(self) -> Optional[pulumi.Input['GuardrailSensitiveInformationPolicyConfigArgs']]:
+    def sensitive_information_policy_config(self) -> pulumi.Input[Optional['GuardrailSensitiveInformationPolicyConfigArgs']]:
         """
         Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
         """
         return pulumi.get(self, "sensitive_information_policy_config")
 
     @sensitive_information_policy_config.setter
-    def sensitive_information_policy_config(self, value: Optional[pulumi.Input['GuardrailSensitiveInformationPolicyConfigArgs']]):
+    def sensitive_information_policy_config(self, value: pulumi.Input[Optional['GuardrailSensitiveInformationPolicyConfigArgs']]):
         pulumi.set(self, "sensitive_information_policy_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['GuardrailTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['GuardrailTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['GuardrailTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['GuardrailTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter(name="topicPolicyConfig")
-    def topic_policy_config(self) -> Optional[pulumi.Input['GuardrailTopicPolicyConfigArgs']]:
+    def topic_policy_config(self) -> pulumi.Input[Optional['GuardrailTopicPolicyConfigArgs']]:
         """
         Topic policy config for a guardrail. See Topic Policy Config for more information.
         """
         return pulumi.get(self, "topic_policy_config")
 
     @topic_policy_config.setter
-    def topic_policy_config(self, value: Optional[pulumi.Input['GuardrailTopicPolicyConfigArgs']]):
+    def topic_policy_config(self, value: pulumi.Input[Optional['GuardrailTopicPolicyConfigArgs']]):
         pulumi.set(self, "topic_policy_config", value)
 
     @_builtins.property
     @pulumi.getter(name="wordPolicyConfig")
-    def word_policy_config(self) -> Optional[pulumi.Input['GuardrailWordPolicyConfigArgs']]:
+    def word_policy_config(self) -> pulumi.Input[Optional['GuardrailWordPolicyConfigArgs']]:
         """
         Word policy config for a guardrail. See Word Policy Config for more information.
         """
         return pulumi.get(self, "word_policy_config")
 
     @word_policy_config.setter
-    def word_policy_config(self, value: Optional[pulumi.Input['GuardrailWordPolicyConfigArgs']]):
+    def word_policy_config(self, value: pulumi.Input[Optional['GuardrailWordPolicyConfigArgs']]):
         pulumi.set(self, "word_policy_config", value)
 
 
 @pulumi.input_type
 class _GuardrailState:
     def __init__(__self__, *,
-                 blocked_input_messaging: Optional[pulumi.Input[_builtins.str]] = None,
-                 blocked_outputs_messaging: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_policy_config: Optional[pulumi.Input['GuardrailContentPolicyConfigArgs']] = None,
-                 contextual_grounding_policy_config: Optional[pulumi.Input['GuardrailContextualGroundingPolicyConfigArgs']] = None,
-                 created_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 cross_region_config: Optional[pulumi.Input['GuardrailCrossRegionConfigArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 guardrail_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 guardrail_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 sensitive_information_policy_config: Optional[pulumi.Input['GuardrailSensitiveInformationPolicyConfigArgs']] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['GuardrailTimeoutsArgs']] = None,
-                 topic_policy_config: Optional[pulumi.Input['GuardrailTopicPolicyConfigArgs']] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
-                 word_policy_config: Optional[pulumi.Input['GuardrailWordPolicyConfigArgs']] = None):
+                 blocked_input_messaging: pulumi.Input[Optional[_builtins.str]] = None,
+                 blocked_outputs_messaging: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_policy_config: pulumi.Input[Optional['GuardrailContentPolicyConfigArgs']] = None,
+                 contextual_grounding_policy_config: pulumi.Input[Optional['GuardrailContextualGroundingPolicyConfigArgs']] = None,
+                 created_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 cross_region_config: pulumi.Input[Optional['GuardrailCrossRegionConfigArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 guardrail_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 guardrail_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 sensitive_information_policy_config: pulumi.Input[Optional['GuardrailSensitiveInformationPolicyConfigArgs']] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['GuardrailTimeoutsArgs']] = None,
+                 topic_policy_config: pulumi.Input[Optional['GuardrailTopicPolicyConfigArgs']] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
+                 word_policy_config: pulumi.Input[Optional['GuardrailWordPolicyConfigArgs']] = None):
         """
         Input properties used for looking up and filtering Guardrail resources.
 
@@ -334,124 +334,124 @@ class _GuardrailState:
 
     @_builtins.property
     @pulumi.getter(name="blockedInputMessaging")
-    def blocked_input_messaging(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def blocked_input_messaging(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Message to return when the guardrail blocks a prompt.
         """
         return pulumi.get(self, "blocked_input_messaging")
 
     @blocked_input_messaging.setter
-    def blocked_input_messaging(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def blocked_input_messaging(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "blocked_input_messaging", value)
 
     @_builtins.property
     @pulumi.getter(name="blockedOutputsMessaging")
-    def blocked_outputs_messaging(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def blocked_outputs_messaging(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Message to return when the guardrail blocks a model response.
         """
         return pulumi.get(self, "blocked_outputs_messaging")
 
     @blocked_outputs_messaging.setter
-    def blocked_outputs_messaging(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def blocked_outputs_messaging(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "blocked_outputs_messaging", value)
 
     @_builtins.property
     @pulumi.getter(name="contentPolicyConfig")
-    def content_policy_config(self) -> Optional[pulumi.Input['GuardrailContentPolicyConfigArgs']]:
+    def content_policy_config(self) -> pulumi.Input[Optional['GuardrailContentPolicyConfigArgs']]:
         """
         Content policy config for a guardrail. See Content Policy Config for more information.
         """
         return pulumi.get(self, "content_policy_config")
 
     @content_policy_config.setter
-    def content_policy_config(self, value: Optional[pulumi.Input['GuardrailContentPolicyConfigArgs']]):
+    def content_policy_config(self, value: pulumi.Input[Optional['GuardrailContentPolicyConfigArgs']]):
         pulumi.set(self, "content_policy_config", value)
 
     @_builtins.property
     @pulumi.getter(name="contextualGroundingPolicyConfig")
-    def contextual_grounding_policy_config(self) -> Optional[pulumi.Input['GuardrailContextualGroundingPolicyConfigArgs']]:
+    def contextual_grounding_policy_config(self) -> pulumi.Input[Optional['GuardrailContextualGroundingPolicyConfigArgs']]:
         """
         Contextual grounding policy config for a guardrail. See Contextual Grounding Policy Config for more information.
         """
         return pulumi.get(self, "contextual_grounding_policy_config")
 
     @contextual_grounding_policy_config.setter
-    def contextual_grounding_policy_config(self, value: Optional[pulumi.Input['GuardrailContextualGroundingPolicyConfigArgs']]):
+    def contextual_grounding_policy_config(self, value: pulumi.Input[Optional['GuardrailContextualGroundingPolicyConfigArgs']]):
         pulumi.set(self, "contextual_grounding_policy_config", value)
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unix epoch timestamp in seconds for when the Guardrail was created.
         """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
-    def created_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_at", value)
 
     @_builtins.property
     @pulumi.getter(name="crossRegionConfig")
-    def cross_region_config(self) -> Optional[pulumi.Input['GuardrailCrossRegionConfigArgs']]:
+    def cross_region_config(self) -> pulumi.Input[Optional['GuardrailCrossRegionConfigArgs']]:
         return pulumi.get(self, "cross_region_config")
 
     @cross_region_config.setter
-    def cross_region_config(self, value: Optional[pulumi.Input['GuardrailCrossRegionConfigArgs']]):
+    def cross_region_config(self, value: pulumi.Input[Optional['GuardrailCrossRegionConfigArgs']]):
         pulumi.set(self, "cross_region_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the guardrail or its version.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="guardrailArn")
-    def guardrail_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def guardrail_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the Guardrail.
         """
         return pulumi.get(self, "guardrail_arn")
 
     @guardrail_arn.setter
-    def guardrail_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def guardrail_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "guardrail_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="guardrailId")
-    def guardrail_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def guardrail_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the Guardrail.
         """
         return pulumi.get(self, "guardrail_id")
 
     @guardrail_id.setter
-    def guardrail_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def guardrail_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "guardrail_id", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The KMS key with which the guardrail was encrypted at rest.
         """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
-    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the guardrail.
 
@@ -460,109 +460,109 @@ class _GuardrailState:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="sensitiveInformationPolicyConfig")
-    def sensitive_information_policy_config(self) -> Optional[pulumi.Input['GuardrailSensitiveInformationPolicyConfigArgs']]:
+    def sensitive_information_policy_config(self) -> pulumi.Input[Optional['GuardrailSensitiveInformationPolicyConfigArgs']]:
         """
         Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
         """
         return pulumi.get(self, "sensitive_information_policy_config")
 
     @sensitive_information_policy_config.setter
-    def sensitive_information_policy_config(self, value: Optional[pulumi.Input['GuardrailSensitiveInformationPolicyConfigArgs']]):
+    def sensitive_information_policy_config(self, value: pulumi.Input[Optional['GuardrailSensitiveInformationPolicyConfigArgs']]):
         pulumi.set(self, "sensitive_information_policy_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Status of the Bedrock Guardrail. One of `READY`, `FAILED`.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['GuardrailTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['GuardrailTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['GuardrailTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['GuardrailTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter(name="topicPolicyConfig")
-    def topic_policy_config(self) -> Optional[pulumi.Input['GuardrailTopicPolicyConfigArgs']]:
+    def topic_policy_config(self) -> pulumi.Input[Optional['GuardrailTopicPolicyConfigArgs']]:
         """
         Topic policy config for a guardrail. See Topic Policy Config for more information.
         """
         return pulumi.get(self, "topic_policy_config")
 
     @topic_policy_config.setter
-    def topic_policy_config(self, value: Optional[pulumi.Input['GuardrailTopicPolicyConfigArgs']]):
+    def topic_policy_config(self, value: pulumi.Input[Optional['GuardrailTopicPolicyConfigArgs']]):
         pulumi.set(self, "topic_policy_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version of the Guardrail.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
     @_builtins.property
     @pulumi.getter(name="wordPolicyConfig")
-    def word_policy_config(self) -> Optional[pulumi.Input['GuardrailWordPolicyConfigArgs']]:
+    def word_policy_config(self) -> pulumi.Input[Optional['GuardrailWordPolicyConfigArgs']]:
         """
         Word policy config for a guardrail. See Word Policy Config for more information.
         """
         return pulumi.get(self, "word_policy_config")
 
     @word_policy_config.setter
-    def word_policy_config(self, value: Optional[pulumi.Input['GuardrailWordPolicyConfigArgs']]):
+    def word_policy_config(self, value: pulumi.Input[Optional['GuardrailWordPolicyConfigArgs']]):
         pulumi.set(self, "word_policy_config", value)
 
 
@@ -572,20 +572,20 @@ class Guardrail(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 blocked_input_messaging: Optional[pulumi.Input[_builtins.str]] = None,
-                 blocked_outputs_messaging: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_policy_config: Optional[pulumi.Input[Union['GuardrailContentPolicyConfigArgs', 'GuardrailContentPolicyConfigArgsDict']]] = None,
-                 contextual_grounding_policy_config: Optional[pulumi.Input[Union['GuardrailContextualGroundingPolicyConfigArgs', 'GuardrailContextualGroundingPolicyConfigArgsDict']]] = None,
-                 cross_region_config: Optional[pulumi.Input[Union['GuardrailCrossRegionConfigArgs', 'GuardrailCrossRegionConfigArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 sensitive_information_policy_config: Optional[pulumi.Input[Union['GuardrailSensitiveInformationPolicyConfigArgs', 'GuardrailSensitiveInformationPolicyConfigArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['GuardrailTimeoutsArgs', 'GuardrailTimeoutsArgsDict']]] = None,
-                 topic_policy_config: Optional[pulumi.Input[Union['GuardrailTopicPolicyConfigArgs', 'GuardrailTopicPolicyConfigArgsDict']]] = None,
-                 word_policy_config: Optional[pulumi.Input[Union['GuardrailWordPolicyConfigArgs', 'GuardrailWordPolicyConfigArgsDict']]] = None,
+                 blocked_input_messaging: pulumi.Input[Optional[_builtins.str]] = None,
+                 blocked_outputs_messaging: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_policy_config: pulumi.Input[Optional[Union['GuardrailContentPolicyConfigArgs', 'GuardrailContentPolicyConfigArgsDict']]] = None,
+                 contextual_grounding_policy_config: pulumi.Input[Optional[Union['GuardrailContextualGroundingPolicyConfigArgs', 'GuardrailContextualGroundingPolicyConfigArgsDict']]] = None,
+                 cross_region_config: pulumi.Input[Optional[Union['GuardrailCrossRegionConfigArgs', 'GuardrailCrossRegionConfigArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 sensitive_information_policy_config: pulumi.Input[Optional[Union['GuardrailSensitiveInformationPolicyConfigArgs', 'GuardrailSensitiveInformationPolicyConfigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['GuardrailTimeoutsArgs', 'GuardrailTimeoutsArgsDict']]] = None,
+                 topic_policy_config: pulumi.Input[Optional[Union['GuardrailTopicPolicyConfigArgs', 'GuardrailTopicPolicyConfigArgsDict']]] = None,
+                 word_policy_config: pulumi.Input[Optional[Union['GuardrailWordPolicyConfigArgs', 'GuardrailWordPolicyConfigArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an Amazon Bedrock Guardrail.
@@ -777,20 +777,20 @@ class Guardrail(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 blocked_input_messaging: Optional[pulumi.Input[_builtins.str]] = None,
-                 blocked_outputs_messaging: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_policy_config: Optional[pulumi.Input[Union['GuardrailContentPolicyConfigArgs', 'GuardrailContentPolicyConfigArgsDict']]] = None,
-                 contextual_grounding_policy_config: Optional[pulumi.Input[Union['GuardrailContextualGroundingPolicyConfigArgs', 'GuardrailContextualGroundingPolicyConfigArgsDict']]] = None,
-                 cross_region_config: Optional[pulumi.Input[Union['GuardrailCrossRegionConfigArgs', 'GuardrailCrossRegionConfigArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 sensitive_information_policy_config: Optional[pulumi.Input[Union['GuardrailSensitiveInformationPolicyConfigArgs', 'GuardrailSensitiveInformationPolicyConfigArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['GuardrailTimeoutsArgs', 'GuardrailTimeoutsArgsDict']]] = None,
-                 topic_policy_config: Optional[pulumi.Input[Union['GuardrailTopicPolicyConfigArgs', 'GuardrailTopicPolicyConfigArgsDict']]] = None,
-                 word_policy_config: Optional[pulumi.Input[Union['GuardrailWordPolicyConfigArgs', 'GuardrailWordPolicyConfigArgsDict']]] = None,
+                 blocked_input_messaging: pulumi.Input[Optional[_builtins.str]] = None,
+                 blocked_outputs_messaging: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_policy_config: pulumi.Input[Optional[Union['GuardrailContentPolicyConfigArgs', 'GuardrailContentPolicyConfigArgsDict']]] = None,
+                 contextual_grounding_policy_config: pulumi.Input[Optional[Union['GuardrailContextualGroundingPolicyConfigArgs', 'GuardrailContextualGroundingPolicyConfigArgsDict']]] = None,
+                 cross_region_config: pulumi.Input[Optional[Union['GuardrailCrossRegionConfigArgs', 'GuardrailCrossRegionConfigArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 sensitive_information_policy_config: pulumi.Input[Optional[Union['GuardrailSensitiveInformationPolicyConfigArgs', 'GuardrailSensitiveInformationPolicyConfigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['GuardrailTimeoutsArgs', 'GuardrailTimeoutsArgsDict']]] = None,
+                 topic_policy_config: pulumi.Input[Optional[Union['GuardrailTopicPolicyConfigArgs', 'GuardrailTopicPolicyConfigArgsDict']]] = None,
+                 word_policy_config: pulumi.Input[Optional[Union['GuardrailWordPolicyConfigArgs', 'GuardrailWordPolicyConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -834,26 +834,26 @@ class Guardrail(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            blocked_input_messaging: Optional[pulumi.Input[_builtins.str]] = None,
-            blocked_outputs_messaging: Optional[pulumi.Input[_builtins.str]] = None,
-            content_policy_config: Optional[pulumi.Input[Union['GuardrailContentPolicyConfigArgs', 'GuardrailContentPolicyConfigArgsDict']]] = None,
-            contextual_grounding_policy_config: Optional[pulumi.Input[Union['GuardrailContextualGroundingPolicyConfigArgs', 'GuardrailContextualGroundingPolicyConfigArgsDict']]] = None,
-            created_at: Optional[pulumi.Input[_builtins.str]] = None,
-            cross_region_config: Optional[pulumi.Input[Union['GuardrailCrossRegionConfigArgs', 'GuardrailCrossRegionConfigArgsDict']]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            guardrail_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            guardrail_id: Optional[pulumi.Input[_builtins.str]] = None,
-            kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            sensitive_information_policy_config: Optional[pulumi.Input[Union['GuardrailSensitiveInformationPolicyConfigArgs', 'GuardrailSensitiveInformationPolicyConfigArgsDict']]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: Optional[pulumi.Input[Union['GuardrailTimeoutsArgs', 'GuardrailTimeoutsArgsDict']]] = None,
-            topic_policy_config: Optional[pulumi.Input[Union['GuardrailTopicPolicyConfigArgs', 'GuardrailTopicPolicyConfigArgsDict']]] = None,
-            version: Optional[pulumi.Input[_builtins.str]] = None,
-            word_policy_config: Optional[pulumi.Input[Union['GuardrailWordPolicyConfigArgs', 'GuardrailWordPolicyConfigArgsDict']]] = None) -> 'Guardrail':
+            blocked_input_messaging: pulumi.Input[Optional[_builtins.str]] = None,
+            blocked_outputs_messaging: pulumi.Input[Optional[_builtins.str]] = None,
+            content_policy_config: pulumi.Input[Optional[Union['GuardrailContentPolicyConfigArgs', 'GuardrailContentPolicyConfigArgsDict']]] = None,
+            contextual_grounding_policy_config: pulumi.Input[Optional[Union['GuardrailContextualGroundingPolicyConfigArgs', 'GuardrailContextualGroundingPolicyConfigArgsDict']]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            cross_region_config: pulumi.Input[Optional[Union['GuardrailCrossRegionConfigArgs', 'GuardrailCrossRegionConfigArgsDict']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            guardrail_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            guardrail_id: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            sensitive_information_policy_config: pulumi.Input[Optional[Union['GuardrailSensitiveInformationPolicyConfigArgs', 'GuardrailSensitiveInformationPolicyConfigArgsDict']]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['GuardrailTimeoutsArgs', 'GuardrailTimeoutsArgsDict']]] = None,
+            topic_policy_config: pulumi.Input[Optional[Union['GuardrailTopicPolicyConfigArgs', 'GuardrailTopicPolicyConfigArgsDict']]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None,
+            word_policy_config: pulumi.Input[Optional[Union['GuardrailWordPolicyConfigArgs', 'GuardrailWordPolicyConfigArgsDict']]] = None) -> 'Guardrail':
         """
         Get an existing Guardrail resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -42,11 +42,11 @@ __all__ = [
 ]
 
 class GroupExternalIdArgsDict(TypedDict):
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The identifier issued to this resource by an external identity provider.
     """
-    issuer: NotRequired[pulumi.Input[_builtins.str]]
+    issuer: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The issuer for an external identifier.
     """
@@ -54,8 +54,8 @@ class GroupExternalIdArgsDict(TypedDict):
 @pulumi.input_type
 class GroupExternalIdArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 issuer: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 issuer: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] id: The identifier issued to this resource by an external identity provider.
         :param pulumi.Input[_builtins.str] issuer: The issuer for an external identifier.
@@ -67,59 +67,59 @@ class GroupExternalIdArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier issued to this resource by an external identity provider.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def issuer(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def issuer(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The issuer for an external identifier.
         """
         return pulumi.get(self, "issuer")
 
     @issuer.setter
-    def issuer(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def issuer(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "issuer", value)
 
 
 class UserAddressesArgsDict(TypedDict):
-    country: NotRequired[pulumi.Input[_builtins.str]]
+    country: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The country that this address is in.
     """
-    formatted: NotRequired[pulumi.Input[_builtins.str]]
+    formatted: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name that is typically displayed when the address is shown for display.
     """
-    locality: NotRequired[pulumi.Input[_builtins.str]]
+    locality: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The address locality.
     """
-    postal_code: NotRequired[pulumi.Input[_builtins.str]]
+    postal_code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The postal code of the address.
     """
-    primary: NotRequired[pulumi.Input[_builtins.bool]]
+    primary: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     When `true`, this is the primary address associated with the user.
     """
-    region: NotRequired[pulumi.Input[_builtins.str]]
+    region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The region of the address.
     """
-    street_address: NotRequired[pulumi.Input[_builtins.str]]
+    street_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The street of the address.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The type of address.
     """
@@ -127,14 +127,14 @@ class UserAddressesArgsDict(TypedDict):
 @pulumi.input_type
 class UserAddressesArgs:
     def __init__(__self__, *,
-                 country: Optional[pulumi.Input[_builtins.str]] = None,
-                 formatted: Optional[pulumi.Input[_builtins.str]] = None,
-                 locality: Optional[pulumi.Input[_builtins.str]] = None,
-                 postal_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 street_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 country: pulumi.Input[Optional[_builtins.str]] = None,
+                 formatted: pulumi.Input[Optional[_builtins.str]] = None,
+                 locality: pulumi.Input[Optional[_builtins.str]] = None,
+                 postal_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 street_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] country: The country that this address is in.
         :param pulumi.Input[_builtins.str] formatted: The name that is typically displayed when the address is shown for display.
@@ -164,111 +164,111 @@ class UserAddressesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def country(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def country(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The country that this address is in.
         """
         return pulumi.get(self, "country")
 
     @country.setter
-    def country(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def country(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "country", value)
 
     @_builtins.property
     @pulumi.getter
-    def formatted(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def formatted(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name that is typically displayed when the address is shown for display.
         """
         return pulumi.get(self, "formatted")
 
     @formatted.setter
-    def formatted(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def formatted(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "formatted", value)
 
     @_builtins.property
     @pulumi.getter
-    def locality(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def locality(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The address locality.
         """
         return pulumi.get(self, "locality")
 
     @locality.setter
-    def locality(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def locality(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "locality", value)
 
     @_builtins.property
     @pulumi.getter(name="postalCode")
-    def postal_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def postal_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The postal code of the address.
         """
         return pulumi.get(self, "postal_code")
 
     @postal_code.setter
-    def postal_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def postal_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "postal_code", value)
 
     @_builtins.property
     @pulumi.getter
-    def primary(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def primary(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When `true`, this is the primary address associated with the user.
         """
         return pulumi.get(self, "primary")
 
     @primary.setter
-    def primary(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def primary(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "primary", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The region of the address.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="streetAddress")
-    def street_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def street_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The street of the address.
         """
         return pulumi.get(self, "street_address")
 
     @street_address.setter
-    def street_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def street_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "street_address", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of address.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
 class UserEmailsArgsDict(TypedDict):
-    primary: NotRequired[pulumi.Input[_builtins.bool]]
+    primary: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     When `true`, this is the primary email associated with the user.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The type of email.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The email address. This value must be unique across the identity store.
     """
@@ -276,9 +276,9 @@ class UserEmailsArgsDict(TypedDict):
 @pulumi.input_type
 class UserEmailsArgs:
     def __init__(__self__, *,
-                 primary: Optional[pulumi.Input[_builtins.bool]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 primary: pulumi.Input[Optional[_builtins.bool]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] primary: When `true`, this is the primary email associated with the user.
         :param pulumi.Input[_builtins.str] type: The type of email.
@@ -293,47 +293,47 @@ class UserEmailsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def primary(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def primary(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When `true`, this is the primary email associated with the user.
         """
         return pulumi.get(self, "primary")
 
     @primary.setter
-    def primary(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def primary(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "primary", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of email.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The email address. This value must be unique across the identity store.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
 class UserExternalIdArgsDict(TypedDict):
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The identifier issued to this resource by an external identity provider.
     """
-    issuer: NotRequired[pulumi.Input[_builtins.str]]
+    issuer: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The issuer for an external identifier.
     """
@@ -341,8 +341,8 @@ class UserExternalIdArgsDict(TypedDict):
 @pulumi.input_type
 class UserExternalIdArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 issuer: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 issuer: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] id: The identifier issued to this resource by an external identity provider.
         :param pulumi.Input[_builtins.str] issuer: The issuer for an external identifier.
@@ -354,26 +354,26 @@ class UserExternalIdArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier issued to this resource by an external identity provider.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def issuer(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def issuer(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The issuer for an external identifier.
         """
         return pulumi.get(self, "issuer")
 
     @issuer.setter
-    def issuer(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def issuer(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "issuer", value)
 
 
@@ -388,19 +388,19 @@ class UserNameArgsDict(TypedDict):
 
     The following arguments are optional:
     """
-    formatted: NotRequired[pulumi.Input[_builtins.str]]
+    formatted: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name that is typically displayed when the name is shown for display.
     """
-    honorific_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    honorific_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The honorific prefix of the user.
     """
-    honorific_suffix: NotRequired[pulumi.Input[_builtins.str]]
+    honorific_suffix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The honorific suffix of the user.
     """
-    middle_name: NotRequired[pulumi.Input[_builtins.str]]
+    middle_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The middle name of the user.
     """
@@ -410,10 +410,10 @@ class UserNameArgs:
     def __init__(__self__, *,
                  family_name: pulumi.Input[_builtins.str],
                  given_name: pulumi.Input[_builtins.str],
-                 formatted: Optional[pulumi.Input[_builtins.str]] = None,
-                 honorific_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 honorific_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-                 middle_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 formatted: pulumi.Input[Optional[_builtins.str]] = None,
+                 honorific_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 honorific_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+                 middle_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] family_name: The family name of the user.
         :param pulumi.Input[_builtins.str] given_name: The given name of the user.
@@ -463,63 +463,63 @@ class UserNameArgs:
 
     @_builtins.property
     @pulumi.getter
-    def formatted(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def formatted(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name that is typically displayed when the name is shown for display.
         """
         return pulumi.get(self, "formatted")
 
     @formatted.setter
-    def formatted(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def formatted(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "formatted", value)
 
     @_builtins.property
     @pulumi.getter(name="honorificPrefix")
-    def honorific_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def honorific_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The honorific prefix of the user.
         """
         return pulumi.get(self, "honorific_prefix")
 
     @honorific_prefix.setter
-    def honorific_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def honorific_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "honorific_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="honorificSuffix")
-    def honorific_suffix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def honorific_suffix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The honorific suffix of the user.
         """
         return pulumi.get(self, "honorific_suffix")
 
     @honorific_suffix.setter
-    def honorific_suffix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def honorific_suffix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "honorific_suffix", value)
 
     @_builtins.property
     @pulumi.getter(name="middleName")
-    def middle_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def middle_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The middle name of the user.
         """
         return pulumi.get(self, "middle_name")
 
     @middle_name.setter
-    def middle_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def middle_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "middle_name", value)
 
 
 class UserPhoneNumbersArgsDict(TypedDict):
-    primary: NotRequired[pulumi.Input[_builtins.bool]]
+    primary: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     When `true`, this is the primary phone number associated with the user.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The type of phone number.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The user's phone number.
     """
@@ -527,9 +527,9 @@ class UserPhoneNumbersArgsDict(TypedDict):
 @pulumi.input_type
 class UserPhoneNumbersArgs:
     def __init__(__self__, *,
-                 primary: Optional[pulumi.Input[_builtins.bool]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 primary: pulumi.Input[Optional[_builtins.bool]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] primary: When `true`, this is the primary phone number associated with the user.
         :param pulumi.Input[_builtins.str] type: The type of phone number.
@@ -544,38 +544,38 @@ class UserPhoneNumbersArgs:
 
     @_builtins.property
     @pulumi.getter
-    def primary(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def primary(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When `true`, this is the primary phone number associated with the user.
         """
         return pulumi.get(self, "primary")
 
     @primary.setter
-    def primary(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def primary(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "primary", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of phone number.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user's phone number.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 

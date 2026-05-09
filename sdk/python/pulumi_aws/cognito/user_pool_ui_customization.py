@@ -20,10 +20,10 @@ __all__ = ['UserPoolUICustomizationArgs', 'UserPoolUICustomization']
 class UserPoolUICustomizationArgs:
     def __init__(__self__, *,
                  user_pool_id: pulumi.Input[_builtins.str],
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 css: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 css: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a UserPoolUICustomization resource.
 
@@ -57,65 +57,65 @@ class UserPoolUICustomizationArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `image_file` settings will be used for every client that has no UI customization set previously.
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def css(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def css(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The CSS values in the UI customization, provided as a String. At least one of `css` or `image_file` is required.
         """
         return pulumi.get(self, "css")
 
     @css.setter
-    def css(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def css(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "css", value)
 
     @_builtins.property
     @pulumi.getter(name="imageFile")
-    def image_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def image_file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `image_file` is required.
         """
         return pulumi.get(self, "image_file")
 
     @image_file.setter
-    def image_file(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def image_file(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "image_file", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _UserPoolUICustomizationState:
     def __init__(__self__, *,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 creation_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 css: Optional[pulumi.Input[_builtins.str]] = None,
-                 css_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_modified_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_pool_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 creation_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 css: pulumi.Input[Optional[_builtins.str]] = None,
+                 css_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_modified_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_pool_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserPoolUICustomization resources.
 
@@ -150,110 +150,110 @@ class _UserPoolUICustomizationState:
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `image_file` settings will be used for every client that has no UI customization set previously.
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="creationDate")
-    def creation_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def creation_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
         """
         return pulumi.get(self, "creation_date")
 
     @creation_date.setter
-    def creation_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def creation_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "creation_date", value)
 
     @_builtins.property
     @pulumi.getter
-    def css(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def css(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The CSS values in the UI customization, provided as a String. At least one of `css` or `image_file` is required.
         """
         return pulumi.get(self, "css")
 
     @css.setter
-    def css(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def css(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "css", value)
 
     @_builtins.property
     @pulumi.getter(name="cssVersion")
-    def css_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def css_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The CSS version number.
         """
         return pulumi.get(self, "css_version")
 
     @css_version.setter
-    def css_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def css_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "css_version", value)
 
     @_builtins.property
     @pulumi.getter(name="imageFile")
-    def image_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def image_file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `image_file` is required.
         """
         return pulumi.get(self, "image_file")
 
     @image_file.setter
-    def image_file(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def image_file(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "image_file", value)
 
     @_builtins.property
     @pulumi.getter(name="imageUrl")
-    def image_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def image_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The logo image URL for the UI customization.
         """
         return pulumi.get(self, "image_url")
 
     @image_url.setter
-    def image_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def image_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "image_url", value)
 
     @_builtins.property
     @pulumi.getter(name="lastModifiedDate")
-    def last_modified_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_modified_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The last-modified date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
         """
         return pulumi.get(self, "last_modified_date")
 
     @last_modified_date.setter
-    def last_modified_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_modified_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_modified_date", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="userPoolId")
-    def user_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_pool_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user pool ID for the user pool.
         """
         return pulumi.get(self, "user_pool_id")
 
     @user_pool_id.setter
-    def user_pool_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_pool_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_pool_id", value)
 
 
@@ -263,11 +263,11 @@ class UserPoolUICustomization(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 css: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 css: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a Cognito User Pool UI Customization resource.
@@ -406,11 +406,11 @@ class UserPoolUICustomization(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 css: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 css: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -441,15 +441,15 @@ class UserPoolUICustomization(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            client_id: Optional[pulumi.Input[_builtins.str]] = None,
-            creation_date: Optional[pulumi.Input[_builtins.str]] = None,
-            css: Optional[pulumi.Input[_builtins.str]] = None,
-            css_version: Optional[pulumi.Input[_builtins.str]] = None,
-            image_file: Optional[pulumi.Input[_builtins.str]] = None,
-            image_url: Optional[pulumi.Input[_builtins.str]] = None,
-            last_modified_date: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            user_pool_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'UserPoolUICustomization':
+            client_id: pulumi.Input[Optional[_builtins.str]] = None,
+            creation_date: pulumi.Input[Optional[_builtins.str]] = None,
+            css: pulumi.Input[Optional[_builtins.str]] = None,
+            css_version: pulumi.Input[Optional[_builtins.str]] = None,
+            image_file: pulumi.Input[Optional[_builtins.str]] = None,
+            image_url: pulumi.Input[Optional[_builtins.str]] = None,
+            last_modified_date: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            user_pool_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'UserPoolUICustomization':
         """
         Get an existing UserPoolUICustomization resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

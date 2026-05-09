@@ -22,20 +22,20 @@ __all__ = ['ServerlessCacheArgs', 'ServerlessCache']
 class ServerlessCacheArgs:
     def __init__(__self__, *,
                  engine: pulumi.Input[_builtins.str],
-                 cache_usage_limits: Optional[pulumi.Input['ServerlessCacheCacheUsageLimitsArgs']] = None,
-                 daily_snapshot_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 major_engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 snapshot_arns_to_restores: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 snapshot_retention_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['ServerlessCacheTimeoutsArgs']] = None,
-                 user_group_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 cache_usage_limits: pulumi.Input[Optional['ServerlessCacheCacheUsageLimitsArgs']] = None,
+                 daily_snapshot_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 major_engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 snapshot_arns_to_restores: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 snapshot_retention_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['ServerlessCacheTimeoutsArgs']] = None,
+                 user_group_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServerlessCache resource.
 
@@ -101,55 +101,55 @@ class ServerlessCacheArgs:
 
     @_builtins.property
     @pulumi.getter(name="cacheUsageLimits")
-    def cache_usage_limits(self) -> Optional[pulumi.Input['ServerlessCacheCacheUsageLimitsArgs']]:
+    def cache_usage_limits(self) -> pulumi.Input[Optional['ServerlessCacheCacheUsageLimitsArgs']]:
         """
         Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
         """
         return pulumi.get(self, "cache_usage_limits")
 
     @cache_usage_limits.setter
-    def cache_usage_limits(self, value: Optional[pulumi.Input['ServerlessCacheCacheUsageLimitsArgs']]):
+    def cache_usage_limits(self, value: pulumi.Input[Optional['ServerlessCacheCacheUsageLimitsArgs']]):
         pulumi.set(self, "cache_usage_limits", value)
 
     @_builtins.property
     @pulumi.getter(name="dailySnapshotTime")
-    def daily_snapshot_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def daily_snapshot_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `"redis"` or `"valkey"`. Defaults to `0`.
         """
         return pulumi.get(self, "daily_snapshot_time")
 
     @daily_snapshot_time.setter
-    def daily_snapshot_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def daily_snapshot_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "daily_snapshot_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User-provided description for the serverless cache. The default is NULL.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the customer managed key for encrypting the data at rest. If no KMS key is provided, a default service key is used.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="majorEngineVersion")
-    def major_engine_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def major_engine_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the cache engine that will be used to create the serverless cache.
         See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
@@ -157,12 +157,12 @@ class ServerlessCacheArgs:
         return pulumi.get(self, "major_engine_version")
 
     @major_engine_version.setter
-    def major_engine_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def major_engine_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "major_engine_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Cluster name which serves as a unique identifier to the serverless cache
 
@@ -171,128 +171,128 @@ class ServerlessCacheArgs:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
         """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
-    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_group_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotArnsToRestores")
-    def snapshot_arns_to_restores(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def snapshot_arns_to_restores(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of ARN(s) of the snapshot that the new serverless cache will be created from. Only supported for engine types `"redis"` or `"valkey"`.
         """
         return pulumi.get(self, "snapshot_arns_to_restores")
 
     @snapshot_arns_to_restores.setter
-    def snapshot_arns_to_restores(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def snapshot_arns_to_restores(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "snapshot_arns_to_restores", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotRetentionLimit")
-    def snapshot_retention_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def snapshot_retention_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Only supported for engine types `"redis"` or `"valkey"`.
         """
         return pulumi.get(self, "snapshot_retention_limit")
 
     @snapshot_retention_limit.setter
-    def snapshot_retention_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def snapshot_retention_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "snapshot_retention_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subnet_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of the identifiers of the subnets where the VPC endpoint for the serverless cache will be deployed. All the subnetIds must belong to the same VPC.
         """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
-    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subnet_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subnet_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['ServerlessCacheTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['ServerlessCacheTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['ServerlessCacheTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['ServerlessCacheTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter(name="userGroupId")
-    def user_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the UserGroup to be associated with the serverless cache. Available for Redis and Valkey. Default is NULL.
         """
         return pulumi.get(self, "user_group_id")
 
     @user_group_id.setter
-    def user_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_group_id", value)
 
 
 @pulumi.input_type
 class _ServerlessCacheState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_usage_limits: Optional[pulumi.Input['ServerlessCacheCacheUsageLimitsArgs']] = None,
-                 create_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 daily_snapshot_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ServerlessCacheEndpointArgs']]]] = None,
-                 engine: Optional[pulumi.Input[_builtins.str]] = None,
-                 full_engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 major_engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 reader_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ServerlessCacheReaderEndpointArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 snapshot_arns_to_restores: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 snapshot_retention_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['ServerlessCacheTimeoutsArgs']] = None,
-                 user_group_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_usage_limits: pulumi.Input[Optional['ServerlessCacheCacheUsageLimitsArgs']] = None,
+                 create_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 daily_snapshot_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoints: pulumi.Input[Optional[Sequence[pulumi.Input['ServerlessCacheEndpointArgs']]]] = None,
+                 engine: pulumi.Input[Optional[_builtins.str]] = None,
+                 full_engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 major_engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 reader_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input['ServerlessCacheReaderEndpointArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 snapshot_arns_to_restores: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 snapshot_retention_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['ServerlessCacheTimeoutsArgs']] = None,
+                 user_group_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServerlessCache resources.
 
@@ -367,115 +367,115 @@ class _ServerlessCacheState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the serverless cache.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheUsageLimits")
-    def cache_usage_limits(self) -> Optional[pulumi.Input['ServerlessCacheCacheUsageLimitsArgs']]:
+    def cache_usage_limits(self) -> pulumi.Input[Optional['ServerlessCacheCacheUsageLimitsArgs']]:
         """
         Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
         """
         return pulumi.get(self, "cache_usage_limits")
 
     @cache_usage_limits.setter
-    def cache_usage_limits(self, value: Optional[pulumi.Input['ServerlessCacheCacheUsageLimitsArgs']]):
+    def cache_usage_limits(self, value: pulumi.Input[Optional['ServerlessCacheCacheUsageLimitsArgs']]):
         pulumi.set(self, "cache_usage_limits", value)
 
     @_builtins.property
     @pulumi.getter(name="createTime")
-    def create_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Timestamp of when the serverless cache was created.
         """
         return pulumi.get(self, "create_time")
 
     @create_time.setter
-    def create_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create_time", value)
 
     @_builtins.property
     @pulumi.getter(name="dailySnapshotTime")
-    def daily_snapshot_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def daily_snapshot_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `"redis"` or `"valkey"`. Defaults to `0`.
         """
         return pulumi.get(self, "daily_snapshot_time")
 
     @daily_snapshot_time.setter
-    def daily_snapshot_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def daily_snapshot_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "daily_snapshot_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User-provided description for the serverless cache. The default is NULL.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServerlessCacheEndpointArgs']]]]:
+    def endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServerlessCacheEndpointArgs']]]]:
         """
         Represents the information required for client programs to connect to a cache node. See `endpoint` Block for details.
         """
         return pulumi.get(self, "endpoints")
 
     @endpoints.setter
-    def endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServerlessCacheEndpointArgs']]]]):
+    def endpoints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServerlessCacheEndpointArgs']]]]):
         pulumi.set(self, "endpoints", value)
 
     @_builtins.property
     @pulumi.getter
-    def engine(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def engine(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` or `valkey`.
         """
         return pulumi.get(self, "engine")
 
     @engine.setter
-    def engine(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def engine(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "engine", value)
 
     @_builtins.property
     @pulumi.getter(name="fullEngineVersion")
-    def full_engine_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def full_engine_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name and version number of the engine the serverless cache is compatible with.
         """
         return pulumi.get(self, "full_engine_version")
 
     @full_engine_version.setter
-    def full_engine_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def full_engine_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "full_engine_version", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the customer managed key for encrypting the data at rest. If no KMS key is provided, a default service key is used.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="majorEngineVersion")
-    def major_engine_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def major_engine_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the cache engine that will be used to create the serverless cache.
         See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
@@ -483,12 +483,12 @@ class _ServerlessCacheState:
         return pulumi.get(self, "major_engine_version")
 
     @major_engine_version.setter
-    def major_engine_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def major_engine_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "major_engine_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Cluster name which serves as a unique identifier to the serverless cache
 
@@ -497,133 +497,133 @@ class _ServerlessCacheState:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="readerEndpoints")
-    def reader_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServerlessCacheReaderEndpointArgs']]]]:
+    def reader_endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServerlessCacheReaderEndpointArgs']]]]:
         """
         Represents the information required for client programs to connect to a cache node. See `reader_endpoint` Block for details.
         """
         return pulumi.get(self, "reader_endpoints")
 
     @reader_endpoints.setter
-    def reader_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServerlessCacheReaderEndpointArgs']]]]):
+    def reader_endpoints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServerlessCacheReaderEndpointArgs']]]]):
         pulumi.set(self, "reader_endpoints", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
         """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
-    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_group_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotArnsToRestores")
-    def snapshot_arns_to_restores(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def snapshot_arns_to_restores(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of ARN(s) of the snapshot that the new serverless cache will be created from. Only supported for engine types `"redis"` or `"valkey"`.
         """
         return pulumi.get(self, "snapshot_arns_to_restores")
 
     @snapshot_arns_to_restores.setter
-    def snapshot_arns_to_restores(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def snapshot_arns_to_restores(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "snapshot_arns_to_restores", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotRetentionLimit")
-    def snapshot_retention_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def snapshot_retention_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Only supported for engine types `"redis"` or `"valkey"`.
         """
         return pulumi.get(self, "snapshot_retention_limit")
 
     @snapshot_retention_limit.setter
-    def snapshot_retention_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def snapshot_retention_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "snapshot_retention_limit", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The current status of the serverless cache. The allowed values are CREATING, AVAILABLE, DELETING, CREATE-FAILED and MODIFYING.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subnet_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of the identifiers of the subnets where the VPC endpoint for the serverless cache will be deployed. All the subnetIds must belong to the same VPC.
         """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
-    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subnet_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subnet_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['ServerlessCacheTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['ServerlessCacheTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['ServerlessCacheTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['ServerlessCacheTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter(name="userGroupId")
-    def user_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the UserGroup to be associated with the serverless cache. Available for Redis and Valkey. Default is NULL.
         """
         return pulumi.get(self, "user_group_id")
 
     @user_group_id.setter
-    def user_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_group_id", value)
 
 
@@ -633,21 +633,21 @@ class ServerlessCache(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cache_usage_limits: Optional[pulumi.Input[Union['ServerlessCacheCacheUsageLimitsArgs', 'ServerlessCacheCacheUsageLimitsArgsDict']]] = None,
-                 daily_snapshot_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 major_engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 snapshot_arns_to_restores: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 snapshot_retention_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['ServerlessCacheTimeoutsArgs', 'ServerlessCacheTimeoutsArgsDict']]] = None,
-                 user_group_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 cache_usage_limits: pulumi.Input[Optional[Union['ServerlessCacheCacheUsageLimitsArgs', 'ServerlessCacheCacheUsageLimitsArgsDict']]] = None,
+                 daily_snapshot_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 major_engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 snapshot_arns_to_restores: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 snapshot_retention_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ServerlessCacheTimeoutsArgs', 'ServerlessCacheTimeoutsArgsDict']]] = None,
+                 user_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides an ElastiCache Serverless Cache resource which manages memcached, redis or valkey.
@@ -876,21 +876,21 @@ class ServerlessCache(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cache_usage_limits: Optional[pulumi.Input[Union['ServerlessCacheCacheUsageLimitsArgs', 'ServerlessCacheCacheUsageLimitsArgsDict']]] = None,
-                 daily_snapshot_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 major_engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 snapshot_arns_to_restores: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 snapshot_retention_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['ServerlessCacheTimeoutsArgs', 'ServerlessCacheTimeoutsArgsDict']]] = None,
-                 user_group_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 cache_usage_limits: pulumi.Input[Optional[Union['ServerlessCacheCacheUsageLimitsArgs', 'ServerlessCacheCacheUsageLimitsArgsDict']]] = None,
+                 daily_snapshot_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 major_engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 snapshot_arns_to_restores: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 snapshot_retention_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ServerlessCacheTimeoutsArgs', 'ServerlessCacheTimeoutsArgsDict']]] = None,
+                 user_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -934,28 +934,28 @@ class ServerlessCache(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            cache_usage_limits: Optional[pulumi.Input[Union['ServerlessCacheCacheUsageLimitsArgs', 'ServerlessCacheCacheUsageLimitsArgsDict']]] = None,
-            create_time: Optional[pulumi.Input[_builtins.str]] = None,
-            daily_snapshot_time: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServerlessCacheEndpointArgs', 'ServerlessCacheEndpointArgsDict']]]]] = None,
-            engine: Optional[pulumi.Input[_builtins.str]] = None,
-            full_engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-            kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-            major_engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            reader_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServerlessCacheReaderEndpointArgs', 'ServerlessCacheReaderEndpointArgsDict']]]]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            snapshot_arns_to_restores: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            snapshot_retention_limit: Optional[pulumi.Input[_builtins.int]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: Optional[pulumi.Input[Union['ServerlessCacheTimeoutsArgs', 'ServerlessCacheTimeoutsArgsDict']]] = None,
-            user_group_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'ServerlessCache':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            cache_usage_limits: pulumi.Input[Optional[Union['ServerlessCacheCacheUsageLimitsArgs', 'ServerlessCacheCacheUsageLimitsArgsDict']]] = None,
+            create_time: pulumi.Input[Optional[_builtins.str]] = None,
+            daily_snapshot_time: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerlessCacheEndpointArgs', 'ServerlessCacheEndpointArgsDict']]]]] = None,
+            engine: pulumi.Input[Optional[_builtins.str]] = None,
+            full_engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            major_engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            reader_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerlessCacheReaderEndpointArgs', 'ServerlessCacheReaderEndpointArgsDict']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            snapshot_arns_to_restores: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            snapshot_retention_limit: pulumi.Input[Optional[_builtins.int]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['ServerlessCacheTimeoutsArgs', 'ServerlessCacheTimeoutsArgsDict']]] = None,
+            user_group_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ServerlessCache':
         """
         Get an existing ServerlessCache resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

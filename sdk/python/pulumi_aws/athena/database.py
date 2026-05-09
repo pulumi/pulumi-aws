@@ -21,16 +21,16 @@ __all__ = ['DatabaseArgs', 'Database']
 @pulumi.input_type
 class DatabaseArgs:
     def __init__(__self__, *,
-                 acl_configuration: Optional[pulumi.Input['DatabaseAclConfigurationArgs']] = None,
-                 bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_configuration: Optional[pulumi.Input['DatabaseEncryptionConfigurationArgs']] = None,
-                 expected_bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 force_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 workgroup: Optional[pulumi.Input[_builtins.str]] = None):
+                 acl_configuration: pulumi.Input[Optional['DatabaseAclConfigurationArgs']] = None,
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_configuration: pulumi.Input[Optional['DatabaseEncryptionConfigurationArgs']] = None,
+                 expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 workgroup: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Database resource.
 
@@ -68,138 +68,138 @@ class DatabaseArgs:
 
     @_builtins.property
     @pulumi.getter(name="aclConfiguration")
-    def acl_configuration(self) -> Optional[pulumi.Input['DatabaseAclConfigurationArgs']]:
+    def acl_configuration(self) -> pulumi.Input[Optional['DatabaseAclConfigurationArgs']]:
         """
         That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
         """
         return pulumi.get(self, "acl_configuration")
 
     @acl_configuration.setter
-    def acl_configuration(self, value: Optional[pulumi.Input['DatabaseAclConfigurationArgs']]):
+    def acl_configuration(self, value: pulumi.Input[Optional['DatabaseAclConfigurationArgs']]):
         pulumi.set(self, "acl_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of S3 bucket to save the results of the query execution.
         """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
-    def bucket(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the database.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionConfiguration")
-    def encryption_configuration(self) -> Optional[pulumi.Input['DatabaseEncryptionConfigurationArgs']]:
+    def encryption_configuration(self) -> pulumi.Input[Optional['DatabaseEncryptionConfigurationArgs']]:
         """
         Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
         """
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
-    def encryption_configuration(self, value: Optional[pulumi.Input['DatabaseEncryptionConfigurationArgs']]):
+    def encryption_configuration(self, value: pulumi.Input[Optional['DatabaseEncryptionConfigurationArgs']]):
         pulumi.set(self, "encryption_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="expectedBucketOwner")
-    def expected_bucket_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expected_bucket_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS account ID that you expect to be the owner of the Amazon S3 bucket.
         """
         return pulumi.get(self, "expected_bucket_owner")
 
     @expected_bucket_owner.setter
-    def expected_bucket_owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expected_bucket_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expected_bucket_owner", value)
 
     @_builtins.property
     @pulumi.getter(name="forceDestroy")
-    def force_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def force_destroy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
         """
         return pulumi.get(self, "force_destroy")
 
     @force_destroy.setter
-    def force_destroy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def force_destroy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "force_destroy", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the database to create.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of custom metadata properties for the database definition.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def workgroup(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workgroup(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the workgroup.
         """
         return pulumi.get(self, "workgroup")
 
     @workgroup.setter
-    def workgroup(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workgroup(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workgroup", value)
 
 
 @pulumi.input_type
 class _DatabaseState:
     def __init__(__self__, *,
-                 acl_configuration: Optional[pulumi.Input['DatabaseAclConfigurationArgs']] = None,
-                 bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_configuration: Optional[pulumi.Input['DatabaseEncryptionConfigurationArgs']] = None,
-                 expected_bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 force_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 workgroup: Optional[pulumi.Input[_builtins.str]] = None):
+                 acl_configuration: pulumi.Input[Optional['DatabaseAclConfigurationArgs']] = None,
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_configuration: pulumi.Input[Optional['DatabaseEncryptionConfigurationArgs']] = None,
+                 expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 workgroup: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Database resources.
 
@@ -237,122 +237,122 @@ class _DatabaseState:
 
     @_builtins.property
     @pulumi.getter(name="aclConfiguration")
-    def acl_configuration(self) -> Optional[pulumi.Input['DatabaseAclConfigurationArgs']]:
+    def acl_configuration(self) -> pulumi.Input[Optional['DatabaseAclConfigurationArgs']]:
         """
         That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
         """
         return pulumi.get(self, "acl_configuration")
 
     @acl_configuration.setter
-    def acl_configuration(self, value: Optional[pulumi.Input['DatabaseAclConfigurationArgs']]):
+    def acl_configuration(self, value: pulumi.Input[Optional['DatabaseAclConfigurationArgs']]):
         pulumi.set(self, "acl_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of S3 bucket to save the results of the query execution.
         """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
-    def bucket(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the database.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionConfiguration")
-    def encryption_configuration(self) -> Optional[pulumi.Input['DatabaseEncryptionConfigurationArgs']]:
+    def encryption_configuration(self) -> pulumi.Input[Optional['DatabaseEncryptionConfigurationArgs']]:
         """
         Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
         """
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
-    def encryption_configuration(self, value: Optional[pulumi.Input['DatabaseEncryptionConfigurationArgs']]):
+    def encryption_configuration(self, value: pulumi.Input[Optional['DatabaseEncryptionConfigurationArgs']]):
         pulumi.set(self, "encryption_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="expectedBucketOwner")
-    def expected_bucket_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expected_bucket_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS account ID that you expect to be the owner of the Amazon S3 bucket.
         """
         return pulumi.get(self, "expected_bucket_owner")
 
     @expected_bucket_owner.setter
-    def expected_bucket_owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expected_bucket_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expected_bucket_owner", value)
 
     @_builtins.property
     @pulumi.getter(name="forceDestroy")
-    def force_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def force_destroy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
         """
         return pulumi.get(self, "force_destroy")
 
     @force_destroy.setter
-    def force_destroy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def force_destroy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "force_destroy", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the database to create.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of custom metadata properties for the database definition.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def workgroup(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workgroup(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the workgroup.
         """
         return pulumi.get(self, "workgroup")
 
     @workgroup.setter
-    def workgroup(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workgroup(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workgroup", value)
 
 
@@ -362,16 +362,16 @@ class Database(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 acl_configuration: Optional[pulumi.Input[Union['DatabaseAclConfigurationArgs', 'DatabaseAclConfigurationArgsDict']]] = None,
-                 bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_configuration: Optional[pulumi.Input[Union['DatabaseEncryptionConfigurationArgs', 'DatabaseEncryptionConfigurationArgsDict']]] = None,
-                 expected_bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 force_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 workgroup: Optional[pulumi.Input[_builtins.str]] = None,
+                 acl_configuration: pulumi.Input[Optional[Union['DatabaseAclConfigurationArgs', 'DatabaseAclConfigurationArgsDict']]] = None,
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['DatabaseEncryptionConfigurationArgs', 'DatabaseEncryptionConfigurationArgsDict']]] = None,
+                 expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 workgroup: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides an Athena database.
@@ -477,16 +477,16 @@ class Database(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 acl_configuration: Optional[pulumi.Input[Union['DatabaseAclConfigurationArgs', 'DatabaseAclConfigurationArgsDict']]] = None,
-                 bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_configuration: Optional[pulumi.Input[Union['DatabaseEncryptionConfigurationArgs', 'DatabaseEncryptionConfigurationArgsDict']]] = None,
-                 expected_bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 force_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 workgroup: Optional[pulumi.Input[_builtins.str]] = None,
+                 acl_configuration: pulumi.Input[Optional[Union['DatabaseAclConfigurationArgs', 'DatabaseAclConfigurationArgsDict']]] = None,
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['DatabaseEncryptionConfigurationArgs', 'DatabaseEncryptionConfigurationArgsDict']]] = None,
+                 expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 workgroup: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -516,16 +516,16 @@ class Database(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            acl_configuration: Optional[pulumi.Input[Union['DatabaseAclConfigurationArgs', 'DatabaseAclConfigurationArgsDict']]] = None,
-            bucket: Optional[pulumi.Input[_builtins.str]] = None,
-            comment: Optional[pulumi.Input[_builtins.str]] = None,
-            encryption_configuration: Optional[pulumi.Input[Union['DatabaseEncryptionConfigurationArgs', 'DatabaseEncryptionConfigurationArgsDict']]] = None,
-            expected_bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-            force_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            workgroup: Optional[pulumi.Input[_builtins.str]] = None) -> 'Database':
+            acl_configuration: pulumi.Input[Optional[Union['DatabaseAclConfigurationArgs', 'DatabaseAclConfigurationArgsDict']]] = None,
+            bucket: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            encryption_configuration: pulumi.Input[Optional[Union['DatabaseEncryptionConfigurationArgs', 'DatabaseEncryptionConfigurationArgsDict']]] = None,
+            expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+            force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            workgroup: pulumi.Input[Optional[_builtins.str]] = None) -> 'Database':
         """
         Get an existing Database resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

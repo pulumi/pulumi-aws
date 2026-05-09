@@ -173,23 +173,23 @@ export interface GetClusterVersionsOutputArgs {
      * Type of clusters to filter by.
      * Currently, the only valid value is `eks`.
      */
-    clusterType?: pulumi.Input<string>;
-    clusterVersionsOnlies?: pulumi.Input<pulumi.Input<string>[]>;
+    clusterType?: pulumi.Input<string | undefined>;
+    clusterVersionsOnlies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Whether to show only the default versions of Kubernetes supported by EKS.
      */
-    defaultOnly?: pulumi.Input<boolean>;
+    defaultOnly?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to include all kubernetes versions in the response.
      */
-    includeAll?: pulumi.Input<boolean>;
+    includeAll?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Status of the EKS cluster versions to list.
      * Valid values are `STANDARD_SUPPORT` or `UNSUPPORTED` or `EXTENDED_SUPPORT`.
      */
-    versionStatus?: pulumi.Input<string>;
+    versionStatus?: pulumi.Input<string | undefined>;
 }

@@ -143,35 +143,35 @@ export interface DomainState {
     /**
      * DKIM verification status. Values: `PENDING`, `VERIFIED`, `FAILED`.
      */
-    dkimVerificationStatus?: pulumi.Input<string>;
+    dkimVerificationStatus?: pulumi.Input<string | undefined>;
     /**
      * Mail domain name to register. Changing this forces a new resource.
      */
-    domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string | undefined>;
     /**
      * Whether this domain is the default mail domain for the organization.
      */
-    isDefault?: pulumi.Input<boolean>;
+    isDefault?: pulumi.Input<boolean | undefined>;
     /**
      * Whether this is the auto-provisioned test domain.
      */
-    isTestDomain?: pulumi.Input<boolean>;
+    isTestDomain?: pulumi.Input<boolean | undefined>;
     /**
      * Identifier of the WorkMail organization. Changing this forces a new resource.
      */
-    organizationId?: pulumi.Input<string>;
+    organizationId?: pulumi.Input<string | undefined>;
     /**
      * Domain ownership verification status. Values: `PENDING`, `VERIFIED`, `FAILED`.
      */
-    ownershipVerificationStatus?: pulumi.Input<string>;
+    ownershipVerificationStatus?: pulumi.Input<string | undefined>;
     /**
      * List of DNS records required for domain verification. See `records` below.
      */
-    records?: pulumi.Input<pulumi.Input<inputs.workmail.DomainRecord>[]>;
+    records?: pulumi.Input<pulumi.Input<inputs.workmail.DomainRecord>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -189,5 +189,5 @@ export interface DomainArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

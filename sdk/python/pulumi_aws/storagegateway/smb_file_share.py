@@ -24,29 +24,29 @@ class SmbFileShareArgs:
                  gateway_arn: pulumi.Input[_builtins.str],
                  location_arn: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
-                 access_based_enumeration: Optional[pulumi.Input[_builtins.bool]] = None,
-                 admin_user_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 audit_destination_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 authentication: Optional[pulumi.Input[_builtins.str]] = None,
-                 bucket_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_attributes: Optional[pulumi.Input['SmbFileShareCacheAttributesArgs']] = None,
-                 case_sensitivity: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_storage_class: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_share_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 guess_mime_type_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 invalid_user_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 kms_encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_acl: Optional[pulumi.Input[_builtins.str]] = None,
-                 oplocks_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 read_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 requester_pays: Optional[pulumi.Input[_builtins.bool]] = None,
-                 smb_acl_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 valid_user_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 vpc_endpoint_dns_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_based_enumeration: pulumi.Input[Optional[_builtins.bool]] = None,
+                 admin_user_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 audit_destination_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 authentication: pulumi.Input[Optional[_builtins.str]] = None,
+                 bucket_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_attributes: pulumi.Input[Optional['SmbFileShareCacheAttributesArgs']] = None,
+                 case_sensitivity: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_storage_class: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_share_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 guess_mime_type_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 invalid_user_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 kms_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_acl: pulumi.Input[Optional[_builtins.str]] = None,
+                 oplocks_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 read_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 requester_pays: pulumi.Input[Optional[_builtins.bool]] = None,
+                 smb_acl_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 valid_user_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 vpc_endpoint_dns_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SmbFileShare resource.
 
@@ -167,247 +167,247 @@ class SmbFileShareArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessBasedEnumeration")
-    def access_based_enumeration(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def access_based_enumeration(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The files and folders on this share will only be visible to users with read access. Default value is `false`.
         """
         return pulumi.get(self, "access_based_enumeration")
 
     @access_based_enumeration.setter
-    def access_based_enumeration(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def access_based_enumeration(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "access_based_enumeration", value)
 
     @_builtins.property
     @pulumi.getter(name="adminUserLists")
-    def admin_user_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def admin_user_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.
         """
         return pulumi.get(self, "admin_user_lists")
 
     @admin_user_lists.setter
-    def admin_user_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def admin_user_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "admin_user_lists", value)
 
     @_builtins.property
     @pulumi.getter(name="auditDestinationArn")
-    def audit_destination_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def audit_destination_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
         """
         return pulumi.get(self, "audit_destination_arn")
 
     @audit_destination_arn.setter
-    def audit_destination_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def audit_destination_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "audit_destination_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def authentication(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authentication(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
         """
         return pulumi.get(self, "authentication")
 
     @authentication.setter
-    def authentication(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authentication(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authentication", value)
 
     @_builtins.property
     @pulumi.getter(name="bucketRegion")
-    def bucket_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The region of the S3 buck used by the file share. Required when specifying a `vpc_endpoint_dns_name`.
         """
         return pulumi.get(self, "bucket_region")
 
     @bucket_region.setter
-    def bucket_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket_region", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheAttributes")
-    def cache_attributes(self) -> Optional[pulumi.Input['SmbFileShareCacheAttributesArgs']]:
+    def cache_attributes(self) -> pulumi.Input[Optional['SmbFileShareCacheAttributesArgs']]:
         """
         Refresh cache information. see `cache_attributes` Block for more details.
         """
         return pulumi.get(self, "cache_attributes")
 
     @cache_attributes.setter
-    def cache_attributes(self, value: Optional[pulumi.Input['SmbFileShareCacheAttributesArgs']]):
+    def cache_attributes(self, value: pulumi.Input[Optional['SmbFileShareCacheAttributesArgs']]):
         pulumi.set(self, "cache_attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="caseSensitivity")
-    def case_sensitivity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def case_sensitivity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
         """
         return pulumi.get(self, "case_sensitivity")
 
     @case_sensitivity.setter
-    def case_sensitivity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def case_sensitivity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "case_sensitivity", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultStorageClass")
-    def default_storage_class(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_storage_class(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
         """
         return pulumi.get(self, "default_storage_class")
 
     @default_storage_class.setter
-    def default_storage_class(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_storage_class(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_storage_class", value)
 
     @_builtins.property
     @pulumi.getter(name="fileShareName")
-    def file_share_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def file_share_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
         """
         return pulumi.get(self, "file_share_name")
 
     @file_share_name.setter
-    def file_share_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def file_share_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "file_share_name", value)
 
     @_builtins.property
     @pulumi.getter(name="guessMimeTypeEnabled")
-    def guess_mime_type_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def guess_mime_type_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
         """
         return pulumi.get(self, "guess_mime_type_enabled")
 
     @guess_mime_type_enabled.setter
-    def guess_mime_type_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def guess_mime_type_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "guess_mime_type_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="invalidUserLists")
-    def invalid_user_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def invalid_user_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of users in the Active Directory that are not allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
         """
         return pulumi.get(self, "invalid_user_lists")
 
     @invalid_user_lists.setter
-    def invalid_user_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def invalid_user_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "invalid_user_lists", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsEncrypted")
-    def kms_encrypted(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def kms_encrypted(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
         """
         return pulumi.get(self, "kms_encrypted")
 
     @kms_encrypted.setter
-    def kms_encrypted(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def kms_encrypted(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "kms_encrypted", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
         """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
-    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationPolicy")
-    def notification_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notification_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
         """
         return pulumi.get(self, "notification_policy")
 
     @notification_policy.setter
-    def notification_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notification_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notification_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="objectAcl")
-    def object_acl(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def object_acl(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Access Control List permission for S3 objects. Defaults to `private`.
         """
         return pulumi.get(self, "object_acl")
 
     @object_acl.setter
-    def object_acl(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def object_acl(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "object_acl", value)
 
     @_builtins.property
     @pulumi.getter(name="oplocksEnabled")
-    def oplocks_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def oplocks_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean to indicate Opportunistic lock (oplock) status. Defaults to `true`.
         """
         return pulumi.get(self, "oplocks_enabled")
 
     @oplocks_enabled.setter
-    def oplocks_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def oplocks_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "oplocks_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="readOnly")
-    def read_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def read_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
         """
         return pulumi.get(self, "read_only")
 
     @read_only.setter
-    def read_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def read_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "read_only", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="requesterPays")
-    def requester_pays(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def requester_pays(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
         """
         return pulumi.get(self, "requester_pays")
 
     @requester_pays.setter
-    def requester_pays(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def requester_pays(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "requester_pays", value)
 
     @_builtins.property
     @pulumi.getter(name="smbAclEnabled")
-    def smb_acl_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def smb_acl_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set this value to `true` to enable ACL (access control list) on the SMB fileshare. Set it to `false` to map file and directory permissions to the POSIX permissions. This setting applies only to `ActiveDirectory` authentication type.
         """
         return pulumi.get(self, "smb_acl_enabled")
 
     @smb_acl_enabled.setter
-    def smb_acl_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def smb_acl_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "smb_acl_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 
@@ -416,67 +416,67 @@ class SmbFileShareArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="validUserLists")
-    def valid_user_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def valid_user_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of users in the Active Directory that are allowed to access the file share. If you need to specify an Active directory group, add '@' before the name of the group. It will be set on Allowed group in AWS console. Only valid if `authentication` is set to `ActiveDirectory`.
         """
         return pulumi.get(self, "valid_user_lists")
 
     @valid_user_lists.setter
-    def valid_user_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def valid_user_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "valid_user_lists", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcEndpointDnsName")
-    def vpc_endpoint_dns_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_endpoint_dns_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The DNS name of the VPC endpoint for S3 private link.
         """
         return pulumi.get(self, "vpc_endpoint_dns_name")
 
     @vpc_endpoint_dns_name.setter
-    def vpc_endpoint_dns_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_endpoint_dns_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_endpoint_dns_name", value)
 
 
 @pulumi.input_type
 class _SmbFileShareState:
     def __init__(__self__, *,
-                 access_based_enumeration: Optional[pulumi.Input[_builtins.bool]] = None,
-                 admin_user_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 audit_destination_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 authentication: Optional[pulumi.Input[_builtins.str]] = None,
-                 bucket_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_attributes: Optional[pulumi.Input['SmbFileShareCacheAttributesArgs']] = None,
-                 case_sensitivity: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_storage_class: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_share_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 fileshare_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 guess_mime_type_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 invalid_user_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 kms_encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 location_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_acl: Optional[pulumi.Input[_builtins.str]] = None,
-                 oplocks_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None,
-                 read_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 requester_pays: Optional[pulumi.Input[_builtins.bool]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 smb_acl_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 valid_user_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 vpc_endpoint_dns_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_based_enumeration: pulumi.Input[Optional[_builtins.bool]] = None,
+                 admin_user_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 audit_destination_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 authentication: pulumi.Input[Optional[_builtins.str]] = None,
+                 bucket_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_attributes: pulumi.Input[Optional['SmbFileShareCacheAttributesArgs']] = None,
+                 case_sensitivity: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_storage_class: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_share_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 fileshare_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 guess_mime_type_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 invalid_user_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 kms_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 location_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_acl: pulumi.Input[Optional[_builtins.str]] = None,
+                 oplocks_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None,
+                 read_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 requester_pays: pulumi.Input[Optional[_builtins.bool]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 smb_acl_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 valid_user_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 vpc_endpoint_dns_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SmbFileShare resources.
 
@@ -576,319 +576,319 @@ class _SmbFileShareState:
 
     @_builtins.property
     @pulumi.getter(name="accessBasedEnumeration")
-    def access_based_enumeration(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def access_based_enumeration(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The files and folders on this share will only be visible to users with read access. Default value is `false`.
         """
         return pulumi.get(self, "access_based_enumeration")
 
     @access_based_enumeration.setter
-    def access_based_enumeration(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def access_based_enumeration(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "access_based_enumeration", value)
 
     @_builtins.property
     @pulumi.getter(name="adminUserLists")
-    def admin_user_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def admin_user_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.
         """
         return pulumi.get(self, "admin_user_lists")
 
     @admin_user_lists.setter
-    def admin_user_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def admin_user_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "admin_user_lists", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) of the SMB File Share.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="auditDestinationArn")
-    def audit_destination_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def audit_destination_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
         """
         return pulumi.get(self, "audit_destination_arn")
 
     @audit_destination_arn.setter
-    def audit_destination_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def audit_destination_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "audit_destination_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def authentication(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authentication(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
         """
         return pulumi.get(self, "authentication")
 
     @authentication.setter
-    def authentication(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authentication(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authentication", value)
 
     @_builtins.property
     @pulumi.getter(name="bucketRegion")
-    def bucket_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The region of the S3 buck used by the file share. Required when specifying a `vpc_endpoint_dns_name`.
         """
         return pulumi.get(self, "bucket_region")
 
     @bucket_region.setter
-    def bucket_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket_region", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheAttributes")
-    def cache_attributes(self) -> Optional[pulumi.Input['SmbFileShareCacheAttributesArgs']]:
+    def cache_attributes(self) -> pulumi.Input[Optional['SmbFileShareCacheAttributesArgs']]:
         """
         Refresh cache information. see `cache_attributes` Block for more details.
         """
         return pulumi.get(self, "cache_attributes")
 
     @cache_attributes.setter
-    def cache_attributes(self, value: Optional[pulumi.Input['SmbFileShareCacheAttributesArgs']]):
+    def cache_attributes(self, value: pulumi.Input[Optional['SmbFileShareCacheAttributesArgs']]):
         pulumi.set(self, "cache_attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="caseSensitivity")
-    def case_sensitivity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def case_sensitivity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
         """
         return pulumi.get(self, "case_sensitivity")
 
     @case_sensitivity.setter
-    def case_sensitivity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def case_sensitivity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "case_sensitivity", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultStorageClass")
-    def default_storage_class(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_storage_class(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
         """
         return pulumi.get(self, "default_storage_class")
 
     @default_storage_class.setter
-    def default_storage_class(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_storage_class(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_storage_class", value)
 
     @_builtins.property
     @pulumi.getter(name="fileShareName")
-    def file_share_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def file_share_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
         """
         return pulumi.get(self, "file_share_name")
 
     @file_share_name.setter
-    def file_share_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def file_share_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "file_share_name", value)
 
     @_builtins.property
     @pulumi.getter(name="fileshareId")
-    def fileshare_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fileshare_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the SMB File Share.
         """
         return pulumi.get(self, "fileshare_id")
 
     @fileshare_id.setter
-    def fileshare_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fileshare_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fileshare_id", value)
 
     @_builtins.property
     @pulumi.getter(name="gatewayArn")
-    def gateway_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gateway_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) of the file gateway.
         """
         return pulumi.get(self, "gateway_arn")
 
     @gateway_arn.setter
-    def gateway_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gateway_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gateway_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="guessMimeTypeEnabled")
-    def guess_mime_type_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def guess_mime_type_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
         """
         return pulumi.get(self, "guess_mime_type_enabled")
 
     @guess_mime_type_enabled.setter
-    def guess_mime_type_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def guess_mime_type_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "guess_mime_type_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="invalidUserLists")
-    def invalid_user_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def invalid_user_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of users in the Active Directory that are not allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
         """
         return pulumi.get(self, "invalid_user_lists")
 
     @invalid_user_lists.setter
-    def invalid_user_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def invalid_user_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "invalid_user_lists", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsEncrypted")
-    def kms_encrypted(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def kms_encrypted(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
         """
         return pulumi.get(self, "kms_encrypted")
 
     @kms_encrypted.setter
-    def kms_encrypted(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def kms_encrypted(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "kms_encrypted", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
         """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
-    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="locationArn")
-    def location_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the backed storage used for storing file data.
         """
         return pulumi.get(self, "location_arn")
 
     @location_arn.setter
-    def location_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationPolicy")
-    def notification_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notification_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
         """
         return pulumi.get(self, "notification_policy")
 
     @notification_policy.setter
-    def notification_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notification_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notification_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="objectAcl")
-    def object_acl(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def object_acl(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Access Control List permission for S3 objects. Defaults to `private`.
         """
         return pulumi.get(self, "object_acl")
 
     @object_acl.setter
-    def object_acl(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def object_acl(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "object_acl", value)
 
     @_builtins.property
     @pulumi.getter(name="oplocksEnabled")
-    def oplocks_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def oplocks_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean to indicate Opportunistic lock (oplock) status. Defaults to `true`.
         """
         return pulumi.get(self, "oplocks_enabled")
 
     @oplocks_enabled.setter
-    def oplocks_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def oplocks_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "oplocks_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         File share path used by the NFS client to identify the mount point.
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
     @_builtins.property
     @pulumi.getter(name="readOnly")
-    def read_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def read_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
         """
         return pulumi.get(self, "read_only")
 
     @read_only.setter
-    def read_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def read_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "read_only", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="requesterPays")
-    def requester_pays(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def requester_pays(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
         """
         return pulumi.get(self, "requester_pays")
 
     @requester_pays.setter
-    def requester_pays(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def requester_pays(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "requester_pays", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="smbAclEnabled")
-    def smb_acl_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def smb_acl_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set this value to `true` to enable ACL (access control list) on the SMB fileshare. Set it to `false` to map file and directory permissions to the POSIX permissions. This setting applies only to `ActiveDirectory` authentication type.
         """
         return pulumi.get(self, "smb_acl_enabled")
 
     @smb_acl_enabled.setter
-    def smb_acl_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def smb_acl_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "smb_acl_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 
@@ -897,43 +897,43 @@ class _SmbFileShareState:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="validUserLists")
-    def valid_user_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def valid_user_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of users in the Active Directory that are allowed to access the file share. If you need to specify an Active directory group, add '@' before the name of the group. It will be set on Allowed group in AWS console. Only valid if `authentication` is set to `ActiveDirectory`.
         """
         return pulumi.get(self, "valid_user_lists")
 
     @valid_user_lists.setter
-    def valid_user_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def valid_user_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "valid_user_lists", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcEndpointDnsName")
-    def vpc_endpoint_dns_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_endpoint_dns_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The DNS name of the VPC endpoint for S3 private link.
         """
         return pulumi.get(self, "vpc_endpoint_dns_name")
 
     @vpc_endpoint_dns_name.setter
-    def vpc_endpoint_dns_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_endpoint_dns_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_endpoint_dns_name", value)
 
 
@@ -943,32 +943,32 @@ class SmbFileShare(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_based_enumeration: Optional[pulumi.Input[_builtins.bool]] = None,
-                 admin_user_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 audit_destination_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 authentication: Optional[pulumi.Input[_builtins.str]] = None,
-                 bucket_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_attributes: Optional[pulumi.Input[Union['SmbFileShareCacheAttributesArgs', 'SmbFileShareCacheAttributesArgsDict']]] = None,
-                 case_sensitivity: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_storage_class: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_share_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 guess_mime_type_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 invalid_user_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 kms_encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 location_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_acl: Optional[pulumi.Input[_builtins.str]] = None,
-                 oplocks_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 read_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 requester_pays: Optional[pulumi.Input[_builtins.bool]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 smb_acl_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 valid_user_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 vpc_endpoint_dns_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_based_enumeration: pulumi.Input[Optional[_builtins.bool]] = None,
+                 admin_user_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 audit_destination_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 authentication: pulumi.Input[Optional[_builtins.str]] = None,
+                 bucket_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_attributes: pulumi.Input[Optional[Union['SmbFileShareCacheAttributesArgs', 'SmbFileShareCacheAttributesArgsDict']]] = None,
+                 case_sensitivity: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_storage_class: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_share_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 guess_mime_type_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 invalid_user_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 kms_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 location_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_acl: pulumi.Input[Optional[_builtins.str]] = None,
+                 oplocks_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 read_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 requester_pays: pulumi.Input[Optional[_builtins.bool]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 smb_acl_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 valid_user_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 vpc_endpoint_dns_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an AWS Storage Gateway SMB File Share.
@@ -1110,32 +1110,32 @@ class SmbFileShare(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_based_enumeration: Optional[pulumi.Input[_builtins.bool]] = None,
-                 admin_user_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 audit_destination_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 authentication: Optional[pulumi.Input[_builtins.str]] = None,
-                 bucket_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_attributes: Optional[pulumi.Input[Union['SmbFileShareCacheAttributesArgs', 'SmbFileShareCacheAttributesArgsDict']]] = None,
-                 case_sensitivity: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_storage_class: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_share_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 guess_mime_type_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 invalid_user_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 kms_encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 location_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_acl: Optional[pulumi.Input[_builtins.str]] = None,
-                 oplocks_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 read_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 requester_pays: Optional[pulumi.Input[_builtins.bool]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 smb_acl_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 valid_user_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 vpc_endpoint_dns_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_based_enumeration: pulumi.Input[Optional[_builtins.bool]] = None,
+                 admin_user_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 audit_destination_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 authentication: pulumi.Input[Optional[_builtins.str]] = None,
+                 bucket_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_attributes: pulumi.Input[Optional[Union['SmbFileShareCacheAttributesArgs', 'SmbFileShareCacheAttributesArgsDict']]] = None,
+                 case_sensitivity: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_storage_class: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_share_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 guess_mime_type_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 invalid_user_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 kms_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 location_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_acl: pulumi.Input[Optional[_builtins.str]] = None,
+                 oplocks_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 read_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 requester_pays: pulumi.Input[Optional[_builtins.bool]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 smb_acl_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 valid_user_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 vpc_endpoint_dns_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1191,36 +1191,36 @@ class SmbFileShare(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            access_based_enumeration: Optional[pulumi.Input[_builtins.bool]] = None,
-            admin_user_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            audit_destination_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            authentication: Optional[pulumi.Input[_builtins.str]] = None,
-            bucket_region: Optional[pulumi.Input[_builtins.str]] = None,
-            cache_attributes: Optional[pulumi.Input[Union['SmbFileShareCacheAttributesArgs', 'SmbFileShareCacheAttributesArgsDict']]] = None,
-            case_sensitivity: Optional[pulumi.Input[_builtins.str]] = None,
-            default_storage_class: Optional[pulumi.Input[_builtins.str]] = None,
-            file_share_name: Optional[pulumi.Input[_builtins.str]] = None,
-            fileshare_id: Optional[pulumi.Input[_builtins.str]] = None,
-            gateway_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            guess_mime_type_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            invalid_user_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            kms_encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-            kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            location_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            notification_policy: Optional[pulumi.Input[_builtins.str]] = None,
-            object_acl: Optional[pulumi.Input[_builtins.str]] = None,
-            oplocks_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            path: Optional[pulumi.Input[_builtins.str]] = None,
-            read_only: Optional[pulumi.Input[_builtins.bool]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            requester_pays: Optional[pulumi.Input[_builtins.bool]] = None,
-            role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            smb_acl_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            valid_user_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            vpc_endpoint_dns_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'SmbFileShare':
+            access_based_enumeration: pulumi.Input[Optional[_builtins.bool]] = None,
+            admin_user_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            audit_destination_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            authentication: pulumi.Input[Optional[_builtins.str]] = None,
+            bucket_region: pulumi.Input[Optional[_builtins.str]] = None,
+            cache_attributes: pulumi.Input[Optional[Union['SmbFileShareCacheAttributesArgs', 'SmbFileShareCacheAttributesArgsDict']]] = None,
+            case_sensitivity: pulumi.Input[Optional[_builtins.str]] = None,
+            default_storage_class: pulumi.Input[Optional[_builtins.str]] = None,
+            file_share_name: pulumi.Input[Optional[_builtins.str]] = None,
+            fileshare_id: pulumi.Input[Optional[_builtins.str]] = None,
+            gateway_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            guess_mime_type_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            invalid_user_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            kms_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+            kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            location_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            notification_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            object_acl: pulumi.Input[Optional[_builtins.str]] = None,
+            oplocks_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            path: pulumi.Input[Optional[_builtins.str]] = None,
+            read_only: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            requester_pays: pulumi.Input[Optional[_builtins.bool]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            smb_acl_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            valid_user_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            vpc_endpoint_dns_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'SmbFileShare':
         """
         Get an existing SmbFileShare resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

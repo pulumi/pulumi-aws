@@ -20,11 +20,11 @@ __all__ = ['VpcIpamPoolCidrAllocationArgs', 'VpcIpamPoolCidrAllocation']
 class VpcIpamPoolCidrAllocationArgs:
     def __init__(__self__, *,
                  ipam_pool_id: pulumi.Input[_builtins.str],
-                 cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 disallowed_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 netmask_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disallowed_cidrs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 netmask_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VpcIpamPoolCidrAllocation resource.
 
@@ -61,78 +61,78 @@ class VpcIpamPoolCidrAllocationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def cidr(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cidr(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The CIDR you want to assign to the pool.
         """
         return pulumi.get(self, "cidr")
 
     @cidr.setter
-    def cidr(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cidr(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cidr", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description for the allocation.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="disallowedCidrs")
-    def disallowed_cidrs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def disallowed_cidrs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Exclude a particular CIDR range from being returned by the pool.
         """
         return pulumi.get(self, "disallowed_cidrs")
 
     @disallowed_cidrs.setter
-    def disallowed_cidrs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def disallowed_cidrs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "disallowed_cidrs", value)
 
     @_builtins.property
     @pulumi.getter(name="netmaskLength")
-    def netmask_length(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def netmask_length(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
         """
         return pulumi.get(self, "netmask_length")
 
     @netmask_length.setter
-    def netmask_length(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def netmask_length(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "netmask_length", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _VpcIpamPoolCidrAllocationState:
     def __init__(__self__, *,
-                 cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 disallowed_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ipam_pool_allocation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipam_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 netmask_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disallowed_cidrs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ipam_pool_allocation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 netmask_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VpcIpamPoolCidrAllocation resources.
 
@@ -169,119 +169,119 @@ class _VpcIpamPoolCidrAllocationState:
 
     @_builtins.property
     @pulumi.getter
-    def cidr(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cidr(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The CIDR you want to assign to the pool.
         """
         return pulumi.get(self, "cidr")
 
     @cidr.setter
-    def cidr(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cidr(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cidr", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description for the allocation.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="disallowedCidrs")
-    def disallowed_cidrs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def disallowed_cidrs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Exclude a particular CIDR range from being returned by the pool.
         """
         return pulumi.get(self, "disallowed_cidrs")
 
     @disallowed_cidrs.setter
-    def disallowed_cidrs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def disallowed_cidrs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "disallowed_cidrs", value)
 
     @_builtins.property
     @pulumi.getter(name="ipamPoolAllocationId")
-    def ipam_pool_allocation_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipam_pool_allocation_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "ipam_pool_allocation_id")
 
     @ipam_pool_allocation_id.setter
-    def ipam_pool_allocation_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipam_pool_allocation_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipam_pool_allocation_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ipamPoolId")
-    def ipam_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipam_pool_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the pool to which you want to assign a CIDR.
         """
         return pulumi.get(self, "ipam_pool_id")
 
     @ipam_pool_id.setter
-    def ipam_pool_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipam_pool_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipam_pool_id", value)
 
     @_builtins.property
     @pulumi.getter(name="netmaskLength")
-    def netmask_length(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def netmask_length(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
         """
         return pulumi.get(self, "netmask_length")
 
     @netmask_length.setter
-    def netmask_length(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def netmask_length(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "netmask_length", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the resource.
         """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceOwner")
-    def resource_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The owner of the resource.
         """
         return pulumi.get(self, "resource_owner")
 
     @resource_owner.setter
-    def resource_owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_owner", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceType")
-    def resource_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the resource.
         """
         return pulumi.get(self, "resource_type")
 
     @resource_type.setter
-    def resource_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_type", value)
 
 
@@ -291,12 +291,12 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 disallowed_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ipam_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 netmask_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disallowed_cidrs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 netmask_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Allocates (reserves) a CIDR from an IPAM address pool, preventing usage by IPAM. Only works for private IPv4.
@@ -450,12 +450,12 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 disallowed_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ipam_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 netmask_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disallowed_cidrs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 netmask_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -487,16 +487,16 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cidr: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            disallowed_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            ipam_pool_allocation_id: Optional[pulumi.Input[_builtins.str]] = None,
-            ipam_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-            netmask_length: Optional[pulumi.Input[_builtins.int]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_owner: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_type: Optional[pulumi.Input[_builtins.str]] = None) -> 'VpcIpamPoolCidrAllocation':
+            cidr: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            disallowed_cidrs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            ipam_pool_allocation_id: pulumi.Input[Optional[_builtins.str]] = None,
+            ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+            netmask_length: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_owner: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_type: pulumi.Input[Optional[_builtins.str]] = None) -> 'VpcIpamPoolCidrAllocation':
         """
         Get an existing VpcIpamPoolCidrAllocation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

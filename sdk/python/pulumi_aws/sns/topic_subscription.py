@@ -22,16 +22,16 @@ class TopicSubscriptionArgs:
                  endpoint: pulumi.Input[_builtins.str],
                  protocol: pulumi.Input[_builtins.str],
                  topic: pulumi.Input[_builtins.str],
-                 confirmation_timeout_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 delivery_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_auto_confirms: Optional[pulumi.Input[_builtins.bool]] = None,
-                 filter_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 filter_policy_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 raw_message_delivery: Optional[pulumi.Input[_builtins.bool]] = None,
-                 redrive_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 replay_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_role_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 confirmation_timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 delivery_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_auto_confirms: pulumi.Input[Optional[_builtins.bool]] = None,
+                 filter_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 filter_policy_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 raw_message_delivery: pulumi.Input[Optional[_builtins.bool]] = None,
+                 redrive_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 replay_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_role_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a TopicSubscription resource.
 
@@ -115,145 +115,145 @@ class TopicSubscriptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="confirmationTimeoutInMinutes")
-    def confirmation_timeout_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def confirmation_timeout_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Integer indicating number of minutes to wait in retrying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
         """
         return pulumi.get(self, "confirmation_timeout_in_minutes")
 
     @confirmation_timeout_in_minutes.setter
-    def confirmation_timeout_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def confirmation_timeout_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "confirmation_timeout_in_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="deliveryPolicy")
-    def delivery_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delivery_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         JSON String with the delivery policy (retries, backoff, etc.) that will be used in the subscription - this only applies to HTTP/S subscriptions. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html) for more details.
         """
         return pulumi.get(self, "delivery_policy")
 
     @delivery_policy.setter
-    def delivery_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delivery_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delivery_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointAutoConfirms")
-    def endpoint_auto_confirms(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def endpoint_auto_confirms(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the endpoint is capable of [auto confirming subscription](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.prepare) (e.g., PagerDuty). Default is `false`.
         """
         return pulumi.get(self, "endpoint_auto_confirms")
 
     @endpoint_auto_confirms.setter
-    def endpoint_auto_confirms(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def endpoint_auto_confirms(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "endpoint_auto_confirms", value)
 
     @_builtins.property
     @pulumi.getter(name="filterPolicy")
-    def filter_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def filter_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
         """
         return pulumi.get(self, "filter_policy")
 
     @filter_policy.setter
-    def filter_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def filter_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "filter_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="filterPolicyScope")
-    def filter_policy_scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def filter_policy_scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether the `filter_policy` applies to `MessageAttributes` (default) or `MessageBody`.
         """
         return pulumi.get(self, "filter_policy_scope")
 
     @filter_policy_scope.setter
-    def filter_policy_scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def filter_policy_scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "filter_policy_scope", value)
 
     @_builtins.property
     @pulumi.getter(name="rawMessageDelivery")
-    def raw_message_delivery(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def raw_message_delivery(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property). Default is `false`.
         """
         return pulumi.get(self, "raw_message_delivery")
 
     @raw_message_delivery.setter
-    def raw_message_delivery(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def raw_message_delivery(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "raw_message_delivery", value)
 
     @_builtins.property
     @pulumi.getter(name="redrivePolicy")
-    def redrive_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def redrive_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
         """
         return pulumi.get(self, "redrive_policy")
 
     @redrive_policy.setter
-    def redrive_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def redrive_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "redrive_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="replayPolicy")
-    def replay_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def replay_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         JSON String with the archived message replay policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-subscriber.html) for more details.
         """
         return pulumi.get(self, "replay_policy")
 
     @replay_policy.setter
-    def replay_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def replay_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "replay_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionRoleArn")
-    def subscription_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subscription_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
         """
         return pulumi.get(self, "subscription_role_arn")
 
     @subscription_role_arn.setter
-    def subscription_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subscription_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subscription_role_arn", value)
 
 
 @pulumi.input_type
 class _TopicSubscriptionState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 confirmation_timeout_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 confirmation_was_authenticated: Optional[pulumi.Input[_builtins.bool]] = None,
-                 delivery_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_auto_confirms: Optional[pulumi.Input[_builtins.bool]] = None,
-                 filter_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 filter_policy_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 pending_confirmation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 raw_message_delivery: Optional[pulumi.Input[_builtins.bool]] = None,
-                 redrive_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 replay_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 topic: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 confirmation_timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 confirmation_was_authenticated: pulumi.Input[Optional[_builtins.bool]] = None,
+                 delivery_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_auto_confirms: pulumi.Input[Optional[_builtins.bool]] = None,
+                 filter_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 filter_policy_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 pending_confirmation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 raw_message_delivery: pulumi.Input[Optional[_builtins.bool]] = None,
+                 redrive_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 replay_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 topic: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TopicSubscription resources.
 
@@ -314,199 +314,199 @@ class _TopicSubscriptionState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the subscription.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="confirmationTimeoutInMinutes")
-    def confirmation_timeout_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def confirmation_timeout_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Integer indicating number of minutes to wait in retrying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
         """
         return pulumi.get(self, "confirmation_timeout_in_minutes")
 
     @confirmation_timeout_in_minutes.setter
-    def confirmation_timeout_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def confirmation_timeout_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "confirmation_timeout_in_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="confirmationWasAuthenticated")
-    def confirmation_was_authenticated(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def confirmation_was_authenticated(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the subscription confirmation request was authenticated.
         """
         return pulumi.get(self, "confirmation_was_authenticated")
 
     @confirmation_was_authenticated.setter
-    def confirmation_was_authenticated(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def confirmation_was_authenticated(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "confirmation_was_authenticated", value)
 
     @_builtins.property
     @pulumi.getter(name="deliveryPolicy")
-    def delivery_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delivery_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         JSON String with the delivery policy (retries, backoff, etc.) that will be used in the subscription - this only applies to HTTP/S subscriptions. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html) for more details.
         """
         return pulumi.get(self, "delivery_policy")
 
     @delivery_policy.setter
-    def delivery_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delivery_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delivery_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Endpoint to send data to. The contents vary with the protocol. See details below.
         """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
-    def endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointAutoConfirms")
-    def endpoint_auto_confirms(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def endpoint_auto_confirms(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the endpoint is capable of [auto confirming subscription](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.prepare) (e.g., PagerDuty). Default is `false`.
         """
         return pulumi.get(self, "endpoint_auto_confirms")
 
     @endpoint_auto_confirms.setter
-    def endpoint_auto_confirms(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def endpoint_auto_confirms(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "endpoint_auto_confirms", value)
 
     @_builtins.property
     @pulumi.getter(name="filterPolicy")
-    def filter_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def filter_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
         """
         return pulumi.get(self, "filter_policy")
 
     @filter_policy.setter
-    def filter_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def filter_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "filter_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="filterPolicyScope")
-    def filter_policy_scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def filter_policy_scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether the `filter_policy` applies to `MessageAttributes` (default) or `MessageBody`.
         """
         return pulumi.get(self, "filter_policy_scope")
 
     @filter_policy_scope.setter
-    def filter_policy_scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def filter_policy_scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "filter_policy_scope", value)
 
     @_builtins.property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS account ID of the subscription's owner.
         """
         return pulumi.get(self, "owner_id")
 
     @owner_id.setter
-    def owner_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner_id", value)
 
     @_builtins.property
     @pulumi.getter(name="pendingConfirmation")
-    def pending_confirmation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def pending_confirmation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the subscription has not been confirmed.
         """
         return pulumi.get(self, "pending_confirmation")
 
     @pending_confirmation.setter
-    def pending_confirmation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def pending_confirmation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "pending_confirmation", value)
 
     @_builtins.property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Protocol to use. Valid values are: `sqs`, `sms`, `lambda`, `firehose`, and `application`. Protocols `email`, `email-json`, `http` and `https` are also valid but partially supported. See details below.
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="rawMessageDelivery")
-    def raw_message_delivery(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def raw_message_delivery(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property). Default is `false`.
         """
         return pulumi.get(self, "raw_message_delivery")
 
     @raw_message_delivery.setter
-    def raw_message_delivery(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def raw_message_delivery(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "raw_message_delivery", value)
 
     @_builtins.property
     @pulumi.getter(name="redrivePolicy")
-    def redrive_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def redrive_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
         """
         return pulumi.get(self, "redrive_policy")
 
     @redrive_policy.setter
-    def redrive_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def redrive_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "redrive_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="replayPolicy")
-    def replay_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def replay_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         JSON String with the archived message replay policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-subscriber.html) for more details.
         """
         return pulumi.get(self, "replay_policy")
 
     @replay_policy.setter
-    def replay_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def replay_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "replay_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionRoleArn")
-    def subscription_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subscription_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
         """
         return pulumi.get(self, "subscription_role_arn")
 
     @subscription_role_arn.setter
-    def subscription_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subscription_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subscription_role_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def topic(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def topic(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the SNS topic to subscribe to.
 
@@ -515,7 +515,7 @@ class _TopicSubscriptionState:
         return pulumi.get(self, "topic")
 
     @topic.setter
-    def topic(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def topic(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "topic", value)
 
 
@@ -525,19 +525,19 @@ class TopicSubscription(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 confirmation_timeout_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 delivery_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_auto_confirms: Optional[pulumi.Input[_builtins.bool]] = None,
-                 filter_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 filter_policy_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 raw_message_delivery: Optional[pulumi.Input[_builtins.bool]] = None,
-                 redrive_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 replay_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 topic: Optional[pulumi.Input[_builtins.str]] = None,
+                 confirmation_timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 delivery_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_auto_confirms: pulumi.Input[Optional[_builtins.bool]] = None,
+                 filter_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 filter_policy_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 raw_message_delivery: pulumi.Input[Optional[_builtins.bool]] = None,
+                 redrive_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 replay_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 topic: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a resource for subscribing to SNS topics. Requires that an SNS topic exist for the subscription to attach to. This resource allows you to automatically place messages sent to SNS topics in SQS queues, send them as HTTP(S) POST requests to a given endpoint, send SMS messages, or notify devices / applications. The most likely use case for provider users will probably be SQS queues.
@@ -968,19 +968,19 @@ class TopicSubscription(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 confirmation_timeout_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 delivery_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_auto_confirms: Optional[pulumi.Input[_builtins.bool]] = None,
-                 filter_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 filter_policy_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 raw_message_delivery: Optional[pulumi.Input[_builtins.bool]] = None,
-                 redrive_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 replay_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 topic: Optional[pulumi.Input[_builtins.str]] = None,
+                 confirmation_timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 delivery_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_auto_confirms: pulumi.Input[Optional[_builtins.bool]] = None,
+                 filter_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 filter_policy_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 raw_message_delivery: pulumi.Input[Optional[_builtins.bool]] = None,
+                 redrive_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 replay_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 topic: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1023,23 +1023,23 @@ class TopicSubscription(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            confirmation_timeout_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-            confirmation_was_authenticated: Optional[pulumi.Input[_builtins.bool]] = None,
-            delivery_policy: Optional[pulumi.Input[_builtins.str]] = None,
-            endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            endpoint_auto_confirms: Optional[pulumi.Input[_builtins.bool]] = None,
-            filter_policy: Optional[pulumi.Input[_builtins.str]] = None,
-            filter_policy_scope: Optional[pulumi.Input[_builtins.str]] = None,
-            owner_id: Optional[pulumi.Input[_builtins.str]] = None,
-            pending_confirmation: Optional[pulumi.Input[_builtins.bool]] = None,
-            protocol: Optional[pulumi.Input[_builtins.str]] = None,
-            raw_message_delivery: Optional[pulumi.Input[_builtins.bool]] = None,
-            redrive_policy: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            replay_policy: Optional[pulumi.Input[_builtins.str]] = None,
-            subscription_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            topic: Optional[pulumi.Input[_builtins.str]] = None) -> 'TopicSubscription':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            confirmation_timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            confirmation_was_authenticated: pulumi.Input[Optional[_builtins.bool]] = None,
+            delivery_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint_auto_confirms: pulumi.Input[Optional[_builtins.bool]] = None,
+            filter_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            filter_policy_scope: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+            pending_confirmation: pulumi.Input[Optional[_builtins.bool]] = None,
+            protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            raw_message_delivery: pulumi.Input[Optional[_builtins.bool]] = None,
+            redrive_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            replay_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            subscription_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            topic: pulumi.Input[Optional[_builtins.str]] = None) -> 'TopicSubscription':
         """
         Get an existing TopicSubscription resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

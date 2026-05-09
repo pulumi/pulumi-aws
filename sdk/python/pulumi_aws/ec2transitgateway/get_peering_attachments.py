@@ -126,8 +126,8 @@ def get_peering_attachments(filters: Optional[Sequence[Union['GetPeeringAttachme
         id=pulumi.get(__ret__, 'id'),
         ids=pulumi.get(__ret__, 'ids'),
         region=pulumi.get(__ret__, 'region'))
-def get_peering_attachments_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetPeeringAttachmentsFilterArgs', 'GetPeeringAttachmentsFilterArgsDict']]]]] = None,
-                                   region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_peering_attachments_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetPeeringAttachmentsFilterArgs', 'GetPeeringAttachmentsFilterArgsDict']]]]] = None,
+                                   region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPeeringAttachmentsResult]:
     """
     Get information on EC2 Transit Gateway Peering Attachments.

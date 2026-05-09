@@ -495,221 +495,221 @@ export interface S3EndpointState {
     /**
      * Whether to add column name information to the .csv output file. Default is `false`.
      */
-    addColumnName?: pulumi.Input<boolean>;
+    addColumnName?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to add padding. Default is `false`. (Ignored for source endpoints.)
      */
-    addTrailingPaddingCharacter?: pulumi.Input<boolean>;
+    addTrailingPaddingCharacter?: pulumi.Input<boolean | undefined>;
     /**
      * S3 object prefix.
      */
-    bucketFolder?: pulumi.Input<string>;
+    bucketFolder?: pulumi.Input<string | undefined>;
     /**
      * S3 bucket name.
      */
-    bucketName?: pulumi.Input<string>;
+    bucketName?: pulumi.Input<string | undefined>;
     /**
      * Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `none`, `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Default is `none`.
      */
-    cannedAclForObjects?: pulumi.Input<string>;
+    cannedAclForObjects?: pulumi.Input<string | undefined>;
     /**
      * Whether to write insert and update operations to .csv or .parquet output files. Default is `false`.
      */
-    cdcInsertsAndUpdates?: pulumi.Input<boolean>;
+    cdcInsertsAndUpdates?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to write insert operations to .csv or .parquet output files. Default is `false`.
      */
-    cdcInsertsOnly?: pulumi.Input<boolean>;
+    cdcInsertsOnly?: pulumi.Input<boolean | undefined>;
     /**
      * Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3. (AWS default is `60`.)
      */
-    cdcMaxBatchInterval?: pulumi.Input<number>;
+    cdcMaxBatchInterval?: pulumi.Input<number | undefined>;
     /**
      * Minimum file size condition as defined in kilobytes to output a file to Amazon S3. (AWS default is 32000 KB.)
      */
-    cdcMinFileSize?: pulumi.Input<number>;
+    cdcMinFileSize?: pulumi.Input<number | undefined>;
     /**
      * Folder path of CDC files. If `cdcPath` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later. Required for CDC.
      */
-    cdcPath?: pulumi.Input<string>;
+    cdcPath?: pulumi.Input<string | undefined>;
     /**
      * ARN for the certificate.
      */
-    certificateArn?: pulumi.Input<string>;
+    certificateArn?: pulumi.Input<string | undefined>;
     /**
      * Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
      */
-    compressionType?: pulumi.Input<string>;
+    compressionType?: pulumi.Input<string | undefined>;
     /**
      * Delimiter used to separate columns in the source files. Default is `,`.
      */
-    csvDelimiter?: pulumi.Input<string>;
+    csvDelimiter?: pulumi.Input<string | undefined>;
     /**
      * Only applies if output files for a CDC load are written in .csv format. If `useCsvNoSupValue` is set to `true`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `useCsvNoSupValue`. (Ignored for source endpoints.)
      */
-    csvNoSupValue?: pulumi.Input<string>;
+    csvNoSupValue?: pulumi.Input<string | undefined>;
     /**
      * String to as null when writing to the target. (AWS default is `NULL`.)
      */
-    csvNullValue?: pulumi.Input<string>;
+    csvNullValue?: pulumi.Input<string | undefined>;
     /**
      * Delimiter used to separate rows in the source files. Default is newline (_i.e._, `\n`).
      */
-    csvRowDelimiter?: pulumi.Input<string>;
+    csvRowDelimiter?: pulumi.Input<string | undefined>;
     /**
      * Output format for the files that AWS DMS uses to create S3 objects. Valid values are `csv` and `parquet`.  (Ignored for source endpoints -- only `csv` is valid.)
      */
-    dataFormat?: pulumi.Input<string>;
+    dataFormat?: pulumi.Input<string | undefined>;
     /**
      * Size of one data page in bytes. (AWS default is 1 MiB, _i.e._, `1048576`.)
      */
-    dataPageSize?: pulumi.Input<number>;
+    dataPageSize?: pulumi.Input<number | undefined>;
     /**
      * Date separating delimiter to use during folder partitioning. Valid values are `SLASH`, `UNDERSCORE`, `DASH`, and `NONE`. (AWS default is `SLASH`.) (Ignored for source endpoints.)
      */
-    datePartitionDelimiter?: pulumi.Input<string>;
+    datePartitionDelimiter?: pulumi.Input<string | undefined>;
     /**
      * Partition S3 bucket folders based on transaction commit dates. Default is `false`. (Ignored for source endpoints.)
      */
-    datePartitionEnabled?: pulumi.Input<boolean>;
+    datePartitionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Date format to use during folder partitioning. Use this parameter when `datePartitionEnabled` is set to true. Valid values are `YYYYMMDD`, `YYYYMMDDHH`, `YYYYMM`, `MMYYYYDD`, and `DDMMYYYY`. (AWS default is `YYYYMMDD`.) (Ignored for source endpoints.)
      */
-    datePartitionSequence?: pulumi.Input<string>;
+    datePartitionSequence?: pulumi.Input<string | undefined>;
     /**
      * Convert the current UTC time to a timezone. The conversion occurs when a date partition folder is created and a CDC filename is generated. The timezone format is Area/Location (_e.g._, `Europe/Paris`). Use this when `datePartitionEnabled` is `true`. (Ignored for source endpoints.)
      */
-    datePartitionTimezone?: pulumi.Input<string>;
+    datePartitionTimezone?: pulumi.Input<string | undefined>;
     /**
      * Undocumented argument for use as directed by AWS Support.
      */
-    detachTargetOnLobLookupFailureParquet?: pulumi.Input<boolean>;
+    detachTargetOnLobLookupFailureParquet?: pulumi.Input<boolean | undefined>;
     /**
      * Maximum size in bytes of an encoded dictionary page of a column. (AWS default is 1 MiB, _i.e._, `1048576`.)
      */
-    dictPageSizeLimit?: pulumi.Input<number>;
+    dictPageSizeLimit?: pulumi.Input<number | undefined>;
     /**
      * Whether to enable statistics for Parquet pages and row groups. Default is `true`.
      */
-    enableStatistics?: pulumi.Input<boolean>;
+    enableStatistics?: pulumi.Input<boolean | undefined>;
     /**
      * Type of encoding to use. Value values are `rleDictionary`, `plain`, and `plainDictionary`. (AWS default is `rleDictionary`.)
      */
-    encodingType?: pulumi.Input<string>;
+    encodingType?: pulumi.Input<string | undefined>;
     /**
      * Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
      */
-    encryptionMode?: pulumi.Input<string>;
+    encryptionMode?: pulumi.Input<string | undefined>;
     /**
      * ARN for the endpoint.
      */
-    endpointArn?: pulumi.Input<string>;
+    endpointArn?: pulumi.Input<string | undefined>;
     /**
      * Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
      */
-    endpointId?: pulumi.Input<string>;
+    endpointId?: pulumi.Input<string | undefined>;
     /**
      * Type of endpoint. Valid values are `source`, `target`.
      */
-    endpointType?: pulumi.Input<string>;
+    endpointType?: pulumi.Input<string | undefined>;
     /**
      * Expanded name for the engine name.
      */
-    engineDisplayName?: pulumi.Input<string>;
+    engineDisplayName?: pulumi.Input<string | undefined>;
     /**
      * Bucket owner to prevent sniping. Value is an AWS account ID.
      */
-    expectedBucketOwner?: pulumi.Input<string>;
+    expectedBucketOwner?: pulumi.Input<string | undefined>;
     /**
      * Can be used for cross-account validation. Use it in another account with `aws.dms.S3Endpoint` to create the endpoint cross-account.
      */
-    externalId?: pulumi.Input<string>;
+    externalId?: pulumi.Input<string | undefined>;
     /**
      * JSON document that describes how AWS DMS should interpret the data. Required for `source` endpoints.
      */
-    externalTableDefinition?: pulumi.Input<string>;
+    externalTableDefinition?: pulumi.Input<string | undefined>;
     /**
      * Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
      */
-    glueCatalogGeneration?: pulumi.Input<boolean>;
+    glueCatalogGeneration?: pulumi.Input<boolean | undefined>;
     /**
      * When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
      */
-    ignoreHeaderRows?: pulumi.Input<number>;
+    ignoreHeaderRows?: pulumi.Input<number | undefined>;
     /**
      * Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
      */
-    includeOpForFullLoad?: pulumi.Input<boolean>;
+    includeOpForFullLoad?: pulumi.Input<boolean | undefined>;
     /**
      * ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      */
-    kmsKeyArn?: pulumi.Input<string>;
+    kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
      * Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
      */
-    maxFileSize?: pulumi.Input<number>;
+    maxFileSize?: pulumi.Input<number | undefined>;
     /**
      * Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
      */
-    parquetTimestampInMillisecond?: pulumi.Input<boolean>;
+    parquetTimestampInMillisecond?: pulumi.Input<boolean | undefined>;
     /**
      * Version of the .parquet file format. Valid values are `parquet-1-0` and `parquet-2-0`. (AWS default is `parquet-1-0`.) (Ignored for source endpoints.)
      */
-    parquetVersion?: pulumi.Input<string>;
+    parquetVersion?: pulumi.Input<string | undefined>;
     /**
      * Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdcPath`. Default is `false`. (Ignored for source endpoints.)
      */
-    preserveTransactions?: pulumi.Input<boolean>;
+    preserveTransactions?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
      */
-    rfc4180?: pulumi.Input<boolean>;
+    rfc4180?: pulumi.Input<boolean | undefined>;
     /**
      * Number of rows in a row group. (AWS default is `10000`.)
      */
-    rowGroupLength?: pulumi.Input<number>;
+    rowGroupLength?: pulumi.Input<number | undefined>;
     /**
      * When `encryptionMode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryptionMode` is valid.)
      */
-    serverSideEncryptionKmsKeyId?: pulumi.Input<string>;
+    serverSideEncryptionKmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * ARN of the IAM role with permissions to the S3 Bucket.
      *
      * The following arguments are optional:
      */
-    serviceAccessRoleArn?: pulumi.Input<string>;
+    serviceAccessRoleArn?: pulumi.Input<string | undefined>;
     /**
      * SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`. (AWS default is `none`.)
      */
-    sslMode?: pulumi.Input<string>;
+    sslMode?: pulumi.Input<string | undefined>;
     /**
      * Status of the endpoint.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Column to add with timestamp information to the endpoint data for an Amazon S3 target.
      */
-    timestampColumnName?: pulumi.Input<string>;
+    timestampColumnName?: pulumi.Input<string | undefined>;
     /**
      * Whether to use `csvNoSupValue` for columns not included in the supplemental log. (Ignored for source endpoints.)
      */
-    useCsvNoSupValue?: pulumi.Input<boolean>;
+    useCsvNoSupValue?: pulumi.Input<boolean | undefined>;
     /**
      * When set to `true`, uses the task start time as the timestamp column value instead of the time data is written to target. For full load, when set to `true`, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time.When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
      */
-    useTaskStartTimeForFullLoadTimestamp?: pulumi.Input<boolean>;
+    useTaskStartTimeForFullLoadTimestamp?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -719,15 +719,15 @@ export interface S3EndpointArgs {
     /**
      * Whether to add column name information to the .csv output file. Default is `false`.
      */
-    addColumnName?: pulumi.Input<boolean>;
+    addColumnName?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to add padding. Default is `false`. (Ignored for source endpoints.)
      */
-    addTrailingPaddingCharacter?: pulumi.Input<boolean>;
+    addTrailingPaddingCharacter?: pulumi.Input<boolean | undefined>;
     /**
      * S3 object prefix.
      */
-    bucketFolder?: pulumi.Input<string>;
+    bucketFolder?: pulumi.Input<string | undefined>;
     /**
      * S3 bucket name.
      */
@@ -735,95 +735,95 @@ export interface S3EndpointArgs {
     /**
      * Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `none`, `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Default is `none`.
      */
-    cannedAclForObjects?: pulumi.Input<string>;
+    cannedAclForObjects?: pulumi.Input<string | undefined>;
     /**
      * Whether to write insert and update operations to .csv or .parquet output files. Default is `false`.
      */
-    cdcInsertsAndUpdates?: pulumi.Input<boolean>;
+    cdcInsertsAndUpdates?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to write insert operations to .csv or .parquet output files. Default is `false`.
      */
-    cdcInsertsOnly?: pulumi.Input<boolean>;
+    cdcInsertsOnly?: pulumi.Input<boolean | undefined>;
     /**
      * Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3. (AWS default is `60`.)
      */
-    cdcMaxBatchInterval?: pulumi.Input<number>;
+    cdcMaxBatchInterval?: pulumi.Input<number | undefined>;
     /**
      * Minimum file size condition as defined in kilobytes to output a file to Amazon S3. (AWS default is 32000 KB.)
      */
-    cdcMinFileSize?: pulumi.Input<number>;
+    cdcMinFileSize?: pulumi.Input<number | undefined>;
     /**
      * Folder path of CDC files. If `cdcPath` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later. Required for CDC.
      */
-    cdcPath?: pulumi.Input<string>;
+    cdcPath?: pulumi.Input<string | undefined>;
     /**
      * ARN for the certificate.
      */
-    certificateArn?: pulumi.Input<string>;
+    certificateArn?: pulumi.Input<string | undefined>;
     /**
      * Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
      */
-    compressionType?: pulumi.Input<string>;
+    compressionType?: pulumi.Input<string | undefined>;
     /**
      * Delimiter used to separate columns in the source files. Default is `,`.
      */
-    csvDelimiter?: pulumi.Input<string>;
+    csvDelimiter?: pulumi.Input<string | undefined>;
     /**
      * Only applies if output files for a CDC load are written in .csv format. If `useCsvNoSupValue` is set to `true`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `useCsvNoSupValue`. (Ignored for source endpoints.)
      */
-    csvNoSupValue?: pulumi.Input<string>;
+    csvNoSupValue?: pulumi.Input<string | undefined>;
     /**
      * String to as null when writing to the target. (AWS default is `NULL`.)
      */
-    csvNullValue?: pulumi.Input<string>;
+    csvNullValue?: pulumi.Input<string | undefined>;
     /**
      * Delimiter used to separate rows in the source files. Default is newline (_i.e._, `\n`).
      */
-    csvRowDelimiter?: pulumi.Input<string>;
+    csvRowDelimiter?: pulumi.Input<string | undefined>;
     /**
      * Output format for the files that AWS DMS uses to create S3 objects. Valid values are `csv` and `parquet`.  (Ignored for source endpoints -- only `csv` is valid.)
      */
-    dataFormat?: pulumi.Input<string>;
+    dataFormat?: pulumi.Input<string | undefined>;
     /**
      * Size of one data page in bytes. (AWS default is 1 MiB, _i.e._, `1048576`.)
      */
-    dataPageSize?: pulumi.Input<number>;
+    dataPageSize?: pulumi.Input<number | undefined>;
     /**
      * Date separating delimiter to use during folder partitioning. Valid values are `SLASH`, `UNDERSCORE`, `DASH`, and `NONE`. (AWS default is `SLASH`.) (Ignored for source endpoints.)
      */
-    datePartitionDelimiter?: pulumi.Input<string>;
+    datePartitionDelimiter?: pulumi.Input<string | undefined>;
     /**
      * Partition S3 bucket folders based on transaction commit dates. Default is `false`. (Ignored for source endpoints.)
      */
-    datePartitionEnabled?: pulumi.Input<boolean>;
+    datePartitionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Date format to use during folder partitioning. Use this parameter when `datePartitionEnabled` is set to true. Valid values are `YYYYMMDD`, `YYYYMMDDHH`, `YYYYMM`, `MMYYYYDD`, and `DDMMYYYY`. (AWS default is `YYYYMMDD`.) (Ignored for source endpoints.)
      */
-    datePartitionSequence?: pulumi.Input<string>;
+    datePartitionSequence?: pulumi.Input<string | undefined>;
     /**
      * Convert the current UTC time to a timezone. The conversion occurs when a date partition folder is created and a CDC filename is generated. The timezone format is Area/Location (_e.g._, `Europe/Paris`). Use this when `datePartitionEnabled` is `true`. (Ignored for source endpoints.)
      */
-    datePartitionTimezone?: pulumi.Input<string>;
+    datePartitionTimezone?: pulumi.Input<string | undefined>;
     /**
      * Undocumented argument for use as directed by AWS Support.
      */
-    detachTargetOnLobLookupFailureParquet?: pulumi.Input<boolean>;
+    detachTargetOnLobLookupFailureParquet?: pulumi.Input<boolean | undefined>;
     /**
      * Maximum size in bytes of an encoded dictionary page of a column. (AWS default is 1 MiB, _i.e._, `1048576`.)
      */
-    dictPageSizeLimit?: pulumi.Input<number>;
+    dictPageSizeLimit?: pulumi.Input<number | undefined>;
     /**
      * Whether to enable statistics for Parquet pages and row groups. Default is `true`.
      */
-    enableStatistics?: pulumi.Input<boolean>;
+    enableStatistics?: pulumi.Input<boolean | undefined>;
     /**
      * Type of encoding to use. Value values are `rleDictionary`, `plain`, and `plainDictionary`. (AWS default is `rleDictionary`.)
      */
-    encodingType?: pulumi.Input<string>;
+    encodingType?: pulumi.Input<string | undefined>;
     /**
      * Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
      */
-    encryptionMode?: pulumi.Input<string>;
+    encryptionMode?: pulumi.Input<string | undefined>;
     /**
      * Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
      */
@@ -835,59 +835,59 @@ export interface S3EndpointArgs {
     /**
      * Bucket owner to prevent sniping. Value is an AWS account ID.
      */
-    expectedBucketOwner?: pulumi.Input<string>;
+    expectedBucketOwner?: pulumi.Input<string | undefined>;
     /**
      * JSON document that describes how AWS DMS should interpret the data. Required for `source` endpoints.
      */
-    externalTableDefinition?: pulumi.Input<string>;
+    externalTableDefinition?: pulumi.Input<string | undefined>;
     /**
      * Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
      */
-    glueCatalogGeneration?: pulumi.Input<boolean>;
+    glueCatalogGeneration?: pulumi.Input<boolean | undefined>;
     /**
      * When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
      */
-    ignoreHeaderRows?: pulumi.Input<number>;
+    ignoreHeaderRows?: pulumi.Input<number | undefined>;
     /**
      * Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
      */
-    includeOpForFullLoad?: pulumi.Input<boolean>;
+    includeOpForFullLoad?: pulumi.Input<boolean | undefined>;
     /**
      * ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      */
-    kmsKeyArn?: pulumi.Input<string>;
+    kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
      * Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
      */
-    maxFileSize?: pulumi.Input<number>;
+    maxFileSize?: pulumi.Input<number | undefined>;
     /**
      * Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
      */
-    parquetTimestampInMillisecond?: pulumi.Input<boolean>;
+    parquetTimestampInMillisecond?: pulumi.Input<boolean | undefined>;
     /**
      * Version of the .parquet file format. Valid values are `parquet-1-0` and `parquet-2-0`. (AWS default is `parquet-1-0`.) (Ignored for source endpoints.)
      */
-    parquetVersion?: pulumi.Input<string>;
+    parquetVersion?: pulumi.Input<string | undefined>;
     /**
      * Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdcPath`. Default is `false`. (Ignored for source endpoints.)
      */
-    preserveTransactions?: pulumi.Input<boolean>;
+    preserveTransactions?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
      */
-    rfc4180?: pulumi.Input<boolean>;
+    rfc4180?: pulumi.Input<boolean | undefined>;
     /**
      * Number of rows in a row group. (AWS default is `10000`.)
      */
-    rowGroupLength?: pulumi.Input<number>;
+    rowGroupLength?: pulumi.Input<number | undefined>;
     /**
      * When `encryptionMode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryptionMode` is valid.)
      */
-    serverSideEncryptionKmsKeyId?: pulumi.Input<string>;
+    serverSideEncryptionKmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * ARN of the IAM role with permissions to the S3 Bucket.
      *
@@ -897,21 +897,21 @@ export interface S3EndpointArgs {
     /**
      * SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`. (AWS default is `none`.)
      */
-    sslMode?: pulumi.Input<string>;
+    sslMode?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Column to add with timestamp information to the endpoint data for an Amazon S3 target.
      */
-    timestampColumnName?: pulumi.Input<string>;
+    timestampColumnName?: pulumi.Input<string | undefined>;
     /**
      * Whether to use `csvNoSupValue` for columns not included in the supplemental log. (Ignored for source endpoints.)
      */
-    useCsvNoSupValue?: pulumi.Input<boolean>;
+    useCsvNoSupValue?: pulumi.Input<boolean | undefined>;
     /**
      * When set to `true`, uses the task start time as the timestamp column value instead of the time data is written to target. For full load, when set to `true`, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time.When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
      */
-    useTaskStartTimeForFullLoadTimestamp?: pulumi.Input<boolean>;
+    useTaskStartTimeForFullLoadTimestamp?: pulumi.Input<boolean | undefined>;
 }

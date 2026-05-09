@@ -91,64 +91,59 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// example, err := ram.NewResourceShare(ctx, "example", &ram.ResourceShareArgs{
-// Name: pulumi.String("example"),
-// })
-// if err != nil {
-// return err
-// }
-// exampleVpc, err := ec2.NewVpc(ctx, "example", &ec2.VpcArgs{
-// CidrBlock: pulumi.String("10.0.0.0/16"),
-// })
-// if err != nil {
-// return err
-// }
-// invokeCidrsubnet, err := std.Cidrsubnet(ctx, &std.CidrsubnetArgs{
-// Input: cidrBlock,
-// Newbits: 8,
-// Netnum: val0,
-// }, nil)
-// if err != nil {
-// return err
-// }
-// var exampleSubnet []*ec2.Subnet
 //
-//	for index := 0; index < 2; index++ {
-//	    key0 := index
-//	    _ := index
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := ram.NewResourceShare(ctx, "example", &ram.ResourceShareArgs{
+//				Name: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVpc, err := ec2.NewVpc(ctx, "example", &ec2.VpcArgs{
+//				CidrBlock: pulumi.String("10.0.0.0/16"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			var exampleSubnet []*ec2.Subnet
+//			for index := 0; index < 2; index++ {
+//				key0 := index
+//				val0 := index
+//				__res, err := ec2.NewSubnet(ctx, fmt.Sprintf("example-%v", key0), &ec2.SubnetArgs{
+//					VpcId: exampleVpc.ID(),
+//					CidrBlock: pulumi.String(std.CidrsubnetOutput(ctx, std.CidrsubnetOutputArgs{
+//						Input:   exampleVpc.CidrBlock,
+//						Newbits: pulumi.Int(8),
+//						Netnum:  pulumi.Int(val0),
+//					}, nil).ApplyT(func(invoke std.CidrsubnetResult) (*string, error) {
+//						val := invoke.Result
+//						return &val, nil
+//					}).(pulumi.StringPtrOutput)),
+//				})
+//				if err != nil {
+//					return err
+//				}
+//				exampleSubnet = append(exampleSubnet, __res)
+//			}
+//			var splat0 pulumi.StringArray
+//			for _, val0 := range exampleSubnet {
+//				splat0 = append(splat0, val0.Arn)
+//			}
+//			_, err = ram.NewResourceShareAssociationsExclusive(ctx, "example", &ram.ResourceShareAssociationsExclusiveArgs{
+//				ResourceShareArn: example.Arn,
+//				Principals: pulumi.StringArray{
+//					exampleAwsOrganizationsOrganization.Arn,
+//				},
+//				ResourceArns: splat0,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
-// __res, err := ec2.NewSubnet(ctx, fmt.Sprintf("example-%v", key0), &ec2.SubnetArgs{
-// VpcId: exampleVpc.ID(),
-// CidrBlock: pulumi.String(exampleVpc.CidrBlock.ApplyT(func(cidrBlock string) (std.CidrsubnetResult, error) {
-// %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)).(std.CidrsubnetResultOutput).ApplyT(func(invoke std.CidrsubnetResult) (*string, error) {
-// val := invoke.Result
-// return &val, nil
-// }).(pulumi.StringPtrOutput)),
-// })
-// if err != nil {
-// return err
-// }
-// exampleSubnet = append(exampleSubnet, __res)
-// }
-// var splat0 pulumi.StringArray
-// for _, val0 := range exampleSubnet {
-// splat0 = append(splat0, val0.Arn)
-// }
-// _, err = ram.NewResourceShareAssociationsExclusive(ctx, "example", &ram.ResourceShareAssociationsExclusiveArgs{
-// ResourceShareArn: example.Arn,
-// Principals: pulumi.StringArray{
-// exampleAwsOrganizationsOrganization.Arn,
-// },
-// ResourceArns: splat0,
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
 // ```
 //
 // ### With Service Principals

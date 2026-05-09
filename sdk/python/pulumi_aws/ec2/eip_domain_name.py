@@ -23,8 +23,8 @@ class EipDomainNameArgs:
     def __init__(__self__, *,
                  allocation_id: pulumi.Input[_builtins.str],
                  domain_name: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input['EipDomainNameTimeoutsArgs']] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional['EipDomainNameTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a EipDomainName resource.
 
@@ -65,34 +65,34 @@ class EipDomainNameArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['EipDomainNameTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['EipDomainNameTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['EipDomainNameTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['EipDomainNameTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _EipDomainNameState:
     def __init__(__self__, *,
-                 allocation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ptr_record: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input['EipDomainNameTimeoutsArgs']] = None):
+                 allocation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ptr_record: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional['EipDomainNameTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering EipDomainName resources.
 
@@ -114,59 +114,59 @@ class _EipDomainNameState:
 
     @_builtins.property
     @pulumi.getter(name="allocationId")
-    def allocation_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def allocation_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The allocation ID.
         """
         return pulumi.get(self, "allocation_id")
 
     @allocation_id.setter
-    def allocation_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def allocation_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "allocation_id", value)
 
     @_builtins.property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The domain name to modify for the IP address.
         """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
-    def domain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_name", value)
 
     @_builtins.property
     @pulumi.getter(name="ptrRecord")
-    def ptr_record(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ptr_record(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The DNS pointer (PTR) record for the IP address.
         """
         return pulumi.get(self, "ptr_record")
 
     @ptr_record.setter
-    def ptr_record(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ptr_record(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ptr_record", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['EipDomainNameTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['EipDomainNameTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['EipDomainNameTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['EipDomainNameTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
@@ -176,10 +176,10 @@ class EipDomainName(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allocation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input[Union['EipDomainNameTimeoutsArgs', 'EipDomainNameTimeoutsArgsDict']]] = None,
+                 allocation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional[Union['EipDomainNameTimeoutsArgs', 'EipDomainNameTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Assigns a static reverse DNS record to an Elastic IP addresses. See [Using reverse DNS for email applications](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#Using_Elastic_Addressing_Reverse_DNS).
@@ -266,10 +266,10 @@ class EipDomainName(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allocation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input[Union['EipDomainNameTimeoutsArgs', 'EipDomainNameTimeoutsArgsDict']]] = None,
+                 allocation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional[Union['EipDomainNameTimeoutsArgs', 'EipDomainNameTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -298,11 +298,11 @@ class EipDomainName(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            allocation_id: Optional[pulumi.Input[_builtins.str]] = None,
-            domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-            ptr_record: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            timeouts: Optional[pulumi.Input[Union['EipDomainNameTimeoutsArgs', 'EipDomainNameTimeoutsArgsDict']]] = None) -> 'EipDomainName':
+            allocation_id: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            ptr_record: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['EipDomainNameTimeoutsArgs', 'EipDomainNameTimeoutsArgsDict']]] = None) -> 'EipDomainName':
         """
         Get an existing EipDomainName resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

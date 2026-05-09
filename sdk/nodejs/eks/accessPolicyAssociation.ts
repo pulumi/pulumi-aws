@@ -159,31 +159,31 @@ export interface AccessPolicyAssociationState {
     /**
      * The configuration block to determine the scope of the access. See `accessScope` Block below.
      */
-    accessScope?: pulumi.Input<inputs.eks.AccessPolicyAssociationAccessScope>;
+    accessScope?: pulumi.Input<inputs.eks.AccessPolicyAssociationAccessScope | undefined>;
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was associated.
      */
-    associatedAt?: pulumi.Input<string>;
+    associatedAt?: pulumi.Input<string | undefined>;
     /**
      * Name of the EKS Cluster.
      */
-    clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string | undefined>;
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was updated.
      */
-    modifiedAt?: pulumi.Input<string>;
+    modifiedAt?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the access policy that you're associating.
      */
-    policyArn?: pulumi.Input<string>;
+    policyArn?: pulumi.Input<string | undefined>;
     /**
      * The IAM Principal ARN which requires Authentication access to the EKS cluster.
      */
-    principalArn?: pulumi.Input<string>;
+    principalArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -209,5 +209,5 @@ export interface AccessPolicyAssociationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

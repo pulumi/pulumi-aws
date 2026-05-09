@@ -101,7 +101,7 @@ def get_cloud_exadata_infrastructures(region: Optional[_builtins.str] = None,
         cloud_exadata_infrastructures=pulumi.get(__ret__, 'cloud_exadata_infrastructures'),
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'))
-def get_cloud_exadata_infrastructures_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_cloud_exadata_infrastructures_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudExadataInfrastructuresResult]:
     """
     Data source for exadata infrastructures in AWS for Oracle Database@AWS.

@@ -34,7 +34,7 @@ class RuleExcludeResourceTagArgsDict(TypedDict):
 
     The following argument is optional:
     """
-    resource_tag_value: NotRequired[pulumi.Input[_builtins.str]]
+    resource_tag_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Tag value.
     """
@@ -43,7 +43,7 @@ class RuleExcludeResourceTagArgsDict(TypedDict):
 class RuleExcludeResourceTagArgs:
     def __init__(__self__, *,
                  resource_tag_key: pulumi.Input[_builtins.str],
-                 resource_tag_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 resource_tag_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] resource_tag_key: Tag key.
                
@@ -70,14 +70,14 @@ class RuleExcludeResourceTagArgs:
 
     @_builtins.property
     @pulumi.getter(name="resourceTagValue")
-    def resource_tag_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_tag_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Tag value.
         """
         return pulumi.get(self, "resource_tag_value")
 
     @resource_tag_value.setter
-    def resource_tag_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_tag_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_tag_value", value)
 
 
@@ -163,7 +163,7 @@ class RuleResourceTagArgsDict(TypedDict):
 
     The following argument is optional:
     """
-    resource_tag_value: NotRequired[pulumi.Input[_builtins.str]]
+    resource_tag_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Tag value.
     """
@@ -172,7 +172,7 @@ class RuleResourceTagArgsDict(TypedDict):
 class RuleResourceTagArgs:
     def __init__(__self__, *,
                  resource_tag_key: pulumi.Input[_builtins.str],
-                 resource_tag_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 resource_tag_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] resource_tag_key: Tag key.
                
@@ -199,14 +199,14 @@ class RuleResourceTagArgs:
 
     @_builtins.property
     @pulumi.getter(name="resourceTagValue")
-    def resource_tag_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_tag_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Tag value.
         """
         return pulumi.get(self, "resource_tag_value")
 
     @resource_tag_value.setter
-    def resource_tag_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_tag_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_tag_value", value)
 
 

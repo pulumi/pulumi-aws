@@ -24,15 +24,15 @@ class ProductArgs:
                  owner: pulumi.Input[_builtins.str],
                  provisioning_artifact_parameters: pulumi.Input['ProductProvisioningArtifactParametersArgs'],
                  type: pulumi.Input[_builtins.str],
-                 accept_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 distributor: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 support_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 support_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 support_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 accept_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 distributor: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 support_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 support_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 support_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Product resource.
 
@@ -113,133 +113,133 @@ class ProductArgs:
 
     @_builtins.property
     @pulumi.getter(name="acceptLanguage")
-    def accept_language(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def accept_language(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         """
         return pulumi.get(self, "accept_language")
 
     @accept_language.setter
-    def accept_language(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def accept_language(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "accept_language", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the product.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def distributor(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def distributor(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Distributor (i.e., vendor) of the product.
         """
         return pulumi.get(self, "distributor")
 
     @distributor.setter
-    def distributor(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def distributor(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "distributor", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the product.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="supportDescription")
-    def support_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def support_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Support information about the product.
         """
         return pulumi.get(self, "support_description")
 
     @support_description.setter
-    def support_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def support_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "support_description", value)
 
     @_builtins.property
     @pulumi.getter(name="supportEmail")
-    def support_email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def support_email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Contact email for product support.
         """
         return pulumi.get(self, "support_email")
 
     @support_email.setter
-    def support_email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def support_email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "support_email", value)
 
     @_builtins.property
     @pulumi.getter(name="supportUrl")
-    def support_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def support_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Contact URL for product support.
         """
         return pulumi.get(self, "support_url")
 
     @support_url.setter
-    def support_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def support_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "support_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Tags to apply to the product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _ProductState:
     def __init__(__self__, *,
-                 accept_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 distributor: Optional[pulumi.Input[_builtins.str]] = None,
-                 has_default_path: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioning_artifact_parameters: Optional[pulumi.Input['ProductProvisioningArtifactParametersArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 support_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 support_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 support_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 accept_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 distributor: pulumi.Input[Optional[_builtins.str]] = None,
+                 has_default_path: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioning_artifact_parameters: pulumi.Input[Optional['ProductProvisioningArtifactParametersArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 support_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 support_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 support_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Product resources.
 
@@ -300,199 +300,199 @@ class _ProductState:
 
     @_builtins.property
     @pulumi.getter(name="acceptLanguage")
-    def accept_language(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def accept_language(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         """
         return pulumi.get(self, "accept_language")
 
     @accept_language.setter
-    def accept_language(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def accept_language(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "accept_language", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the product.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Time when the product was created.
         """
         return pulumi.get(self, "created_time")
 
     @created_time.setter
-    def created_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the product.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def distributor(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def distributor(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Distributor (i.e., vendor) of the product.
         """
         return pulumi.get(self, "distributor")
 
     @distributor.setter
-    def distributor(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def distributor(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "distributor", value)
 
     @_builtins.property
     @pulumi.getter(name="hasDefaultPath")
-    def has_default_path(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def has_default_path(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the product has a default path. If the product does not have a default path, call `ListLaunchPaths` to disambiguate between paths.  Otherwise, `ListLaunchPaths` is not required, and the output of ProductViewSummary can be used directly with `DescribeProvisioningParameters`.
         """
         return pulumi.get(self, "has_default_path")
 
     @has_default_path.setter
-    def has_default_path(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def has_default_path(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "has_default_path", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the product.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Owner of the product.
         """
         return pulumi.get(self, "owner")
 
     @owner.setter
-    def owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner", value)
 
     @_builtins.property
     @pulumi.getter(name="provisioningArtifactParameters")
-    def provisioning_artifact_parameters(self) -> Optional[pulumi.Input['ProductProvisioningArtifactParametersArgs']]:
+    def provisioning_artifact_parameters(self) -> pulumi.Input[Optional['ProductProvisioningArtifactParametersArgs']]:
         """
         Configuration block for provisioning artifact (i.e., version) parameters. See `provisioning_artifact_parameters` Block for details.
         """
         return pulumi.get(self, "provisioning_artifact_parameters")
 
     @provisioning_artifact_parameters.setter
-    def provisioning_artifact_parameters(self, value: Optional[pulumi.Input['ProductProvisioningArtifactParametersArgs']]):
+    def provisioning_artifact_parameters(self, value: pulumi.Input[Optional['ProductProvisioningArtifactParametersArgs']]):
         pulumi.set(self, "provisioning_artifact_parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Status of the product.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="supportDescription")
-    def support_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def support_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Support information about the product.
         """
         return pulumi.get(self, "support_description")
 
     @support_description.setter
-    def support_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def support_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "support_description", value)
 
     @_builtins.property
     @pulumi.getter(name="supportEmail")
-    def support_email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def support_email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Contact email for product support.
         """
         return pulumi.get(self, "support_email")
 
     @support_email.setter
-    def support_email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def support_email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "support_email", value)
 
     @_builtins.property
     @pulumi.getter(name="supportUrl")
-    def support_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def support_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Contact URL for product support.
         """
         return pulumi.get(self, "support_url")
 
     @support_url.setter
-    def support_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def support_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "support_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Tags to apply to the product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
 
@@ -501,7 +501,7 @@ class _ProductState:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -511,18 +511,18 @@ class Product(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accept_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 distributor: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioning_artifact_parameters: Optional[pulumi.Input[Union['ProductProvisioningArtifactParametersArgs', 'ProductProvisioningArtifactParametersArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 support_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 support_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 support_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 accept_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 distributor: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioning_artifact_parameters: pulumi.Input[Optional[Union['ProductProvisioningArtifactParametersArgs', 'ProductProvisioningArtifactParametersArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 support_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 support_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 support_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Service Catalog Product.
@@ -634,18 +634,18 @@ class Product(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accept_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 distributor: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioning_artifact_parameters: Optional[pulumi.Input[Union['ProductProvisioningArtifactParametersArgs', 'ProductProvisioningArtifactParametersArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 support_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 support_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 support_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 accept_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 distributor: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioning_artifact_parameters: pulumi.Input[Optional[Union['ProductProvisioningArtifactParametersArgs', 'ProductProvisioningArtifactParametersArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 support_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 support_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 support_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -688,23 +688,23 @@ class Product(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            accept_language: Optional[pulumi.Input[_builtins.str]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            created_time: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            distributor: Optional[pulumi.Input[_builtins.str]] = None,
-            has_default_path: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            owner: Optional[pulumi.Input[_builtins.str]] = None,
-            provisioning_artifact_parameters: Optional[pulumi.Input[Union['ProductProvisioningArtifactParametersArgs', 'ProductProvisioningArtifactParametersArgsDict']]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            support_description: Optional[pulumi.Input[_builtins.str]] = None,
-            support_email: Optional[pulumi.Input[_builtins.str]] = None,
-            support_url: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None) -> 'Product':
+            accept_language: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            created_time: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            distributor: pulumi.Input[Optional[_builtins.str]] = None,
+            has_default_path: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            owner: pulumi.Input[Optional[_builtins.str]] = None,
+            provisioning_artifact_parameters: pulumi.Input[Optional[Union['ProductProvisioningArtifactParametersArgs', 'ProductProvisioningArtifactParametersArgsDict']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            support_description: pulumi.Input[Optional[_builtins.str]] = None,
+            support_email: pulumi.Input[Optional[_builtins.str]] = None,
+            support_url: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> 'Product':
         """
         Get an existing Product resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

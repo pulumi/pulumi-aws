@@ -261,80 +261,80 @@ export interface CustomModelState {
     /**
      * The Amazon Resource Name (ARN) of the base model.
      */
-    baseModelIdentifier?: pulumi.Input<string>;
+    baseModelIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the output model.
      */
-    customModelArn?: pulumi.Input<string>;
+    customModelArn?: pulumi.Input<string | undefined>;
     /**
      * The custom model is encrypted at rest using this key. Specify the key ARN.
      */
-    customModelKmsKeyId?: pulumi.Input<string>;
+    customModelKmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * Name for the custom model.
      */
-    customModelName?: pulumi.Input<string>;
+    customModelName?: pulumi.Input<string | undefined>;
     /**
      * The customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
      */
-    customizationType?: pulumi.Input<string>;
+    customizationType?: pulumi.Input<string | undefined>;
     /**
      * [Parameters](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models-hp.html) related to tuning the model.
      */
-    hyperparameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    hyperparameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ARN of the customization job.
      */
-    jobArn?: pulumi.Input<string>;
+    jobArn?: pulumi.Input<string | undefined>;
     /**
      * A name for the customization job.
      */
-    jobName?: pulumi.Input<string>;
+    jobName?: pulumi.Input<string | undefined>;
     /**
      * The status of the customization job. A successful job transitions from `InProgress` to `Completed` when the output model is ready to use.
      */
-    jobStatus?: pulumi.Input<string>;
+    jobStatus?: pulumi.Input<string | undefined>;
     /**
      * S3 location for the output data.
      */
-    outputDataConfig?: pulumi.Input<inputs.bedrock.CustomModelOutputDataConfig>;
+    outputDataConfig?: pulumi.Input<inputs.bedrock.CustomModelOutputDataConfig | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.bedrock.CustomModelTimeouts>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.bedrock.CustomModelTimeouts | undefined>;
     /**
      * Information about the training dataset.
      */
-    trainingDataConfig?: pulumi.Input<inputs.bedrock.CustomModelTrainingDataConfig>;
+    trainingDataConfig?: pulumi.Input<inputs.bedrock.CustomModelTrainingDataConfig | undefined>;
     /**
      * Metrics associated with the customization job.
      */
-    trainingMetrics?: pulumi.Input<pulumi.Input<inputs.bedrock.CustomModelTrainingMetric>[]>;
+    trainingMetrics?: pulumi.Input<pulumi.Input<inputs.bedrock.CustomModelTrainingMetric>[] | undefined>;
     /**
      * Information about the validation dataset.
      */
-    validationDataConfig?: pulumi.Input<inputs.bedrock.CustomModelValidationDataConfig>;
+    validationDataConfig?: pulumi.Input<inputs.bedrock.CustomModelValidationDataConfig | undefined>;
     /**
      * The loss metric for each validator that you provided.
      */
-    validationMetrics?: pulumi.Input<pulumi.Input<inputs.bedrock.CustomModelValidationMetric>[]>;
+    validationMetrics?: pulumi.Input<pulumi.Input<inputs.bedrock.CustomModelValidationMetric>[] | undefined>;
     /**
      * Configuration parameters for the private Virtual Private Cloud (VPC) that contains the resources you are using for this job.
      */
-    vpcConfig?: pulumi.Input<inputs.bedrock.CustomModelVpcConfig>;
+    vpcConfig?: pulumi.Input<inputs.bedrock.CustomModelVpcConfig | undefined>;
 }
 
 /**
@@ -348,7 +348,7 @@ export interface CustomModelArgs {
     /**
      * The custom model is encrypted at rest using this key. Specify the key ARN.
      */
-    customModelKmsKeyId?: pulumi.Input<string>;
+    customModelKmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * Name for the custom model.
      */
@@ -356,7 +356,7 @@ export interface CustomModelArgs {
     /**
      * The customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
      */
-    customizationType?: pulumi.Input<string>;
+    customizationType?: pulumi.Input<string | undefined>;
     /**
      * [Parameters](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models-hp.html) related to tuning the model.
      */
@@ -372,7 +372,7 @@ export interface CustomModelArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
      */
@@ -380,8 +380,8 @@ export interface CustomModelArgs {
     /**
      * A map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.bedrock.CustomModelTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.bedrock.CustomModelTimeouts | undefined>;
     /**
      * Information about the training dataset.
      */
@@ -389,9 +389,9 @@ export interface CustomModelArgs {
     /**
      * Information about the validation dataset.
      */
-    validationDataConfig?: pulumi.Input<inputs.bedrock.CustomModelValidationDataConfig>;
+    validationDataConfig?: pulumi.Input<inputs.bedrock.CustomModelValidationDataConfig | undefined>;
     /**
      * Configuration parameters for the private Virtual Private Cloud (VPC) that contains the resources you are using for this job.
      */
-    vpcConfig?: pulumi.Input<inputs.bedrock.CustomModelVpcConfig>;
+    vpcConfig?: pulumi.Input<inputs.bedrock.CustomModelVpcConfig | undefined>;
 }

@@ -25,10 +25,10 @@ class FileSystemAssociationArgs:
                  location_arn: pulumi.Input[_builtins.str],
                  password: pulumi.Input[_builtins.str],
                  username: pulumi.Input[_builtins.str],
-                 audit_destination_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_attributes: Optional[pulumi.Input['FileSystemAssociationCacheAttributesArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 audit_destination_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_attributes: pulumi.Input[Optional['FileSystemAssociationCacheAttributesArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a FileSystemAssociation resource.
 
@@ -104,66 +104,66 @@ class FileSystemAssociationArgs:
 
     @_builtins.property
     @pulumi.getter(name="auditDestinationArn")
-    def audit_destination_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def audit_destination_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the storage used for the audit logs.
         """
         return pulumi.get(self, "audit_destination_arn")
 
     @audit_destination_arn.setter
-    def audit_destination_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def audit_destination_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "audit_destination_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheAttributes")
-    def cache_attributes(self) -> Optional[pulumi.Input['FileSystemAssociationCacheAttributesArgs']]:
+    def cache_attributes(self) -> pulumi.Input[Optional['FileSystemAssociationCacheAttributesArgs']]:
         """
         Refresh cache information. see Cache Attributes for more details.
         """
         return pulumi.get(self, "cache_attributes")
 
     @cache_attributes.setter
-    def cache_attributes(self, value: Optional[pulumi.Input['FileSystemAssociationCacheAttributesArgs']]):
+    def cache_attributes(self, value: pulumi.Input[Optional['FileSystemAssociationCacheAttributesArgs']]):
         pulumi.set(self, "cache_attributes", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _FileSystemAssociationState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 audit_destination_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_attributes: Optional[pulumi.Input['FileSystemAssociationCacheAttributesArgs']] = None,
-                 gateway_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 location_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 audit_destination_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_attributes: pulumi.Input[Optional['FileSystemAssociationCacheAttributesArgs']] = None,
+                 gateway_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 location_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FileSystemAssociation resources.
 
@@ -201,122 +201,122 @@ class _FileSystemAssociationState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) of the newly created file system association.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="auditDestinationArn")
-    def audit_destination_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def audit_destination_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the storage used for the audit logs.
         """
         return pulumi.get(self, "audit_destination_arn")
 
     @audit_destination_arn.setter
-    def audit_destination_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def audit_destination_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "audit_destination_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheAttributes")
-    def cache_attributes(self) -> Optional[pulumi.Input['FileSystemAssociationCacheAttributesArgs']]:
+    def cache_attributes(self) -> pulumi.Input[Optional['FileSystemAssociationCacheAttributesArgs']]:
         """
         Refresh cache information. see Cache Attributes for more details.
         """
         return pulumi.get(self, "cache_attributes")
 
     @cache_attributes.setter
-    def cache_attributes(self, value: Optional[pulumi.Input['FileSystemAssociationCacheAttributesArgs']]):
+    def cache_attributes(self, value: pulumi.Input[Optional['FileSystemAssociationCacheAttributesArgs']]):
         pulumi.set(self, "cache_attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="gatewayArn")
-    def gateway_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gateway_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the gateway.
         """
         return pulumi.get(self, "gateway_arn")
 
     @gateway_arn.setter
-    def gateway_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gateway_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gateway_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="locationArn")
-    def location_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
         """
         return pulumi.get(self, "location_arn")
 
     @location_arn.setter
-    def location_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password of the user credential.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user name of the user credential that has permission to access the root share of the Amazon FSx file system. The user account must belong to the Amazon FSx delegated admin user group.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 
@@ -326,14 +326,14 @@ class FileSystemAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 audit_destination_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_attributes: Optional[pulumi.Input[Union['FileSystemAssociationCacheAttributesArgs', 'FileSystemAssociationCacheAttributesArgsDict']]] = None,
-                 gateway_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 location_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
+                 audit_destination_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_attributes: pulumi.Input[Optional[Union['FileSystemAssociationCacheAttributesArgs', 'FileSystemAssociationCacheAttributesArgsDict']]] = None,
+                 gateway_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 location_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Associate an Amazon FSx file system with the FSx File Gateway. After the association process is complete, the file shares on the Amazon FSx file system are available for access through the gateway. This operation only supports the FSx File Gateway type.
@@ -513,14 +513,14 @@ class FileSystemAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 audit_destination_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_attributes: Optional[pulumi.Input[Union['FileSystemAssociationCacheAttributesArgs', 'FileSystemAssociationCacheAttributesArgsDict']]] = None,
-                 gateway_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 location_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
+                 audit_destination_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_attributes: pulumi.Input[Optional[Union['FileSystemAssociationCacheAttributesArgs', 'FileSystemAssociationCacheAttributesArgsDict']]] = None,
+                 gateway_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 location_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -560,16 +560,16 @@ class FileSystemAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            audit_destination_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            cache_attributes: Optional[pulumi.Input[Union['FileSystemAssociationCacheAttributesArgs', 'FileSystemAssociationCacheAttributesArgsDict']]] = None,
-            gateway_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            location_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            password: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            username: Optional[pulumi.Input[_builtins.str]] = None) -> 'FileSystemAssociation':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            audit_destination_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            cache_attributes: pulumi.Input[Optional[Union['FileSystemAssociationCacheAttributesArgs', 'FileSystemAssociationCacheAttributesArgsDict']]] = None,
+            gateway_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            location_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            username: pulumi.Input[Optional[_builtins.str]] = None) -> 'FileSystemAssociation':
         """
         Get an existing FileSystemAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

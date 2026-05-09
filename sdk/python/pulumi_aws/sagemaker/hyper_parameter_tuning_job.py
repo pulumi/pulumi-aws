@@ -22,14 +22,14 @@ __all__ = ['HyperParameterTuningJobArgs', 'HyperParameterTuningJob']
 class HyperParameterTuningJobArgs:
     def __init__(__self__, *,
                  config: pulumi.Input['HyperParameterTuningJobConfigArgs'],
-                 autotune: Optional[pulumi.Input['HyperParameterTuningJobAutotuneArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['HyperParameterTuningJobTimeoutsArgs']] = None,
-                 training_job_definition: Optional[pulumi.Input['HyperParameterTuningJobTrainingJobDefinitionArgs']] = None,
-                 training_job_definitions: Optional[pulumi.Input[Sequence[pulumi.Input['HyperParameterTuningJobTrainingJobDefinitionArgs']]]] = None,
-                 warm_start_config: Optional[pulumi.Input['HyperParameterTuningJobWarmStartConfigArgs']] = None):
+                 autotune: pulumi.Input[Optional['HyperParameterTuningJobAutotuneArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['HyperParameterTuningJobTimeoutsArgs']] = None,
+                 training_job_definition: pulumi.Input[Optional['HyperParameterTuningJobTrainingJobDefinitionArgs']] = None,
+                 training_job_definitions: pulumi.Input[Optional[Sequence[pulumi.Input['HyperParameterTuningJobTrainingJobDefinitionArgs']]]] = None,
+                 warm_start_config: pulumi.Input[Optional['HyperParameterTuningJobWarmStartConfigArgs']] = None):
         """
         The set of arguments for constructing a HyperParameterTuningJob resource.
 
@@ -76,19 +76,19 @@ class HyperParameterTuningJobArgs:
 
     @_builtins.property
     @pulumi.getter
-    def autotune(self) -> Optional[pulumi.Input['HyperParameterTuningJobAutotuneArgs']]:
+    def autotune(self) -> pulumi.Input[Optional['HyperParameterTuningJobAutotuneArgs']]:
         """
         Autotune settings. See `autotune`.
         """
         return pulumi.get(self, "autotune")
 
     @autotune.setter
-    def autotune(self, value: Optional[pulumi.Input['HyperParameterTuningJobAutotuneArgs']]):
+    def autotune(self, value: pulumi.Input[Optional['HyperParameterTuningJobAutotuneArgs']]):
         pulumi.set(self, "autotune", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the tuning job.
 
@@ -97,95 +97,95 @@ class HyperParameterTuningJobArgs:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['HyperParameterTuningJobTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['HyperParameterTuningJobTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['HyperParameterTuningJobTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['HyperParameterTuningJobTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter(name="trainingJobDefinition")
-    def training_job_definition(self) -> Optional[pulumi.Input['HyperParameterTuningJobTrainingJobDefinitionArgs']]:
+    def training_job_definition(self) -> pulumi.Input[Optional['HyperParameterTuningJobTrainingJobDefinitionArgs']]:
         """
         Single training job definition for tuning. See `training_job_definition`.
         """
         return pulumi.get(self, "training_job_definition")
 
     @training_job_definition.setter
-    def training_job_definition(self, value: Optional[pulumi.Input['HyperParameterTuningJobTrainingJobDefinitionArgs']]):
+    def training_job_definition(self, value: pulumi.Input[Optional['HyperParameterTuningJobTrainingJobDefinitionArgs']]):
         pulumi.set(self, "training_job_definition", value)
 
     @_builtins.property
     @pulumi.getter(name="trainingJobDefinitions")
-    def training_job_definitions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HyperParameterTuningJobTrainingJobDefinitionArgs']]]]:
+    def training_job_definitions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['HyperParameterTuningJobTrainingJobDefinitionArgs']]]]:
         """
         Multiple training job definitions for tuning. See `training_job_definition`.
         """
         return pulumi.get(self, "training_job_definitions")
 
     @training_job_definitions.setter
-    def training_job_definitions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HyperParameterTuningJobTrainingJobDefinitionArgs']]]]):
+    def training_job_definitions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['HyperParameterTuningJobTrainingJobDefinitionArgs']]]]):
         pulumi.set(self, "training_job_definitions", value)
 
     @_builtins.property
     @pulumi.getter(name="warmStartConfig")
-    def warm_start_config(self) -> Optional[pulumi.Input['HyperParameterTuningJobWarmStartConfigArgs']]:
+    def warm_start_config(self) -> pulumi.Input[Optional['HyperParameterTuningJobWarmStartConfigArgs']]:
         """
         Warm start settings. See `warm_start_config`.
         """
         return pulumi.get(self, "warm_start_config")
 
     @warm_start_config.setter
-    def warm_start_config(self, value: Optional[pulumi.Input['HyperParameterTuningJobWarmStartConfigArgs']]):
+    def warm_start_config(self, value: pulumi.Input[Optional['HyperParameterTuningJobWarmStartConfigArgs']]):
         pulumi.set(self, "warm_start_config", value)
 
 
 @pulumi.input_type
 class _HyperParameterTuningJobState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 autotune: Optional[pulumi.Input['HyperParameterTuningJobAutotuneArgs']] = None,
-                 config: Optional[pulumi.Input['HyperParameterTuningJobConfigArgs']] = None,
-                 failure_reason: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['HyperParameterTuningJobTimeoutsArgs']] = None,
-                 training_job_definition: Optional[pulumi.Input['HyperParameterTuningJobTrainingJobDefinitionArgs']] = None,
-                 training_job_definitions: Optional[pulumi.Input[Sequence[pulumi.Input['HyperParameterTuningJobTrainingJobDefinitionArgs']]]] = None,
-                 warm_start_config: Optional[pulumi.Input['HyperParameterTuningJobWarmStartConfigArgs']] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 autotune: pulumi.Input[Optional['HyperParameterTuningJobAutotuneArgs']] = None,
+                 config: pulumi.Input[Optional['HyperParameterTuningJobConfigArgs']] = None,
+                 failure_reason: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['HyperParameterTuningJobTimeoutsArgs']] = None,
+                 training_job_definition: pulumi.Input[Optional['HyperParameterTuningJobTrainingJobDefinitionArgs']] = None,
+                 training_job_definitions: pulumi.Input[Optional[Sequence[pulumi.Input['HyperParameterTuningJobTrainingJobDefinitionArgs']]]] = None,
+                 warm_start_config: pulumi.Input[Optional['HyperParameterTuningJobWarmStartConfigArgs']] = None):
         """
         Input properties used for looking up and filtering HyperParameterTuningJob resources.
 
@@ -233,55 +233,55 @@ class _HyperParameterTuningJobState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the Hyper Parameter Tuning Job.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def autotune(self) -> Optional[pulumi.Input['HyperParameterTuningJobAutotuneArgs']]:
+    def autotune(self) -> pulumi.Input[Optional['HyperParameterTuningJobAutotuneArgs']]:
         """
         Autotune settings. See `autotune`.
         """
         return pulumi.get(self, "autotune")
 
     @autotune.setter
-    def autotune(self, value: Optional[pulumi.Input['HyperParameterTuningJobAutotuneArgs']]):
+    def autotune(self, value: pulumi.Input[Optional['HyperParameterTuningJobAutotuneArgs']]):
         pulumi.set(self, "autotune", value)
 
     @_builtins.property
     @pulumi.getter
-    def config(self) -> Optional[pulumi.Input['HyperParameterTuningJobConfigArgs']]:
+    def config(self) -> pulumi.Input[Optional['HyperParameterTuningJobConfigArgs']]:
         """
         Tuning job settings. See `config`.
         """
         return pulumi.get(self, "config")
 
     @config.setter
-    def config(self, value: Optional[pulumi.Input['HyperParameterTuningJobConfigArgs']]):
+    def config(self, value: pulumi.Input[Optional['HyperParameterTuningJobConfigArgs']]):
         pulumi.set(self, "config", value)
 
     @_builtins.property
     @pulumi.getter(name="failureReason")
-    def failure_reason(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def failure_reason(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Reason returned by SageMaker AI when a job fails.
         """
         return pulumi.get(self, "failure_reason")
 
     @failure_reason.setter
-    def failure_reason(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def failure_reason(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "failure_reason", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the tuning job.
 
@@ -290,100 +290,100 @@ class _HyperParameterTuningJobState:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Current tuning job status.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['HyperParameterTuningJobTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['HyperParameterTuningJobTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['HyperParameterTuningJobTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['HyperParameterTuningJobTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter(name="trainingJobDefinition")
-    def training_job_definition(self) -> Optional[pulumi.Input['HyperParameterTuningJobTrainingJobDefinitionArgs']]:
+    def training_job_definition(self) -> pulumi.Input[Optional['HyperParameterTuningJobTrainingJobDefinitionArgs']]:
         """
         Single training job definition for tuning. See `training_job_definition`.
         """
         return pulumi.get(self, "training_job_definition")
 
     @training_job_definition.setter
-    def training_job_definition(self, value: Optional[pulumi.Input['HyperParameterTuningJobTrainingJobDefinitionArgs']]):
+    def training_job_definition(self, value: pulumi.Input[Optional['HyperParameterTuningJobTrainingJobDefinitionArgs']]):
         pulumi.set(self, "training_job_definition", value)
 
     @_builtins.property
     @pulumi.getter(name="trainingJobDefinitions")
-    def training_job_definitions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HyperParameterTuningJobTrainingJobDefinitionArgs']]]]:
+    def training_job_definitions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['HyperParameterTuningJobTrainingJobDefinitionArgs']]]]:
         """
         Multiple training job definitions for tuning. See `training_job_definition`.
         """
         return pulumi.get(self, "training_job_definitions")
 
     @training_job_definitions.setter
-    def training_job_definitions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HyperParameterTuningJobTrainingJobDefinitionArgs']]]]):
+    def training_job_definitions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['HyperParameterTuningJobTrainingJobDefinitionArgs']]]]):
         pulumi.set(self, "training_job_definitions", value)
 
     @_builtins.property
     @pulumi.getter(name="warmStartConfig")
-    def warm_start_config(self) -> Optional[pulumi.Input['HyperParameterTuningJobWarmStartConfigArgs']]:
+    def warm_start_config(self) -> pulumi.Input[Optional['HyperParameterTuningJobWarmStartConfigArgs']]:
         """
         Warm start settings. See `warm_start_config`.
         """
         return pulumi.get(self, "warm_start_config")
 
     @warm_start_config.setter
-    def warm_start_config(self, value: Optional[pulumi.Input['HyperParameterTuningJobWarmStartConfigArgs']]):
+    def warm_start_config(self, value: pulumi.Input[Optional['HyperParameterTuningJobWarmStartConfigArgs']]):
         pulumi.set(self, "warm_start_config", value)
 
 
@@ -393,15 +393,15 @@ class HyperParameterTuningJob(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 autotune: Optional[pulumi.Input[Union['HyperParameterTuningJobAutotuneArgs', 'HyperParameterTuningJobAutotuneArgsDict']]] = None,
-                 config: Optional[pulumi.Input[Union['HyperParameterTuningJobConfigArgs', 'HyperParameterTuningJobConfigArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['HyperParameterTuningJobTimeoutsArgs', 'HyperParameterTuningJobTimeoutsArgsDict']]] = None,
-                 training_job_definition: Optional[pulumi.Input[Union['HyperParameterTuningJobTrainingJobDefinitionArgs', 'HyperParameterTuningJobTrainingJobDefinitionArgsDict']]] = None,
-                 training_job_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HyperParameterTuningJobTrainingJobDefinitionArgs', 'HyperParameterTuningJobTrainingJobDefinitionArgsDict']]]]] = None,
-                 warm_start_config: Optional[pulumi.Input[Union['HyperParameterTuningJobWarmStartConfigArgs', 'HyperParameterTuningJobWarmStartConfigArgsDict']]] = None,
+                 autotune: pulumi.Input[Optional[Union['HyperParameterTuningJobAutotuneArgs', 'HyperParameterTuningJobAutotuneArgsDict']]] = None,
+                 config: pulumi.Input[Optional[Union['HyperParameterTuningJobConfigArgs', 'HyperParameterTuningJobConfigArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['HyperParameterTuningJobTimeoutsArgs', 'HyperParameterTuningJobTimeoutsArgsDict']]] = None,
+                 training_job_definition: pulumi.Input[Optional[Union['HyperParameterTuningJobTrainingJobDefinitionArgs', 'HyperParameterTuningJobTrainingJobDefinitionArgsDict']]] = None,
+                 training_job_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HyperParameterTuningJobTrainingJobDefinitionArgs', 'HyperParameterTuningJobTrainingJobDefinitionArgsDict']]]]] = None,
+                 warm_start_config: pulumi.Input[Optional[Union['HyperParameterTuningJobWarmStartConfigArgs', 'HyperParameterTuningJobWarmStartConfigArgsDict']]] = None,
                  __props__=None):
         """
         Manages an AWS SageMaker AI Hyper Parameter Tuning Job.
@@ -683,15 +683,15 @@ class HyperParameterTuningJob(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 autotune: Optional[pulumi.Input[Union['HyperParameterTuningJobAutotuneArgs', 'HyperParameterTuningJobAutotuneArgsDict']]] = None,
-                 config: Optional[pulumi.Input[Union['HyperParameterTuningJobConfigArgs', 'HyperParameterTuningJobConfigArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['HyperParameterTuningJobTimeoutsArgs', 'HyperParameterTuningJobTimeoutsArgsDict']]] = None,
-                 training_job_definition: Optional[pulumi.Input[Union['HyperParameterTuningJobTrainingJobDefinitionArgs', 'HyperParameterTuningJobTrainingJobDefinitionArgsDict']]] = None,
-                 training_job_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HyperParameterTuningJobTrainingJobDefinitionArgs', 'HyperParameterTuningJobTrainingJobDefinitionArgsDict']]]]] = None,
-                 warm_start_config: Optional[pulumi.Input[Union['HyperParameterTuningJobWarmStartConfigArgs', 'HyperParameterTuningJobWarmStartConfigArgsDict']]] = None,
+                 autotune: pulumi.Input[Optional[Union['HyperParameterTuningJobAutotuneArgs', 'HyperParameterTuningJobAutotuneArgsDict']]] = None,
+                 config: pulumi.Input[Optional[Union['HyperParameterTuningJobConfigArgs', 'HyperParameterTuningJobConfigArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['HyperParameterTuningJobTimeoutsArgs', 'HyperParameterTuningJobTimeoutsArgsDict']]] = None,
+                 training_job_definition: pulumi.Input[Optional[Union['HyperParameterTuningJobTrainingJobDefinitionArgs', 'HyperParameterTuningJobTrainingJobDefinitionArgsDict']]] = None,
+                 training_job_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HyperParameterTuningJobTrainingJobDefinitionArgs', 'HyperParameterTuningJobTrainingJobDefinitionArgsDict']]]]] = None,
+                 warm_start_config: pulumi.Input[Optional[Union['HyperParameterTuningJobWarmStartConfigArgs', 'HyperParameterTuningJobWarmStartConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -726,19 +726,19 @@ class HyperParameterTuningJob(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            autotune: Optional[pulumi.Input[Union['HyperParameterTuningJobAutotuneArgs', 'HyperParameterTuningJobAutotuneArgsDict']]] = None,
-            config: Optional[pulumi.Input[Union['HyperParameterTuningJobConfigArgs', 'HyperParameterTuningJobConfigArgsDict']]] = None,
-            failure_reason: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: Optional[pulumi.Input[Union['HyperParameterTuningJobTimeoutsArgs', 'HyperParameterTuningJobTimeoutsArgsDict']]] = None,
-            training_job_definition: Optional[pulumi.Input[Union['HyperParameterTuningJobTrainingJobDefinitionArgs', 'HyperParameterTuningJobTrainingJobDefinitionArgsDict']]] = None,
-            training_job_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HyperParameterTuningJobTrainingJobDefinitionArgs', 'HyperParameterTuningJobTrainingJobDefinitionArgsDict']]]]] = None,
-            warm_start_config: Optional[pulumi.Input[Union['HyperParameterTuningJobWarmStartConfigArgs', 'HyperParameterTuningJobWarmStartConfigArgsDict']]] = None) -> 'HyperParameterTuningJob':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            autotune: pulumi.Input[Optional[Union['HyperParameterTuningJobAutotuneArgs', 'HyperParameterTuningJobAutotuneArgsDict']]] = None,
+            config: pulumi.Input[Optional[Union['HyperParameterTuningJobConfigArgs', 'HyperParameterTuningJobConfigArgsDict']]] = None,
+            failure_reason: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['HyperParameterTuningJobTimeoutsArgs', 'HyperParameterTuningJobTimeoutsArgsDict']]] = None,
+            training_job_definition: pulumi.Input[Optional[Union['HyperParameterTuningJobTrainingJobDefinitionArgs', 'HyperParameterTuningJobTrainingJobDefinitionArgsDict']]] = None,
+            training_job_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HyperParameterTuningJobTrainingJobDefinitionArgs', 'HyperParameterTuningJobTrainingJobDefinitionArgsDict']]]]] = None,
+            warm_start_config: pulumi.Input[Optional[Union['HyperParameterTuningJobWarmStartConfigArgs', 'HyperParameterTuningJobWarmStartConfigArgsDict']]] = None) -> 'HyperParameterTuningJob':
         """
         Get an existing HyperParameterTuningJob resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

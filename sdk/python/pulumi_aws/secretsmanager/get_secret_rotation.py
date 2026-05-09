@@ -138,8 +138,8 @@ def get_secret_rotation(region: Optional[_builtins.str] = None,
         rotation_lambda_arn=pulumi.get(__ret__, 'rotation_lambda_arn'),
         rotation_rules=pulumi.get(__ret__, 'rotation_rules'),
         secret_id=pulumi.get(__ret__, 'secret_id'))
-def get_secret_rotation_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                               secret_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_secret_rotation_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               secret_id: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecretRotationResult]:
     """
     Retrieve information about a Secrets Manager secret rotation. To retrieve secret metadata, see the `secretsmanager.Secret` data source. To retrieve a secret value, see the `secretsmanager.SecretVersion` data source.

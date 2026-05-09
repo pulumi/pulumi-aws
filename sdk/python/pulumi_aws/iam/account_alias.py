@@ -43,7 +43,7 @@ class AccountAliasArgs:
 @pulumi.input_type
 class _AccountAliasState:
     def __init__(__self__, *,
-                 account_alias: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_alias: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AccountAlias resources.
 
@@ -54,14 +54,14 @@ class _AccountAliasState:
 
     @_builtins.property
     @pulumi.getter(name="accountAlias")
-    def account_alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The account alias
         """
         return pulumi.get(self, "account_alias")
 
     @account_alias.setter
-    def account_alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_alias", value)
 
 
@@ -71,7 +71,7 @@ class AccountAlias(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_alias: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_alias: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         > **Note:** There is only a single account alias per AWS account.
@@ -144,7 +144,7 @@ class AccountAlias(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_alias: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_alias: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -167,7 +167,7 @@ class AccountAlias(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_alias: Optional[pulumi.Input[_builtins.str]] = None) -> 'AccountAlias':
+            account_alias: pulumi.Input[Optional[_builtins.str]] = None) -> 'AccountAlias':
         """
         Get an existing AccountAlias resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

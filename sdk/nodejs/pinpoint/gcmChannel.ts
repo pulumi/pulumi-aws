@@ -108,21 +108,21 @@ export interface GcmChannelState {
     /**
      * Platform credential API key from Google.
      */
-    apiKey?: pulumi.Input<string>;
+    apiKey?: pulumi.Input<string | undefined>;
     /**
      * The application ID.
      */
-    applicationId?: pulumi.Input<string>;
-    defaultAuthenticationMethod?: pulumi.Input<string>;
+    applicationId?: pulumi.Input<string | undefined>;
+    defaultAuthenticationMethod?: pulumi.Input<string | undefined>;
     /**
      * Whether the channel is enabled or disabled. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    serviceJson?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
+    serviceJson?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -132,19 +132,19 @@ export interface GcmChannelArgs {
     /**
      * Platform credential API key from Google.
      */
-    apiKey?: pulumi.Input<string>;
+    apiKey?: pulumi.Input<string | undefined>;
     /**
      * The application ID.
      */
     applicationId: pulumi.Input<string>;
-    defaultAuthenticationMethod?: pulumi.Input<string>;
+    defaultAuthenticationMethod?: pulumi.Input<string | undefined>;
     /**
      * Whether the channel is enabled or disabled. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    serviceJson?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
+    serviceJson?: pulumi.Input<string | undefined>;
 }

@@ -205,70 +205,70 @@ export interface InputState {
     /**
      * ARN of the Input.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Channels attached to Input.
      */
-    attachedChannels?: pulumi.Input<pulumi.Input<string>[]>;
+    attachedChannels?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Destination settings for PUSH type inputs. See Destinations for more details.
      */
-    destinations?: pulumi.Input<pulumi.Input<inputs.medialive.InputDestination>[]>;
+    destinations?: pulumi.Input<pulumi.Input<inputs.medialive.InputDestination>[] | undefined>;
     /**
      * The input class.
      */
-    inputClass?: pulumi.Input<string>;
+    inputClass?: pulumi.Input<string | undefined>;
     /**
      * Settings for the devices. See Input Devices for more details.
      */
-    inputDevices?: pulumi.Input<pulumi.Input<inputs.medialive.InputInputDevice>[]>;
+    inputDevices?: pulumi.Input<pulumi.Input<inputs.medialive.InputInputDevice>[] | undefined>;
     /**
      * A list of IDs for all Inputs which are partners of this one.
      */
-    inputPartnerIds?: pulumi.Input<pulumi.Input<string>[]>;
+    inputPartnerIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of input security groups.
      */
-    inputSecurityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    inputSecurityGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Source type of the input.
      */
-    inputSourceType?: pulumi.Input<string>;
+    inputSourceType?: pulumi.Input<string | undefined>;
     /**
      * A list of the MediaConnect Flows. See Media Connect Flows for more details.
      */
-    mediaConnectFlows?: pulumi.Input<pulumi.Input<inputs.medialive.InputMediaConnectFlow>[]>;
+    mediaConnectFlows?: pulumi.Input<pulumi.Input<inputs.medialive.InputMediaConnectFlow>[] | undefined>;
     /**
      * Name of the input.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the role this input assumes during and after creation.
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
     /**
      * The source URLs for a PULL-type input. See Sources for more details.
      */
-    sources?: pulumi.Input<pulumi.Input<inputs.medialive.InputSource>[]>;
+    sources?: pulumi.Input<pulumi.Input<inputs.medialive.InputSource>[] | undefined>;
     /**
      * A map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The different types of inputs that AWS Elemental MediaLive supports.
      *
      * The following arguments are optional:
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * Settings for a private VPC Input. See VPC for more details.
      */
-    vpc?: pulumi.Input<inputs.medialive.InputVpc>;
+    vpc?: pulumi.Input<inputs.medialive.InputVpc | undefined>;
 }
 
 /**
@@ -278,39 +278,39 @@ export interface InputArgs {
     /**
      * Destination settings for PUSH type inputs. See Destinations for more details.
      */
-    destinations?: pulumi.Input<pulumi.Input<inputs.medialive.InputDestination>[]>;
+    destinations?: pulumi.Input<pulumi.Input<inputs.medialive.InputDestination>[] | undefined>;
     /**
      * Settings for the devices. See Input Devices for more details.
      */
-    inputDevices?: pulumi.Input<pulumi.Input<inputs.medialive.InputInputDevice>[]>;
+    inputDevices?: pulumi.Input<pulumi.Input<inputs.medialive.InputInputDevice>[] | undefined>;
     /**
      * List of input security groups.
      */
-    inputSecurityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    inputSecurityGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A list of the MediaConnect Flows. See Media Connect Flows for more details.
      */
-    mediaConnectFlows?: pulumi.Input<pulumi.Input<inputs.medialive.InputMediaConnectFlow>[]>;
+    mediaConnectFlows?: pulumi.Input<pulumi.Input<inputs.medialive.InputMediaConnectFlow>[] | undefined>;
     /**
      * Name of the input.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the role this input assumes during and after creation.
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
     /**
      * The source URLs for a PULL-type input. See Sources for more details.
      */
-    sources?: pulumi.Input<pulumi.Input<inputs.medialive.InputSource>[]>;
+    sources?: pulumi.Input<pulumi.Input<inputs.medialive.InputSource>[] | undefined>;
     /**
      * A map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The different types of inputs that AWS Elemental MediaLive supports.
      *
@@ -320,5 +320,5 @@ export interface InputArgs {
     /**
      * Settings for a private VPC Input. See VPC for more details.
      */
-    vpc?: pulumi.Input<inputs.medialive.InputVpc>;
+    vpc?: pulumi.Input<inputs.medialive.InputVpc | undefined>;
 }

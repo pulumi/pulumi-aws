@@ -22,10 +22,10 @@ __all__ = ['MeteringPolicyArgs', 'MeteringPolicy']
 class MeteringPolicyArgs:
     def __init__(__self__, *,
                  transit_gateway_id: pulumi.Input[_builtins.str],
-                 middlebox_attachment_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['MeteringPolicyTimeoutsArgs']] = None):
+                 middlebox_attachment_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['MeteringPolicyTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a MeteringPolicy resource.
 
@@ -62,61 +62,61 @@ class MeteringPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="middleboxAttachmentIds")
-    def middlebox_attachment_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def middlebox_attachment_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of Transit Gateway attachment IDs to designate as middlebox attachments for this metering policy.
         """
         return pulumi.get(self, "middlebox_attachment_ids")
 
     @middlebox_attachment_ids.setter
-    def middlebox_attachment_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def middlebox_attachment_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "middlebox_attachment_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value tags for the EC2 Transit Gateway Metering Policy. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['MeteringPolicyTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['MeteringPolicyTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['MeteringPolicyTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['MeteringPolicyTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _MeteringPolicyState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 middlebox_attachment_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['MeteringPolicyTimeoutsArgs']] = None,
-                 transit_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 transit_gateway_metering_policy_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 middlebox_attachment_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['MeteringPolicyTimeoutsArgs']] = None,
+                 transit_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 transit_gateway_metering_policy_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MeteringPolicy resources.
 
@@ -149,76 +149,76 @@ class _MeteringPolicyState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         EC2 Transit Gateway Metering Policy ARN.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="middleboxAttachmentIds")
-    def middlebox_attachment_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def middlebox_attachment_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of Transit Gateway attachment IDs to designate as middlebox attachments for this metering policy.
         """
         return pulumi.get(self, "middlebox_attachment_ids")
 
     @middlebox_attachment_ids.setter
-    def middlebox_attachment_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def middlebox_attachment_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "middlebox_attachment_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value tags for the EC2 Transit Gateway Metering Policy. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['MeteringPolicyTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['MeteringPolicyTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['MeteringPolicyTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['MeteringPolicyTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter(name="transitGatewayId")
-    def transit_gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def transit_gateway_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         EC2 Transit Gateway identifier.
 
@@ -227,19 +227,19 @@ class _MeteringPolicyState:
         return pulumi.get(self, "transit_gateway_id")
 
     @transit_gateway_id.setter
-    def transit_gateway_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def transit_gateway_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "transit_gateway_id", value)
 
     @_builtins.property
     @pulumi.getter(name="transitGatewayMeteringPolicyId")
-    def transit_gateway_metering_policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def transit_gateway_metering_policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         EC2 Transit Gateway Metering Policy identifier.
         """
         return pulumi.get(self, "transit_gateway_metering_policy_id")
 
     @transit_gateway_metering_policy_id.setter
-    def transit_gateway_metering_policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def transit_gateway_metering_policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "transit_gateway_metering_policy_id", value)
 
 
@@ -249,11 +249,11 @@ class MeteringPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 middlebox_attachment_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['MeteringPolicyTimeoutsArgs', 'MeteringPolicyTimeoutsArgsDict']]] = None,
-                 transit_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 middlebox_attachment_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['MeteringPolicyTimeoutsArgs', 'MeteringPolicyTimeoutsArgsDict']]] = None,
+                 transit_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an EC2 Transit Gateway Metering Policy for Flexible Cost Allocation (FCA). A metering policy defines how traffic is metered for cost allocation purposes on a Transit Gateway.
@@ -395,11 +395,11 @@ class MeteringPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 middlebox_attachment_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['MeteringPolicyTimeoutsArgs', 'MeteringPolicyTimeoutsArgsDict']]] = None,
-                 transit_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 middlebox_attachment_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['MeteringPolicyTimeoutsArgs', 'MeteringPolicyTimeoutsArgsDict']]] = None,
+                 transit_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -429,14 +429,14 @@ class MeteringPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            middlebox_attachment_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: Optional[pulumi.Input[Union['MeteringPolicyTimeoutsArgs', 'MeteringPolicyTimeoutsArgsDict']]] = None,
-            transit_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-            transit_gateway_metering_policy_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'MeteringPolicy':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            middlebox_attachment_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['MeteringPolicyTimeoutsArgs', 'MeteringPolicyTimeoutsArgsDict']]] = None,
+            transit_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+            transit_gateway_metering_policy_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'MeteringPolicy':
         """
         Get an existing MeteringPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

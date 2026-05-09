@@ -21,15 +21,15 @@ __all__ = ['ServerlessCollectionArgs', 'ServerlessCollection']
 @pulumi.input_type
 class ServerlessCollectionArgs:
     def __init__(__self__, *,
-                 collection_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_configs: Optional[pulumi.Input[Sequence[pulumi.Input['ServerlessCollectionEncryptionConfigArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 standby_replicas: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['ServerlessCollectionTimeoutsArgs']] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 collection_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_configs: pulumi.Input[Optional[Sequence[pulumi.Input['ServerlessCollectionEncryptionConfigArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 standby_replicas: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['ServerlessCollectionTimeoutsArgs']] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServerlessCollection resource.
 
@@ -65,43 +65,43 @@ class ServerlessCollectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="collectionGroupName")
-    def collection_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def collection_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the collection group to associate with this collection.
         """
         return pulumi.get(self, "collection_group_name")
 
     @collection_group_name.setter
-    def collection_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def collection_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "collection_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the collection.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionConfigs")
-    def encryption_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServerlessCollectionEncryptionConfigArgs']]]]:
+    def encryption_configs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServerlessCollectionEncryptionConfigArgs']]]]:
         """
         Configuration block for direct collection encryption settings. See `encryption_config` below for details.
         """
         return pulumi.get(self, "encryption_configs")
 
     @encryption_configs.setter
-    def encryption_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServerlessCollectionEncryptionConfigArgs']]]]):
+    def encryption_configs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServerlessCollectionEncryptionConfigArgs']]]]):
         pulumi.set(self, "encryption_configs", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the collection.
 
@@ -110,84 +110,84 @@ class ServerlessCollectionArgs:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="standbyReplicas")
-    def standby_replicas(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def standby_replicas(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
         """
         return pulumi.get(self, "standby_replicas")
 
     @standby_replicas.setter
-    def standby_replicas(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def standby_replicas(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "standby_replicas", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['ServerlessCollectionTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['ServerlessCollectionTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['ServerlessCollectionTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['ServerlessCollectionTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
 class _ServerlessCollectionState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 collection_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 collection_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 dashboard_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_configs: Optional[pulumi.Input[Sequence[pulumi.Input['ServerlessCollectionEncryptionConfigArgs']]]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 standby_replicas: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['ServerlessCollectionTimeoutsArgs']] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 collection_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 collection_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dashboard_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_configs: pulumi.Input[Optional[Sequence[pulumi.Input['ServerlessCollectionEncryptionConfigArgs']]]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 standby_replicas: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['ServerlessCollectionTimeoutsArgs']] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServerlessCollection resources.
 
@@ -238,91 +238,91 @@ class _ServerlessCollectionState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) of the collection.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="collectionEndpoint")
-    def collection_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def collection_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
         """
         return pulumi.get(self, "collection_endpoint")
 
     @collection_endpoint.setter
-    def collection_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def collection_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "collection_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="collectionGroupName")
-    def collection_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def collection_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the collection group to associate with this collection.
         """
         return pulumi.get(self, "collection_group_name")
 
     @collection_group_name.setter
-    def collection_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def collection_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "collection_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="dashboardEndpoint")
-    def dashboard_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dashboard_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Collection-specific endpoint used to access OpenSearch Dashboards.
         """
         return pulumi.get(self, "dashboard_endpoint")
 
     @dashboard_endpoint.setter
-    def dashboard_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dashboard_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dashboard_endpoint", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the collection.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionConfigs")
-    def encryption_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServerlessCollectionEncryptionConfigArgs']]]]:
+    def encryption_configs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServerlessCollectionEncryptionConfigArgs']]]]:
         """
         Configuration block for direct collection encryption settings. See `encryption_config` below for details.
         """
         return pulumi.get(self, "encryption_configs")
 
     @encryption_configs.setter
-    def encryption_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServerlessCollectionEncryptionConfigArgs']]]]):
+    def encryption_configs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServerlessCollectionEncryptionConfigArgs']]]]):
         pulumi.set(self, "encryption_configs", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the Amazon Web Services KMS key used to encrypt the collection.
         """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
-    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the collection.
 
@@ -331,76 +331,76 @@ class _ServerlessCollectionState:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="standbyReplicas")
-    def standby_replicas(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def standby_replicas(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
         """
         return pulumi.get(self, "standby_replicas")
 
     @standby_replicas.setter
-    def standby_replicas(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def standby_replicas(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "standby_replicas", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['ServerlessCollectionTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['ServerlessCollectionTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['ServerlessCollectionTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['ServerlessCollectionTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -410,15 +410,15 @@ class ServerlessCollection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 collection_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServerlessCollectionEncryptionConfigArgs', 'ServerlessCollectionEncryptionConfigArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 standby_replicas: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['ServerlessCollectionTimeoutsArgs', 'ServerlessCollectionTimeoutsArgsDict']]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 collection_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerlessCollectionEncryptionConfigArgs', 'ServerlessCollectionEncryptionConfigArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 standby_replicas: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ServerlessCollectionTimeoutsArgs', 'ServerlessCollectionTimeoutsArgsDict']]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing an AWS OpenSearch Serverless Collection.
@@ -596,15 +596,15 @@ class ServerlessCollection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 collection_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServerlessCollectionEncryptionConfigArgs', 'ServerlessCollectionEncryptionConfigArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 standby_replicas: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['ServerlessCollectionTimeoutsArgs', 'ServerlessCollectionTimeoutsArgsDict']]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 collection_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerlessCollectionEncryptionConfigArgs', 'ServerlessCollectionEncryptionConfigArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 standby_replicas: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ServerlessCollectionTimeoutsArgs', 'ServerlessCollectionTimeoutsArgsDict']]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -638,20 +638,20 @@ class ServerlessCollection(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            collection_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            collection_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            dashboard_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            encryption_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServerlessCollectionEncryptionConfigArgs', 'ServerlessCollectionEncryptionConfigArgsDict']]]]] = None,
-            kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            standby_replicas: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: Optional[pulumi.Input[Union['ServerlessCollectionTimeoutsArgs', 'ServerlessCollectionTimeoutsArgsDict']]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None) -> 'ServerlessCollection':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            collection_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            collection_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            dashboard_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            encryption_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerlessCollectionEncryptionConfigArgs', 'ServerlessCollectionEncryptionConfigArgsDict']]]]] = None,
+            kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            standby_replicas: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['ServerlessCollectionTimeoutsArgs', 'ServerlessCollectionTimeoutsArgsDict']]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> 'ServerlessCollection':
         """
         Get an existing ServerlessCollection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

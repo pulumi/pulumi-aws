@@ -148,9 +148,9 @@ def get_serverless_access_policy(name: Optional[_builtins.str] = None,
         policy_version=pulumi.get(__ret__, 'policy_version'),
         region=pulumi.get(__ret__, 'region'),
         type=pulumi.get(__ret__, 'type'))
-def get_serverless_access_policy_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                        type: Optional[pulumi.Input[_builtins.str]] = None,
+def get_serverless_access_policy_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                        type: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerlessAccessPolicyResult]:
     """
     Data source for managing an AWS OpenSearch Serverless Access Policy.

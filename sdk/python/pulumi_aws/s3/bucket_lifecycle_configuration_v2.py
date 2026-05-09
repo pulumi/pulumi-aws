@@ -22,11 +22,11 @@ __all__ = ['BucketLifecycleConfigurationV2Args', 'BucketLifecycleConfigurationV2
 class BucketLifecycleConfigurationV2Args:
     def __init__(__self__, *,
                  bucket: pulumi.Input[_builtins.str],
-                 expected_bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationV2RuleArgs']]]] = None,
-                 timeouts: Optional[pulumi.Input['BucketLifecycleConfigurationV2TimeoutsArgs']] = None,
-                 transition_default_minimum_object_size: Optional[pulumi.Input[_builtins.str]] = None):
+                 expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input['BucketLifecycleConfigurationV2RuleArgs']]]] = None,
+                 timeouts: pulumi.Input[Optional['BucketLifecycleConfigurationV2TimeoutsArgs']] = None,
+                 transition_default_minimum_object_size: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a BucketLifecycleConfigurationV2 resource.
 
@@ -66,71 +66,71 @@ class BucketLifecycleConfigurationV2Args:
     @_builtins.property
     @pulumi.getter(name="expectedBucketOwner")
     @_utilities.deprecated("""This attribute will be removed in a future verion of the provider.""")
-    def expected_bucket_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expected_bucket_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         """
         return pulumi.get(self, "expected_bucket_owner")
 
     @expected_bucket_owner.setter
-    def expected_bucket_owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expected_bucket_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expected_bucket_owner", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationV2RuleArgs']]]]:
+    def rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BucketLifecycleConfigurationV2RuleArgs']]]]:
         """
         List of configuration blocks describing the rules managing the replication. See below.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationV2RuleArgs']]]]):
+    def rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BucketLifecycleConfigurationV2RuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['BucketLifecycleConfigurationV2TimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['BucketLifecycleConfigurationV2TimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['BucketLifecycleConfigurationV2TimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['BucketLifecycleConfigurationV2TimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter(name="transitionDefaultMinimumObjectSize")
-    def transition_default_minimum_object_size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def transition_default_minimum_object_size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
         """
         return pulumi.get(self, "transition_default_minimum_object_size")
 
     @transition_default_minimum_object_size.setter
-    def transition_default_minimum_object_size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def transition_default_minimum_object_size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "transition_default_minimum_object_size", value)
 
 
 @pulumi.input_type
 class _BucketLifecycleConfigurationV2State:
     def __init__(__self__, *,
-                 bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 expected_bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationV2RuleArgs']]]] = None,
-                 timeouts: Optional[pulumi.Input['BucketLifecycleConfigurationV2TimeoutsArgs']] = None,
-                 transition_default_minimum_object_size: Optional[pulumi.Input[_builtins.str]] = None):
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input['BucketLifecycleConfigurationV2RuleArgs']]]] = None,
+                 timeouts: pulumi.Input[Optional['BucketLifecycleConfigurationV2TimeoutsArgs']] = None,
+                 transition_default_minimum_object_size: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BucketLifecycleConfigurationV2 resources.
 
@@ -158,72 +158,72 @@ class _BucketLifecycleConfigurationV2State:
 
     @_builtins.property
     @pulumi.getter
-    def bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the source S3 bucket you want Amazon S3 to monitor.
         """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
-    def bucket(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket", value)
 
     @_builtins.property
     @pulumi.getter(name="expectedBucketOwner")
     @_utilities.deprecated("""This attribute will be removed in a future verion of the provider.""")
-    def expected_bucket_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expected_bucket_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         """
         return pulumi.get(self, "expected_bucket_owner")
 
     @expected_bucket_owner.setter
-    def expected_bucket_owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expected_bucket_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expected_bucket_owner", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationV2RuleArgs']]]]:
+    def rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BucketLifecycleConfigurationV2RuleArgs']]]]:
         """
         List of configuration blocks describing the rules managing the replication. See below.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationV2RuleArgs']]]]):
+    def rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BucketLifecycleConfigurationV2RuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['BucketLifecycleConfigurationV2TimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['BucketLifecycleConfigurationV2TimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['BucketLifecycleConfigurationV2TimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['BucketLifecycleConfigurationV2TimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter(name="transitionDefaultMinimumObjectSize")
-    def transition_default_minimum_object_size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def transition_default_minimum_object_size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
         """
         return pulumi.get(self, "transition_default_minimum_object_size")
 
     @transition_default_minimum_object_size.setter
-    def transition_default_minimum_object_size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def transition_default_minimum_object_size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "transition_default_minimum_object_size", value)
 
 
@@ -238,12 +238,12 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 expected_bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketLifecycleConfigurationV2RuleArgs', 'BucketLifecycleConfigurationV2RuleArgsDict']]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['BucketLifecycleConfigurationV2TimeoutsArgs', 'BucketLifecycleConfigurationV2TimeoutsArgsDict']]] = None,
-                 transition_default_minimum_object_size: Optional[pulumi.Input[_builtins.str]] = None,
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketLifecycleConfigurationV2RuleArgs', 'BucketLifecycleConfigurationV2RuleArgsDict']]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['BucketLifecycleConfigurationV2TimeoutsArgs', 'BucketLifecycleConfigurationV2TimeoutsArgsDict']]] = None,
+                 transition_default_minimum_object_size: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides an independent configuration resource for S3 bucket [lifecycle configuration](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html).
@@ -930,12 +930,12 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 expected_bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketLifecycleConfigurationV2RuleArgs', 'BucketLifecycleConfigurationV2RuleArgsDict']]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['BucketLifecycleConfigurationV2TimeoutsArgs', 'BucketLifecycleConfigurationV2TimeoutsArgsDict']]] = None,
-                 transition_default_minimum_object_size: Optional[pulumi.Input[_builtins.str]] = None,
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketLifecycleConfigurationV2RuleArgs', 'BucketLifecycleConfigurationV2RuleArgsDict']]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['BucketLifecycleConfigurationV2TimeoutsArgs', 'BucketLifecycleConfigurationV2TimeoutsArgsDict']]] = None,
+                 transition_default_minimum_object_size: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         pulumi.log.warn("""BucketLifecycleConfigurationV2 is deprecated: aws.s3/bucketlifecycleconfigurationv2.BucketLifecycleConfigurationV2 has been deprecated in favor of aws.s3/bucketlifecycleconfiguration.BucketLifecycleConfiguration""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -966,12 +966,12 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            bucket: Optional[pulumi.Input[_builtins.str]] = None,
-            expected_bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketLifecycleConfigurationV2RuleArgs', 'BucketLifecycleConfigurationV2RuleArgsDict']]]]] = None,
-            timeouts: Optional[pulumi.Input[Union['BucketLifecycleConfigurationV2TimeoutsArgs', 'BucketLifecycleConfigurationV2TimeoutsArgsDict']]] = None,
-            transition_default_minimum_object_size: Optional[pulumi.Input[_builtins.str]] = None) -> 'BucketLifecycleConfigurationV2':
+            bucket: pulumi.Input[Optional[_builtins.str]] = None,
+            expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketLifecycleConfigurationV2RuleArgs', 'BucketLifecycleConfigurationV2RuleArgsDict']]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['BucketLifecycleConfigurationV2TimeoutsArgs', 'BucketLifecycleConfigurationV2TimeoutsArgsDict']]] = None,
+            transition_default_minimum_object_size: pulumi.Input[Optional[_builtins.str]] = None) -> 'BucketLifecycleConfigurationV2':
         """
         Get an existing BucketLifecycleConfigurationV2 resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

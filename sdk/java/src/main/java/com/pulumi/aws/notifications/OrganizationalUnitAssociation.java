@@ -38,8 +38,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.notifications.OrganizationalUnitAssociation;
  * import com.pulumi.aws.notifications.OrganizationalUnitAssociationArgs;
  * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *         var wait = new Sleep("wait", SleepArgs.builder()
  *             .createDuration("5s")
  *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(List.of(                
+ *                 .dependsOn(Arrays.asList(                
  *                     exampleOrganizationalUnit,
  *                     exampleNotificationConfiguration))
  *                 .build());
@@ -100,8 +100,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.notifications.NotificationConfigurationArgs;
  * import com.pulumi.aws.notifications.OrganizationalUnitAssociation;
  * import com.pulumi.aws.notifications.OrganizationalUnitAssociationArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;

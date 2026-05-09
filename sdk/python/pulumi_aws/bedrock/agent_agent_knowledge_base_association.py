@@ -25,9 +25,9 @@ class AgentAgentKnowledgeBaseAssociationArgs:
                  description: pulumi.Input[_builtins.str],
                  knowledge_base_id: pulumi.Input[_builtins.str],
                  knowledge_base_state: pulumi.Input[_builtins.str],
-                 agent_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input['AgentAgentKnowledgeBaseAssociationTimeoutsArgs']] = None):
+                 agent_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional['AgentAgentKnowledgeBaseAssociationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AgentAgentKnowledgeBaseAssociation resource.
 
@@ -103,48 +103,48 @@ class AgentAgentKnowledgeBaseAssociationArgs:
 
     @_builtins.property
     @pulumi.getter(name="agentVersion")
-    def agent_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def agent_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
         """
         return pulumi.get(self, "agent_version")
 
     @agent_version.setter
-    def agent_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def agent_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "agent_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['AgentAgentKnowledgeBaseAssociationTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['AgentAgentKnowledgeBaseAssociationTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['AgentAgentKnowledgeBaseAssociationTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['AgentAgentKnowledgeBaseAssociationTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _AgentAgentKnowledgeBaseAssociationState:
     def __init__(__self__, *,
-                 agent_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 agent_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 knowledge_base_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 knowledge_base_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input['AgentAgentKnowledgeBaseAssociationTimeoutsArgs']] = None):
+                 agent_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 agent_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 knowledge_base_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 knowledge_base_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional['AgentAgentKnowledgeBaseAssociationTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering AgentAgentKnowledgeBaseAssociation resources.
 
@@ -174,55 +174,55 @@ class _AgentAgentKnowledgeBaseAssociationState:
 
     @_builtins.property
     @pulumi.getter(name="agentId")
-    def agent_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def agent_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique identifier of the agent with which you want to associate the knowledge base.
         """
         return pulumi.get(self, "agent_id")
 
     @agent_id.setter
-    def agent_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def agent_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "agent_id", value)
 
     @_builtins.property
     @pulumi.getter(name="agentVersion")
-    def agent_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def agent_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
         """
         return pulumi.get(self, "agent_version")
 
     @agent_version.setter
-    def agent_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def agent_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "agent_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of what the agent should use the knowledge base for.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="knowledgeBaseId")
-    def knowledge_base_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def knowledge_base_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique identifier of the knowledge base to associate with the agent.
         """
         return pulumi.get(self, "knowledge_base_id")
 
     @knowledge_base_id.setter
-    def knowledge_base_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def knowledge_base_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "knowledge_base_id", value)
 
     @_builtins.property
     @pulumi.getter(name="knowledgeBaseState")
-    def knowledge_base_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def knowledge_base_state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether to use the knowledge base when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
 
@@ -231,28 +231,28 @@ class _AgentAgentKnowledgeBaseAssociationState:
         return pulumi.get(self, "knowledge_base_state")
 
     @knowledge_base_state.setter
-    def knowledge_base_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def knowledge_base_state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "knowledge_base_state", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['AgentAgentKnowledgeBaseAssociationTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['AgentAgentKnowledgeBaseAssociationTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['AgentAgentKnowledgeBaseAssociationTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['AgentAgentKnowledgeBaseAssociationTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
@@ -262,13 +262,13 @@ class AgentAgentKnowledgeBaseAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 agent_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 knowledge_base_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 knowledge_base_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input[Union['AgentAgentKnowledgeBaseAssociationTimeoutsArgs', 'AgentAgentKnowledgeBaseAssociationTimeoutsArgsDict']]] = None,
+                 agent_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 agent_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 knowledge_base_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 knowledge_base_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentAgentKnowledgeBaseAssociationTimeoutsArgs', 'AgentAgentKnowledgeBaseAssociationTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Agents for Amazon Bedrock Agent Knowledge Base Association.
@@ -356,13 +356,13 @@ class AgentAgentKnowledgeBaseAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 agent_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 knowledge_base_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 knowledge_base_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input[Union['AgentAgentKnowledgeBaseAssociationTimeoutsArgs', 'AgentAgentKnowledgeBaseAssociationTimeoutsArgsDict']]] = None,
+                 agent_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 agent_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 knowledge_base_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 knowledge_base_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentAgentKnowledgeBaseAssociationTimeoutsArgs', 'AgentAgentKnowledgeBaseAssociationTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -397,13 +397,13 @@ class AgentAgentKnowledgeBaseAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            agent_id: Optional[pulumi.Input[_builtins.str]] = None,
-            agent_version: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            knowledge_base_id: Optional[pulumi.Input[_builtins.str]] = None,
-            knowledge_base_state: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            timeouts: Optional[pulumi.Input[Union['AgentAgentKnowledgeBaseAssociationTimeoutsArgs', 'AgentAgentKnowledgeBaseAssociationTimeoutsArgsDict']]] = None) -> 'AgentAgentKnowledgeBaseAssociation':
+            agent_id: pulumi.Input[Optional[_builtins.str]] = None,
+            agent_version: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            knowledge_base_id: pulumi.Input[Optional[_builtins.str]] = None,
+            knowledge_base_state: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['AgentAgentKnowledgeBaseAssociationTimeoutsArgs', 'AgentAgentKnowledgeBaseAssociationTimeoutsArgsDict']]] = None) -> 'AgentAgentKnowledgeBaseAssociation':
         """
         Get an existing AgentAgentKnowledgeBaseAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

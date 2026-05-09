@@ -186,47 +186,47 @@ export interface UserPoolDomainState {
     /**
      * The AWS account ID for the user pool owner.
      */
-    awsAccountId?: pulumi.Input<string>;
+    awsAccountId?: pulumi.Input<string | undefined>;
     /**
      * The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
      */
-    certificateArn?: pulumi.Input<string>;
+    certificateArn?: pulumi.Input<string | undefined>;
     /**
      * The Amazon CloudFront endpoint (e.g. `dpp0gtxikpq3y.cloudfront.net`) that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
      */
-    cloudfrontDistribution?: pulumi.Input<string>;
+    cloudfrontDistribution?: pulumi.Input<string | undefined>;
     /**
      * The URL of the CloudFront distribution. This is required to generate the ALIAS `aws.route53.Record`
      */
-    cloudfrontDistributionArn?: pulumi.Input<string>;
+    cloudfrontDistributionArn?: pulumi.Input<string | undefined>;
     /**
      * The Route 53 hosted zone ID of the CloudFront distribution.
      */
-    cloudfrontDistributionZoneId?: pulumi.Input<string>;
+    cloudfrontDistributionZoneId?: pulumi.Input<string | undefined>;
     /**
      * For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
      */
-    domain?: pulumi.Input<string>;
+    domain?: pulumi.Input<string | undefined>;
     /**
      * A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
      */
-    managedLoginVersion?: pulumi.Input<number>;
+    managedLoginVersion?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The S3 bucket where the static files for this domain are stored.
      */
-    s3Bucket?: pulumi.Input<string>;
+    s3Bucket?: pulumi.Input<string | undefined>;
     /**
      * The user pool ID.
      */
-    userPoolId?: pulumi.Input<string>;
+    userPoolId?: pulumi.Input<string | undefined>;
     /**
      * The app version.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -236,7 +236,7 @@ export interface UserPoolDomainArgs {
     /**
      * The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
      */
-    certificateArn?: pulumi.Input<string>;
+    certificateArn?: pulumi.Input<string | undefined>;
     /**
      * For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
      */
@@ -244,11 +244,11 @@ export interface UserPoolDomainArgs {
     /**
      * A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
      */
-    managedLoginVersion?: pulumi.Input<number>;
+    managedLoginVersion?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The user pool ID.
      */

@@ -87,7 +87,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			lambda, err := iam.NewRole(ctx, "lambda", &iam.RoleArgs{
+//			lambda2, err := iam.NewRole(ctx, "lambda", &iam.RoleArgs{
 //				Name:             pulumi.String("demo-lambda"),
 //				AssumeRolePolicy: pulumi.String(pulumi.String(lambdaAssumeRole.Json)),
 //			})
@@ -103,7 +103,7 @@ import (
 //			authorizer, err := lambda.NewFunction(ctx, "authorizer", &lambda.FunctionArgs{
 //				Code:           pulumi.NewFileArchive("lambda-function.zip"),
 //				Name:           pulumi.String("api_gateway_authorizer"),
-//				Role:           lambda.Arn,
+//				Role:           lambda2.Arn,
 //				Handler:        pulumi.String("exports.example"),
 //				SourceCodeHash: pulumi.String(invokeFilebase64sha256.Result),
 //			})

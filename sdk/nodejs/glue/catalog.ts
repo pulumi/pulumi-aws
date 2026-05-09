@@ -281,72 +281,72 @@ export interface CatalogState {
     /**
      * Whether third-party engines can access data in Amazon S3 locations that are registered with Lake Formation. Valid values are `True` and `False`.
      */
-    allowFullTableExternalDataAccess?: pulumi.Input<string>;
+    allowFullTableExternalDataAccess?: pulumi.Input<string | undefined>;
     /**
      * ARN of the Glue Catalog.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * ID of the parent catalog.
      */
-    catalogId?: pulumi.Input<string>;
+    catalogId?: pulumi.Input<string | undefined>;
     /**
      * Configuration block of properties for the catalog. See `catalogProperties` below.
      */
-    catalogProperties?: pulumi.Input<inputs.glue.CatalogCatalogProperties>;
+    catalogProperties?: pulumi.Input<inputs.glue.CatalogCatalogProperties | undefined>;
     /**
      * List of default permissions on databases for principals. See `createDatabaseDefaultPermissions` below.
      */
-    createDatabaseDefaultPermissions?: pulumi.Input<pulumi.Input<inputs.glue.CatalogCreateDatabaseDefaultPermission>[]>;
+    createDatabaseDefaultPermissions?: pulumi.Input<pulumi.Input<inputs.glue.CatalogCreateDatabaseDefaultPermission>[] | undefined>;
     /**
      * List of default permissions on tables for principals. See `createTableDefaultPermissions` below.
      */
-    createTableDefaultPermissions?: pulumi.Input<pulumi.Input<inputs.glue.CatalogCreateTableDefaultPermission>[]>;
+    createTableDefaultPermissions?: pulumi.Input<pulumi.Input<inputs.glue.CatalogCreateTableDefaultPermission>[] | undefined>;
     /**
      * Time at which the catalog was created.
      */
-    createTime?: pulumi.Input<string>;
+    createTime?: pulumi.Input<string | undefined>;
     /**
      * Description of the catalog.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for a federated catalog. See `federatedCatalog` below.
      */
-    federatedCatalog?: pulumi.Input<inputs.glue.CatalogFederatedCatalog>;
+    federatedCatalog?: pulumi.Input<inputs.glue.CatalogFederatedCatalog | undefined>;
     /**
      * Name of the catalog.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether to overwrite existing Lake Formation permissions on child resources with the default permissions. Valid values are `Accept` and `Deny`.
      */
-    overwriteChildResourcePermissionsWithDefault?: pulumi.Input<string>;
+    overwriteChildResourcePermissionsWithDefault?: pulumi.Input<string | undefined>;
     /**
      * Map of key-value pairs that define parameters and properties of the catalog.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Configuration block for a target Redshift catalog. See `targetRedshiftCatalog` below.
      */
-    targetRedshiftCatalog?: pulumi.Input<inputs.glue.CatalogTargetRedshiftCatalog>;
-    timeouts?: pulumi.Input<inputs.glue.CatalogTimeouts>;
+    targetRedshiftCatalog?: pulumi.Input<inputs.glue.CatalogTargetRedshiftCatalog | undefined>;
+    timeouts?: pulumi.Input<inputs.glue.CatalogTimeouts | undefined>;
     /**
      * Time at which the catalog was last updated.
      */
-    updateTime?: pulumi.Input<string>;
+    updateTime?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -356,50 +356,50 @@ export interface CatalogArgs {
     /**
      * Whether third-party engines can access data in Amazon S3 locations that are registered with Lake Formation. Valid values are `True` and `False`.
      */
-    allowFullTableExternalDataAccess?: pulumi.Input<string>;
+    allowFullTableExternalDataAccess?: pulumi.Input<string | undefined>;
     /**
      * Configuration block of properties for the catalog. See `catalogProperties` below.
      */
-    catalogProperties?: pulumi.Input<inputs.glue.CatalogCatalogProperties>;
+    catalogProperties?: pulumi.Input<inputs.glue.CatalogCatalogProperties | undefined>;
     /**
      * List of default permissions on databases for principals. See `createDatabaseDefaultPermissions` below.
      */
-    createDatabaseDefaultPermissions?: pulumi.Input<pulumi.Input<inputs.glue.CatalogCreateDatabaseDefaultPermission>[]>;
+    createDatabaseDefaultPermissions?: pulumi.Input<pulumi.Input<inputs.glue.CatalogCreateDatabaseDefaultPermission>[] | undefined>;
     /**
      * List of default permissions on tables for principals. See `createTableDefaultPermissions` below.
      */
-    createTableDefaultPermissions?: pulumi.Input<pulumi.Input<inputs.glue.CatalogCreateTableDefaultPermission>[]>;
+    createTableDefaultPermissions?: pulumi.Input<pulumi.Input<inputs.glue.CatalogCreateTableDefaultPermission>[] | undefined>;
     /**
      * Description of the catalog.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for a federated catalog. See `federatedCatalog` below.
      */
-    federatedCatalog?: pulumi.Input<inputs.glue.CatalogFederatedCatalog>;
+    federatedCatalog?: pulumi.Input<inputs.glue.CatalogFederatedCatalog | undefined>;
     /**
      * Name of the catalog.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether to overwrite existing Lake Formation permissions on child resources with the default permissions. Valid values are `Accept` and `Deny`.
      */
-    overwriteChildResourcePermissionsWithDefault?: pulumi.Input<string>;
+    overwriteChildResourcePermissionsWithDefault?: pulumi.Input<string | undefined>;
     /**
      * Map of key-value pairs that define parameters and properties of the catalog.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Configuration block for a target Redshift catalog. See `targetRedshiftCatalog` below.
      */
-    targetRedshiftCatalog?: pulumi.Input<inputs.glue.CatalogTargetRedshiftCatalog>;
-    timeouts?: pulumi.Input<inputs.glue.CatalogTimeouts>;
+    targetRedshiftCatalog?: pulumi.Input<inputs.glue.CatalogTargetRedshiftCatalog | undefined>;
+    timeouts?: pulumi.Input<inputs.glue.CatalogTimeouts | undefined>;
 }

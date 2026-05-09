@@ -167,47 +167,47 @@ export interface AuthorizerState {
     /**
      * The ARN of the authorizer.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the authorizer's Lambda function.
      */
-    authorizerFunctionArn?: pulumi.Input<string>;
+    authorizerFunctionArn?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the HTTP caching is enabled or not. Default: `false`.
      */
-    enableCachingForHttp?: pulumi.Input<boolean>;
+    enableCachingForHttp?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the authorizer.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
      */
-    signingDisabled?: pulumi.Input<boolean>;
+    signingDisabled?: pulumi.Input<boolean | undefined>;
     /**
      * The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
      */
-    tokenKeyName?: pulumi.Input<string>;
+    tokenKeyName?: pulumi.Input<string | undefined>;
     /**
      * The public keys used to verify the digital signature returned by your custom authentication service. This value is required if signing is enabled in your authorizer.
      */
-    tokenSigningPublicKeys?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tokenSigningPublicKeys?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -221,33 +221,33 @@ export interface AuthorizerArgs {
     /**
      * Specifies whether the HTTP caching is enabled or not. Default: `false`.
      */
-    enableCachingForHttp?: pulumi.Input<boolean>;
+    enableCachingForHttp?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the authorizer.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
      */
-    signingDisabled?: pulumi.Input<boolean>;
+    signingDisabled?: pulumi.Input<boolean | undefined>;
     /**
      * The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
      */
-    tokenKeyName?: pulumi.Input<string>;
+    tokenKeyName?: pulumi.Input<string | undefined>;
     /**
      * The public keys used to verify the digital signature returned by your custom authentication service. This value is required if signing is enabled in your authorizer.
      */
-    tokenSigningPublicKeys?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tokenSigningPublicKeys?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

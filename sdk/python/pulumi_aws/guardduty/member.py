@@ -22,10 +22,10 @@ class MemberArgs:
                  account_id: pulumi.Input[_builtins.str],
                  detector_id: pulumi.Input[_builtins.str],
                  email: pulumi.Input[_builtins.str],
-                 disable_email_notification: Optional[pulumi.Input[_builtins.bool]] = None,
-                 invitation_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 invite: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 disable_email_notification: pulumi.Input[Optional[_builtins.bool]] = None,
+                 invitation_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 invite: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Member resource.
 
@@ -87,64 +87,64 @@ class MemberArgs:
 
     @_builtins.property
     @pulumi.getter(name="disableEmailNotification")
-    def disable_email_notification(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_email_notification(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean whether an email notification is sent to the accounts. Defaults to `false`.
         """
         return pulumi.get(self, "disable_email_notification")
 
     @disable_email_notification.setter
-    def disable_email_notification(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_email_notification(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_email_notification", value)
 
     @_builtins.property
     @pulumi.getter(name="invitationMessage")
-    def invitation_message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def invitation_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Message for invitation.
         """
         return pulumi.get(self, "invitation_message")
 
     @invitation_message.setter
-    def invitation_message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def invitation_message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "invitation_message", value)
 
     @_builtins.property
     @pulumi.getter
-    def invite(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def invite(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the this provider state value is `true` based on a `relationship_status` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
         """
         return pulumi.get(self, "invite")
 
     @invite.setter
-    def invite(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def invite(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "invite", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _MemberState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 detector_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_email_notification: Optional[pulumi.Input[_builtins.bool]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 invitation_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 invite: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 relationship_status: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 detector_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_email_notification: pulumi.Input[Optional[_builtins.bool]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 invitation_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 invite: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 relationship_status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Member resources.
 
@@ -176,98 +176,98 @@ class _MemberState:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS account ID for member account.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="detectorId")
-    def detector_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def detector_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The detector ID of the GuardDuty account where you want to create member accounts.
         """
         return pulumi.get(self, "detector_id")
 
     @detector_id.setter
-    def detector_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def detector_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "detector_id", value)
 
     @_builtins.property
     @pulumi.getter(name="disableEmailNotification")
-    def disable_email_notification(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_email_notification(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean whether an email notification is sent to the accounts. Defaults to `false`.
         """
         return pulumi.get(self, "disable_email_notification")
 
     @disable_email_notification.setter
-    def disable_email_notification(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_email_notification(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_email_notification", value)
 
     @_builtins.property
     @pulumi.getter
-    def email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Email address for member account.
         """
         return pulumi.get(self, "email")
 
     @email.setter
-    def email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email", value)
 
     @_builtins.property
     @pulumi.getter(name="invitationMessage")
-    def invitation_message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def invitation_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Message for invitation.
         """
         return pulumi.get(self, "invitation_message")
 
     @invitation_message.setter
-    def invitation_message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def invitation_message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "invitation_message", value)
 
     @_builtins.property
     @pulumi.getter
-    def invite(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def invite(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the this provider state value is `true` based on a `relationship_status` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
         """
         return pulumi.get(self, "invite")
 
     @invite.setter
-    def invite(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def invite(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "invite", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="relationshipStatus")
-    def relationship_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def relationship_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
         """
         return pulumi.get(self, "relationship_status")
 
     @relationship_status.setter
-    def relationship_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def relationship_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "relationship_status", value)
 
 
@@ -277,13 +277,13 @@ class Member(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 detector_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_email_notification: Optional[pulumi.Input[_builtins.bool]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 invitation_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 invite: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 detector_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_email_notification: pulumi.Input[Optional[_builtins.bool]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 invitation_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 invite: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a resource to manage a GuardDuty member. To accept invitations in member accounts, see the `guardduty.InviteAccepter` resource.
@@ -372,13 +372,13 @@ class Member(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 detector_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_email_notification: Optional[pulumi.Input[_builtins.bool]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 invitation_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 invite: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 detector_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_email_notification: pulumi.Input[Optional[_builtins.bool]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 invitation_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 invite: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -412,14 +412,14 @@ class Member(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            detector_id: Optional[pulumi.Input[_builtins.str]] = None,
-            disable_email_notification: Optional[pulumi.Input[_builtins.bool]] = None,
-            email: Optional[pulumi.Input[_builtins.str]] = None,
-            invitation_message: Optional[pulumi.Input[_builtins.str]] = None,
-            invite: Optional[pulumi.Input[_builtins.bool]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            relationship_status: Optional[pulumi.Input[_builtins.str]] = None) -> 'Member':
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            detector_id: pulumi.Input[Optional[_builtins.str]] = None,
+            disable_email_notification: pulumi.Input[Optional[_builtins.bool]] = None,
+            email: pulumi.Input[Optional[_builtins.str]] = None,
+            invitation_message: pulumi.Input[Optional[_builtins.str]] = None,
+            invite: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            relationship_status: pulumi.Input[Optional[_builtins.str]] = None) -> 'Member':
         """
         Get an existing Member resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

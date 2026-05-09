@@ -23,11 +23,11 @@ class IntegrationResponseArgs:
                  resource_id: pulumi.Input[_builtins.str],
                  rest_api: pulumi.Input[_builtins.str],
                  status_code: pulumi.Input[_builtins.str],
-                 content_handling: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 response_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 selection_pattern: Optional[pulumi.Input[_builtins.str]] = None):
+                 content_handling: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 response_templates: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 selection_pattern: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a IntegrationResponse resource.
 
@@ -110,77 +110,77 @@ class IntegrationResponseArgs:
 
     @_builtins.property
     @pulumi.getter(name="contentHandling")
-    def content_handling(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_handling(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         How to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
         """
         return pulumi.get(self, "content_handling")
 
     @content_handling.setter
-    def content_handling(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_handling(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_handling", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="responseParameters")
-    def response_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def response_parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of response parameters that can be read from the backend response. For example: `response_parameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`.
         """
         return pulumi.get(self, "response_parameters")
 
     @response_parameters.setter
-    def response_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def response_parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "response_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="responseTemplates")
-    def response_templates(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def response_templates(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of templates used to transform the integration response body.
         """
         return pulumi.get(self, "response_templates")
 
     @response_templates.setter
-    def response_templates(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def response_templates(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "response_templates", value)
 
     @_builtins.property
     @pulumi.getter(name="selectionPattern")
-    def selection_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def selection_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Regular expression pattern used to choose an integration response based on the response from the backend. Omit configuring this to make the integration the default one. If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched. For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
         """
         return pulumi.get(self, "selection_pattern")
 
     @selection_pattern.setter
-    def selection_pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def selection_pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "selection_pattern", value)
 
 
 @pulumi.input_type
 class _IntegrationResponseState:
     def __init__(__self__, *,
-                 content_handling: Optional[pulumi.Input[_builtins.str]] = None,
-                 http_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 response_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 rest_api: Optional[pulumi.Input[_builtins.str]] = None,
-                 selection_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 status_code: Optional[pulumi.Input[_builtins.str]] = None):
+                 content_handling: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 response_templates: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 rest_api: pulumi.Input[Optional[_builtins.str]] = None,
+                 selection_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 status_code: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IntegrationResponse resources.
 
@@ -217,103 +217,103 @@ class _IntegrationResponseState:
 
     @_builtins.property
     @pulumi.getter(name="contentHandling")
-    def content_handling(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_handling(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         How to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
         """
         return pulumi.get(self, "content_handling")
 
     @content_handling.setter
-    def content_handling(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_handling(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_handling", value)
 
     @_builtins.property
     @pulumi.getter(name="httpMethod")
-    def http_method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def http_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
         """
         return pulumi.get(self, "http_method")
 
     @http_method.setter
-    def http_method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def http_method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "http_method", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         API resource ID.
         """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="responseParameters")
-    def response_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def response_parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of response parameters that can be read from the backend response. For example: `response_parameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`.
         """
         return pulumi.get(self, "response_parameters")
 
     @response_parameters.setter
-    def response_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def response_parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "response_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="responseTemplates")
-    def response_templates(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def response_templates(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of templates used to transform the integration response body.
         """
         return pulumi.get(self, "response_templates")
 
     @response_templates.setter
-    def response_templates(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def response_templates(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "response_templates", value)
 
     @_builtins.property
     @pulumi.getter(name="restApi")
-    def rest_api(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rest_api(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the associated REST API.
         """
         return pulumi.get(self, "rest_api")
 
     @rest_api.setter
-    def rest_api(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rest_api(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rest_api", value)
 
     @_builtins.property
     @pulumi.getter(name="selectionPattern")
-    def selection_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def selection_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Regular expression pattern used to choose an integration response based on the response from the backend. Omit configuring this to make the integration the default one. If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched. For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
         """
         return pulumi.get(self, "selection_pattern")
 
     @selection_pattern.setter
-    def selection_pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def selection_pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "selection_pattern", value)
 
     @_builtins.property
     @pulumi.getter(name="statusCode")
-    def status_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         HTTP status code.
 
@@ -322,7 +322,7 @@ class _IntegrationResponseState:
         return pulumi.get(self, "status_code")
 
     @status_code.setter
-    def status_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status_code", value)
 
 
@@ -332,15 +332,15 @@ class IntegrationResponse(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content_handling: Optional[pulumi.Input[_builtins.str]] = None,
-                 http_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 response_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 rest_api: Optional[pulumi.Input[_builtins.str]] = None,
-                 selection_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 status_code: Optional[pulumi.Input[_builtins.str]] = None,
+                 content_handling: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 response_templates: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 rest_api: pulumi.Input[Optional[_builtins.str]] = None,
+                 selection_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 status_code: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides an HTTP Method Integration Response for an API Gateway Resource.
@@ -521,15 +521,15 @@ class IntegrationResponse(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content_handling: Optional[pulumi.Input[_builtins.str]] = None,
-                 http_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 response_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 rest_api: Optional[pulumi.Input[_builtins.str]] = None,
-                 selection_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 status_code: Optional[pulumi.Input[_builtins.str]] = None,
+                 content_handling: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 response_templates: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 rest_api: pulumi.Input[Optional[_builtins.str]] = None,
+                 selection_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 status_code: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -566,15 +566,15 @@ class IntegrationResponse(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            content_handling: Optional[pulumi.Input[_builtins.str]] = None,
-            http_method: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-            response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            response_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            rest_api: Optional[pulumi.Input[_builtins.str]] = None,
-            selection_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-            status_code: Optional[pulumi.Input[_builtins.str]] = None) -> 'IntegrationResponse':
+            content_handling: pulumi.Input[Optional[_builtins.str]] = None,
+            http_method: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            response_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            response_templates: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            rest_api: pulumi.Input[Optional[_builtins.str]] = None,
+            selection_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+            status_code: pulumi.Input[Optional[_builtins.str]] = None) -> 'IntegrationResponse':
         """
         Get an existing IntegrationResponse resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

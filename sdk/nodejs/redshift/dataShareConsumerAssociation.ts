@@ -151,37 +151,37 @@ export interface DataShareConsumerAssociationState {
     /**
      * Whether to allow write operations for a datashare.
      */
-    allowWrites?: pulumi.Input<boolean>;
+    allowWrites?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the datashare is associated with the entire account. Conflicts with `consumerArn` and `consumerRegion`.
      */
-    associateEntireAccount?: pulumi.Input<boolean>;
+    associateEntireAccount?: pulumi.Input<boolean | undefined>;
     /**
      * Amazon Resource Name (ARN) of the consumer that is associated with the datashare. Conflicts with `associateEntireAccount` and `consumerRegion`.
      */
-    consumerArn?: pulumi.Input<string>;
+    consumerArn?: pulumi.Input<string | undefined>;
     /**
      * From a datashare consumer account, associates a datashare with all existing and future namespaces in the specified AWS Region. Conflicts with `associateEntireAccount` and `consumerArn`.
      */
-    consumerRegion?: pulumi.Input<string>;
+    consumerRegion?: pulumi.Input<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the datashare that the consumer is to use with the account or the namespace.
      *
      * The following arguments are optional:
      */
-    dataShareArn?: pulumi.Input<string>;
+    dataShareArn?: pulumi.Input<string | undefined>;
     /**
      * Identifier of a datashare to show its managing entity.
      */
-    managedBy?: pulumi.Input<string>;
+    managedBy?: pulumi.Input<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the producer.
      */
-    producerArn?: pulumi.Input<string>;
+    producerArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -191,19 +191,19 @@ export interface DataShareConsumerAssociationArgs {
     /**
      * Whether to allow write operations for a datashare.
      */
-    allowWrites?: pulumi.Input<boolean>;
+    allowWrites?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the datashare is associated with the entire account. Conflicts with `consumerArn` and `consumerRegion`.
      */
-    associateEntireAccount?: pulumi.Input<boolean>;
+    associateEntireAccount?: pulumi.Input<boolean | undefined>;
     /**
      * Amazon Resource Name (ARN) of the consumer that is associated with the datashare. Conflicts with `associateEntireAccount` and `consumerRegion`.
      */
-    consumerArn?: pulumi.Input<string>;
+    consumerArn?: pulumi.Input<string | undefined>;
     /**
      * From a datashare consumer account, associates a datashare with all existing and future namespaces in the specified AWS Region. Conflicts with `associateEntireAccount` and `consumerArn`.
      */
-    consumerRegion?: pulumi.Input<string>;
+    consumerRegion?: pulumi.Input<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the datashare that the consumer is to use with the account or the namespace.
      *
@@ -213,5 +213,5 @@ export interface DataShareConsumerAssociationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

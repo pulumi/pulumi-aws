@@ -232,54 +232,54 @@ export interface MethodState {
     /**
      * Specify if the method requires an API key
      */
-    apiKeyRequired?: pulumi.Input<boolean>;
+    apiKeyRequired?: pulumi.Input<boolean | undefined>;
     /**
      * Type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
      */
-    authorization?: pulumi.Input<string>;
+    authorization?: pulumi.Input<string | undefined>;
     /**
      * Authorization scopes used when the authorization is `COGNITO_USER_POOLS`
      */
-    authorizationScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    authorizationScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
      */
-    authorizerId?: pulumi.Input<string>;
+    authorizerId?: pulumi.Input<string | undefined>;
     /**
      * HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
      */
-    httpMethod?: pulumi.Input<string>;
+    httpMethod?: pulumi.Input<string | undefined>;
     /**
      * Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
      */
-    operationName?: pulumi.Input<string>;
+    operationName?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of the API models used for the request's content type
      * where key is the content type (e.g., `application/json`)
      * and value is either `Error`, `Empty` (built-in models) or `aws.apigateway.Model`'s `name`.
      */
-    requestModels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    requestModels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
      * For example: `requestParameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
      */
-    requestParameters?: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
+    requestParameters?: pulumi.Input<{[key: string]: pulumi.Input<boolean>} | undefined>;
     /**
      * ID of a `aws.apigateway.RequestValidator`
      */
-    requestValidatorId?: pulumi.Input<string>;
+    requestValidatorId?: pulumi.Input<string | undefined>;
     /**
      * API resource ID
      */
-    resourceId?: pulumi.Input<string>;
+    resourceId?: pulumi.Input<string | undefined>;
     /**
      * ID of the associated REST API
      */
-    restApi?: pulumi.Input<string | RestApi>;
+    restApi?: pulumi.Input<string | RestApi | undefined>;
 }
 
 /**
@@ -289,7 +289,7 @@ export interface MethodArgs {
     /**
      * Specify if the method requires an API key
      */
-    apiKeyRequired?: pulumi.Input<boolean>;
+    apiKeyRequired?: pulumi.Input<boolean | undefined>;
     /**
      * Type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
      */
@@ -297,11 +297,11 @@ export interface MethodArgs {
     /**
      * Authorization scopes used when the authorization is `COGNITO_USER_POOLS`
      */
-    authorizationScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    authorizationScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
      */
-    authorizerId?: pulumi.Input<string>;
+    authorizerId?: pulumi.Input<string | undefined>;
     /**
      * HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
      */
@@ -309,26 +309,26 @@ export interface MethodArgs {
     /**
      * Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
      */
-    operationName?: pulumi.Input<string>;
+    operationName?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of the API models used for the request's content type
      * where key is the content type (e.g., `application/json`)
      * and value is either `Error`, `Empty` (built-in models) or `aws.apigateway.Model`'s `name`.
      */
-    requestModels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    requestModels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
      * For example: `requestParameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
      */
-    requestParameters?: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
+    requestParameters?: pulumi.Input<{[key: string]: pulumi.Input<boolean>} | undefined>;
     /**
      * ID of a `aws.apigateway.RequestValidator`
      */
-    requestValidatorId?: pulumi.Input<string>;
+    requestValidatorId?: pulumi.Input<string | undefined>;
     /**
      * API resource ID
      */

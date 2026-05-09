@@ -23,9 +23,9 @@ class CapacityBlockReservationArgs:
     def __init__(__self__, *,
                  capacity_block_offering_id: pulumi.Input[_builtins.str],
                  instance_platform: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['CapacityBlockReservationTimeoutsArgs']] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['CapacityBlockReservationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a CapacityBlockReservation resource.
 
@@ -69,60 +69,60 @@ class CapacityBlockReservationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['CapacityBlockReservationTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['CapacityBlockReservationTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['CapacityBlockReservationTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['CapacityBlockReservationTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _CapacityBlockReservationState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 capacity_block_offering_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 ebs_optimized: Optional[pulumi.Input[_builtins.bool]] = None,
-                 end_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 end_date_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 instance_platform: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 outpost_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 placement_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 reservation_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tenancy: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input['CapacityBlockReservationTimeoutsArgs']] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 capacity_block_offering_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 ebs_optimized: pulumi.Input[Optional[_builtins.bool]] = None,
+                 end_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_date_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 instance_platform: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 outpost_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 placement_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 reservation_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tenancy: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional['CapacityBlockReservationTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering CapacityBlockReservation resources.
 
@@ -186,227 +186,227 @@ class _CapacityBlockReservationState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the reservation.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def availability_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Availability Zone in which to create the Capacity Block Reservation.
         """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
-    def availability_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def availability_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "availability_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="capacityBlockOfferingId")
-    def capacity_block_offering_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def capacity_block_offering_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Capacity Block Reservation ID.
         """
         return pulumi.get(self, "capacity_block_offering_id")
 
     @capacity_block_offering_id.setter
-    def capacity_block_offering_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def capacity_block_offering_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "capacity_block_offering_id", value)
 
     @_builtins.property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date and time at which the Capacity Block Reservation was created.
         """
         return pulumi.get(self, "created_date")
 
     @created_date.setter
-    def created_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_date", value)
 
     @_builtins.property
     @pulumi.getter(name="ebsOptimized")
-    def ebs_optimized(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ebs_optimized(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the Capacity Reservation supports EBS-optimized instances.
         """
         return pulumi.get(self, "ebs_optimized")
 
     @ebs_optimized.setter
-    def ebs_optimized(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ebs_optimized(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ebs_optimized", value)
 
     @_builtins.property
     @pulumi.getter(name="endDate")
-    def end_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date and time at which the Capacity Block Reservation expires. When a Capacity Block Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
         """
         return pulumi.get(self, "end_date")
 
     @end_date.setter
-    def end_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_date", value)
 
     @_builtins.property
     @pulumi.getter(name="endDateType")
-    def end_date_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_date_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates the way in which the Capacity Reservation ends.
         """
         return pulumi.get(self, "end_date_type")
 
     @end_date_type.setter
-    def end_date_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_date_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_date_type", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceCount")
-    def instance_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def instance_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of instances for which to reserve capacity.
         """
         return pulumi.get(self, "instance_count")
 
     @instance_count.setter
-    def instance_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def instance_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "instance_count", value)
 
     @_builtins.property
     @pulumi.getter(name="instancePlatform")
-    def instance_platform(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_platform(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
         """
         return pulumi.get(self, "instance_platform")
 
     @instance_platform.setter
-    def instance_platform(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_platform(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_platform", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceType")
-    def instance_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The instance type for which to reserve capacity.
         """
         return pulumi.get(self, "instance_type")
 
     @instance_type.setter
-    def instance_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_type", value)
 
     @_builtins.property
     @pulumi.getter(name="outpostArn")
-    def outpost_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def outpost_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the Outpost on which to create the Capacity Block Reservation.
         """
         return pulumi.get(self, "outpost_arn")
 
     @outpost_arn.setter
-    def outpost_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def outpost_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "outpost_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="placementGroupArn")
-    def placement_group_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def placement_group_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the placement group in which to create the Capacity Block Reservation.
         """
         return pulumi.get(self, "placement_group_arn")
 
     @placement_group_arn.setter
-    def placement_group_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def placement_group_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "placement_group_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="reservationType")
-    def reservation_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reservation_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of Capacity Reservation.
         """
         return pulumi.get(self, "reservation_type")
 
     @reservation_type.setter
-    def reservation_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reservation_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reservation_type", value)
 
     @_builtins.property
     @pulumi.getter(name="startDate")
-    def start_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date and time at which the Capacity Block Reservation starts. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
         """
         return pulumi.get(self, "start_date")
 
     @start_date.setter
-    def start_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_date", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def tenancy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenancy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates the tenancy of the Capacity Block Reservation. Specify either `default` or `dedicated`.
         """
         return pulumi.get(self, "tenancy")
 
     @tenancy.setter
-    def tenancy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenancy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenancy", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['CapacityBlockReservationTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['CapacityBlockReservationTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['CapacityBlockReservationTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['CapacityBlockReservationTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
@@ -416,11 +416,11 @@ class CapacityBlockReservation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity_block_offering_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_platform: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['CapacityBlockReservationTimeoutsArgs', 'CapacityBlockReservationTimeoutsArgsDict']]] = None,
+                 capacity_block_offering_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_platform: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['CapacityBlockReservationTimeoutsArgs', 'CapacityBlockReservationTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Provides an EC2 Capacity Block Reservation. This allows you to purchase capacity block for your Amazon EC2 instances in a specific Availability Zone for machine learning (ML) Workloads.
@@ -504,11 +504,11 @@ class CapacityBlockReservation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity_block_offering_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_platform: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['CapacityBlockReservationTimeoutsArgs', 'CapacityBlockReservationTimeoutsArgsDict']]] = None,
+                 capacity_block_offering_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_platform: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['CapacityBlockReservationTimeoutsArgs', 'CapacityBlockReservationTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -551,25 +551,25 @@ class CapacityBlockReservation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-            capacity_block_offering_id: Optional[pulumi.Input[_builtins.str]] = None,
-            created_date: Optional[pulumi.Input[_builtins.str]] = None,
-            ebs_optimized: Optional[pulumi.Input[_builtins.bool]] = None,
-            end_date: Optional[pulumi.Input[_builtins.str]] = None,
-            end_date_type: Optional[pulumi.Input[_builtins.str]] = None,
-            instance_count: Optional[pulumi.Input[_builtins.int]] = None,
-            instance_platform: Optional[pulumi.Input[_builtins.str]] = None,
-            instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-            outpost_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            placement_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            reservation_type: Optional[pulumi.Input[_builtins.str]] = None,
-            start_date: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tenancy: Optional[pulumi.Input[_builtins.str]] = None,
-            timeouts: Optional[pulumi.Input[Union['CapacityBlockReservationTimeoutsArgs', 'CapacityBlockReservationTimeoutsArgsDict']]] = None) -> 'CapacityBlockReservation':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            capacity_block_offering_id: pulumi.Input[Optional[_builtins.str]] = None,
+            created_date: pulumi.Input[Optional[_builtins.str]] = None,
+            ebs_optimized: pulumi.Input[Optional[_builtins.bool]] = None,
+            end_date: pulumi.Input[Optional[_builtins.str]] = None,
+            end_date_type: pulumi.Input[Optional[_builtins.str]] = None,
+            instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+            instance_platform: pulumi.Input[Optional[_builtins.str]] = None,
+            instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+            outpost_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            placement_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            reservation_type: pulumi.Input[Optional[_builtins.str]] = None,
+            start_date: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tenancy: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['CapacityBlockReservationTimeoutsArgs', 'CapacityBlockReservationTimeoutsArgsDict']]] = None) -> 'CapacityBlockReservation':
         """
         Get an existing CapacityBlockReservation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

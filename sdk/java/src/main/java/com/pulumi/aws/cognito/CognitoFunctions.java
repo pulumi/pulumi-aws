@@ -52,8 +52,8 @@ public final class CognitoFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cognito.CognitoFunctions;
      * import com.pulumi.aws.cognito.inputs.GetIdentityPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -94,8 +94,8 @@ public final class CognitoFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cognito.CognitoFunctions;
      * import com.pulumi.aws.cognito.inputs.GetIdentityPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -136,8 +136,8 @@ public final class CognitoFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cognito.CognitoFunctions;
      * import com.pulumi.aws.cognito.inputs.GetIdentityPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -178,8 +178,8 @@ public final class CognitoFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cognito.CognitoFunctions;
      * import com.pulumi.aws.cognito.inputs.GetIdentityPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -220,8 +220,8 @@ public final class CognitoFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cognito.CognitoFunctions;
      * import com.pulumi.aws.cognito.inputs.GetIdentityPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -262,8 +262,8 @@ public final class CognitoFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cognito.CognitoFunctions;
      * import com.pulumi.aws.cognito.inputs.GetUserGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -305,8 +305,8 @@ public final class CognitoFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cognito.CognitoFunctions;
      * import com.pulumi.aws.cognito.inputs.GetUserGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -348,8 +348,8 @@ public final class CognitoFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cognito.CognitoFunctions;
      * import com.pulumi.aws.cognito.inputs.GetUserGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -391,8 +391,8 @@ public final class CognitoFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cognito.CognitoFunctions;
      * import com.pulumi.aws.cognito.inputs.GetUserGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -434,8 +434,8 @@ public final class CognitoFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cognito.CognitoFunctions;
      * import com.pulumi.aws.cognito.inputs.GetUserGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -477,8 +477,8 @@ public final class CognitoFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cognito.CognitoFunctions;
      * import com.pulumi.aws.cognito.inputs.GetUserGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -519,8 +519,8 @@ public final class CognitoFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cognito.CognitoFunctions;
      * import com.pulumi.aws.cognito.inputs.GetUserGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -561,8 +561,8 @@ public final class CognitoFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cognito.CognitoFunctions;
      * import com.pulumi.aws.cognito.inputs.GetUserGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -603,8 +603,8 @@ public final class CognitoFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cognito.CognitoFunctions;
      * import com.pulumi.aws.cognito.inputs.GetUserGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -645,8 +645,8 @@ public final class CognitoFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cognito.CognitoFunctions;
      * import com.pulumi.aws.cognito.inputs.GetUserGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -687,8 +687,8 @@ public final class CognitoFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cognito.CognitoFunctions;
      * import com.pulumi.aws.cognito.inputs.GetUserPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -729,8 +729,8 @@ public final class CognitoFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cognito.CognitoFunctions;
      * import com.pulumi.aws.cognito.inputs.GetUserPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -771,8 +771,8 @@ public final class CognitoFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cognito.CognitoFunctions;
      * import com.pulumi.aws.cognito.inputs.GetUserPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -813,8 +813,8 @@ public final class CognitoFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cognito.CognitoFunctions;
      * import com.pulumi.aws.cognito.inputs.GetUserPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -855,8 +855,8 @@ public final class CognitoFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cognito.CognitoFunctions;
      * import com.pulumi.aws.cognito.inputs.GetUserPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -895,8 +895,8 @@ public final class CognitoFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cognito.CognitoFunctions;
      * import com.pulumi.aws.cognito.inputs.GetUserPoolClientArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -936,8 +936,8 @@ public final class CognitoFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cognito.CognitoFunctions;
      * import com.pulumi.aws.cognito.inputs.GetUserPoolClientArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -977,8 +977,8 @@ public final class CognitoFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cognito.CognitoFunctions;
      * import com.pulumi.aws.cognito.inputs.GetUserPoolClientArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1018,8 +1018,8 @@ public final class CognitoFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cognito.CognitoFunctions;
      * import com.pulumi.aws.cognito.inputs.GetUserPoolClientArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1059,8 +1059,8 @@ public final class CognitoFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cognito.CognitoFunctions;
      * import com.pulumi.aws.cognito.inputs.GetUserPoolClientArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1100,8 +1100,8 @@ public final class CognitoFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cognito.CognitoFunctions;
      * import com.pulumi.aws.cognito.inputs.GetUserPoolClientsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1140,8 +1140,8 @@ public final class CognitoFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cognito.CognitoFunctions;
      * import com.pulumi.aws.cognito.inputs.GetUserPoolClientsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1180,8 +1180,8 @@ public final class CognitoFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cognito.CognitoFunctions;
      * import com.pulumi.aws.cognito.inputs.GetUserPoolClientsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1220,8 +1220,8 @@ public final class CognitoFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cognito.CognitoFunctions;
      * import com.pulumi.aws.cognito.inputs.GetUserPoolClientsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1260,8 +1260,8 @@ public final class CognitoFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cognito.CognitoFunctions;
      * import com.pulumi.aws.cognito.inputs.GetUserPoolClientsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1300,8 +1300,8 @@ public final class CognitoFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cognito.CognitoFunctions;
      * import com.pulumi.aws.cognito.inputs.GetUserPoolSigningCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1340,8 +1340,8 @@ public final class CognitoFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cognito.CognitoFunctions;
      * import com.pulumi.aws.cognito.inputs.GetUserPoolSigningCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1380,8 +1380,8 @@ public final class CognitoFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cognito.CognitoFunctions;
      * import com.pulumi.aws.cognito.inputs.GetUserPoolSigningCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1420,8 +1420,8 @@ public final class CognitoFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cognito.CognitoFunctions;
      * import com.pulumi.aws.cognito.inputs.GetUserPoolSigningCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1460,8 +1460,8 @@ public final class CognitoFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cognito.CognitoFunctions;
      * import com.pulumi.aws.cognito.inputs.GetUserPoolSigningCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1504,8 +1504,8 @@ public final class CognitoFunctions {
      * import com.pulumi.aws.cognito.inputs.GetUserPoolsArgs;
      * import com.pulumi.aws.apigateway.Authorizer;
      * import com.pulumi.aws.apigateway.AuthorizerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1559,8 +1559,8 @@ public final class CognitoFunctions {
      * import com.pulumi.aws.cognito.inputs.GetUserPoolsArgs;
      * import com.pulumi.aws.apigateway.Authorizer;
      * import com.pulumi.aws.apigateway.AuthorizerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1614,8 +1614,8 @@ public final class CognitoFunctions {
      * import com.pulumi.aws.cognito.inputs.GetUserPoolsArgs;
      * import com.pulumi.aws.apigateway.Authorizer;
      * import com.pulumi.aws.apigateway.AuthorizerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1669,8 +1669,8 @@ public final class CognitoFunctions {
      * import com.pulumi.aws.cognito.inputs.GetUserPoolsArgs;
      * import com.pulumi.aws.apigateway.Authorizer;
      * import com.pulumi.aws.apigateway.AuthorizerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1724,8 +1724,8 @@ public final class CognitoFunctions {
      * import com.pulumi.aws.cognito.inputs.GetUserPoolsArgs;
      * import com.pulumi.aws.apigateway.Authorizer;
      * import com.pulumi.aws.apigateway.AuthorizerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

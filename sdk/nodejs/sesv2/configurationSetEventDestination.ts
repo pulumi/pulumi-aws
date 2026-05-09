@@ -217,19 +217,19 @@ export interface ConfigurationSetEventDestinationState {
     /**
      * The name of the configuration set.
      */
-    configurationSetName?: pulumi.Input<string>;
+    configurationSetName?: pulumi.Input<string | undefined>;
     /**
      * An object that defines the event destination. See `eventDestination` Block for details.
      */
-    eventDestination?: pulumi.Input<inputs.sesv2.ConfigurationSetEventDestinationEventDestination>;
+    eventDestination?: pulumi.Input<inputs.sesv2.ConfigurationSetEventDestinationEventDestination | undefined>;
     /**
      * A name that identifies the event destination within the configuration set.
      */
-    eventDestinationName?: pulumi.Input<string>;
+    eventDestinationName?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -251,5 +251,5 @@ export interface ConfigurationSetEventDestinationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

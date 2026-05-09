@@ -114,20 +114,20 @@ export interface VpcIpamOrganizationAdminAccountState {
     /**
      * The Organizations ARN for the delegate account.
      */
-    arn?: pulumi.Input<string>;
-    delegatedAdminAccountId?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
+    delegatedAdminAccountId?: pulumi.Input<string | undefined>;
     /**
      * The Organizations email for the delegate account.
      */
-    email?: pulumi.Input<string>;
+    email?: pulumi.Input<string | undefined>;
     /**
      * The Organizations name for the delegate account.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The AWS service principal.
      */
-    servicePrincipal?: pulumi.Input<string>;
+    servicePrincipal?: pulumi.Input<string | undefined>;
 }
 
 /**

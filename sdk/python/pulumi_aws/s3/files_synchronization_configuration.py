@@ -22,10 +22,10 @@ __all__ = ['FilesSynchronizationConfigurationArgs', 'FilesSynchronizationConfigu
 class FilesSynchronizationConfigurationArgs:
     def __init__(__self__, *,
                  file_system_id: pulumi.Input[_builtins.str],
-                 expiration_data_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FilesSynchronizationConfigurationExpirationDataRuleArgs']]]] = None,
-                 import_data_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FilesSynchronizationConfigurationImportDataRuleArgs']]]] = None,
-                 latest_version_number: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 expiration_data_rules: pulumi.Input[Optional[Sequence[pulumi.Input['FilesSynchronizationConfigurationExpirationDataRuleArgs']]]] = None,
+                 import_data_rules: pulumi.Input[Optional[Sequence[pulumi.Input['FilesSynchronizationConfigurationImportDataRuleArgs']]]] = None,
+                 latest_version_number: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a FilesSynchronizationConfiguration resource.
 
@@ -61,19 +61,19 @@ class FilesSynchronizationConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="expirationDataRules")
-    def expiration_data_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilesSynchronizationConfigurationExpirationDataRuleArgs']]]]:
+    def expiration_data_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilesSynchronizationConfigurationExpirationDataRuleArgs']]]]:
         """
         Expiration data rule configuration. See `expiration_data_rule` below.
         """
         return pulumi.get(self, "expiration_data_rules")
 
     @expiration_data_rules.setter
-    def expiration_data_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilesSynchronizationConfigurationExpirationDataRuleArgs']]]]):
+    def expiration_data_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilesSynchronizationConfigurationExpirationDataRuleArgs']]]]):
         pulumi.set(self, "expiration_data_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="importDataRules")
-    def import_data_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilesSynchronizationConfigurationImportDataRuleArgs']]]]:
+    def import_data_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilesSynchronizationConfigurationImportDataRuleArgs']]]]:
         """
         One or more import data rules. See `import_data_rule` below.
 
@@ -82,42 +82,42 @@ class FilesSynchronizationConfigurationArgs:
         return pulumi.get(self, "import_data_rules")
 
     @import_data_rules.setter
-    def import_data_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilesSynchronizationConfigurationImportDataRuleArgs']]]]):
+    def import_data_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilesSynchronizationConfigurationImportDataRuleArgs']]]]):
         pulumi.set(self, "import_data_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="latestVersionNumber")
-    def latest_version_number(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def latest_version_number(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Latest synchronization configuration version number.
         """
         return pulumi.get(self, "latest_version_number")
 
     @latest_version_number.setter
-    def latest_version_number(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def latest_version_number(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "latest_version_number", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _FilesSynchronizationConfigurationState:
     def __init__(__self__, *,
-                 expiration_data_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FilesSynchronizationConfigurationExpirationDataRuleArgs']]]] = None,
-                 file_system_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 import_data_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FilesSynchronizationConfigurationImportDataRuleArgs']]]] = None,
-                 latest_version_number: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 expiration_data_rules: pulumi.Input[Optional[Sequence[pulumi.Input['FilesSynchronizationConfigurationExpirationDataRuleArgs']]]] = None,
+                 file_system_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 import_data_rules: pulumi.Input[Optional[Sequence[pulumi.Input['FilesSynchronizationConfigurationImportDataRuleArgs']]]] = None,
+                 latest_version_number: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FilesSynchronizationConfiguration resources.
 
@@ -142,31 +142,31 @@ class _FilesSynchronizationConfigurationState:
 
     @_builtins.property
     @pulumi.getter(name="expirationDataRules")
-    def expiration_data_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilesSynchronizationConfigurationExpirationDataRuleArgs']]]]:
+    def expiration_data_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilesSynchronizationConfigurationExpirationDataRuleArgs']]]]:
         """
         Expiration data rule configuration. See `expiration_data_rule` below.
         """
         return pulumi.get(self, "expiration_data_rules")
 
     @expiration_data_rules.setter
-    def expiration_data_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilesSynchronizationConfigurationExpirationDataRuleArgs']]]]):
+    def expiration_data_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilesSynchronizationConfigurationExpirationDataRuleArgs']]]]):
         pulumi.set(self, "expiration_data_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="fileSystemId")
-    def file_system_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def file_system_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         File system ID. Changing this value forces replacement.
         """
         return pulumi.get(self, "file_system_id")
 
     @file_system_id.setter
-    def file_system_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def file_system_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "file_system_id", value)
 
     @_builtins.property
     @pulumi.getter(name="importDataRules")
-    def import_data_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilesSynchronizationConfigurationImportDataRuleArgs']]]]:
+    def import_data_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilesSynchronizationConfigurationImportDataRuleArgs']]]]:
         """
         One or more import data rules. See `import_data_rule` below.
 
@@ -175,31 +175,31 @@ class _FilesSynchronizationConfigurationState:
         return pulumi.get(self, "import_data_rules")
 
     @import_data_rules.setter
-    def import_data_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilesSynchronizationConfigurationImportDataRuleArgs']]]]):
+    def import_data_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilesSynchronizationConfigurationImportDataRuleArgs']]]]):
         pulumi.set(self, "import_data_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="latestVersionNumber")
-    def latest_version_number(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def latest_version_number(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Latest synchronization configuration version number.
         """
         return pulumi.get(self, "latest_version_number")
 
     @latest_version_number.setter
-    def latest_version_number(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def latest_version_number(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "latest_version_number", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
@@ -209,11 +209,11 @@ class FilesSynchronizationConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 expiration_data_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FilesSynchronizationConfigurationExpirationDataRuleArgs', 'FilesSynchronizationConfigurationExpirationDataRuleArgsDict']]]]] = None,
-                 file_system_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 import_data_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FilesSynchronizationConfigurationImportDataRuleArgs', 'FilesSynchronizationConfigurationImportDataRuleArgsDict']]]]] = None,
-                 latest_version_number: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 expiration_data_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FilesSynchronizationConfigurationExpirationDataRuleArgs', 'FilesSynchronizationConfigurationExpirationDataRuleArgsDict']]]]] = None,
+                 file_system_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 import_data_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FilesSynchronizationConfigurationImportDataRuleArgs', 'FilesSynchronizationConfigurationImportDataRuleArgsDict']]]]] = None,
+                 latest_version_number: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an S3 Files Synchronization configuration.
@@ -228,7 +228,7 @@ class FilesSynchronizationConfiguration(pulumi.CustomResource):
             file_system_id=example_aws_s3files_file_system["id"],
             import_data_rules=[{
                 "prefix": "",
-                "size_less_than": 52673613135872,
+                "size_less_than": int(52673613135872),
                 "trigger": "ON_FILE_ACCESS",
             }],
             expiration_data_rules=[{
@@ -285,7 +285,7 @@ class FilesSynchronizationConfiguration(pulumi.CustomResource):
             file_system_id=example_aws_s3files_file_system["id"],
             import_data_rules=[{
                 "prefix": "",
-                "size_less_than": 52673613135872,
+                "size_less_than": int(52673613135872),
                 "trigger": "ON_FILE_ACCESS",
             }],
             expiration_data_rules=[{
@@ -328,11 +328,11 @@ class FilesSynchronizationConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 expiration_data_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FilesSynchronizationConfigurationExpirationDataRuleArgs', 'FilesSynchronizationConfigurationExpirationDataRuleArgsDict']]]]] = None,
-                 file_system_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 import_data_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FilesSynchronizationConfigurationImportDataRuleArgs', 'FilesSynchronizationConfigurationImportDataRuleArgsDict']]]]] = None,
-                 latest_version_number: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 expiration_data_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FilesSynchronizationConfigurationExpirationDataRuleArgs', 'FilesSynchronizationConfigurationExpirationDataRuleArgsDict']]]]] = None,
+                 file_system_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 import_data_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FilesSynchronizationConfigurationImportDataRuleArgs', 'FilesSynchronizationConfigurationImportDataRuleArgsDict']]]]] = None,
+                 latest_version_number: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -359,11 +359,11 @@ class FilesSynchronizationConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            expiration_data_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FilesSynchronizationConfigurationExpirationDataRuleArgs', 'FilesSynchronizationConfigurationExpirationDataRuleArgsDict']]]]] = None,
-            file_system_id: Optional[pulumi.Input[_builtins.str]] = None,
-            import_data_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FilesSynchronizationConfigurationImportDataRuleArgs', 'FilesSynchronizationConfigurationImportDataRuleArgsDict']]]]] = None,
-            latest_version_number: Optional[pulumi.Input[_builtins.int]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None) -> 'FilesSynchronizationConfiguration':
+            expiration_data_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FilesSynchronizationConfigurationExpirationDataRuleArgs', 'FilesSynchronizationConfigurationExpirationDataRuleArgsDict']]]]] = None,
+            file_system_id: pulumi.Input[Optional[_builtins.str]] = None,
+            import_data_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FilesSynchronizationConfigurationImportDataRuleArgs', 'FilesSynchronizationConfigurationImportDataRuleArgsDict']]]]] = None,
+            latest_version_number: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> 'FilesSynchronizationConfiguration':
         """
         Get an existing FilesSynchronizationConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

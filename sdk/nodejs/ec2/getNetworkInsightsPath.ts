@@ -154,17 +154,17 @@ export interface GetNetworkInsightsPathOutputArgs {
      * Network Insights Paths. The given filters must match exactly one Network Insights Path
      * whose data will be exported as attributes.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetNetworkInsightsPathFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetNetworkInsightsPathFilterArgs>[] | undefined>;
     /**
      * ID of the Network Insights Path to select.
      */
-    networkInsightsPathId?: pulumi.Input<string>;
+    networkInsightsPathId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of tags assigned to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

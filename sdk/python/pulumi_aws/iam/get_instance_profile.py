@@ -163,7 +163,7 @@ def get_instance_profile(name: Optional[_builtins.str] = None,
         role_arn=pulumi.get(__ret__, 'role_arn'),
         role_id=pulumi.get(__ret__, 'role_id'),
         role_name=pulumi.get(__ret__, 'role_name'))
-def get_instance_profile_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_instance_profile_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceProfileResult]:
     """
     This data source can be used to fetch information about a specific

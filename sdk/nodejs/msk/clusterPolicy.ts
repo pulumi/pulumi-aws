@@ -131,16 +131,16 @@ export interface ClusterPolicyState {
     /**
      * The Amazon Resource Name (ARN) that uniquely identifies the cluster.
      */
-    clusterArn?: pulumi.Input<string>;
-    currentVersion?: pulumi.Input<string>;
+    clusterArn?: pulumi.Input<string | undefined>;
+    currentVersion?: pulumi.Input<string | undefined>;
     /**
      * Resource policy for cluster.
      */
-    policy?: pulumi.Input<string>;
+    policy?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -158,5 +158,5 @@ export interface ClusterPolicyArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

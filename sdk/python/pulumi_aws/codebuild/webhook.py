@@ -22,13 +22,13 @@ __all__ = ['WebhookArgs', 'Webhook']
 class WebhookArgs:
     def __init__(__self__, *,
                  project_name: pulumi.Input[_builtins.str],
-                 branch_filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 build_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 filter_groups: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupArgs']]]] = None,
-                 manual_creation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 pull_request_build_policy: Optional[pulumi.Input['WebhookPullRequestBuildPolicyArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope_configuration: Optional[pulumi.Input['WebhookScopeConfigurationArgs']] = None):
+                 branch_filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 build_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 filter_groups: pulumi.Input[Optional[Sequence[pulumi.Input['WebhookFilterGroupArgs']]]] = None,
+                 manual_creation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 pull_request_build_policy: pulumi.Input[Optional['WebhookPullRequestBuildPolicyArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope_configuration: pulumi.Input[Optional['WebhookScopeConfigurationArgs']] = None):
         """
         The set of arguments for constructing a Webhook resource.
 
@@ -71,103 +71,103 @@ class WebhookArgs:
 
     @_builtins.property
     @pulumi.getter(name="branchFilter")
-    def branch_filter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def branch_filter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filter_group` over `branch_filter`.
         """
         return pulumi.get(self, "branch_filter")
 
     @branch_filter.setter
-    def branch_filter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def branch_filter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "branch_filter", value)
 
     @_builtins.property
     @pulumi.getter(name="buildType")
-    def build_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def build_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
         """
         return pulumi.get(self, "build_type")
 
     @build_type.setter
-    def build_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def build_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "build_type", value)
 
     @_builtins.property
     @pulumi.getter(name="filterGroups")
-    def filter_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupArgs']]]]:
+    def filter_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WebhookFilterGroupArgs']]]]:
         """
         Information about the webhook's trigger. See filter_group for details.
         """
         return pulumi.get(self, "filter_groups")
 
     @filter_groups.setter
-    def filter_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupArgs']]]]):
+    def filter_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WebhookFilterGroupArgs']]]]):
         pulumi.set(self, "filter_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="manualCreation")
-    def manual_creation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def manual_creation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, CodeBuild doesn't create a webhook in GitHub and instead returns `payload_url` and `secret` values for the webhook. The `payload_url` and `secret` values in the output can be used to manually create a webhook within GitHub.
         """
         return pulumi.get(self, "manual_creation")
 
     @manual_creation.setter
-    def manual_creation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def manual_creation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "manual_creation", value)
 
     @_builtins.property
     @pulumi.getter(name="pullRequestBuildPolicy")
-    def pull_request_build_policy(self) -> Optional[pulumi.Input['WebhookPullRequestBuildPolicyArgs']]:
+    def pull_request_build_policy(self) -> pulumi.Input[Optional['WebhookPullRequestBuildPolicyArgs']]:
         """
         Defines comment-based approval requirements for triggering builds on pull requests. See pull_request_build_policy for details.
         """
         return pulumi.get(self, "pull_request_build_policy")
 
     @pull_request_build_policy.setter
-    def pull_request_build_policy(self, value: Optional[pulumi.Input['WebhookPullRequestBuildPolicyArgs']]):
+    def pull_request_build_policy(self, value: pulumi.Input[Optional['WebhookPullRequestBuildPolicyArgs']]):
         pulumi.set(self, "pull_request_build_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="scopeConfiguration")
-    def scope_configuration(self) -> Optional[pulumi.Input['WebhookScopeConfigurationArgs']]:
+    def scope_configuration(self) -> pulumi.Input[Optional['WebhookScopeConfigurationArgs']]:
         """
         Scope configuration for global or organization webhooks. See scope_configuration for details.
         """
         return pulumi.get(self, "scope_configuration")
 
     @scope_configuration.setter
-    def scope_configuration(self, value: Optional[pulumi.Input['WebhookScopeConfigurationArgs']]):
+    def scope_configuration(self, value: pulumi.Input[Optional['WebhookScopeConfigurationArgs']]):
         pulumi.set(self, "scope_configuration", value)
 
 
 @pulumi.input_type
 class _WebhookState:
     def __init__(__self__, *,
-                 branch_filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 build_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 filter_groups: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupArgs']]]] = None,
-                 manual_creation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 payload_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pull_request_build_policy: Optional[pulumi.Input['WebhookPullRequestBuildPolicyArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope_configuration: Optional[pulumi.Input['WebhookScopeConfigurationArgs']] = None,
-                 secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None):
+                 branch_filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 build_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 filter_groups: pulumi.Input[Optional[Sequence[pulumi.Input['WebhookFilterGroupArgs']]]] = None,
+                 manual_creation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 payload_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pull_request_build_policy: pulumi.Input[Optional['WebhookPullRequestBuildPolicyArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope_configuration: pulumi.Input[Optional['WebhookScopeConfigurationArgs']] = None,
+                 secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Webhook resources.
 
@@ -208,134 +208,134 @@ class _WebhookState:
 
     @_builtins.property
     @pulumi.getter(name="branchFilter")
-    def branch_filter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def branch_filter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filter_group` over `branch_filter`.
         """
         return pulumi.get(self, "branch_filter")
 
     @branch_filter.setter
-    def branch_filter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def branch_filter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "branch_filter", value)
 
     @_builtins.property
     @pulumi.getter(name="buildType")
-    def build_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def build_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
         """
         return pulumi.get(self, "build_type")
 
     @build_type.setter
-    def build_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def build_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "build_type", value)
 
     @_builtins.property
     @pulumi.getter(name="filterGroups")
-    def filter_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupArgs']]]]:
+    def filter_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WebhookFilterGroupArgs']]]]:
         """
         Information about the webhook's trigger. See filter_group for details.
         """
         return pulumi.get(self, "filter_groups")
 
     @filter_groups.setter
-    def filter_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupArgs']]]]):
+    def filter_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WebhookFilterGroupArgs']]]]):
         pulumi.set(self, "filter_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="manualCreation")
-    def manual_creation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def manual_creation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, CodeBuild doesn't create a webhook in GitHub and instead returns `payload_url` and `secret` values for the webhook. The `payload_url` and `secret` values in the output can be used to manually create a webhook within GitHub.
         """
         return pulumi.get(self, "manual_creation")
 
     @manual_creation.setter
-    def manual_creation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def manual_creation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "manual_creation", value)
 
     @_builtins.property
     @pulumi.getter(name="payloadUrl")
-    def payload_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def payload_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The CodeBuild endpoint where webhook events are sent.
         """
         return pulumi.get(self, "payload_url")
 
     @payload_url.setter
-    def payload_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def payload_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "payload_url", value)
 
     @_builtins.property
     @pulumi.getter(name="projectName")
-    def project_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the build project.
         """
         return pulumi.get(self, "project_name")
 
     @project_name.setter
-    def project_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_name", value)
 
     @_builtins.property
     @pulumi.getter(name="pullRequestBuildPolicy")
-    def pull_request_build_policy(self) -> Optional[pulumi.Input['WebhookPullRequestBuildPolicyArgs']]:
+    def pull_request_build_policy(self) -> pulumi.Input[Optional['WebhookPullRequestBuildPolicyArgs']]:
         """
         Defines comment-based approval requirements for triggering builds on pull requests. See pull_request_build_policy for details.
         """
         return pulumi.get(self, "pull_request_build_policy")
 
     @pull_request_build_policy.setter
-    def pull_request_build_policy(self, value: Optional[pulumi.Input['WebhookPullRequestBuildPolicyArgs']]):
+    def pull_request_build_policy(self, value: pulumi.Input[Optional['WebhookPullRequestBuildPolicyArgs']]):
         pulumi.set(self, "pull_request_build_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="scopeConfiguration")
-    def scope_configuration(self) -> Optional[pulumi.Input['WebhookScopeConfigurationArgs']]:
+    def scope_configuration(self) -> pulumi.Input[Optional['WebhookScopeConfigurationArgs']]:
         """
         Scope configuration for global or organization webhooks. See scope_configuration for details.
         """
         return pulumi.get(self, "scope_configuration")
 
     @scope_configuration.setter
-    def scope_configuration(self, value: Optional[pulumi.Input['WebhookScopeConfigurationArgs']]):
+    def scope_configuration(self, value: pulumi.Input[Optional['WebhookScopeConfigurationArgs']]):
         pulumi.set(self, "scope_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The secret token of the associated repository. Not returned by the CodeBuild API for all source types.
         """
         return pulumi.get(self, "secret")
 
     @secret.setter
-    def secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secret", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL to the webhook.
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
 
@@ -345,14 +345,14 @@ class Webhook(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 branch_filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 build_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 filter_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebhookFilterGroupArgs', 'WebhookFilterGroupArgsDict']]]]] = None,
-                 manual_creation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pull_request_build_policy: Optional[pulumi.Input[Union['WebhookPullRequestBuildPolicyArgs', 'WebhookPullRequestBuildPolicyArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope_configuration: Optional[pulumi.Input[Union['WebhookScopeConfigurationArgs', 'WebhookScopeConfigurationArgsDict']]] = None,
+                 branch_filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 build_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 filter_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebhookFilterGroupArgs', 'WebhookFilterGroupArgsDict']]]]] = None,
+                 manual_creation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pull_request_build_policy: pulumi.Input[Optional[Union['WebhookPullRequestBuildPolicyArgs', 'WebhookPullRequestBuildPolicyArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope_configuration: pulumi.Input[Optional[Union['WebhookScopeConfigurationArgs', 'WebhookScopeConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         Manages a CodeBuild webhook, which is an endpoint accepted by the CodeBuild service to trigger builds from source code repositories. Depending on the source type of the CodeBuild project, the CodeBuild service may also automatically create and delete the actual repository webhook as well.
@@ -562,14 +562,14 @@ class Webhook(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 branch_filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 build_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 filter_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebhookFilterGroupArgs', 'WebhookFilterGroupArgsDict']]]]] = None,
-                 manual_creation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pull_request_build_policy: Optional[pulumi.Input[Union['WebhookPullRequestBuildPolicyArgs', 'WebhookPullRequestBuildPolicyArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope_configuration: Optional[pulumi.Input[Union['WebhookScopeConfigurationArgs', 'WebhookScopeConfigurationArgsDict']]] = None,
+                 branch_filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 build_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 filter_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebhookFilterGroupArgs', 'WebhookFilterGroupArgsDict']]]]] = None,
+                 manual_creation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pull_request_build_policy: pulumi.Input[Optional[Union['WebhookPullRequestBuildPolicyArgs', 'WebhookPullRequestBuildPolicyArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope_configuration: pulumi.Input[Optional[Union['WebhookScopeConfigurationArgs', 'WebhookScopeConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -604,17 +604,17 @@ class Webhook(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            branch_filter: Optional[pulumi.Input[_builtins.str]] = None,
-            build_type: Optional[pulumi.Input[_builtins.str]] = None,
-            filter_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebhookFilterGroupArgs', 'WebhookFilterGroupArgsDict']]]]] = None,
-            manual_creation: Optional[pulumi.Input[_builtins.bool]] = None,
-            payload_url: Optional[pulumi.Input[_builtins.str]] = None,
-            project_name: Optional[pulumi.Input[_builtins.str]] = None,
-            pull_request_build_policy: Optional[pulumi.Input[Union['WebhookPullRequestBuildPolicyArgs', 'WebhookPullRequestBuildPolicyArgsDict']]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            scope_configuration: Optional[pulumi.Input[Union['WebhookScopeConfigurationArgs', 'WebhookScopeConfigurationArgsDict']]] = None,
-            secret: Optional[pulumi.Input[_builtins.str]] = None,
-            url: Optional[pulumi.Input[_builtins.str]] = None) -> 'Webhook':
+            branch_filter: pulumi.Input[Optional[_builtins.str]] = None,
+            build_type: pulumi.Input[Optional[_builtins.str]] = None,
+            filter_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebhookFilterGroupArgs', 'WebhookFilterGroupArgsDict']]]]] = None,
+            manual_creation: pulumi.Input[Optional[_builtins.bool]] = None,
+            payload_url: pulumi.Input[Optional[_builtins.str]] = None,
+            project_name: pulumi.Input[Optional[_builtins.str]] = None,
+            pull_request_build_policy: pulumi.Input[Optional[Union['WebhookPullRequestBuildPolicyArgs', 'WebhookPullRequestBuildPolicyArgsDict']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            scope_configuration: pulumi.Input[Optional[Union['WebhookScopeConfigurationArgs', 'WebhookScopeConfigurationArgsDict']]] = None,
+            secret: pulumi.Input[Optional[_builtins.str]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None) -> 'Webhook':
         """
         Get an existing Webhook resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

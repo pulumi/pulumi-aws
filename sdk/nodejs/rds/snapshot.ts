@@ -234,89 +234,89 @@ export interface SnapshotState {
     /**
      * Specifies the allocated storage size in gigabytes (GB).
      */
-    allocatedStorage?: pulumi.Input<number>;
+    allocatedStorage?: pulumi.Input<number | undefined>;
     /**
      * Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
      */
-    availabilityZone?: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string | undefined>;
     /**
      * The DB Instance Identifier from which to take the snapshot.
      */
-    dbInstanceIdentifier?: pulumi.Input<string>;
+    dbInstanceIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the DB snapshot.
      */
-    dbSnapshotArn?: pulumi.Input<string>;
+    dbSnapshotArn?: pulumi.Input<string | undefined>;
     /**
      * The Identifier for the snapshot.
      */
-    dbSnapshotIdentifier?: pulumi.Input<string>;
+    dbSnapshotIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the DB snapshot is encrypted.
      */
-    encrypted?: pulumi.Input<boolean>;
+    encrypted?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the name of the database engine.
      */
-    engine?: pulumi.Input<string>;
+    engine?: pulumi.Input<string | undefined>;
     /**
      * Specifies the version of the database engine.
      */
-    engineVersion?: pulumi.Input<string>;
+    engineVersion?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
      */
-    iops?: pulumi.Input<number>;
+    iops?: pulumi.Input<number | undefined>;
     /**
      * The ARN for the KMS encryption key.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * License model information for the restored DB instance.
      */
-    licenseModel?: pulumi.Input<string>;
+    licenseModel?: pulumi.Input<string | undefined>;
     /**
      * Provides the option group name for the DB snapshot.
      */
-    optionGroupName?: pulumi.Input<string>;
-    port?: pulumi.Input<number>;
+    optionGroupName?: pulumi.Input<string | undefined>;
+    port?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
      */
-    sharedAccounts?: pulumi.Input<pulumi.Input<string>[]>;
-    snapshotType?: pulumi.Input<string>;
+    sharedAccounts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    snapshotType?: pulumi.Input<string | undefined>;
     /**
      * The DB snapshot Arn that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
      */
-    sourceDbSnapshotIdentifier?: pulumi.Input<string>;
+    sourceDbSnapshotIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The region that the DB snapshot was created in or copied from.
      */
-    sourceRegion?: pulumi.Input<string>;
+    sourceRegion?: pulumi.Input<string | undefined>;
     /**
      * Specifies the status of this DB snapshot.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Specifies the storage type associated with DB snapshot.
      */
-    storageType?: pulumi.Input<string>;
+    storageType?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Provides the VPC ID associated with the DB snapshot.
      */
-    vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -334,13 +334,13 @@ export interface SnapshotArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
      */
-    sharedAccounts?: pulumi.Input<pulumi.Input<string>[]>;
+    sharedAccounts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

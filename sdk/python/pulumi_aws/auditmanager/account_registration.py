@@ -19,10 +19,10 @@ __all__ = ['AccountRegistrationArgs', 'AccountRegistration']
 @pulumi.input_type
 class AccountRegistrationArgs:
     def __init__(__self__, *,
-                 delegated_admin_account: Optional[pulumi.Input[_builtins.str]] = None,
-                 deregister_on_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kms_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 delegated_admin_account: pulumi.Input[Optional[_builtins.str]] = None,
+                 deregister_on_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kms_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AccountRegistration resource.
 
@@ -42,61 +42,61 @@ class AccountRegistrationArgs:
 
     @_builtins.property
     @pulumi.getter(name="delegatedAdminAccount")
-    def delegated_admin_account(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delegated_admin_account(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier for the delegated administrator account.
         """
         return pulumi.get(self, "delegated_admin_account")
 
     @delegated_admin_account.setter
-    def delegated_admin_account(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delegated_admin_account(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delegated_admin_account", value)
 
     @_builtins.property
     @pulumi.getter(name="deregisterOnDestroy")
-    def deregister_on_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def deregister_on_destroy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag to deregister AuditManager in the account upon destruction. Defaults to `false` (ie. AuditManager will remain active in the account, even if this resource is removed).
         """
         return pulumi.get(self, "deregister_on_destroy")
 
     @deregister_on_destroy.setter
-    def deregister_on_destroy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def deregister_on_destroy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "deregister_on_destroy", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKey")
-    def kms_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         KMS key identifier.
         """
         return pulumi.get(self, "kms_key")
 
     @kms_key.setter
-    def kms_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _AccountRegistrationState:
     def __init__(__self__, *,
-                 delegated_admin_account: Optional[pulumi.Input[_builtins.str]] = None,
-                 deregister_on_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kms_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 delegated_admin_account: pulumi.Input[Optional[_builtins.str]] = None,
+                 deregister_on_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kms_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AccountRegistration resources.
 
@@ -119,62 +119,62 @@ class _AccountRegistrationState:
 
     @_builtins.property
     @pulumi.getter(name="delegatedAdminAccount")
-    def delegated_admin_account(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delegated_admin_account(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier for the delegated administrator account.
         """
         return pulumi.get(self, "delegated_admin_account")
 
     @delegated_admin_account.setter
-    def delegated_admin_account(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delegated_admin_account(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delegated_admin_account", value)
 
     @_builtins.property
     @pulumi.getter(name="deregisterOnDestroy")
-    def deregister_on_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def deregister_on_destroy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag to deregister AuditManager in the account upon destruction. Defaults to `false` (ie. AuditManager will remain active in the account, even if this resource is removed).
         """
         return pulumi.get(self, "deregister_on_destroy")
 
     @deregister_on_destroy.setter
-    def deregister_on_destroy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def deregister_on_destroy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "deregister_on_destroy", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKey")
-    def kms_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         KMS key identifier.
         """
         return pulumi.get(self, "kms_key")
 
     @kms_key.setter
-    def kms_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Status of the account registration request.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
@@ -184,10 +184,10 @@ class AccountRegistration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 delegated_admin_account: Optional[pulumi.Input[_builtins.str]] = None,
-                 deregister_on_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kms_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 delegated_admin_account: pulumi.Input[Optional[_builtins.str]] = None,
+                 deregister_on_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kms_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing AWS Audit Manager Account Registration.
@@ -281,10 +281,10 @@ class AccountRegistration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 delegated_admin_account: Optional[pulumi.Input[_builtins.str]] = None,
-                 deregister_on_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kms_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 delegated_admin_account: pulumi.Input[Optional[_builtins.str]] = None,
+                 deregister_on_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kms_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -309,11 +309,11 @@ class AccountRegistration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            delegated_admin_account: Optional[pulumi.Input[_builtins.str]] = None,
-            deregister_on_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-            kms_key: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None) -> 'AccountRegistration':
+            delegated_admin_account: pulumi.Input[Optional[_builtins.str]] = None,
+            deregister_on_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+            kms_key: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None) -> 'AccountRegistration':
         """
         Get an existing AccountRegistration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

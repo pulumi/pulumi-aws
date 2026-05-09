@@ -170,27 +170,27 @@ export interface ClusterActivityStreamState {
      * For more detailed documentation about each argument, refer to
      * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html).
      */
-    engineNativeAuditFieldsIncluded?: pulumi.Input<boolean>;
+    engineNativeAuditFieldsIncluded?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the Amazon Kinesis data stream to be used for the database activity stream.
      */
-    kinesisStreamName?: pulumi.Input<string>;
+    kinesisStreamName?: pulumi.Input<string | undefined>;
     /**
      * The AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
      */
-    mode?: pulumi.Input<string>;
+    mode?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the DB cluster.
      */
-    resourceArn?: pulumi.Input<string>;
+    resourceArn?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -203,7 +203,7 @@ export interface ClusterActivityStreamArgs {
      * For more detailed documentation about each argument, refer to
      * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html).
      */
-    engineNativeAuditFieldsIncluded?: pulumi.Input<boolean>;
+    engineNativeAuditFieldsIncluded?: pulumi.Input<boolean | undefined>;
     /**
      * The AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
      */
@@ -215,7 +215,7 @@ export interface ClusterActivityStreamArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the DB cluster.
      */

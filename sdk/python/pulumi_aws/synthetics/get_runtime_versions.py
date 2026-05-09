@@ -99,7 +99,7 @@ def get_runtime_versions(region: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'),
         runtime_versions=pulumi.get(__ret__, 'runtime_versions'))
-def get_runtime_versions_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_runtime_versions_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRuntimeVersionsResult]:
     """
     Data source for managing an AWS CloudWatch Synthetics Runtime Versions.

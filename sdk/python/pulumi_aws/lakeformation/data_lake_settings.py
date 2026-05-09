@@ -21,18 +21,18 @@ __all__ = ['DataLakeSettingsArgs', 'DataLakeSettings']
 @pulumi.input_type
 class DataLakeSettingsArgs:
     def __init__(__self__, *,
-                 admins: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allow_external_data_filtering: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allow_full_table_external_data_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 authorized_session_tag_value_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 catalog_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 create_database_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateDatabaseDefaultPermissionArgs']]]] = None,
-                 create_table_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateTableDefaultPermissionArgs']]]] = None,
-                 external_data_filtering_allow_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 read_only_admins: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 trusted_resource_owners: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 admins: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allow_external_data_filtering: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_full_table_external_data_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 authorized_session_tag_value_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 create_database_default_permissions: pulumi.Input[Optional[Sequence[pulumi.Input['DataLakeSettingsCreateDatabaseDefaultPermissionArgs']]]] = None,
+                 create_table_default_permissions: pulumi.Input[Optional[Sequence[pulumi.Input['DataLakeSettingsCreateTableDefaultPermissionArgs']]]] = None,
+                 external_data_filtering_allow_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 read_only_admins: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 trusted_resource_owners: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DataLakeSettings resource.
 
@@ -78,139 +78,139 @@ class DataLakeSettingsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def admins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def admins(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of ARNs of AWS Lake Formation principals (IAM users or roles).
         """
         return pulumi.get(self, "admins")
 
     @admins.setter
-    def admins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def admins(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "admins", value)
 
     @_builtins.property
     @pulumi.getter(name="allowExternalDataFiltering")
-    def allow_external_data_filtering(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_external_data_filtering(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
         """
         return pulumi.get(self, "allow_external_data_filtering")
 
     @allow_external_data_filtering.setter
-    def allow_external_data_filtering(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_external_data_filtering(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_external_data_filtering", value)
 
     @_builtins.property
     @pulumi.getter(name="allowFullTableExternalDataAccess")
-    def allow_full_table_external_data_access(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_full_table_external_data_access(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
         """
         return pulumi.get(self, "allow_full_table_external_data_access")
 
     @allow_full_table_external_data_access.setter
-    def allow_full_table_external_data_access(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_full_table_external_data_access(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_full_table_external_data_access", value)
 
     @_builtins.property
     @pulumi.getter(name="authorizedSessionTagValueLists")
-    def authorized_session_tag_value_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def authorized_session_tag_value_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
         """
         return pulumi.get(self, "authorized_session_tag_value_lists")
 
     @authorized_session_tag_value_lists.setter
-    def authorized_session_tag_value_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def authorized_session_tag_value_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "authorized_session_tag_value_lists", value)
 
     @_builtins.property
     @pulumi.getter(name="catalogId")
-    def catalog_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def catalog_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier for the Data Catalog. By default, the account ID.
         """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
-    def catalog_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def catalog_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "catalog_id", value)
 
     @_builtins.property
     @pulumi.getter(name="createDatabaseDefaultPermissions")
-    def create_database_default_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateDatabaseDefaultPermissionArgs']]]]:
+    def create_database_default_permissions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataLakeSettingsCreateDatabaseDefaultPermissionArgs']]]]:
         """
         Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
         """
         return pulumi.get(self, "create_database_default_permissions")
 
     @create_database_default_permissions.setter
-    def create_database_default_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateDatabaseDefaultPermissionArgs']]]]):
+    def create_database_default_permissions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataLakeSettingsCreateDatabaseDefaultPermissionArgs']]]]):
         pulumi.set(self, "create_database_default_permissions", value)
 
     @_builtins.property
     @pulumi.getter(name="createTableDefaultPermissions")
-    def create_table_default_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateTableDefaultPermissionArgs']]]]:
+    def create_table_default_permissions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataLakeSettingsCreateTableDefaultPermissionArgs']]]]:
         """
         Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
         """
         return pulumi.get(self, "create_table_default_permissions")
 
     @create_table_default_permissions.setter
-    def create_table_default_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateTableDefaultPermissionArgs']]]]):
+    def create_table_default_permissions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataLakeSettingsCreateTableDefaultPermissionArgs']]]]):
         pulumi.set(self, "create_table_default_permissions", value)
 
     @_builtins.property
     @pulumi.getter(name="externalDataFilteringAllowLists")
-    def external_data_filtering_allow_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def external_data_filtering_allow_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
         """
         return pulumi.get(self, "external_data_filtering_allow_lists")
 
     @external_data_filtering_allow_lists.setter
-    def external_data_filtering_allow_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def external_data_filtering_allow_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "external_data_filtering_allow_lists", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of additional configuration. Valid values for the `CROSS_ACCOUNT_VERSION` key are `"1"`, `"2"`, `"3"`, or `"4"`. `SET_CONTEXT` is also returned with a value of `TRUE`. In a fresh account, prior to configuring, `CROSS_ACCOUNT_VERSION` is `"1"`. Destroying this resource sets the `CROSS_ACCOUNT_VERSION` to `"1"`.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="readOnlyAdmins")
-    def read_only_admins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def read_only_admins(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
         """
         return pulumi.get(self, "read_only_admins")
 
     @read_only_admins.setter
-    def read_only_admins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def read_only_admins(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "read_only_admins", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="trustedResourceOwners")
-    def trusted_resource_owners(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def trusted_resource_owners(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
 
@@ -219,25 +219,25 @@ class DataLakeSettingsArgs:
         return pulumi.get(self, "trusted_resource_owners")
 
     @trusted_resource_owners.setter
-    def trusted_resource_owners(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def trusted_resource_owners(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "trusted_resource_owners", value)
 
 
 @pulumi.input_type
 class _DataLakeSettingsState:
     def __init__(__self__, *,
-                 admins: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allow_external_data_filtering: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allow_full_table_external_data_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 authorized_session_tag_value_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 catalog_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 create_database_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateDatabaseDefaultPermissionArgs']]]] = None,
-                 create_table_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateTableDefaultPermissionArgs']]]] = None,
-                 external_data_filtering_allow_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 read_only_admins: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 trusted_resource_owners: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 admins: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allow_external_data_filtering: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_full_table_external_data_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 authorized_session_tag_value_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 create_database_default_permissions: pulumi.Input[Optional[Sequence[pulumi.Input['DataLakeSettingsCreateDatabaseDefaultPermissionArgs']]]] = None,
+                 create_table_default_permissions: pulumi.Input[Optional[Sequence[pulumi.Input['DataLakeSettingsCreateTableDefaultPermissionArgs']]]] = None,
+                 external_data_filtering_allow_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 read_only_admins: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 trusted_resource_owners: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering DataLakeSettings resources.
 
@@ -283,139 +283,139 @@ class _DataLakeSettingsState:
 
     @_builtins.property
     @pulumi.getter
-    def admins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def admins(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of ARNs of AWS Lake Formation principals (IAM users or roles).
         """
         return pulumi.get(self, "admins")
 
     @admins.setter
-    def admins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def admins(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "admins", value)
 
     @_builtins.property
     @pulumi.getter(name="allowExternalDataFiltering")
-    def allow_external_data_filtering(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_external_data_filtering(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
         """
         return pulumi.get(self, "allow_external_data_filtering")
 
     @allow_external_data_filtering.setter
-    def allow_external_data_filtering(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_external_data_filtering(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_external_data_filtering", value)
 
     @_builtins.property
     @pulumi.getter(name="allowFullTableExternalDataAccess")
-    def allow_full_table_external_data_access(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_full_table_external_data_access(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
         """
         return pulumi.get(self, "allow_full_table_external_data_access")
 
     @allow_full_table_external_data_access.setter
-    def allow_full_table_external_data_access(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_full_table_external_data_access(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_full_table_external_data_access", value)
 
     @_builtins.property
     @pulumi.getter(name="authorizedSessionTagValueLists")
-    def authorized_session_tag_value_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def authorized_session_tag_value_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
         """
         return pulumi.get(self, "authorized_session_tag_value_lists")
 
     @authorized_session_tag_value_lists.setter
-    def authorized_session_tag_value_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def authorized_session_tag_value_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "authorized_session_tag_value_lists", value)
 
     @_builtins.property
     @pulumi.getter(name="catalogId")
-    def catalog_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def catalog_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier for the Data Catalog. By default, the account ID.
         """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
-    def catalog_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def catalog_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "catalog_id", value)
 
     @_builtins.property
     @pulumi.getter(name="createDatabaseDefaultPermissions")
-    def create_database_default_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateDatabaseDefaultPermissionArgs']]]]:
+    def create_database_default_permissions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataLakeSettingsCreateDatabaseDefaultPermissionArgs']]]]:
         """
         Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
         """
         return pulumi.get(self, "create_database_default_permissions")
 
     @create_database_default_permissions.setter
-    def create_database_default_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateDatabaseDefaultPermissionArgs']]]]):
+    def create_database_default_permissions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataLakeSettingsCreateDatabaseDefaultPermissionArgs']]]]):
         pulumi.set(self, "create_database_default_permissions", value)
 
     @_builtins.property
     @pulumi.getter(name="createTableDefaultPermissions")
-    def create_table_default_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateTableDefaultPermissionArgs']]]]:
+    def create_table_default_permissions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataLakeSettingsCreateTableDefaultPermissionArgs']]]]:
         """
         Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
         """
         return pulumi.get(self, "create_table_default_permissions")
 
     @create_table_default_permissions.setter
-    def create_table_default_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateTableDefaultPermissionArgs']]]]):
+    def create_table_default_permissions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataLakeSettingsCreateTableDefaultPermissionArgs']]]]):
         pulumi.set(self, "create_table_default_permissions", value)
 
     @_builtins.property
     @pulumi.getter(name="externalDataFilteringAllowLists")
-    def external_data_filtering_allow_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def external_data_filtering_allow_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
         """
         return pulumi.get(self, "external_data_filtering_allow_lists")
 
     @external_data_filtering_allow_lists.setter
-    def external_data_filtering_allow_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def external_data_filtering_allow_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "external_data_filtering_allow_lists", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of additional configuration. Valid values for the `CROSS_ACCOUNT_VERSION` key are `"1"`, `"2"`, `"3"`, or `"4"`. `SET_CONTEXT` is also returned with a value of `TRUE`. In a fresh account, prior to configuring, `CROSS_ACCOUNT_VERSION` is `"1"`. Destroying this resource sets the `CROSS_ACCOUNT_VERSION` to `"1"`.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="readOnlyAdmins")
-    def read_only_admins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def read_only_admins(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
         """
         return pulumi.get(self, "read_only_admins")
 
     @read_only_admins.setter
-    def read_only_admins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def read_only_admins(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "read_only_admins", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="trustedResourceOwners")
-    def trusted_resource_owners(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def trusted_resource_owners(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
 
@@ -424,7 +424,7 @@ class _DataLakeSettingsState:
         return pulumi.get(self, "trusted_resource_owners")
 
     @trusted_resource_owners.setter
-    def trusted_resource_owners(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def trusted_resource_owners(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "trusted_resource_owners", value)
 
 
@@ -434,18 +434,18 @@ class DataLakeSettings(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 admins: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allow_external_data_filtering: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allow_full_table_external_data_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 authorized_session_tag_value_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 catalog_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 create_database_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataLakeSettingsCreateDatabaseDefaultPermissionArgs', 'DataLakeSettingsCreateDatabaseDefaultPermissionArgsDict']]]]] = None,
-                 create_table_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataLakeSettingsCreateTableDefaultPermissionArgs', 'DataLakeSettingsCreateTableDefaultPermissionArgsDict']]]]] = None,
-                 external_data_filtering_allow_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 read_only_admins: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 trusted_resource_owners: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 admins: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allow_external_data_filtering: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_full_table_external_data_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 authorized_session_tag_value_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 create_database_default_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataLakeSettingsCreateDatabaseDefaultPermissionArgs', 'DataLakeSettingsCreateDatabaseDefaultPermissionArgsDict']]]]] = None,
+                 create_table_default_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataLakeSettingsCreateTableDefaultPermissionArgs', 'DataLakeSettingsCreateTableDefaultPermissionArgsDict']]]]] = None,
+                 external_data_filtering_allow_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 read_only_admins: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 trusted_resource_owners: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages Lake Formation principals designated as data lake administrators and lists of principal permission entries for default create database and default create table permissions.
@@ -661,18 +661,18 @@ class DataLakeSettings(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 admins: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allow_external_data_filtering: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allow_full_table_external_data_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 authorized_session_tag_value_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 catalog_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 create_database_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataLakeSettingsCreateDatabaseDefaultPermissionArgs', 'DataLakeSettingsCreateDatabaseDefaultPermissionArgsDict']]]]] = None,
-                 create_table_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataLakeSettingsCreateTableDefaultPermissionArgs', 'DataLakeSettingsCreateTableDefaultPermissionArgsDict']]]]] = None,
-                 external_data_filtering_allow_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 read_only_admins: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 trusted_resource_owners: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 admins: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allow_external_data_filtering: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_full_table_external_data_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 authorized_session_tag_value_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 create_database_default_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataLakeSettingsCreateDatabaseDefaultPermissionArgs', 'DataLakeSettingsCreateDatabaseDefaultPermissionArgsDict']]]]] = None,
+                 create_table_default_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataLakeSettingsCreateTableDefaultPermissionArgs', 'DataLakeSettingsCreateTableDefaultPermissionArgsDict']]]]] = None,
+                 external_data_filtering_allow_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 read_only_admins: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 trusted_resource_owners: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -704,18 +704,18 @@ class DataLakeSettings(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            admins: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            allow_external_data_filtering: Optional[pulumi.Input[_builtins.bool]] = None,
-            allow_full_table_external_data_access: Optional[pulumi.Input[_builtins.bool]] = None,
-            authorized_session_tag_value_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            catalog_id: Optional[pulumi.Input[_builtins.str]] = None,
-            create_database_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataLakeSettingsCreateDatabaseDefaultPermissionArgs', 'DataLakeSettingsCreateDatabaseDefaultPermissionArgsDict']]]]] = None,
-            create_table_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataLakeSettingsCreateTableDefaultPermissionArgs', 'DataLakeSettingsCreateTableDefaultPermissionArgsDict']]]]] = None,
-            external_data_filtering_allow_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            read_only_admins: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            trusted_resource_owners: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'DataLakeSettings':
+            admins: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            allow_external_data_filtering: pulumi.Input[Optional[_builtins.bool]] = None,
+            allow_full_table_external_data_access: pulumi.Input[Optional[_builtins.bool]] = None,
+            authorized_session_tag_value_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
+            create_database_default_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataLakeSettingsCreateDatabaseDefaultPermissionArgs', 'DataLakeSettingsCreateDatabaseDefaultPermissionArgsDict']]]]] = None,
+            create_table_default_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataLakeSettingsCreateTableDefaultPermissionArgs', 'DataLakeSettingsCreateTableDefaultPermissionArgsDict']]]]] = None,
+            external_data_filtering_allow_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            read_only_admins: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            trusted_resource_owners: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'DataLakeSettings':
         """
         Get an existing DataLakeSettings resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

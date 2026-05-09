@@ -23,7 +23,7 @@ class TriggerArgs:
     def __init__(__self__, *,
                  repository_name: pulumi.Input[_builtins.str],
                  triggers: pulumi.Input[Sequence[pulumi.Input['TriggerTriggerArgs']]],
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Trigger resource.
 
@@ -62,24 +62,24 @@ class TriggerArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _TriggerState:
     def __init__(__self__, *,
-                 configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 triggers: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerTriggerArgs']]]] = None):
+                 configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 triggers: pulumi.Input[Optional[Sequence[pulumi.Input['TriggerTriggerArgs']]]] = None):
         """
         Input properties used for looking up and filtering Trigger resources.
 
@@ -99,50 +99,50 @@ class _TriggerState:
 
     @_builtins.property
     @pulumi.getter(name="configurationId")
-    def configuration_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def configuration_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         System-generated unique identifier.
         """
         return pulumi.get(self, "configuration_id")
 
     @configuration_id.setter
-    def configuration_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def configuration_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "configuration_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="repositoryName")
-    def repository_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name for the repository. This needs to be less than 100 characters.
         """
         return pulumi.get(self, "repository_name")
 
     @repository_name.setter
-    def repository_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TriggerTriggerArgs']]]]:
+    def triggers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TriggerTriggerArgs']]]]:
         """
         The name of the trigger.
         """
         return pulumi.get(self, "triggers")
 
     @triggers.setter
-    def triggers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerTriggerArgs']]]]):
+    def triggers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TriggerTriggerArgs']]]]):
         pulumi.set(self, "triggers", value)
 
 
@@ -152,9 +152,9 @@ class Trigger(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 triggers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TriggerTriggerArgs', 'TriggerTriggerArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 triggers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TriggerTriggerArgs', 'TriggerTriggerArgsDict']]]]] = None,
                  __props__=None):
         """
         Provides a CodeCommit Trigger Resource.
@@ -223,9 +223,9 @@ class Trigger(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 triggers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TriggerTriggerArgs', 'TriggerTriggerArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 triggers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TriggerTriggerArgs', 'TriggerTriggerArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -253,10 +253,10 @@ class Trigger(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            repository_name: Optional[pulumi.Input[_builtins.str]] = None,
-            triggers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TriggerTriggerArgs', 'TriggerTriggerArgsDict']]]]] = None) -> 'Trigger':
+            configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            repository_name: pulumi.Input[Optional[_builtins.str]] = None,
+            triggers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TriggerTriggerArgs', 'TriggerTriggerArgsDict']]]]] = None) -> 'Trigger':
         """
         Get an existing Trigger resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

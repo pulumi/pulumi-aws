@@ -137,9 +137,9 @@ def get_local_gateway_virtual_interface_groups(filters: Optional[Sequence[Union[
         local_gateway_virtual_interface_ids=pulumi.get(__ret__, 'local_gateway_virtual_interface_ids'),
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_local_gateway_virtual_interface_groups_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetLocalGatewayVirtualInterfaceGroupsFilterArgs', 'GetLocalGatewayVirtualInterfaceGroupsFilterArgsDict']]]]] = None,
-                                                      region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                                      tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_local_gateway_virtual_interface_groups_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetLocalGatewayVirtualInterfaceGroupsFilterArgs', 'GetLocalGatewayVirtualInterfaceGroupsFilterArgsDict']]]]] = None,
+                                                      region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                      tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocalGatewayVirtualInterfaceGroupsResult]:
     """
     Provides details about multiple EC2 Local Gateway Virtual Interface Groups, such as identifiers. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).

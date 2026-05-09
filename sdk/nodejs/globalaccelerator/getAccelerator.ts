@@ -100,11 +100,11 @@ export interface GetAcceleratorOutputArgs {
     /**
      * Full ARN of the Global Accelerator.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Unique name of the Global Accelerator.
      *
      * > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

@@ -141,26 +141,26 @@ export interface PrefixListReferenceState {
     /**
      * Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
      */
-    blackhole?: pulumi.Input<boolean>;
+    blackhole?: pulumi.Input<boolean | undefined>;
     /**
      * Identifier of EC2 Prefix List.
      */
-    prefixListId?: pulumi.Input<string>;
-    prefixListOwnerId?: pulumi.Input<string>;
+    prefixListId?: pulumi.Input<string | undefined>;
+    prefixListOwnerId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Identifier of EC2 Transit Gateway Attachment.
      */
-    transitGatewayAttachmentId?: pulumi.Input<string>;
+    transitGatewayAttachmentId?: pulumi.Input<string | undefined>;
     /**
      * Identifier of EC2 Transit Gateway Route Table.
      *
      * The following arguments are optional:
      */
-    transitGatewayRouteTableId?: pulumi.Input<string>;
+    transitGatewayRouteTableId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -170,7 +170,7 @@ export interface PrefixListReferenceArgs {
     /**
      * Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
      */
-    blackhole?: pulumi.Input<boolean>;
+    blackhole?: pulumi.Input<boolean | undefined>;
     /**
      * Identifier of EC2 Prefix List.
      */
@@ -178,11 +178,11 @@ export interface PrefixListReferenceArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Identifier of EC2 Transit Gateway Attachment.
      */
-    transitGatewayAttachmentId?: pulumi.Input<string>;
+    transitGatewayAttachmentId?: pulumi.Input<string | undefined>;
     /**
      * Identifier of EC2 Transit Gateway Route Table.
      *

@@ -335,100 +335,100 @@ export interface MultitenantDistributionState {
     /**
      * List of key groups that CloudFront can use to validate signed URLs or signed cookies. See Active Trusted Key Groups below.
      */
-    activeTrustedKeyGroups?: pulumi.Input<pulumi.Input<inputs.cloudfront.MultitenantDistributionActiveTrustedKeyGroup>[]>;
+    activeTrustedKeyGroups?: pulumi.Input<pulumi.Input<inputs.cloudfront.MultitenantDistributionActiveTrustedKeyGroup>[] | undefined>;
     /**
      * ARN for the distribution.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Ordered list of cache behaviors resource for this distribution. See Cache Behavior below.
      */
-    cacheBehaviors?: pulumi.Input<pulumi.Input<inputs.cloudfront.MultitenantDistributionCacheBehavior>[]>;
+    cacheBehaviors?: pulumi.Input<pulumi.Input<inputs.cloudfront.MultitenantDistributionCacheBehavior>[] | undefined>;
     /**
      * Internal value used by CloudFront to allow future updates to the distribution configuration.
      */
-    callerReference?: pulumi.Input<string>;
+    callerReference?: pulumi.Input<string | undefined>;
     /**
      * Any comments you want to include about the distribution.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Connection mode for the distribution. Always set to `tenant-only` for multi-tenant distributions.
      */
-    connectionMode?: pulumi.Input<string>;
+    connectionMode?: pulumi.Input<string | undefined>;
     /**
      * One or more custom error response elements. See Custom Error Response below.
      */
-    customErrorResponses?: pulumi.Input<pulumi.Input<inputs.cloudfront.MultitenantDistributionCustomErrorResponse>[]>;
+    customErrorResponses?: pulumi.Input<pulumi.Input<inputs.cloudfront.MultitenantDistributionCustomErrorResponse>[] | undefined>;
     /**
      * Default cache behavior for this distribution. See Default Cache Behavior below.
      */
-    defaultCacheBehavior?: pulumi.Input<inputs.cloudfront.MultitenantDistributionDefaultCacheBehavior>;
+    defaultCacheBehavior?: pulumi.Input<inputs.cloudfront.MultitenantDistributionDefaultCacheBehavior | undefined>;
     /**
      * Object that you want CloudFront to return when an end user requests the root URL.
      */
-    defaultRootObject?: pulumi.Input<string>;
+    defaultRootObject?: pulumi.Input<string | undefined>;
     /**
      * Domain name corresponding to the distribution.
      */
-    domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string | undefined>;
     /**
      * Whether the distribution is enabled to accept end user requests for content.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Current version of the distribution's information.
      */
-    etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3`, and `http3`. Default: `http2`.
      */
-    httpVersion?: pulumi.Input<string>;
+    httpVersion?: pulumi.Input<string | undefined>;
     /**
      * Number of invalidation batches currently in progress.
      */
-    inProgressInvalidationBatches?: pulumi.Input<number>;
+    inProgressInvalidationBatches?: pulumi.Input<number | undefined>;
     /**
      * Date and time the distribution was last modified.
      */
-    lastModifiedTime?: pulumi.Input<string>;
+    lastModifiedTime?: pulumi.Input<string | undefined>;
     /**
      * One or more originGroup for this distribution (multiples allowed). See Origin Group below.
      */
-    originGroups?: pulumi.Input<pulumi.Input<inputs.cloudfront.MultitenantDistributionOriginGroup>[]>;
+    originGroups?: pulumi.Input<pulumi.Input<inputs.cloudfront.MultitenantDistributionOriginGroup>[] | undefined>;
     /**
      * One or more origins for this distribution (multiples allowed). See Origin below.
      */
-    origins?: pulumi.Input<pulumi.Input<inputs.cloudfront.MultitenantDistributionOrigin>[]>;
+    origins?: pulumi.Input<pulumi.Input<inputs.cloudfront.MultitenantDistributionOrigin>[] | undefined>;
     /**
      * Restriction configuration for this distribution. See Restrictions below.
      */
-    restrictions?: pulumi.Input<inputs.cloudfront.MultitenantDistributionRestrictions>;
+    restrictions?: pulumi.Input<inputs.cloudfront.MultitenantDistributionRestrictions | undefined>;
     /**
      * Current status of the distribution. `Deployed` if the distribution's information is fully propagated throughout the Amazon CloudFront system.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Tenant configuration that contains parameter definitions for multi-tenant distributions. See Tenant Config below.
      */
-    tenantConfig?: pulumi.Input<inputs.cloudfront.MultitenantDistributionTenantConfig>;
-    timeouts?: pulumi.Input<inputs.cloudfront.MultitenantDistributionTimeouts>;
+    tenantConfig?: pulumi.Input<inputs.cloudfront.MultitenantDistributionTenantConfig | undefined>;
+    timeouts?: pulumi.Input<inputs.cloudfront.MultitenantDistributionTimeouts | undefined>;
     /**
      * SSL configuration for this distribution. See Viewer Certificate below.
      */
-    viewerCertificate?: pulumi.Input<inputs.cloudfront.MultitenantDistributionViewerCertificate>;
+    viewerCertificate?: pulumi.Input<inputs.cloudfront.MultitenantDistributionViewerCertificate | undefined>;
     /**
      * Unique identifier that specifies the AWS WAF v2 web ACL to associate with this distribution.
      */
-    webAclId?: pulumi.Input<string>;
+    webAclId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -438,11 +438,11 @@ export interface MultitenantDistributionArgs {
     /**
      * List of key groups that CloudFront can use to validate signed URLs or signed cookies. See Active Trusted Key Groups below.
      */
-    activeTrustedKeyGroups?: pulumi.Input<pulumi.Input<inputs.cloudfront.MultitenantDistributionActiveTrustedKeyGroup>[]>;
+    activeTrustedKeyGroups?: pulumi.Input<pulumi.Input<inputs.cloudfront.MultitenantDistributionActiveTrustedKeyGroup>[] | undefined>;
     /**
      * Ordered list of cache behaviors resource for this distribution. See Cache Behavior below.
      */
-    cacheBehaviors?: pulumi.Input<pulumi.Input<inputs.cloudfront.MultitenantDistributionCacheBehavior>[]>;
+    cacheBehaviors?: pulumi.Input<pulumi.Input<inputs.cloudfront.MultitenantDistributionCacheBehavior>[] | undefined>;
     /**
      * Any comments you want to include about the distribution.
      */
@@ -450,7 +450,7 @@ export interface MultitenantDistributionArgs {
     /**
      * One or more custom error response elements. See Custom Error Response below.
      */
-    customErrorResponses?: pulumi.Input<pulumi.Input<inputs.cloudfront.MultitenantDistributionCustomErrorResponse>[]>;
+    customErrorResponses?: pulumi.Input<pulumi.Input<inputs.cloudfront.MultitenantDistributionCustomErrorResponse>[] | undefined>;
     /**
      * Default cache behavior for this distribution. See Default Cache Behavior below.
      */
@@ -458,7 +458,7 @@ export interface MultitenantDistributionArgs {
     /**
      * Object that you want CloudFront to return when an end user requests the root URL.
      */
-    defaultRootObject?: pulumi.Input<string>;
+    defaultRootObject?: pulumi.Input<string | undefined>;
     /**
      * Whether the distribution is enabled to accept end user requests for content.
      */
@@ -466,28 +466,28 @@ export interface MultitenantDistributionArgs {
     /**
      * Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3`, and `http3`. Default: `http2`.
      */
-    httpVersion?: pulumi.Input<string>;
+    httpVersion?: pulumi.Input<string | undefined>;
     /**
      * One or more originGroup for this distribution (multiples allowed). See Origin Group below.
      */
-    originGroups?: pulumi.Input<pulumi.Input<inputs.cloudfront.MultitenantDistributionOriginGroup>[]>;
+    originGroups?: pulumi.Input<pulumi.Input<inputs.cloudfront.MultitenantDistributionOriginGroup>[] | undefined>;
     /**
      * One or more origins for this distribution (multiples allowed). See Origin below.
      */
-    origins?: pulumi.Input<pulumi.Input<inputs.cloudfront.MultitenantDistributionOrigin>[]>;
+    origins?: pulumi.Input<pulumi.Input<inputs.cloudfront.MultitenantDistributionOrigin>[] | undefined>;
     /**
      * Restriction configuration for this distribution. See Restrictions below.
      */
-    restrictions?: pulumi.Input<inputs.cloudfront.MultitenantDistributionRestrictions>;
+    restrictions?: pulumi.Input<inputs.cloudfront.MultitenantDistributionRestrictions | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Tenant configuration that contains parameter definitions for multi-tenant distributions. See Tenant Config below.
      */
     tenantConfig: pulumi.Input<inputs.cloudfront.MultitenantDistributionTenantConfig>;
-    timeouts?: pulumi.Input<inputs.cloudfront.MultitenantDistributionTimeouts>;
+    timeouts?: pulumi.Input<inputs.cloudfront.MultitenantDistributionTimeouts | undefined>;
     /**
      * SSL configuration for this distribution. See Viewer Certificate below.
      */
@@ -495,5 +495,5 @@ export interface MultitenantDistributionArgs {
     /**
      * Unique identifier that specifies the AWS WAF v2 web ACL to associate with this distribution.
      */
-    webAclId?: pulumi.Input<string>;
+    webAclId?: pulumi.Input<string | undefined>;
 }

@@ -43,8 +43,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementGeoMatchStatementArgs;
  * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleVisibilityConfigArgs;
  * import com.pulumi.aws.wafv2.inputs.RuleGroupVisibilityConfigArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -122,8 +122,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchArgs;
  * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs;
  * import com.pulumi.aws.wafv2.inputs.RuleGroupVisibilityConfigArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -165,8 +165,8 @@ import javax.annotation.Nullable;
  *                         .block(RuleGroupRuleActionBlockArgs.builder()
  *                             .build())
  *                         .build())
- *                     .statement(RuleGroupRuleStatementArgs.builder()
- *                         .notStatement(Map.of("statements", Map.of("andStatement", Map.of("statements",                         
+ *                     .statement(Map.of("notStatement", Map.of("statements", Arrays.asList(Map.of("andStatement", RuleGroupRuleStatementAndStatementArgs.builder()
+ *                         .statements(                        
  *                             RuleGroupRuleStatementArgs.builder()
  *                                 .geoMatchStatement(RuleGroupRuleStatementGeoMatchStatementArgs.builder()
  *                                     .countryCodes("US")
@@ -190,8 +190,8 @@ import javax.annotation.Nullable;
  *                                             .type("LOWERCASE")
  *                                             .build())
  *                                     .build())
- *                                 .build()))))
- *                         .build())
+ *                                 .build())
+ *                         .build())))))
  *                     .visibilityConfig(RuleGroupRuleVisibilityConfigArgs.builder()
  *                         .cloudwatchMetricsEnabled(false)
  *                         .metricName("rule-1")
@@ -205,56 +205,54 @@ import javax.annotation.Nullable;
  *                         .count(RuleGroupRuleActionCountArgs.builder()
  *                             .build())
  *                         .build())
- *                     .statement(Map.of("orStatement", RuleGroupRuleStatementOrStatementArgs.builder()
- *                         .statements(                        
- *                             RuleGroupRuleStatementArgs.builder()
- *                                 .regexMatchStatement(RuleGroupRuleStatementRegexMatchStatementArgs.builder()
- *                                     .regexString("a-z?")
- *                                     .fieldToMatch(RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs.builder()
- *                                         .singleHeader(RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeaderArgs.builder()
- *                                             .name("user-agent")
- *                                             .build())
- *                                         .build())
- *                                     .textTransformations(RuleGroupRuleStatementRegexMatchStatementTextTransformationArgs.builder()
- *                                         .priority(6)
- *                                         .type("NONE")
+ *                     .statement(Map.of("orStatement", Map.of("statements", Arrays.asList(                    
+ *                         RuleGroupRuleStatementArgs.builder()
+ *                             .regexMatchStatement(RuleGroupRuleStatementRegexMatchStatementArgs.builder()
+ *                                 .regexString("a-z?")
+ *                                 .fieldToMatch(RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs.builder()
+ *                                     .singleHeader(RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeaderArgs.builder()
+ *                                         .name("user-agent")
  *                                         .build())
  *                                     .build())
- *                                 .build(),
- *                             RuleGroupRuleStatementArgs.builder()
- *                                 .sqliMatchStatement(RuleGroupRuleStatementSqliMatchStatementArgs.builder()
- *                                     .fieldToMatch(RuleGroupRuleStatementSqliMatchStatementFieldToMatchArgs.builder()
- *                                         .body(RuleGroupRuleStatementSqliMatchStatementFieldToMatchBodyArgs.builder()
- *                                             .build())
- *                                         .build())
- *                                     .textTransformations(                                    
- *                                         RuleGroupRuleStatementSqliMatchStatementTextTransformationArgs.builder()
- *                                             .priority(5)
- *                                             .type("URL_DECODE")
- *                                             .build(),
- *                                         RuleGroupRuleStatementSqliMatchStatementTextTransformationArgs.builder()
- *                                             .priority(4)
- *                                             .type("HTML_ENTITY_DECODE")
- *                                             .build(),
- *                                         RuleGroupRuleStatementSqliMatchStatementTextTransformationArgs.builder()
- *                                             .priority(3)
- *                                             .type("COMPRESS_WHITE_SPACE")
- *                                             .build())
- *                                     .build())
- *                                 .build(),
- *                             RuleGroupRuleStatementArgs.builder()
- *                                 .xssMatchStatement(RuleGroupRuleStatementXssMatchStatementArgs.builder()
- *                                     .fieldToMatch(RuleGroupRuleStatementXssMatchStatementFieldToMatchArgs.builder()
- *                                         .method(RuleGroupRuleStatementXssMatchStatementFieldToMatchMethodArgs.builder()
- *                                             .build())
- *                                         .build())
- *                                     .textTransformations(RuleGroupRuleStatementXssMatchStatementTextTransformationArgs.builder()
- *                                         .priority(2)
- *                                         .type("NONE")
- *                                         .build())
+ *                                 .textTransformations(RuleGroupRuleStatementRegexMatchStatementTextTransformationArgs.builder()
+ *                                     .priority(6)
+ *                                     .type("NONE")
  *                                     .build())
  *                                 .build())
- *                         .build()))
+ *                             .build(),
+ *                         RuleGroupRuleStatementArgs.builder()
+ *                             .sqliMatchStatement(RuleGroupRuleStatementSqliMatchStatementArgs.builder()
+ *                                 .fieldToMatch(RuleGroupRuleStatementSqliMatchStatementFieldToMatchArgs.builder()
+ *                                     .body(RuleGroupRuleStatementSqliMatchStatementFieldToMatchBodyArgs.builder()
+ *                                         .build())
+ *                                     .build())
+ *                                 .textTransformations(                                
+ *                                     RuleGroupRuleStatementSqliMatchStatementTextTransformationArgs.builder()
+ *                                         .priority(5)
+ *                                         .type("URL_DECODE")
+ *                                         .build(),
+ *                                     RuleGroupRuleStatementSqliMatchStatementTextTransformationArgs.builder()
+ *                                         .priority(4)
+ *                                         .type("HTML_ENTITY_DECODE")
+ *                                         .build(),
+ *                                     RuleGroupRuleStatementSqliMatchStatementTextTransformationArgs.builder()
+ *                                         .priority(3)
+ *                                         .type("COMPRESS_WHITE_SPACE")
+ *                                         .build())
+ *                                 .build())
+ *                             .build(),
+ *                         RuleGroupRuleStatementArgs.builder()
+ *                             .xssMatchStatement(RuleGroupRuleStatementXssMatchStatementArgs.builder()
+ *                                 .fieldToMatch(RuleGroupRuleStatementXssMatchStatementFieldToMatchArgs.builder()
+ *                                     .method(RuleGroupRuleStatementXssMatchStatementFieldToMatchMethodArgs.builder()
+ *                                         .build())
+ *                                     .build())
+ *                                 .textTransformations(RuleGroupRuleStatementXssMatchStatementTextTransformationArgs.builder()
+ *                                     .priority(2)
+ *                                     .type("NONE")
+ *                                     .build())
+ *                                 .build())
+ *                             .build()))))
  *                     .visibilityConfig(RuleGroupRuleVisibilityConfigArgs.builder()
  *                         .cloudwatchMetricsEnabled(false)
  *                         .metricName("rule-2")
@@ -301,28 +299,30 @@ import javax.annotation.Nullable;
  *                         .block(RuleGroupRuleActionBlockArgs.builder()
  *                             .build())
  *                         .build())
- *                     .statement(Map.of("orStatement", RuleGroupRuleStatementOrStatementArgs.builder()
- *                         .statements(                        
- *                             RuleGroupRuleStatementArgs.builder()
- *                                 .ipSetReferenceStatement(RuleGroupRuleStatementIpSetReferenceStatementArgs.builder()
- *                                     .arn(test.arn())
- *                                     .build())
- *                                 .build(),
- *                             RuleGroupRuleStatementArgs.builder()
- *                                 .regexPatternSetReferenceStatement(RuleGroupRuleStatementRegexPatternSetReferenceStatementArgs.builder()
- *                                     .arn(testRegexPatternSet.arn())
- *                                     .fieldToMatch(RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchArgs.builder()
- *                                         .singleHeader(RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderArgs.builder()
- *                                             .name("referer")
+ *                     .statement(RuleGroupRuleStatementArgs.builder()
+ *                         .orStatement(RuleGroupRuleStatementOrStatementArgs.builder()
+ *                             .statements(                            
+ *                                 RuleGroupRuleStatementArgs.builder()
+ *                                     .ipSetReferenceStatement(RuleGroupRuleStatementIpSetReferenceStatementArgs.builder()
+ *                                         .arn(test.arn())
+ *                                         .build())
+ *                                     .build(),
+ *                                 RuleGroupRuleStatementArgs.builder()
+ *                                     .regexPatternSetReferenceStatement(RuleGroupRuleStatementRegexPatternSetReferenceStatementArgs.builder()
+ *                                         .arn(testRegexPatternSet.arn())
+ *                                         .fieldToMatch(RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchArgs.builder()
+ *                                             .singleHeader(RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderArgs.builder()
+ *                                                 .name("referer")
+ *                                                 .build())
+ *                                             .build())
+ *                                         .textTransformations(RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformationArgs.builder()
+ *                                             .priority(2)
+ *                                             .type("NONE")
  *                                             .build())
  *                                         .build())
- *                                     .textTransformations(RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformationArgs.builder()
- *                                         .priority(2)
- *                                         .type("NONE")
- *                                         .build())
  *                                     .build())
- *                                 .build())
- *                         .build()))
+ *                             .build())
+ *                         .build())
  *                     .visibilityConfig(RuleGroupRuleVisibilityConfigArgs.builder()
  *                         .cloudwatchMetricsEnabled(false)
  *                         .metricName("rule-4")
@@ -334,7 +334,7 @@ import javax.annotation.Nullable;
  *                 .metricName("friendly-metric-name")
  *                 .sampledRequestsEnabled(false)
  *                 .build())
- *             .captchaConfig(List.of(Map.of("immunityTimeProperty", List.of(Map.of("immunityTime", 120)))))
+ *             .captchaConfig(Arrays.asList(Map.of("immunityTimeProperty", Arrays.asList(Map.of("immunityTime", 120)))))
  *             .tags(Map.ofEntries(
  *                 Map.entry("Name", "example-and-statement"),
  *                 Map.entry("Code", "123456")
@@ -359,8 +359,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.wafv2.RuleGroupArgs;
  * import com.pulumi.aws.wafv2.inputs.RuleGroupVisibilityConfigArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;

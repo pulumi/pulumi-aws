@@ -22,8 +22,8 @@ class OriginAccessControlArgs:
                  origin_access_control_origin_type: pulumi.Input[_builtins.str],
                  signing_behavior: pulumi.Input[_builtins.str],
                  signing_protocol: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a OriginAccessControl resource.
 
@@ -79,39 +79,39 @@ class OriginAccessControlArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the Origin Access Control. Defaults to "Managed by Pulumi" if omitted.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A name that identifies the Origin Access Control.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _OriginAccessControlState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 etag: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 origin_access_control_origin_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 signing_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 signing_protocol: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 etag: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 origin_access_control_origin_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 signing_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 signing_protocol: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OriginAccessControl resources.
 
@@ -140,86 +140,86 @@ class _OriginAccessControlState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Origin Access Control ARN.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the Origin Access Control. Defaults to "Managed by Pulumi" if omitted.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def etag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The current version of this Origin Access Control.
         """
         return pulumi.get(self, "etag")
 
     @etag.setter
-    def etag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def etag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "etag", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A name that identifies the Origin Access Control.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="originAccessControlOriginType")
-    def origin_access_control_origin_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def origin_access_control_origin_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of origin that this Origin Access Control is for. Valid values are `lambda`, `mediapackagev2`, `mediastore`, and `s3`.
         """
         return pulumi.get(self, "origin_access_control_origin_type")
 
     @origin_access_control_origin_type.setter
-    def origin_access_control_origin_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def origin_access_control_origin_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "origin_access_control_origin_type", value)
 
     @_builtins.property
     @pulumi.getter(name="signingBehavior")
-    def signing_behavior(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def signing_behavior(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
         """
         return pulumi.get(self, "signing_behavior")
 
     @signing_behavior.setter
-    def signing_behavior(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def signing_behavior(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "signing_behavior", value)
 
     @_builtins.property
     @pulumi.getter(name="signingProtocol")
-    def signing_protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def signing_protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.
         """
         return pulumi.get(self, "signing_protocol")
 
     @signing_protocol.setter
-    def signing_protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def signing_protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "signing_protocol", value)
 
 
@@ -229,11 +229,11 @@ class OriginAccessControl(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 origin_access_control_origin_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 signing_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 signing_protocol: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 origin_access_control_origin_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 signing_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 signing_protocol: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an AWS CloudFront Origin Access Control, which is used by CloudFront Distributions with an Amazon S3 bucket as the origin.
@@ -324,11 +324,11 @@ class OriginAccessControl(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 origin_access_control_origin_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 signing_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 signing_protocol: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 origin_access_control_origin_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 signing_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 signing_protocol: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -361,13 +361,13 @@ class OriginAccessControl(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            etag: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            origin_access_control_origin_type: Optional[pulumi.Input[_builtins.str]] = None,
-            signing_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-            signing_protocol: Optional[pulumi.Input[_builtins.str]] = None) -> 'OriginAccessControl':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            origin_access_control_origin_type: pulumi.Input[Optional[_builtins.str]] = None,
+            signing_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+            signing_protocol: pulumi.Input[Optional[_builtins.str]] = None) -> 'OriginAccessControl':
         """
         Get an existing OriginAccessControl resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

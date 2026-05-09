@@ -20,11 +20,11 @@ __all__ = ['LoggingArgs', 'Logging']
 class LoggingArgs:
     def __init__(__self__, *,
                  cluster_identifier: pulumi.Input[_builtins.str],
-                 bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_destination_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_exports: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_key_prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_destination_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_exports: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_key_prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Logging resource.
 
@@ -65,74 +65,74 @@ class LoggingArgs:
 
     @_builtins.property
     @pulumi.getter(name="bucketName")
-    def bucket_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of an existing S3 bucket where the log files are to be stored. Required when `log_destination_type` is `s3`. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions. For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
         """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
-    def bucket_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket_name", value)
 
     @_builtins.property
     @pulumi.getter(name="logDestinationType")
-    def log_destination_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_destination_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Log destination type. Valid values are `s3` and `cloudwatch`.
         """
         return pulumi.get(self, "log_destination_type")
 
     @log_destination_type.setter
-    def log_destination_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_destination_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_destination_type", value)
 
     @_builtins.property
     @pulumi.getter(name="logExports")
-    def log_exports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def log_exports(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Collection of exported log types. Required when `log_destination_type` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
         """
         return pulumi.get(self, "log_exports")
 
     @log_exports.setter
-    def log_exports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def log_exports(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "log_exports", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="s3KeyPrefix")
-    def s3_key_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_key_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Prefix applied to the log file names.
         """
         return pulumi.get(self, "s3_key_prefix")
 
     @s3_key_prefix.setter
-    def s3_key_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_key_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_key_prefix", value)
 
 
 @pulumi.input_type
 class _LoggingState:
     def __init__(__self__, *,
-                 bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_destination_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_exports: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_key_prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_destination_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_exports: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_key_prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Logging resources.
 
@@ -160,19 +160,19 @@ class _LoggingState:
 
     @_builtins.property
     @pulumi.getter(name="bucketName")
-    def bucket_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of an existing S3 bucket where the log files are to be stored. Required when `log_destination_type` is `s3`. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions. For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
         """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
-    def bucket_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket_name", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
-    def cluster_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the source cluster.
 
@@ -181,55 +181,55 @@ class _LoggingState:
         return pulumi.get(self, "cluster_identifier")
 
     @cluster_identifier.setter
-    def cluster_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="logDestinationType")
-    def log_destination_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_destination_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Log destination type. Valid values are `s3` and `cloudwatch`.
         """
         return pulumi.get(self, "log_destination_type")
 
     @log_destination_type.setter
-    def log_destination_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_destination_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_destination_type", value)
 
     @_builtins.property
     @pulumi.getter(name="logExports")
-    def log_exports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def log_exports(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Collection of exported log types. Required when `log_destination_type` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
         """
         return pulumi.get(self, "log_exports")
 
     @log_exports.setter
-    def log_exports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def log_exports(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "log_exports", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="s3KeyPrefix")
-    def s3_key_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_key_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Prefix applied to the log file names.
         """
         return pulumi.get(self, "s3_key_prefix")
 
     @s3_key_prefix.setter
-    def s3_key_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_key_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_key_prefix", value)
 
 
@@ -239,12 +239,12 @@ class Logging(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_destination_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_exports: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_key_prefix: Optional[pulumi.Input[_builtins.str]] = None,
+                 bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_destination_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_exports: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_key_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Redshift Logging configuration.
@@ -362,12 +362,12 @@ class Logging(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_destination_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_exports: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_key_prefix: Optional[pulumi.Input[_builtins.str]] = None,
+                 bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_destination_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_exports: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_key_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -395,12 +395,12 @@ class Logging(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
-            cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-            log_destination_type: Optional[pulumi.Input[_builtins.str]] = None,
-            log_exports: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            s3_key_prefix: Optional[pulumi.Input[_builtins.str]] = None) -> 'Logging':
+            bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+            cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            log_destination_type: pulumi.Input[Optional[_builtins.str]] = None,
+            log_exports: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            s3_key_prefix: pulumi.Input[Optional[_builtins.str]] = None) -> 'Logging':
         """
         Get an existing Logging resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -264,86 +264,86 @@ export interface AgentAgentState {
     /**
      * ARN of the agent.
      */
-    agentArn?: pulumi.Input<string>;
+    agentArn?: pulumi.Input<string | undefined>;
     /**
      * Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
      */
-    agentCollaboration?: pulumi.Input<string>;
+    agentCollaboration?: pulumi.Input<string | undefined>;
     /**
      * Unique identifier of the agent.
      */
-    agentId?: pulumi.Input<string>;
+    agentId?: pulumi.Input<string | undefined>;
     /**
      * Name of the agent.
      */
-    agentName?: pulumi.Input<string>;
+    agentName?: pulumi.Input<string | undefined>;
     /**
      * ARN of the IAM role with permissions to invoke API operations on the agent.
      */
-    agentResourceRoleArn?: pulumi.Input<string>;
+    agentResourceRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Version of the agent.
      */
-    agentVersion?: pulumi.Input<string>;
+    agentVersion?: pulumi.Input<string | undefined>;
     /**
      * ARN of the AWS KMS key that encrypts the agent.
      */
-    customerEncryptionKeyArn?: pulumi.Input<string>;
+    customerEncryptionKeyArn?: pulumi.Input<string | undefined>;
     /**
      * Description of the agent.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Foundation model used for orchestration by the agent.
      *
      * The following arguments are optional:
      */
-    foundationModel?: pulumi.Input<string>;
+    foundationModel?: pulumi.Input<string | undefined>;
     /**
      * Details about the guardrail associated with the agent. See `guardrailConfiguration` Block for details.
      */
-    guardrailConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentAgentGuardrailConfiguration>[]>;
+    guardrailConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentAgentGuardrailConfiguration>[] | undefined>;
     /**
      * Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
      */
-    idleSessionTtlInSeconds?: pulumi.Input<number>;
+    idleSessionTtlInSeconds?: pulumi.Input<number | undefined>;
     /**
      * Instructions that tell the agent what it should do and how it should interact with users. If `prepareAgent` is `true` this argument is required. The valid range is 40 - 20000 characters.
      */
-    instruction?: pulumi.Input<string>;
+    instruction?: pulumi.Input<string | undefined>;
     /**
      * Configurations for the agent's ability to retain the conversational context.
      */
-    memoryConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentAgentMemoryConfiguration>[]>;
+    memoryConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentAgentMemoryConfiguration>[] | undefined>;
     /**
      * Whether to prepare the agent after creation or modification. Defaults to `true`.
      */
-    prepareAgent?: pulumi.Input<boolean>;
+    prepareAgent?: pulumi.Input<boolean | undefined>;
     /**
      * Timestamp of when the agent was last prepared.
      */
-    preparedAt?: pulumi.Input<string>;
+    preparedAt?: pulumi.Input<string | undefined>;
     /**
      * Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `promptOverrideConfiguration` Block for details.
      */
-    promptOverrideConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentAgentPromptOverrideConfiguration>[]>;
+    promptOverrideConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentAgentPromptOverrideConfiguration>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Whether the in-use check is skipped when deleting the agent.
      */
-    skipResourceInUseCheck?: pulumi.Input<boolean>;
+    skipResourceInUseCheck?: pulumi.Input<boolean | undefined>;
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.bedrock.AgentAgentTimeouts>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.bedrock.AgentAgentTimeouts | undefined>;
 }
 
 /**
@@ -353,7 +353,7 @@ export interface AgentAgentArgs {
     /**
      * Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
      */
-    agentCollaboration?: pulumi.Input<string>;
+    agentCollaboration?: pulumi.Input<string | undefined>;
     /**
      * Name of the agent.
      */
@@ -365,11 +365,11 @@ export interface AgentAgentArgs {
     /**
      * ARN of the AWS KMS key that encrypts the agent.
      */
-    customerEncryptionKeyArn?: pulumi.Input<string>;
+    customerEncryptionKeyArn?: pulumi.Input<string | undefined>;
     /**
      * Description of the agent.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Foundation model used for orchestration by the agent.
      *
@@ -379,38 +379,38 @@ export interface AgentAgentArgs {
     /**
      * Details about the guardrail associated with the agent. See `guardrailConfiguration` Block for details.
      */
-    guardrailConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentAgentGuardrailConfiguration>[]>;
+    guardrailConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentAgentGuardrailConfiguration>[] | undefined>;
     /**
      * Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
      */
-    idleSessionTtlInSeconds?: pulumi.Input<number>;
+    idleSessionTtlInSeconds?: pulumi.Input<number | undefined>;
     /**
      * Instructions that tell the agent what it should do and how it should interact with users. If `prepareAgent` is `true` this argument is required. The valid range is 40 - 20000 characters.
      */
-    instruction?: pulumi.Input<string>;
+    instruction?: pulumi.Input<string | undefined>;
     /**
      * Configurations for the agent's ability to retain the conversational context.
      */
-    memoryConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentAgentMemoryConfiguration>[]>;
+    memoryConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentAgentMemoryConfiguration>[] | undefined>;
     /**
      * Whether to prepare the agent after creation or modification. Defaults to `true`.
      */
-    prepareAgent?: pulumi.Input<boolean>;
+    prepareAgent?: pulumi.Input<boolean | undefined>;
     /**
      * Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `promptOverrideConfiguration` Block for details.
      */
-    promptOverrideConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentAgentPromptOverrideConfiguration>[]>;
+    promptOverrideConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentAgentPromptOverrideConfiguration>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Whether the in-use check is skipped when deleting the agent.
      */
-    skipResourceInUseCheck?: pulumi.Input<boolean>;
+    skipResourceInUseCheck?: pulumi.Input<boolean | undefined>;
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.bedrock.AgentAgentTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.bedrock.AgentAgentTimeouts | undefined>;
 }

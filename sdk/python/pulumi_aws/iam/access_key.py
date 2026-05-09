@@ -20,8 +20,8 @@ __all__ = ['AccessKeyArgs', 'AccessKey']
 class AccessKeyArgs:
     def __init__(__self__, *,
                  user: pulumi.Input[_builtins.str],
-                 pgp_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 pgp_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AccessKey resource.
 
@@ -49,41 +49,41 @@ class AccessKeyArgs:
 
     @_builtins.property
     @pulumi.getter(name="pgpKey")
-    def pgp_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pgp_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encrypted_secret` output attribute. If providing a base-64 encoded PGP public key, make sure to provide the "raw" version and not the "armored" one (e.g. avoid passing the `-a` option to `gpg --export`).
         """
         return pulumi.get(self, "pgp_key")
 
     @pgp_key.setter
-    def pgp_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pgp_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pgp_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Access key status to apply. Defaults to `Active`. Valid values are `Active` and `Inactive`.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
 @pulumi.input_type
 class _AccessKeyState:
     def __init__(__self__, *,
-                 create_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 encrypted_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 encrypted_ses_smtp_password_v4: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_fingerprint: Optional[pulumi.Input[_builtins.str]] = None,
-                 pgp_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 ses_smtp_password_v4: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 user: Optional[pulumi.Input[_builtins.str]] = None):
+                 create_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 encrypted_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 encrypted_ses_smtp_password_v4: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_fingerprint: pulumi.Input[Optional[_builtins.str]] = None,
+                 pgp_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 ses_smtp_password_v4: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 user: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AccessKey resources.
 
@@ -118,110 +118,110 @@ class _AccessKeyState:
 
     @_builtins.property
     @pulumi.getter(name="createDate")
-    def create_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the access key was created.
         """
         return pulumi.get(self, "create_date")
 
     @create_date.setter
-    def create_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create_date", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptedSecret")
-    def encrypted_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encrypted_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Encrypted secret, base64 encoded, if `pgp_key` was specified. This attribute is not available for imported resources. The encrypted secret may be decrypted using the command line.
         """
         return pulumi.get(self, "encrypted_secret")
 
     @encrypted_secret.setter
-    def encrypted_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encrypted_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encrypted_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptedSesSmtpPasswordV4")
-    def encrypted_ses_smtp_password_v4(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encrypted_ses_smtp_password_v4(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Encrypted SES SMTP password, base64 encoded, if `pgp_key` was specified. This attribute is not available for imported resources. The encrypted password may be decrypted using the command line.
         """
         return pulumi.get(self, "encrypted_ses_smtp_password_v4")
 
     @encrypted_ses_smtp_password_v4.setter
-    def encrypted_ses_smtp_password_v4(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encrypted_ses_smtp_password_v4(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encrypted_ses_smtp_password_v4", value)
 
     @_builtins.property
     @pulumi.getter(name="keyFingerprint")
-    def key_fingerprint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_fingerprint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fingerprint of the PGP key used to encrypt the secret. This attribute is not available for imported resources.
         """
         return pulumi.get(self, "key_fingerprint")
 
     @key_fingerprint.setter
-    def key_fingerprint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_fingerprint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_fingerprint", value)
 
     @_builtins.property
     @pulumi.getter(name="pgpKey")
-    def pgp_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pgp_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encrypted_secret` output attribute. If providing a base-64 encoded PGP public key, make sure to provide the "raw" version and not the "armored" one (e.g. avoid passing the `-a` option to `gpg --export`).
         """
         return pulumi.get(self, "pgp_key")
 
     @pgp_key.setter
-    def pgp_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pgp_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pgp_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Secret access key. This attribute is not available for imported resources. Note that this will be written to the state file. If you use this, please protect your backend state file judiciously. Alternatively, you may supply a `pgp_key` instead, which will prevent the secret from being stored in plaintext, at the cost of preventing the use of the secret key in automation.
         """
         return pulumi.get(self, "secret")
 
     @secret.setter
-    def secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secret", value)
 
     @_builtins.property
     @pulumi.getter(name="sesSmtpPasswordV4")
-    def ses_smtp_password_v4(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ses_smtp_password_v4(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Secret access key converted into an SES SMTP password by applying [AWS's documented Sigv4 conversion algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert). This attribute is not available for imported resources. As SigV4 is region specific, valid Provider regions are `ap-south-1`, `ap-southeast-2`, `eu-central-1`, `eu-west-1`, `us-east-1` and `us-west-2`. See current [AWS SES regions](https://docs.aws.amazon.com/general/latest/gr/rande.html#ses_region).
         """
         return pulumi.get(self, "ses_smtp_password_v4")
 
     @ses_smtp_password_v4.setter
-    def ses_smtp_password_v4(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ses_smtp_password_v4(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ses_smtp_password_v4", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Access key status to apply. Defaults to `Active`. Valid values are `Active` and `Inactive`.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def user(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IAM user to associate with this access key.
         """
         return pulumi.get(self, "user")
 
     @user.setter
-    def user(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user", value)
 
 
@@ -231,9 +231,9 @@ class AccessKey(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 pgp_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 user: Optional[pulumi.Input[_builtins.str]] = None,
+                 pgp_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 user: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides an IAM access key. This is a set of credentials that allow API requests to be made as an IAM user.
@@ -360,9 +360,9 @@ class AccessKey(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 pgp_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 user: Optional[pulumi.Input[_builtins.str]] = None,
+                 pgp_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 user: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -395,15 +395,15 @@ class AccessKey(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            create_date: Optional[pulumi.Input[_builtins.str]] = None,
-            encrypted_secret: Optional[pulumi.Input[_builtins.str]] = None,
-            encrypted_ses_smtp_password_v4: Optional[pulumi.Input[_builtins.str]] = None,
-            key_fingerprint: Optional[pulumi.Input[_builtins.str]] = None,
-            pgp_key: Optional[pulumi.Input[_builtins.str]] = None,
-            secret: Optional[pulumi.Input[_builtins.str]] = None,
-            ses_smtp_password_v4: Optional[pulumi.Input[_builtins.str]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            user: Optional[pulumi.Input[_builtins.str]] = None) -> 'AccessKey':
+            create_date: pulumi.Input[Optional[_builtins.str]] = None,
+            encrypted_secret: pulumi.Input[Optional[_builtins.str]] = None,
+            encrypted_ses_smtp_password_v4: pulumi.Input[Optional[_builtins.str]] = None,
+            key_fingerprint: pulumi.Input[Optional[_builtins.str]] = None,
+            pgp_key: pulumi.Input[Optional[_builtins.str]] = None,
+            secret: pulumi.Input[Optional[_builtins.str]] = None,
+            ses_smtp_password_v4: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            user: pulumi.Input[Optional[_builtins.str]] = None) -> 'AccessKey':
         """
         Get an existing AccessKey resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -324,11 +324,11 @@ export interface GetInstanceOutputArgs {
      * For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
      * See `filter` Block below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetInstanceFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetInstanceFilterArgs>[] | undefined>;
     /**
      * If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
      */
-    getPasswordData?: pulumi.Input<boolean>;
+    getPasswordData?: pulumi.Input<boolean | undefined>;
     /**
      * Retrieve Base64 encoded User Data contents into the `userDataBase64` attribute. A SHA-1 hash of the User Data contents will always be present in the `userData` attribute. Defaults to `false`.
      *
@@ -338,22 +338,22 @@ export interface GetInstanceOutputArgs {
      * this call will fail. Ensure that your search is specific enough to return
      * a single Instance ID only.
      */
-    getUserData?: pulumi.Input<boolean>;
+    getUserData?: pulumi.Input<boolean | undefined>;
     /**
      * Specify the exact Instance ID with which to populate the data source.
      */
-    instanceId?: pulumi.Input<string>;
+    instanceId?: pulumi.Input<string | undefined>;
     /**
      * Map of tags, each pair of which must
      * exactly match a pair on the desired Instance.
      */
-    instanceTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    instanceTags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of tags assigned to the Instance.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

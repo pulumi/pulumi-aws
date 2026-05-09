@@ -48,11 +48,11 @@ class AliasRoutingStrategyArgsDict(TypedDict):
     """
     Type of routing strategyE.g., `SIMPLE` or `TERMINAL`
     """
-    fleet_id: NotRequired[pulumi.Input[_builtins.str]]
+    fleet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ID of the GameLift Fleet to point the alias to.
     """
-    message: NotRequired[pulumi.Input[_builtins.str]]
+    message: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Message text to be used with the `TERMINAL` routing strategy.
     """
@@ -61,8 +61,8 @@ class AliasRoutingStrategyArgsDict(TypedDict):
 class AliasRoutingStrategyArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 fleet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 message: Optional[pulumi.Input[_builtins.str]] = None):
+                 fleet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 message: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Type of routing strategyE.g., `SIMPLE` or `TERMINAL`
         :param pulumi.Input[_builtins.str] fleet_id: ID of the GameLift Fleet to point the alias to.
@@ -88,26 +88,26 @@ class AliasRoutingStrategyArgs:
 
     @_builtins.property
     @pulumi.getter(name="fleetId")
-    def fleet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fleet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the GameLift Fleet to point the alias to.
         """
         return pulumi.get(self, "fleet_id")
 
     @fleet_id.setter
-    def fleet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fleet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fleet_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Message text to be used with the `TERMINAL` routing strategy.
         """
         return pulumi.get(self, "message")
 
     @message.setter
-    def message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message", value)
 
 
@@ -124,7 +124,7 @@ class BuildStorageLocationArgsDict(TypedDict):
     """
     ARN of the access role that allows Amazon GameLift to access your S3 bucket.
     """
-    object_version: NotRequired[pulumi.Input[_builtins.str]]
+    object_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A specific version of the file. If not set, the latest version of the file is retrieved.
     """
@@ -135,7 +135,7 @@ class BuildStorageLocationArgs:
                  bucket: pulumi.Input[_builtins.str],
                  key: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
-                 object_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 object_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] bucket: Name of your S3 bucket.
         :param pulumi.Input[_builtins.str] key: Name of the zip file containing your build files.
@@ -186,19 +186,19 @@ class BuildStorageLocationArgs:
 
     @_builtins.property
     @pulumi.getter(name="objectVersion")
-    def object_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def object_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A specific version of the file. If not set, the latest version of the file is retrieved.
         """
         return pulumi.get(self, "object_version")
 
     @object_version.setter
-    def object_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def object_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "object_version", value)
 
 
 class FleetCertificateConfigurationArgsDict(TypedDict):
-    certificate_type: NotRequired[pulumi.Input[_builtins.str]]
+    certificate_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Indicates whether a TLS/SSL certificate is generated for a fleet. Valid values are `DISABLED` and `GENERATED`. Default value is `DISABLED`.
     """
@@ -206,7 +206,7 @@ class FleetCertificateConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class FleetCertificateConfigurationArgs:
     def __init__(__self__, *,
-                 certificate_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 certificate_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] certificate_type: Indicates whether a TLS/SSL certificate is generated for a fleet. Valid values are `DISABLED` and `GENERATED`. Default value is `DISABLED`.
         """
@@ -215,14 +215,14 @@ class FleetCertificateConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateType")
-    def certificate_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates whether a TLS/SSL certificate is generated for a fleet. Valid values are `DISABLED` and `GENERATED`. Default value is `DISABLED`.
         """
         return pulumi.get(self, "certificate_type")
 
     @certificate_type.setter
-    def certificate_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_type", value)
 
 
@@ -312,11 +312,11 @@ class FleetEc2InboundPermissionArgs:
 
 
 class FleetResourceCreationLimitPolicyArgsDict(TypedDict):
-    new_game_sessions_per_creator: NotRequired[pulumi.Input[_builtins.int]]
+    new_game_sessions_per_creator: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum number of game sessions that an individual can create during the policy period.
     """
-    policy_period_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    policy_period_in_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Time span used in evaluating the resource creation limit policy.
     """
@@ -324,8 +324,8 @@ class FleetResourceCreationLimitPolicyArgsDict(TypedDict):
 @pulumi.input_type
 class FleetResourceCreationLimitPolicyArgs:
     def __init__(__self__, *,
-                 new_game_sessions_per_creator: Optional[pulumi.Input[_builtins.int]] = None,
-                 policy_period_in_minutes: Optional[pulumi.Input[_builtins.int]] = None):
+                 new_game_sessions_per_creator: pulumi.Input[Optional[_builtins.int]] = None,
+                 policy_period_in_minutes: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] new_game_sessions_per_creator: Maximum number of game sessions that an individual can create during the policy period.
         :param pulumi.Input[_builtins.int] policy_period_in_minutes: Time span used in evaluating the resource creation limit policy.
@@ -337,39 +337,39 @@ class FleetResourceCreationLimitPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="newGameSessionsPerCreator")
-    def new_game_sessions_per_creator(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def new_game_sessions_per_creator(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum number of game sessions that an individual can create during the policy period.
         """
         return pulumi.get(self, "new_game_sessions_per_creator")
 
     @new_game_sessions_per_creator.setter
-    def new_game_sessions_per_creator(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def new_game_sessions_per_creator(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "new_game_sessions_per_creator", value)
 
     @_builtins.property
     @pulumi.getter(name="policyPeriodInMinutes")
-    def policy_period_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def policy_period_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Time span used in evaluating the resource creation limit policy.
         """
         return pulumi.get(self, "policy_period_in_minutes")
 
     @policy_period_in_minutes.setter
-    def policy_period_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def policy_period_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "policy_period_in_minutes", value)
 
 
 class FleetRuntimeConfigurationArgsDict(TypedDict):
-    game_session_activation_timeout_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    game_session_activation_timeout_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum amount of time (in seconds) that a game session can remain in status `ACTIVATING`.
     """
-    max_concurrent_game_session_activations: NotRequired[pulumi.Input[_builtins.int]]
+    max_concurrent_game_session_activations: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum number of game sessions with status `ACTIVATING` to allow on an instance simultaneously.
     """
-    server_processes: NotRequired[pulumi.Input[Sequence[pulumi.Input['FleetRuntimeConfigurationServerProcessArgsDict']]]]
+    server_processes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FleetRuntimeConfigurationServerProcessArgs']]]]]
     """
     Collection of server process configurations that describe which server processes to run on each instance in a fleet. See below.
     """
@@ -377,9 +377,9 @@ class FleetRuntimeConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class FleetRuntimeConfigurationArgs:
     def __init__(__self__, *,
-                 game_session_activation_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_concurrent_game_session_activations: Optional[pulumi.Input[_builtins.int]] = None,
-                 server_processes: Optional[pulumi.Input[Sequence[pulumi.Input['FleetRuntimeConfigurationServerProcessArgs']]]] = None):
+                 game_session_activation_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_concurrent_game_session_activations: pulumi.Input[Optional[_builtins.int]] = None,
+                 server_processes: pulumi.Input[Optional[Sequence[pulumi.Input['FleetRuntimeConfigurationServerProcessArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.int] game_session_activation_timeout_seconds: Maximum amount of time (in seconds) that a game session can remain in status `ACTIVATING`.
         :param pulumi.Input[_builtins.int] max_concurrent_game_session_activations: Maximum number of game sessions with status `ACTIVATING` to allow on an instance simultaneously.
@@ -394,38 +394,38 @@ class FleetRuntimeConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="gameSessionActivationTimeoutSeconds")
-    def game_session_activation_timeout_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def game_session_activation_timeout_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum amount of time (in seconds) that a game session can remain in status `ACTIVATING`.
         """
         return pulumi.get(self, "game_session_activation_timeout_seconds")
 
     @game_session_activation_timeout_seconds.setter
-    def game_session_activation_timeout_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def game_session_activation_timeout_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "game_session_activation_timeout_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="maxConcurrentGameSessionActivations")
-    def max_concurrent_game_session_activations(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_concurrent_game_session_activations(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum number of game sessions with status `ACTIVATING` to allow on an instance simultaneously.
         """
         return pulumi.get(self, "max_concurrent_game_session_activations")
 
     @max_concurrent_game_session_activations.setter
-    def max_concurrent_game_session_activations(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_concurrent_game_session_activations(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_concurrent_game_session_activations", value)
 
     @_builtins.property
     @pulumi.getter(name="serverProcesses")
-    def server_processes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FleetRuntimeConfigurationServerProcessArgs']]]]:
+    def server_processes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FleetRuntimeConfigurationServerProcessArgs']]]]:
         """
         Collection of server process configurations that describe which server processes to run on each instance in a fleet. See below.
         """
         return pulumi.get(self, "server_processes")
 
     @server_processes.setter
-    def server_processes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FleetRuntimeConfigurationServerProcessArgs']]]]):
+    def server_processes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FleetRuntimeConfigurationServerProcessArgs']]]]):
         pulumi.set(self, "server_processes", value)
 
 
@@ -438,7 +438,7 @@ class FleetRuntimeConfigurationServerProcessArgsDict(TypedDict):
     """
     Location of the server executable in a game build. All game builds are installed on instances at the root : for Windows instances `C:\\game`, and for Linux instances `/local/game`.
     """
-    parameters: NotRequired[pulumi.Input[_builtins.str]]
+    parameters: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Optional list of parameters to pass to the server executable on launch.
     """
@@ -448,7 +448,7 @@ class FleetRuntimeConfigurationServerProcessArgs:
     def __init__(__self__, *,
                  concurrent_executions: pulumi.Input[_builtins.int],
                  launch_path: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[_builtins.str]] = None):
+                 parameters: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.int] concurrent_executions: Number of server processes using this configuration to run concurrently on an instance.
         :param pulumi.Input[_builtins.str] launch_path: Location of the server executable in a game build. All game builds are installed on instances at the root : for Windows instances `C:\\game`, and for Linux instances `/local/game`.
@@ -485,20 +485,20 @@ class FleetRuntimeConfigurationServerProcessArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parameters(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optional list of parameters to pass to the server executable on launch.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parameters(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parameters", value)
 
 
 class GameServerGroupAutoScalingPolicyArgsDict(TypedDict):
     target_tracking_configuration: pulumi.Input['GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgsDict']
-    estimated_instance_warmup: NotRequired[pulumi.Input[_builtins.int]]
+    estimated_instance_warmup: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Length of time, in seconds, it takes for a new instance to start
     new game server processes and register with GameLift FleetIQ.
@@ -510,7 +510,7 @@ class GameServerGroupAutoScalingPolicyArgsDict(TypedDict):
 class GameServerGroupAutoScalingPolicyArgs:
     def __init__(__self__, *,
                  target_tracking_configuration: pulumi.Input['GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs'],
-                 estimated_instance_warmup: Optional[pulumi.Input[_builtins.int]] = None):
+                 estimated_instance_warmup: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] estimated_instance_warmup: Length of time, in seconds, it takes for a new instance to start
                new game server processes and register with GameLift FleetIQ.
@@ -532,7 +532,7 @@ class GameServerGroupAutoScalingPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="estimatedInstanceWarmup")
-    def estimated_instance_warmup(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def estimated_instance_warmup(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Length of time, in seconds, it takes for a new instance to start
         new game server processes and register with GameLift FleetIQ.
@@ -542,7 +542,7 @@ class GameServerGroupAutoScalingPolicyArgs:
         return pulumi.get(self, "estimated_instance_warmup")
 
     @estimated_instance_warmup.setter
-    def estimated_instance_warmup(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def estimated_instance_warmup(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "estimated_instance_warmup", value)
 
 
@@ -579,7 +579,7 @@ class GameServerGroupInstanceDefinitionArgsDict(TypedDict):
     """
     An EC2 instance type.
     """
-    weighted_capacity: NotRequired[pulumi.Input[_builtins.str]]
+    weighted_capacity: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Instance weighting that indicates how much this instance type contributes
     to the total capacity of a game server group.
@@ -591,7 +591,7 @@ class GameServerGroupInstanceDefinitionArgsDict(TypedDict):
 class GameServerGroupInstanceDefinitionArgs:
     def __init__(__self__, *,
                  instance_type: pulumi.Input[_builtins.str],
-                 weighted_capacity: Optional[pulumi.Input[_builtins.str]] = None):
+                 weighted_capacity: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] instance_type: An EC2 instance type.
         :param pulumi.Input[_builtins.str] weighted_capacity: Instance weighting that indicates how much this instance type contributes
@@ -617,7 +617,7 @@ class GameServerGroupInstanceDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="weightedCapacity")
-    def weighted_capacity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def weighted_capacity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Instance weighting that indicates how much this instance type contributes
         to the total capacity of a game server group.
@@ -627,20 +627,20 @@ class GameServerGroupInstanceDefinitionArgs:
         return pulumi.get(self, "weighted_capacity")
 
     @weighted_capacity.setter
-    def weighted_capacity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def weighted_capacity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "weighted_capacity", value)
 
 
 class GameServerGroupLaunchTemplateArgsDict(TypedDict):
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A unique identifier for an existing EC2 launch template.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A readable identifier for an existing EC2 launch template.
     """
-    version: NotRequired[pulumi.Input[_builtins.str]]
+    version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version of the EC2 launch template to use. If none is set, the default is the first version created.
     """
@@ -648,9 +648,9 @@ class GameServerGroupLaunchTemplateArgsDict(TypedDict):
 @pulumi.input_type
 class GameServerGroupLaunchTemplateArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] id: A unique identifier for an existing EC2 launch template.
         :param pulumi.Input[_builtins.str] name: A readable identifier for an existing EC2 launch template.
@@ -665,38 +665,38 @@ class GameServerGroupLaunchTemplateArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique identifier for an existing EC2 launch template.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A readable identifier for an existing EC2 launch template.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the EC2 launch template to use. If none is set, the default is the first version created.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -705,7 +705,7 @@ class GameSessionQueuePlayerLatencyPolicyArgsDict(TypedDict):
     """
     Maximum latency value that is allowed for any player.
     """
-    policy_duration_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    policy_duration_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Length of time that the policy is enforced while placing a new game session. Absence of value for this attribute means that the policy is enforced until the queue times out.
     """
@@ -714,7 +714,7 @@ class GameSessionQueuePlayerLatencyPolicyArgsDict(TypedDict):
 class GameSessionQueuePlayerLatencyPolicyArgs:
     def __init__(__self__, *,
                  maximum_individual_player_latency_milliseconds: pulumi.Input[_builtins.int],
-                 policy_duration_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 policy_duration_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] maximum_individual_player_latency_milliseconds: Maximum latency value that is allowed for any player.
         :param pulumi.Input[_builtins.int] policy_duration_seconds: Length of time that the policy is enforced while placing a new game session. Absence of value for this attribute means that the policy is enforced until the queue times out.
@@ -737,14 +737,14 @@ class GameSessionQueuePlayerLatencyPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="policyDurationSeconds")
-    def policy_duration_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def policy_duration_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Length of time that the policy is enforced while placing a new game session. Absence of value for this attribute means that the policy is enforced until the queue times out.
         """
         return pulumi.get(self, "policy_duration_seconds")
 
     @policy_duration_seconds.setter
-    def policy_duration_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def policy_duration_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "policy_duration_seconds", value)
 
 
@@ -761,7 +761,7 @@ class ScriptStorageLocationArgsDict(TypedDict):
     """
     ARN of the access role that allows Amazon GameLift to access your S3 bucket.
     """
-    object_version: NotRequired[pulumi.Input[_builtins.str]]
+    object_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A specific version of the file. If not set, the latest version of the file is retrieved.
     """
@@ -772,7 +772,7 @@ class ScriptStorageLocationArgs:
                  bucket: pulumi.Input[_builtins.str],
                  key: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
-                 object_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 object_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] bucket: Name of your S3 bucket.
         :param pulumi.Input[_builtins.str] key: Name of the zip file containing your script files.
@@ -823,14 +823,14 @@ class ScriptStorageLocationArgs:
 
     @_builtins.property
     @pulumi.getter(name="objectVersion")
-    def object_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def object_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A specific version of the file. If not set, the latest version of the file is retrieved.
         """
         return pulumi.get(self, "object_version")
 
     @object_version.setter
-    def object_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def object_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "object_version", value)
 
 

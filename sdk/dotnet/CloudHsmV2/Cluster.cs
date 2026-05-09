@@ -33,7 +33,7 @@ namespace Pulumi.Aws.CloudHsmV2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var available = Aws.Index.GetAvailabilityZones.Invoke();
+    ///     var available = Aws.GetAvailabilityZones.Invoke();
     /// 
     ///     var cloudhsmV2Vpc = new Aws.Ec2.Vpc("cloudhsm_v2_vpc", new()
     ///     {

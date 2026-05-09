@@ -23,9 +23,9 @@ class BucketMetadataConfigurationArgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[_builtins.str],
                  metadata_configuration: pulumi.Input['BucketMetadataConfigurationMetadataConfigurationArgs'],
-                 expected_bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input['BucketMetadataConfigurationTimeoutsArgs']] = None):
+                 expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional['BucketMetadataConfigurationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a BucketMetadataConfiguration resource.
 
@@ -77,46 +77,46 @@ class BucketMetadataConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="expectedBucketOwner")
     @_utilities.deprecated("""This attribute will be removed in a future verion of the provider.""")
-    def expected_bucket_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expected_bucket_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Account ID of the expected bucket owner.
         """
         return pulumi.get(self, "expected_bucket_owner")
 
     @expected_bucket_owner.setter
-    def expected_bucket_owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expected_bucket_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expected_bucket_owner", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['BucketMetadataConfigurationTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['BucketMetadataConfigurationTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['BucketMetadataConfigurationTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['BucketMetadataConfigurationTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _BucketMetadataConfigurationState:
     def __init__(__self__, *,
-                 bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 expected_bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata_configuration: Optional[pulumi.Input['BucketMetadataConfigurationMetadataConfigurationArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input['BucketMetadataConfigurationTimeoutsArgs']] = None):
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata_configuration: pulumi.Input[Optional['BucketMetadataConfigurationMetadataConfigurationArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional['BucketMetadataConfigurationTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering BucketMetadataConfiguration resources.
 
@@ -143,32 +143,32 @@ class _BucketMetadataConfigurationState:
 
     @_builtins.property
     @pulumi.getter
-    def bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         General purpose bucket that you want to create the metadata configuration for.
         """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
-    def bucket(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket", value)
 
     @_builtins.property
     @pulumi.getter(name="expectedBucketOwner")
     @_utilities.deprecated("""This attribute will be removed in a future verion of the provider.""")
-    def expected_bucket_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expected_bucket_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Account ID of the expected bucket owner.
         """
         return pulumi.get(self, "expected_bucket_owner")
 
     @expected_bucket_owner.setter
-    def expected_bucket_owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expected_bucket_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expected_bucket_owner", value)
 
     @_builtins.property
     @pulumi.getter(name="metadataConfiguration")
-    def metadata_configuration(self) -> Optional[pulumi.Input['BucketMetadataConfigurationMetadataConfigurationArgs']]:
+    def metadata_configuration(self) -> pulumi.Input[Optional['BucketMetadataConfigurationMetadataConfigurationArgs']]:
         """
         Metadata configuration. See `metadata_configuration` Block for details.
 
@@ -177,28 +177,28 @@ class _BucketMetadataConfigurationState:
         return pulumi.get(self, "metadata_configuration")
 
     @metadata_configuration.setter
-    def metadata_configuration(self, value: Optional[pulumi.Input['BucketMetadataConfigurationMetadataConfigurationArgs']]):
+    def metadata_configuration(self, value: pulumi.Input[Optional['BucketMetadataConfigurationMetadataConfigurationArgs']]):
         pulumi.set(self, "metadata_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['BucketMetadataConfigurationTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['BucketMetadataConfigurationTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['BucketMetadataConfigurationTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['BucketMetadataConfigurationTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
@@ -208,11 +208,11 @@ class BucketMetadataConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 expected_bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata_configuration: Optional[pulumi.Input[Union['BucketMetadataConfigurationMetadataConfigurationArgs', 'BucketMetadataConfigurationMetadataConfigurationArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input[Union['BucketMetadataConfigurationTimeoutsArgs', 'BucketMetadataConfigurationTimeoutsArgsDict']]] = None,
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata_configuration: pulumi.Input[Optional[Union['BucketMetadataConfigurationMetadataConfigurationArgs', 'BucketMetadataConfigurationMetadataConfigurationArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional[Union['BucketMetadataConfigurationTimeoutsArgs', 'BucketMetadataConfigurationTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Manages Amazon S3 Metadata for a bucket.
@@ -336,11 +336,11 @@ class BucketMetadataConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 expected_bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata_configuration: Optional[pulumi.Input[Union['BucketMetadataConfigurationMetadataConfigurationArgs', 'BucketMetadataConfigurationMetadataConfigurationArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input[Union['BucketMetadataConfigurationTimeoutsArgs', 'BucketMetadataConfigurationTimeoutsArgsDict']]] = None,
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata_configuration: pulumi.Input[Optional[Union['BucketMetadataConfigurationMetadataConfigurationArgs', 'BucketMetadataConfigurationMetadataConfigurationArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional[Union['BucketMetadataConfigurationTimeoutsArgs', 'BucketMetadataConfigurationTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -369,11 +369,11 @@ class BucketMetadataConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            bucket: Optional[pulumi.Input[_builtins.str]] = None,
-            expected_bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-            metadata_configuration: Optional[pulumi.Input[Union['BucketMetadataConfigurationMetadataConfigurationArgs', 'BucketMetadataConfigurationMetadataConfigurationArgsDict']]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            timeouts: Optional[pulumi.Input[Union['BucketMetadataConfigurationTimeoutsArgs', 'BucketMetadataConfigurationTimeoutsArgsDict']]] = None) -> 'BucketMetadataConfiguration':
+            bucket: pulumi.Input[Optional[_builtins.str]] = None,
+            expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+            metadata_configuration: pulumi.Input[Optional[Union['BucketMetadataConfigurationMetadataConfigurationArgs', 'BucketMetadataConfigurationMetadataConfigurationArgsDict']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['BucketMetadataConfigurationTimeoutsArgs', 'BucketMetadataConfigurationTimeoutsArgsDict']]] = None) -> 'BucketMetadataConfiguration':
         """
         Get an existing BucketMetadataConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

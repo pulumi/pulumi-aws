@@ -149,37 +149,37 @@ export interface IamPolicyAssignmentState {
     /**
      * Assignment ID.
      */
-    assignmentId?: pulumi.Input<string>;
+    assignmentId?: pulumi.Input<string | undefined>;
     /**
      * Name of the assignment.
      */
-    assignmentName?: pulumi.Input<string>;
+    assignmentName?: pulumi.Input<string | undefined>;
     /**
      * Status of the assignment. Valid values are `ENABLED`, `DISABLED`, and `DRAFT`.
      *
      * The following arguments are optional:
      */
-    assignmentStatus?: pulumi.Input<string>;
+    assignmentStatus?: pulumi.Input<string | undefined>;
     /**
      * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
      */
-    awsAccountId?: pulumi.Input<string>;
+    awsAccountId?: pulumi.Input<string | undefined>;
     /**
      * Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
      */
-    identities?: pulumi.Input<inputs.quicksight.IamPolicyAssignmentIdentities>;
+    identities?: pulumi.Input<inputs.quicksight.IamPolicyAssignmentIdentities | undefined>;
     /**
      * Namespace that contains the assignment. Defaults to `default`.
      */
-    namespace?: pulumi.Input<string>;
+    namespace?: pulumi.Input<string | undefined>;
     /**
      * ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
      */
-    policyArn?: pulumi.Input<string>;
+    policyArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -199,21 +199,21 @@ export interface IamPolicyAssignmentArgs {
     /**
      * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
      */
-    awsAccountId?: pulumi.Input<string>;
+    awsAccountId?: pulumi.Input<string | undefined>;
     /**
      * Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
      */
-    identities?: pulumi.Input<inputs.quicksight.IamPolicyAssignmentIdentities>;
+    identities?: pulumi.Input<inputs.quicksight.IamPolicyAssignmentIdentities | undefined>;
     /**
      * Namespace that contains the assignment. Defaults to `default`.
      */
-    namespace?: pulumi.Input<string>;
+    namespace?: pulumi.Input<string | undefined>;
     /**
      * ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
      */
-    policyArn?: pulumi.Input<string>;
+    policyArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

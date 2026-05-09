@@ -193,61 +193,61 @@ export interface TableState {
     /**
      * The ARN of the table.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Specifies the read/write throughput capacity mode for the table.
      */
-    capacitySpecification?: pulumi.Input<inputs.keyspaces.TableCapacitySpecification>;
+    capacitySpecification?: pulumi.Input<inputs.keyspaces.TableCapacitySpecification | undefined>;
     /**
      * Enables client-side timestamps for the table. By default, the setting is disabled.
      */
-    clientSideTimestamps?: pulumi.Input<inputs.keyspaces.TableClientSideTimestamps>;
+    clientSideTimestamps?: pulumi.Input<inputs.keyspaces.TableClientSideTimestamps | undefined>;
     /**
      * A description of the table.
      */
-    comment?: pulumi.Input<inputs.keyspaces.TableComment>;
+    comment?: pulumi.Input<inputs.keyspaces.TableComment | undefined>;
     /**
      * The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
      */
-    defaultTimeToLive?: pulumi.Input<number>;
+    defaultTimeToLive?: pulumi.Input<number | undefined>;
     /**
      * Specifies how the encryption key for encryption at rest is managed for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html).
      */
-    encryptionSpecification?: pulumi.Input<inputs.keyspaces.TableEncryptionSpecification>;
+    encryptionSpecification?: pulumi.Input<inputs.keyspaces.TableEncryptionSpecification | undefined>;
     /**
      * The name of the keyspace that the table is going to be created in.
      */
-    keyspaceName?: pulumi.Input<string>;
+    keyspaceName?: pulumi.Input<string | undefined>;
     /**
      * Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
      */
-    pointInTimeRecovery?: pulumi.Input<inputs.keyspaces.TablePointInTimeRecovery>;
+    pointInTimeRecovery?: pulumi.Input<inputs.keyspaces.TablePointInTimeRecovery | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Describes the schema of the table.
      */
-    schemaDefinition?: pulumi.Input<inputs.keyspaces.TableSchemaDefinition>;
+    schemaDefinition?: pulumi.Input<inputs.keyspaces.TableSchemaDefinition | undefined>;
     /**
      * The name of the table.
      *
      * The following arguments are optional:
      */
-    tableName?: pulumi.Input<string>;
+    tableName?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html).
      */
-    ttl?: pulumi.Input<inputs.keyspaces.TableTtl>;
+    ttl?: pulumi.Input<inputs.keyspaces.TableTtl | undefined>;
 }
 
 /**
@@ -257,23 +257,23 @@ export interface TableArgs {
     /**
      * Specifies the read/write throughput capacity mode for the table.
      */
-    capacitySpecification?: pulumi.Input<inputs.keyspaces.TableCapacitySpecification>;
+    capacitySpecification?: pulumi.Input<inputs.keyspaces.TableCapacitySpecification | undefined>;
     /**
      * Enables client-side timestamps for the table. By default, the setting is disabled.
      */
-    clientSideTimestamps?: pulumi.Input<inputs.keyspaces.TableClientSideTimestamps>;
+    clientSideTimestamps?: pulumi.Input<inputs.keyspaces.TableClientSideTimestamps | undefined>;
     /**
      * A description of the table.
      */
-    comment?: pulumi.Input<inputs.keyspaces.TableComment>;
+    comment?: pulumi.Input<inputs.keyspaces.TableComment | undefined>;
     /**
      * The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
      */
-    defaultTimeToLive?: pulumi.Input<number>;
+    defaultTimeToLive?: pulumi.Input<number | undefined>;
     /**
      * Specifies how the encryption key for encryption at rest is managed for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html).
      */
-    encryptionSpecification?: pulumi.Input<inputs.keyspaces.TableEncryptionSpecification>;
+    encryptionSpecification?: pulumi.Input<inputs.keyspaces.TableEncryptionSpecification | undefined>;
     /**
      * The name of the keyspace that the table is going to be created in.
      */
@@ -281,11 +281,11 @@ export interface TableArgs {
     /**
      * Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
      */
-    pointInTimeRecovery?: pulumi.Input<inputs.keyspaces.TablePointInTimeRecovery>;
+    pointInTimeRecovery?: pulumi.Input<inputs.keyspaces.TablePointInTimeRecovery | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Describes the schema of the table.
      */
@@ -299,9 +299,9 @@ export interface TableArgs {
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html).
      */
-    ttl?: pulumi.Input<inputs.keyspaces.TableTtl>;
+    ttl?: pulumi.Input<inputs.keyspaces.TableTtl | undefined>;
 }

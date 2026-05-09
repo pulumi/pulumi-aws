@@ -262,24 +262,28 @@ namespace Pulumi.Aws.CloudFront
     ///     });
     /// 
     ///     var cloudfront = new List&lt;Aws.Route53.Record&gt;();
-    ///     foreach (var range in )
+    ///     s3Distribution.Aliases.Apply(rangeBody =&gt;
     ///     {
-    ///         cloudfront.Add(new Aws.Route53.Record($"cloudfront-{range.Key}", new()
+    ///         foreach (var range in )
     ///         {
-    ///             ZoneId = myDomainGetZone.Apply(getZoneResult =&gt; getZoneResult.ZoneId),
-    ///             Name = range.Value,
-    ///             Type = Aws.Route53.RecordType.A,
-    ///             Aliases = new[]
+    ///             cloudfront.Add(new Aws.Route53.Record($"cloudfront-{range.Key}", new()
     ///             {
-    ///                 new Aws.Route53.Inputs.RecordAliasArgs
+    ///                 ZoneId = myDomainGetZone.Apply(getZoneResult =&gt; getZoneResult.ZoneId),
+    ///                 Name = range.Value,
+    ///                 Type = Aws.Route53.RecordType.A,
+    ///                 Aliases = new[]
     ///                 {
-    ///                     Name = s3Distribution.DomainName,
-    ///                     ZoneId = s3Distribution.HostedZoneId,
-    ///                     EvaluateTargetHealth = false,
+    ///                     new Aws.Route53.Inputs.RecordAliasArgs
+    ///                     {
+    ///                         Name = s3Distribution.DomainName,
+    ///                         ZoneId = s3Distribution.HostedZoneId,
+    ///                         EvaluateTargetHealth = false,
+    ///                     },
     ///                 },
-    ///             },
-    ///         }));
-    ///     }
+    ///             }));
+    ///         }
+    ///         return 0;
+    ///     });
     /// });
     /// ```
     /// 

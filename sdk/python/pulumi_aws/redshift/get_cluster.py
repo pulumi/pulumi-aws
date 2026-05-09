@@ -626,9 +626,9 @@ def get_cluster(cluster_identifier: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'),
         vpc_security_group_ids=pulumi.get(__ret__, 'vpc_security_group_ids'))
-def get_cluster_output(cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                       region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                       tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_cluster_output(cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                       region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
     Provides details about a specific redshift cluster.

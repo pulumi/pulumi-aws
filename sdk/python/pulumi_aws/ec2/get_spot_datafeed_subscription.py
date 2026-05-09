@@ -111,7 +111,7 @@ def get_spot_datafeed_subscription(region: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         prefix=pulumi.get(__ret__, 'prefix'),
         region=pulumi.get(__ret__, 'region'))
-def get_spot_datafeed_subscription_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_spot_datafeed_subscription_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSpotDatafeedSubscriptionResult]:
     """
     > There is only a single spot data feed subscription per account.

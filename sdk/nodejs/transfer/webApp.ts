@@ -219,43 +219,43 @@ export interface WebAppState {
     /**
      * URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `accessEndpoint` must not be provided.
      */
-    accessEndpoint?: pulumi.Input<string>;
+    accessEndpoint?: pulumi.Input<string | undefined>;
     /**
      * ARN of the Web App.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
      */
-    endpointDetails?: pulumi.Input<inputs.transfer.WebAppEndpointDetails>;
+    endpointDetails?: pulumi.Input<inputs.transfer.WebAppEndpointDetails | undefined>;
     /**
      * Block for details of the identity provider to use with the web app. See Identity provider details below.
      *
      * The following arguments are optional:
      */
-    identityProviderDetails?: pulumi.Input<inputs.transfer.WebAppIdentityProviderDetails>;
+    identityProviderDetails?: pulumi.Input<inputs.transfer.WebAppIdentityProviderDetails | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value pairs that can be used to group and search for web apps.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Type of endpoint policy for the web app. Valid values are: `STANDARD`(default) or `FIPS`.
      */
-    webAppEndpointPolicy?: pulumi.Input<string>;
+    webAppEndpointPolicy?: pulumi.Input<string | undefined>;
     /**
      * ID of the Wep App resource.
      */
-    webAppId?: pulumi.Input<string>;
+    webAppId?: pulumi.Input<string | undefined>;
     /**
      * Block for number of concurrent connections or the user sessions on the web app.
      * * provisioned - (Optional) Number of units of concurrent connections.
      */
-    webAppUnits?: pulumi.Input<pulumi.Input<inputs.transfer.WebAppWebAppUnit>[]>;
+    webAppUnits?: pulumi.Input<pulumi.Input<inputs.transfer.WebAppWebAppUnit>[] | undefined>;
 }
 
 /**
@@ -265,11 +265,11 @@ export interface WebAppArgs {
     /**
      * URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `accessEndpoint` must not be provided.
      */
-    accessEndpoint?: pulumi.Input<string>;
+    accessEndpoint?: pulumi.Input<string | undefined>;
     /**
      * Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
      */
-    endpointDetails?: pulumi.Input<inputs.transfer.WebAppEndpointDetails>;
+    endpointDetails?: pulumi.Input<inputs.transfer.WebAppEndpointDetails | undefined>;
     /**
      * Block for details of the identity provider to use with the web app. See Identity provider details below.
      *
@@ -279,18 +279,18 @@ export interface WebAppArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value pairs that can be used to group and search for web apps.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Type of endpoint policy for the web app. Valid values are: `STANDARD`(default) or `FIPS`.
      */
-    webAppEndpointPolicy?: pulumi.Input<string>;
+    webAppEndpointPolicy?: pulumi.Input<string | undefined>;
     /**
      * Block for number of concurrent connections or the user sessions on the web app.
      * * provisioned - (Optional) Number of units of concurrent connections.
      */
-    webAppUnits?: pulumi.Input<pulumi.Input<inputs.transfer.WebAppWebAppUnit>[]>;
+    webAppUnits?: pulumi.Input<pulumi.Input<inputs.transfer.WebAppWebAppUnit>[] | undefined>;
 }

@@ -133,27 +133,27 @@ export function getLocalGatewayRouteTableOutput(args?: GetLocalGatewayRouteTable
  * A collection of arguments for invoking getLocalGatewayRouteTable.
  */
 export interface GetLocalGatewayRouteTableOutputArgs {
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetLocalGatewayRouteTableFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetLocalGatewayRouteTableFilterArgs>[] | undefined>;
     /**
      * ID of the specific local gateway route table to retrieve.
      */
-    localGatewayId?: pulumi.Input<string>;
+    localGatewayId?: pulumi.Input<string | undefined>;
     /**
      * Local Gateway Route Table Id assigned to desired local gateway route table
      */
-    localGatewayRouteTableId?: pulumi.Input<string>;
+    localGatewayRouteTableId?: pulumi.Input<string | undefined>;
     /**
      * ARN of the Outpost the local gateway route table is associated with.
      */
-    outpostArn?: pulumi.Input<string>;
+    outpostArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * State of the local gateway route table.
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
     /**
      * Mapping of tags, each pair of which must exactly match
      * a pair on the desired local gateway route table.
@@ -162,5 +162,5 @@ export interface GetLocalGatewayRouteTableOutputArgs {
      * Local Gateway Route Tables in the current region. The given filters must match exactly one
      * Local Gateway Route Table whose data will be exported as attributes.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

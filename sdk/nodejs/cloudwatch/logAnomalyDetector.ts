@@ -158,40 +158,40 @@ export interface LogAnomalyDetectorState {
     /**
      * Number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in `anomalyVisibilityTime`, it will be considered normal going forward and will not be detected as an anomaly. Valid Range: Minimum value of 7. Maximum value of 90.
      */
-    anomalyVisibilityTime?: pulumi.Input<number>;
+    anomalyVisibilityTime?: pulumi.Input<number | undefined>;
     /**
      * ARN of the log anomaly detector that you just created.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Name for this anomaly detector.
      */
-    detectorName?: pulumi.Input<string>;
-    enabled?: pulumi.Input<boolean>;
+    detectorName?: pulumi.Input<string | undefined>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies how often the anomaly detector is to run and look for anomalies. Set this value according to the frequency that the log group receives new logs. For example, if the log group receives new log events every 10 minutes, then 15 minutes might be a good setting for `evaluationFrequency`. Valid Values: `ONE_MIN | FIVE_MIN | TEN_MIN | FIFTEEN_MIN | THIRTY_MIN | ONE_HOUR`.
      */
-    evaluationFrequency?: pulumi.Input<string>;
+    evaluationFrequency?: pulumi.Input<string | undefined>;
     /**
      * You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
      */
-    filterPattern?: pulumi.Input<string>;
+    filterPattern?: pulumi.Input<string | undefined>;
     /**
      * Optionally assigns a AWS KMS key to secure this anomaly detector and its findings. If a key is assigned, the anomalies found and the model used by this detector are encrypted at rest with the key. If a key is assigned to an anomaly detector, a user must have permissions for both this key and for the anomaly detector to retrieve information about the anomalies that it finds.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * Array containing the ARN of the log group that this anomaly detector will watch. You can specify only one log group ARN.
      *
      * The following arguments are optional:
      */
-    logGroupArnLists?: pulumi.Input<pulumi.Input<string>[]>;
+    logGroupArnLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    region?: pulumi.Input<string | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -201,24 +201,24 @@ export interface LogAnomalyDetectorArgs {
     /**
      * Number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in `anomalyVisibilityTime`, it will be considered normal going forward and will not be detected as an anomaly. Valid Range: Minimum value of 7. Maximum value of 90.
      */
-    anomalyVisibilityTime?: pulumi.Input<number>;
+    anomalyVisibilityTime?: pulumi.Input<number | undefined>;
     /**
      * Name for this anomaly detector.
      */
-    detectorName?: pulumi.Input<string>;
+    detectorName?: pulumi.Input<string | undefined>;
     enabled: pulumi.Input<boolean>;
     /**
      * Specifies how often the anomaly detector is to run and look for anomalies. Set this value according to the frequency that the log group receives new logs. For example, if the log group receives new log events every 10 minutes, then 15 minutes might be a good setting for `evaluationFrequency`. Valid Values: `ONE_MIN | FIVE_MIN | TEN_MIN | FIFTEEN_MIN | THIRTY_MIN | ONE_HOUR`.
      */
-    evaluationFrequency?: pulumi.Input<string>;
+    evaluationFrequency?: pulumi.Input<string | undefined>;
     /**
      * You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
      */
-    filterPattern?: pulumi.Input<string>;
+    filterPattern?: pulumi.Input<string | undefined>;
     /**
      * Optionally assigns a AWS KMS key to secure this anomaly detector and its findings. If a key is assigned, the anomalies found and the model used by this detector are encrypted at rest with the key. If a key is assigned to an anomaly detector, a user must have permissions for both this key and for the anomaly detector to retrieve information about the anomalies that it finds.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * Array containing the ARN of the log group that this anomaly detector will watch. You can specify only one log group ARN.
      *
@@ -228,6 +228,6 @@ export interface LogAnomalyDetectorArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    region?: pulumi.Input<string | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

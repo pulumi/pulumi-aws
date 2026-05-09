@@ -25,10 +25,10 @@ class FlowDefinitionArgs:
                  human_loop_config: pulumi.Input['FlowDefinitionHumanLoopConfigArgs'],
                  output_config: pulumi.Input['FlowDefinitionOutputConfigArgs'],
                  role_arn: pulumi.Input[_builtins.str],
-                 human_loop_activation_config: Optional[pulumi.Input['FlowDefinitionHumanLoopActivationConfigArgs']] = None,
-                 human_loop_request_source: Optional[pulumi.Input['FlowDefinitionHumanLoopRequestSourceArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 human_loop_activation_config: pulumi.Input[Optional['FlowDefinitionHumanLoopActivationConfigArgs']] = None,
+                 human_loop_request_source: pulumi.Input[Optional['FlowDefinitionHumanLoopRequestSourceArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a FlowDefinition resource.
 
@@ -104,66 +104,66 @@ class FlowDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="humanLoopActivationConfig")
-    def human_loop_activation_config(self) -> Optional[pulumi.Input['FlowDefinitionHumanLoopActivationConfigArgs']]:
+    def human_loop_activation_config(self) -> pulumi.Input[Optional['FlowDefinitionHumanLoopActivationConfigArgs']]:
         """
         An object containing information about the events that trigger a human workflow. See Human Loop Activation Config details below.
         """
         return pulumi.get(self, "human_loop_activation_config")
 
     @human_loop_activation_config.setter
-    def human_loop_activation_config(self, value: Optional[pulumi.Input['FlowDefinitionHumanLoopActivationConfigArgs']]):
+    def human_loop_activation_config(self, value: pulumi.Input[Optional['FlowDefinitionHumanLoopActivationConfigArgs']]):
         pulumi.set(self, "human_loop_activation_config", value)
 
     @_builtins.property
     @pulumi.getter(name="humanLoopRequestSource")
-    def human_loop_request_source(self) -> Optional[pulumi.Input['FlowDefinitionHumanLoopRequestSourceArgs']]:
+    def human_loop_request_source(self) -> pulumi.Input[Optional['FlowDefinitionHumanLoopRequestSourceArgs']]:
         """
         Container for configuring the source of human task requests. Use to specify if Amazon Rekognition or Amazon Textract is used as an integration source. See Human Loop Request Source details below.
         """
         return pulumi.get(self, "human_loop_request_source")
 
     @human_loop_request_source.setter
-    def human_loop_request_source(self, value: Optional[pulumi.Input['FlowDefinitionHumanLoopRequestSourceArgs']]):
+    def human_loop_request_source(self, value: pulumi.Input[Optional['FlowDefinitionHumanLoopRequestSourceArgs']]):
         pulumi.set(self, "human_loop_request_source", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _FlowDefinitionState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 flow_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 human_loop_activation_config: Optional[pulumi.Input['FlowDefinitionHumanLoopActivationConfigArgs']] = None,
-                 human_loop_config: Optional[pulumi.Input['FlowDefinitionHumanLoopConfigArgs']] = None,
-                 human_loop_request_source: Optional[pulumi.Input['FlowDefinitionHumanLoopRequestSourceArgs']] = None,
-                 output_config: Optional[pulumi.Input['FlowDefinitionOutputConfigArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 flow_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 human_loop_activation_config: pulumi.Input[Optional['FlowDefinitionHumanLoopActivationConfigArgs']] = None,
+                 human_loop_config: pulumi.Input[Optional['FlowDefinitionHumanLoopConfigArgs']] = None,
+                 human_loop_request_source: pulumi.Input[Optional['FlowDefinitionHumanLoopRequestSourceArgs']] = None,
+                 output_config: pulumi.Input[Optional['FlowDefinitionOutputConfigArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering FlowDefinition resources.
 
@@ -201,122 +201,122 @@ class _FlowDefinitionState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) assigned by AWS to this Flow Definition.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="flowDefinitionName")
-    def flow_definition_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def flow_definition_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of your flow definition.
         """
         return pulumi.get(self, "flow_definition_name")
 
     @flow_definition_name.setter
-    def flow_definition_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def flow_definition_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "flow_definition_name", value)
 
     @_builtins.property
     @pulumi.getter(name="humanLoopActivationConfig")
-    def human_loop_activation_config(self) -> Optional[pulumi.Input['FlowDefinitionHumanLoopActivationConfigArgs']]:
+    def human_loop_activation_config(self) -> pulumi.Input[Optional['FlowDefinitionHumanLoopActivationConfigArgs']]:
         """
         An object containing information about the events that trigger a human workflow. See Human Loop Activation Config details below.
         """
         return pulumi.get(self, "human_loop_activation_config")
 
     @human_loop_activation_config.setter
-    def human_loop_activation_config(self, value: Optional[pulumi.Input['FlowDefinitionHumanLoopActivationConfigArgs']]):
+    def human_loop_activation_config(self, value: pulumi.Input[Optional['FlowDefinitionHumanLoopActivationConfigArgs']]):
         pulumi.set(self, "human_loop_activation_config", value)
 
     @_builtins.property
     @pulumi.getter(name="humanLoopConfig")
-    def human_loop_config(self) -> Optional[pulumi.Input['FlowDefinitionHumanLoopConfigArgs']]:
+    def human_loop_config(self) -> pulumi.Input[Optional['FlowDefinitionHumanLoopConfigArgs']]:
         """
         An object containing information about the tasks the human reviewers will perform. See Human Loop Config details below.
         """
         return pulumi.get(self, "human_loop_config")
 
     @human_loop_config.setter
-    def human_loop_config(self, value: Optional[pulumi.Input['FlowDefinitionHumanLoopConfigArgs']]):
+    def human_loop_config(self, value: pulumi.Input[Optional['FlowDefinitionHumanLoopConfigArgs']]):
         pulumi.set(self, "human_loop_config", value)
 
     @_builtins.property
     @pulumi.getter(name="humanLoopRequestSource")
-    def human_loop_request_source(self) -> Optional[pulumi.Input['FlowDefinitionHumanLoopRequestSourceArgs']]:
+    def human_loop_request_source(self) -> pulumi.Input[Optional['FlowDefinitionHumanLoopRequestSourceArgs']]:
         """
         Container for configuring the source of human task requests. Use to specify if Amazon Rekognition or Amazon Textract is used as an integration source. See Human Loop Request Source details below.
         """
         return pulumi.get(self, "human_loop_request_source")
 
     @human_loop_request_source.setter
-    def human_loop_request_source(self, value: Optional[pulumi.Input['FlowDefinitionHumanLoopRequestSourceArgs']]):
+    def human_loop_request_source(self, value: pulumi.Input[Optional['FlowDefinitionHumanLoopRequestSourceArgs']]):
         pulumi.set(self, "human_loop_request_source", value)
 
     @_builtins.property
     @pulumi.getter(name="outputConfig")
-    def output_config(self) -> Optional[pulumi.Input['FlowDefinitionOutputConfigArgs']]:
+    def output_config(self) -> pulumi.Input[Optional['FlowDefinitionOutputConfigArgs']]:
         """
         An object containing information about where the human review results will be uploaded. See Output Config details below.
         """
         return pulumi.get(self, "output_config")
 
     @output_config.setter
-    def output_config(self, value: Optional[pulumi.Input['FlowDefinitionOutputConfigArgs']]):
+    def output_config(self, value: pulumi.Input[Optional['FlowDefinitionOutputConfigArgs']]):
         pulumi.set(self, "output_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
 
@@ -326,14 +326,14 @@ class FlowDefinition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 flow_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 human_loop_activation_config: Optional[pulumi.Input[Union['FlowDefinitionHumanLoopActivationConfigArgs', 'FlowDefinitionHumanLoopActivationConfigArgsDict']]] = None,
-                 human_loop_config: Optional[pulumi.Input[Union['FlowDefinitionHumanLoopConfigArgs', 'FlowDefinitionHumanLoopConfigArgsDict']]] = None,
-                 human_loop_request_source: Optional[pulumi.Input[Union['FlowDefinitionHumanLoopRequestSourceArgs', 'FlowDefinitionHumanLoopRequestSourceArgsDict']]] = None,
-                 output_config: Optional[pulumi.Input[Union['FlowDefinitionOutputConfigArgs', 'FlowDefinitionOutputConfigArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 flow_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 human_loop_activation_config: pulumi.Input[Optional[Union['FlowDefinitionHumanLoopActivationConfigArgs', 'FlowDefinitionHumanLoopActivationConfigArgsDict']]] = None,
+                 human_loop_config: pulumi.Input[Optional[Union['FlowDefinitionHumanLoopConfigArgs', 'FlowDefinitionHumanLoopConfigArgsDict']]] = None,
+                 human_loop_request_source: pulumi.Input[Optional[Union['FlowDefinitionHumanLoopRequestSourceArgs', 'FlowDefinitionHumanLoopRequestSourceArgsDict']]] = None,
+                 output_config: pulumi.Input[Optional[Union['FlowDefinitionOutputConfigArgs', 'FlowDefinitionOutputConfigArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a SageMaker AI Flow Definition resource.
@@ -575,14 +575,14 @@ class FlowDefinition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 flow_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 human_loop_activation_config: Optional[pulumi.Input[Union['FlowDefinitionHumanLoopActivationConfigArgs', 'FlowDefinitionHumanLoopActivationConfigArgsDict']]] = None,
-                 human_loop_config: Optional[pulumi.Input[Union['FlowDefinitionHumanLoopConfigArgs', 'FlowDefinitionHumanLoopConfigArgsDict']]] = None,
-                 human_loop_request_source: Optional[pulumi.Input[Union['FlowDefinitionHumanLoopRequestSourceArgs', 'FlowDefinitionHumanLoopRequestSourceArgsDict']]] = None,
-                 output_config: Optional[pulumi.Input[Union['FlowDefinitionOutputConfigArgs', 'FlowDefinitionOutputConfigArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 flow_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 human_loop_activation_config: pulumi.Input[Optional[Union['FlowDefinitionHumanLoopActivationConfigArgs', 'FlowDefinitionHumanLoopActivationConfigArgsDict']]] = None,
+                 human_loop_config: pulumi.Input[Optional[Union['FlowDefinitionHumanLoopConfigArgs', 'FlowDefinitionHumanLoopConfigArgsDict']]] = None,
+                 human_loop_request_source: pulumi.Input[Optional[Union['FlowDefinitionHumanLoopRequestSourceArgs', 'FlowDefinitionHumanLoopRequestSourceArgsDict']]] = None,
+                 output_config: pulumi.Input[Optional[Union['FlowDefinitionOutputConfigArgs', 'FlowDefinitionOutputConfigArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -620,16 +620,16 @@ class FlowDefinition(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            flow_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
-            human_loop_activation_config: Optional[pulumi.Input[Union['FlowDefinitionHumanLoopActivationConfigArgs', 'FlowDefinitionHumanLoopActivationConfigArgsDict']]] = None,
-            human_loop_config: Optional[pulumi.Input[Union['FlowDefinitionHumanLoopConfigArgs', 'FlowDefinitionHumanLoopConfigArgsDict']]] = None,
-            human_loop_request_source: Optional[pulumi.Input[Union['FlowDefinitionHumanLoopRequestSourceArgs', 'FlowDefinitionHumanLoopRequestSourceArgsDict']]] = None,
-            output_config: Optional[pulumi.Input[Union['FlowDefinitionOutputConfigArgs', 'FlowDefinitionOutputConfigArgsDict']]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'FlowDefinition':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            flow_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+            human_loop_activation_config: pulumi.Input[Optional[Union['FlowDefinitionHumanLoopActivationConfigArgs', 'FlowDefinitionHumanLoopActivationConfigArgsDict']]] = None,
+            human_loop_config: pulumi.Input[Optional[Union['FlowDefinitionHumanLoopConfigArgs', 'FlowDefinitionHumanLoopConfigArgsDict']]] = None,
+            human_loop_request_source: pulumi.Input[Optional[Union['FlowDefinitionHumanLoopRequestSourceArgs', 'FlowDefinitionHumanLoopRequestSourceArgsDict']]] = None,
+            output_config: pulumi.Input[Optional[Union['FlowDefinitionOutputConfigArgs', 'FlowDefinitionOutputConfigArgsDict']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'FlowDefinition':
         """
         Get an existing FlowDefinition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

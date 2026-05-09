@@ -22,16 +22,16 @@ __all__ = ['GlobalClusterArgs', 'GlobalCluster']
 class GlobalClusterArgs:
     def __init__(__self__, *,
                  global_cluster_identifier: pulumi.Input[_builtins.str],
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 deletion_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 engine: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_lifecycle_support: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 force_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_db_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 engine: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_lifecycle_support: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_db_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a GlobalCluster resource.
 
@@ -89,115 +89,115 @@ class GlobalClusterArgs:
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name for an automatically created database on cluster creation. Pulumi will only perform drift detection if a configuration value is provided.
         """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
-    def database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database_name", value)
 
     @_builtins.property
     @pulumi.getter(name="deletionProtection")
-    def deletion_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def deletion_protection(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
         """
         return pulumi.get(self, "deletion_protection")
 
     @deletion_protection.setter
-    def deletion_protection(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def deletion_protection(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "deletion_protection", value)
 
     @_builtins.property
     @pulumi.getter
-    def engine(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def engine(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `source_db_cluster_identifier`.
         """
         return pulumi.get(self, "engine")
 
     @engine.setter
-    def engine(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def engine(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "engine", value)
 
     @_builtins.property
     @pulumi.getter(name="engineLifecycleSupport")
-    def engine_lifecycle_support(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def engine_lifecycle_support(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The life cycle type for this DB instance. This setting applies only to Aurora PostgreSQL-based global databases. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
         """
         return pulumi.get(self, "engine_lifecycle_support")
 
     @engine_lifecycle_support.setter
-    def engine_lifecycle_support(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def engine_lifecycle_support(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "engine_lifecycle_support", value)
 
     @_builtins.property
     @pulumi.getter(name="engineVersion")
-    def engine_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def engine_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Engine version of the Aurora global database. The `engine`, `engine_version`, and `instance_class` (on the `rds.ClusterInstance`) must together support global databases. See [Using Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) for more information. By upgrading the engine version, the provider will upgrade cluster members. **NOTE:** To avoid an `inconsistent final plan` error while upgrading, use the `lifecycle` `ignore_changes` for `engine_version` meta argument on the associated `rds.Cluster` resource as shown above in Upgrading Engine Versions example.
         """
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
-    def engine_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def engine_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "engine_version", value)
 
     @_builtins.property
     @pulumi.getter(name="forceDestroy")
-    def force_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def force_destroy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable to remove DB Cluster members from Global Cluster on destroy. Required with `source_db_cluster_identifier`.
         """
         return pulumi.get(self, "force_destroy")
 
     @force_destroy.setter
-    def force_destroy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def force_destroy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "force_destroy", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceDbClusterIdentifier")
-    def source_db_cluster_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_db_cluster_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engine_version`. This allows upgrading the engine version of the Global Cluster.
         """
         return pulumi.get(self, "source_db_cluster_identifier")
 
     @source_db_cluster_identifier.setter
-    def source_db_cluster_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_db_cluster_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_db_cluster_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="storageEncrypted")
-    def storage_encrypted(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def storage_encrypted(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
         """
         return pulumi.get(self, "storage_encrypted")
 
     @storage_encrypted.setter
-    def storage_encrypted(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def storage_encrypted(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "storage_encrypted", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 
@@ -206,30 +206,30 @@ class GlobalClusterArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _GlobalClusterState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 deletion_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_lifecycle_support: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_version_actual: Optional[pulumi.Input[_builtins.str]] = None,
-                 force_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 global_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_cluster_members: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalClusterGlobalClusterMemberArgs']]]] = None,
-                 global_cluster_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_db_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_lifecycle_support: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_version_actual: pulumi.Input[Optional[_builtins.str]] = None,
+                 force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 global_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_cluster_members: pulumi.Input[Optional[Sequence[pulumi.Input['GlobalClusterGlobalClusterMemberArgs']]]] = None,
+                 global_cluster_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_db_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering GlobalCluster resources.
 
@@ -291,112 +291,112 @@ class _GlobalClusterState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         RDS Global Cluster Amazon Resource Name (ARN).
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name for an automatically created database on cluster creation. Pulumi will only perform drift detection if a configuration value is provided.
         """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
-    def database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database_name", value)
 
     @_builtins.property
     @pulumi.getter(name="deletionProtection")
-    def deletion_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def deletion_protection(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
         """
         return pulumi.get(self, "deletion_protection")
 
     @deletion_protection.setter
-    def deletion_protection(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def deletion_protection(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "deletion_protection", value)
 
     @_builtins.property
     @pulumi.getter
-    def endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Writer endpoint for the new global database cluster. This endpoint always points to the writer DB instance in the current primary cluster.
         """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
-    def endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint", value)
 
     @_builtins.property
     @pulumi.getter
-    def engine(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def engine(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `source_db_cluster_identifier`.
         """
         return pulumi.get(self, "engine")
 
     @engine.setter
-    def engine(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def engine(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "engine", value)
 
     @_builtins.property
     @pulumi.getter(name="engineLifecycleSupport")
-    def engine_lifecycle_support(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def engine_lifecycle_support(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The life cycle type for this DB instance. This setting applies only to Aurora PostgreSQL-based global databases. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
         """
         return pulumi.get(self, "engine_lifecycle_support")
 
     @engine_lifecycle_support.setter
-    def engine_lifecycle_support(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def engine_lifecycle_support(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "engine_lifecycle_support", value)
 
     @_builtins.property
     @pulumi.getter(name="engineVersion")
-    def engine_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def engine_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Engine version of the Aurora global database. The `engine`, `engine_version`, and `instance_class` (on the `rds.ClusterInstance`) must together support global databases. See [Using Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) for more information. By upgrading the engine version, the provider will upgrade cluster members. **NOTE:** To avoid an `inconsistent final plan` error while upgrading, use the `lifecycle` `ignore_changes` for `engine_version` meta argument on the associated `rds.Cluster` resource as shown above in Upgrading Engine Versions example.
         """
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
-    def engine_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def engine_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "engine_version", value)
 
     @_builtins.property
     @pulumi.getter(name="engineVersionActual")
-    def engine_version_actual(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def engine_version_actual(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "engine_version_actual")
 
     @engine_version_actual.setter
-    def engine_version_actual(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def engine_version_actual(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "engine_version_actual", value)
 
     @_builtins.property
     @pulumi.getter(name="forceDestroy")
-    def force_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def force_destroy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable to remove DB Cluster members from Global Cluster on destroy. Required with `source_db_cluster_identifier`.
         """
         return pulumi.get(self, "force_destroy")
 
     @force_destroy.setter
-    def force_destroy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def force_destroy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "force_destroy", value)
 
     @_builtins.property
     @pulumi.getter(name="globalClusterIdentifier")
-    def global_cluster_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def global_cluster_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Global cluster identifier.
 
@@ -405,72 +405,72 @@ class _GlobalClusterState:
         return pulumi.get(self, "global_cluster_identifier")
 
     @global_cluster_identifier.setter
-    def global_cluster_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def global_cluster_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "global_cluster_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="globalClusterMembers")
-    def global_cluster_members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GlobalClusterGlobalClusterMemberArgs']]]]:
+    def global_cluster_members(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GlobalClusterGlobalClusterMemberArgs']]]]:
         """
         Set of objects containing Global Cluster members.
         """
         return pulumi.get(self, "global_cluster_members")
 
     @global_cluster_members.setter
-    def global_cluster_members(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalClusterGlobalClusterMemberArgs']]]]):
+    def global_cluster_members(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GlobalClusterGlobalClusterMemberArgs']]]]):
         pulumi.set(self, "global_cluster_members", value)
 
     @_builtins.property
     @pulumi.getter(name="globalClusterResourceId")
-    def global_cluster_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def global_cluster_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
         """
         return pulumi.get(self, "global_cluster_resource_id")
 
     @global_cluster_resource_id.setter
-    def global_cluster_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def global_cluster_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "global_cluster_resource_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceDbClusterIdentifier")
-    def source_db_cluster_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_db_cluster_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engine_version`. This allows upgrading the engine version of the Global Cluster.
         """
         return pulumi.get(self, "source_db_cluster_identifier")
 
     @source_db_cluster_identifier.setter
-    def source_db_cluster_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_db_cluster_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_db_cluster_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="storageEncrypted")
-    def storage_encrypted(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def storage_encrypted(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
         """
         return pulumi.get(self, "storage_encrypted")
 
     @storage_encrypted.setter
-    def storage_encrypted(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def storage_encrypted(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "storage_encrypted", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 
@@ -479,19 +479,19 @@ class _GlobalClusterState:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
 
@@ -501,17 +501,17 @@ class GlobalCluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 deletion_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 engine: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_lifecycle_support: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 force_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 global_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_db_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 engine: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_lifecycle_support: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 global_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_db_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages an RDS Global Cluster, which is an Aurora global database spread across multiple regions. The global database contains a single primary cluster with read-write capability, and a read-only secondary cluster that receives data from the primary cluster through high-speed replication performed by the Aurora storage subsystem.
@@ -870,17 +870,17 @@ class GlobalCluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 deletion_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 engine: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_lifecycle_support: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 force_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 global_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_db_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 engine: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_lifecycle_support: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 global_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_db_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -919,23 +919,23 @@ class GlobalCluster(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            database_name: Optional[pulumi.Input[_builtins.str]] = None,
-            deletion_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-            endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            engine: Optional[pulumi.Input[_builtins.str]] = None,
-            engine_lifecycle_support: Optional[pulumi.Input[_builtins.str]] = None,
-            engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-            engine_version_actual: Optional[pulumi.Input[_builtins.str]] = None,
-            force_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-            global_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-            global_cluster_members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalClusterGlobalClusterMemberArgs', 'GlobalClusterGlobalClusterMemberArgsDict']]]]] = None,
-            global_cluster_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            source_db_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'GlobalCluster':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            database_name: pulumi.Input[Optional[_builtins.str]] = None,
+            deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+            endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            engine: pulumi.Input[Optional[_builtins.str]] = None,
+            engine_lifecycle_support: pulumi.Input[Optional[_builtins.str]] = None,
+            engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+            engine_version_actual: pulumi.Input[Optional[_builtins.str]] = None,
+            force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+            global_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            global_cluster_members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalClusterGlobalClusterMemberArgs', 'GlobalClusterGlobalClusterMemberArgsDict']]]]] = None,
+            global_cluster_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            source_db_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'GlobalCluster':
         """
         Get an existing GlobalCluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

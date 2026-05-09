@@ -285,120 +285,120 @@ export interface AmiState {
     /**
      * Machine architecture for created instances. Defaults to `x8664`.
      */
-    architecture?: pulumi.Input<string>;
+    architecture?: pulumi.Input<string | undefined>;
     /**
      * ARN of the AMI.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
      */
-    bootMode?: pulumi.Input<string>;
+    bootMode?: pulumi.Input<string | undefined>;
     /**
      * Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      */
-    deprecationTime?: pulumi.Input<string>;
+    deprecationTime?: pulumi.Input<string | undefined>;
     /**
      * Longer, human-readable description for the AMI.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Nested block describing an EBS block device that should be
      * attached to created instances. The structure of this block is described below.
      */
-    ebsBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.AmiEbsBlockDevice>[]>;
+    ebsBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.AmiEbsBlockDevice>[] | undefined>;
     /**
      * Whether enhanced networking with ENA is enabled. Defaults to `false`.
      */
-    enaSupport?: pulumi.Input<boolean>;
+    enaSupport?: pulumi.Input<boolean | undefined>;
     /**
      * Nested block describing an ephemeral block device that
      * should be attached to created instances. The structure of this block is described below.
      */
-    ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.AmiEphemeralBlockDevice>[]>;
+    ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.AmiEphemeralBlockDevice>[] | undefined>;
     /**
      * Hypervisor type of the image.
      */
-    hypervisor?: pulumi.Input<string>;
-    imageLocation?: pulumi.Input<string>;
+    hypervisor?: pulumi.Input<string | undefined>;
+    imageLocation?: pulumi.Input<string | undefined>;
     /**
      * AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
      */
-    imageOwnerAlias?: pulumi.Input<string>;
+    imageOwnerAlias?: pulumi.Input<string | undefined>;
     /**
      * Type of image.
      */
-    imageType?: pulumi.Input<string>;
+    imageType?: pulumi.Input<string | undefined>;
     /**
      * If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
      */
-    imdsSupport?: pulumi.Input<string>;
-    kernelId?: pulumi.Input<string>;
+    imdsSupport?: pulumi.Input<string | undefined>;
+    kernelId?: pulumi.Input<string | undefined>;
     /**
      * Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
      */
-    lastLaunchedTime?: pulumi.Input<string>;
-    manageEbsSnapshots?: pulumi.Input<boolean>;
+    lastLaunchedTime?: pulumi.Input<string | undefined>;
+    manageEbsSnapshots?: pulumi.Input<boolean | undefined>;
     /**
      * Region-unique name for the AMI.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * AWS account ID of the image owner.
      */
-    ownerId?: pulumi.Input<string>;
+    ownerId?: pulumi.Input<string | undefined>;
     /**
      * This value is set to windows for Windows AMIs; otherwise, it is blank.
      */
-    platform?: pulumi.Input<string>;
+    platform?: pulumi.Input<string | undefined>;
     /**
      * Platform details associated with the billing code of the AMI.
      */
-    platformDetails?: pulumi.Input<string>;
+    platformDetails?: pulumi.Input<string | undefined>;
     /**
      * Whether the image has public launch permissions.
      */
-    public?: pulumi.Input<boolean>;
-    ramdiskId?: pulumi.Input<string>;
+    public?: pulumi.Input<boolean | undefined>;
+    ramdiskId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
      */
-    rootDeviceName?: pulumi.Input<string>;
+    rootDeviceName?: pulumi.Input<string | undefined>;
     /**
      * Snapshot ID for the root volume (for EBS-backed AMIs)
      */
-    rootSnapshotId?: pulumi.Input<string>;
-    sriovNetSupport?: pulumi.Input<string>;
+    rootSnapshotId?: pulumi.Input<string | undefined>;
+    sriovNetSupport?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
      */
-    tpmSupport?: pulumi.Input<string>;
+    tpmSupport?: pulumi.Input<string | undefined>;
     /**
      * Base64 representation of the non-volatile UEFI variable store.
      */
-    uefiData?: pulumi.Input<string>;
+    uefiData?: pulumi.Input<string | undefined>;
     /**
      * Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
      */
-    usageOperation?: pulumi.Input<string>;
+    usageOperation?: pulumi.Input<string | undefined>;
     /**
      * Keyword to choose what virtualization mode created instances
      * will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
      * changes the set of further arguments that are required, as described below.
      */
-    virtualizationType?: pulumi.Input<string>;
+    virtualizationType?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -408,69 +408,69 @@ export interface AmiArgs {
     /**
      * Machine architecture for created instances. Defaults to `x8664`.
      */
-    architecture?: pulumi.Input<string>;
+    architecture?: pulumi.Input<string | undefined>;
     /**
      * Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
      */
-    bootMode?: pulumi.Input<string>;
+    bootMode?: pulumi.Input<string | undefined>;
     /**
      * Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      */
-    deprecationTime?: pulumi.Input<string>;
+    deprecationTime?: pulumi.Input<string | undefined>;
     /**
      * Longer, human-readable description for the AMI.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Nested block describing an EBS block device that should be
      * attached to created instances. The structure of this block is described below.
      */
-    ebsBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.AmiEbsBlockDevice>[]>;
+    ebsBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.AmiEbsBlockDevice>[] | undefined>;
     /**
      * Whether enhanced networking with ENA is enabled. Defaults to `false`.
      */
-    enaSupport?: pulumi.Input<boolean>;
+    enaSupport?: pulumi.Input<boolean | undefined>;
     /**
      * Nested block describing an ephemeral block device that
      * should be attached to created instances. The structure of this block is described below.
      */
-    ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.AmiEphemeralBlockDevice>[]>;
-    imageLocation?: pulumi.Input<string>;
+    ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.AmiEphemeralBlockDevice>[] | undefined>;
+    imageLocation?: pulumi.Input<string | undefined>;
     /**
      * If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
      */
-    imdsSupport?: pulumi.Input<string>;
-    kernelId?: pulumi.Input<string>;
+    imdsSupport?: pulumi.Input<string | undefined>;
+    kernelId?: pulumi.Input<string | undefined>;
     /**
      * Region-unique name for the AMI.
      */
-    name?: pulumi.Input<string>;
-    ramdiskId?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
+    ramdiskId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
      */
-    rootDeviceName?: pulumi.Input<string>;
-    sriovNetSupport?: pulumi.Input<string>;
+    rootDeviceName?: pulumi.Input<string | undefined>;
+    sriovNetSupport?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
      */
-    tpmSupport?: pulumi.Input<string>;
+    tpmSupport?: pulumi.Input<string | undefined>;
     /**
      * Base64 representation of the non-volatile UEFI variable store.
      */
-    uefiData?: pulumi.Input<string>;
+    uefiData?: pulumi.Input<string | undefined>;
     /**
      * Keyword to choose what virtualization mode created instances
      * will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
      * changes the set of further arguments that are required, as described below.
      */
-    virtualizationType?: pulumi.Input<string>;
+    virtualizationType?: pulumi.Input<string | undefined>;
 }

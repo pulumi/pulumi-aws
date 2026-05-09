@@ -156,29 +156,29 @@ export interface ServerlessLifecyclePolicyState {
     /**
      * Description of the policy.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of the policy.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * JSON policy document to use as the content for the new policy.
      */
-    policy?: pulumi.Input<string>;
+    policy?: pulumi.Input<string | undefined>;
     /**
      * Version of the policy.
      */
-    policyVersion?: pulumi.Input<string>;
+    policyVersion?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Type of lifecycle policy. Must be `retention`.
      *
      * The following arguments are optional:
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -188,11 +188,11 @@ export interface ServerlessLifecyclePolicyArgs {
     /**
      * Description of the policy.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of the policy.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * JSON policy document to use as the content for the new policy.
      */
@@ -200,7 +200,7 @@ export interface ServerlessLifecyclePolicyArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Type of lifecycle policy. Must be `retention`.
      *

@@ -155,49 +155,49 @@ export interface InternetMonitorState {
     /**
      * ARN of the Monitor.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there's an internet issue that affects your application end users. See Health Events Config below.
      */
-    healthEventsConfig?: pulumi.Input<inputs.cloudwatch.InternetMonitorHealthEventsConfig>;
+    healthEventsConfig?: pulumi.Input<inputs.cloudwatch.InternetMonitorHealthEventsConfig | undefined>;
     /**
      * Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.
      */
-    internetMeasurementsLogDelivery?: pulumi.Input<inputs.cloudwatch.InternetMonitorInternetMeasurementsLogDelivery>;
+    internetMeasurementsLogDelivery?: pulumi.Input<inputs.cloudwatch.InternetMonitorInternetMeasurementsLogDelivery | undefined>;
     /**
      * The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and the network or ASN, such as an internet service provider (ISP), that clients access the resources through. This limit helps control billing costs.
      */
-    maxCityNetworksToMonitor?: pulumi.Input<number>;
+    maxCityNetworksToMonitor?: pulumi.Input<number | undefined>;
     /**
      * The name of the monitor.
      *
      * The following arguments are optional:
      */
-    monitorName?: pulumi.Input<string>;
+    monitorName?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
      */
-    resources?: pulumi.Input<pulumi.Input<string>[]>;
+    resources?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The status for a monitor. The accepted values for Status with the UpdateMonitor API call are the following: `ACTIVE` and `INACTIVE`.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The percentage of the internet-facing traffic for your application that you want to monitor with this monitor.
      */
-    trafficPercentageToMonitor?: pulumi.Input<number>;
+    trafficPercentageToMonitor?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -207,15 +207,15 @@ export interface InternetMonitorArgs {
     /**
      * Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there's an internet issue that affects your application end users. See Health Events Config below.
      */
-    healthEventsConfig?: pulumi.Input<inputs.cloudwatch.InternetMonitorHealthEventsConfig>;
+    healthEventsConfig?: pulumi.Input<inputs.cloudwatch.InternetMonitorHealthEventsConfig | undefined>;
     /**
      * Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.
      */
-    internetMeasurementsLogDelivery?: pulumi.Input<inputs.cloudwatch.InternetMonitorInternetMeasurementsLogDelivery>;
+    internetMeasurementsLogDelivery?: pulumi.Input<inputs.cloudwatch.InternetMonitorInternetMeasurementsLogDelivery | undefined>;
     /**
      * The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and the network or ASN, such as an internet service provider (ISP), that clients access the resources through. This limit helps control billing costs.
      */
-    maxCityNetworksToMonitor?: pulumi.Input<number>;
+    maxCityNetworksToMonitor?: pulumi.Input<number | undefined>;
     /**
      * The name of the monitor.
      *
@@ -225,21 +225,21 @@ export interface InternetMonitorArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
      */
-    resources?: pulumi.Input<pulumi.Input<string>[]>;
+    resources?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The status for a monitor. The accepted values for Status with the UpdateMonitor API call are the following: `ACTIVE` and `INACTIVE`.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The percentage of the internet-facing traffic for your application that you want to monitor with this monitor.
      */
-    trafficPercentageToMonitor?: pulumi.Input<number>;
+    trafficPercentageToMonitor?: pulumi.Input<number | undefined>;
 }

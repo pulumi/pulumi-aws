@@ -35,8 +35,8 @@ public final class AmpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.amp.AmpFunctions;
      * import com.pulumi.aws.amp.inputs.GetDefaultScraperConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -74,8 +74,8 @@ public final class AmpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.amp.AmpFunctions;
      * import com.pulumi.aws.amp.inputs.GetDefaultScraperConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -113,8 +113,8 @@ public final class AmpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.amp.AmpFunctions;
      * import com.pulumi.aws.amp.inputs.GetDefaultScraperConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -152,8 +152,8 @@ public final class AmpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.amp.AmpFunctions;
      * import com.pulumi.aws.amp.inputs.GetDefaultScraperConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -191,8 +191,8 @@ public final class AmpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.amp.AmpFunctions;
      * import com.pulumi.aws.amp.inputs.GetDefaultScraperConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -230,8 +230,8 @@ public final class AmpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.amp.AmpFunctions;
      * import com.pulumi.aws.amp.inputs.GetDefaultScraperConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -269,8 +269,8 @@ public final class AmpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.amp.AmpFunctions;
      * import com.pulumi.aws.amp.inputs.GetDefaultScraperConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -310,8 +310,8 @@ public final class AmpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.amp.AmpFunctions;
      * import com.pulumi.aws.amp.inputs.GetWorkspaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -352,8 +352,8 @@ public final class AmpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.amp.AmpFunctions;
      * import com.pulumi.aws.amp.inputs.GetWorkspaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -394,8 +394,8 @@ public final class AmpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.amp.AmpFunctions;
      * import com.pulumi.aws.amp.inputs.GetWorkspaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -436,8 +436,8 @@ public final class AmpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.amp.AmpFunctions;
      * import com.pulumi.aws.amp.inputs.GetWorkspaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -478,8 +478,8 @@ public final class AmpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.amp.AmpFunctions;
      * import com.pulumi.aws.amp.inputs.GetWorkspaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -520,8 +520,8 @@ public final class AmpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.amp.AmpFunctions;
      * import com.pulumi.aws.amp.inputs.GetWorkspacesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -553,8 +553,8 @@ public final class AmpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.amp.AmpFunctions;
      * import com.pulumi.aws.amp.inputs.GetWorkspacesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -595,8 +595,8 @@ public final class AmpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.amp.AmpFunctions;
      * import com.pulumi.aws.amp.inputs.GetWorkspacesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -628,8 +628,8 @@ public final class AmpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.amp.AmpFunctions;
      * import com.pulumi.aws.amp.inputs.GetWorkspacesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -670,8 +670,8 @@ public final class AmpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.amp.AmpFunctions;
      * import com.pulumi.aws.amp.inputs.GetWorkspacesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -703,8 +703,8 @@ public final class AmpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.amp.AmpFunctions;
      * import com.pulumi.aws.amp.inputs.GetWorkspacesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -745,8 +745,8 @@ public final class AmpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.amp.AmpFunctions;
      * import com.pulumi.aws.amp.inputs.GetWorkspacesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -778,8 +778,8 @@ public final class AmpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.amp.AmpFunctions;
      * import com.pulumi.aws.amp.inputs.GetWorkspacesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -820,8 +820,8 @@ public final class AmpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.amp.AmpFunctions;
      * import com.pulumi.aws.amp.inputs.GetWorkspacesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -853,8 +853,8 @@ public final class AmpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.amp.AmpFunctions;
      * import com.pulumi.aws.amp.inputs.GetWorkspacesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -895,8 +895,8 @@ public final class AmpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.amp.AmpFunctions;
      * import com.pulumi.aws.amp.inputs.GetWorkspacesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -928,8 +928,8 @@ public final class AmpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.amp.AmpFunctions;
      * import com.pulumi.aws.amp.inputs.GetWorkspacesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -970,8 +970,8 @@ public final class AmpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.amp.AmpFunctions;
      * import com.pulumi.aws.amp.inputs.GetWorkspacesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1003,8 +1003,8 @@ public final class AmpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.amp.AmpFunctions;
      * import com.pulumi.aws.amp.inputs.GetWorkspacesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

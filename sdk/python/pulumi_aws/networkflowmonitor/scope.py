@@ -22,9 +22,9 @@ __all__ = ['ScopeArgs', 'Scope']
 class ScopeArgs:
     def __init__(__self__, *,
                  targets: pulumi.Input[Sequence[pulumi.Input['ScopeTargetArgs']]],
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['ScopeTimeoutsArgs']] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['ScopeTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Scope resource.
 
@@ -58,48 +58,48 @@ class ScopeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['ScopeTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['ScopeTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['ScopeTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['ScopeTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _ScopeState:
     def __init__(__self__, *,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 targets: Optional[pulumi.Input[Sequence[pulumi.Input['ScopeTargetArgs']]]] = None,
-                 timeouts: Optional[pulumi.Input['ScopeTimeoutsArgs']] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 targets: pulumi.Input[Optional[Sequence[pulumi.Input['ScopeTargetArgs']]]] = None,
+                 timeouts: pulumi.Input[Optional['ScopeTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering Scope resources.
 
@@ -129,67 +129,67 @@ class _ScopeState:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="scopeArn")
-    def scope_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scope_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the scope.
         """
         return pulumi.get(self, "scope_arn")
 
     @scope_arn.setter
-    def scope_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scope_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scope_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="scopeId")
-    def scope_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scope_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier for the scope that includes the resources you want to get data results for.
         """
         return pulumi.get(self, "scope_id")
 
     @scope_id.setter
-    def scope_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scope_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scope_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScopeTargetArgs']]]]:
+    def targets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScopeTargetArgs']]]]:
         """
         The targets to define the scope to be monitored. A target is an array of target resources, which are currently Region-account pairs.
 
@@ -198,16 +198,16 @@ class _ScopeState:
         return pulumi.get(self, "targets")
 
     @targets.setter
-    def targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScopeTargetArgs']]]]):
+    def targets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScopeTargetArgs']]]]):
         pulumi.set(self, "targets", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['ScopeTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['ScopeTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['ScopeTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['ScopeTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
@@ -217,10 +217,10 @@ class Scope(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScopeTargetArgs', 'ScopeTargetArgsDict']]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['ScopeTimeoutsArgs', 'ScopeTimeoutsArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScopeTargetArgs', 'ScopeTargetArgsDict']]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ScopeTimeoutsArgs', 'ScopeTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Manages a Network Flow Monitor Scope.
@@ -323,10 +323,10 @@ class Scope(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScopeTargetArgs', 'ScopeTargetArgsDict']]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['ScopeTimeoutsArgs', 'ScopeTimeoutsArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScopeTargetArgs', 'ScopeTargetArgsDict']]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ScopeTimeoutsArgs', 'ScopeTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -355,13 +355,13 @@ class Scope(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            scope_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            scope_id: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScopeTargetArgs', 'ScopeTargetArgsDict']]]]] = None,
-            timeouts: Optional[pulumi.Input[Union['ScopeTimeoutsArgs', 'ScopeTimeoutsArgsDict']]] = None) -> 'Scope':
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            scope_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            scope_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScopeTargetArgs', 'ScopeTargetArgsDict']]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['ScopeTimeoutsArgs', 'ScopeTimeoutsArgsDict']]] = None) -> 'Scope':
         """
         Get an existing Scope resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

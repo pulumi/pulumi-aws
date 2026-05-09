@@ -99,7 +99,7 @@ namespace Pulumi.Aws.ApiGateway
     ///         Name = "api_gateway_authorizer",
     ///         Role = lambda.Arn,
     ///         Handler = "exports.example",
-    ///         SourceCodeHash = Std.Index.Filebase64sha256.Invoke(new()
+    ///         SourceCodeHash = Std.Filebase64sha256.Invoke(new()
     ///         {
     ///             Input = "lambda-function.zip",
     ///         }).Apply(invoke =&gt; invoke.Result),

@@ -216,25 +216,25 @@ export interface BucketVersioningV2State {
     /**
      * Name of the S3 bucket.
      */
-    bucket?: pulumi.Input<string>;
+    bucket?: pulumi.Input<string | undefined>;
     /**
      * Account ID of the expected bucket owner.
      *
      * @deprecated expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
      */
-    expectedBucketOwner?: pulumi.Input<string>;
+    expectedBucketOwner?: pulumi.Input<string | undefined>;
     /**
      * Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
      */
-    mfa?: pulumi.Input<string>;
+    mfa?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for the versioning parameters. See below.
      */
-    versioningConfiguration?: pulumi.Input<inputs.s3.BucketVersioningV2VersioningConfiguration>;
+    versioningConfiguration?: pulumi.Input<inputs.s3.BucketVersioningV2VersioningConfiguration | undefined>;
 }
 
 /**
@@ -250,15 +250,15 @@ export interface BucketVersioningV2Args {
      *
      * @deprecated expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
      */
-    expectedBucketOwner?: pulumi.Input<string>;
+    expectedBucketOwner?: pulumi.Input<string | undefined>;
     /**
      * Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
      */
-    mfa?: pulumi.Input<string>;
+    mfa?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for the versioning parameters. See below.
      */

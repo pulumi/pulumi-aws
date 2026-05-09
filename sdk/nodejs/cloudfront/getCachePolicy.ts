@@ -145,9 +145,9 @@ export interface GetCachePolicyOutputArgs {
     /**
      * Identifier for the cache policy.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Unique name to identify the cache policy.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

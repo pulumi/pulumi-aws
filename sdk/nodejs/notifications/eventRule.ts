@@ -152,29 +152,29 @@ export interface EventRuleState {
     /**
      * ARN of the Event Rule.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * JSON string defining the event pattern to match. Maximum length is 4096 characters.
      */
-    eventPattern?: pulumi.Input<string>;
+    eventPattern?: pulumi.Input<string | undefined>;
     /**
      * Type of event to match. Must be between 1 and 128 characters, and match the pattern `([a-zA-Z0-9 \-\(\)])+`.
      */
-    eventType?: pulumi.Input<string>;
+    eventType?: pulumi.Input<string | undefined>;
     /**
      * ARN of the notification configuration to associate with this event rule. Must match the pattern `arn:aws:notifications::[0-9]{12}:configuration/[a-z0-9]{27}`.
      */
-    notificationConfigurationArn?: pulumi.Input<string>;
+    notificationConfigurationArn?: pulumi.Input<string | undefined>;
     /**
      * Set of AWS regions where the event rule will be applied. Each region must be between 2 and 25 characters, and match the pattern `([a-z]{1,2})-([a-z]{1,15}-)+([0-9])`.
      */
-    regions?: pulumi.Input<pulumi.Input<string>[]>;
+    regions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Source of the event. Must be between 1 and 36 characters, and match the pattern `aws.([a-z0-9\-])+`.
      *
      * The following arguments are optional:
      */
-    source?: pulumi.Input<string>;
+    source?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -184,7 +184,7 @@ export interface EventRuleArgs {
     /**
      * JSON string defining the event pattern to match. Maximum length is 4096 characters.
      */
-    eventPattern?: pulumi.Input<string>;
+    eventPattern?: pulumi.Input<string | undefined>;
     /**
      * Type of event to match. Must be between 1 and 128 characters, and match the pattern `([a-zA-Z0-9 \-\(\)])+`.
      */

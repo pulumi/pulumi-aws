@@ -112,17 +112,17 @@ export interface TenantResourceAssociationState {
     /**
      * AWS region for SESv2 operations. If not specified, the default provider region is used.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN of the SES resource to associate with the tenant.
      *
      * The following arguments are optional:
      */
-    resourceArn?: pulumi.Input<string>;
+    resourceArn?: pulumi.Input<string | undefined>;
     /**
      * Name of SES Tenant.
      */
-    tenantName?: pulumi.Input<string>;
+    tenantName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -132,7 +132,7 @@ export interface TenantResourceAssociationArgs {
     /**
      * AWS region for SESv2 operations. If not specified, the default provider region is used.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN of the SES resource to associate with the tenant.
      *

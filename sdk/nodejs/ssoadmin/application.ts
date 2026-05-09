@@ -210,59 +210,59 @@ export interface ApplicationState {
     /**
      * AWS account ID.
      */
-    applicationAccount?: pulumi.Input<string>;
+    applicationAccount?: pulumi.Input<string | undefined>;
     /**
      * (**Deprecated** Reference `arn` instead) ARN of the application.
      *
      * @deprecated Use 'arn' instead. This attribute will be removed in a future version of the provider.
      */
-    applicationArn?: pulumi.Input<string>;
+    applicationArn?: pulumi.Input<string | undefined>;
     /**
      * ARN of the application provider.
      */
-    applicationProviderArn?: pulumi.Input<string>;
+    applicationProviderArn?: pulumi.Input<string | undefined>;
     /**
      * ARN of the application.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
      */
-    clientToken?: pulumi.Input<string>;
+    clientToken?: pulumi.Input<string | undefined>;
     /**
      * Description of the application.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * ARN of the instance of IAM Identity Center.
      */
-    instanceArn?: pulumi.Input<string>;
+    instanceArn?: pulumi.Input<string | undefined>;
     /**
      * Name of the application.
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Options for the portal associated with an application. See `portalOptions` below.
      */
-    portalOptions?: pulumi.Input<inputs.ssoadmin.ApplicationPortalOptions>;
+    portalOptions?: pulumi.Input<inputs.ssoadmin.ApplicationPortalOptions | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Status of the application. Valid values are `ENABLED` and `DISABLED`.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -276,11 +276,11 @@ export interface ApplicationArgs {
     /**
      * A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
      */
-    clientToken?: pulumi.Input<string>;
+    clientToken?: pulumi.Input<string | undefined>;
     /**
      * Description of the application.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * ARN of the instance of IAM Identity Center.
      */
@@ -290,21 +290,21 @@ export interface ApplicationArgs {
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Options for the portal associated with an application. See `portalOptions` below.
      */
-    portalOptions?: pulumi.Input<inputs.ssoadmin.ApplicationPortalOptions>;
+    portalOptions?: pulumi.Input<inputs.ssoadmin.ApplicationPortalOptions | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Status of the application. Valid values are `ENABLED` and `DISABLED`.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

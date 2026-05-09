@@ -233,8 +233,8 @@ def get_report_definition(report_name: Optional[_builtins.str] = None,
         s3_region=pulumi.get(__ret__, 's3_region'),
         tags=pulumi.get(__ret__, 'tags'),
         time_unit=pulumi.get(__ret__, 'time_unit'))
-def get_report_definition_output(report_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_report_definition_output(report_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReportDefinitionResult]:
     """
     Use this data source to get information on an AWS Cost and Usage Report Definition.

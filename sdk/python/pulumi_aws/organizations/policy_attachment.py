@@ -21,7 +21,7 @@ class PolicyAttachmentArgs:
     def __init__(__self__, *,
                  policy_id: pulumi.Input[_builtins.str],
                  target_id: pulumi.Input[_builtins.str],
-                 skip_destroy: Optional[pulumi.Input[_builtins.bool]] = None):
+                 skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a PolicyAttachment resource.
 
@@ -60,23 +60,23 @@ class PolicyAttachmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="skipDestroy")
-    def skip_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_destroy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set to `true`, destroy will **not** detach the policy and instead just remove the resource from state. This can be useful in situations where the attachment must be preserved to meet the AWS minimum requirement of 1 attached policy.
         """
         return pulumi.get(self, "skip_destroy")
 
     @skip_destroy.setter
-    def skip_destroy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_destroy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_destroy", value)
 
 
 @pulumi.input_type
 class _PolicyAttachmentState:
     def __init__(__self__, *,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 target_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 target_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PolicyAttachment resources.
 
@@ -93,38 +93,38 @@ class _PolicyAttachmentState:
 
     @_builtins.property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique identifier (ID) of the policy that you want to attach to the target.
         """
         return pulumi.get(self, "policy_id")
 
     @policy_id.setter
-    def policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_id", value)
 
     @_builtins.property
     @pulumi.getter(name="skipDestroy")
-    def skip_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_destroy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set to `true`, destroy will **not** detach the policy and instead just remove the resource from state. This can be useful in situations where the attachment must be preserved to meet the AWS minimum requirement of 1 attached policy.
         """
         return pulumi.get(self, "skip_destroy")
 
     @skip_destroy.setter
-    def skip_destroy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_destroy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_destroy", value)
 
     @_builtins.property
     @pulumi.getter(name="targetId")
-    def target_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
         """
         return pulumi.get(self, "target_id")
 
     @target_id.setter
-    def target_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_id", value)
 
 
@@ -134,9 +134,9 @@ class PolicyAttachment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 target_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 target_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a resource to attach an AWS Organizations policy to an organization account, root, or unit.
@@ -285,9 +285,9 @@ class PolicyAttachment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 target_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 target_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -314,9 +314,9 @@ class PolicyAttachment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-            skip_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-            target_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'PolicyAttachment':
+            policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+            target_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'PolicyAttachment':
         """
         Get an existing PolicyAttachment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

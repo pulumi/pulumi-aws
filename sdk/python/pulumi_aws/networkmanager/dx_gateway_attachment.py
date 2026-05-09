@@ -24,9 +24,9 @@ class DxGatewayAttachmentArgs:
                  core_network_id: pulumi.Input[_builtins.str],
                  direct_connect_gateway_arn: pulumi.Input[_builtins.str],
                  edge_locations: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 routing_policy_label: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['DxGatewayAttachmentTimeoutsArgs']] = None):
+                 routing_policy_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['DxGatewayAttachmentTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a DxGatewayAttachment resource.
 
@@ -88,55 +88,55 @@ class DxGatewayAttachmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="routingPolicyLabel")
-    def routing_policy_label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_policy_label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The routing policy label to apply to the Direct Connect Gateway attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
         """
         return pulumi.get(self, "routing_policy_label")
 
     @routing_policy_label.setter
-    def routing_policy_label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_policy_label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_policy_label", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['DxGatewayAttachmentTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['DxGatewayAttachmentTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['DxGatewayAttachmentTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['DxGatewayAttachmentTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _DxGatewayAttachmentState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 attachment_policy_rule_number: Optional[pulumi.Input[_builtins.int]] = None,
-                 attachment_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 core_network_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 core_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 direct_connect_gateway_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 edge_locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 owner_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_policy_label: Optional[pulumi.Input[_builtins.str]] = None,
-                 segment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['DxGatewayAttachmentTimeoutsArgs']] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 attachment_policy_rule_number: pulumi.Input[Optional[_builtins.int]] = None,
+                 attachment_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 core_network_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 core_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 direct_connect_gateway_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 edge_locations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 owner_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_policy_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 segment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['DxGatewayAttachmentTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering DxGatewayAttachment resources.
 
@@ -187,79 +187,79 @@ class _DxGatewayAttachmentState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the attachment.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="attachmentPolicyRuleNumber")
-    def attachment_policy_rule_number(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def attachment_policy_rule_number(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Policy rule number associated with the attachment.
         """
         return pulumi.get(self, "attachment_policy_rule_number")
 
     @attachment_policy_rule_number.setter
-    def attachment_policy_rule_number(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def attachment_policy_rule_number(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "attachment_policy_rule_number", value)
 
     @_builtins.property
     @pulumi.getter(name="attachmentType")
-    def attachment_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def attachment_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of attachment.
         """
         return pulumi.get(self, "attachment_type")
 
     @attachment_type.setter
-    def attachment_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def attachment_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "attachment_type", value)
 
     @_builtins.property
     @pulumi.getter(name="coreNetworkArn")
-    def core_network_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def core_network_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the core network for the attachment.
         """
         return pulumi.get(self, "core_network_arn")
 
     @core_network_arn.setter
-    def core_network_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def core_network_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "core_network_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="coreNetworkId")
-    def core_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def core_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the Cloud WAN core network to which the Direct Connect gateway attachment should be attached.
         """
         return pulumi.get(self, "core_network_id")
 
     @core_network_id.setter
-    def core_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def core_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "core_network_id", value)
 
     @_builtins.property
     @pulumi.getter(name="directConnectGatewayArn")
-    def direct_connect_gateway_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def direct_connect_gateway_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the Direct Connect gateway attachment.
         """
         return pulumi.get(self, "direct_connect_gateway_arn")
 
     @direct_connect_gateway_arn.setter
-    def direct_connect_gateway_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def direct_connect_gateway_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "direct_connect_gateway_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="edgeLocations")
-    def edge_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def edge_locations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         One or more core network edge locations to associate with the Direct Connect gateway attachment.
 
@@ -268,88 +268,88 @@ class _DxGatewayAttachmentState:
         return pulumi.get(self, "edge_locations")
 
     @edge_locations.setter
-    def edge_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def edge_locations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "edge_locations", value)
 
     @_builtins.property
     @pulumi.getter(name="ownerAccountId")
-    def owner_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the attachment account owner.
         """
         return pulumi.get(self, "owner_account_id")
 
     @owner_account_id.setter
-    def owner_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="routingPolicyLabel")
-    def routing_policy_label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_policy_label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The routing policy label to apply to the Direct Connect Gateway attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
         """
         return pulumi.get(self, "routing_policy_label")
 
     @routing_policy_label.setter
-    def routing_policy_label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_policy_label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_policy_label", value)
 
     @_builtins.property
     @pulumi.getter(name="segmentName")
-    def segment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def segment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the segment attachment.
         """
         return pulumi.get(self, "segment_name")
 
     @segment_name.setter
-    def segment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def segment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "segment_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         State of the attachment.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['DxGatewayAttachmentTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['DxGatewayAttachmentTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['DxGatewayAttachmentTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['DxGatewayAttachmentTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
@@ -359,12 +359,12 @@ class DxGatewayAttachment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 core_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 direct_connect_gateway_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 edge_locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 routing_policy_label: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['DxGatewayAttachmentTimeoutsArgs', 'DxGatewayAttachmentTimeoutsArgsDict']]] = None,
+                 core_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 direct_connect_gateway_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 edge_locations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 routing_policy_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['DxGatewayAttachmentTimeoutsArgs', 'DxGatewayAttachmentTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Manages a Network Manager Direct Connect Gateway Attachment.
@@ -453,12 +453,12 @@ class DxGatewayAttachment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 core_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 direct_connect_gateway_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 edge_locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 routing_policy_label: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['DxGatewayAttachmentTimeoutsArgs', 'DxGatewayAttachmentTimeoutsArgsDict']]] = None,
+                 core_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 direct_connect_gateway_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 edge_locations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 routing_policy_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['DxGatewayAttachmentTimeoutsArgs', 'DxGatewayAttachmentTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -498,20 +498,20 @@ class DxGatewayAttachment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            attachment_policy_rule_number: Optional[pulumi.Input[_builtins.int]] = None,
-            attachment_type: Optional[pulumi.Input[_builtins.str]] = None,
-            core_network_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            core_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-            direct_connect_gateway_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            edge_locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            owner_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            routing_policy_label: Optional[pulumi.Input[_builtins.str]] = None,
-            segment_name: Optional[pulumi.Input[_builtins.str]] = None,
-            state: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: Optional[pulumi.Input[Union['DxGatewayAttachmentTimeoutsArgs', 'DxGatewayAttachmentTimeoutsArgsDict']]] = None) -> 'DxGatewayAttachment':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            attachment_policy_rule_number: pulumi.Input[Optional[_builtins.int]] = None,
+            attachment_type: pulumi.Input[Optional[_builtins.str]] = None,
+            core_network_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            core_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+            direct_connect_gateway_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            edge_locations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            owner_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_policy_label: pulumi.Input[Optional[_builtins.str]] = None,
+            segment_name: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['DxGatewayAttachmentTimeoutsArgs', 'DxGatewayAttachmentTimeoutsArgsDict']]] = None) -> 'DxGatewayAttachment':
         """
         Get an existing DxGatewayAttachment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

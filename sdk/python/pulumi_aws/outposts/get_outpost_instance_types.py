@@ -109,8 +109,8 @@ def get_outpost_instance_types(arn: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         instance_types=pulumi.get(__ret__, 'instance_types'),
         region=pulumi.get(__ret__, 'region'))
-def get_outpost_instance_types_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
-                                      region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_outpost_instance_types_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
+                                      region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOutpostInstanceTypesResult]:
     """
     Information about Outposts Instance Types.

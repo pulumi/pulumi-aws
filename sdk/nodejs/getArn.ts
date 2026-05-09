@@ -96,5 +96,5 @@ export interface GetArnOutputArgs {
      * ARN to parse.
      */
     arn: pulumi.Input<string>;
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
 }

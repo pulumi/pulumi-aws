@@ -119,23 +119,23 @@ export interface ResolverDnsSecConfigState {
     /**
      * The ARN for a configuration for DNSSEC validation.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
      */
-    ownerId?: pulumi.Input<string>;
+    ownerId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
      */
-    resourceId?: pulumi.Input<string>;
+    resourceId?: pulumi.Input<string | undefined>;
     /**
      * The validation status for a DNSSEC configuration. The status can be one of the following: `ENABLING`, `ENABLED`, `DISABLING` and `DISABLED`.
      */
-    validationStatus?: pulumi.Input<string>;
+    validationStatus?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -145,7 +145,7 @@ export interface ResolverDnsSecConfigArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
      */

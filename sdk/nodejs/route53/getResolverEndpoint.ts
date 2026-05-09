@@ -161,13 +161,13 @@ export interface GetResolverEndpointOutputArgs {
      * several valid keys, for a full reference, check out
      * [Route53resolver Filter value in the AWS API reference][1].
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.route53.GetResolverEndpointFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.route53.GetResolverEndpointFilterArgs>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ID of the Route53 Resolver Endpoint.
      */
-    resolverEndpointId?: pulumi.Input<string>;
+    resolverEndpointId?: pulumi.Input<string | undefined>;
 }

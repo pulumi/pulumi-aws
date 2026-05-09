@@ -182,62 +182,62 @@ export interface KeyState {
     /**
      * ARN of the key.
      */
-    arn?: pulumi.Input<string>;
-    deletionWindowInDays?: pulumi.Input<number>;
+    arn?: pulumi.Input<string | undefined>;
+    deletionWindowInDays?: pulumi.Input<number | undefined>;
     /**
      * Whether to enable the key.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the key is exportable from the service.
      */
-    exportable?: pulumi.Input<boolean>;
+    exportable?: pulumi.Input<boolean | undefined>;
     /**
      * Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
      *
      * The following arguments are optional:
      */
-    keyAttributes?: pulumi.Input<pulumi.Input<inputs.paymentcryptography.KeyKeyAttribute>[]>;
+    keyAttributes?: pulumi.Input<pulumi.Input<inputs.paymentcryptography.KeyKeyAttribute>[] | undefined>;
     /**
      * Key check value (KCV) is used to check if all parties holding a given key have the same key or to detect that a key has changed.
      */
-    keyCheckValue?: pulumi.Input<string>;
+    keyCheckValue?: pulumi.Input<string | undefined>;
     /**
      * Algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV).
      */
-    keyCheckValueAlgorithm?: pulumi.Input<string>;
+    keyCheckValueAlgorithm?: pulumi.Input<string | undefined>;
     /**
      * Source of the key material.
      */
-    keyOrigin?: pulumi.Input<string>;
+    keyOrigin?: pulumi.Input<string | undefined>;
     /**
      * State of key that is being created or deleted.
      */
-    keyState?: pulumi.Input<string>;
+    keyState?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.paymentcryptography.KeyTimeouts>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.paymentcryptography.KeyTimeouts | undefined>;
 }
 
 /**
  * The set of arguments for constructing a Key resource.
  */
 export interface KeyArgs {
-    deletionWindowInDays?: pulumi.Input<number>;
+    deletionWindowInDays?: pulumi.Input<number | undefined>;
     /**
      * Whether to enable the key.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the key is exportable from the service.
      */
@@ -247,18 +247,18 @@ export interface KeyArgs {
      *
      * The following arguments are optional:
      */
-    keyAttributes?: pulumi.Input<pulumi.Input<inputs.paymentcryptography.KeyKeyAttribute>[]>;
+    keyAttributes?: pulumi.Input<pulumi.Input<inputs.paymentcryptography.KeyKeyAttribute>[] | undefined>;
     /**
      * Algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV).
      */
-    keyCheckValueAlgorithm?: pulumi.Input<string>;
+    keyCheckValueAlgorithm?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.paymentcryptography.KeyTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.paymentcryptography.KeyTimeouts | undefined>;
 }

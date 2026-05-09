@@ -118,18 +118,18 @@ export interface RouteServerVpcAssociationState {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The unique identifier for the route server to be associated.
      */
-    routeServerId?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.vpc.RouteServerVpcAssociationTimeouts>;
+    routeServerId?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.vpc.RouteServerVpcAssociationTimeouts | undefined>;
     /**
      * The ID of the VPC to associate with the route server.
      *
      * The following arguments are optional:
      */
-    vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -139,12 +139,12 @@ export interface RouteServerVpcAssociationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The unique identifier for the route server to be associated.
      */
     routeServerId: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.vpc.RouteServerVpcAssociationTimeouts>;
+    timeouts?: pulumi.Input<inputs.vpc.RouteServerVpcAssociationTimeouts | undefined>;
     /**
      * The ID of the VPC to associate with the route server.
      *

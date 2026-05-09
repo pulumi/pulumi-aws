@@ -21,10 +21,10 @@ class ResponseArgs:
     def __init__(__self__, *,
                  response_type: pulumi.Input[_builtins.str],
                  rest_api_id: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 response_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 status_code: Optional[pulumi.Input[_builtins.str]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 response_templates: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 status_code: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Response resource.
 
@@ -72,62 +72,62 @@ class ResponseArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be managed. See the [AWS Documentation](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints) for supported values. Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="responseParameters")
-    def response_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def response_parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of parameters (paths, query strings and headers) of the Gateway Response.
         """
         return pulumi.get(self, "response_parameters")
 
     @response_parameters.setter
-    def response_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def response_parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "response_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="responseTemplates")
-    def response_templates(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def response_templates(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of templates used to transform the response body.
         """
         return pulumi.get(self, "response_templates")
 
     @response_templates.setter
-    def response_templates(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def response_templates(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "response_templates", value)
 
     @_builtins.property
     @pulumi.getter(name="statusCode")
-    def status_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         HTTP status code of the Gateway Response.
         """
         return pulumi.get(self, "status_code")
 
     @status_code.setter
-    def status_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status_code", value)
 
 
 @pulumi.input_type
 class _ResponseState:
     def __init__(__self__, *,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 response_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 response_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 rest_api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 status_code: Optional[pulumi.Input[_builtins.str]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 response_templates: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 response_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 rest_api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 status_code: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Response resources.
 
@@ -153,74 +153,74 @@ class _ResponseState:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be managed. See the [AWS Documentation](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints) for supported values. Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="responseParameters")
-    def response_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def response_parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of parameters (paths, query strings and headers) of the Gateway Response.
         """
         return pulumi.get(self, "response_parameters")
 
     @response_parameters.setter
-    def response_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def response_parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "response_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="responseTemplates")
-    def response_templates(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def response_templates(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of templates used to transform the response body.
         """
         return pulumi.get(self, "response_templates")
 
     @response_templates.setter
-    def response_templates(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def response_templates(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "response_templates", value)
 
     @_builtins.property
     @pulumi.getter(name="responseType")
-    def response_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def response_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Response type of the associated GatewayResponse. See the [AWS Documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/supported-gateway-response-types.html) for supported values.
         """
         return pulumi.get(self, "response_type")
 
     @response_type.setter
-    def response_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def response_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "response_type", value)
 
     @_builtins.property
     @pulumi.getter(name="restApiId")
-    def rest_api_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rest_api_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         String identifier of the associated REST API.
         """
         return pulumi.get(self, "rest_api_id")
 
     @rest_api_id.setter
-    def rest_api_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rest_api_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rest_api_id", value)
 
     @_builtins.property
     @pulumi.getter(name="statusCode")
-    def status_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         HTTP status code of the Gateway Response.
         """
         return pulumi.get(self, "status_code")
 
     @status_code.setter
-    def status_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status_code", value)
 
 
@@ -230,12 +230,12 @@ class Response(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 response_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 response_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 rest_api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 status_code: Optional[pulumi.Input[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 response_templates: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 response_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 rest_api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 status_code: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides an API Gateway Gateway Response for a REST API Gateway.
@@ -329,12 +329,12 @@ class Response(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 response_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 response_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 rest_api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 status_code: Optional[pulumi.Input[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 response_templates: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 response_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 rest_api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 status_code: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -364,12 +364,12 @@ class Response(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            response_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            response_type: Optional[pulumi.Input[_builtins.str]] = None,
-            rest_api_id: Optional[pulumi.Input[_builtins.str]] = None,
-            status_code: Optional[pulumi.Input[_builtins.str]] = None) -> 'Response':
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            response_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            response_templates: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            response_type: pulumi.Input[Optional[_builtins.str]] = None,
+            rest_api_id: pulumi.Input[Optional[_builtins.str]] = None,
+            status_code: pulumi.Input[Optional[_builtins.str]] = None) -> 'Response':
         """
         Get an existing Response resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

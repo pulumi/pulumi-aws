@@ -385,15 +385,15 @@ export interface BucketReplicationConfigState {
     /**
      * Name of the source S3 bucket you want Amazon S3 to monitor.
      */
-    bucket?: pulumi.Input<string>;
+    bucket?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN of the IAM role for Amazon S3 to assume when replicating the objects.
      */
-    role?: pulumi.Input<string>;
+    role?: pulumi.Input<string | undefined>;
     /**
      * List of configuration blocks describing the rules managing the replication. See below.
      *
@@ -404,12 +404,12 @@ export interface BucketReplicationConfigState {
      * > **NOTE:** The `existingObjectReplication` parameter is not supported by Amazon S3 at this time and should not be included in your `rule` configurations. Specifying this parameter will result in `MalformedXML` errors.
      * To replicate existing objects, please refer to the [Replicating existing objects with S3 Batch Replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-batch-replication-batch.html) documentation in the Amazon S3 User Guide.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.s3.BucketReplicationConfigRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.s3.BucketReplicationConfigRule>[] | undefined>;
     /**
      * Token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's "Object Lock token".
      * For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
      */
-    token?: pulumi.Input<string>;
+    token?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -423,7 +423,7 @@ export interface BucketReplicationConfigArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN of the IAM role for Amazon S3 to assume when replicating the objects.
      */
@@ -443,5 +443,5 @@ export interface BucketReplicationConfigArgs {
      * Token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's "Object Lock token".
      * For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
      */
-    token?: pulumi.Input<string>;
+    token?: pulumi.Input<string | undefined>;
 }

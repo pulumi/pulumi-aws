@@ -110,19 +110,19 @@ export interface RoleAssociationState {
     /**
      * DB Instance Identifier to associate with the IAM Role.
      */
-    dbInstanceIdentifier?: pulumi.Input<string>;
+    dbInstanceIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
      */
-    featureName?: pulumi.Input<string>;
+    featureName?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -140,7 +140,7 @@ export interface RoleAssociationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
      */

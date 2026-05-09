@@ -156,8 +156,8 @@ def get_user(tags: Optional[Mapping[str, _builtins.str]] = None,
         tags=pulumi.get(__ret__, 'tags'),
         user_id=pulumi.get(__ret__, 'user_id'),
         user_name=pulumi.get(__ret__, 'user_name'))
-def get_user_output(tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
-                    user_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_user_output(tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
+                    user_name: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
     """
     This data source can be used to fetch information about a specific

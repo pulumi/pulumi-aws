@@ -58,8 +58,8 @@ class UserPoliciesExclusiveArgs:
 @pulumi.input_type
 class _UserPoliciesExclusiveState:
     def __init__(__self__, *,
-                 policy_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 policy_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserPoliciesExclusive resources.
 
@@ -73,26 +73,26 @@ class _UserPoliciesExclusiveState:
 
     @_builtins.property
     @pulumi.getter(name="policyNames")
-    def policy_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def policy_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of inline policy names to be assigned to the user. Policies attached to this user but not configured in this argument will be removed.
         """
         return pulumi.get(self, "policy_names")
 
     @policy_names.setter
-    def policy_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def policy_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "policy_names", value)
 
     @_builtins.property
     @pulumi.getter(name="userName")
-    def user_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IAM user name.
         """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
-    def user_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name", value)
 
 
@@ -102,8 +102,8 @@ class UserPoliciesExclusive(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 policy_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource for maintaining exclusive management of inline policies assigned to an AWS IAM (Identity & Access Management) user.
@@ -219,8 +219,8 @@ class UserPoliciesExclusive(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 policy_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -246,8 +246,8 @@ class UserPoliciesExclusive(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            policy_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            user_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'UserPoliciesExclusive':
+            policy_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            user_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'UserPoliciesExclusive':
         """
         Get an existing UserPoliciesExclusive resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -111,8 +111,8 @@ def get_service(region: Optional[_builtins.str] = None,
         region=pulumi.get(__ret__, 'region'),
         service_code=pulumi.get(__ret__, 'service_code'),
         service_name=pulumi.get(__ret__, 'service_name'))
-def get_service_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                       service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_service_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       service_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceResult]:
     """
     Retrieve information about a Service Quotas Service.

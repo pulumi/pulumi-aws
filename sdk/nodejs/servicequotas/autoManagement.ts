@@ -139,25 +139,25 @@ export interface AutoManagementState {
     /**
      * Map of AWS services excluded from Automatic Management. You will need to include the AWS service code and one or more Service Quotas codes.
      */
-    exclusionList?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+    exclusionList?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>} | undefined>;
     /**
      * The AWS User Notifications ARN for Automatic Management notifications.
      */
-    notificationArn?: pulumi.Input<string>;
+    notificationArn?: pulumi.Input<string | undefined>;
     /**
      * The opt-in level for Automatic Management. Valid values: `ACCOUNT`.
      */
-    optInLevel?: pulumi.Input<string>;
+    optInLevel?: pulumi.Input<string | undefined>;
     /**
      * The opt-in type for Automatic Management. Valid values: `NotifyOnly`, `NotifyAndAdjust`.
      *
      * The following arguments are optional:
      */
-    optInType?: pulumi.Input<string>;
+    optInType?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -167,11 +167,11 @@ export interface AutoManagementArgs {
     /**
      * Map of AWS services excluded from Automatic Management. You will need to include the AWS service code and one or more Service Quotas codes.
      */
-    exclusionList?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+    exclusionList?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>} | undefined>;
     /**
      * The AWS User Notifications ARN for Automatic Management notifications.
      */
-    notificationArn?: pulumi.Input<string>;
+    notificationArn?: pulumi.Input<string | undefined>;
     /**
      * The opt-in level for Automatic Management. Valid values: `ACCOUNT`.
      */
@@ -185,5 +185,5 @@ export interface AutoManagementArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

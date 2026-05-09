@@ -119,5 +119,5 @@ export interface GetPrimaryContactOutputArgs {
     /**
      * The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
 }

@@ -180,21 +180,21 @@ export interface BucketServerSideEncryptionConfigurationState {
     /**
      * ID (name) of the bucket.
      */
-    bucket?: pulumi.Input<string>;
+    bucket?: pulumi.Input<string | undefined>;
     /**
      * Account ID of the expected bucket owner.
      *
      * @deprecated expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
      */
-    expectedBucketOwner?: pulumi.Input<string>;
+    expectedBucketOwner?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.s3.BucketServerSideEncryptionConfigurationRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.s3.BucketServerSideEncryptionConfigurationRule>[] | undefined>;
 }
 
 /**
@@ -210,11 +210,11 @@ export interface BucketServerSideEncryptionConfigurationArgs {
      *
      * @deprecated expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
      */
-    expectedBucketOwner?: pulumi.Input<string>;
+    expectedBucketOwner?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
      */

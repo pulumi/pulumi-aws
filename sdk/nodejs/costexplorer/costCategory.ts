@@ -193,45 +193,45 @@ export interface CostCategoryState {
     /**
      * ARN of the cost category.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Default value for the cost category.
      */
-    defaultValue?: pulumi.Input<string>;
+    defaultValue?: pulumi.Input<string | undefined>;
     /**
      * Effective end data of your Cost Category.
      */
-    effectiveEnd?: pulumi.Input<string>;
+    effectiveEnd?: pulumi.Input<string | undefined>;
     /**
      * The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
      */
-    effectiveStart?: pulumi.Input<string>;
+    effectiveStart?: pulumi.Input<string | undefined>;
     /**
      * Unique name for the Cost Category.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Rule schema version in this particular Cost Category.
      *
      * The following arguments are optional:
      */
-    ruleVersion?: pulumi.Input<string>;
+    ruleVersion?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for the Cost Category rules used to categorize costs. See below.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.costexplorer.CostCategoryRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.costexplorer.CostCategoryRule>[] | undefined>;
     /**
      * Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
      */
-    splitChargeRules?: pulumi.Input<pulumi.Input<inputs.costexplorer.CostCategorySplitChargeRule>[]>;
+    splitChargeRules?: pulumi.Input<pulumi.Input<inputs.costexplorer.CostCategorySplitChargeRule>[] | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -241,15 +241,15 @@ export interface CostCategoryArgs {
     /**
      * Default value for the cost category.
      */
-    defaultValue?: pulumi.Input<string>;
+    defaultValue?: pulumi.Input<string | undefined>;
     /**
      * The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
      */
-    effectiveStart?: pulumi.Input<string>;
+    effectiveStart?: pulumi.Input<string | undefined>;
     /**
      * Unique name for the Cost Category.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Rule schema version in this particular Cost Category.
      *
@@ -263,9 +263,9 @@ export interface CostCategoryArgs {
     /**
      * Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
      */
-    splitChargeRules?: pulumi.Input<pulumi.Input<inputs.costexplorer.CostCategorySplitChargeRule>[]>;
+    splitChargeRules?: pulumi.Input<pulumi.Input<inputs.costexplorer.CostCategorySplitChargeRule>[] | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

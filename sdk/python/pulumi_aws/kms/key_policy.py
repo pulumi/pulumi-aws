@@ -21,8 +21,8 @@ class KeyPolicyArgs:
     def __init__(__self__, *,
                  key_id: pulumi.Input[_builtins.str],
                  policy: pulumi.Input[_builtins.str],
-                 bypass_policy_lockout_safety_check: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 bypass_policy_lockout_safety_check: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a KeyPolicy resource.
 
@@ -70,7 +70,7 @@ class KeyPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="bypassPolicyLockoutSafetyCheck")
-    def bypass_policy_lockout_safety_check(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def bypass_policy_lockout_safety_check(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A flag to indicate whether to bypass the key policy lockout safety check.
         Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately. If this value is set, and the resource is destroyed, a warning will be shown, and the resource will be removed from state.
@@ -79,29 +79,29 @@ class KeyPolicyArgs:
         return pulumi.get(self, "bypass_policy_lockout_safety_check")
 
     @bypass_policy_lockout_safety_check.setter
-    def bypass_policy_lockout_safety_check(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def bypass_policy_lockout_safety_check(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "bypass_policy_lockout_safety_check", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _KeyPolicyState:
     def __init__(__self__, *,
-                 bypass_policy_lockout_safety_check: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 bypass_policy_lockout_safety_check: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering KeyPolicy resources.
 
@@ -125,7 +125,7 @@ class _KeyPolicyState:
 
     @_builtins.property
     @pulumi.getter(name="bypassPolicyLockoutSafetyCheck")
-    def bypass_policy_lockout_safety_check(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def bypass_policy_lockout_safety_check(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A flag to indicate whether to bypass the key policy lockout safety check.
         Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately. If this value is set, and the resource is destroyed, a warning will be shown, and the resource will be removed from state.
@@ -134,24 +134,24 @@ class _KeyPolicyState:
         return pulumi.get(self, "bypass_policy_lockout_safety_check")
 
     @bypass_policy_lockout_safety_check.setter
-    def bypass_policy_lockout_safety_check(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def bypass_policy_lockout_safety_check(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "bypass_policy_lockout_safety_check", value)
 
     @_builtins.property
     @pulumi.getter(name="keyId")
-    def key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the KMS Key to attach the policy.
         """
         return pulumi.get(self, "key_id")
 
     @key_id.setter
-    def key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam_get_policy_document`, in the form that designates a principal, can be used. For more information about building policy documents, see the AWS IAM Policy Document Guide.
 
@@ -160,19 +160,19 @@ class _KeyPolicyState:
         return pulumi.get(self, "policy")
 
     @policy.setter
-    def policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
@@ -182,10 +182,10 @@ class KeyPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bypass_policy_lockout_safety_check: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 bypass_policy_lockout_safety_check: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Attaches a policy to a KMS Key.
@@ -293,10 +293,10 @@ class KeyPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bypass_policy_lockout_safety_check: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 bypass_policy_lockout_safety_check: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -324,10 +324,10 @@ class KeyPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            bypass_policy_lockout_safety_check: Optional[pulumi.Input[_builtins.bool]] = None,
-            key_id: Optional[pulumi.Input[_builtins.str]] = None,
-            policy: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None) -> 'KeyPolicy':
+            bypass_policy_lockout_safety_check: pulumi.Input[Optional[_builtins.bool]] = None,
+            key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            policy: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> 'KeyPolicy':
         """
         Get an existing KeyPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

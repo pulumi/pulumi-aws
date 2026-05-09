@@ -383,8 +383,8 @@ def get_task_definition(region: Optional[_builtins.str] = None,
         task_definition=pulumi.get(__ret__, 'task_definition'),
         task_role_arn=pulumi.get(__ret__, 'task_role_arn'),
         volumes=pulumi.get(__ret__, 'volumes'))
-def get_task_definition_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                               task_definition: Optional[pulumi.Input[_builtins.str]] = None,
+def get_task_definition_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               task_definition: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTaskDefinitionResult]:
     """
     The ECS task definition data source allows access to details of

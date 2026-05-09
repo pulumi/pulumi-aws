@@ -26,15 +26,15 @@ class DomainArgs:
                  domain_name: pulumi.Input[_builtins.str],
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  vpc_id: pulumi.Input[_builtins.str],
-                 app_network_access_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_security_group_management: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_space_settings: Optional[pulumi.Input['DomainDefaultSpaceSettingsArgs']] = None,
-                 domain_settings: Optional[pulumi.Input['DomainDomainSettingsArgs']] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_policy: Optional[pulumi.Input['DomainRetentionPolicyArgs']] = None,
-                 tag_propagation: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 app_network_access_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_security_group_management: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_space_settings: pulumi.Input[Optional['DomainDefaultSpaceSettingsArgs']] = None,
+                 domain_settings: pulumi.Input[Optional['DomainDomainSettingsArgs']] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_policy: pulumi.Input[Optional['DomainRetentionPolicyArgs']] = None,
+                 tag_propagation: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Domain resource.
 
@@ -143,137 +143,137 @@ class DomainArgs:
 
     @_builtins.property
     @pulumi.getter(name="appNetworkAccessType")
-    def app_network_access_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_network_access_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
         """
         return pulumi.get(self, "app_network_access_type")
 
     @app_network_access_type.setter
-    def app_network_access_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_network_access_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_network_access_type", value)
 
     @_builtins.property
     @pulumi.getter(name="appSecurityGroupManagement")
-    def app_security_group_management(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_security_group_management(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
         """
         return pulumi.get(self, "app_security_group_management")
 
     @app_security_group_management.setter
-    def app_security_group_management(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_security_group_management(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_security_group_management", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultSpaceSettings")
-    def default_space_settings(self) -> Optional[pulumi.Input['DomainDefaultSpaceSettingsArgs']]:
+    def default_space_settings(self) -> pulumi.Input[Optional['DomainDefaultSpaceSettingsArgs']]:
         """
         The default space settings. See `default_space_settings` Block below.
         """
         return pulumi.get(self, "default_space_settings")
 
     @default_space_settings.setter
-    def default_space_settings(self, value: Optional[pulumi.Input['DomainDefaultSpaceSettingsArgs']]):
+    def default_space_settings(self, value: pulumi.Input[Optional['DomainDefaultSpaceSettingsArgs']]):
         pulumi.set(self, "default_space_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="domainSettings")
-    def domain_settings(self) -> Optional[pulumi.Input['DomainDomainSettingsArgs']]:
+    def domain_settings(self) -> pulumi.Input[Optional['DomainDomainSettingsArgs']]:
         """
         The domain settings. See `domain_settings` Block below.
         """
         return pulumi.get(self, "domain_settings")
 
     @domain_settings.setter
-    def domain_settings(self, value: Optional[pulumi.Input['DomainDomainSettingsArgs']]):
+    def domain_settings(self, value: pulumi.Input[Optional['DomainDomainSettingsArgs']]):
         pulumi.set(self, "domain_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionPolicy")
-    def retention_policy(self) -> Optional[pulumi.Input['DomainRetentionPolicyArgs']]:
+    def retention_policy(self) -> pulumi.Input[Optional['DomainRetentionPolicyArgs']]:
         """
         The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
         """
         return pulumi.get(self, "retention_policy")
 
     @retention_policy.setter
-    def retention_policy(self, value: Optional[pulumi.Input['DomainRetentionPolicyArgs']]):
+    def retention_policy(self, value: pulumi.Input[Optional['DomainRetentionPolicyArgs']]):
         pulumi.set(self, "retention_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="tagPropagation")
-    def tag_propagation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_propagation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
         """
         return pulumi.get(self, "tag_propagation")
 
     @tag_propagation.setter
-    def tag_propagation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_propagation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_propagation", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _DomainState:
     def __init__(__self__, *,
-                 app_network_access_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_security_group_management: Optional[pulumi.Input[_builtins.str]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 auth_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_space_settings: Optional[pulumi.Input['DomainDefaultSpaceSettingsArgs']] = None,
-                 default_user_settings: Optional[pulumi.Input['DomainDefaultUserSettingsArgs']] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_settings: Optional[pulumi.Input['DomainDomainSettingsArgs']] = None,
-                 home_efs_file_system_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_policy: Optional[pulumi.Input['DomainRetentionPolicyArgs']] = None,
-                 security_group_id_for_domain_boundary: Optional[pulumi.Input[_builtins.str]] = None,
-                 single_sign_on_application_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 single_sign_on_managed_application_instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tag_propagation: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 app_network_access_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_security_group_management: pulumi.Input[Optional[_builtins.str]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 auth_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_space_settings: pulumi.Input[Optional['DomainDefaultSpaceSettingsArgs']] = None,
+                 default_user_settings: pulumi.Input[Optional['DomainDefaultUserSettingsArgs']] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_settings: pulumi.Input[Optional['DomainDomainSettingsArgs']] = None,
+                 home_efs_file_system_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_policy: pulumi.Input[Optional['DomainRetentionPolicyArgs']] = None,
+                 security_group_id_for_domain_boundary: pulumi.Input[Optional[_builtins.str]] = None,
+                 single_sign_on_application_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 single_sign_on_managed_application_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tag_propagation: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Domain resources.
 
@@ -346,247 +346,247 @@ class _DomainState:
 
     @_builtins.property
     @pulumi.getter(name="appNetworkAccessType")
-    def app_network_access_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_network_access_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
         """
         return pulumi.get(self, "app_network_access_type")
 
     @app_network_access_type.setter
-    def app_network_access_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_network_access_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_network_access_type", value)
 
     @_builtins.property
     @pulumi.getter(name="appSecurityGroupManagement")
-    def app_security_group_management(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_security_group_management(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
         """
         return pulumi.get(self, "app_security_group_management")
 
     @app_security_group_management.setter
-    def app_security_group_management(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_security_group_management(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_security_group_management", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) assigned by AWS to this Domain.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="authMode")
-    def auth_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auth_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
         """
         return pulumi.get(self, "auth_mode")
 
     @auth_mode.setter
-    def auth_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auth_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auth_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultSpaceSettings")
-    def default_space_settings(self) -> Optional[pulumi.Input['DomainDefaultSpaceSettingsArgs']]:
+    def default_space_settings(self) -> pulumi.Input[Optional['DomainDefaultSpaceSettingsArgs']]:
         """
         The default space settings. See `default_space_settings` Block below.
         """
         return pulumi.get(self, "default_space_settings")
 
     @default_space_settings.setter
-    def default_space_settings(self, value: Optional[pulumi.Input['DomainDefaultSpaceSettingsArgs']]):
+    def default_space_settings(self, value: pulumi.Input[Optional['DomainDefaultSpaceSettingsArgs']]):
         pulumi.set(self, "default_space_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultUserSettings")
-    def default_user_settings(self) -> Optional[pulumi.Input['DomainDefaultUserSettingsArgs']]:
+    def default_user_settings(self) -> pulumi.Input[Optional['DomainDefaultUserSettingsArgs']]:
         """
         The default user settings. See `default_user_settings` Block below.
         """
         return pulumi.get(self, "default_user_settings")
 
     @default_user_settings.setter
-    def default_user_settings(self, value: Optional[pulumi.Input['DomainDefaultUserSettingsArgs']]):
+    def default_user_settings(self, value: pulumi.Input[Optional['DomainDefaultUserSettingsArgs']]):
         pulumi.set(self, "default_user_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The domain name.
         """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
-    def domain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_name", value)
 
     @_builtins.property
     @pulumi.getter(name="domainSettings")
-    def domain_settings(self) -> Optional[pulumi.Input['DomainDomainSettingsArgs']]:
+    def domain_settings(self) -> pulumi.Input[Optional['DomainDomainSettingsArgs']]:
         """
         The domain settings. See `domain_settings` Block below.
         """
         return pulumi.get(self, "domain_settings")
 
     @domain_settings.setter
-    def domain_settings(self, value: Optional[pulumi.Input['DomainDomainSettingsArgs']]):
+    def domain_settings(self, value: pulumi.Input[Optional['DomainDomainSettingsArgs']]):
         pulumi.set(self, "domain_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="homeEfsFileSystemId")
-    def home_efs_file_system_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def home_efs_file_system_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Amazon Elastic File System (EFS) managed by this Domain.
         """
         return pulumi.get(self, "home_efs_file_system_id")
 
     @home_efs_file_system_id.setter
-    def home_efs_file_system_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def home_efs_file_system_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "home_efs_file_system_id", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionPolicy")
-    def retention_policy(self) -> Optional[pulumi.Input['DomainRetentionPolicyArgs']]:
+    def retention_policy(self) -> pulumi.Input[Optional['DomainRetentionPolicyArgs']]:
         """
         The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
         """
         return pulumi.get(self, "retention_policy")
 
     @retention_policy.setter
-    def retention_policy(self, value: Optional[pulumi.Input['DomainRetentionPolicyArgs']]):
+    def retention_policy(self, value: pulumi.Input[Optional['DomainRetentionPolicyArgs']]):
         pulumi.set(self, "retention_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIdForDomainBoundary")
-    def security_group_id_for_domain_boundary(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def security_group_id_for_domain_boundary(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
         """
         return pulumi.get(self, "security_group_id_for_domain_boundary")
 
     @security_group_id_for_domain_boundary.setter
-    def security_group_id_for_domain_boundary(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def security_group_id_for_domain_boundary(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "security_group_id_for_domain_boundary", value)
 
     @_builtins.property
     @pulumi.getter(name="singleSignOnApplicationArn")
-    def single_sign_on_application_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def single_sign_on_application_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the application managed by SageMaker AI in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
         """
         return pulumi.get(self, "single_sign_on_application_arn")
 
     @single_sign_on_application_arn.setter
-    def single_sign_on_application_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def single_sign_on_application_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "single_sign_on_application_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="singleSignOnManagedApplicationInstanceId")
-    def single_sign_on_managed_application_instance_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def single_sign_on_managed_application_instance_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SSO managed application instance ID.
         """
         return pulumi.get(self, "single_sign_on_managed_application_instance_id")
 
     @single_sign_on_managed_application_instance_id.setter
-    def single_sign_on_managed_application_instance_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def single_sign_on_managed_application_instance_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "single_sign_on_managed_application_instance_id", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subnet_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The VPC subnets that Studio uses for communication.
         """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
-    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subnet_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subnet_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="tagPropagation")
-    def tag_propagation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_propagation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
         """
         return pulumi.get(self, "tag_propagation")
 
     @tag_propagation.setter
-    def tag_propagation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_propagation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_propagation", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The domain's URL.
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
 
@@ -595,7 +595,7 @@ class _DomainState:
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
-    def vpc_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_id", value)
 
 
@@ -605,20 +605,20 @@ class Domain(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_network_access_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_security_group_management: Optional[pulumi.Input[_builtins.str]] = None,
-                 auth_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_space_settings: Optional[pulumi.Input[Union['DomainDefaultSpaceSettingsArgs', 'DomainDefaultSpaceSettingsArgsDict']]] = None,
-                 default_user_settings: Optional[pulumi.Input[Union['DomainDefaultUserSettingsArgs', 'DomainDefaultUserSettingsArgsDict']]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_settings: Optional[pulumi.Input[Union['DomainDomainSettingsArgs', 'DomainDomainSettingsArgsDict']]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_policy: Optional[pulumi.Input[Union['DomainRetentionPolicyArgs', 'DomainRetentionPolicyArgsDict']]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tag_propagation: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 app_network_access_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_security_group_management: pulumi.Input[Optional[_builtins.str]] = None,
+                 auth_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_space_settings: pulumi.Input[Optional[Union['DomainDefaultSpaceSettingsArgs', 'DomainDefaultSpaceSettingsArgsDict']]] = None,
+                 default_user_settings: pulumi.Input[Optional[Union['DomainDefaultUserSettingsArgs', 'DomainDefaultUserSettingsArgsDict']]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_settings: pulumi.Input[Optional[Union['DomainDomainSettingsArgs', 'DomainDomainSettingsArgsDict']]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_policy: pulumi.Input[Optional[Union['DomainRetentionPolicyArgs', 'DomainRetentionPolicyArgsDict']]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tag_propagation: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a SageMaker AI Domain resource.
@@ -812,20 +812,20 @@ class Domain(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_network_access_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_security_group_management: Optional[pulumi.Input[_builtins.str]] = None,
-                 auth_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_space_settings: Optional[pulumi.Input[Union['DomainDefaultSpaceSettingsArgs', 'DomainDefaultSpaceSettingsArgsDict']]] = None,
-                 default_user_settings: Optional[pulumi.Input[Union['DomainDefaultUserSettingsArgs', 'DomainDefaultUserSettingsArgsDict']]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_settings: Optional[pulumi.Input[Union['DomainDomainSettingsArgs', 'DomainDomainSettingsArgsDict']]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_policy: Optional[pulumi.Input[Union['DomainRetentionPolicyArgs', 'DomainRetentionPolicyArgsDict']]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tag_propagation: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 app_network_access_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_security_group_management: pulumi.Input[Optional[_builtins.str]] = None,
+                 auth_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_space_settings: pulumi.Input[Optional[Union['DomainDefaultSpaceSettingsArgs', 'DomainDefaultSpaceSettingsArgsDict']]] = None,
+                 default_user_settings: pulumi.Input[Optional[Union['DomainDefaultUserSettingsArgs', 'DomainDefaultUserSettingsArgsDict']]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_settings: pulumi.Input[Optional[Union['DomainDomainSettingsArgs', 'DomainDomainSettingsArgsDict']]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_policy: pulumi.Input[Optional[Union['DomainRetentionPolicyArgs', 'DomainRetentionPolicyArgsDict']]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tag_propagation: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -876,27 +876,27 @@ class Domain(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            app_network_access_type: Optional[pulumi.Input[_builtins.str]] = None,
-            app_security_group_management: Optional[pulumi.Input[_builtins.str]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            auth_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            default_space_settings: Optional[pulumi.Input[Union['DomainDefaultSpaceSettingsArgs', 'DomainDefaultSpaceSettingsArgsDict']]] = None,
-            default_user_settings: Optional[pulumi.Input[Union['DomainDefaultUserSettingsArgs', 'DomainDefaultUserSettingsArgsDict']]] = None,
-            domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-            domain_settings: Optional[pulumi.Input[Union['DomainDomainSettingsArgs', 'DomainDomainSettingsArgsDict']]] = None,
-            home_efs_file_system_id: Optional[pulumi.Input[_builtins.str]] = None,
-            kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            retention_policy: Optional[pulumi.Input[Union['DomainRetentionPolicyArgs', 'DomainRetentionPolicyArgsDict']]] = None,
-            security_group_id_for_domain_boundary: Optional[pulumi.Input[_builtins.str]] = None,
-            single_sign_on_application_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            single_sign_on_managed_application_instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-            subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            tag_propagation: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            url: Optional[pulumi.Input[_builtins.str]] = None,
-            vpc_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'Domain':
+            app_network_access_type: pulumi.Input[Optional[_builtins.str]] = None,
+            app_security_group_management: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            auth_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            default_space_settings: pulumi.Input[Optional[Union['DomainDefaultSpaceSettingsArgs', 'DomainDefaultSpaceSettingsArgsDict']]] = None,
+            default_user_settings: pulumi.Input[Optional[Union['DomainDefaultUserSettingsArgs', 'DomainDefaultUserSettingsArgsDict']]] = None,
+            domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_settings: pulumi.Input[Optional[Union['DomainDomainSettingsArgs', 'DomainDomainSettingsArgsDict']]] = None,
+            home_efs_file_system_id: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            retention_policy: pulumi.Input[Optional[Union['DomainRetentionPolicyArgs', 'DomainRetentionPolicyArgsDict']]] = None,
+            security_group_id_for_domain_boundary: pulumi.Input[Optional[_builtins.str]] = None,
+            single_sign_on_application_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            single_sign_on_managed_application_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tag_propagation: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None,
+            vpc_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'Domain':
         """
         Get an existing Domain resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

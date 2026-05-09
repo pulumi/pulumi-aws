@@ -334,10 +334,10 @@ def get_user(alternate_identifier: Optional[Union['GetUserAlternateIdentifierArg
         user_name=pulumi.get(__ret__, 'user_name'),
         user_status=pulumi.get(__ret__, 'user_status'),
         user_type=pulumi.get(__ret__, 'user_type'))
-def get_user_output(alternate_identifier: Optional[pulumi.Input[Optional[Union['GetUserAlternateIdentifierArgs', 'GetUserAlternateIdentifierArgsDict']]]] = None,
-                    identity_store_id: Optional[pulumi.Input[_builtins.str]] = None,
-                    region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                    user_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_user_output(alternate_identifier: pulumi.Input[Optional[Optional[Union['GetUserAlternateIdentifierArgs', 'GetUserAlternateIdentifierArgsDict']]]] = None,
+                    identity_store_id: pulumi.Input[Optional[_builtins.str]] = None,
+                    region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                    user_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
     """
     Use this data source to get an Identity Store User.

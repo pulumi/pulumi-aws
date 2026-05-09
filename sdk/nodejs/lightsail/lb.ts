@@ -173,57 +173,57 @@ export interface LbState {
     /**
      * ARN of the Lightsail load balancer.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Timestamp when the load balancer was created.
      */
-    createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string | undefined>;
     /**
      * DNS name of the load balancer.
      */
-    dnsName?: pulumi.Input<string>;
+    dnsName?: pulumi.Input<string | undefined>;
     /**
      * Health check path of the load balancer. Default value `/`.
      */
-    healthCheckPath?: pulumi.Input<string>;
+    healthCheckPath?: pulumi.Input<string | undefined>;
     /**
      * Instance port the load balancer will connect to.
      */
-    instancePort?: pulumi.Input<number>;
+    instancePort?: pulumi.Input<number | undefined>;
     /**
      * IP address type of the load balancer. Valid values: `dualstack`, `ipv4`. Default value `dualstack`.
      */
-    ipAddressType?: pulumi.Input<string>;
+    ipAddressType?: pulumi.Input<string | undefined>;
     /**
      * Name of the Lightsail load balancer.
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Protocol of the load balancer.
      */
-    protocol?: pulumi.Input<string>;
+    protocol?: pulumi.Input<string | undefined>;
     /**
      * Public ports of the load balancer.
      */
-    publicPorts?: pulumi.Input<pulumi.Input<number>[]>;
+    publicPorts?: pulumi.Input<pulumi.Input<number>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Support code for the load balancer. Include this code in your email to support when you have questions about a load balancer in Lightsail. This code enables our support team to look up your Lightsail information more easily.
      */
-    supportCode?: pulumi.Input<string>;
+    supportCode?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -233,7 +233,7 @@ export interface LbArgs {
     /**
      * Health check path of the load balancer. Default value `/`.
      */
-    healthCheckPath?: pulumi.Input<string>;
+    healthCheckPath?: pulumi.Input<string | undefined>;
     /**
      * Instance port the load balancer will connect to.
      */
@@ -241,19 +241,19 @@ export interface LbArgs {
     /**
      * IP address type of the load balancer. Valid values: `dualstack`, `ipv4`. Default value `dualstack`.
      */
-    ipAddressType?: pulumi.Input<string>;
+    ipAddressType?: pulumi.Input<string | undefined>;
     /**
      * Name of the Lightsail load balancer.
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -21,22 +21,22 @@ __all__ = ['DirectoryArgs', 'Directory']
 @pulumi.input_type
 class DirectoryArgs:
     def __init__(__self__, *,
-                 active_directory_config: Optional[pulumi.Input['DirectoryActiveDirectoryConfigArgs']] = None,
-                 certificate_based_auth_properties: Optional[pulumi.Input['DirectoryCertificateBasedAuthPropertiesArgs']] = None,
-                 directory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml_properties: Optional[pulumi.Input['DirectorySamlPropertiesArgs']] = None,
-                 self_service_permissions: Optional[pulumi.Input['DirectorySelfServicePermissionsArgs']] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tenancy: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_identity_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_access_properties: Optional[pulumi.Input['DirectoryWorkspaceAccessPropertiesArgs']] = None,
-                 workspace_creation_properties: Optional[pulumi.Input['DirectoryWorkspaceCreationPropertiesArgs']] = None,
-                 workspace_directory_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_directory_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 active_directory_config: pulumi.Input[Optional['DirectoryActiveDirectoryConfigArgs']] = None,
+                 certificate_based_auth_properties: pulumi.Input[Optional['DirectoryCertificateBasedAuthPropertiesArgs']] = None,
+                 directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml_properties: pulumi.Input[Optional['DirectorySamlPropertiesArgs']] = None,
+                 self_service_permissions: pulumi.Input[Optional['DirectorySelfServicePermissionsArgs']] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tenancy: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_identity_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_access_properties: pulumi.Input[Optional['DirectoryWorkspaceAccessPropertiesArgs']] = None,
+                 workspace_creation_properties: pulumi.Input[Optional['DirectoryWorkspaceCreationPropertiesArgs']] = None,
+                 workspace_directory_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_directory_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Directory resource.
 
@@ -94,127 +94,127 @@ class DirectoryArgs:
 
     @_builtins.property
     @pulumi.getter(name="activeDirectoryConfig")
-    def active_directory_config(self) -> Optional[pulumi.Input['DirectoryActiveDirectoryConfigArgs']]:
+    def active_directory_config(self) -> pulumi.Input[Optional['DirectoryActiveDirectoryConfigArgs']]:
         """
         Configuration for Active Directory integration when `workspace_type` is set to `POOLS`. Defined below.
         """
         return pulumi.get(self, "active_directory_config")
 
     @active_directory_config.setter
-    def active_directory_config(self, value: Optional[pulumi.Input['DirectoryActiveDirectoryConfigArgs']]):
+    def active_directory_config(self, value: pulumi.Input[Optional['DirectoryActiveDirectoryConfigArgs']]):
         pulumi.set(self, "active_directory_config", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateBasedAuthProperties")
-    def certificate_based_auth_properties(self) -> Optional[pulumi.Input['DirectoryCertificateBasedAuthPropertiesArgs']]:
+    def certificate_based_auth_properties(self) -> pulumi.Input[Optional['DirectoryCertificateBasedAuthPropertiesArgs']]:
         """
         Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
         """
         return pulumi.get(self, "certificate_based_auth_properties")
 
     @certificate_based_auth_properties.setter
-    def certificate_based_auth_properties(self, value: Optional[pulumi.Input['DirectoryCertificateBasedAuthPropertiesArgs']]):
+    def certificate_based_auth_properties(self, value: pulumi.Input[Optional['DirectoryCertificateBasedAuthPropertiesArgs']]):
         pulumi.set(self, "certificate_based_auth_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="directoryId")
-    def directory_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def directory_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The directory identifier for registration in WorkSpaces service.
         """
         return pulumi.get(self, "directory_id")
 
     @directory_id.setter
-    def directory_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def directory_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "directory_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ipGroupIds")
-    def ip_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ip_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The identifiers of the IP access control groups associated with the directory.
         """
         return pulumi.get(self, "ip_group_ids")
 
     @ip_group_ids.setter
-    def ip_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ip_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ip_group_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="samlProperties")
-    def saml_properties(self) -> Optional[pulumi.Input['DirectorySamlPropertiesArgs']]:
+    def saml_properties(self) -> pulumi.Input[Optional['DirectorySamlPropertiesArgs']]:
         """
         Configuration of SAML authentication integration. Defined below.
         """
         return pulumi.get(self, "saml_properties")
 
     @saml_properties.setter
-    def saml_properties(self, value: Optional[pulumi.Input['DirectorySamlPropertiesArgs']]):
+    def saml_properties(self, value: pulumi.Input[Optional['DirectorySamlPropertiesArgs']]):
         pulumi.set(self, "saml_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="selfServicePermissions")
-    def self_service_permissions(self) -> Optional[pulumi.Input['DirectorySelfServicePermissionsArgs']]:
+    def self_service_permissions(self) -> pulumi.Input[Optional['DirectorySelfServicePermissionsArgs']]:
         """
         Permissions to enable or disable self-service capabilities when `workspace_type` is set to `PERSONAL`.. Defined below.
         """
         return pulumi.get(self, "self_service_permissions")
 
     @self_service_permissions.setter
-    def self_service_permissions(self, value: Optional[pulumi.Input['DirectorySelfServicePermissionsArgs']]):
+    def self_service_permissions(self, value: pulumi.Input[Optional['DirectorySelfServicePermissionsArgs']]):
         pulumi.set(self, "self_service_permissions", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subnet_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The identifiers of the subnets where the directory resides.
         """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
-    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subnet_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subnet_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def tenancy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenancy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Tenancy of the WorkSpaces directory. Valid values are `DEDICATED` or `SHARED`.
         """
         return pulumi.get(self, "tenancy")
 
     @tenancy.setter
-    def tenancy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenancy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenancy", value)
 
     @_builtins.property
     @pulumi.getter(name="userIdentityType")
-    def user_identity_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_identity_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the user identity type for the WorkSpaces directory. Valid values are `CUSTOMER_MANAGED`, `AWS_DIRECTORY_SERVICE`, `AWS_IAM_IDENTITY_CENTER`.
 
@@ -223,98 +223,98 @@ class DirectoryArgs:
         return pulumi.get(self, "user_identity_type")
 
     @user_identity_type.setter
-    def user_identity_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_identity_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_identity_type", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceAccessProperties")
-    def workspace_access_properties(self) -> Optional[pulumi.Input['DirectoryWorkspaceAccessPropertiesArgs']]:
+    def workspace_access_properties(self) -> pulumi.Input[Optional['DirectoryWorkspaceAccessPropertiesArgs']]:
         """
         Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
         """
         return pulumi.get(self, "workspace_access_properties")
 
     @workspace_access_properties.setter
-    def workspace_access_properties(self, value: Optional[pulumi.Input['DirectoryWorkspaceAccessPropertiesArgs']]):
+    def workspace_access_properties(self, value: pulumi.Input[Optional['DirectoryWorkspaceAccessPropertiesArgs']]):
         pulumi.set(self, "workspace_access_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceCreationProperties")
-    def workspace_creation_properties(self) -> Optional[pulumi.Input['DirectoryWorkspaceCreationPropertiesArgs']]:
+    def workspace_creation_properties(self) -> pulumi.Input[Optional['DirectoryWorkspaceCreationPropertiesArgs']]:
         """
         Default properties that are used for creating WorkSpaces. Defined below.
         """
         return pulumi.get(self, "workspace_creation_properties")
 
     @workspace_creation_properties.setter
-    def workspace_creation_properties(self, value: Optional[pulumi.Input['DirectoryWorkspaceCreationPropertiesArgs']]):
+    def workspace_creation_properties(self, value: pulumi.Input[Optional['DirectoryWorkspaceCreationPropertiesArgs']]):
         pulumi.set(self, "workspace_creation_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceDirectoryDescription")
-    def workspace_directory_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workspace_directory_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
         """
         return pulumi.get(self, "workspace_directory_description")
 
     @workspace_directory_description.setter
-    def workspace_directory_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workspace_directory_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workspace_directory_description", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceDirectoryName")
-    def workspace_directory_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workspace_directory_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
         """
         return pulumi.get(self, "workspace_directory_name")
 
     @workspace_directory_name.setter
-    def workspace_directory_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workspace_directory_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workspace_directory_name", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceType")
-    def workspace_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workspace_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type of WorkSpaces directory. Valid values are `PERSONAL` and `POOLS`. Default is `PERSONAL`.
         """
         return pulumi.get(self, "workspace_type")
 
     @workspace_type.setter
-    def workspace_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workspace_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workspace_type", value)
 
 
 @pulumi.input_type
 class _DirectoryState:
     def __init__(__self__, *,
-                 active_directory_config: Optional[pulumi.Input['DirectoryActiveDirectoryConfigArgs']] = None,
-                 alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_based_auth_properties: Optional[pulumi.Input['DirectoryCertificateBasedAuthPropertiesArgs']] = None,
-                 customer_user_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 directory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 directory_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 directory_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 iam_role_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 registration_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml_properties: Optional[pulumi.Input['DirectorySamlPropertiesArgs']] = None,
-                 self_service_permissions: Optional[pulumi.Input['DirectorySelfServicePermissionsArgs']] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tenancy: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_identity_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_access_properties: Optional[pulumi.Input['DirectoryWorkspaceAccessPropertiesArgs']] = None,
-                 workspace_creation_properties: Optional[pulumi.Input['DirectoryWorkspaceCreationPropertiesArgs']] = None,
-                 workspace_directory_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_directory_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_security_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 active_directory_config: pulumi.Input[Optional['DirectoryActiveDirectoryConfigArgs']] = None,
+                 alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_based_auth_properties: pulumi.Input[Optional['DirectoryCertificateBasedAuthPropertiesArgs']] = None,
+                 customer_user_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 directory_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 directory_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 iam_role_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 registration_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml_properties: pulumi.Input[Optional['DirectorySamlPropertiesArgs']] = None,
+                 self_service_permissions: pulumi.Input[Optional['DirectorySelfServicePermissionsArgs']] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tenancy: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_identity_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_access_properties: pulumi.Input[Optional['DirectoryWorkspaceAccessPropertiesArgs']] = None,
+                 workspace_creation_properties: pulumi.Input[Optional['DirectoryWorkspaceCreationPropertiesArgs']] = None,
+                 workspace_directory_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_directory_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Directory resources.
 
@@ -399,223 +399,223 @@ class _DirectoryState:
 
     @_builtins.property
     @pulumi.getter(name="activeDirectoryConfig")
-    def active_directory_config(self) -> Optional[pulumi.Input['DirectoryActiveDirectoryConfigArgs']]:
+    def active_directory_config(self) -> pulumi.Input[Optional['DirectoryActiveDirectoryConfigArgs']]:
         """
         Configuration for Active Directory integration when `workspace_type` is set to `POOLS`. Defined below.
         """
         return pulumi.get(self, "active_directory_config")
 
     @active_directory_config.setter
-    def active_directory_config(self, value: Optional[pulumi.Input['DirectoryActiveDirectoryConfigArgs']]):
+    def active_directory_config(self, value: pulumi.Input[Optional['DirectoryActiveDirectoryConfigArgs']]):
         pulumi.set(self, "active_directory_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The directory alias.
         """
         return pulumi.get(self, "alias")
 
     @alias.setter
-    def alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alias", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateBasedAuthProperties")
-    def certificate_based_auth_properties(self) -> Optional[pulumi.Input['DirectoryCertificateBasedAuthPropertiesArgs']]:
+    def certificate_based_auth_properties(self) -> pulumi.Input[Optional['DirectoryCertificateBasedAuthPropertiesArgs']]:
         """
         Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
         """
         return pulumi.get(self, "certificate_based_auth_properties")
 
     @certificate_based_auth_properties.setter
-    def certificate_based_auth_properties(self, value: Optional[pulumi.Input['DirectoryCertificateBasedAuthPropertiesArgs']]):
+    def certificate_based_auth_properties(self, value: pulumi.Input[Optional['DirectoryCertificateBasedAuthPropertiesArgs']]):
         pulumi.set(self, "certificate_based_auth_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="customerUserName")
-    def customer_user_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customer_user_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user name for the service account.
         """
         return pulumi.get(self, "customer_user_name")
 
     @customer_user_name.setter
-    def customer_user_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customer_user_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customer_user_name", value)
 
     @_builtins.property
     @pulumi.getter(name="directoryId")
-    def directory_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def directory_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The directory identifier for registration in WorkSpaces service.
         """
         return pulumi.get(self, "directory_id")
 
     @directory_id.setter
-    def directory_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def directory_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "directory_id", value)
 
     @_builtins.property
     @pulumi.getter(name="directoryName")
-    def directory_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def directory_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the directory.
         """
         return pulumi.get(self, "directory_name")
 
     @directory_name.setter
-    def directory_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def directory_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "directory_name", value)
 
     @_builtins.property
     @pulumi.getter(name="directoryType")
-    def directory_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def directory_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The directory type.
         """
         return pulumi.get(self, "directory_type")
 
     @directory_type.setter
-    def directory_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def directory_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "directory_type", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsIpAddresses")
-    def dns_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def dns_ip_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The IP addresses of the DNS servers for the directory.
         """
         return pulumi.get(self, "dns_ip_addresses")
 
     @dns_ip_addresses.setter
-    def dns_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def dns_ip_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "dns_ip_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="iamRoleId")
-    def iam_role_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def iam_role_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
         """
         return pulumi.get(self, "iam_role_id")
 
     @iam_role_id.setter
-    def iam_role_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def iam_role_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "iam_role_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ipGroupIds")
-    def ip_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ip_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The identifiers of the IP access control groups associated with the directory.
         """
         return pulumi.get(self, "ip_group_ids")
 
     @ip_group_ids.setter
-    def ip_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ip_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ip_group_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="registrationCode")
-    def registration_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def registration_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
         """
         return pulumi.get(self, "registration_code")
 
     @registration_code.setter
-    def registration_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def registration_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "registration_code", value)
 
     @_builtins.property
     @pulumi.getter(name="samlProperties")
-    def saml_properties(self) -> Optional[pulumi.Input['DirectorySamlPropertiesArgs']]:
+    def saml_properties(self) -> pulumi.Input[Optional['DirectorySamlPropertiesArgs']]:
         """
         Configuration of SAML authentication integration. Defined below.
         """
         return pulumi.get(self, "saml_properties")
 
     @saml_properties.setter
-    def saml_properties(self, value: Optional[pulumi.Input['DirectorySamlPropertiesArgs']]):
+    def saml_properties(self, value: pulumi.Input[Optional['DirectorySamlPropertiesArgs']]):
         pulumi.set(self, "saml_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="selfServicePermissions")
-    def self_service_permissions(self) -> Optional[pulumi.Input['DirectorySelfServicePermissionsArgs']]:
+    def self_service_permissions(self) -> pulumi.Input[Optional['DirectorySelfServicePermissionsArgs']]:
         """
         Permissions to enable or disable self-service capabilities when `workspace_type` is set to `PERSONAL`.. Defined below.
         """
         return pulumi.get(self, "self_service_permissions")
 
     @self_service_permissions.setter
-    def self_service_permissions(self, value: Optional[pulumi.Input['DirectorySelfServicePermissionsArgs']]):
+    def self_service_permissions(self, value: pulumi.Input[Optional['DirectorySelfServicePermissionsArgs']]):
         pulumi.set(self, "self_service_permissions", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subnet_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The identifiers of the subnets where the directory resides.
         """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
-    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subnet_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subnet_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def tenancy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenancy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Tenancy of the WorkSpaces directory. Valid values are `DEDICATED` or `SHARED`.
         """
         return pulumi.get(self, "tenancy")
 
     @tenancy.setter
-    def tenancy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenancy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenancy", value)
 
     @_builtins.property
     @pulumi.getter(name="userIdentityType")
-    def user_identity_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_identity_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the user identity type for the WorkSpaces directory. Valid values are `CUSTOMER_MANAGED`, `AWS_DIRECTORY_SERVICE`, `AWS_IAM_IDENTITY_CENTER`.
 
@@ -624,79 +624,79 @@ class _DirectoryState:
         return pulumi.get(self, "user_identity_type")
 
     @user_identity_type.setter
-    def user_identity_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_identity_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_identity_type", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceAccessProperties")
-    def workspace_access_properties(self) -> Optional[pulumi.Input['DirectoryWorkspaceAccessPropertiesArgs']]:
+    def workspace_access_properties(self) -> pulumi.Input[Optional['DirectoryWorkspaceAccessPropertiesArgs']]:
         """
         Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
         """
         return pulumi.get(self, "workspace_access_properties")
 
     @workspace_access_properties.setter
-    def workspace_access_properties(self, value: Optional[pulumi.Input['DirectoryWorkspaceAccessPropertiesArgs']]):
+    def workspace_access_properties(self, value: pulumi.Input[Optional['DirectoryWorkspaceAccessPropertiesArgs']]):
         pulumi.set(self, "workspace_access_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceCreationProperties")
-    def workspace_creation_properties(self) -> Optional[pulumi.Input['DirectoryWorkspaceCreationPropertiesArgs']]:
+    def workspace_creation_properties(self) -> pulumi.Input[Optional['DirectoryWorkspaceCreationPropertiesArgs']]:
         """
         Default properties that are used for creating WorkSpaces. Defined below.
         """
         return pulumi.get(self, "workspace_creation_properties")
 
     @workspace_creation_properties.setter
-    def workspace_creation_properties(self, value: Optional[pulumi.Input['DirectoryWorkspaceCreationPropertiesArgs']]):
+    def workspace_creation_properties(self, value: pulumi.Input[Optional['DirectoryWorkspaceCreationPropertiesArgs']]):
         pulumi.set(self, "workspace_creation_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceDirectoryDescription")
-    def workspace_directory_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workspace_directory_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
         """
         return pulumi.get(self, "workspace_directory_description")
 
     @workspace_directory_description.setter
-    def workspace_directory_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workspace_directory_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workspace_directory_description", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceDirectoryName")
-    def workspace_directory_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workspace_directory_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
         """
         return pulumi.get(self, "workspace_directory_name")
 
     @workspace_directory_name.setter
-    def workspace_directory_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workspace_directory_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workspace_directory_name", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceSecurityGroupId")
-    def workspace_security_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workspace_security_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the security group that is assigned to new WorkSpaces.
         """
         return pulumi.get(self, "workspace_security_group_id")
 
     @workspace_security_group_id.setter
-    def workspace_security_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workspace_security_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workspace_security_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceType")
-    def workspace_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workspace_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type of WorkSpaces directory. Valid values are `PERSONAL` and `POOLS`. Default is `PERSONAL`.
         """
         return pulumi.get(self, "workspace_type")
 
     @workspace_type.setter
-    def workspace_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workspace_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workspace_type", value)
 
 
@@ -706,22 +706,22 @@ class Directory(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 active_directory_config: Optional[pulumi.Input[Union['DirectoryActiveDirectoryConfigArgs', 'DirectoryActiveDirectoryConfigArgsDict']]] = None,
-                 certificate_based_auth_properties: Optional[pulumi.Input[Union['DirectoryCertificateBasedAuthPropertiesArgs', 'DirectoryCertificateBasedAuthPropertiesArgsDict']]] = None,
-                 directory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml_properties: Optional[pulumi.Input[Union['DirectorySamlPropertiesArgs', 'DirectorySamlPropertiesArgsDict']]] = None,
-                 self_service_permissions: Optional[pulumi.Input[Union['DirectorySelfServicePermissionsArgs', 'DirectorySelfServicePermissionsArgsDict']]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tenancy: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_identity_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_access_properties: Optional[pulumi.Input[Union['DirectoryWorkspaceAccessPropertiesArgs', 'DirectoryWorkspaceAccessPropertiesArgsDict']]] = None,
-                 workspace_creation_properties: Optional[pulumi.Input[Union['DirectoryWorkspaceCreationPropertiesArgs', 'DirectoryWorkspaceCreationPropertiesArgsDict']]] = None,
-                 workspace_directory_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_directory_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 active_directory_config: pulumi.Input[Optional[Union['DirectoryActiveDirectoryConfigArgs', 'DirectoryActiveDirectoryConfigArgsDict']]] = None,
+                 certificate_based_auth_properties: pulumi.Input[Optional[Union['DirectoryCertificateBasedAuthPropertiesArgs', 'DirectoryCertificateBasedAuthPropertiesArgsDict']]] = None,
+                 directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml_properties: pulumi.Input[Optional[Union['DirectorySamlPropertiesArgs', 'DirectorySamlPropertiesArgsDict']]] = None,
+                 self_service_permissions: pulumi.Input[Optional[Union['DirectorySelfServicePermissionsArgs', 'DirectorySelfServicePermissionsArgsDict']]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tenancy: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_identity_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_access_properties: pulumi.Input[Optional[Union['DirectoryWorkspaceAccessPropertiesArgs', 'DirectoryWorkspaceAccessPropertiesArgsDict']]] = None,
+                 workspace_creation_properties: pulumi.Input[Optional[Union['DirectoryWorkspaceCreationPropertiesArgs', 'DirectoryWorkspaceCreationPropertiesArgsDict']]] = None,
+                 workspace_directory_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_directory_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a WorkSpaces directory in AWS WorkSpaces Service.
@@ -1093,22 +1093,22 @@ class Directory(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 active_directory_config: Optional[pulumi.Input[Union['DirectoryActiveDirectoryConfigArgs', 'DirectoryActiveDirectoryConfigArgsDict']]] = None,
-                 certificate_based_auth_properties: Optional[pulumi.Input[Union['DirectoryCertificateBasedAuthPropertiesArgs', 'DirectoryCertificateBasedAuthPropertiesArgsDict']]] = None,
-                 directory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml_properties: Optional[pulumi.Input[Union['DirectorySamlPropertiesArgs', 'DirectorySamlPropertiesArgsDict']]] = None,
-                 self_service_permissions: Optional[pulumi.Input[Union['DirectorySelfServicePermissionsArgs', 'DirectorySelfServicePermissionsArgsDict']]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tenancy: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_identity_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_access_properties: Optional[pulumi.Input[Union['DirectoryWorkspaceAccessPropertiesArgs', 'DirectoryWorkspaceAccessPropertiesArgsDict']]] = None,
-                 workspace_creation_properties: Optional[pulumi.Input[Union['DirectoryWorkspaceCreationPropertiesArgs', 'DirectoryWorkspaceCreationPropertiesArgsDict']]] = None,
-                 workspace_directory_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_directory_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 active_directory_config: pulumi.Input[Optional[Union['DirectoryActiveDirectoryConfigArgs', 'DirectoryActiveDirectoryConfigArgsDict']]] = None,
+                 certificate_based_auth_properties: pulumi.Input[Optional[Union['DirectoryCertificateBasedAuthPropertiesArgs', 'DirectoryCertificateBasedAuthPropertiesArgsDict']]] = None,
+                 directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml_properties: pulumi.Input[Optional[Union['DirectorySamlPropertiesArgs', 'DirectorySamlPropertiesArgsDict']]] = None,
+                 self_service_permissions: pulumi.Input[Optional[Union['DirectorySelfServicePermissionsArgs', 'DirectorySelfServicePermissionsArgsDict']]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tenancy: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_identity_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_access_properties: pulumi.Input[Optional[Union['DirectoryWorkspaceAccessPropertiesArgs', 'DirectoryWorkspaceAccessPropertiesArgsDict']]] = None,
+                 workspace_creation_properties: pulumi.Input[Optional[Union['DirectoryWorkspaceCreationPropertiesArgs', 'DirectoryWorkspaceCreationPropertiesArgsDict']]] = None,
+                 workspace_directory_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_directory_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1153,31 +1153,31 @@ class Directory(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            active_directory_config: Optional[pulumi.Input[Union['DirectoryActiveDirectoryConfigArgs', 'DirectoryActiveDirectoryConfigArgsDict']]] = None,
-            alias: Optional[pulumi.Input[_builtins.str]] = None,
-            certificate_based_auth_properties: Optional[pulumi.Input[Union['DirectoryCertificateBasedAuthPropertiesArgs', 'DirectoryCertificateBasedAuthPropertiesArgsDict']]] = None,
-            customer_user_name: Optional[pulumi.Input[_builtins.str]] = None,
-            directory_id: Optional[pulumi.Input[_builtins.str]] = None,
-            directory_name: Optional[pulumi.Input[_builtins.str]] = None,
-            directory_type: Optional[pulumi.Input[_builtins.str]] = None,
-            dns_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            iam_role_id: Optional[pulumi.Input[_builtins.str]] = None,
-            ip_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            registration_code: Optional[pulumi.Input[_builtins.str]] = None,
-            saml_properties: Optional[pulumi.Input[Union['DirectorySamlPropertiesArgs', 'DirectorySamlPropertiesArgsDict']]] = None,
-            self_service_permissions: Optional[pulumi.Input[Union['DirectorySelfServicePermissionsArgs', 'DirectorySelfServicePermissionsArgsDict']]] = None,
-            subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tenancy: Optional[pulumi.Input[_builtins.str]] = None,
-            user_identity_type: Optional[pulumi.Input[_builtins.str]] = None,
-            workspace_access_properties: Optional[pulumi.Input[Union['DirectoryWorkspaceAccessPropertiesArgs', 'DirectoryWorkspaceAccessPropertiesArgsDict']]] = None,
-            workspace_creation_properties: Optional[pulumi.Input[Union['DirectoryWorkspaceCreationPropertiesArgs', 'DirectoryWorkspaceCreationPropertiesArgsDict']]] = None,
-            workspace_directory_description: Optional[pulumi.Input[_builtins.str]] = None,
-            workspace_directory_name: Optional[pulumi.Input[_builtins.str]] = None,
-            workspace_security_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            workspace_type: Optional[pulumi.Input[_builtins.str]] = None) -> 'Directory':
+            active_directory_config: pulumi.Input[Optional[Union['DirectoryActiveDirectoryConfigArgs', 'DirectoryActiveDirectoryConfigArgsDict']]] = None,
+            alias: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_based_auth_properties: pulumi.Input[Optional[Union['DirectoryCertificateBasedAuthPropertiesArgs', 'DirectoryCertificateBasedAuthPropertiesArgsDict']]] = None,
+            customer_user_name: pulumi.Input[Optional[_builtins.str]] = None,
+            directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            directory_name: pulumi.Input[Optional[_builtins.str]] = None,
+            directory_type: pulumi.Input[Optional[_builtins.str]] = None,
+            dns_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            iam_role_id: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            registration_code: pulumi.Input[Optional[_builtins.str]] = None,
+            saml_properties: pulumi.Input[Optional[Union['DirectorySamlPropertiesArgs', 'DirectorySamlPropertiesArgsDict']]] = None,
+            self_service_permissions: pulumi.Input[Optional[Union['DirectorySelfServicePermissionsArgs', 'DirectorySelfServicePermissionsArgsDict']]] = None,
+            subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tenancy: pulumi.Input[Optional[_builtins.str]] = None,
+            user_identity_type: pulumi.Input[Optional[_builtins.str]] = None,
+            workspace_access_properties: pulumi.Input[Optional[Union['DirectoryWorkspaceAccessPropertiesArgs', 'DirectoryWorkspaceAccessPropertiesArgsDict']]] = None,
+            workspace_creation_properties: pulumi.Input[Optional[Union['DirectoryWorkspaceCreationPropertiesArgs', 'DirectoryWorkspaceCreationPropertiesArgsDict']]] = None,
+            workspace_directory_description: pulumi.Input[Optional[_builtins.str]] = None,
+            workspace_directory_name: pulumi.Input[Optional[_builtins.str]] = None,
+            workspace_security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            workspace_type: pulumi.Input[Optional[_builtins.str]] = None) -> 'Directory':
         """
         Get an existing Directory resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

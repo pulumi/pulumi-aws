@@ -161,43 +161,43 @@ export interface GameSessionQueueState {
     /**
      * Game Session Queue ARN.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Information to be added to all events that are related to this game session queue.
      */
-    customEventData?: pulumi.Input<string>;
+    customEventData?: pulumi.Input<string | undefined>;
     /**
      * List of fleet/alias ARNs used by session queue for placing game sessions.
      */
-    destinations?: pulumi.Input<pulumi.Input<string>[]>;
+    destinations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Name of the session queue.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An SNS topic ARN that is set up to receive game session placement notifications.
      */
-    notificationTarget?: pulumi.Input<string>;
+    notificationTarget?: pulumi.Input<string | undefined>;
     /**
      * One or more policies used to choose fleet based on player latency. See below.
      */
-    playerLatencyPolicies?: pulumi.Input<pulumi.Input<inputs.gamelift.GameSessionQueuePlayerLatencyPolicy>[]>;
+    playerLatencyPolicies?: pulumi.Input<pulumi.Input<inputs.gamelift.GameSessionQueuePlayerLatencyPolicy>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Maximum time a game session request can remain in the queue.
      */
-    timeoutInSeconds?: pulumi.Input<number>;
+    timeoutInSeconds?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -207,33 +207,33 @@ export interface GameSessionQueueArgs {
     /**
      * Information to be added to all events that are related to this game session queue.
      */
-    customEventData?: pulumi.Input<string>;
+    customEventData?: pulumi.Input<string | undefined>;
     /**
      * List of fleet/alias ARNs used by session queue for placing game sessions.
      */
-    destinations?: pulumi.Input<pulumi.Input<string>[]>;
+    destinations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Name of the session queue.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An SNS topic ARN that is set up to receive game session placement notifications.
      */
-    notificationTarget?: pulumi.Input<string>;
+    notificationTarget?: pulumi.Input<string | undefined>;
     /**
      * One or more policies used to choose fleet based on player latency. See below.
      */
-    playerLatencyPolicies?: pulumi.Input<pulumi.Input<inputs.gamelift.GameSessionQueuePlayerLatencyPolicy>[]>;
+    playerLatencyPolicies?: pulumi.Input<pulumi.Input<inputs.gamelift.GameSessionQueuePlayerLatencyPolicy>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Maximum time a game session request can remain in the queue.
      */
-    timeoutInSeconds?: pulumi.Input<number>;
+    timeoutInSeconds?: pulumi.Input<number | undefined>;
 }

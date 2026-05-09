@@ -34,7 +34,7 @@ namespace Pulumi.Aws
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Declare the data source
-        ///     var available = Aws.Index.GetAvailabilityZones.Invoke(new()
+        ///     var available = Aws.GetAvailabilityZones.Invoke(new()
         ///     {
         ///         State = "available",
         ///     });
@@ -65,7 +65,7 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Aws.Index.GetAvailabilityZones.Invoke(new()
+        ///     var example = Aws.GetAvailabilityZones.Invoke(new()
         ///     {
         ///         AllAvailabilityZones = true,
         ///         Filters = new[]
@@ -95,7 +95,7 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Aws.Index.GetAvailabilityZones.Invoke(new()
+        ///     var example = Aws.GetAvailabilityZones.Invoke(new()
         ///     {
         ///         Filters = new[]
         ///         {
@@ -139,7 +139,7 @@ namespace Pulumi.Aws
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Declare the data source
-        ///     var available = Aws.Index.GetAvailabilityZones.Invoke(new()
+        ///     var available = Aws.GetAvailabilityZones.Invoke(new()
         ///     {
         ///         State = "available",
         ///     });
@@ -170,7 +170,7 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Aws.Index.GetAvailabilityZones.Invoke(new()
+        ///     var example = Aws.GetAvailabilityZones.Invoke(new()
         ///     {
         ///         AllAvailabilityZones = true,
         ///         Filters = new[]
@@ -200,7 +200,7 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Aws.Index.GetAvailabilityZones.Invoke(new()
+        ///     var example = Aws.GetAvailabilityZones.Invoke(new()
         ///     {
         ///         Filters = new[]
         ///         {
@@ -244,7 +244,7 @@ namespace Pulumi.Aws
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Declare the data source
-        ///     var available = Aws.Index.GetAvailabilityZones.Invoke(new()
+        ///     var available = Aws.GetAvailabilityZones.Invoke(new()
         ///     {
         ///         State = "available",
         ///     });
@@ -275,7 +275,7 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Aws.Index.GetAvailabilityZones.Invoke(new()
+        ///     var example = Aws.GetAvailabilityZones.Invoke(new()
         ///     {
         ///         AllAvailabilityZones = true,
         ///         Filters = new[]
@@ -305,7 +305,7 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Aws.Index.GetAvailabilityZones.Invoke(new()
+        ///     var example = Aws.GetAvailabilityZones.Invoke(new()
         ///     {
         ///         Filters = new[]
         ///         {

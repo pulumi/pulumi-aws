@@ -135,15 +135,15 @@ export interface GetQuicksightUserOutputArgs {
     /**
      * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
      */
-    awsAccountId?: pulumi.Input<string>;
+    awsAccountId?: pulumi.Input<string | undefined>;
     /**
      * QuickSight namespace. Defaults to `default`.
      */
-    namespace?: pulumi.Input<string>;
+    namespace?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The name of the user that you want to match.
      *

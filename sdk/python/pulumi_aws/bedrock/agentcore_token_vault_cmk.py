@@ -22,8 +22,8 @@ __all__ = ['AgentcoreTokenVaultCmkArgs', 'AgentcoreTokenVaultCmk']
 class AgentcoreTokenVaultCmkArgs:
     def __init__(__self__, *,
                  kms_configuration: pulumi.Input['AgentcoreTokenVaultCmkKmsConfigurationArgs'],
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 token_vault_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 token_vault_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AgentcoreTokenVaultCmk resource.
 
@@ -51,35 +51,35 @@ class AgentcoreTokenVaultCmkArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="tokenVaultId")
-    def token_vault_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def token_vault_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Token vault ID. Defaults to `default`.
         """
         return pulumi.get(self, "token_vault_id")
 
     @token_vault_id.setter
-    def token_vault_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def token_vault_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "token_vault_id", value)
 
 
 @pulumi.input_type
 class _AgentcoreTokenVaultCmkState:
     def __init__(__self__, *,
-                 kms_configuration: Optional[pulumi.Input['AgentcoreTokenVaultCmkKmsConfigurationArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 token_vault_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 kms_configuration: pulumi.Input[Optional['AgentcoreTokenVaultCmkKmsConfigurationArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 token_vault_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AgentcoreTokenVaultCmk resources.
 
@@ -96,38 +96,38 @@ class _AgentcoreTokenVaultCmkState:
 
     @_builtins.property
     @pulumi.getter(name="kmsConfiguration")
-    def kms_configuration(self) -> Optional[pulumi.Input['AgentcoreTokenVaultCmkKmsConfigurationArgs']]:
+    def kms_configuration(self) -> pulumi.Input[Optional['AgentcoreTokenVaultCmkKmsConfigurationArgs']]:
         """
         KMS configuration for the token vault. See `kms_configuration` below.
         """
         return pulumi.get(self, "kms_configuration")
 
     @kms_configuration.setter
-    def kms_configuration(self, value: Optional[pulumi.Input['AgentcoreTokenVaultCmkKmsConfigurationArgs']]):
+    def kms_configuration(self, value: pulumi.Input[Optional['AgentcoreTokenVaultCmkKmsConfigurationArgs']]):
         pulumi.set(self, "kms_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="tokenVaultId")
-    def token_vault_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def token_vault_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Token vault ID. Defaults to `default`.
         """
         return pulumi.get(self, "token_vault_id")
 
     @token_vault_id.setter
-    def token_vault_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def token_vault_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "token_vault_id", value)
 
 
@@ -137,9 +137,9 @@ class AgentcoreTokenVaultCmk(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 kms_configuration: Optional[pulumi.Input[Union['AgentcoreTokenVaultCmkKmsConfigurationArgs', 'AgentcoreTokenVaultCmkKmsConfigurationArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 token_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 kms_configuration: pulumi.Input[Optional[Union['AgentcoreTokenVaultCmkKmsConfigurationArgs', 'AgentcoreTokenVaultCmkKmsConfigurationArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 token_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages the AWS KMS customer master key (CMK) for a token vault.
@@ -220,9 +220,9 @@ class AgentcoreTokenVaultCmk(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 kms_configuration: Optional[pulumi.Input[Union['AgentcoreTokenVaultCmkKmsConfigurationArgs', 'AgentcoreTokenVaultCmkKmsConfigurationArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 token_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 kms_configuration: pulumi.Input[Optional[Union['AgentcoreTokenVaultCmkKmsConfigurationArgs', 'AgentcoreTokenVaultCmkKmsConfigurationArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 token_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -247,9 +247,9 @@ class AgentcoreTokenVaultCmk(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            kms_configuration: Optional[pulumi.Input[Union['AgentcoreTokenVaultCmkKmsConfigurationArgs', 'AgentcoreTokenVaultCmkKmsConfigurationArgsDict']]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            token_vault_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'AgentcoreTokenVaultCmk':
+            kms_configuration: pulumi.Input[Optional[Union['AgentcoreTokenVaultCmkKmsConfigurationArgs', 'AgentcoreTokenVaultCmkKmsConfigurationArgsDict']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            token_vault_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'AgentcoreTokenVaultCmk':
         """
         Get an existing AgentcoreTokenVaultCmk resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

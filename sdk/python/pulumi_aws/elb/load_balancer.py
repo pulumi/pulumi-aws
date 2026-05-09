@@ -22,23 +22,23 @@ __all__ = ['LoadBalancerArgs', 'LoadBalancer']
 class LoadBalancerArgs:
     def __init__(__self__, *,
                  listeners: pulumi.Input[Sequence[pulumi.Input['LoadBalancerListenerArgs']]],
-                 access_logs: Optional[pulumi.Input['LoadBalancerAccessLogsArgs']] = None,
-                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 connection_draining: Optional[pulumi.Input[_builtins.bool]] = None,
-                 connection_draining_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 cross_zone_load_balancing: Optional[pulumi.Input[_builtins.bool]] = None,
-                 desync_mitigation_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_check: Optional[pulumi.Input['LoadBalancerHealthCheckArgs']] = None,
-                 idle_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 instances: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 internal: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 source_security_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 access_logs: pulumi.Input[Optional['LoadBalancerAccessLogsArgs']] = None,
+                 availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 connection_draining: pulumi.Input[Optional[_builtins.bool]] = None,
+                 connection_draining_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 cross_zone_load_balancing: pulumi.Input[Optional[_builtins.bool]] = None,
+                 desync_mitigation_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_check: pulumi.Input[Optional['LoadBalancerHealthCheckArgs']] = None,
+                 idle_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 instances: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 internal: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_security_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LoadBalancer resource.
 
@@ -118,139 +118,139 @@ class LoadBalancerArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessLogs")
-    def access_logs(self) -> Optional[pulumi.Input['LoadBalancerAccessLogsArgs']]:
+    def access_logs(self) -> pulumi.Input[Optional['LoadBalancerAccessLogsArgs']]:
         """
         An Access Logs block. Access Logs documented below.
         """
         return pulumi.get(self, "access_logs")
 
     @access_logs.setter
-    def access_logs(self, value: Optional[pulumi.Input['LoadBalancerAccessLogsArgs']]):
+    def access_logs(self, value: pulumi.Input[Optional['LoadBalancerAccessLogsArgs']]):
         pulumi.set(self, "access_logs", value)
 
     @_builtins.property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def availability_zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The AZ's to serve traffic in.
         """
         return pulumi.get(self, "availability_zones")
 
     @availability_zones.setter
-    def availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def availability_zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "availability_zones", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionDraining")
-    def connection_draining(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def connection_draining(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean to enable connection draining. Default: `false`
         """
         return pulumi.get(self, "connection_draining")
 
     @connection_draining.setter
-    def connection_draining(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def connection_draining(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "connection_draining", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionDrainingTimeout")
-    def connection_draining_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def connection_draining_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The time in seconds to allow for connections to drain. Default: `300`
         """
         return pulumi.get(self, "connection_draining_timeout")
 
     @connection_draining_timeout.setter
-    def connection_draining_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def connection_draining_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "connection_draining_timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="crossZoneLoadBalancing")
-    def cross_zone_load_balancing(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cross_zone_load_balancing(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable cross-zone load balancing. Default: `true`
         """
         return pulumi.get(self, "cross_zone_load_balancing")
 
     @cross_zone_load_balancing.setter
-    def cross_zone_load_balancing(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cross_zone_load_balancing(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cross_zone_load_balancing", value)
 
     @_builtins.property
     @pulumi.getter(name="desyncMitigationMode")
-    def desync_mitigation_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def desync_mitigation_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
         """
         return pulumi.get(self, "desync_mitigation_mode")
 
     @desync_mitigation_mode.setter
-    def desync_mitigation_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def desync_mitigation_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "desync_mitigation_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="healthCheck")
-    def health_check(self) -> Optional[pulumi.Input['LoadBalancerHealthCheckArgs']]:
+    def health_check(self) -> pulumi.Input[Optional['LoadBalancerHealthCheckArgs']]:
         """
         A health_check block. Health Check documented below.
         """
         return pulumi.get(self, "health_check")
 
     @health_check.setter
-    def health_check(self, value: Optional[pulumi.Input['LoadBalancerHealthCheckArgs']]):
+    def health_check(self, value: pulumi.Input[Optional['LoadBalancerHealthCheckArgs']]):
         pulumi.set(self, "health_check", value)
 
     @_builtins.property
     @pulumi.getter(name="idleTimeout")
-    def idle_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def idle_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The time in seconds that the connection is allowed to be idle. Default: `60`
         """
         return pulumi.get(self, "idle_timeout")
 
     @idle_timeout.setter
-    def idle_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def idle_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "idle_timeout", value)
 
     @_builtins.property
     @pulumi.getter
-    def instances(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def instances(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of instance ids to place in the ELB pool.
         """
         return pulumi.get(self, "instances")
 
     @instances.setter
-    def instances(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def instances(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "instances", value)
 
     @_builtins.property
     @pulumi.getter
-    def internal(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def internal(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, ELB will be an internal ELB.
         """
         return pulumi.get(self, "internal")
 
     @internal.setter
-    def internal(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def internal(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "internal", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the ELB. By default generated by this provider.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Creates a unique name beginning with the specified
         prefix. Conflicts with `name`.
@@ -258,24 +258,24 @@ class LoadBalancerArgs:
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
-    def name_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name_prefix", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroups")
-    def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of security group IDs to assign to the ELB.
         Only valid if creating an ELB within a VPC
@@ -283,12 +283,12 @@ class LoadBalancerArgs:
         return pulumi.get(self, "security_groups")
 
     @security_groups.setter
-    def security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceSecurityGroup")
-    def source_security_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_security_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the security group that you can use as
         part of your inbound rules for your load balancer's back-end application
@@ -297,24 +297,24 @@ class LoadBalancerArgs:
         return pulumi.get(self, "source_security_group")
 
     @source_security_group.setter
-    def source_security_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_security_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_security_group", value)
 
     @_builtins.property
     @pulumi.getter
-    def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subnets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
         """
         return pulumi.get(self, "subnets")
 
     @subnets.setter
-    def subnets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subnets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subnets", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 
@@ -324,36 +324,36 @@ class LoadBalancerArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _LoadBalancerState:
     def __init__(__self__, *,
-                 access_logs: Optional[pulumi.Input['LoadBalancerAccessLogsArgs']] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 connection_draining: Optional[pulumi.Input[_builtins.bool]] = None,
-                 connection_draining_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 cross_zone_load_balancing: Optional[pulumi.Input[_builtins.bool]] = None,
-                 desync_mitigation_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_check: Optional[pulumi.Input['LoadBalancerHealthCheckArgs']] = None,
-                 idle_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 instances: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 internal: Optional[pulumi.Input[_builtins.bool]] = None,
-                 listeners: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerListenerArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 source_security_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_security_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 zone_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_logs: pulumi.Input[Optional['LoadBalancerAccessLogsArgs']] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 connection_draining: pulumi.Input[Optional[_builtins.bool]] = None,
+                 connection_draining_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 cross_zone_load_balancing: pulumi.Input[Optional[_builtins.bool]] = None,
+                 desync_mitigation_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_check: pulumi.Input[Optional['LoadBalancerHealthCheckArgs']] = None,
+                 idle_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 instances: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 internal: pulumi.Input[Optional[_builtins.bool]] = None,
+                 listeners: pulumi.Input[Optional[Sequence[pulumi.Input['LoadBalancerListenerArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_security_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zone_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LoadBalancer resources.
 
@@ -439,175 +439,175 @@ class _LoadBalancerState:
 
     @_builtins.property
     @pulumi.getter(name="accessLogs")
-    def access_logs(self) -> Optional[pulumi.Input['LoadBalancerAccessLogsArgs']]:
+    def access_logs(self) -> pulumi.Input[Optional['LoadBalancerAccessLogsArgs']]:
         """
         An Access Logs block. Access Logs documented below.
         """
         return pulumi.get(self, "access_logs")
 
     @access_logs.setter
-    def access_logs(self, value: Optional[pulumi.Input['LoadBalancerAccessLogsArgs']]):
+    def access_logs(self, value: pulumi.Input[Optional['LoadBalancerAccessLogsArgs']]):
         pulumi.set(self, "access_logs", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the ELB
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def availability_zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The AZ's to serve traffic in.
         """
         return pulumi.get(self, "availability_zones")
 
     @availability_zones.setter
-    def availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def availability_zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "availability_zones", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionDraining")
-    def connection_draining(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def connection_draining(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean to enable connection draining. Default: `false`
         """
         return pulumi.get(self, "connection_draining")
 
     @connection_draining.setter
-    def connection_draining(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def connection_draining(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "connection_draining", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionDrainingTimeout")
-    def connection_draining_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def connection_draining_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The time in seconds to allow for connections to drain. Default: `300`
         """
         return pulumi.get(self, "connection_draining_timeout")
 
     @connection_draining_timeout.setter
-    def connection_draining_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def connection_draining_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "connection_draining_timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="crossZoneLoadBalancing")
-    def cross_zone_load_balancing(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cross_zone_load_balancing(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable cross-zone load balancing. Default: `true`
         """
         return pulumi.get(self, "cross_zone_load_balancing")
 
     @cross_zone_load_balancing.setter
-    def cross_zone_load_balancing(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cross_zone_load_balancing(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cross_zone_load_balancing", value)
 
     @_builtins.property
     @pulumi.getter(name="desyncMitigationMode")
-    def desync_mitigation_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def desync_mitigation_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
         """
         return pulumi.get(self, "desync_mitigation_mode")
 
     @desync_mitigation_mode.setter
-    def desync_mitigation_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def desync_mitigation_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "desync_mitigation_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsName")
-    def dns_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The DNS name of the ELB
         """
         return pulumi.get(self, "dns_name")
 
     @dns_name.setter
-    def dns_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_name", value)
 
     @_builtins.property
     @pulumi.getter(name="healthCheck")
-    def health_check(self) -> Optional[pulumi.Input['LoadBalancerHealthCheckArgs']]:
+    def health_check(self) -> pulumi.Input[Optional['LoadBalancerHealthCheckArgs']]:
         """
         A health_check block. Health Check documented below.
         """
         return pulumi.get(self, "health_check")
 
     @health_check.setter
-    def health_check(self, value: Optional[pulumi.Input['LoadBalancerHealthCheckArgs']]):
+    def health_check(self, value: pulumi.Input[Optional['LoadBalancerHealthCheckArgs']]):
         pulumi.set(self, "health_check", value)
 
     @_builtins.property
     @pulumi.getter(name="idleTimeout")
-    def idle_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def idle_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The time in seconds that the connection is allowed to be idle. Default: `60`
         """
         return pulumi.get(self, "idle_timeout")
 
     @idle_timeout.setter
-    def idle_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def idle_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "idle_timeout", value)
 
     @_builtins.property
     @pulumi.getter
-    def instances(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def instances(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of instance ids to place in the ELB pool.
         """
         return pulumi.get(self, "instances")
 
     @instances.setter
-    def instances(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def instances(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "instances", value)
 
     @_builtins.property
     @pulumi.getter
-    def internal(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def internal(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, ELB will be an internal ELB.
         """
         return pulumi.get(self, "internal")
 
     @internal.setter
-    def internal(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def internal(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "internal", value)
 
     @_builtins.property
     @pulumi.getter
-    def listeners(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerListenerArgs']]]]:
+    def listeners(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LoadBalancerListenerArgs']]]]:
         """
         A list of listener blocks. Listeners documented below.
         """
         return pulumi.get(self, "listeners")
 
     @listeners.setter
-    def listeners(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerListenerArgs']]]]):
+    def listeners(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LoadBalancerListenerArgs']]]]):
         pulumi.set(self, "listeners", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the ELB. By default generated by this provider.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Creates a unique name beginning with the specified
         prefix. Conflicts with `name`.
@@ -615,24 +615,24 @@ class _LoadBalancerState:
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
-    def name_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name_prefix", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroups")
-    def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of security group IDs to assign to the ELB.
         Only valid if creating an ELB within a VPC
@@ -640,12 +640,12 @@ class _LoadBalancerState:
         return pulumi.get(self, "security_groups")
 
     @security_groups.setter
-    def security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceSecurityGroup")
-    def source_security_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_security_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the security group that you can use as
         part of your inbound rules for your load balancer's back-end application
@@ -654,12 +654,12 @@ class _LoadBalancerState:
         return pulumi.get(self, "source_security_group")
 
     @source_security_group.setter
-    def source_security_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_security_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_security_group", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceSecurityGroupId")
-    def source_security_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_security_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the security group that you can use as
         part of your inbound rules for your load balancer's back-end application
@@ -668,24 +668,24 @@ class _LoadBalancerState:
         return pulumi.get(self, "source_security_group_id")
 
     @source_security_group_id.setter
-    def source_security_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_security_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_security_group_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subnets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
         """
         return pulumi.get(self, "subnets")
 
     @subnets.setter
-    def subnets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subnets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subnets", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 
@@ -695,31 +695,31 @@ class _LoadBalancerState:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="zoneId")
-    def zone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def zone_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The canonical hosted zone ID of the ELB (to be used in a Route 53 Alias record)
         """
         return pulumi.get(self, "zone_id")
 
     @zone_id.setter
-    def zone_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def zone_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "zone_id", value)
 
 
@@ -729,24 +729,24 @@ class LoadBalancer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_logs: Optional[pulumi.Input[Union['LoadBalancerAccessLogsArgs', 'LoadBalancerAccessLogsArgsDict']]] = None,
-                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 connection_draining: Optional[pulumi.Input[_builtins.bool]] = None,
-                 connection_draining_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 cross_zone_load_balancing: Optional[pulumi.Input[_builtins.bool]] = None,
-                 desync_mitigation_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_check: Optional[pulumi.Input[Union['LoadBalancerHealthCheckArgs', 'LoadBalancerHealthCheckArgsDict']]] = None,
-                 idle_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 instances: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 internal: Optional[pulumi.Input[_builtins.bool]] = None,
-                 listeners: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerListenerArgs', 'LoadBalancerListenerArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 source_security_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 access_logs: pulumi.Input[Optional[Union['LoadBalancerAccessLogsArgs', 'LoadBalancerAccessLogsArgsDict']]] = None,
+                 availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 connection_draining: pulumi.Input[Optional[_builtins.bool]] = None,
+                 connection_draining_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 cross_zone_load_balancing: pulumi.Input[Optional[_builtins.bool]] = None,
+                 desync_mitigation_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_check: pulumi.Input[Optional[Union['LoadBalancerHealthCheckArgs', 'LoadBalancerHealthCheckArgsDict']]] = None,
+                 idle_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 instances: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 internal: pulumi.Input[Optional[_builtins.bool]] = None,
+                 listeners: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancerListenerArgs', 'LoadBalancerListenerArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_security_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides an Elastic Load Balancer resource, also known as a "Classic
@@ -979,24 +979,24 @@ class LoadBalancer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_logs: Optional[pulumi.Input[Union['LoadBalancerAccessLogsArgs', 'LoadBalancerAccessLogsArgsDict']]] = None,
-                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 connection_draining: Optional[pulumi.Input[_builtins.bool]] = None,
-                 connection_draining_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 cross_zone_load_balancing: Optional[pulumi.Input[_builtins.bool]] = None,
-                 desync_mitigation_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_check: Optional[pulumi.Input[Union['LoadBalancerHealthCheckArgs', 'LoadBalancerHealthCheckArgsDict']]] = None,
-                 idle_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 instances: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 internal: Optional[pulumi.Input[_builtins.bool]] = None,
-                 listeners: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerListenerArgs', 'LoadBalancerListenerArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 source_security_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 access_logs: pulumi.Input[Optional[Union['LoadBalancerAccessLogsArgs', 'LoadBalancerAccessLogsArgsDict']]] = None,
+                 availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 connection_draining: pulumi.Input[Optional[_builtins.bool]] = None,
+                 connection_draining_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 cross_zone_load_balancing: pulumi.Input[Optional[_builtins.bool]] = None,
+                 desync_mitigation_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_check: pulumi.Input[Optional[Union['LoadBalancerHealthCheckArgs', 'LoadBalancerHealthCheckArgsDict']]] = None,
+                 idle_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 instances: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 internal: pulumi.Input[Optional[_builtins.bool]] = None,
+                 listeners: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancerListenerArgs', 'LoadBalancerListenerArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_security_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1043,29 +1043,29 @@ class LoadBalancer(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            access_logs: Optional[pulumi.Input[Union['LoadBalancerAccessLogsArgs', 'LoadBalancerAccessLogsArgsDict']]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            connection_draining: Optional[pulumi.Input[_builtins.bool]] = None,
-            connection_draining_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-            cross_zone_load_balancing: Optional[pulumi.Input[_builtins.bool]] = None,
-            desync_mitigation_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            dns_name: Optional[pulumi.Input[_builtins.str]] = None,
-            health_check: Optional[pulumi.Input[Union['LoadBalancerHealthCheckArgs', 'LoadBalancerHealthCheckArgsDict']]] = None,
-            idle_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-            instances: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            internal: Optional[pulumi.Input[_builtins.bool]] = None,
-            listeners: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerListenerArgs', 'LoadBalancerListenerArgsDict']]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            source_security_group: Optional[pulumi.Input[_builtins.str]] = None,
-            source_security_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            subnets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            zone_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'LoadBalancer':
+            access_logs: pulumi.Input[Optional[Union['LoadBalancerAccessLogsArgs', 'LoadBalancerAccessLogsArgsDict']]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            connection_draining: pulumi.Input[Optional[_builtins.bool]] = None,
+            connection_draining_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            cross_zone_load_balancing: pulumi.Input[Optional[_builtins.bool]] = None,
+            desync_mitigation_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+            health_check: pulumi.Input[Optional[Union['LoadBalancerHealthCheckArgs', 'LoadBalancerHealthCheckArgsDict']]] = None,
+            idle_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            instances: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            internal: pulumi.Input[Optional[_builtins.bool]] = None,
+            listeners: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancerListenerArgs', 'LoadBalancerListenerArgsDict']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            source_security_group: pulumi.Input[Optional[_builtins.str]] = None,
+            source_security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            subnets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            zone_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'LoadBalancer':
         """
         Get an existing LoadBalancer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

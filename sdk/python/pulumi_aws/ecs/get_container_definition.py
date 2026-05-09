@@ -215,9 +215,9 @@ def get_container_definition(container_name: Optional[_builtins.str] = None,
         memory_reservation=pulumi.get(__ret__, 'memory_reservation'),
         region=pulumi.get(__ret__, 'region'),
         task_definition=pulumi.get(__ret__, 'task_definition'))
-def get_container_definition_output(container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                    task_definition: Optional[pulumi.Input[_builtins.str]] = None,
+def get_container_definition_output(container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                    task_definition: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContainerDefinitionResult]:
     """
     The ECS container definition data source allows access to details of

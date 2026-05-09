@@ -310,8 +310,8 @@ def get_vpc_ipam(id: Optional[_builtins.str] = None,
         state_message=pulumi.get(__ret__, 'state_message'),
         tags=pulumi.get(__ret__, 'tags'),
         tier=pulumi.get(__ret__, 'tier'))
-def get_vpc_ipam_output(id: Optional[pulumi.Input[_builtins.str]] = None,
-                        region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_vpc_ipam_output(id: pulumi.Input[Optional[_builtins.str]] = None,
+                        region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcIpamResult]:
     """
     Data source for managing a VPC IPAM.

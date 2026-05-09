@@ -138,8 +138,8 @@ def get_gateway(name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         owner_account_id=pulumi.get(__ret__, 'owner_account_id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_gateway_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                       tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_gateway_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                       tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGatewayResult]:
     """
     Retrieve information about a Direct Connect Gateway.

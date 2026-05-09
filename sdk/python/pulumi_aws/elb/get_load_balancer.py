@@ -299,9 +299,9 @@ def get_load_balancer(name: Optional[_builtins.str] = None,
         subnets=pulumi.get(__ret__, 'subnets'),
         tags=pulumi.get(__ret__, 'tags'),
         zone_id=pulumi.get(__ret__, 'zone_id'))
-def get_load_balancer_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                             region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                             tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_load_balancer_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                             region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLoadBalancerResult]:
     """
     Provides information about a "classic" Elastic Load Balancer (ELB).

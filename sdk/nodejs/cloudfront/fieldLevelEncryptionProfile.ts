@@ -143,27 +143,27 @@ export interface FieldLevelEncryptionProfileState {
     /**
      * The Field Level Encryption Profile ARN.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Internal value used by CloudFront to allow future updates to the Field Level Encryption Profile.
      */
-    callerReference?: pulumi.Input<string>;
+    callerReference?: pulumi.Input<string | undefined>;
     /**
      * An optional comment about the Field Level Encryption Profile.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * The encryption entities config block for field-level encryption profiles that contains an attribute `items` which includes the encryption key and field pattern specifications.
      */
-    encryptionEntities?: pulumi.Input<inputs.cloudfront.FieldLevelEncryptionProfileEncryptionEntities>;
+    encryptionEntities?: pulumi.Input<inputs.cloudfront.FieldLevelEncryptionProfileEncryptionEntities | undefined>;
     /**
      * The current version of the Field Level Encryption Profile. For example: `E2QWRUHAPOMQZL`.
      */
-    etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * The name of the Field Level Encryption Profile.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -173,7 +173,7 @@ export interface FieldLevelEncryptionProfileArgs {
     /**
      * An optional comment about the Field Level Encryption Profile.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * The encryption entities config block for field-level encryption profiles that contains an attribute `items` which includes the encryption key and field pattern specifications.
      */
@@ -181,5 +181,5 @@ export interface FieldLevelEncryptionProfileArgs {
     /**
      * The name of the Field Level Encryption Profile.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

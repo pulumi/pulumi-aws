@@ -21,13 +21,13 @@ __all__ = ['ZoneArgs', 'Zone']
 @pulumi.input_type
 class ZoneArgs:
     def __init__(__self__, *,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 delegation_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_accelerated_recovery: Optional[pulumi.Input[_builtins.bool]] = None,
-                 force_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpcs: Optional[pulumi.Input[Sequence[pulumi.Input['ZoneVpcArgs']]]] = None):
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 delegation_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_accelerated_recovery: pulumi.Input[Optional[_builtins.bool]] = None,
+                 force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vpcs: pulumi.Input[Optional[Sequence[pulumi.Input['ZoneVpcArgs']]]] = None):
         """
         The set of arguments for constructing a Zone resource.
 
@@ -58,104 +58,104 @@ class ZoneArgs:
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A comment for the hosted zone. Defaults to 'Managed by Pulumi'.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="delegationSetId")
-    def delegation_set_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delegation_set_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
         """
         return pulumi.get(self, "delegation_set_id")
 
     @delegation_set_id.setter
-    def delegation_set_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delegation_set_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delegation_set_id", value)
 
     @_builtins.property
     @pulumi.getter(name="enableAcceleratedRecovery")
-    def enable_accelerated_recovery(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_accelerated_recovery(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean to indicate whether to enable accelerated recovery for the hosted zone. Defaults to `false`. Once set, switching to `false` requires explicitly specifying `false` rather than removing the argument.
         """
         return pulumi.get(self, "enable_accelerated_recovery")
 
     @enable_accelerated_recovery.setter
-    def enable_accelerated_recovery(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_accelerated_recovery(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_accelerated_recovery", value)
 
     @_builtins.property
     @pulumi.getter(name="forceDestroy")
-    def force_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def force_destroy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to destroy all records (possibly managed outside of this provider) in the zone when destroying the zone.
         """
         return pulumi.get(self, "force_destroy")
 
     @force_destroy.setter
-    def force_destroy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def force_destroy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "force_destroy", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This is the name of the hosted zone.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def vpcs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ZoneVpcArgs']]]]:
+    def vpcs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ZoneVpcArgs']]]]:
         """
         Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any `route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
         """
         return pulumi.get(self, "vpcs")
 
     @vpcs.setter
-    def vpcs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ZoneVpcArgs']]]]):
+    def vpcs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ZoneVpcArgs']]]]):
         pulumi.set(self, "vpcs", value)
 
 
 @pulumi.input_type
 class _ZoneState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 delegation_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_accelerated_recovery: Optional[pulumi.Input[_builtins.bool]] = None,
-                 force_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 primary_name_server: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpcs: Optional[pulumi.Input[Sequence[pulumi.Input['ZoneVpcArgs']]]] = None,
-                 zone_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 delegation_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_accelerated_recovery: pulumi.Input[Optional[_builtins.bool]] = None,
+                 force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 primary_name_server: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vpcs: pulumi.Input[Optional[Sequence[pulumi.Input['ZoneVpcArgs']]]] = None,
+                 zone_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Zone resources.
 
@@ -202,79 +202,79 @@ class _ZoneState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the Hosted Zone.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A comment for the hosted zone. Defaults to 'Managed by Pulumi'.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="delegationSetId")
-    def delegation_set_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delegation_set_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
         """
         return pulumi.get(self, "delegation_set_id")
 
     @delegation_set_id.setter
-    def delegation_set_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delegation_set_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delegation_set_id", value)
 
     @_builtins.property
     @pulumi.getter(name="enableAcceleratedRecovery")
-    def enable_accelerated_recovery(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_accelerated_recovery(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean to indicate whether to enable accelerated recovery for the hosted zone. Defaults to `false`. Once set, switching to `false` requires explicitly specifying `false` rather than removing the argument.
         """
         return pulumi.get(self, "enable_accelerated_recovery")
 
     @enable_accelerated_recovery.setter
-    def enable_accelerated_recovery(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_accelerated_recovery(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_accelerated_recovery", value)
 
     @_builtins.property
     @pulumi.getter(name="forceDestroy")
-    def force_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def force_destroy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to destroy all records (possibly managed outside of this provider) in the zone when destroying the zone.
         """
         return pulumi.get(self, "force_destroy")
 
     @force_destroy.setter
-    def force_destroy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def force_destroy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "force_destroy", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This is the name of the hosted zone.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="nameServers")
-    def name_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def name_servers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of name servers in associated (or default) delegation set.
         Find more about delegation sets in [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/actions-on-reusable-delegation-sets.html).
@@ -282,67 +282,67 @@ class _ZoneState:
         return pulumi.get(self, "name_servers")
 
     @name_servers.setter
-    def name_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def name_servers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "name_servers", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryNameServer")
-    def primary_name_server(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_name_server(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Route 53 name server that created the SOA record.
         """
         return pulumi.get(self, "primary_name_server")
 
     @primary_name_server.setter
-    def primary_name_server(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_name_server(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_name_server", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def vpcs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ZoneVpcArgs']]]]:
+    def vpcs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ZoneVpcArgs']]]]:
         """
         Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any `route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
         """
         return pulumi.get(self, "vpcs")
 
     @vpcs.setter
-    def vpcs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ZoneVpcArgs']]]]):
+    def vpcs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ZoneVpcArgs']]]]):
         pulumi.set(self, "vpcs", value)
 
     @_builtins.property
     @pulumi.getter(name="zoneId")
-    def zone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def zone_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Hosted Zone ID. This can be referenced by zone records.
         """
         return pulumi.get(self, "zone_id")
 
     @zone_id.setter
-    def zone_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def zone_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "zone_id", value)
 
 
@@ -352,13 +352,13 @@ class Zone(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 delegation_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_accelerated_recovery: Optional[pulumi.Input[_builtins.bool]] = None,
-                 force_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpcs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ZoneVpcArgs', 'ZoneVpcArgsDict']]]]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 delegation_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_accelerated_recovery: pulumi.Input[Optional[_builtins.bool]] = None,
+                 force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vpcs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZoneVpcArgs', 'ZoneVpcArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages a Route53 Hosted Zone. For managing Domain Name System Security Extensions (DNSSEC), see the `route53.KeySigningKey` and `route53.HostedZoneDnsSec` resources.
@@ -567,13 +567,13 @@ class Zone(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 delegation_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_accelerated_recovery: Optional[pulumi.Input[_builtins.bool]] = None,
-                 force_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpcs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ZoneVpcArgs', 'ZoneVpcArgsDict']]]]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 delegation_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_accelerated_recovery: pulumi.Input[Optional[_builtins.bool]] = None,
+                 force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vpcs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZoneVpcArgs', 'ZoneVpcArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -607,18 +607,18 @@ class Zone(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            comment: Optional[pulumi.Input[_builtins.str]] = None,
-            delegation_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-            enable_accelerated_recovery: Optional[pulumi.Input[_builtins.bool]] = None,
-            force_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            primary_name_server: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            vpcs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ZoneVpcArgs', 'ZoneVpcArgsDict']]]]] = None,
-            zone_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'Zone':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            delegation_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+            enable_accelerated_recovery: pulumi.Input[Optional[_builtins.bool]] = None,
+            force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            name_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            primary_name_server: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            vpcs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZoneVpcArgs', 'ZoneVpcArgsDict']]]]] = None,
+            zone_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'Zone':
         """
         Get an existing Zone resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

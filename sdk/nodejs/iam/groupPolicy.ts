@@ -133,21 +133,21 @@ export interface GroupPolicyState {
     /**
      * The IAM group to attach to the policy.
      */
-    group?: pulumi.Input<string>;
+    group?: pulumi.Input<string | undefined>;
     /**
      * The name of the policy. If omitted, the provider will
      * assign a random, unique name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Creates a unique name beginning with the specified
      * prefix. Conflicts with `name`.
      */
-    namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string | undefined>;
     /**
      * The policy document. This is a JSON formatted string.
      */
-    policy?: pulumi.Input<string | inputs.iam.PolicyDocument>;
+    policy?: pulumi.Input<string | inputs.iam.PolicyDocument | undefined>;
 }
 
 /**
@@ -162,12 +162,12 @@ export interface GroupPolicyArgs {
      * The name of the policy. If omitted, the provider will
      * assign a random, unique name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Creates a unique name beginning with the specified
      * prefix. Conflicts with `name`.
      */
-    namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string | undefined>;
     /**
      * The policy document. This is a JSON formatted string.
      */

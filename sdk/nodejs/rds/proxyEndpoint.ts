@@ -164,48 +164,48 @@ export interface ProxyEndpointState {
     /**
      * The Amazon Resource Name (ARN) for the proxy endpoint.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
      */
-    dbProxyEndpointName?: pulumi.Input<string>;
+    dbProxyEndpointName?: pulumi.Input<string | undefined>;
     /**
      * The name of the DB proxy associated with the DB proxy endpoint that you create.
      */
-    dbProxyName?: pulumi.Input<string>;
+    dbProxyName?: pulumi.Input<string | undefined>;
     /**
      * The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
      */
-    endpoint?: pulumi.Input<string>;
+    endpoint?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether this endpoint is the default endpoint for the associated DB proxy.
      */
-    isDefault?: pulumi.Input<boolean>;
+    isDefault?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
      */
-    targetRole?: pulumi.Input<string>;
+    targetRole?: pulumi.Input<string | undefined>;
     /**
      * The VPC ID of the DB proxy endpoint.
      */
-    vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string | undefined>;
     /**
      * One or more VPC security group IDs to associate with the new proxy.
      */
-    vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * One or more VPC subnet IDs to associate with the new proxy.
      */
-    vpcSubnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    vpcSubnetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -223,19 +223,19 @@ export interface ProxyEndpointArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
      */
-    targetRole?: pulumi.Input<string>;
+    targetRole?: pulumi.Input<string | undefined>;
     /**
      * One or more VPC security group IDs to associate with the new proxy.
      */
-    vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * One or more VPC subnet IDs to associate with the new proxy.
      */

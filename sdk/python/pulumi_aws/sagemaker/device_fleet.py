@@ -24,10 +24,10 @@ class DeviceFleetArgs:
                  device_fleet_name: pulumi.Input[_builtins.str],
                  output_config: pulumi.Input['DeviceFleetOutputConfigArgs'],
                  role_arn: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_iot_role_alias: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_iot_role_alias: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DeviceFleet resource.
 
@@ -89,66 +89,66 @@ class DeviceFleetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the fleet.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="enableIotRoleAlias")
-    def enable_iot_role_alias(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_iot_role_alias(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to create an AWS IoT Role Alias during device fleet creation. The name of the role alias generated will match this pattern: "SageMakerEdge-{DeviceFleetName}".
         """
         return pulumi.get(self, "enable_iot_role_alias")
 
     @enable_iot_role_alias.setter
-    def enable_iot_role_alias(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_iot_role_alias(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_iot_role_alias", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _DeviceFleetState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_fleet_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_iot_role_alias: Optional[pulumi.Input[_builtins.bool]] = None,
-                 iot_role_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_config: Optional[pulumi.Input['DeviceFleetOutputConfigArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_fleet_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_iot_role_alias: pulumi.Input[Optional[_builtins.bool]] = None,
+                 iot_role_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_config: pulumi.Input[Optional['DeviceFleetOutputConfigArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering DeviceFleet resources.
 
@@ -185,119 +185,119 @@ class _DeviceFleetState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) assigned by AWS to this Device Fleet.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the fleet.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="deviceFleetName")
-    def device_fleet_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def device_fleet_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Device Fleet (must be unique).
         """
         return pulumi.get(self, "device_fleet_name")
 
     @device_fleet_name.setter
-    def device_fleet_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def device_fleet_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "device_fleet_name", value)
 
     @_builtins.property
     @pulumi.getter(name="enableIotRoleAlias")
-    def enable_iot_role_alias(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_iot_role_alias(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to create an AWS IoT Role Alias during device fleet creation. The name of the role alias generated will match this pattern: "SageMakerEdge-{DeviceFleetName}".
         """
         return pulumi.get(self, "enable_iot_role_alias")
 
     @enable_iot_role_alias.setter
-    def enable_iot_role_alias(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_iot_role_alias(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_iot_role_alias", value)
 
     @_builtins.property
     @pulumi.getter(name="iotRoleAlias")
-    def iot_role_alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def iot_role_alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "iot_role_alias")
 
     @iot_role_alias.setter
-    def iot_role_alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def iot_role_alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "iot_role_alias", value)
 
     @_builtins.property
     @pulumi.getter(name="outputConfig")
-    def output_config(self) -> Optional[pulumi.Input['DeviceFleetOutputConfigArgs']]:
+    def output_config(self) -> pulumi.Input[Optional['DeviceFleetOutputConfigArgs']]:
         """
         Specifies details about the repository. see Output Config details below.
         """
         return pulumi.get(self, "output_config")
 
     @output_config.setter
-    def output_config(self, value: Optional[pulumi.Input['DeviceFleetOutputConfigArgs']]):
+    def output_config(self, value: pulumi.Input[Optional['DeviceFleetOutputConfigArgs']]):
         pulumi.set(self, "output_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
 
@@ -307,13 +307,13 @@ class DeviceFleet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_fleet_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_iot_role_alias: Optional[pulumi.Input[_builtins.bool]] = None,
-                 output_config: Optional[pulumi.Input[Union['DeviceFleetOutputConfigArgs', 'DeviceFleetOutputConfigArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_fleet_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_iot_role_alias: pulumi.Input[Optional[_builtins.bool]] = None,
+                 output_config: pulumi.Input[Optional[Union['DeviceFleetOutputConfigArgs', 'DeviceFleetOutputConfigArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a SageMaker AI Device Fleet resource.
@@ -402,13 +402,13 @@ class DeviceFleet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_fleet_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_iot_role_alias: Optional[pulumi.Input[_builtins.bool]] = None,
-                 output_config: Optional[pulumi.Input[Union['DeviceFleetOutputConfigArgs', 'DeviceFleetOutputConfigArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_fleet_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_iot_role_alias: pulumi.Input[Optional[_builtins.bool]] = None,
+                 output_config: pulumi.Input[Optional[Union['DeviceFleetOutputConfigArgs', 'DeviceFleetOutputConfigArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -444,16 +444,16 @@ class DeviceFleet(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            device_fleet_name: Optional[pulumi.Input[_builtins.str]] = None,
-            enable_iot_role_alias: Optional[pulumi.Input[_builtins.bool]] = None,
-            iot_role_alias: Optional[pulumi.Input[_builtins.str]] = None,
-            output_config: Optional[pulumi.Input[Union['DeviceFleetOutputConfigArgs', 'DeviceFleetOutputConfigArgsDict']]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'DeviceFleet':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            device_fleet_name: pulumi.Input[Optional[_builtins.str]] = None,
+            enable_iot_role_alias: pulumi.Input[Optional[_builtins.bool]] = None,
+            iot_role_alias: pulumi.Input[Optional[_builtins.str]] = None,
+            output_config: pulumi.Input[Optional[Union['DeviceFleetOutputConfigArgs', 'DeviceFleetOutputConfigArgsDict']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'DeviceFleet':
         """
         Get an existing DeviceFleet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -151,37 +151,37 @@ export interface ConnectionState {
     /**
      * The codeconnections connection ARN.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The codeconnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
      */
-    connectionStatus?: pulumi.Input<string>;
+    connectionStatus?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
      */
-    hostArn?: pulumi.Input<string>;
+    hostArn?: pulumi.Input<string | undefined>;
     /**
      * The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
      */
-    name?: pulumi.Input<string>;
-    ownerAccountId?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
+    ownerAccountId?: pulumi.Input<string | undefined>;
     /**
      * The name of the external provider where your third-party code repository is configured. Changing `providerType` will create a new resource. Conflicts with `hostArn`.
      */
-    providerType?: pulumi.Input<string>;
+    providerType?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of key-value resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.codeconnections.ConnectionTimeouts>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.codeconnections.ConnectionTimeouts | undefined>;
 }
 
 /**
@@ -191,22 +191,22 @@ export interface ConnectionArgs {
     /**
      * The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
      */
-    hostArn?: pulumi.Input<string>;
+    hostArn?: pulumi.Input<string | undefined>;
     /**
      * The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the external provider where your third-party code repository is configured. Changing `providerType` will create a new resource. Conflicts with `hostArn`.
      */
-    providerType?: pulumi.Input<string>;
+    providerType?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of key-value resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.codeconnections.ConnectionTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.codeconnections.ConnectionTimeouts | undefined>;
 }

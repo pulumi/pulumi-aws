@@ -161,22 +161,22 @@ export interface RolePolicyState {
      * The name of the role policy.
      * If omitted, the provider will assign a random, unique name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Creates a unique name beginning with the specified prefix.
      * Conflicts with `name`.
      */
-    namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string | undefined>;
     /**
      * The inline policy document.
      * This is a JSON formatted string.
      * For more information about building IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide
      */
-    policy?: pulumi.Input<string | inputs.iam.PolicyDocument>;
+    policy?: pulumi.Input<string | inputs.iam.PolicyDocument | undefined>;
     /**
      * The name of the IAM role to attach to the policy.
      */
-    role?: pulumi.Input<string | Role>;
+    role?: pulumi.Input<string | Role | undefined>;
 }
 
 /**
@@ -187,12 +187,12 @@ export interface RolePolicyArgs {
      * The name of the role policy.
      * If omitted, the provider will assign a random, unique name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Creates a unique name beginning with the specified prefix.
      * Conflicts with `name`.
      */
-    namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string | undefined>;
     /**
      * The inline policy document.
      * This is a JSON formatted string.

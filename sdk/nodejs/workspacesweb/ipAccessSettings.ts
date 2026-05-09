@@ -214,45 +214,45 @@ export interface IpAccessSettingsState {
     /**
      * Additional encryption context for the IP access settings.
      */
-    additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * List of web portal ARNs that this IP access settings resource is associated with.
      */
-    associatedPortalArns?: pulumi.Input<pulumi.Input<string>[]>;
+    associatedPortalArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * ARN of the customer managed KMS key.
      */
-    customerManagedKey?: pulumi.Input<string>;
+    customerManagedKey?: pulumi.Input<string | undefined>;
     /**
      * The description of the IP access settings.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name of the IP access settings.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * ARN of the IP access settings resource.
      */
-    ipAccessSettingsArn?: pulumi.Input<string>;
+    ipAccessSettingsArn?: pulumi.Input<string | undefined>;
     /**
      * The IP rules of the IP access settings. See IP Rule below.
      *
      * The following arguments are optional:
      */
-    ipRules?: pulumi.Input<pulumi.Input<inputs.workspacesweb.IpAccessSettingsIpRule>[]>;
+    ipRules?: pulumi.Input<pulumi.Input<inputs.workspacesweb.IpAccessSettingsIpRule>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -262,15 +262,15 @@ export interface IpAccessSettingsArgs {
     /**
      * Additional encryption context for the IP access settings.
      */
-    additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * ARN of the customer managed KMS key.
      */
-    customerManagedKey?: pulumi.Input<string>;
+    customerManagedKey?: pulumi.Input<string | undefined>;
     /**
      * The description of the IP access settings.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name of the IP access settings.
      */
@@ -284,9 +284,9 @@ export interface IpAccessSettingsArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

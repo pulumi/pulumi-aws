@@ -100,7 +100,7 @@ def get_default_kms_key(region: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         key_arn=pulumi.get(__ret__, 'key_arn'),
         region=pulumi.get(__ret__, 'region'))
-def get_default_kms_key_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_default_kms_key_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDefaultKmsKeyResult]:
     """
     Use this data source to get the default EBS encryption KMS key in the current region.

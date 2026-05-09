@@ -21,9 +21,9 @@ __all__ = ['VoiceConnectorGroupArgs', 'VoiceConnectorGroup']
 @pulumi.input_type
 class VoiceConnectorGroupArgs:
     def __init__(__self__, *,
-                 connectors: Optional[pulumi.Input[Sequence[pulumi.Input['VoiceConnectorGroupConnectorArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 connectors: pulumi.Input[Optional[Sequence[pulumi.Input['VoiceConnectorGroupConnectorArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VoiceConnectorGroup resource.
 
@@ -40,47 +40,47 @@ class VoiceConnectorGroupArgs:
 
     @_builtins.property
     @pulumi.getter
-    def connectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VoiceConnectorGroupConnectorArgs']]]]:
+    def connectors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VoiceConnectorGroupConnectorArgs']]]]:
         """
         The Amazon Chime Voice Connectors to route inbound calls to.
         """
         return pulumi.get(self, "connectors")
 
     @connectors.setter
-    def connectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VoiceConnectorGroupConnectorArgs']]]]):
+    def connectors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VoiceConnectorGroupConnectorArgs']]]]):
         pulumi.set(self, "connectors", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Amazon Chime Voice Connector group.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _VoiceConnectorGroupState:
     def __init__(__self__, *,
-                 connectors: Optional[pulumi.Input[Sequence[pulumi.Input['VoiceConnectorGroupConnectorArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 connectors: pulumi.Input[Optional[Sequence[pulumi.Input['VoiceConnectorGroupConnectorArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VoiceConnectorGroup resources.
 
@@ -97,38 +97,38 @@ class _VoiceConnectorGroupState:
 
     @_builtins.property
     @pulumi.getter
-    def connectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VoiceConnectorGroupConnectorArgs']]]]:
+    def connectors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VoiceConnectorGroupConnectorArgs']]]]:
         """
         The Amazon Chime Voice Connectors to route inbound calls to.
         """
         return pulumi.get(self, "connectors")
 
     @connectors.setter
-    def connectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VoiceConnectorGroupConnectorArgs']]]]):
+    def connectors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VoiceConnectorGroupConnectorArgs']]]]):
         pulumi.set(self, "connectors", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Amazon Chime Voice Connector group.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
@@ -138,9 +138,9 @@ class VoiceConnectorGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connectors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VoiceConnectorGroupConnectorArgs', 'VoiceConnectorGroupConnectorArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 connectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VoiceConnectorGroupConnectorArgs', 'VoiceConnectorGroupConnectorArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Creates an Amazon Chime Voice Connector group under the administrator's AWS account. You can associate Amazon Chime Voice Connectors with the Amazon Chime Voice Connector group by including VoiceConnectorItems in the request.
@@ -253,9 +253,9 @@ class VoiceConnectorGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connectors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VoiceConnectorGroupConnectorArgs', 'VoiceConnectorGroupConnectorArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 connectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VoiceConnectorGroupConnectorArgs', 'VoiceConnectorGroupConnectorArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -278,9 +278,9 @@ class VoiceConnectorGroup(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            connectors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VoiceConnectorGroupConnectorArgs', 'VoiceConnectorGroupConnectorArgsDict']]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None) -> 'VoiceConnectorGroup':
+            connectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VoiceConnectorGroupConnectorArgs', 'VoiceConnectorGroupConnectorArgsDict']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> 'VoiceConnectorGroup':
         """
         Get an existing VoiceConnectorGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

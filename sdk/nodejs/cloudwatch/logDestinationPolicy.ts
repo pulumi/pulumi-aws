@@ -130,19 +130,19 @@ export interface LogDestinationPolicyState {
     /**
      * The policy document. This is a JSON formatted string.
      */
-    accessPolicy?: pulumi.Input<string>;
+    accessPolicy?: pulumi.Input<string | undefined>;
     /**
      * A name for the subscription filter
      */
-    destinationName?: pulumi.Input<string>;
+    destinationName?: pulumi.Input<string | undefined>;
     /**
      * Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
      */
-    forceUpdate?: pulumi.Input<boolean>;
+    forceUpdate?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -160,9 +160,9 @@ export interface LogDestinationPolicyArgs {
     /**
      * Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
      */
-    forceUpdate?: pulumi.Input<boolean>;
+    forceUpdate?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

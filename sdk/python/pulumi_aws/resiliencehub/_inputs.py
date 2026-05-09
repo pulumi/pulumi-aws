@@ -30,19 +30,19 @@ __all__ = [
 ]
 
 class ResiliencyPolicyPolicyArgsDict(TypedDict):
-    az: NotRequired[pulumi.Input['ResiliencyPolicyPolicyAzArgsDict']]
+    az: NotRequired[pulumi.Input[Optional['ResiliencyPolicyPolicyAzArgs']]]
     """
     Specifies Availability Zone failure policy. See `policy.az`
     """
-    hardware: NotRequired[pulumi.Input['ResiliencyPolicyPolicyHardwareArgsDict']]
+    hardware: NotRequired[pulumi.Input[Optional['ResiliencyPolicyPolicyHardwareArgs']]]
     """
     Specifies Infrastructure failure policy. See `policy.hardware`
     """
-    region: NotRequired[pulumi.Input['ResiliencyPolicyPolicyRegionArgsDict']]
+    region: NotRequired[pulumi.Input[Optional['ResiliencyPolicyPolicyRegionArgs']]]
     """
     Specifies Region failure policy. `policy.region`
     """
-    software: NotRequired[pulumi.Input['ResiliencyPolicyPolicySoftwareArgsDict']]
+    software: NotRequired[pulumi.Input[Optional['ResiliencyPolicyPolicySoftwareArgs']]]
     """
     Specifies Application failure policy. See `policy.software`
 
@@ -52,10 +52,10 @@ class ResiliencyPolicyPolicyArgsDict(TypedDict):
 @pulumi.input_type
 class ResiliencyPolicyPolicyArgs:
     def __init__(__self__, *,
-                 az: Optional[pulumi.Input['ResiliencyPolicyPolicyAzArgs']] = None,
-                 hardware: Optional[pulumi.Input['ResiliencyPolicyPolicyHardwareArgs']] = None,
-                 region: Optional[pulumi.Input['ResiliencyPolicyPolicyRegionArgs']] = None,
-                 software: Optional[pulumi.Input['ResiliencyPolicyPolicySoftwareArgs']] = None):
+                 az: pulumi.Input[Optional['ResiliencyPolicyPolicyAzArgs']] = None,
+                 hardware: pulumi.Input[Optional['ResiliencyPolicyPolicyHardwareArgs']] = None,
+                 region: pulumi.Input[Optional['ResiliencyPolicyPolicyRegionArgs']] = None,
+                 software: pulumi.Input[Optional['ResiliencyPolicyPolicySoftwareArgs']] = None):
         """
         :param pulumi.Input['ResiliencyPolicyPolicyAzArgs'] az: Specifies Availability Zone failure policy. See `policy.az`
         :param pulumi.Input['ResiliencyPolicyPolicyHardwareArgs'] hardware: Specifies Infrastructure failure policy. See `policy.hardware`
@@ -75,43 +75,43 @@ class ResiliencyPolicyPolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def az(self) -> Optional[pulumi.Input['ResiliencyPolicyPolicyAzArgs']]:
+    def az(self) -> pulumi.Input[Optional['ResiliencyPolicyPolicyAzArgs']]:
         """
         Specifies Availability Zone failure policy. See `policy.az`
         """
         return pulumi.get(self, "az")
 
     @az.setter
-    def az(self, value: Optional[pulumi.Input['ResiliencyPolicyPolicyAzArgs']]):
+    def az(self, value: pulumi.Input[Optional['ResiliencyPolicyPolicyAzArgs']]):
         pulumi.set(self, "az", value)
 
     @_builtins.property
     @pulumi.getter
-    def hardware(self) -> Optional[pulumi.Input['ResiliencyPolicyPolicyHardwareArgs']]:
+    def hardware(self) -> pulumi.Input[Optional['ResiliencyPolicyPolicyHardwareArgs']]:
         """
         Specifies Infrastructure failure policy. See `policy.hardware`
         """
         return pulumi.get(self, "hardware")
 
     @hardware.setter
-    def hardware(self, value: Optional[pulumi.Input['ResiliencyPolicyPolicyHardwareArgs']]):
+    def hardware(self, value: pulumi.Input[Optional['ResiliencyPolicyPolicyHardwareArgs']]):
         pulumi.set(self, "hardware", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input['ResiliencyPolicyPolicyRegionArgs']]:
+    def region(self) -> pulumi.Input[Optional['ResiliencyPolicyPolicyRegionArgs']]:
         """
         Specifies Region failure policy. `policy.region`
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input['ResiliencyPolicyPolicyRegionArgs']]):
+    def region(self, value: pulumi.Input[Optional['ResiliencyPolicyPolicyRegionArgs']]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def software(self) -> Optional[pulumi.Input['ResiliencyPolicyPolicySoftwareArgs']]:
+    def software(self) -> pulumi.Input[Optional['ResiliencyPolicyPolicySoftwareArgs']]:
         """
         Specifies Application failure policy. See `policy.software`
 
@@ -120,7 +120,7 @@ class ResiliencyPolicyPolicyArgs:
         return pulumi.get(self, "software")
 
     @software.setter
-    def software(self, value: Optional[pulumi.Input['ResiliencyPolicyPolicySoftwareArgs']]):
+    def software(self, value: pulumi.Input[Optional['ResiliencyPolicyPolicySoftwareArgs']]):
         pulumi.set(self, "software", value)
 
 
@@ -219,11 +219,11 @@ class ResiliencyPolicyPolicyHardwareArgs:
 
 
 class ResiliencyPolicyPolicyRegionArgsDict(TypedDict):
-    rpo: NotRequired[pulumi.Input[_builtins.str]]
+    rpo: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Recovery Point Objective (RPO) as a Go duration.
     """
-    rto: NotRequired[pulumi.Input[_builtins.str]]
+    rto: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Recovery Time Objective (RTO) as a Go duration.
     """
@@ -231,8 +231,8 @@ class ResiliencyPolicyPolicyRegionArgsDict(TypedDict):
 @pulumi.input_type
 class ResiliencyPolicyPolicyRegionArgs:
     def __init__(__self__, *,
-                 rpo: Optional[pulumi.Input[_builtins.str]] = None,
-                 rto: Optional[pulumi.Input[_builtins.str]] = None):
+                 rpo: pulumi.Input[Optional[_builtins.str]] = None,
+                 rto: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] rpo: Recovery Point Objective (RPO) as a Go duration.
         :param pulumi.Input[_builtins.str] rto: Recovery Time Objective (RTO) as a Go duration.
@@ -244,26 +244,26 @@ class ResiliencyPolicyPolicyRegionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def rpo(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rpo(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Recovery Point Objective (RPO) as a Go duration.
         """
         return pulumi.get(self, "rpo")
 
     @rpo.setter
-    def rpo(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rpo(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rpo", value)
 
     @_builtins.property
     @pulumi.getter
-    def rto(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rto(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Recovery Time Objective (RTO) as a Go duration.
         """
         return pulumi.get(self, "rto")
 
     @rto.setter
-    def rto(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rto(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rto", value)
 
 
@@ -315,15 +315,15 @@ class ResiliencyPolicyPolicySoftwareArgs:
 
 
 class ResiliencyPolicyTimeoutsArgsDict(TypedDict):
-    create: NotRequired[pulumi.Input[_builtins.str]]
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
-    delete: NotRequired[pulumi.Input[_builtins.str]]
+    delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     """
-    update: NotRequired[pulumi.Input[_builtins.str]]
+    update: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
@@ -331,9 +331,9 @@ class ResiliencyPolicyTimeoutsArgsDict(TypedDict):
 @pulumi.input_type
 class ResiliencyPolicyTimeoutsArgs:
     def __init__(__self__, *,
-                 create: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete: Optional[pulumi.Input[_builtins.str]] = None,
-                 update: Optional[pulumi.Input[_builtins.str]] = None):
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete: pulumi.Input[Optional[_builtins.str]] = None,
+                 update: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
@@ -348,38 +348,38 @@ class ResiliencyPolicyTimeoutsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "create")
 
     @create.setter
-    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create", value)
 
     @_builtins.property
     @pulumi.getter
-    def delete(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delete(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
         """
         return pulumi.get(self, "delete")
 
     @delete.setter
-    def delete(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delete", value)
 
     @_builtins.property
     @pulumi.getter
-    def update(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def update(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "update")
 
     @update.setter
-    def update(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def update(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "update", value)
 
 

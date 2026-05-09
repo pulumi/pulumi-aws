@@ -34,8 +34,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.notifications.NotificationConfigurationArgs;
  * import com.pulumi.aws.servicequotas.AutoManagement;
  * import com.pulumi.aws.servicequotas.AutoManagementArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *         var example = new AutoManagement("example", AutoManagementArgs.builder()
  *             .optInLevel("ACCOUNT")
  *             .optInType("NotifyOnly")
- *             .exclusionList(Map.of("dynamodb", "L-F98FE922"))
+ *             .exclusionList(Map.of("dynamodb", Arrays.asList("L-F98FE922")))
  *             .notificationArn(exampleNotificationConfiguration.arn())
  *             .build());
  * 

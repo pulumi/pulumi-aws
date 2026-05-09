@@ -125,27 +125,27 @@ export interface VaultLockConfigurationState {
     /**
      * The ARN of the vault.
      */
-    backupVaultArn?: pulumi.Input<string>;
+    backupVaultArn?: pulumi.Input<string | undefined>;
     /**
      * Name of the backup vault to add a lock configuration for.
      */
-    backupVaultName?: pulumi.Input<string>;
+    backupVaultName?: pulumi.Input<string | undefined>;
     /**
      * The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
      */
-    changeableForDays?: pulumi.Input<number>;
+    changeableForDays?: pulumi.Input<number | undefined>;
     /**
      * The maximum retention period that the vault retains its recovery points.
      */
-    maxRetentionDays?: pulumi.Input<number>;
+    maxRetentionDays?: pulumi.Input<number | undefined>;
     /**
      * The minimum retention period that the vault retains its recovery points.
      */
-    minRetentionDays?: pulumi.Input<number>;
+    minRetentionDays?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -159,17 +159,17 @@ export interface VaultLockConfigurationArgs {
     /**
      * The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
      */
-    changeableForDays?: pulumi.Input<number>;
+    changeableForDays?: pulumi.Input<number | undefined>;
     /**
      * The maximum retention period that the vault retains its recovery points.
      */
-    maxRetentionDays?: pulumi.Input<number>;
+    maxRetentionDays?: pulumi.Input<number | undefined>;
     /**
      * The minimum retention period that the vault retains its recovery points.
      */
-    minRetentionDays?: pulumi.Input<number>;
+    minRetentionDays?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

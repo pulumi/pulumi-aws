@@ -221,10 +221,10 @@ def get_service_quota(quota_code: Optional[_builtins.str] = None,
         service_name=pulumi.get(__ret__, 'service_name'),
         usage_metrics=pulumi.get(__ret__, 'usage_metrics'),
         value=pulumi.get(__ret__, 'value'))
-def get_service_quota_output(quota_code: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                             quota_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                             region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                             service_code: Optional[pulumi.Input[_builtins.str]] = None,
+def get_service_quota_output(quota_code: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             quota_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             service_code: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceQuotaResult]:
     """
     Retrieve information about a Service Quota.

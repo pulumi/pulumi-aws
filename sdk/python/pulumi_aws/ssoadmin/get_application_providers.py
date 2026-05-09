@@ -99,7 +99,7 @@ def get_application_providers(region: Optional[_builtins.str] = None,
         application_providers=pulumi.get(__ret__, 'application_providers'),
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'))
-def get_application_providers_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_application_providers_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationProvidersResult]:
     """
     Data source for managing AWS SSO Admin Application Providers.

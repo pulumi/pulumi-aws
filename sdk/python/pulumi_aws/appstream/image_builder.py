@@ -22,19 +22,19 @@ __all__ = ['ImageBuilderArgs', 'ImageBuilder']
 class ImageBuilderArgs:
     def __init__(__self__, *,
                  instance_type: pulumi.Input[_builtins.str],
-                 access_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ImageBuilderAccessEndpointArgs']]]] = None,
-                 appstream_agent_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_join_info: Optional[pulumi.Input['ImageBuilderDomainJoinInfoArgs']] = None,
-                 enable_default_internet_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 iam_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_config: Optional[pulumi.Input['ImageBuilderVpcConfigArgs']] = None):
+                 access_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input['ImageBuilderAccessEndpointArgs']]]] = None,
+                 appstream_agent_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_join_info: pulumi.Input[Optional['ImageBuilderDomainJoinInfoArgs']] = None,
+                 enable_default_internet_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vpc_config: pulumi.Input[Optional['ImageBuilderVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a ImageBuilder resource.
 
@@ -97,115 +97,115 @@ class ImageBuilderArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessEndpoints")
-    def access_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ImageBuilderAccessEndpointArgs']]]]:
+    def access_endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ImageBuilderAccessEndpointArgs']]]]:
         """
         Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
         """
         return pulumi.get(self, "access_endpoints")
 
     @access_endpoints.setter
-    def access_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ImageBuilderAccessEndpointArgs']]]]):
+    def access_endpoints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ImageBuilderAccessEndpointArgs']]]]):
         pulumi.set(self, "access_endpoints", value)
 
     @_builtins.property
     @pulumi.getter(name="appstreamAgentVersion")
-    def appstream_agent_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def appstream_agent_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version of the AppStream 2.0 agent to use for this image builder.
         """
         return pulumi.get(self, "appstream_agent_version")
 
     @appstream_agent_version.setter
-    def appstream_agent_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def appstream_agent_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "appstream_agent_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description to display.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Human-readable friendly name for the AppStream image builder.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="domainJoinInfo")
-    def domain_join_info(self) -> Optional[pulumi.Input['ImageBuilderDomainJoinInfoArgs']]:
+    def domain_join_info(self) -> pulumi.Input[Optional['ImageBuilderDomainJoinInfoArgs']]:
         """
         Configuration block for the name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. See below.
         """
         return pulumi.get(self, "domain_join_info")
 
     @domain_join_info.setter
-    def domain_join_info(self, value: Optional[pulumi.Input['ImageBuilderDomainJoinInfoArgs']]):
+    def domain_join_info(self, value: pulumi.Input[Optional['ImageBuilderDomainJoinInfoArgs']]):
         pulumi.set(self, "domain_join_info", value)
 
     @_builtins.property
     @pulumi.getter(name="enableDefaultInternetAccess")
-    def enable_default_internet_access(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_default_internet_access(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables or disables default internet access for the image builder.
         """
         return pulumi.get(self, "enable_default_internet_access")
 
     @enable_default_internet_access.setter
-    def enable_default_internet_access(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_default_internet_access(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_default_internet_access", value)
 
     @_builtins.property
     @pulumi.getter(name="iamRoleArn")
-    def iam_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def iam_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the IAM role to apply to the image builder.
         """
         return pulumi.get(self, "iam_role_arn")
 
     @iam_role_arn.setter
-    def iam_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def iam_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "iam_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="imageArn")
-    def image_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def image_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the public, private, or shared image to use.
         """
         return pulumi.get(self, "image_arn")
 
     @image_arn.setter
-    def image_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def image_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "image_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="imageName")
-    def image_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def image_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the image used to create the image builder.
         """
         return pulumi.get(self, "image_name")
 
     @image_name.setter
-    def image_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def image_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "image_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique name for the image builder.
 
@@ -214,67 +214,67 @@ class ImageBuilderArgs:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcConfig")
-    def vpc_config(self) -> Optional[pulumi.Input['ImageBuilderVpcConfigArgs']]:
+    def vpc_config(self) -> pulumi.Input[Optional['ImageBuilderVpcConfigArgs']]:
         """
         Configuration block for the VPC configuration for the image builder. See below.
         """
         return pulumi.get(self, "vpc_config")
 
     @vpc_config.setter
-    def vpc_config(self, value: Optional[pulumi.Input['ImageBuilderVpcConfigArgs']]):
+    def vpc_config(self, value: pulumi.Input[Optional['ImageBuilderVpcConfigArgs']]):
         pulumi.set(self, "vpc_config", value)
 
 
 @pulumi.input_type
 class _ImageBuilderState:
     def __init__(__self__, *,
-                 access_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ImageBuilderAccessEndpointArgs']]]] = None,
-                 appstream_agent_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_join_info: Optional[pulumi.Input['ImageBuilderDomainJoinInfoArgs']] = None,
-                 enable_default_internet_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 iam_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_config: Optional[pulumi.Input['ImageBuilderVpcConfigArgs']] = None):
+                 access_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input['ImageBuilderAccessEndpointArgs']]]] = None,
+                 appstream_agent_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_join_info: pulumi.Input[Optional['ImageBuilderDomainJoinInfoArgs']] = None,
+                 enable_default_internet_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vpc_config: pulumi.Input[Optional['ImageBuilderVpcConfigArgs']] = None):
         """
         Input properties used for looking up and filtering ImageBuilder resources.
 
@@ -338,151 +338,151 @@ class _ImageBuilderState:
 
     @_builtins.property
     @pulumi.getter(name="accessEndpoints")
-    def access_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ImageBuilderAccessEndpointArgs']]]]:
+    def access_endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ImageBuilderAccessEndpointArgs']]]]:
         """
         Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
         """
         return pulumi.get(self, "access_endpoints")
 
     @access_endpoints.setter
-    def access_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ImageBuilderAccessEndpointArgs']]]]):
+    def access_endpoints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ImageBuilderAccessEndpointArgs']]]]):
         pulumi.set(self, "access_endpoints", value)
 
     @_builtins.property
     @pulumi.getter(name="appstreamAgentVersion")
-    def appstream_agent_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def appstream_agent_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version of the AppStream 2.0 agent to use for this image builder.
         """
         return pulumi.get(self, "appstream_agent_version")
 
     @appstream_agent_version.setter
-    def appstream_agent_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def appstream_agent_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "appstream_agent_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the appstream image builder.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date and time, in UTC and extended RFC 3339 format, when the image builder was created.
         """
         return pulumi.get(self, "created_time")
 
     @created_time.setter
-    def created_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description to display.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Human-readable friendly name for the AppStream image builder.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="domainJoinInfo")
-    def domain_join_info(self) -> Optional[pulumi.Input['ImageBuilderDomainJoinInfoArgs']]:
+    def domain_join_info(self) -> pulumi.Input[Optional['ImageBuilderDomainJoinInfoArgs']]:
         """
         Configuration block for the name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. See below.
         """
         return pulumi.get(self, "domain_join_info")
 
     @domain_join_info.setter
-    def domain_join_info(self, value: Optional[pulumi.Input['ImageBuilderDomainJoinInfoArgs']]):
+    def domain_join_info(self, value: pulumi.Input[Optional['ImageBuilderDomainJoinInfoArgs']]):
         pulumi.set(self, "domain_join_info", value)
 
     @_builtins.property
     @pulumi.getter(name="enableDefaultInternetAccess")
-    def enable_default_internet_access(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_default_internet_access(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables or disables default internet access for the image builder.
         """
         return pulumi.get(self, "enable_default_internet_access")
 
     @enable_default_internet_access.setter
-    def enable_default_internet_access(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_default_internet_access(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_default_internet_access", value)
 
     @_builtins.property
     @pulumi.getter(name="iamRoleArn")
-    def iam_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def iam_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the IAM role to apply to the image builder.
         """
         return pulumi.get(self, "iam_role_arn")
 
     @iam_role_arn.setter
-    def iam_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def iam_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "iam_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="imageArn")
-    def image_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def image_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the public, private, or shared image to use.
         """
         return pulumi.get(self, "image_arn")
 
     @image_arn.setter
-    def image_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def image_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "image_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="imageName")
-    def image_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def image_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the image used to create the image builder.
         """
         return pulumi.get(self, "image_name")
 
     @image_name.setter
-    def image_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def image_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "image_name", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceType")
-    def instance_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Instance type to use when launching the image builder.
         """
         return pulumi.get(self, "instance_type")
 
     @instance_type.setter
-    def instance_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique name for the image builder.
 
@@ -491,67 +491,67 @@ class _ImageBuilderState:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         State of the image builder. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_ImageBuilder.html#AppStream2-Type-ImageBuilder-State).
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcConfig")
-    def vpc_config(self) -> Optional[pulumi.Input['ImageBuilderVpcConfigArgs']]:
+    def vpc_config(self) -> pulumi.Input[Optional['ImageBuilderVpcConfigArgs']]:
         """
         Configuration block for the VPC configuration for the image builder. See below.
         """
         return pulumi.get(self, "vpc_config")
 
     @vpc_config.setter
-    def vpc_config(self, value: Optional[pulumi.Input['ImageBuilderVpcConfigArgs']]):
+    def vpc_config(self, value: pulumi.Input[Optional['ImageBuilderVpcConfigArgs']]):
         pulumi.set(self, "vpc_config", value)
 
 
@@ -561,20 +561,20 @@ class ImageBuilder(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageBuilderAccessEndpointArgs', 'ImageBuilderAccessEndpointArgsDict']]]]] = None,
-                 appstream_agent_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_join_info: Optional[pulumi.Input[Union['ImageBuilderDomainJoinInfoArgs', 'ImageBuilderDomainJoinInfoArgsDict']]] = None,
-                 enable_default_internet_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 iam_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_config: Optional[pulumi.Input[Union['ImageBuilderVpcConfigArgs', 'ImageBuilderVpcConfigArgsDict']]] = None,
+                 access_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ImageBuilderAccessEndpointArgs', 'ImageBuilderAccessEndpointArgsDict']]]]] = None,
+                 appstream_agent_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_join_info: pulumi.Input[Optional[Union['ImageBuilderDomainJoinInfoArgs', 'ImageBuilderDomainJoinInfoArgsDict']]] = None,
+                 enable_default_internet_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vpc_config: pulumi.Input[Optional[Union['ImageBuilderVpcConfigArgs', 'ImageBuilderVpcConfigArgsDict']]] = None,
                  __props__=None):
         """
         Provides an AppStream image builder.
@@ -682,20 +682,20 @@ class ImageBuilder(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageBuilderAccessEndpointArgs', 'ImageBuilderAccessEndpointArgsDict']]]]] = None,
-                 appstream_agent_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_join_info: Optional[pulumi.Input[Union['ImageBuilderDomainJoinInfoArgs', 'ImageBuilderDomainJoinInfoArgsDict']]] = None,
-                 enable_default_internet_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 iam_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_config: Optional[pulumi.Input[Union['ImageBuilderVpcConfigArgs', 'ImageBuilderVpcConfigArgsDict']]] = None,
+                 access_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ImageBuilderAccessEndpointArgs', 'ImageBuilderAccessEndpointArgsDict']]]]] = None,
+                 appstream_agent_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_join_info: pulumi.Input[Optional[Union['ImageBuilderDomainJoinInfoArgs', 'ImageBuilderDomainJoinInfoArgsDict']]] = None,
+                 enable_default_internet_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vpc_config: pulumi.Input[Optional[Union['ImageBuilderVpcConfigArgs', 'ImageBuilderVpcConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -735,24 +735,24 @@ class ImageBuilder(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            access_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageBuilderAccessEndpointArgs', 'ImageBuilderAccessEndpointArgsDict']]]]] = None,
-            appstream_agent_version: Optional[pulumi.Input[_builtins.str]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            created_time: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            domain_join_info: Optional[pulumi.Input[Union['ImageBuilderDomainJoinInfoArgs', 'ImageBuilderDomainJoinInfoArgsDict']]] = None,
-            enable_default_internet_access: Optional[pulumi.Input[_builtins.bool]] = None,
-            iam_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            image_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            image_name: Optional[pulumi.Input[_builtins.str]] = None,
-            instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            state: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            vpc_config: Optional[pulumi.Input[Union['ImageBuilderVpcConfigArgs', 'ImageBuilderVpcConfigArgsDict']]] = None) -> 'ImageBuilder':
+            access_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ImageBuilderAccessEndpointArgs', 'ImageBuilderAccessEndpointArgsDict']]]]] = None,
+            appstream_agent_version: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            created_time: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_join_info: pulumi.Input[Optional[Union['ImageBuilderDomainJoinInfoArgs', 'ImageBuilderDomainJoinInfoArgsDict']]] = None,
+            enable_default_internet_access: pulumi.Input[Optional[_builtins.bool]] = None,
+            iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            image_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            image_name: pulumi.Input[Optional[_builtins.str]] = None,
+            instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            vpc_config: pulumi.Input[Optional[Union['ImageBuilderVpcConfigArgs', 'ImageBuilderVpcConfigArgsDict']]] = None) -> 'ImageBuilder':
         """
         Get an existing ImageBuilder resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -201,41 +201,41 @@ export interface GetVpcEndpointOutputArgs {
     /**
      * Custom filter block as described below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpcEndpointFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpcEndpointFilterArgs>[] | undefined>;
     /**
      * ID of the specific VPC Endpoint to retrieve.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
      */
-    serviceName?: pulumi.Input<string>;
+    serviceName?: pulumi.Input<string | undefined>;
     /**
      * AWS region of the VPC Endpoint Service. Applicable for endpoints of type `Interface`.
      */
-    serviceRegion?: pulumi.Input<string>;
+    serviceRegion?: pulumi.Input<string | undefined>;
     /**
      * State of the specific VPC Endpoint to retrieve.
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the specific VPC Endpoint to retrieve.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * VPC Endpoint type. Valid values are `Interface`, `Gateway`, `GatewayLoadBalancer`, `Resource`, and `ServiceNetwork`.
      */
-    vpcEndpointType?: pulumi.Input<string>;
+    vpcEndpointType?: pulumi.Input<string | undefined>;
     /**
      * ID of the VPC in which the specific VPC Endpoint is used.
      *
      * The arguments of this data source act as filters for querying the available VPC endpoints.
      * The given filters must match exactly one VPC endpoint whose data will be exported as attributes.
      */
-    vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string | undefined>;
 }

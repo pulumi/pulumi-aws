@@ -230,9 +230,9 @@ def get_repository_creation_template(prefix: Optional[_builtins.str] = None,
         registry_id=pulumi.get(__ret__, 'registry_id'),
         repository_policy=pulumi.get(__ret__, 'repository_policy'),
         resource_tags=pulumi.get(__ret__, 'resource_tags'))
-def get_repository_creation_template_output(prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                                            region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                            resource_tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_repository_creation_template_output(prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                                            region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                            resource_tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoryCreationTemplateResult]:
     """
     The ECR Repository Creation Template data source allows the template details to be retrieved for a Repository Creation Template.

@@ -120,16 +120,16 @@ export interface PackageAssociationState {
     /**
      * Name of the domain to associate the package with.
      */
-    domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string | undefined>;
     /**
      * Internal ID of the package to associate with a domain.
      */
-    packageId?: pulumi.Input<string>;
-    referencePath?: pulumi.Input<string>;
+    packageId?: pulumi.Input<string | undefined>;
+    referencePath?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -147,5 +147,5 @@ export interface PackageAssociationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

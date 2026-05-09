@@ -131,29 +131,29 @@ export interface NamespaceState {
     /**
      * Date and time when the namespace was created.
      */
-    createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string | undefined>;
     /**
      * Account ID of the account that created the namespace.
      */
-    createdBy?: pulumi.Input<string>;
+    createdBy?: pulumi.Input<string | undefined>;
     /**
      * Name of the namespace.
      * Must be between 1 and 255 characters in length.
      * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
      */
-    namespace?: pulumi.Input<string>;
+    namespace?: pulumi.Input<string | undefined>;
     /**
      * Account ID of the account that owns the namespace.
      */
-    ownerAccountId?: pulumi.Input<string>;
+    ownerAccountId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN referencing the Table Bucket that contains this Namespace.
      */
-    tableBucketArn?: pulumi.Input<string>;
+    tableBucketArn?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -169,7 +169,7 @@ export interface NamespaceArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN referencing the Table Bucket that contains this Namespace.
      */

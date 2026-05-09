@@ -152,41 +152,41 @@ export interface ParameterGroupState {
     /**
      * The ARN of the parameter group.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Description for the parameter group. Defaults to `"Managed by Pulumi"`.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The engine version that the parameter group can be used with.
      *
      * The following arguments are optional:
      */
-    family?: pulumi.Input<string>;
+    family?: pulumi.Input<string | undefined>;
     /**
      * Name of the parameter group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string | undefined>;
     /**
      * Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.
      */
-    parameters?: pulumi.Input<pulumi.Input<inputs.memorydb.ParameterGroupParameter>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.memorydb.ParameterGroupParameter>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -196,7 +196,7 @@ export interface ParameterGroupArgs {
     /**
      * Description for the parameter group. Defaults to `"Managed by Pulumi"`.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The engine version that the parameter group can be used with.
      *
@@ -206,21 +206,21 @@ export interface ParameterGroupArgs {
     /**
      * Name of the parameter group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string | undefined>;
     /**
      * Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.
      */
-    parameters?: pulumi.Input<pulumi.Input<inputs.memorydb.ParameterGroupParameter>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.memorydb.ParameterGroupParameter>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

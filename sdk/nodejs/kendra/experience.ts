@@ -170,47 +170,47 @@ export interface ExperienceState {
     /**
      * ARN of the Experience.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
      *
      * > **NOTE:** By default of the AWS Kendra API, updates to an existing `aws.kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
      */
-    configuration?: pulumi.Input<inputs.kendra.ExperienceConfiguration>;
+    configuration?: pulumi.Input<inputs.kendra.ExperienceConfiguration | undefined>;
     /**
      * A description for your Amazon Kendra experience.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Shows the endpoint URLs for your Amazon Kendra experiences. The URLs are unique and fully hosted by AWS.
      */
-    endpoints?: pulumi.Input<pulumi.Input<inputs.kendra.ExperienceEndpoint>[]>;
+    endpoints?: pulumi.Input<pulumi.Input<inputs.kendra.ExperienceEndpoint>[] | undefined>;
     /**
      * The unique identifier of the experience.
      */
-    experienceId?: pulumi.Input<string>;
+    experienceId?: pulumi.Input<string | undefined>;
     /**
      * The identifier of the index for your Amazon Kendra experience.
      */
-    indexId?: pulumi.Input<string>;
+    indexId?: pulumi.Input<string | undefined>;
     /**
      * A name for your Amazon Kendra experience.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
      *
      * The following arguments are optional:
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
     /**
      * The current processing status of your Amazon Kendra experience.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -222,11 +222,11 @@ export interface ExperienceArgs {
      *
      * > **NOTE:** By default of the AWS Kendra API, updates to an existing `aws.kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
      */
-    configuration?: pulumi.Input<inputs.kendra.ExperienceConfiguration>;
+    configuration?: pulumi.Input<inputs.kendra.ExperienceConfiguration | undefined>;
     /**
      * A description for your Amazon Kendra experience.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The identifier of the index for your Amazon Kendra experience.
      */
@@ -234,11 +234,11 @@ export interface ExperienceArgs {
     /**
      * A name for your Amazon Kendra experience.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
      *

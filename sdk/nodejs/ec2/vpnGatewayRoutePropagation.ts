@@ -104,15 +104,15 @@ export interface VpnGatewayRoutePropagationState {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The id of the `aws.ec2.RouteTable` to propagate routes into.
      */
-    routeTableId?: pulumi.Input<string>;
+    routeTableId?: pulumi.Input<string | undefined>;
     /**
      * The id of the `aws.ec2.VpnGateway` to propagate routes from.
      */
-    vpnGatewayId?: pulumi.Input<string>;
+    vpnGatewayId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -122,7 +122,7 @@ export interface VpnGatewayRoutePropagationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The id of the `aws.ec2.RouteTable` to propagate routes into.
      */

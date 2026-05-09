@@ -105,7 +105,7 @@ import * as utilities from "../utilities";
  *     name: dvo.resourceRecordName,
  *     record: dvo.resourceRecordValue,
  *     type: dvo.resourceRecordType,
- * } }), {})).map(([k, v]) => ({key: k, value: v}))) {
+ * } }), {})).sort().map(([k, v]) => ({key: k, value: v}))) {
  *     example.push(new aws.route53.Record(`example-${range.key}`, {
  *         allowOverwrite: true,
  *         name: range.value.name,
@@ -307,99 +307,99 @@ export interface CertificateState {
     /**
      * ARN of the certificate
      */
-    arn?: pulumi.Input<string>;
-    certificateAuthorityArn?: pulumi.Input<string>;
-    certificateBody?: pulumi.Input<string>;
-    certificateChain?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
+    certificateAuthorityArn?: pulumi.Input<string | undefined>;
+    certificateBody?: pulumi.Input<string | undefined>;
+    certificateChain?: pulumi.Input<string | undefined>;
     /**
      * Fully qualified domain name (FQDN) in the certificate.
      */
-    domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string | undefined>;
     /**
      * Set of domain validation objects which can be used to complete certificate validation.
      * Can have more than one element, e.g., if SANs are defined.
      * Only set if `DNS`-validation was used.
      */
-    domainValidationOptions?: pulumi.Input<pulumi.Input<inputs.acm.CertificateDomainValidationOption>[]>;
-    earlyRenewalDuration?: pulumi.Input<string>;
-    keyAlgorithm?: pulumi.Input<string>;
+    domainValidationOptions?: pulumi.Input<pulumi.Input<inputs.acm.CertificateDomainValidationOption>[] | undefined>;
+    earlyRenewalDuration?: pulumi.Input<string | undefined>;
+    keyAlgorithm?: pulumi.Input<string | undefined>;
     /**
      * Expiration date and time of the certificate.
      */
-    notAfter?: pulumi.Input<string>;
+    notAfter?: pulumi.Input<string | undefined>;
     /**
      * Start of the validity period of the certificate.
      */
-    notBefore?: pulumi.Input<string>;
-    options?: pulumi.Input<inputs.acm.CertificateOptions>;
+    notBefore?: pulumi.Input<string | undefined>;
+    options?: pulumi.Input<inputs.acm.CertificateOptions | undefined>;
     /**
      * `true` if a Private certificate eligible for managed renewal is within the `earlyRenewalDuration` period.
      */
-    pendingRenewal?: pulumi.Input<boolean>;
-    privateKey?: pulumi.Input<string>;
+    pendingRenewal?: pulumi.Input<boolean | undefined>;
+    privateKey?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * * Creating an Amazon issued certificate
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Whether the certificate is eligible for managed renewal.
      */
-    renewalEligibility?: pulumi.Input<string>;
+    renewalEligibility?: pulumi.Input<string | undefined>;
     /**
      * Contains information about the status of ACM's [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for the certificate.
      */
-    renewalSummaries?: pulumi.Input<pulumi.Input<inputs.acm.CertificateRenewalSummary>[]>;
+    renewalSummaries?: pulumi.Input<pulumi.Input<inputs.acm.CertificateRenewalSummary>[] | undefined>;
     /**
      * Status of the certificate.
      */
-    status?: pulumi.Input<string>;
-    subjectAlternativeNames?: pulumi.Input<pulumi.Input<string>[]>;
+    status?: pulumi.Input<string | undefined>;
+    subjectAlternativeNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Source of the certificate.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * List of addresses that received a validation email. Only set if `EMAIL` validation was used.
      */
-    validationEmails?: pulumi.Input<pulumi.Input<string>[]>;
-    validationMethod?: pulumi.Input<string>;
-    validationOptions?: pulumi.Input<pulumi.Input<inputs.acm.CertificateValidationOption>[]>;
+    validationEmails?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    validationMethod?: pulumi.Input<string | undefined>;
+    validationOptions?: pulumi.Input<pulumi.Input<inputs.acm.CertificateValidationOption>[] | undefined>;
 }
 
 /**
  * The set of arguments for constructing a Certificate resource.
  */
 export interface CertificateArgs {
-    certificateAuthorityArn?: pulumi.Input<string>;
-    certificateBody?: pulumi.Input<string>;
-    certificateChain?: pulumi.Input<string>;
+    certificateAuthorityArn?: pulumi.Input<string | undefined>;
+    certificateBody?: pulumi.Input<string | undefined>;
+    certificateChain?: pulumi.Input<string | undefined>;
     /**
      * Fully qualified domain name (FQDN) in the certificate.
      */
-    domainName?: pulumi.Input<string>;
-    earlyRenewalDuration?: pulumi.Input<string>;
-    keyAlgorithm?: pulumi.Input<string>;
-    options?: pulumi.Input<inputs.acm.CertificateOptions>;
-    privateKey?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string | undefined>;
+    earlyRenewalDuration?: pulumi.Input<string | undefined>;
+    keyAlgorithm?: pulumi.Input<string | undefined>;
+    options?: pulumi.Input<inputs.acm.CertificateOptions | undefined>;
+    privateKey?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * * Creating an Amazon issued certificate
      */
-    region?: pulumi.Input<string>;
-    subjectAlternativeNames?: pulumi.Input<pulumi.Input<string>[]>;
+    region?: pulumi.Input<string | undefined>;
+    subjectAlternativeNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    validationMethod?: pulumi.Input<string>;
-    validationOptions?: pulumi.Input<pulumi.Input<inputs.acm.CertificateValidationOption>[]>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    validationMethod?: pulumi.Input<string | undefined>;
+    validationOptions?: pulumi.Input<pulumi.Input<inputs.acm.CertificateValidationOption>[] | undefined>;
 }

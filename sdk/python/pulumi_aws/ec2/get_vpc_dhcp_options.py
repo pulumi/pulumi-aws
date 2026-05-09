@@ -254,10 +254,10 @@ def get_vpc_dhcp_options(dhcp_options_id: Optional[_builtins.str] = None,
         owner_id=pulumi.get(__ret__, 'owner_id'),
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_vpc_dhcp_options_output(dhcp_options_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                filters: Optional[pulumi.Input[Optional[Sequence[Union['GetVpcDhcpOptionsFilterArgs', 'GetVpcDhcpOptionsFilterArgsDict']]]]] = None,
-                                region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_vpc_dhcp_options_output(dhcp_options_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                filters: pulumi.Input[Optional[Optional[Sequence[Union['GetVpcDhcpOptionsFilterArgs', 'GetVpcDhcpOptionsFilterArgsDict']]]]] = None,
+                                region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcDhcpOptionsResult]:
     """
     Retrieve information about an EC2 DHCP Options configuration.

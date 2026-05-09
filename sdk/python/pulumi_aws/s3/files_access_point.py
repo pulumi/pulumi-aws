@@ -22,11 +22,11 @@ __all__ = ['FilesAccessPointArgs', 'FilesAccessPoint']
 class FilesAccessPointArgs:
     def __init__(__self__, *,
                  file_system_id: pulumi.Input[_builtins.str],
-                 posix_users: Optional[pulumi.Input[Sequence[pulumi.Input['FilesAccessPointPosixUserArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 root_directories: Optional[pulumi.Input[Sequence[pulumi.Input['FilesAccessPointRootDirectoryArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['FilesAccessPointTimeoutsArgs']] = None):
+                 posix_users: pulumi.Input[Optional[Sequence[pulumi.Input['FilesAccessPointPosixUserArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 root_directories: pulumi.Input[Optional[Sequence[pulumi.Input['FilesAccessPointRootDirectoryArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['FilesAccessPointTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a FilesAccessPoint resource.
 
@@ -64,7 +64,7 @@ class FilesAccessPointArgs:
 
     @_builtins.property
     @pulumi.getter(name="posixUsers")
-    def posix_users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilesAccessPointPosixUserArgs']]]]:
+    def posix_users(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilesAccessPointPosixUserArgs']]]]:
         """
         POSIX user configuration. See `posix_user` below. Changing this value forces replacement.
 
@@ -73,69 +73,69 @@ class FilesAccessPointArgs:
         return pulumi.get(self, "posix_users")
 
     @posix_users.setter
-    def posix_users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilesAccessPointPosixUserArgs']]]]):
+    def posix_users(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilesAccessPointPosixUserArgs']]]]):
         pulumi.set(self, "posix_users", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="rootDirectories")
-    def root_directories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilesAccessPointRootDirectoryArgs']]]]:
+    def root_directories(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilesAccessPointRootDirectoryArgs']]]]:
         """
         Root directory configuration. See `root_directory` below. Changing this value forces replacement.
         """
         return pulumi.get(self, "root_directories")
 
     @root_directories.setter
-    def root_directories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilesAccessPointRootDirectoryArgs']]]]):
+    def root_directories(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilesAccessPointRootDirectoryArgs']]]]):
         pulumi.set(self, "root_directories", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['FilesAccessPointTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['FilesAccessPointTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['FilesAccessPointTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['FilesAccessPointTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _FilesAccessPointState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_system_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 posix_users: Optional[pulumi.Input[Sequence[pulumi.Input['FilesAccessPointPosixUserArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 root_directories: Optional[pulumi.Input[Sequence[pulumi.Input['FilesAccessPointRootDirectoryArgs']]]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['FilesAccessPointTimeoutsArgs']] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_system_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 posix_users: pulumi.Input[Optional[Sequence[pulumi.Input['FilesAccessPointPosixUserArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 root_directories: pulumi.Input[Optional[Sequence[pulumi.Input['FilesAccessPointRootDirectoryArgs']]]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['FilesAccessPointTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering FilesAccessPoint resources.
 
@@ -177,55 +177,55 @@ class _FilesAccessPointState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the access point.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="fileSystemId")
-    def file_system_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def file_system_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         File system ID. Changing this value forces replacement.
         """
         return pulumi.get(self, "file_system_id")
 
     @file_system_id.setter
-    def file_system_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def file_system_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "file_system_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Access point name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS account ID of the owner.
         """
         return pulumi.get(self, "owner_id")
 
     @owner_id.setter
-    def owner_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner_id", value)
 
     @_builtins.property
     @pulumi.getter(name="posixUsers")
-    def posix_users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilesAccessPointPosixUserArgs']]]]:
+    def posix_users(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilesAccessPointPosixUserArgs']]]]:
         """
         POSIX user configuration. See `posix_user` below. Changing this value forces replacement.
 
@@ -234,76 +234,76 @@ class _FilesAccessPointState:
         return pulumi.get(self, "posix_users")
 
     @posix_users.setter
-    def posix_users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilesAccessPointPosixUserArgs']]]]):
+    def posix_users(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilesAccessPointPosixUserArgs']]]]):
         pulumi.set(self, "posix_users", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="rootDirectories")
-    def root_directories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilesAccessPointRootDirectoryArgs']]]]:
+    def root_directories(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilesAccessPointRootDirectoryArgs']]]]:
         """
         Root directory configuration. See `root_directory` below. Changing this value forces replacement.
         """
         return pulumi.get(self, "root_directories")
 
     @root_directories.setter
-    def root_directories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilesAccessPointRootDirectoryArgs']]]]):
+    def root_directories(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilesAccessPointRootDirectoryArgs']]]]):
         pulumi.set(self, "root_directories", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Access point status.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['FilesAccessPointTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['FilesAccessPointTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['FilesAccessPointTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['FilesAccessPointTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
@@ -313,12 +313,12 @@ class FilesAccessPoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 file_system_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 posix_users: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FilesAccessPointPosixUserArgs', 'FilesAccessPointPosixUserArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 root_directories: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FilesAccessPointRootDirectoryArgs', 'FilesAccessPointRootDirectoryArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['FilesAccessPointTimeoutsArgs', 'FilesAccessPointTimeoutsArgsDict']]] = None,
+                 file_system_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 posix_users: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FilesAccessPointPosixUserArgs', 'FilesAccessPointPosixUserArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 root_directories: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FilesAccessPointRootDirectoryArgs', 'FilesAccessPointRootDirectoryArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['FilesAccessPointTimeoutsArgs', 'FilesAccessPointTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Manages an S3 Files Access Point.
@@ -425,12 +425,12 @@ class FilesAccessPoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 file_system_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 posix_users: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FilesAccessPointPosixUserArgs', 'FilesAccessPointPosixUserArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 root_directories: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FilesAccessPointRootDirectoryArgs', 'FilesAccessPointRootDirectoryArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['FilesAccessPointTimeoutsArgs', 'FilesAccessPointTimeoutsArgsDict']]] = None,
+                 file_system_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 posix_users: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FilesAccessPointPosixUserArgs', 'FilesAccessPointPosixUserArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 root_directories: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FilesAccessPointRootDirectoryArgs', 'FilesAccessPointRootDirectoryArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['FilesAccessPointTimeoutsArgs', 'FilesAccessPointTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -463,17 +463,17 @@ class FilesAccessPoint(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            file_system_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            owner_id: Optional[pulumi.Input[_builtins.str]] = None,
-            posix_users: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FilesAccessPointPosixUserArgs', 'FilesAccessPointPosixUserArgsDict']]]]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            root_directories: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FilesAccessPointRootDirectoryArgs', 'FilesAccessPointRootDirectoryArgsDict']]]]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: Optional[pulumi.Input[Union['FilesAccessPointTimeoutsArgs', 'FilesAccessPointTimeoutsArgsDict']]] = None) -> 'FilesAccessPoint':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            file_system_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+            posix_users: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FilesAccessPointPosixUserArgs', 'FilesAccessPointPosixUserArgsDict']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            root_directories: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FilesAccessPointRootDirectoryArgs', 'FilesAccessPointRootDirectoryArgsDict']]]]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['FilesAccessPointTimeoutsArgs', 'FilesAccessPointTimeoutsArgsDict']]] = None) -> 'FilesAccessPoint':
         """
         Get an existing FilesAccessPoint resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

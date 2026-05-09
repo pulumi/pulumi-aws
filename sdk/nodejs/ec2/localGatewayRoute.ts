@@ -118,19 +118,19 @@ export interface LocalGatewayRouteState {
     /**
      * IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
      */
-    destinationCidrBlock?: pulumi.Input<string>;
+    destinationCidrBlock?: pulumi.Input<string | undefined>;
     /**
      * Identifier of EC2 Local Gateway Route Table.
      */
-    localGatewayRouteTableId?: pulumi.Input<string>;
+    localGatewayRouteTableId?: pulumi.Input<string | undefined>;
     /**
      * Identifier of EC2 Local Gateway Virtual Interface Group.
      */
-    localGatewayVirtualInterfaceGroupId?: pulumi.Input<string>;
+    localGatewayVirtualInterfaceGroupId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -152,5 +152,5 @@ export interface LocalGatewayRouteArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

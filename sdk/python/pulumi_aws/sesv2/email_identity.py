@@ -22,10 +22,10 @@ __all__ = ['EmailIdentityArgs', 'EmailIdentity']
 class EmailIdentityArgs:
     def __init__(__self__, *,
                  email_identity: pulumi.Input[_builtins.str],
-                 configuration_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 dkim_signing_attributes: Optional[pulumi.Input['EmailIdentityDkimSigningAttributesArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 configuration_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dkim_signing_attributes: pulumi.Input[Optional['EmailIdentityDkimSigningAttributesArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a EmailIdentity resource.
 
@@ -63,66 +63,66 @@ class EmailIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="configurationSetName")
-    def configuration_set_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def configuration_set_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
         """
         return pulumi.get(self, "configuration_set_name")
 
     @configuration_set_name.setter
-    def configuration_set_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def configuration_set_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "configuration_set_name", value)
 
     @_builtins.property
     @pulumi.getter(name="dkimSigningAttributes")
-    def dkim_signing_attributes(self) -> Optional[pulumi.Input['EmailIdentityDkimSigningAttributesArgs']]:
+    def dkim_signing_attributes(self) -> pulumi.Input[Optional['EmailIdentityDkimSigningAttributesArgs']]:
         """
         The configuration of the DKIM authentication settings for an email domain identity.
         """
         return pulumi.get(self, "dkim_signing_attributes")
 
     @dkim_signing_attributes.setter
-    def dkim_signing_attributes(self, value: Optional[pulumi.Input['EmailIdentityDkimSigningAttributesArgs']]):
+    def dkim_signing_attributes(self, value: pulumi.Input[Optional['EmailIdentityDkimSigningAttributesArgs']]):
         pulumi.set(self, "dkim_signing_attributes", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _EmailIdentityState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 dkim_signing_attributes: Optional[pulumi.Input['EmailIdentityDkimSigningAttributesArgs']] = None,
-                 email_identity: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 verification_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 verified_for_sending_status: Optional[pulumi.Input[_builtins.bool]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dkim_signing_attributes: pulumi.Input[Optional['EmailIdentityDkimSigningAttributesArgs']] = None,
+                 email_identity: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 verification_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 verified_for_sending_status: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering EmailIdentity resources.
 
@@ -162,43 +162,43 @@ class _EmailIdentityState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the Email Identity.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="configurationSetName")
-    def configuration_set_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def configuration_set_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
         """
         return pulumi.get(self, "configuration_set_name")
 
     @configuration_set_name.setter
-    def configuration_set_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def configuration_set_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "configuration_set_name", value)
 
     @_builtins.property
     @pulumi.getter(name="dkimSigningAttributes")
-    def dkim_signing_attributes(self) -> Optional[pulumi.Input['EmailIdentityDkimSigningAttributesArgs']]:
+    def dkim_signing_attributes(self) -> pulumi.Input[Optional['EmailIdentityDkimSigningAttributesArgs']]:
         """
         The configuration of the DKIM authentication settings for an email domain identity.
         """
         return pulumi.get(self, "dkim_signing_attributes")
 
     @dkim_signing_attributes.setter
-    def dkim_signing_attributes(self, value: Optional[pulumi.Input['EmailIdentityDkimSigningAttributesArgs']]):
+    def dkim_signing_attributes(self, value: pulumi.Input[Optional['EmailIdentityDkimSigningAttributesArgs']]):
         pulumi.set(self, "dkim_signing_attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="emailIdentity")
-    def email_identity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email_identity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The email address or domain to verify.
 
@@ -207,79 +207,79 @@ class _EmailIdentityState:
         return pulumi.get(self, "email_identity")
 
     @email_identity.setter
-    def email_identity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email_identity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email_identity", value)
 
     @_builtins.property
     @pulumi.getter(name="identityType")
-    def identity_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identity_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
         """
         return pulumi.get(self, "identity_type")
 
     @identity_type.setter
-    def identity_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identity_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identity_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="verificationStatus")
-    def verification_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def verification_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The verification status of the identity. The status can be one of the following: `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
         """
         return pulumi.get(self, "verification_status")
 
     @verification_status.setter
-    def verification_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def verification_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "verification_status", value)
 
     @_builtins.property
     @pulumi.getter(name="verifiedForSendingStatus")
-    def verified_for_sending_status(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def verified_for_sending_status(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether or not the identity is verified.
         """
         return pulumi.get(self, "verified_for_sending_status")
 
     @verified_for_sending_status.setter
-    def verified_for_sending_status(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def verified_for_sending_status(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "verified_for_sending_status", value)
 
 
@@ -289,11 +289,11 @@ class EmailIdentity(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 dkim_signing_attributes: Optional[pulumi.Input[Union['EmailIdentityDkimSigningAttributesArgs', 'EmailIdentityDkimSigningAttributesArgsDict']]] = None,
-                 email_identity: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 configuration_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dkim_signing_attributes: pulumi.Input[Optional[Union['EmailIdentityDkimSigningAttributesArgs', 'EmailIdentityDkimSigningAttributesArgsDict']]] = None,
+                 email_identity: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Resource for managing an AWS SESv2 (Simple Email V2) Email Identity.
@@ -446,11 +446,11 @@ class EmailIdentity(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 dkim_signing_attributes: Optional[pulumi.Input[Union['EmailIdentityDkimSigningAttributesArgs', 'EmailIdentityDkimSigningAttributesArgsDict']]] = None,
-                 email_identity: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 configuration_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dkim_signing_attributes: pulumi.Input[Optional[Union['EmailIdentityDkimSigningAttributesArgs', 'EmailIdentityDkimSigningAttributesArgsDict']]] = None,
+                 email_identity: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -482,16 +482,16 @@ class EmailIdentity(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            configuration_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-            dkim_signing_attributes: Optional[pulumi.Input[Union['EmailIdentityDkimSigningAttributesArgs', 'EmailIdentityDkimSigningAttributesArgsDict']]] = None,
-            email_identity: Optional[pulumi.Input[_builtins.str]] = None,
-            identity_type: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            verification_status: Optional[pulumi.Input[_builtins.str]] = None,
-            verified_for_sending_status: Optional[pulumi.Input[_builtins.bool]] = None) -> 'EmailIdentity':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            configuration_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+            dkim_signing_attributes: pulumi.Input[Optional[Union['EmailIdentityDkimSigningAttributesArgs', 'EmailIdentityDkimSigningAttributesArgsDict']]] = None,
+            email_identity: pulumi.Input[Optional[_builtins.str]] = None,
+            identity_type: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            verification_status: pulumi.Input[Optional[_builtins.str]] = None,
+            verified_for_sending_status: pulumi.Input[Optional[_builtins.bool]] = None) -> 'EmailIdentity':
         """
         Get an existing EmailIdentity resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -105,11 +105,11 @@ export interface DefaultAutoScalingConfigurationVersionState {
     /**
      * The ARN of the App Runner auto scaling configuration that you want to set as the default.
      */
-    autoScalingConfigurationArn?: pulumi.Input<string>;
+    autoScalingConfigurationArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -123,5 +123,5 @@ export interface DefaultAutoScalingConfigurationVersionArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

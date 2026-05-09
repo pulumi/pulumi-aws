@@ -189,10 +189,10 @@ def get_route_table(filters: Optional[Sequence[Union['GetRouteTableFilterArgs', 
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
         transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'))
-def get_route_table_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetRouteTableFilterArgs', 'GetRouteTableFilterArgsDict']]]]] = None,
-                           id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                           region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                           tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_route_table_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetRouteTableFilterArgs', 'GetRouteTableFilterArgsDict']]]]] = None,
+                           id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRouteTableResult]:
     """
     Get information on an EC2 Transit Gateway Route Table.

@@ -163,45 +163,45 @@ export interface QuerySuggestionsBlockListState {
     /**
      * ARN of the block list.
      */
-    arn?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the index for a block list.
      */
-    indexId?: pulumi.Input<string>;
+    indexId?: pulumi.Input<string | undefined>;
     /**
      * Name for the block list.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Unique identifier of the block list.
      */
-    querySuggestionsBlockListId?: pulumi.Input<string>;
+    querySuggestionsBlockListId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * IAM (Identity and Access Management) role used to access the block list text file in S3.
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
     /**
      * S3 path where your block list text file is located. See details below.
      */
-    sourceS3Path?: pulumi.Input<inputs.kendra.QuerySuggestionsBlockListSourceS3Path>;
-    status?: pulumi.Input<string>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    sourceS3Path?: pulumi.Input<inputs.kendra.QuerySuggestionsBlockListSourceS3Path | undefined>;
+    status?: pulumi.Input<string | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider's defaultTags configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
  * The set of arguments for constructing a QuerySuggestionsBlockList resource.
  */
 export interface QuerySuggestionsBlockListArgs {
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the index for a block list.
      */
@@ -209,11 +209,11 @@ export interface QuerySuggestionsBlockListArgs {
     /**
      * Name for the block list.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * IAM (Identity and Access Management) role used to access the block list text file in S3.
      */
@@ -222,5 +222,5 @@ export interface QuerySuggestionsBlockListArgs {
      * S3 path where your block list text file is located. See details below.
      */
     sourceS3Path: pulumi.Input<inputs.kendra.QuerySuggestionsBlockListSourceS3Path>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

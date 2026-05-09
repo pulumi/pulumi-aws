@@ -170,41 +170,41 @@ export interface SecondaryNetworkState {
     /**
      * ARN of the secondary network.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * IPv4 CIDR block for the secondary network. The CIDR block size must be between `/12` and `/28`.
      */
-    ipv4CidrBlock?: pulumi.Input<string>;
+    ipv4CidrBlock?: pulumi.Input<string | undefined>;
     /**
      * A list of IPv4 CIDR block associations for the secondary network.
      */
-    ipv4CidrBlockAssociations?: pulumi.Input<pulumi.Input<inputs.ec2.SecondaryNetworkIpv4CidrBlockAssociation>[]>;
+    ipv4CidrBlockAssociations?: pulumi.Input<pulumi.Input<inputs.ec2.SecondaryNetworkIpv4CidrBlockAssociation>[] | undefined>;
     /**
      * Type of secondary network. Currently only `rdma` is supported.
      */
-    networkType?: pulumi.Input<string>;
-    ownerId?: pulumi.Input<string>;
+    networkType?: pulumi.Input<string | undefined>;
+    ownerId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ID of the secondary network.
      */
-    secondaryNetworkId?: pulumi.Input<string>;
+    secondaryNetworkId?: pulumi.Input<string | undefined>;
     /**
      * State of the IPv4 CIDR block association.
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.ec2.SecondaryNetworkTimeouts>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.ec2.SecondaryNetworkTimeouts | undefined>;
 }
 
 /**
@@ -222,10 +222,10 @@ export interface SecondaryNetworkArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.ec2.SecondaryNetworkTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.ec2.SecondaryNetworkTimeouts | undefined>;
 }

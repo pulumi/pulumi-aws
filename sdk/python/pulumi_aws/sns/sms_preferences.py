@@ -19,13 +19,13 @@ __all__ = ['SmsPreferencesArgs', 'SmsPreferences']
 @pulumi.input_type
 class SmsPreferencesArgs:
     def __init__(__self__, *,
-                 default_sender_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_sms_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 delivery_status_iam_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 delivery_status_success_sampling_rate: Optional[pulumi.Input[_builtins.str]] = None,
-                 monthly_spend_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 usage_report_s3_bucket: Optional[pulumi.Input[_builtins.str]] = None):
+                 default_sender_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_sms_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 delivery_status_iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 delivery_status_success_sampling_rate: pulumi.Input[Optional[_builtins.str]] = None,
+                 monthly_spend_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 usage_report_s3_bucket: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SmsPreferences resource.
 
@@ -54,99 +54,99 @@ class SmsPreferencesArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultSenderId")
-    def default_sender_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_sender_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string, such as your business brand, that is displayed as the sender on the receiving device.
         """
         return pulumi.get(self, "default_sender_id")
 
     @default_sender_id.setter
-    def default_sender_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_sender_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_sender_id", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultSmsType")
-    def default_sms_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_sms_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of SMS message that you will send by default. Possible values are: Promotional, Transactional
         """
         return pulumi.get(self, "default_sms_type")
 
     @default_sms_type.setter
-    def default_sms_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_sms_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_sms_type", value)
 
     @_builtins.property
     @pulumi.getter(name="deliveryStatusIamRoleArn")
-    def delivery_status_iam_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delivery_status_iam_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the IAM role that allows Amazon SNS to write logs about SMS deliveries in CloudWatch Logs.
         """
         return pulumi.get(self, "delivery_status_iam_role_arn")
 
     @delivery_status_iam_role_arn.setter
-    def delivery_status_iam_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delivery_status_iam_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delivery_status_iam_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="deliveryStatusSuccessSamplingRate")
-    def delivery_status_success_sampling_rate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delivery_status_success_sampling_rate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The percentage of successful SMS deliveries for which Amazon SNS will write logs in CloudWatch Logs. The value must be between 0 and 100.
         """
         return pulumi.get(self, "delivery_status_success_sampling_rate")
 
     @delivery_status_success_sampling_rate.setter
-    def delivery_status_success_sampling_rate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delivery_status_success_sampling_rate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delivery_status_success_sampling_rate", value)
 
     @_builtins.property
     @pulumi.getter(name="monthlySpendLimit")
-    def monthly_spend_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def monthly_spend_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum amount in USD that you are willing to spend each month to send SMS messages.
         """
         return pulumi.get(self, "monthly_spend_limit")
 
     @monthly_spend_limit.setter
-    def monthly_spend_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def monthly_spend_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "monthly_spend_limit", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="usageReportS3Bucket")
-    def usage_report_s3_bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def usage_report_s3_bucket(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
         """
         return pulumi.get(self, "usage_report_s3_bucket")
 
     @usage_report_s3_bucket.setter
-    def usage_report_s3_bucket(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def usage_report_s3_bucket(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "usage_report_s3_bucket", value)
 
 
 @pulumi.input_type
 class _SmsPreferencesState:
     def __init__(__self__, *,
-                 default_sender_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_sms_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 delivery_status_iam_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 delivery_status_success_sampling_rate: Optional[pulumi.Input[_builtins.str]] = None,
-                 monthly_spend_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 usage_report_s3_bucket: Optional[pulumi.Input[_builtins.str]] = None):
+                 default_sender_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_sms_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 delivery_status_iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 delivery_status_success_sampling_rate: pulumi.Input[Optional[_builtins.str]] = None,
+                 monthly_spend_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 usage_report_s3_bucket: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SmsPreferences resources.
 
@@ -175,86 +175,86 @@ class _SmsPreferencesState:
 
     @_builtins.property
     @pulumi.getter(name="defaultSenderId")
-    def default_sender_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_sender_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string, such as your business brand, that is displayed as the sender on the receiving device.
         """
         return pulumi.get(self, "default_sender_id")
 
     @default_sender_id.setter
-    def default_sender_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_sender_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_sender_id", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultSmsType")
-    def default_sms_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_sms_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of SMS message that you will send by default. Possible values are: Promotional, Transactional
         """
         return pulumi.get(self, "default_sms_type")
 
     @default_sms_type.setter
-    def default_sms_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_sms_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_sms_type", value)
 
     @_builtins.property
     @pulumi.getter(name="deliveryStatusIamRoleArn")
-    def delivery_status_iam_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delivery_status_iam_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the IAM role that allows Amazon SNS to write logs about SMS deliveries in CloudWatch Logs.
         """
         return pulumi.get(self, "delivery_status_iam_role_arn")
 
     @delivery_status_iam_role_arn.setter
-    def delivery_status_iam_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delivery_status_iam_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delivery_status_iam_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="deliveryStatusSuccessSamplingRate")
-    def delivery_status_success_sampling_rate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delivery_status_success_sampling_rate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The percentage of successful SMS deliveries for which Amazon SNS will write logs in CloudWatch Logs. The value must be between 0 and 100.
         """
         return pulumi.get(self, "delivery_status_success_sampling_rate")
 
     @delivery_status_success_sampling_rate.setter
-    def delivery_status_success_sampling_rate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delivery_status_success_sampling_rate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delivery_status_success_sampling_rate", value)
 
     @_builtins.property
     @pulumi.getter(name="monthlySpendLimit")
-    def monthly_spend_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def monthly_spend_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum amount in USD that you are willing to spend each month to send SMS messages.
         """
         return pulumi.get(self, "monthly_spend_limit")
 
     @monthly_spend_limit.setter
-    def monthly_spend_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def monthly_spend_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "monthly_spend_limit", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="usageReportS3Bucket")
-    def usage_report_s3_bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def usage_report_s3_bucket(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
         """
         return pulumi.get(self, "usage_report_s3_bucket")
 
     @usage_report_s3_bucket.setter
-    def usage_report_s3_bucket(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def usage_report_s3_bucket(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "usage_report_s3_bucket", value)
 
 
@@ -264,13 +264,13 @@ class SmsPreferences(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_sender_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_sms_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 delivery_status_iam_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 delivery_status_success_sampling_rate: Optional[pulumi.Input[_builtins.str]] = None,
-                 monthly_spend_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 usage_report_s3_bucket: Optional[pulumi.Input[_builtins.str]] = None,
+                 default_sender_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_sms_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 delivery_status_iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 delivery_status_success_sampling_rate: pulumi.Input[Optional[_builtins.str]] = None,
+                 monthly_spend_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 usage_report_s3_bucket: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a way to set SNS SMS preferences.
@@ -337,13 +337,13 @@ class SmsPreferences(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_sender_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_sms_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 delivery_status_iam_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 delivery_status_success_sampling_rate: Optional[pulumi.Input[_builtins.str]] = None,
-                 monthly_spend_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 usage_report_s3_bucket: Optional[pulumi.Input[_builtins.str]] = None,
+                 default_sender_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_sms_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 delivery_status_iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 delivery_status_success_sampling_rate: pulumi.Input[Optional[_builtins.str]] = None,
+                 monthly_spend_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 usage_report_s3_bucket: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -370,13 +370,13 @@ class SmsPreferences(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            default_sender_id: Optional[pulumi.Input[_builtins.str]] = None,
-            default_sms_type: Optional[pulumi.Input[_builtins.str]] = None,
-            delivery_status_iam_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            delivery_status_success_sampling_rate: Optional[pulumi.Input[_builtins.str]] = None,
-            monthly_spend_limit: Optional[pulumi.Input[_builtins.int]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            usage_report_s3_bucket: Optional[pulumi.Input[_builtins.str]] = None) -> 'SmsPreferences':
+            default_sender_id: pulumi.Input[Optional[_builtins.str]] = None,
+            default_sms_type: pulumi.Input[Optional[_builtins.str]] = None,
+            delivery_status_iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            delivery_status_success_sampling_rate: pulumi.Input[Optional[_builtins.str]] = None,
+            monthly_spend_limit: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            usage_report_s3_bucket: pulumi.Input[Optional[_builtins.str]] = None) -> 'SmsPreferences':
         """
         Get an existing SmsPreferences resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

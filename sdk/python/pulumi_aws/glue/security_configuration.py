@@ -22,8 +22,8 @@ __all__ = ['SecurityConfigurationArgs', 'SecurityConfiguration']
 class SecurityConfigurationArgs:
     def __init__(__self__, *,
                  encryption_configuration: pulumi.Input['SecurityConfigurationEncryptionConfigurationArgs'],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SecurityConfiguration resource.
 
@@ -51,35 +51,35 @@ class SecurityConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the security configuration.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _SecurityConfigurationState:
     def __init__(__self__, *,
-                 encryption_configuration: Optional[pulumi.Input['SecurityConfigurationEncryptionConfigurationArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 encryption_configuration: pulumi.Input[Optional['SecurityConfigurationEncryptionConfigurationArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SecurityConfiguration resources.
 
@@ -96,38 +96,38 @@ class _SecurityConfigurationState:
 
     @_builtins.property
     @pulumi.getter(name="encryptionConfiguration")
-    def encryption_configuration(self) -> Optional[pulumi.Input['SecurityConfigurationEncryptionConfigurationArgs']]:
+    def encryption_configuration(self) -> pulumi.Input[Optional['SecurityConfigurationEncryptionConfigurationArgs']]:
         """
         Configuration block containing encryption configuration. Detailed below.
         """
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
-    def encryption_configuration(self, value: Optional[pulumi.Input['SecurityConfigurationEncryptionConfigurationArgs']]):
+    def encryption_configuration(self, value: pulumi.Input[Optional['SecurityConfigurationEncryptionConfigurationArgs']]):
         pulumi.set(self, "encryption_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the security configuration.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
@@ -137,9 +137,9 @@ class SecurityConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encryption_configuration: Optional[pulumi.Input[Union['SecurityConfigurationEncryptionConfigurationArgs', 'SecurityConfigurationEncryptionConfigurationArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['SecurityConfigurationEncryptionConfigurationArgs', 'SecurityConfigurationEncryptionConfigurationArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Glue Security Configuration.
@@ -236,9 +236,9 @@ class SecurityConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encryption_configuration: Optional[pulumi.Input[Union['SecurityConfigurationEncryptionConfigurationArgs', 'SecurityConfigurationEncryptionConfigurationArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['SecurityConfigurationEncryptionConfigurationArgs', 'SecurityConfigurationEncryptionConfigurationArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -263,9 +263,9 @@ class SecurityConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            encryption_configuration: Optional[pulumi.Input[Union['SecurityConfigurationEncryptionConfigurationArgs', 'SecurityConfigurationEncryptionConfigurationArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None) -> 'SecurityConfiguration':
+            encryption_configuration: pulumi.Input[Optional[Union['SecurityConfigurationEncryptionConfigurationArgs', 'SecurityConfigurationEncryptionConfigurationArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> 'SecurityConfiguration':
         """
         Get an existing SecurityConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

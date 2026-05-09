@@ -34,8 +34,8 @@ public final class SavingsplansFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.savingsplans.SavingsplansFunctions;
      * import com.pulumi.aws.savingsplans.inputs.GetOfferingsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -80,8 +80,8 @@ public final class SavingsplansFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.savingsplans.SavingsplansFunctions;
      * import com.pulumi.aws.savingsplans.inputs.GetOfferingsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -126,8 +126,8 @@ public final class SavingsplansFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.savingsplans.SavingsplansFunctions;
      * import com.pulumi.aws.savingsplans.inputs.GetOfferingsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -172,8 +172,8 @@ public final class SavingsplansFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.savingsplans.SavingsplansFunctions;
      * import com.pulumi.aws.savingsplans.inputs.GetOfferingsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -218,8 +218,8 @@ public final class SavingsplansFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.savingsplans.SavingsplansFunctions;
      * import com.pulumi.aws.savingsplans.inputs.GetOfferingsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -264,8 +264,8 @@ public final class SavingsplansFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.savingsplans.SavingsplansFunctions;
      * import com.pulumi.aws.savingsplans.inputs.GetOfferingsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -310,8 +310,8 @@ public final class SavingsplansFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.savingsplans.SavingsplansFunctions;
      * import com.pulumi.aws.savingsplans.inputs.GetOfferingsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -354,8 +354,8 @@ public final class SavingsplansFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.savingsplans.SavingsplansFunctions;
      * import com.pulumi.aws.savingsplans.inputs.GetSavingsPlanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -395,8 +395,8 @@ public final class SavingsplansFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.savingsplans.SavingsplansFunctions;
      * import com.pulumi.aws.savingsplans.inputs.GetSavingsPlanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -436,8 +436,8 @@ public final class SavingsplansFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.savingsplans.SavingsplansFunctions;
      * import com.pulumi.aws.savingsplans.inputs.GetSavingsPlanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -477,8 +477,8 @@ public final class SavingsplansFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.savingsplans.SavingsplansFunctions;
      * import com.pulumi.aws.savingsplans.inputs.GetSavingsPlanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -518,8 +518,8 @@ public final class SavingsplansFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.savingsplans.SavingsplansFunctions;
      * import com.pulumi.aws.savingsplans.inputs.GetSavingsPlanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

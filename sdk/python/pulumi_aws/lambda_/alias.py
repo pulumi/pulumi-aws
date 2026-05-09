@@ -23,10 +23,10 @@ class AliasArgs:
     def __init__(__self__, *,
                  function_name: pulumi.Input[_builtins.str],
                  function_version: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_config: Optional[pulumi.Input['AliasRoutingConfigArgs']] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_config: pulumi.Input[Optional['AliasRoutingConfigArgs']] = None):
         """
         The set of arguments for constructing a Alias resource.
 
@@ -76,19 +76,19 @@ class AliasArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the alias.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name for the alias. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`.
 
@@ -97,45 +97,45 @@ class AliasArgs:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="routingConfig")
-    def routing_config(self) -> Optional[pulumi.Input['AliasRoutingConfigArgs']]:
+    def routing_config(self) -> pulumi.Input[Optional['AliasRoutingConfigArgs']]:
         """
         Lambda alias' route configuration settings. See below.
         """
         return pulumi.get(self, "routing_config")
 
     @routing_config.setter
-    def routing_config(self, value: Optional[pulumi.Input['AliasRoutingConfigArgs']]):
+    def routing_config(self, value: pulumi.Input[Optional['AliasRoutingConfigArgs']]):
         pulumi.set(self, "routing_config", value)
 
 
 @pulumi.input_type
 class _AliasState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 invoke_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_config: Optional[pulumi.Input['AliasRoutingConfigArgs']] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 invoke_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_config: pulumi.Input[Optional['AliasRoutingConfigArgs']] = None):
         """
         Input properties used for looking up and filtering Alias resources.
 
@@ -169,67 +169,67 @@ class _AliasState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN identifying your Lambda function alias.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the alias.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="functionName")
-    def function_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def function_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name or ARN of the Lambda function.
         """
         return pulumi.get(self, "function_name")
 
     @function_name.setter
-    def function_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def function_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "function_name", value)
 
     @_builtins.property
     @pulumi.getter(name="functionVersion")
-    def function_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def function_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Lambda function version for which you are creating the alias. Pattern: `(\\$LATEST|[0-9]+)`.
         """
         return pulumi.get(self, "function_version")
 
     @function_version.setter
-    def function_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def function_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "function_version", value)
 
     @_builtins.property
     @pulumi.getter(name="invokeArn")
-    def invoke_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def invoke_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
         """
         return pulumi.get(self, "invoke_arn")
 
     @invoke_arn.setter
-    def invoke_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def invoke_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "invoke_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name for the alias. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`.
 
@@ -238,31 +238,31 @@ class _AliasState:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="routingConfig")
-    def routing_config(self) -> Optional[pulumi.Input['AliasRoutingConfigArgs']]:
+    def routing_config(self) -> pulumi.Input[Optional['AliasRoutingConfigArgs']]:
         """
         Lambda alias' route configuration settings. See below.
         """
         return pulumi.get(self, "routing_config")
 
     @routing_config.setter
-    def routing_config(self, value: Optional[pulumi.Input['AliasRoutingConfigArgs']]):
+    def routing_config(self, value: pulumi.Input[Optional['AliasRoutingConfigArgs']]):
         pulumi.set(self, "routing_config", value)
 
 
@@ -272,12 +272,12 @@ class Alias(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_config: Optional[pulumi.Input[Union['AliasRoutingConfigArgs', 'AliasRoutingConfigArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_config: pulumi.Input[Optional[Union['AliasRoutingConfigArgs', 'AliasRoutingConfigArgsDict']]] = None,
                  __props__=None):
         """
         Manages an AWS Lambda Alias. Use this resource to create an alias that points to a specific Lambda function version for traffic management and deployment strategies.
@@ -469,12 +469,12 @@ class Alias(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_config: Optional[pulumi.Input[Union['AliasRoutingConfigArgs', 'AliasRoutingConfigArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_config: pulumi.Input[Optional[Union['AliasRoutingConfigArgs', 'AliasRoutingConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -506,14 +506,14 @@ class Alias(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            function_name: Optional[pulumi.Input[_builtins.str]] = None,
-            function_version: Optional[pulumi.Input[_builtins.str]] = None,
-            invoke_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            routing_config: Optional[pulumi.Input[Union['AliasRoutingConfigArgs', 'AliasRoutingConfigArgsDict']]] = None) -> 'Alias':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            function_name: pulumi.Input[Optional[_builtins.str]] = None,
+            function_version: pulumi.Input[Optional[_builtins.str]] = None,
+            invoke_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_config: pulumi.Input[Optional[Union['AliasRoutingConfigArgs', 'AliasRoutingConfigArgsDict']]] = None) -> 'Alias':
         """
         Get an existing Alias resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

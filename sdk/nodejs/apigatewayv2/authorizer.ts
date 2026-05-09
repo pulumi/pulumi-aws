@@ -193,59 +193,59 @@ export interface AuthorizerState {
     /**
      * API identifier.
      */
-    apiId?: pulumi.Input<string>;
+    apiId?: pulumi.Input<string | undefined>;
     /**
      * Required credentials as an IAM role for API Gateway to invoke the authorizer.
      * Supported only for `REQUEST` authorizers.
      */
-    authorizerCredentialsArn?: pulumi.Input<string>;
+    authorizerCredentialsArn?: pulumi.Input<string | undefined>;
     /**
      * Format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.
      * Valid values: `1.0`, `2.0`.
      */
-    authorizerPayloadFormatVersion?: pulumi.Input<string>;
+    authorizerPayloadFormatVersion?: pulumi.Input<string | undefined>;
     /**
      * Time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
      * If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Defaults to `300`.
      * Supported only for HTTP API Lambda authorizers.
      */
-    authorizerResultTtlInSeconds?: pulumi.Input<number>;
+    authorizerResultTtlInSeconds?: pulumi.Input<number | undefined>;
     /**
      * Authorizer type. Valid values: `JWT`, `REQUEST`.
      * Specify `REQUEST` for a Lambda function using incoming request parameters.
      * For HTTP APIs, specify `JWT` to use JSON Web Tokens.
      */
-    authorizerType?: pulumi.Input<string>;
+    authorizerType?: pulumi.Input<string | undefined>;
     /**
      * Authorizer's Uniform Resource Identifier (URI).
      * For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invokeArn` attribute of the `aws.lambda.Function` resource.
      * Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
      */
-    authorizerUri?: pulumi.Input<string>;
+    authorizerUri?: pulumi.Input<string | undefined>;
     /**
      * Whether a Lambda authorizer returns a response in a simple format. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy.
      * Supported only for HTTP APIs.
      */
-    enableSimpleResponses?: pulumi.Input<boolean>;
+    enableSimpleResponses?: pulumi.Input<boolean | undefined>;
     /**
      * Identity sources for which authorization is requested.
      * For `REQUEST` authorizers the value is a list of one or more mapping expressions of the specified request parameters.
      * For `JWT` authorizers the single entry specifies where to extract the JSON Web Token (JWT) from inbound requests.
      */
-    identitySources?: pulumi.Input<pulumi.Input<string>[]>;
+    identitySources?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Configuration of a JWT authorizer. Required for the `JWT` authorizer type.
      * Supported only for HTTP APIs.
      */
-    jwtConfiguration?: pulumi.Input<inputs.apigatewayv2.AuthorizerJwtConfiguration>;
+    jwtConfiguration?: pulumi.Input<inputs.apigatewayv2.AuthorizerJwtConfiguration | undefined>;
     /**
      * Name of the authorizer. Must be between 1 and 128 characters in length.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -260,18 +260,18 @@ export interface AuthorizerArgs {
      * Required credentials as an IAM role for API Gateway to invoke the authorizer.
      * Supported only for `REQUEST` authorizers.
      */
-    authorizerCredentialsArn?: pulumi.Input<string>;
+    authorizerCredentialsArn?: pulumi.Input<string | undefined>;
     /**
      * Format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.
      * Valid values: `1.0`, `2.0`.
      */
-    authorizerPayloadFormatVersion?: pulumi.Input<string>;
+    authorizerPayloadFormatVersion?: pulumi.Input<string | undefined>;
     /**
      * Time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
      * If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Defaults to `300`.
      * Supported only for HTTP API Lambda authorizers.
      */
-    authorizerResultTtlInSeconds?: pulumi.Input<number>;
+    authorizerResultTtlInSeconds?: pulumi.Input<number | undefined>;
     /**
      * Authorizer type. Valid values: `JWT`, `REQUEST`.
      * Specify `REQUEST` for a Lambda function using incoming request parameters.
@@ -283,29 +283,29 @@ export interface AuthorizerArgs {
      * For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invokeArn` attribute of the `aws.lambda.Function` resource.
      * Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
      */
-    authorizerUri?: pulumi.Input<string>;
+    authorizerUri?: pulumi.Input<string | undefined>;
     /**
      * Whether a Lambda authorizer returns a response in a simple format. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy.
      * Supported only for HTTP APIs.
      */
-    enableSimpleResponses?: pulumi.Input<boolean>;
+    enableSimpleResponses?: pulumi.Input<boolean | undefined>;
     /**
      * Identity sources for which authorization is requested.
      * For `REQUEST` authorizers the value is a list of one or more mapping expressions of the specified request parameters.
      * For `JWT` authorizers the single entry specifies where to extract the JSON Web Token (JWT) from inbound requests.
      */
-    identitySources?: pulumi.Input<pulumi.Input<string>[]>;
+    identitySources?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Configuration of a JWT authorizer. Required for the `JWT` authorizer type.
      * Supported only for HTTP APIs.
      */
-    jwtConfiguration?: pulumi.Input<inputs.apigatewayv2.AuthorizerJwtConfiguration>;
+    jwtConfiguration?: pulumi.Input<inputs.apigatewayv2.AuthorizerJwtConfiguration | undefined>;
     /**
      * Name of the authorizer. Must be between 1 and 128 characters in length.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

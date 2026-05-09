@@ -83,7 +83,7 @@ def get_clusters(region: Optional[_builtins.str] = None,
     import pulumi_std as std
 
     example = aws.eks.get_clusters()
-    example_get_cluster = {__key: aws.eks.get_cluster(name=__value) for __key, __value in enumerate(std.toset(input=example.names).result)}
+    example_get_cluster = {str(__key): aws.eks.get_cluster(name=__value) for __key, __value in enumerate(std.toset(input=example.names).result)}
     ```
 
 
@@ -98,7 +98,7 @@ def get_clusters(region: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         names=pulumi.get(__ret__, 'names'),
         region=pulumi.get(__ret__, 'region'))
-def get_clusters_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_clusters_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClustersResult]:
     """
     Retrieve EKS Clusters list
@@ -111,7 +111,7 @@ def get_clusters_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] 
     import pulumi_std as std
 
     example = aws.eks.get_clusters()
-    example_get_cluster = {__key: aws.eks.get_cluster(name=__value) for __key, __value in enumerate(std.toset(input=example.names).result)}
+    example_get_cluster = {str(__key): aws.eks.get_cluster(name=__value) for __key, __value in enumerate(std.toset(input=example.names).result)}
     ```
 
 

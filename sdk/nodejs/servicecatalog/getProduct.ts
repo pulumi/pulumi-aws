@@ -151,7 +151,7 @@ export interface GetProductOutputArgs {
     /**
      * Language code. Valid values are `en` (English), `jp` (Japanese), `zh` (Chinese). The default value is `en`.
      */
-    acceptLanguage?: pulumi.Input<string>;
+    acceptLanguage?: pulumi.Input<string | undefined>;
     /**
      * ID of the product.
      *
@@ -161,9 +161,9 @@ export interface GetProductOutputArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Tags applied to the product.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

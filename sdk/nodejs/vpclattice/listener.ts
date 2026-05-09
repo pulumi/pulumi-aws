@@ -251,50 +251,50 @@ export interface ListenerState {
     /**
      * ARN of the listener.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Date and time that the listener was created, specified in ISO-8601 format.
      */
-    createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string | undefined>;
     /**
      * Default action block for the default listener rule. Default action blocks are defined below.
      */
-    defaultAction?: pulumi.Input<inputs.vpclattice.ListenerDefaultAction>;
-    lastUpdatedAt?: pulumi.Input<string>;
+    defaultAction?: pulumi.Input<inputs.vpclattice.ListenerDefaultAction | undefined>;
+    lastUpdatedAt?: pulumi.Input<string | undefined>;
     /**
      * Standalone ID of the listener, e.g. `listener-0a1b2c3d4e5f6g`.
      */
-    listenerId?: pulumi.Input<string>;
+    listenerId?: pulumi.Input<string | undefined>;
     /**
      * Name of the listener. A listener name must be unique within a service. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Listener port. You can specify a value from 1 to 65535. If `port` is not specified and `protocol` is HTTP, the value will default to 80. If `port` is not specified and `protocol` is HTTPS, the value will default to 443.
      */
-    port?: pulumi.Input<number>;
+    port?: pulumi.Input<number | undefined>;
     /**
      * Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
      */
-    protocol?: pulumi.Input<string>;
+    protocol?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
      */
-    serviceArn?: pulumi.Input<string>;
+    serviceArn?: pulumi.Input<string | undefined>;
     /**
      * ID of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
      * > **NOTE:** You must specify one of the following arguments: `serviceArn` or `serviceIdentifier`.
      */
-    serviceIdentifier?: pulumi.Input<string>;
+    serviceIdentifier?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -308,11 +308,11 @@ export interface ListenerArgs {
     /**
      * Name of the listener. A listener name must be unique within a service. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Listener port. You can specify a value from 1 to 65535. If `port` is not specified and `protocol` is HTTP, the value will default to 80. If `port` is not specified and `protocol` is HTTPS, the value will default to 443.
      */
-    port?: pulumi.Input<number>;
+    port?: pulumi.Input<number | undefined>;
     /**
      * Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
      */
@@ -320,18 +320,18 @@ export interface ListenerArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
      */
-    serviceArn?: pulumi.Input<string>;
+    serviceArn?: pulumi.Input<string | undefined>;
     /**
      * ID of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
      * > **NOTE:** You must specify one of the following arguments: `serviceArn` or `serviceIdentifier`.
      */
-    serviceIdentifier?: pulumi.Input<string>;
+    serviceIdentifier?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

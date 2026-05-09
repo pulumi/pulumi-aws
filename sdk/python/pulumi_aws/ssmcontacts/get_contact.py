@@ -153,9 +153,9 @@ def get_contact(arn: Optional[_builtins.str] = None,
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_contact_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
-                       region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                       tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_contact_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
+                       region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContactResult]:
     """
     Data source for managing an AWS SSM Contact.

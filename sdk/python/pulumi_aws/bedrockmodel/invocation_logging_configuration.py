@@ -22,7 +22,7 @@ __all__ = ['InvocationLoggingConfigurationArgs', 'InvocationLoggingConfiguration
 class InvocationLoggingConfigurationArgs:
     def __init__(__self__, *,
                  logging_config: pulumi.Input['InvocationLoggingConfigurationLoggingConfigArgs'],
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a InvocationLoggingConfiguration resource.
 
@@ -47,22 +47,22 @@ class InvocationLoggingConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _InvocationLoggingConfigurationState:
     def __init__(__self__, *,
-                 logging_config: Optional[pulumi.Input['InvocationLoggingConfigurationLoggingConfigArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 logging_config: pulumi.Input[Optional['InvocationLoggingConfigurationLoggingConfigArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering InvocationLoggingConfiguration resources.
 
@@ -76,26 +76,26 @@ class _InvocationLoggingConfigurationState:
 
     @_builtins.property
     @pulumi.getter(name="loggingConfig")
-    def logging_config(self) -> Optional[pulumi.Input['InvocationLoggingConfigurationLoggingConfigArgs']]:
+    def logging_config(self) -> pulumi.Input[Optional['InvocationLoggingConfigurationLoggingConfigArgs']]:
         """
         The logging configuration values to set. See `logging_config` Block for details.
         """
         return pulumi.get(self, "logging_config")
 
     @logging_config.setter
-    def logging_config(self, value: Optional[pulumi.Input['InvocationLoggingConfigurationLoggingConfigArgs']]):
+    def logging_config(self, value: pulumi.Input[Optional['InvocationLoggingConfigurationLoggingConfigArgs']]):
         pulumi.set(self, "logging_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
@@ -105,8 +105,8 @@ class InvocationLoggingConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 logging_config: Optional[pulumi.Input[Union['InvocationLoggingConfigurationLoggingConfigArgs', 'InvocationLoggingConfigurationLoggingConfigArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 logging_config: pulumi.Input[Optional[Union['InvocationLoggingConfigurationLoggingConfigArgs', 'InvocationLoggingConfigurationLoggingConfigArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages Bedrock model invocation logging configuration.
@@ -268,8 +268,8 @@ class InvocationLoggingConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 logging_config: Optional[pulumi.Input[Union['InvocationLoggingConfigurationLoggingConfigArgs', 'InvocationLoggingConfigurationLoggingConfigArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 logging_config: pulumi.Input[Optional[Union['InvocationLoggingConfigurationLoggingConfigArgs', 'InvocationLoggingConfigurationLoggingConfigArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -293,8 +293,8 @@ class InvocationLoggingConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            logging_config: Optional[pulumi.Input[Union['InvocationLoggingConfigurationLoggingConfigArgs', 'InvocationLoggingConfigurationLoggingConfigArgsDict']]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None) -> 'InvocationLoggingConfiguration':
+            logging_config: pulumi.Input[Optional[Union['InvocationLoggingConfigurationLoggingConfigArgs', 'InvocationLoggingConfigurationLoggingConfigArgsDict']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> 'InvocationLoggingConfiguration':
         """
         Get an existing InvocationLoggingConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

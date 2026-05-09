@@ -120,15 +120,15 @@ export interface PolicyAttachmentState {
     /**
      * The name of the policy to attach.
      */
-    policy?: pulumi.Input<string | Policy>;
+    policy?: pulumi.Input<string | Policy | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The identity to which the policy is attached.
      */
-    target?: pulumi.Input<string>;
+    target?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -142,7 +142,7 @@ export interface PolicyAttachmentArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The identity to which the policy is attached.
      */

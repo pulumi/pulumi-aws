@@ -143,29 +143,29 @@ export interface ModelCardExportJobState {
     /**
      * Exported model card artifacts.
      */
-    exportArtifacts?: pulumi.Input<pulumi.Input<inputs.sagemaker.ModelCardExportJobExportArtifact>[]>;
+    exportArtifacts?: pulumi.Input<pulumi.Input<inputs.sagemaker.ModelCardExportJobExportArtifact>[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the model card export job.
      */
-    modelCardExportJobArn?: pulumi.Input<string>;
+    modelCardExportJobArn?: pulumi.Input<string | undefined>;
     /**
      * Name of the model card export job.
      */
-    modelCardExportJobName?: pulumi.Input<string>;
+    modelCardExportJobName?: pulumi.Input<string | undefined>;
     /**
      * Name of the model card.
      */
-    modelCardName?: pulumi.Input<string>;
-    modelCardVersion?: pulumi.Input<number>;
+    modelCardName?: pulumi.Input<string | undefined>;
+    modelCardVersion?: pulumi.Input<number | undefined>;
     /**
      * Export output details. Fields are documented below.
      */
-    outputConfig?: pulumi.Input<inputs.sagemaker.ModelCardExportJobOutputConfig>;
+    outputConfig?: pulumi.Input<inputs.sagemaker.ModelCardExportJobOutputConfig | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration
      */
-    region?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.sagemaker.ModelCardExportJobTimeouts>;
+    region?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.sagemaker.ModelCardExportJobTimeouts | undefined>;
 }
 
 /**
@@ -180,7 +180,7 @@ export interface ModelCardExportJobArgs {
      * Name of the model card.
      */
     modelCardName: pulumi.Input<string>;
-    modelCardVersion?: pulumi.Input<number>;
+    modelCardVersion?: pulumi.Input<number | undefined>;
     /**
      * Export output details. Fields are documented below.
      */
@@ -188,6 +188,6 @@ export interface ModelCardExportJobArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration
      */
-    region?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.sagemaker.ModelCardExportJobTimeouts>;
+    region?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.sagemaker.ModelCardExportJobTimeouts | undefined>;
 }

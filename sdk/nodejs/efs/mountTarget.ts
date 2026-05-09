@@ -182,61 +182,61 @@ export interface MountTargetState {
     /**
      * The unique and consistent identifier of the Availability Zone (AZ) that the mount target resides in.
      */
-    availabilityZoneId?: pulumi.Input<string>;
+    availabilityZoneId?: pulumi.Input<string | undefined>;
     /**
      * The name of the Availability Zone (AZ) that the mount target resides in.
      */
-    availabilityZoneName?: pulumi.Input<string>;
+    availabilityZoneName?: pulumi.Input<string | undefined>;
     /**
      * The DNS name for the EFS file system.
      */
-    dnsName?: pulumi.Input<string>;
+    dnsName?: pulumi.Input<string | undefined>;
     /**
      * Amazon Resource Name of the file system.
      */
-    fileSystemArn?: pulumi.Input<string>;
+    fileSystemArn?: pulumi.Input<string | undefined>;
     /**
      * The ID of the file system for which the mount target is intended.
      */
-    fileSystemId?: pulumi.Input<string>;
+    fileSystemId?: pulumi.Input<string | undefined>;
     /**
      * The address (within the address range of the specified subnet) at
      * which the file system may be mounted via the mount target.
      */
-    ipAddress?: pulumi.Input<string>;
+    ipAddress?: pulumi.Input<string | undefined>;
     /**
      * IP address type for the mount target. Valid values are `IPV4_ONLY` (only IPv4 addresses), `IPV6_ONLY` (only IPv6 addresses), and `DUAL_STACK` (dual-stack, both IPv4 and IPv6 addresses). Defaults to `IPV4_ONLY`.
      */
-    ipAddressType?: pulumi.Input<string>;
+    ipAddressType?: pulumi.Input<string | undefined>;
     /**
      * IPv6 address to use. Valid only when `ipAddressType` is set to `IPV6_ONLY` or `DUAL_STACK`.
      */
-    ipv6Address?: pulumi.Input<string>;
+    ipv6Address?: pulumi.Input<string | undefined>;
     /**
      * The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
      */
-    mountTargetDnsName?: pulumi.Input<string>;
+    mountTargetDnsName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the network interface that Amazon EFS created when it created the mount target.
      */
-    networkInterfaceId?: pulumi.Input<string>;
+    networkInterfaceId?: pulumi.Input<string | undefined>;
     /**
      * AWS account ID that owns the resource.
      */
-    ownerId?: pulumi.Input<string>;
+    ownerId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A list of up to 5 VPC security group IDs (that must
      * be for the same VPC as subnet specified) in effect for the mount target.
      */
-    securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of the subnet to add the mount target in.
      */
-    subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -251,24 +251,24 @@ export interface MountTargetArgs {
      * The address (within the address range of the specified subnet) at
      * which the file system may be mounted via the mount target.
      */
-    ipAddress?: pulumi.Input<string>;
+    ipAddress?: pulumi.Input<string | undefined>;
     /**
      * IP address type for the mount target. Valid values are `IPV4_ONLY` (only IPv4 addresses), `IPV6_ONLY` (only IPv6 addresses), and `DUAL_STACK` (dual-stack, both IPv4 and IPv6 addresses). Defaults to `IPV4_ONLY`.
      */
-    ipAddressType?: pulumi.Input<string>;
+    ipAddressType?: pulumi.Input<string | undefined>;
     /**
      * IPv6 address to use. Valid only when `ipAddressType` is set to `IPV6_ONLY` or `DUAL_STACK`.
      */
-    ipv6Address?: pulumi.Input<string>;
+    ipv6Address?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A list of up to 5 VPC security group IDs (that must
      * be for the same VPC as subnet specified) in effect for the mount target.
      */
-    securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of the subnet to add the mount target in.
      */

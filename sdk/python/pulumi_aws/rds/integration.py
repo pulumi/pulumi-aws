@@ -24,12 +24,12 @@ class IntegrationArgs:
                  integration_name: pulumi.Input[_builtins.str],
                  source_arn: pulumi.Input[_builtins.str],
                  target_arn: pulumi.Input[_builtins.str],
-                 additional_encryption_context: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 data_filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['IntegrationTimeoutsArgs']] = None):
+                 additional_encryption_context: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 data_filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['IntegrationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Integration resource.
 
@@ -110,7 +110,7 @@ class IntegrationArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalEncryptionContext")
-    def additional_encryption_context(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def additional_encryption_context(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Set of non-secret key–value pairs that contains additional contextual information about the data.
         For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context).
@@ -119,12 +119,12 @@ class IntegrationArgs:
         return pulumi.get(self, "additional_encryption_context")
 
     @additional_encryption_context.setter
-    def additional_encryption_context(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def additional_encryption_context(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "additional_encryption_context", value)
 
     @_builtins.property
     @pulumi.getter(name="dataFilter")
-    def data_filter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_filter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Data filters for the integration.
         These filters determine which tables from the source database are sent to the target Amazon Redshift data warehouse.
@@ -135,12 +135,12 @@ class IntegrationArgs:
         return pulumi.get(self, "data_filter")
 
     @data_filter.setter
-    def data_filter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_filter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_filter", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         KMS key identifier for the key to use to encrypt the integration.
         If you don't specify an encryption key, RDS uses a default AWS owned key.
@@ -149,24 +149,24 @@ class IntegrationArgs:
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 
@@ -175,34 +175,34 @@ class IntegrationArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['IntegrationTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['IntegrationTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['IntegrationTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['IntegrationTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _IntegrationState:
     def __init__(__self__, *,
-                 additional_encryption_context: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input['IntegrationTimeoutsArgs']] = None):
+                 additional_encryption_context: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional['IntegrationTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering Integration resources.
 
@@ -257,7 +257,7 @@ class _IntegrationState:
 
     @_builtins.property
     @pulumi.getter(name="additionalEncryptionContext")
-    def additional_encryption_context(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def additional_encryption_context(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Set of non-secret key–value pairs that contains additional contextual information about the data.
         For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context).
@@ -266,24 +266,24 @@ class _IntegrationState:
         return pulumi.get(self, "additional_encryption_context")
 
     @additional_encryption_context.setter
-    def additional_encryption_context(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def additional_encryption_context(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "additional_encryption_context", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the Integration.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="dataFilter")
-    def data_filter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_filter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Data filters for the integration.
         These filters determine which tables from the source database are sent to the target Amazon Redshift data warehouse.
@@ -294,36 +294,36 @@ class _IntegrationState:
         return pulumi.get(self, "data_filter")
 
     @data_filter.setter
-    def data_filter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_filter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_filter", value)
 
     @_builtins.property
     @pulumi.getter(name="integrationIdentifier")
-    def integration_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def integration_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the Integration. This value can be used when creating the target database to [receive results of zero-ETL integrations](https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_DATABASE.html#r_CREATE_DATABASE-integration).
         """
         return pulumi.get(self, "integration_identifier")
 
     @integration_identifier.setter
-    def integration_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def integration_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "integration_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="integrationName")
-    def integration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def integration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the integration.
         """
         return pulumi.get(self, "integration_name")
 
     @integration_name.setter
-    def integration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def integration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "integration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         KMS key identifier for the key to use to encrypt the integration.
         If you don't specify an encryption key, RDS uses a default AWS owned key.
@@ -332,36 +332,36 @@ class _IntegrationState:
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceArn")
-    def source_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the database to use as the source for replication.
         """
         return pulumi.get(self, "source_arn")
 
     @source_arn.setter
-    def source_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 
@@ -370,24 +370,24 @@ class _IntegrationState:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="targetArn")
-    def target_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the Redshift data warehouse to use as the target for replication.
 
@@ -396,16 +396,16 @@ class _IntegrationState:
         return pulumi.get(self, "target_arn")
 
     @target_arn.setter
-    def target_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['IntegrationTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['IntegrationTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['IntegrationTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['IntegrationTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
@@ -415,15 +415,15 @@ class Integration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_encryption_context: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 data_filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input[Union['IntegrationTimeoutsArgs', 'IntegrationTimeoutsArgsDict']]] = None,
+                 additional_encryption_context: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 data_filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional[Union['IntegrationTimeoutsArgs', 'IntegrationTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS RDS (Relational Database) zero-ETL integration. You can refer to the [User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.setting-up.html).
@@ -639,15 +639,15 @@ class Integration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_encryption_context: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 data_filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input[Union['IntegrationTimeoutsArgs', 'IntegrationTimeoutsArgsDict']]] = None,
+                 additional_encryption_context: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 data_filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional[Union['IntegrationTimeoutsArgs', 'IntegrationTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -685,18 +685,18 @@ class Integration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            additional_encryption_context: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            data_filter: Optional[pulumi.Input[_builtins.str]] = None,
-            integration_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-            integration_name: Optional[pulumi.Input[_builtins.str]] = None,
-            kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            source_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            target_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            timeouts: Optional[pulumi.Input[Union['IntegrationTimeoutsArgs', 'IntegrationTimeoutsArgsDict']]] = None) -> 'Integration':
+            additional_encryption_context: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            data_filter: pulumi.Input[Optional[_builtins.str]] = None,
+            integration_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            integration_name: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            source_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            target_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['IntegrationTimeoutsArgs', 'IntegrationTimeoutsArgsDict']]] = None) -> 'Integration':
         """
         Get an existing Integration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

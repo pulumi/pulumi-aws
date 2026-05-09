@@ -23,9 +23,9 @@ class CustomLogSourceArgs:
     def __init__(__self__, *,
                  configuration: pulumi.Input['CustomLogSourceConfigurationArgs'],
                  source_name: pulumi.Input[_builtins.str],
-                 event_classes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 event_classes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CustomLogSource resource.
 
@@ -74,51 +74,51 @@ class CustomLogSourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="eventClasses")
-    def event_classes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def event_classes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.
         """
         return pulumi.get(self, "event_classes")
 
     @event_classes.setter
-    def event_classes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def event_classes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "event_classes", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceVersion")
-    def source_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify the source version for the third-party custom source, to limit log collection to a specific version of custom data source.
         """
         return pulumi.get(self, "source_version")
 
     @source_version.setter
-    def source_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_version", value)
 
 
 @pulumi.input_type
 class _CustomLogSourceState:
     def __init__(__self__, *,
-                 attributes: Optional[pulumi.Input[Sequence[pulumi.Input['CustomLogSourceAttributeArgs']]]] = None,
-                 configuration: Optional[pulumi.Input['CustomLogSourceConfigurationArgs']] = None,
-                 event_classes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 provider_details: Optional[pulumi.Input[Sequence[pulumi.Input['CustomLogSourceProviderDetailArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 attributes: pulumi.Input[Optional[Sequence[pulumi.Input['CustomLogSourceAttributeArgs']]]] = None,
+                 configuration: pulumi.Input[Optional['CustomLogSourceConfigurationArgs']] = None,
+                 event_classes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 provider_details: pulumi.Input[Optional[Sequence[pulumi.Input['CustomLogSourceProviderDetailArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CustomLogSource resources.
 
@@ -149,67 +149,67 @@ class _CustomLogSourceState:
 
     @_builtins.property
     @pulumi.getter
-    def attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomLogSourceAttributeArgs']]]]:
+    def attributes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CustomLogSourceAttributeArgs']]]]:
         """
         The attributes of a third-party custom source.
         """
         return pulumi.get(self, "attributes")
 
     @attributes.setter
-    def attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomLogSourceAttributeArgs']]]]):
+    def attributes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CustomLogSourceAttributeArgs']]]]):
         pulumi.set(self, "attributes", value)
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input['CustomLogSourceConfigurationArgs']]:
+    def configuration(self) -> pulumi.Input[Optional['CustomLogSourceConfigurationArgs']]:
         """
         The configuration for the third-party custom source.
         """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input['CustomLogSourceConfigurationArgs']]):
+    def configuration(self, value: pulumi.Input[Optional['CustomLogSourceConfigurationArgs']]):
         pulumi.set(self, "configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="eventClasses")
-    def event_classes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def event_classes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.
         """
         return pulumi.get(self, "event_classes")
 
     @event_classes.setter
-    def event_classes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def event_classes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "event_classes", value)
 
     @_builtins.property
     @pulumi.getter(name="providerDetails")
-    def provider_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomLogSourceProviderDetailArgs']]]]:
+    def provider_details(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CustomLogSourceProviderDetailArgs']]]]:
         """
         The details of the log provider for a third-party custom source.
         """
         return pulumi.get(self, "provider_details")
 
     @provider_details.setter
-    def provider_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomLogSourceProviderDetailArgs']]]]):
+    def provider_details(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CustomLogSourceProviderDetailArgs']]]]):
         pulumi.set(self, "provider_details", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceName")
-    def source_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify the name for a third-party custom source.
         This must be a Regionally unique value.
@@ -218,19 +218,19 @@ class _CustomLogSourceState:
         return pulumi.get(self, "source_name")
 
     @source_name.setter
-    def source_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceVersion")
-    def source_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify the source version for the third-party custom source, to limit log collection to a specific version of custom data source.
         """
         return pulumi.get(self, "source_version")
 
     @source_version.setter
-    def source_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_version", value)
 
 
@@ -240,11 +240,11 @@ class CustomLogSource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[Union['CustomLogSourceConfigurationArgs', 'CustomLogSourceConfigurationArgsDict']]] = None,
-                 event_classes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 configuration: pulumi.Input[Optional[Union['CustomLogSourceConfigurationArgs', 'CustomLogSourceConfigurationArgsDict']]] = None,
+                 event_classes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Security Lake Custom Log Source.
@@ -353,11 +353,11 @@ class CustomLogSource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[Union['CustomLogSourceConfigurationArgs', 'CustomLogSourceConfigurationArgsDict']]] = None,
-                 event_classes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 configuration: pulumi.Input[Optional[Union['CustomLogSourceConfigurationArgs', 'CustomLogSourceConfigurationArgsDict']]] = None,
+                 event_classes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -388,13 +388,13 @@ class CustomLogSource(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomLogSourceAttributeArgs', 'CustomLogSourceAttributeArgsDict']]]]] = None,
-            configuration: Optional[pulumi.Input[Union['CustomLogSourceConfigurationArgs', 'CustomLogSourceConfigurationArgsDict']]] = None,
-            event_classes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            provider_details: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomLogSourceProviderDetailArgs', 'CustomLogSourceProviderDetailArgsDict']]]]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            source_name: Optional[pulumi.Input[_builtins.str]] = None,
-            source_version: Optional[pulumi.Input[_builtins.str]] = None) -> 'CustomLogSource':
+            attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomLogSourceAttributeArgs', 'CustomLogSourceAttributeArgsDict']]]]] = None,
+            configuration: pulumi.Input[Optional[Union['CustomLogSourceConfigurationArgs', 'CustomLogSourceConfigurationArgsDict']]] = None,
+            event_classes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            provider_details: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomLogSourceProviderDetailArgs', 'CustomLogSourceProviderDetailArgsDict']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            source_name: pulumi.Input[Optional[_builtins.str]] = None,
+            source_version: pulumi.Input[Optional[_builtins.str]] = None) -> 'CustomLogSource':
         """
         Get an existing CustomLogSource resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

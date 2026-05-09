@@ -127,8 +127,8 @@ def get_image_pipelines(filters: Optional[Sequence[Union['GetImagePipelinesFilte
         id=pulumi.get(__ret__, 'id'),
         names=pulumi.get(__ret__, 'names'),
         region=pulumi.get(__ret__, 'region'))
-def get_image_pipelines_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetImagePipelinesFilterArgs', 'GetImagePipelinesFilterArgsDict']]]]] = None,
-                               region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_image_pipelines_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetImagePipelinesFilterArgs', 'GetImagePipelinesFilterArgsDict']]]]] = None,
+                               region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImagePipelinesResult]:
     """
     Use this data source to get the ARNs and names of Image Builder Image Pipelines matching the specified criteria.

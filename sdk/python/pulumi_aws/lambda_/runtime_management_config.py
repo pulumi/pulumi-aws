@@ -20,10 +20,10 @@ __all__ = ['RuntimeManagementConfigArgs', 'RuntimeManagementConfig']
 class RuntimeManagementConfigArgs:
     def __init__(__self__, *,
                  function_name: pulumi.Input[_builtins.str],
-                 qualifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime_version_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 update_runtime_on: Optional[pulumi.Input[_builtins.str]] = None):
+                 qualifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_version_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 update_runtime_on: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a RuntimeManagementConfig resource.
 
@@ -61,62 +61,62 @@ class RuntimeManagementConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def qualifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def qualifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version of the function. This can be `$LATEST` or a published version number. If omitted, this resource will manage the runtime configuration for `$LATEST`.
         """
         return pulumi.get(self, "qualifier")
 
     @qualifier.setter
-    def qualifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def qualifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "qualifier", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="runtimeVersionArn")
-    def runtime_version_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runtime_version_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the runtime version. Only required when `update_runtime_on` is `Manual`.
         """
         return pulumi.get(self, "runtime_version_arn")
 
     @runtime_version_arn.setter
-    def runtime_version_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runtime_version_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runtime_version_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="updateRuntimeOn")
-    def update_runtime_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def update_runtime_on(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Runtime update mode. Valid values are `Auto`, `FunctionUpdate`, and `Manual`. When a function is created, the default mode is `Auto`.
         """
         return pulumi.get(self, "update_runtime_on")
 
     @update_runtime_on.setter
-    def update_runtime_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def update_runtime_on(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "update_runtime_on", value)
 
 
 @pulumi.input_type
 class _RuntimeManagementConfigState:
     def __init__(__self__, *,
-                 function_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 qualifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime_version_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 update_runtime_on: Optional[pulumi.Input[_builtins.str]] = None):
+                 function_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 qualifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_version_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 update_runtime_on: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RuntimeManagementConfig resources.
 
@@ -144,19 +144,19 @@ class _RuntimeManagementConfigState:
 
     @_builtins.property
     @pulumi.getter(name="functionArn")
-    def function_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def function_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the function.
         """
         return pulumi.get(self, "function_arn")
 
     @function_arn.setter
-    def function_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def function_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "function_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="functionName")
-    def function_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def function_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name or ARN of the Lambda function.
 
@@ -165,55 +165,55 @@ class _RuntimeManagementConfigState:
         return pulumi.get(self, "function_name")
 
     @function_name.setter
-    def function_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def function_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "function_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def qualifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def qualifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version of the function. This can be `$LATEST` or a published version number. If omitted, this resource will manage the runtime configuration for `$LATEST`.
         """
         return pulumi.get(self, "qualifier")
 
     @qualifier.setter
-    def qualifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def qualifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "qualifier", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="runtimeVersionArn")
-    def runtime_version_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runtime_version_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the runtime version. Only required when `update_runtime_on` is `Manual`.
         """
         return pulumi.get(self, "runtime_version_arn")
 
     @runtime_version_arn.setter
-    def runtime_version_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runtime_version_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runtime_version_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="updateRuntimeOn")
-    def update_runtime_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def update_runtime_on(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Runtime update mode. Valid values are `Auto`, `FunctionUpdate`, and `Manual`. When a function is created, the default mode is `Auto`.
         """
         return pulumi.get(self, "update_runtime_on")
 
     @update_runtime_on.setter
-    def update_runtime_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def update_runtime_on(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "update_runtime_on", value)
 
 
@@ -223,11 +223,11 @@ class RuntimeManagementConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 function_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 qualifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime_version_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 update_runtime_on: Optional[pulumi.Input[_builtins.str]] = None,
+                 function_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 qualifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_version_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 update_runtime_on: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an AWS Lambda Runtime Management Config. Use this resource to control how Lambda updates the runtime for your function.
@@ -346,11 +346,11 @@ class RuntimeManagementConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 function_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 qualifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime_version_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 update_runtime_on: Optional[pulumi.Input[_builtins.str]] = None,
+                 function_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 qualifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_version_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 update_runtime_on: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -378,12 +378,12 @@ class RuntimeManagementConfig(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            function_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            function_name: Optional[pulumi.Input[_builtins.str]] = None,
-            qualifier: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            runtime_version_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            update_runtime_on: Optional[pulumi.Input[_builtins.str]] = None) -> 'RuntimeManagementConfig':
+            function_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            function_name: pulumi.Input[Optional[_builtins.str]] = None,
+            qualifier: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            runtime_version_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            update_runtime_on: pulumi.Input[Optional[_builtins.str]] = None) -> 'RuntimeManagementConfig':
         """
         Get an existing RuntimeManagementConfig resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -449,10 +449,10 @@ def get_load_balancer(arn: Optional[_builtins.str] = None,
         vpc_id=pulumi.get(__ret__, 'vpc_id'),
         xff_header_processing_mode=pulumi.get(__ret__, 'xff_header_processing_mode'),
         zone_id=pulumi.get(__ret__, 'zone_id'))
-def get_load_balancer_output(arn: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                             name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                             region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                             tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_load_balancer_output(arn: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLoadBalancerResult]:
     """
     > **Note:** `alb.LoadBalancer` is known as `lb.LoadBalancer`. The functionality is identical.

@@ -23,14 +23,14 @@ class NetworkAclRuleArgs:
                  protocol: pulumi.Input[_builtins.str],
                  rule_action: pulumi.Input[_builtins.str],
                  rule_number: pulumi.Input[_builtins.int],
-                 cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 egress: Optional[pulumi.Input[_builtins.bool]] = None,
-                 from_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 icmp_code: Optional[pulumi.Input[_builtins.int]] = None,
-                 icmp_type: Optional[pulumi.Input[_builtins.int]] = None,
-                 ipv6_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 to_port: Optional[pulumi.Input[_builtins.int]] = None):
+                 cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 egress: pulumi.Input[Optional[_builtins.bool]] = None,
+                 from_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 icmp_code: pulumi.Input[Optional[_builtins.int]] = None,
+                 icmp_type: pulumi.Input[Optional[_builtins.int]] = None,
+                 ipv6_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 to_port: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a NetworkAclRule resource.
 
@@ -124,43 +124,43 @@ class NetworkAclRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="cidrBlock")
-    def cidr_block(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cidr_block(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
         """
         return pulumi.get(self, "cidr_block")
 
     @cidr_block.setter
-    def cidr_block(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cidr_block(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cidr_block", value)
 
     @_builtins.property
     @pulumi.getter
-    def egress(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def egress(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
         """
         return pulumi.get(self, "egress")
 
     @egress.setter
-    def egress(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def egress(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "egress", value)
 
     @_builtins.property
     @pulumi.getter(name="fromPort")
-    def from_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def from_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The from port to match.
         """
         return pulumi.get(self, "from_port")
 
     @from_port.setter
-    def from_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def from_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "from_port", value)
 
     @_builtins.property
     @pulumi.getter(name="icmpCode")
-    def icmp_code(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def icmp_code(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
 
@@ -173,73 +173,73 @@ class NetworkAclRuleArgs:
         return pulumi.get(self, "icmp_code")
 
     @icmp_code.setter
-    def icmp_code(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def icmp_code(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "icmp_code", value)
 
     @_builtins.property
     @pulumi.getter(name="icmpType")
-    def icmp_type(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def icmp_type(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
         """
         return pulumi.get(self, "icmp_type")
 
     @icmp_type.setter
-    def icmp_type(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def icmp_type(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "icmp_type", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6CidrBlock")
-    def ipv6_cidr_block(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipv6_cidr_block(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IPv6 CIDR block to allow or deny.
         """
         return pulumi.get(self, "ipv6_cidr_block")
 
     @ipv6_cidr_block.setter
-    def ipv6_cidr_block(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipv6_cidr_block(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipv6_cidr_block", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="toPort")
-    def to_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def to_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The to port to match.
         """
         return pulumi.get(self, "to_port")
 
     @to_port.setter
-    def to_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def to_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "to_port", value)
 
 
 @pulumi.input_type
 class _NetworkAclRuleState:
     def __init__(__self__, *,
-                 cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 egress: Optional[pulumi.Input[_builtins.bool]] = None,
-                 from_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 icmp_code: Optional[pulumi.Input[_builtins.int]] = None,
-                 icmp_type: Optional[pulumi.Input[_builtins.int]] = None,
-                 ipv6_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_acl_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_number: Optional[pulumi.Input[_builtins.int]] = None,
-                 to_port: Optional[pulumi.Input[_builtins.int]] = None):
+                 cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 egress: pulumi.Input[Optional[_builtins.bool]] = None,
+                 from_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 icmp_code: pulumi.Input[Optional[_builtins.int]] = None,
+                 icmp_type: pulumi.Input[Optional[_builtins.int]] = None,
+                 ipv6_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_acl_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_number: pulumi.Input[Optional[_builtins.int]] = None,
+                 to_port: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering NetworkAclRule resources.
 
@@ -289,43 +289,43 @@ class _NetworkAclRuleState:
 
     @_builtins.property
     @pulumi.getter(name="cidrBlock")
-    def cidr_block(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cidr_block(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
         """
         return pulumi.get(self, "cidr_block")
 
     @cidr_block.setter
-    def cidr_block(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cidr_block(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cidr_block", value)
 
     @_builtins.property
     @pulumi.getter
-    def egress(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def egress(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
         """
         return pulumi.get(self, "egress")
 
     @egress.setter
-    def egress(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def egress(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "egress", value)
 
     @_builtins.property
     @pulumi.getter(name="fromPort")
-    def from_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def from_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The from port to match.
         """
         return pulumi.get(self, "from_port")
 
     @from_port.setter
-    def from_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def from_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "from_port", value)
 
     @_builtins.property
     @pulumi.getter(name="icmpCode")
-    def icmp_code(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def icmp_code(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
 
@@ -338,103 +338,103 @@ class _NetworkAclRuleState:
         return pulumi.get(self, "icmp_code")
 
     @icmp_code.setter
-    def icmp_code(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def icmp_code(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "icmp_code", value)
 
     @_builtins.property
     @pulumi.getter(name="icmpType")
-    def icmp_type(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def icmp_type(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
         """
         return pulumi.get(self, "icmp_type")
 
     @icmp_type.setter
-    def icmp_type(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def icmp_type(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "icmp_type", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6CidrBlock")
-    def ipv6_cidr_block(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipv6_cidr_block(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IPv6 CIDR block to allow or deny.
         """
         return pulumi.get(self, "ipv6_cidr_block")
 
     @ipv6_cidr_block.setter
-    def ipv6_cidr_block(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipv6_cidr_block(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipv6_cidr_block", value)
 
     @_builtins.property
     @pulumi.getter(name="networkAclId")
-    def network_acl_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_acl_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the network ACL.
         """
         return pulumi.get(self, "network_acl_id")
 
     @network_acl_id.setter
-    def network_acl_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_acl_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_acl_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The protocol. A value of -1 means all protocols.
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "protocol", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleAction")
-    def rule_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rule_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
         """
         return pulumi.get(self, "rule_action")
 
     @rule_action.setter
-    def rule_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rule_action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rule_action", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleNumber")
-    def rule_number(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def rule_number(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
         """
         return pulumi.get(self, "rule_number")
 
     @rule_number.setter
-    def rule_number(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def rule_number(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "rule_number", value)
 
     @_builtins.property
     @pulumi.getter(name="toPort")
-    def to_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def to_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The to port to match.
         """
         return pulumi.get(self, "to_port")
 
     @to_port.setter
-    def to_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def to_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "to_port", value)
 
 
@@ -444,18 +444,18 @@ class NetworkAclRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 egress: Optional[pulumi.Input[_builtins.bool]] = None,
-                 from_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 icmp_code: Optional[pulumi.Input[_builtins.int]] = None,
-                 icmp_type: Optional[pulumi.Input[_builtins.int]] = None,
-                 ipv6_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_acl_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_number: Optional[pulumi.Input[_builtins.int]] = None,
-                 to_port: Optional[pulumi.Input[_builtins.int]] = None,
+                 cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 egress: pulumi.Input[Optional[_builtins.bool]] = None,
+                 from_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 icmp_code: pulumi.Input[Optional[_builtins.int]] = None,
+                 icmp_type: pulumi.Input[Optional[_builtins.int]] = None,
+                 ipv6_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_acl_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_number: pulumi.Input[Optional[_builtins.int]] = None,
+                 to_port: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Creates an entry (a rule) in a network ACL with the specified rule number.
@@ -623,18 +623,18 @@ class NetworkAclRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 egress: Optional[pulumi.Input[_builtins.bool]] = None,
-                 from_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 icmp_code: Optional[pulumi.Input[_builtins.int]] = None,
-                 icmp_type: Optional[pulumi.Input[_builtins.int]] = None,
-                 ipv6_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_acl_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_number: Optional[pulumi.Input[_builtins.int]] = None,
-                 to_port: Optional[pulumi.Input[_builtins.int]] = None,
+                 cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 egress: pulumi.Input[Optional[_builtins.bool]] = None,
+                 from_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 icmp_code: pulumi.Input[Optional[_builtins.int]] = None,
+                 icmp_type: pulumi.Input[Optional[_builtins.int]] = None,
+                 ipv6_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_acl_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_number: pulumi.Input[Optional[_builtins.int]] = None,
+                 to_port: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -674,18 +674,18 @@ class NetworkAclRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-            egress: Optional[pulumi.Input[_builtins.bool]] = None,
-            from_port: Optional[pulumi.Input[_builtins.int]] = None,
-            icmp_code: Optional[pulumi.Input[_builtins.int]] = None,
-            icmp_type: Optional[pulumi.Input[_builtins.int]] = None,
-            ipv6_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-            network_acl_id: Optional[pulumi.Input[_builtins.str]] = None,
-            protocol: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            rule_action: Optional[pulumi.Input[_builtins.str]] = None,
-            rule_number: Optional[pulumi.Input[_builtins.int]] = None,
-            to_port: Optional[pulumi.Input[_builtins.int]] = None) -> 'NetworkAclRule':
+            cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+            egress: pulumi.Input[Optional[_builtins.bool]] = None,
+            from_port: pulumi.Input[Optional[_builtins.int]] = None,
+            icmp_code: pulumi.Input[Optional[_builtins.int]] = None,
+            icmp_type: pulumi.Input[Optional[_builtins.int]] = None,
+            ipv6_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+            network_acl_id: pulumi.Input[Optional[_builtins.str]] = None,
+            protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            rule_action: pulumi.Input[Optional[_builtins.str]] = None,
+            rule_number: pulumi.Input[Optional[_builtins.int]] = None,
+            to_port: pulumi.Input[Optional[_builtins.int]] = None) -> 'NetworkAclRule':
         """
         Get an existing NetworkAclRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

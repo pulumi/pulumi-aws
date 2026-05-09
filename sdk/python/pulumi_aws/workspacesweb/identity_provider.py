@@ -23,8 +23,8 @@ class IdentityProviderArgs:
                  identity_provider_name: pulumi.Input[_builtins.str],
                  identity_provider_type: pulumi.Input[_builtins.str],
                  portal_arn: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a IdentityProvider resource.
 
@@ -100,40 +100,40 @@ class IdentityProviderArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _IdentityProviderState:
     def __init__(__self__, *,
-                 identity_provider_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_provider_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 identity_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_provider_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 portal_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 identity_provider_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_provider_details: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 identity_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_provider_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 portal_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering IdentityProvider resources.
 
@@ -168,19 +168,19 @@ class _IdentityProviderState:
 
     @_builtins.property
     @pulumi.getter(name="identityProviderArn")
-    def identity_provider_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identity_provider_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the identity provider.
         """
         return pulumi.get(self, "identity_provider_arn")
 
     @identity_provider_arn.setter
-    def identity_provider_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identity_provider_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identity_provider_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="identityProviderDetails")
-    def identity_provider_details(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def identity_provider_details(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Identity provider details. The following list describes the provider detail keys for each identity provider type:
         * For Google and Login with Amazon:
@@ -188,36 +188,36 @@ class _IdentityProviderState:
         return pulumi.get(self, "identity_provider_details")
 
     @identity_provider_details.setter
-    def identity_provider_details(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def identity_provider_details(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "identity_provider_details", value)
 
     @_builtins.property
     @pulumi.getter(name="identityProviderName")
-    def identity_provider_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identity_provider_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identity provider name.
         """
         return pulumi.get(self, "identity_provider_name")
 
     @identity_provider_name.setter
-    def identity_provider_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identity_provider_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identity_provider_name", value)
 
     @_builtins.property
     @pulumi.getter(name="identityProviderType")
-    def identity_provider_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identity_provider_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identity provider type. Valid values: `SAML`, `Facebook`, `Google`, `LoginWithAmazon`, `SignInWithApple`, `OIDC`.
         """
         return pulumi.get(self, "identity_provider_type")
 
     @identity_provider_type.setter
-    def identity_provider_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identity_provider_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identity_provider_type", value)
 
     @_builtins.property
     @pulumi.getter(name="portalArn")
-    def portal_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def portal_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the web portal. Forces replacement if changed.
 
@@ -226,43 +226,43 @@ class _IdentityProviderState:
         return pulumi.get(self, "portal_arn")
 
     @portal_arn.setter
-    def portal_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def portal_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "portal_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
 
@@ -272,12 +272,12 @@ class IdentityProvider(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity_provider_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 identity_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_provider_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 portal_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 identity_provider_details: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 identity_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_provider_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 portal_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Resource for managing an AWS WorkSpaces Web Identity Provider.
@@ -412,12 +412,12 @@ class IdentityProvider(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity_provider_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 identity_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_provider_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 portal_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 identity_provider_details: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 identity_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_provider_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 portal_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -453,14 +453,14 @@ class IdentityProvider(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            identity_provider_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            identity_provider_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            identity_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-            identity_provider_type: Optional[pulumi.Input[_builtins.str]] = None,
-            portal_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'IdentityProvider':
+            identity_provider_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            identity_provider_details: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            identity_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+            identity_provider_type: pulumi.Input[Optional[_builtins.str]] = None,
+            portal_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'IdentityProvider':
         """
         Get an existing IdentityProvider resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

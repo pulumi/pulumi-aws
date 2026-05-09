@@ -139,7 +139,7 @@ export interface GetRecordsOutputArgs {
     /**
      * Regex string to apply to the resource record names returned by AWS.
      */
-    nameRegex?: pulumi.Input<string>;
+    nameRegex?: pulumi.Input<string | undefined>;
     /**
      * The ID of the hosted zone that contains the resource record sets that you want to list.
      */

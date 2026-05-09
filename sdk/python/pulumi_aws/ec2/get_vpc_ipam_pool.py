@@ -365,12 +365,12 @@ def get_vpc_ipam_pool(allocation_resource_tags: Optional[Mapping[str, _builtins.
         source_resources=pulumi.get(__ret__, 'source_resources'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_vpc_ipam_pool_output(allocation_resource_tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
-                             filters: Optional[pulumi.Input[Optional[Sequence[Union['GetVpcIpamPoolFilterArgs', 'GetVpcIpamPoolFilterArgsDict']]]]] = None,
-                             id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                             ipam_pool_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                             region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                             tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_vpc_ipam_pool_output(allocation_resource_tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
+                             filters: pulumi.Input[Optional[Optional[Sequence[Union['GetVpcIpamPoolFilterArgs', 'GetVpcIpamPoolFilterArgsDict']]]]] = None,
+                             id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             ipam_pool_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcIpamPoolResult]:
     """
     `ec2.VpcIpamPool` provides details about an IPAM pool.

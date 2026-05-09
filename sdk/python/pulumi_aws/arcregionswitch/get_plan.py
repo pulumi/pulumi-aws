@@ -242,8 +242,8 @@ def get_plan(arn: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'),
         version=pulumi.get(__ret__, 'version'))
-def get_plan_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
-                    region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_plan_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
+                    region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPlanResult]:
     """
     Data source for managing an Amazon ARC Region Switch plan.

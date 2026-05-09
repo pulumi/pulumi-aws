@@ -97,7 +97,7 @@ export interface SdkvoiceGlobalSettingsState {
     /**
      * The Voice Connector settings. See voice_connector.
      */
-    voiceConnector?: pulumi.Input<inputs.chime.SdkvoiceGlobalSettingsVoiceConnector>;
+    voiceConnector?: pulumi.Input<inputs.chime.SdkvoiceGlobalSettingsVoiceConnector | undefined>;
 }
 
 /**

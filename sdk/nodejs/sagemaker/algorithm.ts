@@ -556,56 +556,56 @@ export interface AlgorithmState {
     /**
      * Description of the algorithm.
      */
-    algorithmDescription?: pulumi.Input<string>;
+    algorithmDescription?: pulumi.Input<string | undefined>;
     /**
      * Name of the algorithm.
      */
-    algorithmName?: pulumi.Input<string>;
+    algorithmName?: pulumi.Input<string | undefined>;
     /**
      * Status of the algorithm.
      */
-    algorithmStatus?: pulumi.Input<string>;
+    algorithmStatus?: pulumi.Input<string | undefined>;
     /**
      * ARN of the algorithm.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Whether to certify the algorithm for AWS Marketplace.
      */
-    certifyForMarketplace?: pulumi.Input<boolean>;
+    certifyForMarketplace?: pulumi.Input<boolean | undefined>;
     /**
      * Time when the algorithm was created, in RFC3339 format.
      */
-    creationTime?: pulumi.Input<string>;
+    creationTime?: pulumi.Input<string | undefined>;
     /**
      * Configuration for inference jobs that use this algorithm. See Inference Specification.
      */
-    inferenceSpecification?: pulumi.Input<inputs.sagemaker.AlgorithmInferenceSpecification>;
+    inferenceSpecification?: pulumi.Input<inputs.sagemaker.AlgorithmInferenceSpecification | undefined>;
     /**
      * AWS Marketplace product ID associated with the algorithm.
      */
-    productId?: pulumi.Input<string>;
+    productId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource is managed. Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including tags inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.sagemaker.AlgorithmTimeouts>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.sagemaker.AlgorithmTimeouts | undefined>;
     /**
      * Configuration for training jobs that use this algorithm. See Training Specification.
      */
-    trainingSpecification?: pulumi.Input<inputs.sagemaker.AlgorithmTrainingSpecification>;
+    trainingSpecification?: pulumi.Input<inputs.sagemaker.AlgorithmTrainingSpecification | undefined>;
     /**
      * Configuration used to validate the algorithm. See Validation Specification.
      */
-    validationSpecification?: pulumi.Input<inputs.sagemaker.AlgorithmValidationSpecification>;
+    validationSpecification?: pulumi.Input<inputs.sagemaker.AlgorithmValidationSpecification | undefined>;
 }
 
 /**
@@ -615,7 +615,7 @@ export interface AlgorithmArgs {
     /**
      * Description of the algorithm.
      */
-    algorithmDescription?: pulumi.Input<string>;
+    algorithmDescription?: pulumi.Input<string | undefined>;
     /**
      * Name of the algorithm.
      */
@@ -623,20 +623,20 @@ export interface AlgorithmArgs {
     /**
      * Whether to certify the algorithm for AWS Marketplace.
      */
-    certifyForMarketplace?: pulumi.Input<boolean>;
+    certifyForMarketplace?: pulumi.Input<boolean | undefined>;
     /**
      * Configuration for inference jobs that use this algorithm. See Inference Specification.
      */
-    inferenceSpecification?: pulumi.Input<inputs.sagemaker.AlgorithmInferenceSpecification>;
+    inferenceSpecification?: pulumi.Input<inputs.sagemaker.AlgorithmInferenceSpecification | undefined>;
     /**
      * Region where this resource is managed. Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.sagemaker.AlgorithmTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.sagemaker.AlgorithmTimeouts | undefined>;
     /**
      * Configuration for training jobs that use this algorithm. See Training Specification.
      */
@@ -644,5 +644,5 @@ export interface AlgorithmArgs {
     /**
      * Configuration used to validate the algorithm. See Validation Specification.
      */
-    validationSpecification?: pulumi.Input<inputs.sagemaker.AlgorithmValidationSpecification>;
+    validationSpecification?: pulumi.Input<inputs.sagemaker.AlgorithmValidationSpecification | undefined>;
 }

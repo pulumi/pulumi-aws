@@ -168,41 +168,41 @@ export interface ServerlessCollectionGroupState {
     /**
      * Amazon Resource Name (ARN) of the collection group.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for the collection group's indexing and search capacity limits. See `capacityLimits` below for details.
      */
-    capacityLimits?: pulumi.Input<pulumi.Input<inputs.opensearch.ServerlessCollectionGroupCapacityLimit>[]>;
+    capacityLimits?: pulumi.Input<pulumi.Input<inputs.opensearch.ServerlessCollectionGroupCapacityLimit>[] | undefined>;
     /**
      * Date the collection group was created.
      */
-    createdDate?: pulumi.Input<string>;
+    createdDate?: pulumi.Input<string | undefined>;
     /**
      * Description of the collection group.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of the collection group.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether standby replicas should be used for collections in this group. Valid values are `ENABLED` and `DISABLED`.
      *
      * The following arguments are optional:
      */
-    standbyReplicas?: pulumi.Input<string>;
+    standbyReplicas?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the collection group. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -212,19 +212,19 @@ export interface ServerlessCollectionGroupArgs {
     /**
      * Configuration block for the collection group's indexing and search capacity limits. See `capacityLimits` below for details.
      */
-    capacityLimits?: pulumi.Input<pulumi.Input<inputs.opensearch.ServerlessCollectionGroupCapacityLimit>[]>;
+    capacityLimits?: pulumi.Input<pulumi.Input<inputs.opensearch.ServerlessCollectionGroupCapacityLimit>[] | undefined>;
     /**
      * Description of the collection group.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of the collection group.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether standby replicas should be used for collections in this group. Valid values are `ENABLED` and `DISABLED`.
      *
@@ -234,5 +234,5 @@ export interface ServerlessCollectionGroupArgs {
     /**
      * A map of tags to assign to the collection group. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -59,14 +59,18 @@ namespace Pulumi.Aws.Ec2
         ///     });
         /// 
         ///     var testEip = new List&lt;Aws.Ec2.Eip&gt;();
-        ///     for (var rangeIndex = 0; rangeIndex &lt; test.Apply(getInstancesResult =&gt; getInstancesResult.Ids).Length; rangeIndex++)
+        ///     test.Apply(getInstancesResult =&gt; getInstancesResult.Ids).Length().Apply(rangeBody =&gt;
         ///     {
-        ///         var range = new { Value = rangeIndex };
-        ///         testEip.Add(new Aws.Ec2.Eip($"test-{range.Value}", new()
+        ///         for (var rangeIndex = 0; rangeIndex &lt; rangeBody; rangeIndex++)
         ///         {
-        ///             Instance = test.Apply(getInstancesResult =&gt; getInstancesResult.Ids)[range.Value],
-        ///         }));
-        ///     }
+        ///             var range = new { Value = rangeIndex };
+        ///             testEip.Add(new Aws.Ec2.Eip($"test-{range.Value}", new()
+        ///             {
+        ///                 Instance = test.Apply(getInstancesResult =&gt; getInstancesResult.Ids)[range.Value],
+        ///             }));
+        ///         }
+        ///         return 0;
+        ///     });
         /// });
         /// ```
         /// </summary>
@@ -121,14 +125,18 @@ namespace Pulumi.Aws.Ec2
         ///     });
         /// 
         ///     var testEip = new List&lt;Aws.Ec2.Eip&gt;();
-        ///     for (var rangeIndex = 0; rangeIndex &lt; test.Apply(getInstancesResult =&gt; getInstancesResult.Ids).Length; rangeIndex++)
+        ///     test.Apply(getInstancesResult =&gt; getInstancesResult.Ids).Length().Apply(rangeBody =&gt;
         ///     {
-        ///         var range = new { Value = rangeIndex };
-        ///         testEip.Add(new Aws.Ec2.Eip($"test-{range.Value}", new()
+        ///         for (var rangeIndex = 0; rangeIndex &lt; rangeBody; rangeIndex++)
         ///         {
-        ///             Instance = test.Apply(getInstancesResult =&gt; getInstancesResult.Ids)[range.Value],
-        ///         }));
-        ///     }
+        ///             var range = new { Value = rangeIndex };
+        ///             testEip.Add(new Aws.Ec2.Eip($"test-{range.Value}", new()
+        ///             {
+        ///                 Instance = test.Apply(getInstancesResult =&gt; getInstancesResult.Ids)[range.Value],
+        ///             }));
+        ///         }
+        ///         return 0;
+        ///     });
         /// });
         /// ```
         /// </summary>
@@ -183,14 +191,18 @@ namespace Pulumi.Aws.Ec2
         ///     });
         /// 
         ///     var testEip = new List&lt;Aws.Ec2.Eip&gt;();
-        ///     for (var rangeIndex = 0; rangeIndex &lt; test.Apply(getInstancesResult =&gt; getInstancesResult.Ids).Length; rangeIndex++)
+        ///     test.Apply(getInstancesResult =&gt; getInstancesResult.Ids).Length().Apply(rangeBody =&gt;
         ///     {
-        ///         var range = new { Value = rangeIndex };
-        ///         testEip.Add(new Aws.Ec2.Eip($"test-{range.Value}", new()
+        ///         for (var rangeIndex = 0; rangeIndex &lt; rangeBody; rangeIndex++)
         ///         {
-        ///             Instance = test.Apply(getInstancesResult =&gt; getInstancesResult.Ids)[range.Value],
-        ///         }));
-        ///     }
+        ///             var range = new { Value = rangeIndex };
+        ///             testEip.Add(new Aws.Ec2.Eip($"test-{range.Value}", new()
+        ///             {
+        ///                 Instance = test.Apply(getInstancesResult =&gt; getInstancesResult.Ids)[range.Value],
+        ///             }));
+        ///         }
+        ///         return 0;
+        ///     });
         /// });
         /// ```
         /// </summary>

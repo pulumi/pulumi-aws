@@ -112,16 +112,16 @@ export interface DefaultCreditSpecificationState {
     /**
      * Credit option for CPU usage of the instance family. Valid values: `standard`, `unlimited`.
      */
-    cpuCredits?: pulumi.Input<string>;
+    cpuCredits?: pulumi.Input<string | undefined>;
     /**
      * Instance family. Valid values are `t2`, `t3`, `t3a`, `t4g`.
      */
-    instanceFamily?: pulumi.Input<string>;
+    instanceFamily?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.ec2.DefaultCreditSpecificationTimeouts>;
+    region?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.ec2.DefaultCreditSpecificationTimeouts | undefined>;
 }
 
 /**
@@ -139,6 +139,6 @@ export interface DefaultCreditSpecificationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.ec2.DefaultCreditSpecificationTimeouts>;
+    region?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.ec2.DefaultCreditSpecificationTimeouts | undefined>;
 }

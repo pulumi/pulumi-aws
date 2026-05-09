@@ -24,8 +24,8 @@ class ContactChannelArgs:
                  contact_id: pulumi.Input[_builtins.str],
                  delivery_address: pulumi.Input['ContactChannelDeliveryAddressArgs'],
                  type: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ContactChannel resource.
 
@@ -81,39 +81,39 @@ class ContactChannelArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _ContactChannelState:
     def __init__(__self__, *,
-                 activation_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 contact_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 delivery_address: Optional[pulumi.Input['ContactChannelDeliveryAddressArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 activation_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 contact_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 delivery_address: pulumi.Input[Optional['ContactChannelDeliveryAddressArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ContactChannel resources.
 
@@ -142,86 +142,86 @@ class _ContactChannelState:
 
     @_builtins.property
     @pulumi.getter(name="activationStatus")
-    def activation_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def activation_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether the contact channel is activated. The contact channel must be activated to use it to engage the contact. One of `ACTIVATED` or `NOT_ACTIVATED`.
         """
         return pulumi.get(self, "activation_status")
 
     @activation_status.setter
-    def activation_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def activation_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "activation_status", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) of the contact channel.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="contactId")
-    def contact_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def contact_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
         """
         return pulumi.get(self, "contact_id")
 
     @contact_id.setter
-    def contact_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def contact_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "contact_id", value)
 
     @_builtins.property
     @pulumi.getter(name="deliveryAddress")
-    def delivery_address(self) -> Optional[pulumi.Input['ContactChannelDeliveryAddressArgs']]:
+    def delivery_address(self) -> pulumi.Input[Optional['ContactChannelDeliveryAddressArgs']]:
         """
         Block that contains contact engagement details. See details below.
         """
         return pulumi.get(self, "delivery_address")
 
     @delivery_address.setter
-    def delivery_address(self, value: Optional[pulumi.Input['ContactChannelDeliveryAddressArgs']]):
+    def delivery_address(self, value: pulumi.Input[Optional['ContactChannelDeliveryAddressArgs']]):
         pulumi.set(self, "delivery_address", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the contact channel. One of `SMS`, `VOICE` or `EMAIL`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -231,11 +231,11 @@ class ContactChannel(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 contact_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 delivery_address: Optional[pulumi.Input[Union['ContactChannelDeliveryAddressArgs', 'ContactChannelDeliveryAddressArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 contact_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 delivery_address: pulumi.Input[Optional[Union['ContactChannelDeliveryAddressArgs', 'ContactChannelDeliveryAddressArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing an AWS SSM Contacts Contact Channel.
@@ -376,11 +376,11 @@ class ContactChannel(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 contact_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 delivery_address: Optional[pulumi.Input[Union['ContactChannelDeliveryAddressArgs', 'ContactChannelDeliveryAddressArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 contact_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 delivery_address: pulumi.Input[Optional[Union['ContactChannelDeliveryAddressArgs', 'ContactChannelDeliveryAddressArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -413,13 +413,13 @@ class ContactChannel(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            activation_status: Optional[pulumi.Input[_builtins.str]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            contact_id: Optional[pulumi.Input[_builtins.str]] = None,
-            delivery_address: Optional[pulumi.Input[Union['ContactChannelDeliveryAddressArgs', 'ContactChannelDeliveryAddressArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None) -> 'ContactChannel':
+            activation_status: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            contact_id: pulumi.Input[Optional[_builtins.str]] = None,
+            delivery_address: pulumi.Input[Optional[Union['ContactChannelDeliveryAddressArgs', 'ContactChannelDeliveryAddressArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> 'ContactChannel':
         """
         Get an existing ContactChannel resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

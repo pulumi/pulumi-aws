@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Amp
     ///         Alias = "example-workspace",
     ///     });
     /// 
-    ///     var current = Aws.Index.GetCallerIdentity.Invoke();
+    ///     var current = Aws.GetCallerIdentity.Invoke();
     /// 
     ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {

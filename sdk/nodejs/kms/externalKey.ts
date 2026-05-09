@@ -180,67 +180,67 @@ export interface ExternalKeyState {
     /**
      * The Amazon Resource Name (ARN) of the key.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `true` increases the risk that the key becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the AWS Key Management Service Developer Guide. Defaults to `false`.
      */
-    bypassPolicyLockoutSafetyCheck?: pulumi.Input<boolean>;
+    bypassPolicyLockoutSafetyCheck?: pulumi.Input<boolean | undefined>;
     /**
      * Duration in days after which the key is deleted after destruction of the resource. Must be between `7` and `30` days. Defaults to `30`.
      */
-    deletionWindowInDays?: pulumi.Input<number>;
+    deletionWindowInDays?: pulumi.Input<number | undefined>;
     /**
      * Description of the key.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the key is enabled. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the key material expires. Empty when pending key material import, otherwise `KEY_MATERIAL_EXPIRES` or `KEY_MATERIAL_DOES_NOT_EXPIRE`.
      */
-    expirationModel?: pulumi.Input<string>;
+    expirationModel?: pulumi.Input<string | undefined>;
     /**
      * Base64 encoded 256-bit symmetric encryption key material to import. The CMK is permanently associated with this key material. The same key material can be reimported, but you cannot import different key material.
      */
-    keyMaterialBase64?: pulumi.Input<string>;
+    keyMaterialBase64?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports. Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, or `SM2` (China Regions only). Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
      */
-    keySpec?: pulumi.Input<string>;
+    keySpec?: pulumi.Input<string | undefined>;
     /**
      * The state of the CMK.
      */
-    keyState?: pulumi.Input<string>;
+    keyState?: pulumi.Input<string | undefined>;
     /**
      * Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
      */
-    keyUsage?: pulumi.Input<string>;
+    keyUsage?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
      */
-    multiRegion?: pulumi.Input<boolean>;
+    multiRegion?: pulumi.Input<boolean | undefined>;
     /**
      * A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
      */
-    policy?: pulumi.Input<string>;
+    policy?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A key-value map of tags to assign to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. If not specified, key material does not expire. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      */
-    validTo?: pulumi.Input<string>;
+    validTo?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -250,49 +250,49 @@ export interface ExternalKeyArgs {
     /**
      * Specifies whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `true` increases the risk that the key becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the AWS Key Management Service Developer Guide. Defaults to `false`.
      */
-    bypassPolicyLockoutSafetyCheck?: pulumi.Input<boolean>;
+    bypassPolicyLockoutSafetyCheck?: pulumi.Input<boolean | undefined>;
     /**
      * Duration in days after which the key is deleted after destruction of the resource. Must be between `7` and `30` days. Defaults to `30`.
      */
-    deletionWindowInDays?: pulumi.Input<number>;
+    deletionWindowInDays?: pulumi.Input<number | undefined>;
     /**
      * Description of the key.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the key is enabled. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Base64 encoded 256-bit symmetric encryption key material to import. The CMK is permanently associated with this key material. The same key material can be reimported, but you cannot import different key material.
      */
-    keyMaterialBase64?: pulumi.Input<string>;
+    keyMaterialBase64?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports. Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, or `SM2` (China Regions only). Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
      */
-    keySpec?: pulumi.Input<string>;
+    keySpec?: pulumi.Input<string | undefined>;
     /**
      * Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
      */
-    keyUsage?: pulumi.Input<string>;
+    keyUsage?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
      */
-    multiRegion?: pulumi.Input<boolean>;
+    multiRegion?: pulumi.Input<boolean | undefined>;
     /**
      * A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
      */
-    policy?: pulumi.Input<string>;
+    policy?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A key-value map of tags to assign to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. If not specified, key material does not expire. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      */
-    validTo?: pulumi.Input<string>;
+    validTo?: pulumi.Input<string | undefined>;
 }

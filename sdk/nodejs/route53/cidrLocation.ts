@@ -113,15 +113,15 @@ export interface CidrLocationState {
     /**
      * CIDR blocks for the location.
      */
-    cidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
+    cidrBlocks?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of the CIDR collection to update.
      */
-    cidrCollectionId?: pulumi.Input<string>;
+    cidrCollectionId?: pulumi.Input<string | undefined>;
     /**
      * Name for the CIDR location.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -139,5 +139,5 @@ export interface CidrLocationArgs {
     /**
      * Name for the CIDR location.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

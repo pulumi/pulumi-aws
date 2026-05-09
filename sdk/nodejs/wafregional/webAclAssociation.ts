@@ -161,15 +161,15 @@ export interface WebAclAssociationState {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
      */
-    resourceArn?: pulumi.Input<string>;
+    resourceArn?: pulumi.Input<string | undefined>;
     /**
      * The ID of the WAF Regional WebACL to create an association.
      */
-    webAclId?: pulumi.Input<string>;
+    webAclId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -179,7 +179,7 @@ export interface WebAclAssociationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
      */

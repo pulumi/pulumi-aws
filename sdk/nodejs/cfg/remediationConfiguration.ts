@@ -218,53 +218,53 @@ export interface RemediationConfigurationState {
     /**
      * ARN of the Config Remediation Configuration.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Remediation is triggered automatically if `true`.
      */
-    automatic?: pulumi.Input<boolean>;
+    automatic?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the AWS Config rule.
      */
-    configRuleName?: pulumi.Input<string>;
+    configRuleName?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for execution controls. See below.
      */
-    executionControls?: pulumi.Input<inputs.cfg.RemediationConfigurationExecutionControls>;
+    executionControls?: pulumi.Input<inputs.cfg.RemediationConfigurationExecutionControls | undefined>;
     /**
      * Maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
      */
-    maximumAutomaticAttempts?: pulumi.Input<number>;
+    maximumAutomaticAttempts?: pulumi.Input<number | undefined>;
     /**
      * Can be specified multiple times for each parameter. Each parameter block supports arguments below.
      */
-    parameters?: pulumi.Input<pulumi.Input<inputs.cfg.RemediationConfigurationParameter>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.cfg.RemediationConfigurationParameter>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Type of resource.
      */
-    resourceType?: pulumi.Input<string>;
+    resourceType?: pulumi.Input<string | undefined>;
     /**
      * Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
      */
-    retryAttemptSeconds?: pulumi.Input<number>;
+    retryAttemptSeconds?: pulumi.Input<number | undefined>;
     /**
      * Target ID is the name of the public document.
      */
-    targetId?: pulumi.Input<string>;
+    targetId?: pulumi.Input<string | undefined>;
     /**
      * Type of the target. Target executes remediation. For example, SSM document.
      *
      * The following arguments are optional:
      */
-    targetType?: pulumi.Input<string>;
+    targetType?: pulumi.Input<string | undefined>;
     /**
      * Version of the target. For example, version of the SSM document
      */
-    targetVersion?: pulumi.Input<string>;
+    targetVersion?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -274,7 +274,7 @@ export interface RemediationConfigurationArgs {
     /**
      * Remediation is triggered automatically if `true`.
      */
-    automatic?: pulumi.Input<boolean>;
+    automatic?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the AWS Config rule.
      */
@@ -282,27 +282,27 @@ export interface RemediationConfigurationArgs {
     /**
      * Configuration block for execution controls. See below.
      */
-    executionControls?: pulumi.Input<inputs.cfg.RemediationConfigurationExecutionControls>;
+    executionControls?: pulumi.Input<inputs.cfg.RemediationConfigurationExecutionControls | undefined>;
     /**
      * Maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
      */
-    maximumAutomaticAttempts?: pulumi.Input<number>;
+    maximumAutomaticAttempts?: pulumi.Input<number | undefined>;
     /**
      * Can be specified multiple times for each parameter. Each parameter block supports arguments below.
      */
-    parameters?: pulumi.Input<pulumi.Input<inputs.cfg.RemediationConfigurationParameter>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.cfg.RemediationConfigurationParameter>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Type of resource.
      */
-    resourceType?: pulumi.Input<string>;
+    resourceType?: pulumi.Input<string | undefined>;
     /**
      * Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
      */
-    retryAttemptSeconds?: pulumi.Input<number>;
+    retryAttemptSeconds?: pulumi.Input<number | undefined>;
     /**
      * Target ID is the name of the public document.
      */
@@ -316,5 +316,5 @@ export interface RemediationConfigurationArgs {
     /**
      * Version of the target. For example, version of the SSM document
      */
-    targetVersion?: pulumi.Input<string>;
+    targetVersion?: pulumi.Input<string | undefined>;
 }

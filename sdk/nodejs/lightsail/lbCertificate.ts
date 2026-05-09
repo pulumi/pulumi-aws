@@ -157,41 +157,41 @@ export interface LbCertificateState {
     /**
      * ARN of the lightsail certificate.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Timestamp when the instance was created.
      */
-    createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string | undefined>;
     /**
      * Domain name (e.g., example.com) for your SSL/TLS certificate.
      */
-    domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string | undefined>;
     /**
      * Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
      */
-    domainValidationRecords?: pulumi.Input<pulumi.Input<inputs.lightsail.LbCertificateDomainValidationRecord>[]>;
+    domainValidationRecords?: pulumi.Input<pulumi.Input<inputs.lightsail.LbCertificateDomainValidationRecord>[] | undefined>;
     /**
      * Load balancer name where you want to create the SSL/TLS certificate.
      */
-    lbName?: pulumi.Input<string>;
+    lbName?: pulumi.Input<string | undefined>;
     /**
      * SSL/TLS certificate name.
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Set of domains that should be SANs in the issued certificate. `domainName` attribute is automatically added as a Subject Alternative Name.
      */
-    subjectAlternativeNames?: pulumi.Input<pulumi.Input<string>[]>;
+    subjectAlternativeNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Support code for the certificate.
      */
-    supportCode?: pulumi.Input<string>;
+    supportCode?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -201,7 +201,7 @@ export interface LbCertificateArgs {
     /**
      * Domain name (e.g., example.com) for your SSL/TLS certificate.
      */
-    domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string | undefined>;
     /**
      * Load balancer name where you want to create the SSL/TLS certificate.
      */
@@ -211,13 +211,13 @@ export interface LbCertificateArgs {
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Set of domains that should be SANs in the issued certificate. `domainName` attribute is automatically added as a Subject Alternative Name.
      */
-    subjectAlternativeNames?: pulumi.Input<pulumi.Input<string>[]>;
+    subjectAlternativeNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

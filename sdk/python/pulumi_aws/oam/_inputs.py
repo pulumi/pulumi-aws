@@ -24,11 +24,11 @@ __all__ = [
 ]
 
 class LinkLinkConfigurationArgsDict(TypedDict):
-    log_group_configuration: NotRequired[pulumi.Input['LinkLinkConfigurationLogGroupConfigurationArgsDict']]
+    log_group_configuration: NotRequired[pulumi.Input[Optional['LinkLinkConfigurationLogGroupConfigurationArgs']]]
     """
     Configuration for filtering which log groups are to send log events from the source account to the monitoring account. See `log_group_configuration` Block for details.
     """
-    metric_configuration: NotRequired[pulumi.Input['LinkLinkConfigurationMetricConfigurationArgsDict']]
+    metric_configuration: NotRequired[pulumi.Input[Optional['LinkLinkConfigurationMetricConfigurationArgs']]]
     """
     Configuration for filtering which metric namespaces are to be shared from the source account to the monitoring account. See `metric_configuration` Block for details.
     """
@@ -36,8 +36,8 @@ class LinkLinkConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class LinkLinkConfigurationArgs:
     def __init__(__self__, *,
-                 log_group_configuration: Optional[pulumi.Input['LinkLinkConfigurationLogGroupConfigurationArgs']] = None,
-                 metric_configuration: Optional[pulumi.Input['LinkLinkConfigurationMetricConfigurationArgs']] = None):
+                 log_group_configuration: pulumi.Input[Optional['LinkLinkConfigurationLogGroupConfigurationArgs']] = None,
+                 metric_configuration: pulumi.Input[Optional['LinkLinkConfigurationMetricConfigurationArgs']] = None):
         """
         :param pulumi.Input['LinkLinkConfigurationLogGroupConfigurationArgs'] log_group_configuration: Configuration for filtering which log groups are to send log events from the source account to the monitoring account. See `log_group_configuration` Block for details.
         :param pulumi.Input['LinkLinkConfigurationMetricConfigurationArgs'] metric_configuration: Configuration for filtering which metric namespaces are to be shared from the source account to the monitoring account. See `metric_configuration` Block for details.
@@ -49,26 +49,26 @@ class LinkLinkConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="logGroupConfiguration")
-    def log_group_configuration(self) -> Optional[pulumi.Input['LinkLinkConfigurationLogGroupConfigurationArgs']]:
+    def log_group_configuration(self) -> pulumi.Input[Optional['LinkLinkConfigurationLogGroupConfigurationArgs']]:
         """
         Configuration for filtering which log groups are to send log events from the source account to the monitoring account. See `log_group_configuration` Block for details.
         """
         return pulumi.get(self, "log_group_configuration")
 
     @log_group_configuration.setter
-    def log_group_configuration(self, value: Optional[pulumi.Input['LinkLinkConfigurationLogGroupConfigurationArgs']]):
+    def log_group_configuration(self, value: pulumi.Input[Optional['LinkLinkConfigurationLogGroupConfigurationArgs']]):
         pulumi.set(self, "log_group_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="metricConfiguration")
-    def metric_configuration(self) -> Optional[pulumi.Input['LinkLinkConfigurationMetricConfigurationArgs']]:
+    def metric_configuration(self) -> pulumi.Input[Optional['LinkLinkConfigurationMetricConfigurationArgs']]:
         """
         Configuration for filtering which metric namespaces are to be shared from the source account to the monitoring account. See `metric_configuration` Block for details.
         """
         return pulumi.get(self, "metric_configuration")
 
     @metric_configuration.setter
-    def metric_configuration(self, value: Optional[pulumi.Input['LinkLinkConfigurationMetricConfigurationArgs']]):
+    def metric_configuration(self, value: pulumi.Input[Optional['LinkLinkConfigurationMetricConfigurationArgs']]):
         pulumi.set(self, "metric_configuration", value)
 
 

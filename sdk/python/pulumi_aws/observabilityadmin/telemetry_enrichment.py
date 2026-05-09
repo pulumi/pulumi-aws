@@ -21,8 +21,8 @@ __all__ = ['TelemetryEnrichmentArgs', 'TelemetryEnrichment']
 @pulumi.input_type
 class TelemetryEnrichmentArgs:
     def __init__(__self__, *,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input['TelemetryEnrichmentTimeoutsArgs']] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional['TelemetryEnrichmentTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a TelemetryEnrichment resource.
 
@@ -35,32 +35,32 @@ class TelemetryEnrichmentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['TelemetryEnrichmentTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['TelemetryEnrichmentTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['TelemetryEnrichmentTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['TelemetryEnrichmentTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _TelemetryEnrichmentState:
     def __init__(__self__, *,
-                 aws_resource_explorer_managed_view_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input['TelemetryEnrichmentTimeoutsArgs']] = None):
+                 aws_resource_explorer_managed_view_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional['TelemetryEnrichmentTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering TelemetryEnrichment resources.
 
@@ -76,35 +76,35 @@ class _TelemetryEnrichmentState:
 
     @_builtins.property
     @pulumi.getter(name="awsResourceExplorerManagedViewArn")
-    def aws_resource_explorer_managed_view_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_resource_explorer_managed_view_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the AWS Resource Explorer managed view created for the telemetry enrichment feature.
         """
         return pulumi.get(self, "aws_resource_explorer_managed_view_arn")
 
     @aws_resource_explorer_managed_view_arn.setter
-    def aws_resource_explorer_managed_view_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_resource_explorer_managed_view_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_resource_explorer_managed_view_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['TelemetryEnrichmentTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['TelemetryEnrichmentTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['TelemetryEnrichmentTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['TelemetryEnrichmentTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
@@ -114,8 +114,8 @@ class TelemetryEnrichment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input[Union['TelemetryEnrichmentTimeoutsArgs', 'TelemetryEnrichmentTimeoutsArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional[Union['TelemetryEnrichmentTimeoutsArgs', 'TelemetryEnrichmentTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Manages an AWS CloudWatch Observability Admin Telemetry Enrichment.
@@ -214,8 +214,8 @@ class TelemetryEnrichment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input[Union['TelemetryEnrichmentTimeoutsArgs', 'TelemetryEnrichmentTimeoutsArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional[Union['TelemetryEnrichmentTimeoutsArgs', 'TelemetryEnrichmentTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -238,9 +238,9 @@ class TelemetryEnrichment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            aws_resource_explorer_managed_view_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            timeouts: Optional[pulumi.Input[Union['TelemetryEnrichmentTimeoutsArgs', 'TelemetryEnrichmentTimeoutsArgsDict']]] = None) -> 'TelemetryEnrichment':
+            aws_resource_explorer_managed_view_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['TelemetryEnrichmentTimeoutsArgs', 'TelemetryEnrichmentTimeoutsArgsDict']]] = None) -> 'TelemetryEnrichment':
         """
         Get an existing TelemetryEnrichment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

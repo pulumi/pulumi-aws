@@ -155,43 +155,43 @@ export interface KeyPairState {
     /**
      * The key pair ARN.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The MD5 public key fingerprint as specified in section 4 of RFC 4716.
      */
-    fingerprint?: pulumi.Input<string>;
+    fingerprint?: pulumi.Input<string | undefined>;
     /**
      * The name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
      */
-    keyName?: pulumi.Input<string>;
+    keyName?: pulumi.Input<string | undefined>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `keyName`. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
      */
-    keyNamePrefix?: pulumi.Input<string>;
+    keyNamePrefix?: pulumi.Input<string | undefined>;
     /**
      * The key pair ID.
      */
-    keyPairId?: pulumi.Input<string>;
+    keyPairId?: pulumi.Input<string | undefined>;
     /**
      * The type of key pair.
      */
-    keyType?: pulumi.Input<string>;
+    keyType?: pulumi.Input<string | undefined>;
     /**
      * The public key material.
      */
-    publicKey?: pulumi.Input<string>;
+    publicKey?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -201,11 +201,11 @@ export interface KeyPairArgs {
     /**
      * The name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
      */
-    keyName?: pulumi.Input<string>;
+    keyName?: pulumi.Input<string | undefined>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `keyName`. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
      */
-    keyNamePrefix?: pulumi.Input<string>;
+    keyNamePrefix?: pulumi.Input<string | undefined>;
     /**
      * The public key material.
      */
@@ -213,9 +213,9 @@ export interface KeyPairArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

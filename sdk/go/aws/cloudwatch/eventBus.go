@@ -119,316 +119,317 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{
-// }, nil);
-// if err != nil {
-// return err
-// }
-// example, err := cloudwatch.NewEventBus(ctx, "example", &cloudwatch.EventBusArgs{
-// Name: pulumi.String("example-event-bus"),
-// LogConfig: &cloudwatch.EventBusLogConfigArgs{
-// IncludeDetail: pulumi.String("FULL"),
-// Level: pulumi.String("TRACE"),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// // CloudWatch Log Delivery Sources for INFO, ERROR, and TRACE logs
-// infoLogs, err := cloudwatch.NewLogDeliverySource(ctx, "info_logs", &cloudwatch.LogDeliverySourceArgs{
-// Name: example.Name.ApplyT(func(name string) (string, error) {
-// return fmt.Sprintf("EventBusSource-%v-INFO_LOGS", name), nil
-// }).(pulumi.StringOutput),
-// LogType: pulumi.String("INFO_LOGS"),
-// ResourceArn: example.Arn,
-// })
-// if err != nil {
-// return err
-// }
-// errorLogs, err := cloudwatch.NewLogDeliverySource(ctx, "error_logs", &cloudwatch.LogDeliverySourceArgs{
-// Name: example.Name.ApplyT(func(name string) (string, error) {
-// return fmt.Sprintf("EventBusSource-%v-ERROR_LOGS", name), nil
-// }).(pulumi.StringOutput),
-// LogType: pulumi.String("ERROR_LOGS"),
-// ResourceArn: example.Arn,
-// })
-// if err != nil {
-// return err
-// }
-// traceLogs, err := cloudwatch.NewLogDeliverySource(ctx, "trace_logs", &cloudwatch.LogDeliverySourceArgs{
-// Name: example.Name.ApplyT(func(name string) (string, error) {
-// return fmt.Sprintf("EventBusSource-%v-TRACE_LOGS", name), nil
-// }).(pulumi.StringOutput),
-// LogType: pulumi.String("TRACE_LOGS"),
-// ResourceArn: example.Arn,
-// })
-// if err != nil {
-// return err
-// }
-// // Logging to S3 Bucket
-// exampleBucket, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
-// Bucket: pulumi.String("example-event-bus-logs"),
-// })
-// if err != nil {
-// return err
-// }
-// bucket := pulumi.All(exampleBucket.Arn,infoLogs.Arn,errorLogs.Arn,traceLogs.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
-// exampleBucketArn := _args[0].(string)
-// infoLogsArn := _args[1].(string)
-// errorLogsArn := _args[2].(string)
-// traceLogsArn := _args[3].(string)
-// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement([]iam.GetPolicyDocumentStatement{
-// {
-// Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Type: "Service",
-// Identifiers: []string{
-// "delivery.logs.amazonaws.com",
-// },
-// },
-// },
-// Actions: []string{
-// "s3:PutObject",
-// },
-// Resources: []string{
-// fmt.Sprintf("%v/AWSLogs/%v/EventBusLogs/*", exampleBucketArn, current.AccountId),
-// },
-// Conditions: []iam.GetPolicyDocumentStatementCondition{
-// {
-// Test: "StringEquals",
-// Variable: "s3:x-amz-acl",
-// Values: []string{
-// "bucket-owner-full-control",
-// },
-// },
-// {
-// Test: "StringEquals",
-// Variable: "aws:SourceAccount",
-// Values: interface{}{
-// current.AccountId,
-// },
-// },
-// {
-// Test: "ArnLike",
-// Variable: "aws:SourceArn",
-// Values: []string{
-// infoLogsArn,
-// errorLogsArn,
-// traceLogsArn,
-// },
-// },
-// },
-// },
-// }),
-// }, nil))), nil
-// }).(iam.GetPolicyDocumentResultOutput)
-// _, err = s3.NewBucketPolicy(ctx, "example", &s3.BucketPolicyArgs{
-// Bucket: exampleBucket.Bucket,
-// Policy: pulumi.String(bucket.ApplyT(func(bucket iam.GetPolicyDocumentResult) (*string, error) {
-// return &bucket.Json, nil
-// }).(pulumi.StringPtrOutput)),
-// })
-// if err != nil {
-// return err
-// }
-// s3, err := cloudwatch.NewLogDeliveryDestination(ctx, "s3", &cloudwatch.LogDeliveryDestinationArgs{
-// Name: example.Name.ApplyT(func(name string) (string, error) {
-// return fmt.Sprintf("EventsDeliveryDestination-%v-S3", name), nil
-// }).(pulumi.StringOutput),
-// DeliveryDestinationConfiguration: &cloudwatch.LogDeliveryDestinationDeliveryDestinationConfigurationArgs{
-// DestinationResourceArn: exampleBucket.Arn,
-// },
-// })
-// if err != nil {
-// return err
-// }
-// s3InfoLogs, err := cloudwatch.NewLogDelivery(ctx, "s3_info_logs", &cloudwatch.LogDeliveryArgs{
-// DeliveryDestinationArn: s3.Arn,
-// DeliverySourceName: infoLogs.Name,
-// })
-// if err != nil {
-// return err
-// }
-// s3ErrorLogs, err := cloudwatch.NewLogDelivery(ctx, "s3_error_logs", &cloudwatch.LogDeliveryArgs{
-// DeliveryDestinationArn: s3.Arn,
-// DeliverySourceName: errorLogs.Name,
-// }, pulumi.DependsOn([]pulumi.Resource{
-// s3InfoLogs,
-// }))
-// if err != nil {
-// return err
-// }
-// s3TraceLogs, err := cloudwatch.NewLogDelivery(ctx, "s3_trace_logs", &cloudwatch.LogDeliveryArgs{
-// DeliveryDestinationArn: s3.Arn,
-// DeliverySourceName: traceLogs.Name,
-// }, pulumi.DependsOn([]pulumi.Resource{
-// s3ErrorLogs,
-// }))
-// if err != nil {
-// return err
-// }
-// // Logging to CloudWatch Log Group
-// eventBusLogs, err := cloudwatch.NewLogGroup(ctx, "event_bus_logs", &cloudwatch.LogGroupArgs{
-// Name: example.Name.ApplyT(func(name string) (string, error) {
-// return fmt.Sprintf("/aws/vendedlogs/events/event-bus/%v", name), nil
-// }).(pulumi.StringOutput),
-// })
-// if err != nil {
-// return err
-// }
-// cwlogs := pulumi.All(eventBusLogs.Arn,infoLogs.Arn,errorLogs.Arn,traceLogs.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
-// eventBusLogsArn := _args[0].(string)
-// infoLogsArn := _args[1].(string)
-// errorLogsArn := _args[2].(string)
-// traceLogsArn := _args[3].(string)
-// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement([]iam.GetPolicyDocumentStatement{
-// {
-// Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Type: "Service",
-// Identifiers: []string{
-// "delivery.logs.amazonaws.com",
-// },
-// },
-// },
-// Actions: []string{
-// "logs:CreateLogStream",
-// "logs:PutLogEvents",
-// },
-// Resources: []string{
-// fmt.Sprintf("%v:log-stream:*", eventBusLogsArn),
-// },
-// Conditions: []iam.GetPolicyDocumentStatementCondition{
-// {
-// Test: "StringEquals",
-// Variable: "aws:SourceAccount",
-// Values: interface{}{
-// current.AccountId,
-// },
-// },
-// {
-// Test: "ArnLike",
-// Variable: "aws:SourceArn",
-// Values: []string{
-// infoLogsArn,
-// errorLogsArn,
-// traceLogsArn,
-// },
-// },
-// },
-// },
-// }),
-// }, nil))), nil
-// }).(iam.GetPolicyDocumentResultOutput)
-// _, err = cloudwatch.NewLogResourcePolicy(ctx, "example", &cloudwatch.LogResourcePolicyArgs{
-// PolicyDocument: pulumi.String(cwlogs.ApplyT(func(cwlogs iam.GetPolicyDocumentResult) (*string, error) {
-// return &cwlogs.Json, nil
-// }).(pulumi.StringPtrOutput)),
-// PolicyName: example.Name.ApplyT(func(name string) (string, error) {
-// return fmt.Sprintf("AWSLogDeliveryWrite-%v", name), nil
-// }).(pulumi.StringOutput),
-// })
-// if err != nil {
-// return err
-// }
-// cwlogsLogDeliveryDestination, err := cloudwatch.NewLogDeliveryDestination(ctx, "cwlogs", &cloudwatch.LogDeliveryDestinationArgs{
-// Name: example.Name.ApplyT(func(name string) (string, error) {
-// return fmt.Sprintf("EventsDeliveryDestination-%v-CWLogs", name), nil
-// }).(pulumi.StringOutput),
-// DeliveryDestinationConfiguration: &cloudwatch.LogDeliveryDestinationDeliveryDestinationConfigurationArgs{
-// DestinationResourceArn: eventBusLogs.Arn,
-// },
-// })
-// if err != nil {
-// return err
-// }
-// cwlogsInfoLogs, err := cloudwatch.NewLogDelivery(ctx, "cwlogs_info_logs", &cloudwatch.LogDeliveryArgs{
-// DeliveryDestinationArn: cwlogsLogDeliveryDestination.Arn,
-// DeliverySourceName: infoLogs.Name,
-// }, pulumi.DependsOn([]pulumi.Resource{
-// s3InfoLogs,
-// }))
-// if err != nil {
-// return err
-// }
-// cwlogsErrorLogs, err := cloudwatch.NewLogDelivery(ctx, "cwlogs_error_logs", &cloudwatch.LogDeliveryArgs{
-// DeliveryDestinationArn: cwlogsLogDeliveryDestination.Arn,
-// DeliverySourceName: errorLogs.Name,
-// }, pulumi.DependsOn([]pulumi.Resource{
-// s3ErrorLogs,
-// cwlogsInfoLogs,
-// }))
-// if err != nil {
-// return err
-// }
-// cwlogsTraceLogs, err := cloudwatch.NewLogDelivery(ctx, "cwlogs_trace_logs", &cloudwatch.LogDeliveryArgs{
-// DeliveryDestinationArn: cwlogsLogDeliveryDestination.Arn,
-// DeliverySourceName: traceLogs.Name,
-// }, pulumi.DependsOn([]pulumi.Resource{
-// s3TraceLogs,
-// cwlogsErrorLogs,
-// }))
-// if err != nil {
-// return err
-// }
-// // Logging to Data Firehose
-// cloudfrontLogs, err := kinesis.NewFirehoseDeliveryStream(ctx, "cloudfront_logs", &kinesis.FirehoseDeliveryStreamArgs{
-// Tags: pulumi.StringMap{
-// "LogDeliveryEnabled": pulumi.String("true"),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// firehose, err := cloudwatch.NewLogDeliveryDestination(ctx, "firehose", &cloudwatch.LogDeliveryDestinationArgs{
-// Name: example.Name.ApplyT(func(name string) (string, error) {
-// return fmt.Sprintf("EventsDeliveryDestination-%v-Firehose", name), nil
-// }).(pulumi.StringOutput),
-// DeliveryDestinationConfiguration: &cloudwatch.LogDeliveryDestinationDeliveryDestinationConfigurationArgs{
-// DestinationResourceArn: cloudfrontLogs.Arn,
-// },
-// })
-// if err != nil {
-// return err
-// }
-// firehoseInfoLogs, err := cloudwatch.NewLogDelivery(ctx, "firehose_info_logs", &cloudwatch.LogDeliveryArgs{
-// DeliveryDestinationArn: firehose.Arn,
-// DeliverySourceName: infoLogs.Name,
-// }, pulumi.DependsOn([]pulumi.Resource{
-// cwlogsInfoLogs,
-// }))
-// if err != nil {
-// return err
-// }
-// firehoseErrorLogs, err := cloudwatch.NewLogDelivery(ctx, "firehose_error_logs", &cloudwatch.LogDeliveryArgs{
-// DeliveryDestinationArn: firehose.Arn,
-// DeliverySourceName: errorLogs.Name,
-// }, pulumi.DependsOn([]pulumi.Resource{
-// cwlogsErrorLogs,
-// firehoseInfoLogs,
-// }))
-// if err != nil {
-// return err
-// }
-// _, err = cloudwatch.NewLogDelivery(ctx, "firehose_trace_logs", &cloudwatch.LogDeliveryArgs{
-// DeliveryDestinationArn: firehose.Arn,
-// DeliverySourceName: traceLogs.Name,
-// }, pulumi.DependsOn([]pulumi.Resource{
-// cwlogsTraceLogs,
-// firehoseErrorLogs,
-// }))
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			example, err := cloudwatch.NewEventBus(ctx, "example", &cloudwatch.EventBusArgs{
+//				Name: pulumi.String("example-event-bus"),
+//				LogConfig: &cloudwatch.EventBusLogConfigArgs{
+//					IncludeDetail: pulumi.String("FULL"),
+//					Level:         pulumi.String("TRACE"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// CloudWatch Log Delivery Sources for INFO, ERROR, and TRACE logs
+//			infoLogs, err := cloudwatch.NewLogDeliverySource(ctx, "info_logs", &cloudwatch.LogDeliverySourceArgs{
+//				Name: example.Name.ApplyT(func(name string) (string, error) {
+//					return fmt.Sprintf("EventBusSource-%v-INFO_LOGS", name), nil
+//				}).(pulumi.StringOutput),
+//				LogType:     pulumi.String("INFO_LOGS"),
+//				ResourceArn: example.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			errorLogs, err := cloudwatch.NewLogDeliverySource(ctx, "error_logs", &cloudwatch.LogDeliverySourceArgs{
+//				Name: example.Name.ApplyT(func(name string) (string, error) {
+//					return fmt.Sprintf("EventBusSource-%v-ERROR_LOGS", name), nil
+//				}).(pulumi.StringOutput),
+//				LogType:     pulumi.String("ERROR_LOGS"),
+//				ResourceArn: example.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			traceLogs, err := cloudwatch.NewLogDeliverySource(ctx, "trace_logs", &cloudwatch.LogDeliverySourceArgs{
+//				Name: example.Name.ApplyT(func(name string) (string, error) {
+//					return fmt.Sprintf("EventBusSource-%v-TRACE_LOGS", name), nil
+//				}).(pulumi.StringOutput),
+//				LogType:     pulumi.String("TRACE_LOGS"),
+//				ResourceArn: example.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// Logging to S3 Bucket
+//			exampleBucket, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
+//				Bucket: pulumi.String("example-event-bus-logs"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			bucket := pulumi.All(exampleBucket.Arn, infoLogs.Arn, errorLogs.Arn, traceLogs.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
+//				exampleBucketArn := _args[0].(string)
+//				infoLogsArn := _args[1].(string)
+//				errorLogsArn := _args[2].(string)
+//				traceLogsArn := _args[3].(string)
+//				return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//					Statements: []iam.GetPolicyDocumentStatement([]iam.GetPolicyDocumentStatement{
+//						{
+//							Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
+//							Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//								{
+//									Type: "Service",
+//									Identifiers: []string{
+//										"delivery.logs.amazonaws.com",
+//									},
+//								},
+//							},
+//							Actions: []string{
+//								"s3:PutObject",
+//							},
+//							Resources: []string{
+//								fmt.Sprintf("%v/AWSLogs/%v/EventBusLogs/*", exampleBucketArn, current.AccountId),
+//							},
+//							Conditions: []iam.GetPolicyDocumentStatementCondition{
+//								{
+//									Test:     "StringEquals",
+//									Variable: "s3:x-amz-acl",
+//									Values: []string{
+//										"bucket-owner-full-control",
+//									},
+//								},
+//								{
+//									Test:     "StringEquals",
+//									Variable: "aws:SourceAccount",
+//									Values: pulumi.StringArray{
+//										current.AccountId,
+//									},
+//								},
+//								{
+//									Test:     "ArnLike",
+//									Variable: "aws:SourceArn",
+//									Values: []string{
+//										infoLogsArn,
+//										errorLogsArn,
+//										traceLogsArn,
+//									},
+//								},
+//							},
+//						},
+//					}),
+//				}, nil))), nil
+//			}).(iam.GetPolicyDocumentResultOutput)
+//			_, err = s3.NewBucketPolicy(ctx, "example", &s3.BucketPolicyArgs{
+//				Bucket: exampleBucket.Bucket,
+//				Policy: pulumi.String(bucket.ApplyT(func(bucket iam.GetPolicyDocumentResult) (*string, error) {
+//					return &bucket.Json, nil
+//				}).(pulumi.StringPtrOutput)),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			s32, err := cloudwatch.NewLogDeliveryDestination(ctx, "s3", &cloudwatch.LogDeliveryDestinationArgs{
+//				Name: example.Name.ApplyT(func(name string) (string, error) {
+//					return fmt.Sprintf("EventsDeliveryDestination-%v-S3", name), nil
+//				}).(pulumi.StringOutput),
+//				DeliveryDestinationConfiguration: &cloudwatch.LogDeliveryDestinationDeliveryDestinationConfigurationArgs{
+//					DestinationResourceArn: exampleBucket.Arn,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			s3InfoLogs, err := cloudwatch.NewLogDelivery(ctx, "s3_info_logs", &cloudwatch.LogDeliveryArgs{
+//				DeliveryDestinationArn: s32.Arn,
+//				DeliverySourceName:     infoLogs.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			s3ErrorLogs, err := cloudwatch.NewLogDelivery(ctx, "s3_error_logs", &cloudwatch.LogDeliveryArgs{
+//				DeliveryDestinationArn: s32.Arn,
+//				DeliverySourceName:     errorLogs.Name,
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				s3InfoLogs,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			s3TraceLogs, err := cloudwatch.NewLogDelivery(ctx, "s3_trace_logs", &cloudwatch.LogDeliveryArgs{
+//				DeliveryDestinationArn: s32.Arn,
+//				DeliverySourceName:     traceLogs.Name,
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				s3ErrorLogs,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			// Logging to CloudWatch Log Group
+//			eventBusLogs, err := cloudwatch.NewLogGroup(ctx, "event_bus_logs", &cloudwatch.LogGroupArgs{
+//				Name: example.Name.ApplyT(func(name string) (string, error) {
+//					return fmt.Sprintf("/aws/vendedlogs/events/event-bus/%v", name), nil
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			cwlogs := pulumi.All(eventBusLogs.Arn, infoLogs.Arn, errorLogs.Arn, traceLogs.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
+//				eventBusLogsArn := _args[0].(string)
+//				infoLogsArn := _args[1].(string)
+//				errorLogsArn := _args[2].(string)
+//				traceLogsArn := _args[3].(string)
+//				return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//					Statements: []iam.GetPolicyDocumentStatement([]iam.GetPolicyDocumentStatement{
+//						{
+//							Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
+//							Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//								{
+//									Type: "Service",
+//									Identifiers: []string{
+//										"delivery.logs.amazonaws.com",
+//									},
+//								},
+//							},
+//							Actions: []string{
+//								"logs:CreateLogStream",
+//								"logs:PutLogEvents",
+//							},
+//							Resources: []string{
+//								fmt.Sprintf("%v:log-stream:*", eventBusLogsArn),
+//							},
+//							Conditions: []iam.GetPolicyDocumentStatementCondition{
+//								{
+//									Test:     "StringEquals",
+//									Variable: "aws:SourceAccount",
+//									Values: pulumi.StringArray{
+//										current.AccountId,
+//									},
+//								},
+//								{
+//									Test:     "ArnLike",
+//									Variable: "aws:SourceArn",
+//									Values: []string{
+//										infoLogsArn,
+//										errorLogsArn,
+//										traceLogsArn,
+//									},
+//								},
+//							},
+//						},
+//					}),
+//				}, nil))), nil
+//			}).(iam.GetPolicyDocumentResultOutput)
+//			_, err = cloudwatch.NewLogResourcePolicy(ctx, "example", &cloudwatch.LogResourcePolicyArgs{
+//				PolicyDocument: pulumi.String(cwlogs.ApplyT(func(cwlogs iam.GetPolicyDocumentResult) (*string, error) {
+//					return &cwlogs.Json, nil
+//				}).(pulumi.StringPtrOutput)),
+//				PolicyName: example.Name.ApplyT(func(name string) (string, error) {
+//					return fmt.Sprintf("AWSLogDeliveryWrite-%v", name), nil
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			cwlogsLogDeliveryDestination, err := cloudwatch.NewLogDeliveryDestination(ctx, "cwlogs", &cloudwatch.LogDeliveryDestinationArgs{
+//				Name: example.Name.ApplyT(func(name string) (string, error) {
+//					return fmt.Sprintf("EventsDeliveryDestination-%v-CWLogs", name), nil
+//				}).(pulumi.StringOutput),
+//				DeliveryDestinationConfiguration: &cloudwatch.LogDeliveryDestinationDeliveryDestinationConfigurationArgs{
+//					DestinationResourceArn: eventBusLogs.Arn,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			cwlogsInfoLogs, err := cloudwatch.NewLogDelivery(ctx, "cwlogs_info_logs", &cloudwatch.LogDeliveryArgs{
+//				DeliveryDestinationArn: cwlogsLogDeliveryDestination.Arn,
+//				DeliverySourceName:     infoLogs.Name,
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				s3InfoLogs,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			cwlogsErrorLogs, err := cloudwatch.NewLogDelivery(ctx, "cwlogs_error_logs", &cloudwatch.LogDeliveryArgs{
+//				DeliveryDestinationArn: cwlogsLogDeliveryDestination.Arn,
+//				DeliverySourceName:     errorLogs.Name,
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				s3ErrorLogs,
+//				cwlogsInfoLogs,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			cwlogsTraceLogs, err := cloudwatch.NewLogDelivery(ctx, "cwlogs_trace_logs", &cloudwatch.LogDeliveryArgs{
+//				DeliveryDestinationArn: cwlogsLogDeliveryDestination.Arn,
+//				DeliverySourceName:     traceLogs.Name,
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				s3TraceLogs,
+//				cwlogsErrorLogs,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			// Logging to Data Firehose
+//			cloudfrontLogs, err := kinesis.NewFirehoseDeliveryStream(ctx, "cloudfront_logs", &kinesis.FirehoseDeliveryStreamArgs{
+//				Tags: pulumi.StringMap{
+//					"LogDeliveryEnabled": pulumi.String("true"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			firehose, err := cloudwatch.NewLogDeliveryDestination(ctx, "firehose", &cloudwatch.LogDeliveryDestinationArgs{
+//				Name: example.Name.ApplyT(func(name string) (string, error) {
+//					return fmt.Sprintf("EventsDeliveryDestination-%v-Firehose", name), nil
+//				}).(pulumi.StringOutput),
+//				DeliveryDestinationConfiguration: &cloudwatch.LogDeliveryDestinationDeliveryDestinationConfigurationArgs{
+//					DestinationResourceArn: cloudfrontLogs.Arn,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			firehoseInfoLogs, err := cloudwatch.NewLogDelivery(ctx, "firehose_info_logs", &cloudwatch.LogDeliveryArgs{
+//				DeliveryDestinationArn: firehose.Arn,
+//				DeliverySourceName:     infoLogs.Name,
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				cwlogsInfoLogs,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			firehoseErrorLogs, err := cloudwatch.NewLogDelivery(ctx, "firehose_error_logs", &cloudwatch.LogDeliveryArgs{
+//				DeliveryDestinationArn: firehose.Arn,
+//				DeliverySourceName:     errorLogs.Name,
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				cwlogsErrorLogs,
+//				firehoseInfoLogs,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cloudwatch.NewLogDelivery(ctx, "firehose_trace_logs", &cloudwatch.LogDeliveryArgs{
+//				DeliveryDestinationArn: firehose.Arn,
+//				DeliverySourceName:     traceLogs.Name,
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				cwlogsTraceLogs,
+//				firehoseErrorLogs,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import

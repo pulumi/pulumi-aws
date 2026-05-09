@@ -134,27 +134,27 @@ export interface ResponseState {
     /**
      * Region where this resource will be managed. See the [AWS Documentation](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints) for supported values. Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of parameters (paths, query strings and headers) of the Gateway Response.
      */
-    responseParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    responseParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of templates used to transform the response body.
      */
-    responseTemplates?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    responseTemplates?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Response type of the associated GatewayResponse. See the [AWS Documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/supported-gateway-response-types.html) for supported values.
      */
-    responseType?: pulumi.Input<string>;
+    responseType?: pulumi.Input<string | undefined>;
     /**
      * String identifier of the associated REST API.
      */
-    restApiId?: pulumi.Input<string>;
+    restApiId?: pulumi.Input<string | undefined>;
     /**
      * HTTP status code of the Gateway Response.
      */
-    statusCode?: pulumi.Input<string>;
+    statusCode?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -164,15 +164,15 @@ export interface ResponseArgs {
     /**
      * Region where this resource will be managed. See the [AWS Documentation](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints) for supported values. Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of parameters (paths, query strings and headers) of the Gateway Response.
      */
-    responseParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    responseParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of templates used to transform the response body.
      */
-    responseTemplates?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    responseTemplates?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Response type of the associated GatewayResponse. See the [AWS Documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/supported-gateway-response-types.html) for supported values.
      */
@@ -184,5 +184,5 @@ export interface ResponseArgs {
     /**
      * HTTP status code of the Gateway Response.
      */
-    statusCode?: pulumi.Input<string>;
+    statusCode?: pulumi.Input<string | undefined>;
 }

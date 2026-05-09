@@ -98,7 +98,7 @@ namespace Pulumi.Aws.Ecs
     ///     var service = new Aws.Ecs.TaskDefinition("service", new()
     ///     {
     ///         Family = "service",
-    ///         ContainerDefinitions = Std.Index.File.Invoke(new()
+    ///         ContainerDefinitions = Std.File.Invoke(new()
     ///         {
     ///             Input = "task-definitions/service.json",
     ///         }).Apply(invoke =&gt; invoke.Result),
@@ -134,7 +134,7 @@ namespace Pulumi.Aws.Ecs
     ///     var service = new Aws.Ecs.TaskDefinition("service", new()
     ///     {
     ///         Family = "service",
-    ///         ContainerDefinitions = Std.Index.File.Invoke(new()
+    ///         ContainerDefinitions = Std.File.Invoke(new()
     ///         {
     ///             Input = "task-definitions/service.json",
     ///         }).Apply(invoke =&gt; invoke.Result),
@@ -176,7 +176,7 @@ namespace Pulumi.Aws.Ecs
     ///     var service = new Aws.Ecs.TaskDefinition("service", new()
     ///     {
     ///         Family = "service",
-    ///         ContainerDefinitions = Std.Index.File.Invoke(new()
+    ///         ContainerDefinitions = Std.File.Invoke(new()
     ///         {
     ///             Input = "task-definitions/service.json",
     ///         }).Apply(invoke =&gt; invoke.Result),
@@ -229,7 +229,7 @@ namespace Pulumi.Aws.Ecs
     ///     var service = new Aws.Ecs.TaskDefinition("service", new()
     ///     {
     ///         Family = "service",
-    ///         ContainerDefinitions = Std.Index.File.Invoke(new()
+    ///         ContainerDefinitions = Std.File.Invoke(new()
     ///         {
     ///             Input = "task-definitions/service.json",
     ///         }).Apply(invoke =&gt; invoke.Result),

@@ -125,19 +125,19 @@ export interface DocumentationVersionState {
     /**
      * Description of the API documentation version.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ID of the associated Rest API
      */
-    restApiId?: pulumi.Input<string>;
+    restApiId?: pulumi.Input<string | undefined>;
     /**
      * Version identifier of the API documentation snapshot.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -147,11 +147,11 @@ export interface DocumentationVersionArgs {
     /**
      * Description of the API documentation version.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ID of the associated Rest API
      */

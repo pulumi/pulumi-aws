@@ -178,9 +178,9 @@ def get_plan(plan_id: Optional[_builtins.str] = None,
         scan_settings=pulumi.get(__ret__, 'scan_settings'),
         tags=pulumi.get(__ret__, 'tags'),
         version=pulumi.get(__ret__, 'version'))
-def get_plan_output(plan_id: Optional[pulumi.Input[_builtins.str]] = None,
-                    region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                    tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_plan_output(plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+                    region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                    tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPlanResult]:
     """
     Use this data source to get information on an existing backup plan.

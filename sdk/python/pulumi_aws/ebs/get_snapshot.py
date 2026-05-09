@@ -359,13 +359,13 @@ def get_snapshot(filters: Optional[Sequence[Union['GetSnapshotFilterArgs', 'GetS
         tags=pulumi.get(__ret__, 'tags'),
         volume_id=pulumi.get(__ret__, 'volume_id'),
         volume_size=pulumi.get(__ret__, 'volume_size'))
-def get_snapshot_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetSnapshotFilterArgs', 'GetSnapshotFilterArgsDict']]]]] = None,
-                        most_recent: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                        owners: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                        region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                        restorable_by_user_ids: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                        snapshot_ids: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                        tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_snapshot_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetSnapshotFilterArgs', 'GetSnapshotFilterArgsDict']]]]] = None,
+                        most_recent: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                        owners: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                        region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        restorable_by_user_ids: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                        snapshot_ids: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                        tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSnapshotResult]:
     """
     Use this data source to get information about an EBS Snapshot for use when provisioning EBS Volumes

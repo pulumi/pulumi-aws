@@ -122,25 +122,25 @@ export interface ReadinessCheckState {
     /**
      * ARN of the readiness_check
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Unique name describing the readiness check.
      */
-    readinessCheckName?: pulumi.Input<string>;
+    readinessCheckName?: pulumi.Input<string | undefined>;
     /**
      * Name describing the resource set that will be monitored for readiness.
      *
      * The following arguments are optional:
      */
-    resourceSetName?: pulumi.Input<string>;
+    resourceSetName?: pulumi.Input<string | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -160,5 +160,5 @@ export interface ReadinessCheckArgs {
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

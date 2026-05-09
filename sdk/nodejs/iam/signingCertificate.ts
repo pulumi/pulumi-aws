@@ -135,19 +135,19 @@ export interface SigningCertificateState {
     /**
      * The contents of the signing certificate in PEM-encoded format.
      */
-    certificateBody?: pulumi.Input<string>;
+    certificateBody?: pulumi.Input<string | undefined>;
     /**
      * The ID for the signing certificate.
      */
-    certificateId?: pulumi.Input<string>;
+    certificateId?: pulumi.Input<string | undefined>;
     /**
      * The status you want to assign to the certificate. `Active` means that the certificate can be used for programmatic calls to Amazon Web Services `Inactive` means that the certificate cannot be used.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * The name of the user the signing certificate is for.
      */
-    userName?: pulumi.Input<string>;
+    userName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -161,7 +161,7 @@ export interface SigningCertificateArgs {
     /**
      * The status you want to assign to the certificate. `Active` means that the certificate can be used for programmatic calls to Amazon Web Services `Inactive` means that the certificate cannot be used.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * The name of the user the signing certificate is for.
      */

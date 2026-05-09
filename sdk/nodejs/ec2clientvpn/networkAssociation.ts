@@ -121,23 +121,23 @@ export interface NetworkAssociationState {
     /**
      * The unique ID of the target network association.
      */
-    associationId?: pulumi.Input<string>;
+    associationId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Client VPN endpoint.
      */
-    clientVpnEndpointId?: pulumi.Input<string>;
+    clientVpnEndpointId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ID of the subnet to associate with the Client VPN endpoint.
      */
-    subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the VPC in which the target subnet is located.
      */
-    vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -151,7 +151,7 @@ export interface NetworkAssociationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ID of the subnet to associate with the Client VPN endpoint.
      */

@@ -155,39 +155,39 @@ export interface ViewState {
     /**
      * Amazon Resource Name (ARN) of the Resource Explorer view.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the view is the [_default view_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views-about.html#manage-views-about-default) for the AWS Region. Default: `false`.
      */
-    defaultView?: pulumi.Input<boolean>;
+    defaultView?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies which resources are included in the results of queries made using this view. See Filters below for more details.
      */
-    filters?: pulumi.Input<inputs.resourceexplorer.ViewFilters>;
+    filters?: pulumi.Input<inputs.resourceexplorer.ViewFilters | undefined>;
     /**
      * Optional fields to be included in search results from this view. See Included Properties below for more details.
      */
-    includedProperties?: pulumi.Input<pulumi.Input<inputs.resourceexplorer.ViewIncludedProperty>[]>;
+    includedProperties?: pulumi.Input<pulumi.Input<inputs.resourceexplorer.ViewIncludedProperty>[] | undefined>;
     /**
      * The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
      */
-    scope?: pulumi.Input<string>;
+    scope?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -197,29 +197,29 @@ export interface ViewArgs {
     /**
      * Specifies whether the view is the [_default view_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views-about.html#manage-views-about-default) for the AWS Region. Default: `false`.
      */
-    defaultView?: pulumi.Input<boolean>;
+    defaultView?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies which resources are included in the results of queries made using this view. See Filters below for more details.
      */
-    filters?: pulumi.Input<inputs.resourceexplorer.ViewFilters>;
+    filters?: pulumi.Input<inputs.resourceexplorer.ViewFilters | undefined>;
     /**
      * Optional fields to be included in search results from this view. See Included Properties below for more details.
      */
-    includedProperties?: pulumi.Input<pulumi.Input<inputs.resourceexplorer.ViewIncludedProperty>[]>;
+    includedProperties?: pulumi.Input<pulumi.Input<inputs.resourceexplorer.ViewIncludedProperty>[] | undefined>;
     /**
      * The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
      */
-    scope?: pulumi.Input<string>;
+    scope?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

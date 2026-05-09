@@ -73,10 +73,10 @@ class KeyvaluestoreKeyArgs:
 @pulumi.input_type
 class _KeyvaluestoreKeyState:
     def __init__(__self__, *,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_value_store_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 total_size_in_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_value_store_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 total_size_in_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering KeyvaluestoreKey resources.
 
@@ -96,50 +96,50 @@ class _KeyvaluestoreKeyState:
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Key to put.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="keyValueStoreArn")
-    def key_value_store_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_value_store_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) of the Key Value Store.
         """
         return pulumi.get(self, "key_value_store_arn")
 
     @key_value_store_arn.setter
-    def key_value_store_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_value_store_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_value_store_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="totalSizeInBytes")
-    def total_size_in_bytes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def total_size_in_bytes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Total size of the Key Value Store in bytes.
         """
         return pulumi.get(self, "total_size_in_bytes")
 
     @total_size_in_bytes.setter
-    def total_size_in_bytes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def total_size_in_bytes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "total_size_in_bytes", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Value to put.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -149,9 +149,9 @@ class KeyvaluestoreKey(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_value_store_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_value_store_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing an AWS CloudFront KeyValueStore Key.
@@ -264,9 +264,9 @@ class KeyvaluestoreKey(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_value_store_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_value_store_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -296,10 +296,10 @@ class KeyvaluestoreKey(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            key: Optional[pulumi.Input[_builtins.str]] = None,
-            key_value_store_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            total_size_in_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-            value: Optional[pulumi.Input[_builtins.str]] = None) -> 'KeyvaluestoreKey':
+            key: pulumi.Input[Optional[_builtins.str]] = None,
+            key_value_store_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            total_size_in_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+            value: pulumi.Input[Optional[_builtins.str]] = None) -> 'KeyvaluestoreKey':
         """
         Get an existing KeyvaluestoreKey resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

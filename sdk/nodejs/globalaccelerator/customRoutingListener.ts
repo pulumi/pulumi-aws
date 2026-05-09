@@ -127,12 +127,12 @@ export interface CustomRoutingListenerState {
     /**
      * The Amazon Resource Name (ARN) of a custom routing accelerator.
      */
-    acceleratorArn?: pulumi.Input<string>;
-    arn?: pulumi.Input<string>;
+    acceleratorArn?: pulumi.Input<string | undefined>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The list of port ranges for the connections from clients to the accelerator. Fields documented below.
      */
-    portRanges?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.CustomRoutingListenerPortRange>[]>;
+    portRanges?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.CustomRoutingListenerPortRange>[] | undefined>;
 }
 
 /**

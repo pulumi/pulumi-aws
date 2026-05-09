@@ -174,7 +174,7 @@ def get_listener_rule(actions: Optional[Sequence[Union['GetListenerRuleActionArg
     lb_listener_arn = config.require("lbListenerArn")
     lb_rule_priority = config.require_float("lbRulePriority")
     example = aws.lb.get_listener_rule(listener_arn=lb_listener_arn,
-        priority=lb_rule_priority)
+        priority=int(lb_rule_priority))
     ```
 
 
@@ -212,13 +212,13 @@ def get_listener_rule(actions: Optional[Sequence[Union['GetListenerRuleActionArg
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
         transforms=pulumi.get(__ret__, 'transforms'))
-def get_listener_rule_output(actions: Optional[pulumi.Input[Optional[Sequence[Union['GetListenerRuleActionArgs', 'GetListenerRuleActionArgsDict']]]]] = None,
-                             arn: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                             conditions: Optional[pulumi.Input[Optional[Sequence[Union['GetListenerRuleConditionArgs', 'GetListenerRuleConditionArgsDict']]]]] = None,
-                             listener_arn: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                             priority: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
-                             region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                             transforms: Optional[pulumi.Input[Optional[Sequence[Union['GetListenerRuleTransformArgs', 'GetListenerRuleTransformArgsDict']]]]] = None,
+def get_listener_rule_output(actions: pulumi.Input[Optional[Optional[Sequence[Union['GetListenerRuleActionArgs', 'GetListenerRuleActionArgsDict']]]]] = None,
+                             arn: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             conditions: pulumi.Input[Optional[Optional[Sequence[Union['GetListenerRuleConditionArgs', 'GetListenerRuleConditionArgsDict']]]]] = None,
+                             listener_arn: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             priority: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
+                             region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             transforms: pulumi.Input[Optional[Optional[Sequence[Union['GetListenerRuleTransformArgs', 'GetListenerRuleTransformArgsDict']]]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetListenerRuleResult]:
     """
     Provides information about an AWS Elastic Load Balancing Listener Rule.
@@ -246,7 +246,7 @@ def get_listener_rule_output(actions: Optional[pulumi.Input[Optional[Sequence[Un
     lb_listener_arn = config.require("lbListenerArn")
     lb_rule_priority = config.require_float("lbRulePriority")
     example = aws.lb.get_listener_rule(listener_arn=lb_listener_arn,
-        priority=lb_rule_priority)
+        priority=int(lb_rule_priority))
     ```
 
 

@@ -227,39 +227,39 @@ export class AgentAgentCollaborator extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AgentAgentCollaborator resources.
  */
 export interface AgentAgentCollaboratorState {
-    agentDescriptor?: pulumi.Input<inputs.bedrock.AgentAgentCollaboratorAgentDescriptor>;
+    agentDescriptor?: pulumi.Input<inputs.bedrock.AgentAgentCollaboratorAgentDescriptor | undefined>;
     /**
      * ID if the agent to associate the collaborator.
      */
-    agentId?: pulumi.Input<string>;
-    agentVersion?: pulumi.Input<string>;
+    agentId?: pulumi.Input<string | undefined>;
+    agentVersion?: pulumi.Input<string | undefined>;
     /**
      * Instruction to give the collaborator.
      */
-    collaborationInstruction?: pulumi.Input<string>;
+    collaborationInstruction?: pulumi.Input<string | undefined>;
     /**
      * ID of the Agent Collaborator.
      */
-    collaboratorId?: pulumi.Input<string>;
+    collaboratorId?: pulumi.Input<string | undefined>;
     /**
      * Name of this collaborator.
      *
      * The following arguments are optional:
      */
-    collaboratorName?: pulumi.Input<string>;
+    collaboratorName?: pulumi.Input<string | undefined>;
     /**
      * Whether to prepare the agent after creation or modification. Defaults to `true`.
      */
-    prepareAgent?: pulumi.Input<boolean>;
+    prepareAgent?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Configure relaying the history to the collaborator.
      */
-    relayConversationHistory?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.bedrock.AgentAgentCollaboratorTimeouts>;
+    relayConversationHistory?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.bedrock.AgentAgentCollaboratorTimeouts | undefined>;
 }
 
 /**
@@ -271,7 +271,7 @@ export interface AgentAgentCollaboratorArgs {
      * ID if the agent to associate the collaborator.
      */
     agentId: pulumi.Input<string>;
-    agentVersion?: pulumi.Input<string>;
+    agentVersion?: pulumi.Input<string | undefined>;
     /**
      * Instruction to give the collaborator.
      */
@@ -285,14 +285,14 @@ export interface AgentAgentCollaboratorArgs {
     /**
      * Whether to prepare the agent after creation or modification. Defaults to `true`.
      */
-    prepareAgent?: pulumi.Input<boolean>;
+    prepareAgent?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Configure relaying the history to the collaborator.
      */
-    relayConversationHistory?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.bedrock.AgentAgentCollaboratorTimeouts>;
+    relayConversationHistory?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.bedrock.AgentAgentCollaboratorTimeouts | undefined>;
 }

@@ -142,7 +142,7 @@ export interface GetRuntimeVersionOutputArgs {
     /**
      * Whether the latest version of the runtime should be fetched. Conflicts with `version`. Valid values: `true`.
      */
-    latest?: pulumi.Input<boolean>;
+    latest?: pulumi.Input<boolean | undefined>;
     /**
      * Name prefix of the runtime version (for example, `syn-nodejs-puppeteer`).
      *
@@ -152,9 +152,9 @@ export interface GetRuntimeVersionOutputArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Version of the runtime to be fetched (for example, `9.0`). Conflicts with `latest`.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }

@@ -21,8 +21,8 @@ __all__ = ['IpSetArgs', 'IpSet']
 @pulumi.input_type
 class IpSetArgs:
     def __init__(__self__, *,
-                 ip_set_descriptors: Optional[pulumi.Input[Sequence[pulumi.Input['IpSetIpSetDescriptorArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 ip_set_descriptors: pulumi.Input[Optional[Sequence[pulumi.Input['IpSetIpSetDescriptorArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a IpSet resource.
 
@@ -36,35 +36,35 @@ class IpSetArgs:
 
     @_builtins.property
     @pulumi.getter(name="ipSetDescriptors")
-    def ip_set_descriptors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpSetIpSetDescriptorArgs']]]]:
+    def ip_set_descriptors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IpSetIpSetDescriptorArgs']]]]:
         """
         One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR format) from which web requests originate.
         """
         return pulumi.get(self, "ip_set_descriptors")
 
     @ip_set_descriptors.setter
-    def ip_set_descriptors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpSetIpSetDescriptorArgs']]]]):
+    def ip_set_descriptors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IpSetIpSetDescriptorArgs']]]]):
         pulumi.set(self, "ip_set_descriptors", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name or description of the IPSet.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _IpSetState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_set_descriptors: Optional[pulumi.Input[Sequence[pulumi.Input['IpSetIpSetDescriptorArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_set_descriptors: pulumi.Input[Optional[Sequence[pulumi.Input['IpSetIpSetDescriptorArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IpSet resources.
 
@@ -81,38 +81,38 @@ class _IpSetState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the WAF IPSet.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="ipSetDescriptors")
-    def ip_set_descriptors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpSetIpSetDescriptorArgs']]]]:
+    def ip_set_descriptors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IpSetIpSetDescriptorArgs']]]]:
         """
         One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR format) from which web requests originate.
         """
         return pulumi.get(self, "ip_set_descriptors")
 
     @ip_set_descriptors.setter
-    def ip_set_descriptors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpSetIpSetDescriptorArgs']]]]):
+    def ip_set_descriptors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IpSetIpSetDescriptorArgs']]]]):
         pulumi.set(self, "ip_set_descriptors", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name or description of the IPSet.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -122,8 +122,8 @@ class IpSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ip_set_descriptors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpSetIpSetDescriptorArgs', 'IpSetIpSetDescriptorArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 ip_set_descriptors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IpSetIpSetDescriptorArgs', 'IpSetIpSetDescriptorArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a WAF IPSet Resource
@@ -215,8 +215,8 @@ class IpSet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ip_set_descriptors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpSetIpSetDescriptorArgs', 'IpSetIpSetDescriptorArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 ip_set_descriptors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IpSetIpSetDescriptorArgs', 'IpSetIpSetDescriptorArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -239,9 +239,9 @@ class IpSet(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            ip_set_descriptors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpSetIpSetDescriptorArgs', 'IpSetIpSetDescriptorArgsDict']]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None) -> 'IpSet':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_set_descriptors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IpSetIpSetDescriptorArgs', 'IpSetIpSetDescriptorArgsDict']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> 'IpSet':
         """
         Get an existing IpSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

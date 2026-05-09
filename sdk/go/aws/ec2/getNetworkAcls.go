@@ -82,25 +82,27 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := ec2.GetNetworkAcls(ctx, &ec2.GetNetworkAclsArgs{
-// VpcId: pulumi.StringRef(vpcId),
-// Filters: []ec2.GetNetworkAclsFilter{
-// {
-// Name: "association.subnet-id",
-// Values: interface{}{
-// test.Id,
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.GetNetworkAcls(ctx, &ec2.GetNetworkAclsArgs{
+//				VpcId: pulumi.StringRef(vpcId),
+//				Filters: []ec2.GetNetworkAclsFilter{
+//					{
+//						Name: "association.subnet-id",
+//						Values: pulumi.StringArray{
+//							test.Id,
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetNetworkAcls(ctx *pulumi.Context, args *GetNetworkAclsArgs, opts ...pulumi.InvokeOption) (*GetNetworkAclsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)

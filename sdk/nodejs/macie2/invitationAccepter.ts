@@ -114,15 +114,15 @@ export interface InvitationAccepterState {
     /**
      * The AWS account ID for the account that sent the invitation.
      */
-    administratorAccountId?: pulumi.Input<string>;
+    administratorAccountId?: pulumi.Input<string | undefined>;
     /**
      * The unique identifier for the invitation.
      */
-    invitationId?: pulumi.Input<string>;
+    invitationId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -136,5 +136,5 @@ export interface InvitationAccepterArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

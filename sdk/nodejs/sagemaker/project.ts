@@ -145,35 +145,35 @@ export interface ProjectState {
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this Project.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * A description for the project.
      */
-    projectDescription?: pulumi.Input<string>;
+    projectDescription?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * The name of the Project.
      */
-    projectName?: pulumi.Input<string>;
+    projectName?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
      */
-    serviceCatalogProvisioningDetails?: pulumi.Input<inputs.sagemaker.ProjectServiceCatalogProvisioningDetails>;
+    serviceCatalogProvisioningDetails?: pulumi.Input<inputs.sagemaker.ProjectServiceCatalogProvisioningDetails | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -183,7 +183,7 @@ export interface ProjectArgs {
     /**
      * A description for the project.
      */
-    projectDescription?: pulumi.Input<string>;
+    projectDescription?: pulumi.Input<string | undefined>;
     /**
      * The name of the Project.
      */
@@ -191,7 +191,7 @@ export interface ProjectArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
      */
@@ -199,5 +199,5 @@ export interface ProjectArgs {
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -22,15 +22,15 @@ class InstanceArgs:
                  identity_management_type: pulumi.Input[_builtins.str],
                  inbound_calls_enabled: pulumi.Input[_builtins.bool],
                  outbound_calls_enabled: pulumi.Input[_builtins.bool],
-                 auto_resolve_best_voices_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 contact_flow_logs_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 contact_lens_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 directory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 early_media_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 instance_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 multi_party_conference_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 auto_resolve_best_voices_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 contact_flow_logs_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 contact_lens_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 early_media_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 instance_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 multi_party_conference_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Instance resource.
 
@@ -108,103 +108,103 @@ class InstanceArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoResolveBestVoicesEnabled")
-    def auto_resolve_best_voices_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_resolve_best_voices_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether auto resolve best voices is enabled. Defaults to `true`.
         """
         return pulumi.get(self, "auto_resolve_best_voices_enabled")
 
     @auto_resolve_best_voices_enabled.setter
-    def auto_resolve_best_voices_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_resolve_best_voices_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_resolve_best_voices_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="contactFlowLogsEnabled")
-    def contact_flow_logs_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def contact_flow_logs_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether contact flow logs are enabled. Defaults to `false`.
         """
         return pulumi.get(self, "contact_flow_logs_enabled")
 
     @contact_flow_logs_enabled.setter
-    def contact_flow_logs_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def contact_flow_logs_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "contact_flow_logs_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="contactLensEnabled")
-    def contact_lens_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def contact_lens_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether contact lens is enabled. Defaults to `true`.
         """
         return pulumi.get(self, "contact_lens_enabled")
 
     @contact_lens_enabled.setter
-    def contact_lens_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def contact_lens_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "contact_lens_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="directoryId")
-    def directory_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def directory_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier for the directory if identity_management_type is `EXISTING_DIRECTORY`.
         """
         return pulumi.get(self, "directory_id")
 
     @directory_id.setter
-    def directory_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def directory_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "directory_id", value)
 
     @_builtins.property
     @pulumi.getter(name="earlyMediaEnabled")
-    def early_media_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def early_media_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether early media for outbound calls is enabled . Defaults to `true` if outbound calls is enabled.
         """
         return pulumi.get(self, "early_media_enabled")
 
     @early_media_enabled.setter
-    def early_media_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def early_media_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "early_media_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceAlias")
-    def instance_alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the instance. Required if `directory_id` not specified.
         """
         return pulumi.get(self, "instance_alias")
 
     @instance_alias.setter
-    def instance_alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_alias", value)
 
     @_builtins.property
     @pulumi.getter(name="multiPartyConferenceEnabled")
-    def multi_party_conference_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def multi_party_conference_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
         """
         return pulumi.get(self, "multi_party_conference_enabled")
 
     @multi_party_conference_enabled.setter
-    def multi_party_conference_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def multi_party_conference_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "multi_party_conference_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Tags to apply to the Instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         <!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
@@ -212,30 +212,30 @@ class InstanceArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _InstanceState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_resolve_best_voices_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 contact_flow_logs_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 contact_lens_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 created_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 directory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 early_media_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity_management_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 inbound_calls_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 instance_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 multi_party_conference_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 outbound_calls_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_resolve_best_voices_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 contact_flow_logs_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 contact_lens_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 created_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 early_media_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity_management_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 inbound_calls_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 instance_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 multi_party_conference_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 outbound_calls_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Instance resources.
 
@@ -295,187 +295,187 @@ class _InstanceState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) of the instance.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="autoResolveBestVoicesEnabled")
-    def auto_resolve_best_voices_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_resolve_best_voices_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether auto resolve best voices is enabled. Defaults to `true`.
         """
         return pulumi.get(self, "auto_resolve_best_voices_enabled")
 
     @auto_resolve_best_voices_enabled.setter
-    def auto_resolve_best_voices_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_resolve_best_voices_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_resolve_best_voices_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="contactFlowLogsEnabled")
-    def contact_flow_logs_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def contact_flow_logs_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether contact flow logs are enabled. Defaults to `false`.
         """
         return pulumi.get(self, "contact_flow_logs_enabled")
 
     @contact_flow_logs_enabled.setter
-    def contact_flow_logs_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def contact_flow_logs_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "contact_flow_logs_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="contactLensEnabled")
-    def contact_lens_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def contact_lens_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether contact lens is enabled. Defaults to `true`.
         """
         return pulumi.get(self, "contact_lens_enabled")
 
     @contact_lens_enabled.setter
-    def contact_lens_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def contact_lens_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "contact_lens_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         When the instance was created.
         """
         return pulumi.get(self, "created_time")
 
     @created_time.setter
-    def created_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_time", value)
 
     @_builtins.property
     @pulumi.getter(name="directoryId")
-    def directory_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def directory_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier for the directory if identity_management_type is `EXISTING_DIRECTORY`.
         """
         return pulumi.get(self, "directory_id")
 
     @directory_id.setter
-    def directory_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def directory_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "directory_id", value)
 
     @_builtins.property
     @pulumi.getter(name="earlyMediaEnabled")
-    def early_media_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def early_media_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether early media for outbound calls is enabled . Defaults to `true` if outbound calls is enabled.
         """
         return pulumi.get(self, "early_media_enabled")
 
     @early_media_enabled.setter
-    def early_media_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def early_media_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "early_media_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="identityManagementType")
-    def identity_management_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identity_management_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identity management type attached to the instance. Allowed Values are: `SAML`, `CONNECT_MANAGED`, `EXISTING_DIRECTORY`.
         """
         return pulumi.get(self, "identity_management_type")
 
     @identity_management_type.setter
-    def identity_management_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identity_management_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identity_management_type", value)
 
     @_builtins.property
     @pulumi.getter(name="inboundCallsEnabled")
-    def inbound_calls_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def inbound_calls_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether inbound calls are enabled.
         """
         return pulumi.get(self, "inbound_calls_enabled")
 
     @inbound_calls_enabled.setter
-    def inbound_calls_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def inbound_calls_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "inbound_calls_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceAlias")
-    def instance_alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the instance. Required if `directory_id` not specified.
         """
         return pulumi.get(self, "instance_alias")
 
     @instance_alias.setter
-    def instance_alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_alias", value)
 
     @_builtins.property
     @pulumi.getter(name="multiPartyConferenceEnabled")
-    def multi_party_conference_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def multi_party_conference_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
         """
         return pulumi.get(self, "multi_party_conference_enabled")
 
     @multi_party_conference_enabled.setter
-    def multi_party_conference_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def multi_party_conference_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "multi_party_conference_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="outboundCallsEnabled")
-    def outbound_calls_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def outbound_calls_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether outbound calls are enabled.
         """
         return pulumi.get(self, "outbound_calls_enabled")
 
     @outbound_calls_enabled.setter
-    def outbound_calls_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def outbound_calls_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "outbound_calls_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceRole")
-    def service_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The service role of the instance.
         """
         return pulumi.get(self, "service_role")
 
     @service_role.setter
-    def service_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_role", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The state of the instance.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Tags to apply to the Instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         <!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
@@ -483,19 +483,19 @@ class _InstanceState:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
 
@@ -505,18 +505,18 @@ class Instance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_resolve_best_voices_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 contact_flow_logs_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 contact_lens_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 directory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 early_media_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity_management_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 inbound_calls_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 instance_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 multi_party_conference_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 outbound_calls_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 auto_resolve_best_voices_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 contact_flow_logs_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 contact_lens_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 early_media_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity_management_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 inbound_calls_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 instance_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 multi_party_conference_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 outbound_calls_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides an Amazon Connect instance resource. For more information see
@@ -693,18 +693,18 @@ class Instance(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_resolve_best_voices_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 contact_flow_logs_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 contact_lens_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 directory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 early_media_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity_management_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 inbound_calls_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 instance_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 multi_party_conference_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 outbound_calls_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 auto_resolve_best_voices_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 contact_flow_logs_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 contact_lens_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 early_media_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity_management_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 inbound_calls_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 instance_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 multi_party_conference_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 outbound_calls_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -747,23 +747,23 @@ class Instance(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            auto_resolve_best_voices_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            contact_flow_logs_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            contact_lens_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            created_time: Optional[pulumi.Input[_builtins.str]] = None,
-            directory_id: Optional[pulumi.Input[_builtins.str]] = None,
-            early_media_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            identity_management_type: Optional[pulumi.Input[_builtins.str]] = None,
-            inbound_calls_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            instance_alias: Optional[pulumi.Input[_builtins.str]] = None,
-            multi_party_conference_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            outbound_calls_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            service_role: Optional[pulumi.Input[_builtins.str]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Instance':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_resolve_best_voices_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            contact_flow_logs_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            contact_lens_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            created_time: pulumi.Input[Optional[_builtins.str]] = None,
+            directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            early_media_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            identity_management_type: pulumi.Input[Optional[_builtins.str]] = None,
+            inbound_calls_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            instance_alias: pulumi.Input[Optional[_builtins.str]] = None,
+            multi_party_conference_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            outbound_calls_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            service_role: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Instance':
         """
         Get an existing Instance resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

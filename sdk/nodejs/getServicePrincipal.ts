@@ -96,7 +96,7 @@ export interface GetServicePrincipalOutputArgs {
     /**
      * Region you'd like the SPN for. Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Name of the service you want to generate a Service Principal Name for.
      */

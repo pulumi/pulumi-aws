@@ -124,11 +124,11 @@ export interface GroupPoliciesExclusiveState {
     /**
      * IAM group name.
      */
-    groupName?: pulumi.Input<string>;
+    groupName?: pulumi.Input<string | undefined>;
     /**
      * A list of inline policy names to be assigned to the group. Policies attached to this group but not configured in this argument will be removed.
      */
-    policyNames?: pulumi.Input<pulumi.Input<string>[]>;
+    policyNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**

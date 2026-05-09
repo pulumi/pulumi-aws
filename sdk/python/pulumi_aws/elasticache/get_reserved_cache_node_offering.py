@@ -171,11 +171,11 @@ def get_reserved_cache_node_offering(cache_node_type: Optional[_builtins.str] = 
         offering_type=pulumi.get(__ret__, 'offering_type'),
         product_description=pulumi.get(__ret__, 'product_description'),
         region=pulumi.get(__ret__, 'region'))
-def get_reserved_cache_node_offering_output(cache_node_type: Optional[pulumi.Input[_builtins.str]] = None,
-                                            duration: Optional[pulumi.Input[_builtins.str]] = None,
-                                            offering_type: Optional[pulumi.Input[_builtins.str]] = None,
-                                            product_description: Optional[pulumi.Input[_builtins.str]] = None,
-                                            region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_reserved_cache_node_offering_output(cache_node_type: pulumi.Input[Optional[_builtins.str]] = None,
+                                            duration: pulumi.Input[Optional[_builtins.str]] = None,
+                                            offering_type: pulumi.Input[Optional[_builtins.str]] = None,
+                                            product_description: pulumi.Input[Optional[_builtins.str]] = None,
+                                            region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReservedCacheNodeOfferingResult]:
     """
     Information about a single ElastiCache Reserved Cache Node Offering.

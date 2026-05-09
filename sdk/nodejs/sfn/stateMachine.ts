@@ -336,70 +336,70 @@ export interface StateMachineState {
     /**
      * The ARN of the state machine.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The date the state machine was created.
      */
-    creationDate?: pulumi.Input<string>;
+    creationDate?: pulumi.Input<string | undefined>;
     /**
      * The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
      */
-    definition?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
+    definition?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Defines what encryption configuration is used to encrypt data in the State Machine. For more information see [TBD] in the AWS Step Functions User Guide.
      */
-    encryptionConfiguration?: pulumi.Input<inputs.sfn.StateMachineEncryptionConfiguration>;
+    encryptionConfiguration?: pulumi.Input<inputs.sfn.StateMachineEncryptionConfiguration | undefined>;
     /**
      * Defines what execution history events are logged and where they are logged. The `loggingConfiguration` parameter is valid when `type` is set to `STANDARD` or `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html), [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) and [Logging Configuration](https://docs.aws.amazon.com/step-functions/latest/apireference/API_CreateStateMachine.html) in the AWS Step Functions User Guide.
      */
-    loggingConfiguration?: pulumi.Input<inputs.sfn.StateMachineLoggingConfiguration>;
+    loggingConfiguration?: pulumi.Input<inputs.sfn.StateMachineLoggingConfiguration | undefined>;
     /**
      * The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string | undefined>;
     /**
      * Set to true to publish a version of the state machine during creation. Default: false.
      */
-    publish?: pulumi.Input<boolean>;
+    publish?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    revisionId?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
+    revisionId?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the state machine version.
      */
-    stateMachineVersionArn?: pulumi.Input<string>;
+    stateMachineVersionArn?: pulumi.Input<string | undefined>;
     /**
      * The current status of the state machine. Either `ACTIVE` or `DELETING`.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Selects whether AWS X-Ray tracing is enabled.
      */
-    tracingConfiguration?: pulumi.Input<inputs.sfn.StateMachineTracingConfiguration>;
+    tracingConfiguration?: pulumi.Input<inputs.sfn.StateMachineTracingConfiguration | undefined>;
     /**
      * Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.
      */
-    type?: pulumi.Input<string>;
-    versionDescription?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
+    versionDescription?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -413,27 +413,27 @@ export interface StateMachineArgs {
     /**
      * Defines what encryption configuration is used to encrypt data in the State Machine. For more information see [TBD] in the AWS Step Functions User Guide.
      */
-    encryptionConfiguration?: pulumi.Input<inputs.sfn.StateMachineEncryptionConfiguration>;
+    encryptionConfiguration?: pulumi.Input<inputs.sfn.StateMachineEncryptionConfiguration | undefined>;
     /**
      * Defines what execution history events are logged and where they are logged. The `loggingConfiguration` parameter is valid when `type` is set to `STANDARD` or `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html), [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) and [Logging Configuration](https://docs.aws.amazon.com/step-functions/latest/apireference/API_CreateStateMachine.html) in the AWS Step Functions User Guide.
      */
-    loggingConfiguration?: pulumi.Input<inputs.sfn.StateMachineLoggingConfiguration>;
+    loggingConfiguration?: pulumi.Input<inputs.sfn.StateMachineLoggingConfiguration | undefined>;
     /**
      * The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string | undefined>;
     /**
      * Set to true to publish a version of the state machine during creation. Default: false.
      */
-    publish?: pulumi.Input<boolean>;
+    publish?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
      */
@@ -441,13 +441,13 @@ export interface StateMachineArgs {
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Selects whether AWS X-Ray tracing is enabled.
      */
-    tracingConfiguration?: pulumi.Input<inputs.sfn.StateMachineTracingConfiguration>;
+    tracingConfiguration?: pulumi.Input<inputs.sfn.StateMachineTracingConfiguration | undefined>;
     /**
      * Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }

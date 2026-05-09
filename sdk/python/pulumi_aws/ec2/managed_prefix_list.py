@@ -23,10 +23,10 @@ class ManagedPrefixListArgs:
     def __init__(__self__, *,
                  address_family: pulumi.Input[_builtins.str],
                  max_entries: pulumi.Input[_builtins.int],
-                 entries: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedPrefixListEntryArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 entries: pulumi.Input[Optional[Sequence[pulumi.Input['ManagedPrefixListEntryArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ManagedPrefixList resource.
 
@@ -74,66 +74,66 @@ class ManagedPrefixListArgs:
 
     @_builtins.property
     @pulumi.getter
-    def entries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedPrefixListEntryArgs']]]]:
+    def entries(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ManagedPrefixListEntryArgs']]]]:
         """
         Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
         """
         return pulumi.get(self, "entries")
 
     @entries.setter
-    def entries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedPrefixListEntryArgs']]]]):
+    def entries(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ManagedPrefixListEntryArgs']]]]):
         pulumi.set(self, "entries", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of this resource. The name must not start with `com.amazonaws`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _ManagedPrefixListState:
     def __init__(__self__, *,
-                 address_family: Optional[pulumi.Input[_builtins.str]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 entries: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedPrefixListEntryArgs']]]] = None,
-                 max_entries: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.int]] = None):
+                 address_family: pulumi.Input[Optional[_builtins.str]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 entries: pulumi.Input[Optional[Sequence[pulumi.Input['ManagedPrefixListEntryArgs']]]] = None,
+                 max_entries: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering ManagedPrefixList resources.
 
@@ -171,122 +171,122 @@ class _ManagedPrefixListState:
 
     @_builtins.property
     @pulumi.getter(name="addressFamily")
-    def address_family(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def address_family(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Address family (`IPv4` or `IPv6`) of this prefix list.
         """
         return pulumi.get(self, "address_family")
 
     @address_family.setter
-    def address_family(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def address_family(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "address_family", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the prefix list.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def entries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedPrefixListEntryArgs']]]]:
+    def entries(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ManagedPrefixListEntryArgs']]]]:
         """
         Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
         """
         return pulumi.get(self, "entries")
 
     @entries.setter
-    def entries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedPrefixListEntryArgs']]]]):
+    def entries(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ManagedPrefixListEntryArgs']]]]):
         pulumi.set(self, "entries", value)
 
     @_builtins.property
     @pulumi.getter(name="maxEntries")
-    def max_entries(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_entries(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum number of entries that this prefix list can contain.
         """
         return pulumi.get(self, "max_entries")
 
     @max_entries.setter
-    def max_entries(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_entries(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_entries", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of this resource. The name must not start with `com.amazonaws`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the AWS account that owns this prefix list.
         """
         return pulumi.get(self, "owner_id")
 
     @owner_id.setter
-    def owner_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Latest version of this prefix list.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "version", value)
 
 
@@ -296,12 +296,12 @@ class ManagedPrefixList(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 address_family: Optional[pulumi.Input[_builtins.str]] = None,
-                 entries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagedPrefixListEntryArgs', 'ManagedPrefixListEntryArgsDict']]]]] = None,
-                 max_entries: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 address_family: pulumi.Input[Optional[_builtins.str]] = None,
+                 entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedPrefixListEntryArgs', 'ManagedPrefixListEntryArgsDict']]]]] = None,
+                 max_entries: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a managed prefix list resource.
@@ -435,12 +435,12 @@ class ManagedPrefixList(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 address_family: Optional[pulumi.Input[_builtins.str]] = None,
-                 entries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagedPrefixListEntryArgs', 'ManagedPrefixListEntryArgsDict']]]]] = None,
-                 max_entries: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 address_family: pulumi.Input[Optional[_builtins.str]] = None,
+                 entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedPrefixListEntryArgs', 'ManagedPrefixListEntryArgsDict']]]]] = None,
+                 max_entries: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -474,16 +474,16 @@ class ManagedPrefixList(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            address_family: Optional[pulumi.Input[_builtins.str]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            entries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagedPrefixListEntryArgs', 'ManagedPrefixListEntryArgsDict']]]]] = None,
-            max_entries: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            owner_id: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            version: Optional[pulumi.Input[_builtins.int]] = None) -> 'ManagedPrefixList':
+            address_family: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedPrefixListEntryArgs', 'ManagedPrefixListEntryArgsDict']]]]] = None,
+            max_entries: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            version: pulumi.Input[Optional[_builtins.int]] = None) -> 'ManagedPrefixList':
         """
         Get an existing ManagedPrefixList resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

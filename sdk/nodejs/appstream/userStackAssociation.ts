@@ -131,25 +131,25 @@ export interface UserStackAssociationState {
     /**
      * Authentication type for the user.
      */
-    authenticationType?: pulumi.Input<string>;
+    authenticationType?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Whether a welcome email is sent to a user after the user is created in the user pool.
      */
-    sendEmailNotification?: pulumi.Input<boolean>;
+    sendEmailNotification?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the stack that is associated with the user.
      */
-    stackName?: pulumi.Input<string>;
+    stackName?: pulumi.Input<string | undefined>;
     /**
      * Email address of the user who is associated with the stack.
      *
      * The following arguments are optional:
      */
-    userName?: pulumi.Input<string>;
+    userName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -163,11 +163,11 @@ export interface UserStackAssociationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Whether a welcome email is sent to a user after the user is created in the user pool.
      */
-    sendEmailNotification?: pulumi.Input<boolean>;
+    sendEmailNotification?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the stack that is associated with the user.
      */

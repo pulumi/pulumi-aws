@@ -253,66 +253,66 @@ export interface AnalysisState {
     /**
      * Identifier for the analysis.
      */
-    analysisId?: pulumi.Input<string>;
+    analysisId?: pulumi.Input<string | undefined>;
     /**
      * ARN of the analysis.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
      */
-    awsAccountId?: pulumi.Input<string>;
+    awsAccountId?: pulumi.Input<string | undefined>;
     /**
      * The time that the analysis was created.
      */
-    createdTime?: pulumi.Input<string>;
-    lastPublishedTime?: pulumi.Input<string>;
+    createdTime?: pulumi.Input<string | undefined>;
+    lastPublishedTime?: pulumi.Input<string | undefined>;
     /**
      * The time that the analysis was last updated.
      */
-    lastUpdatedTime?: pulumi.Input<string>;
+    lastUpdatedTime?: pulumi.Input<string | undefined>;
     /**
      * Display name for the analysis.
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
      */
-    parameters?: pulumi.Input<inputs.quicksight.AnalysisParameters>;
+    parameters?: pulumi.Input<inputs.quicksight.AnalysisParameters | undefined>;
     /**
      * A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
      */
-    permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisPermission>[]>;
+    permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisPermission>[] | undefined>;
     /**
      * A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
      */
-    recoveryWindowInDays?: pulumi.Input<number>;
+    recoveryWindowInDays?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
      */
-    sourceEntity?: pulumi.Input<inputs.quicksight.AnalysisSourceEntity>;
+    sourceEntity?: pulumi.Input<inputs.quicksight.AnalysisSourceEntity | undefined>;
     /**
      * The analysis creation status.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
      */
-    themeArn?: pulumi.Input<string>;
+    themeArn?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -326,39 +326,39 @@ export interface AnalysisArgs {
     /**
      * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
      */
-    awsAccountId?: pulumi.Input<string>;
+    awsAccountId?: pulumi.Input<string | undefined>;
     /**
      * Display name for the analysis.
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
      */
-    parameters?: pulumi.Input<inputs.quicksight.AnalysisParameters>;
+    parameters?: pulumi.Input<inputs.quicksight.AnalysisParameters | undefined>;
     /**
      * A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
      */
-    permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisPermission>[]>;
+    permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisPermission>[] | undefined>;
     /**
      * A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
      */
-    recoveryWindowInDays?: pulumi.Input<number>;
+    recoveryWindowInDays?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
      */
-    sourceEntity?: pulumi.Input<inputs.quicksight.AnalysisSourceEntity>;
+    sourceEntity?: pulumi.Input<inputs.quicksight.AnalysisSourceEntity | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
      */
-    themeArn?: pulumi.Input<string>;
+    themeArn?: pulumi.Input<string | undefined>;
 }

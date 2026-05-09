@@ -99,11 +99,11 @@ export interface OrganizationAdminAccountState {
     /**
      * The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
      */
-    adminAccountId?: pulumi.Input<string>;
+    adminAccountId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -117,5 +117,5 @@ export interface OrganizationAdminAccountArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

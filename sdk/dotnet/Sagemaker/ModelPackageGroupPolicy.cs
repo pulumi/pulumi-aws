@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var current = Aws.Index.GetCallerIdentity.Invoke();
+    ///     var current = Aws.GetCallerIdentity.Invoke();
     /// 
     ///     var exampleModelPackageGroup = new Aws.Sagemaker.ModelPackageGroup("example", new()
     ///     {
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Sagemaker
     ///     var exampleModelPackageGroupPolicy = new Aws.Sagemaker.ModelPackageGroupPolicy("example", new()
     ///     {
     ///         ModelPackageGroupName = exampleModelPackageGroup.ModelPackageGroupName,
-    ///         ResourcePolicy = Output.JsonSerialize(Output.Create(Std.Index.Jsondecode.Invoke(new()
+    ///         ResourcePolicy = Output.JsonSerialize(Output.Create(Std.Jsondecode.Invoke(new()
     ///         {
     ///             Input = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///         }).Apply(invoke =&gt; invoke.Result))),

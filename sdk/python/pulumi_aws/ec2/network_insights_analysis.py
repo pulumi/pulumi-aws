@@ -22,10 +22,10 @@ __all__ = ['NetworkInsightsAnalysisArgs', 'NetworkInsightsAnalysis']
 class NetworkInsightsAnalysisArgs:
     def __init__(__self__, *,
                  network_insights_path_id: pulumi.Input[_builtins.str],
-                 filter_in_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 wait_for_completion: Optional[pulumi.Input[_builtins.bool]] = None):
+                 filter_in_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 wait_for_completion: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a NetworkInsightsAnalysis resource.
 
@@ -63,72 +63,72 @@ class NetworkInsightsAnalysisArgs:
 
     @_builtins.property
     @pulumi.getter(name="filterInArns")
-    def filter_in_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def filter_in_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of ARNs for resources the path must traverse.
         """
         return pulumi.get(self, "filter_in_arns")
 
     @filter_in_arns.setter
-    def filter_in_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def filter_in_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "filter_in_arns", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="waitForCompletion")
-    def wait_for_completion(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def wait_for_completion(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If enabled, the resource will wait for the Network Insights Analysis status to change to `succeeded` or `failed`. Setting this to `false` will skip the process. Default: `true`.
         """
         return pulumi.get(self, "wait_for_completion")
 
     @wait_for_completion.setter
-    def wait_for_completion(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def wait_for_completion(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "wait_for_completion", value)
 
 
 @pulumi.input_type
 class _NetworkInsightsAnalysisState:
     def __init__(__self__, *,
-                 alternate_path_hints: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisAlternatePathHintArgs']]]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 explanations: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationArgs']]]] = None,
-                 filter_in_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 forward_path_components: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentArgs']]]] = None,
-                 network_insights_path_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 path_found: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 return_path_components: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentArgs']]]] = None,
-                 start_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 status_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 wait_for_completion: Optional[pulumi.Input[_builtins.bool]] = None,
-                 warning_message: Optional[pulumi.Input[_builtins.str]] = None):
+                 alternate_path_hints: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisAlternatePathHintArgs']]]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 explanations: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationArgs']]]] = None,
+                 filter_in_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 forward_path_components: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentArgs']]]] = None,
+                 network_insights_path_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 path_found: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 return_path_components: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentArgs']]]] = None,
+                 start_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 status_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 wait_for_completion: pulumi.Input[Optional[_builtins.bool]] = None,
+                 warning_message: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkInsightsAnalysis resources.
 
@@ -186,67 +186,67 @@ class _NetworkInsightsAnalysisState:
 
     @_builtins.property
     @pulumi.getter(name="alternatePathHints")
-    def alternate_path_hints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisAlternatePathHintArgs']]]]:
+    def alternate_path_hints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisAlternatePathHintArgs']]]]:
         """
         Potential intermediate components of a feasible path. Described below.
         """
         return pulumi.get(self, "alternate_path_hints")
 
     @alternate_path_hints.setter
-    def alternate_path_hints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisAlternatePathHintArgs']]]]):
+    def alternate_path_hints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisAlternatePathHintArgs']]]]):
         pulumi.set(self, "alternate_path_hints", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the Network Insights Analysis.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def explanations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationArgs']]]]:
+    def explanations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationArgs']]]]:
         """
         Explanation codes for an unreachable path. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Explanation.html) for details.
         """
         return pulumi.get(self, "explanations")
 
     @explanations.setter
-    def explanations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationArgs']]]]):
+    def explanations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationArgs']]]]):
         pulumi.set(self, "explanations", value)
 
     @_builtins.property
     @pulumi.getter(name="filterInArns")
-    def filter_in_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def filter_in_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of ARNs for resources the path must traverse.
         """
         return pulumi.get(self, "filter_in_arns")
 
     @filter_in_arns.setter
-    def filter_in_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def filter_in_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "filter_in_arns", value)
 
     @_builtins.property
     @pulumi.getter(name="forwardPathComponents")
-    def forward_path_components(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentArgs']]]]:
+    def forward_path_components(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentArgs']]]]:
         """
         The components in the path from source to destination. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
         """
         return pulumi.get(self, "forward_path_components")
 
     @forward_path_components.setter
-    def forward_path_components(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentArgs']]]]):
+    def forward_path_components(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentArgs']]]]):
         pulumi.set(self, "forward_path_components", value)
 
     @_builtins.property
     @pulumi.getter(name="networkInsightsPathId")
-    def network_insights_path_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_insights_path_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the Network Insights Path to run an analysis on.
 
@@ -255,127 +255,127 @@ class _NetworkInsightsAnalysisState:
         return pulumi.get(self, "network_insights_path_id")
 
     @network_insights_path_id.setter
-    def network_insights_path_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_insights_path_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_insights_path_id", value)
 
     @_builtins.property
     @pulumi.getter(name="pathFound")
-    def path_found(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def path_found(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to `true` if the destination was reachable.
         """
         return pulumi.get(self, "path_found")
 
     @path_found.setter
-    def path_found(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def path_found(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "path_found", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="returnPathComponents")
-    def return_path_components(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentArgs']]]]:
+    def return_path_components(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentArgs']]]]:
         """
         The components in the path from destination to source. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
         """
         return pulumi.get(self, "return_path_components")
 
     @return_path_components.setter
-    def return_path_components(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentArgs']]]]):
+    def return_path_components(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentArgs']]]]):
         pulumi.set(self, "return_path_components", value)
 
     @_builtins.property
     @pulumi.getter(name="startDate")
-    def start_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date/time the analysis was started.
         """
         return pulumi.get(self, "start_date")
 
     @start_date.setter
-    def start_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_date", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `path_found`.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="statusMessage")
-    def status_message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A message to provide more context when the `status` is `failed`.
         """
         return pulumi.get(self, "status_message")
 
     @status_message.setter
-    def status_message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status_message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status_message", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="waitForCompletion")
-    def wait_for_completion(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def wait_for_completion(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If enabled, the resource will wait for the Network Insights Analysis status to change to `succeeded` or `failed`. Setting this to `false` will skip the process. Default: `true`.
         """
         return pulumi.get(self, "wait_for_completion")
 
     @wait_for_completion.setter
-    def wait_for_completion(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def wait_for_completion(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "wait_for_completion", value)
 
     @_builtins.property
     @pulumi.getter(name="warningMessage")
-    def warning_message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def warning_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The warning message.
         """
         return pulumi.get(self, "warning_message")
 
     @warning_message.setter
-    def warning_message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def warning_message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "warning_message", value)
 
 
@@ -385,11 +385,11 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 filter_in_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 network_insights_path_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 wait_for_completion: Optional[pulumi.Input[_builtins.bool]] = None,
+                 filter_in_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 network_insights_path_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 wait_for_completion: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Provides a Network Insights Analysis resource. Part of the "Reachability Analyzer" service in the AWS VPC console.
@@ -472,11 +472,11 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 filter_in_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 network_insights_path_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 wait_for_completion: Optional[pulumi.Input[_builtins.bool]] = None,
+                 filter_in_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 network_insights_path_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 wait_for_completion: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -514,22 +514,22 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            alternate_path_hints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkInsightsAnalysisAlternatePathHintArgs', 'NetworkInsightsAnalysisAlternatePathHintArgsDict']]]]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            explanations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkInsightsAnalysisExplanationArgs', 'NetworkInsightsAnalysisExplanationArgsDict']]]]] = None,
-            filter_in_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            forward_path_components: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkInsightsAnalysisForwardPathComponentArgs', 'NetworkInsightsAnalysisForwardPathComponentArgsDict']]]]] = None,
-            network_insights_path_id: Optional[pulumi.Input[_builtins.str]] = None,
-            path_found: Optional[pulumi.Input[_builtins.bool]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            return_path_components: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkInsightsAnalysisReturnPathComponentArgs', 'NetworkInsightsAnalysisReturnPathComponentArgsDict']]]]] = None,
-            start_date: Optional[pulumi.Input[_builtins.str]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            status_message: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            wait_for_completion: Optional[pulumi.Input[_builtins.bool]] = None,
-            warning_message: Optional[pulumi.Input[_builtins.str]] = None) -> 'NetworkInsightsAnalysis':
+            alternate_path_hints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInsightsAnalysisAlternatePathHintArgs', 'NetworkInsightsAnalysisAlternatePathHintArgsDict']]]]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            explanations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInsightsAnalysisExplanationArgs', 'NetworkInsightsAnalysisExplanationArgsDict']]]]] = None,
+            filter_in_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            forward_path_components: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInsightsAnalysisForwardPathComponentArgs', 'NetworkInsightsAnalysisForwardPathComponentArgsDict']]]]] = None,
+            network_insights_path_id: pulumi.Input[Optional[_builtins.str]] = None,
+            path_found: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            return_path_components: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInsightsAnalysisReturnPathComponentArgs', 'NetworkInsightsAnalysisReturnPathComponentArgsDict']]]]] = None,
+            start_date: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            status_message: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            wait_for_completion: pulumi.Input[Optional[_builtins.bool]] = None,
+            warning_message: pulumi.Input[Optional[_builtins.str]] = None) -> 'NetworkInsightsAnalysis':
         """
         Get an existing NetworkInsightsAnalysis resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

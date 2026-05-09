@@ -21,12 +21,12 @@ __all__ = ['DomainArgs', 'Domain']
 @pulumi.input_type
 class DomainArgs:
     def __init__(__self__, *,
-                 endpoint_options: Optional[pulumi.Input['DomainEndpointOptionsArgs']] = None,
-                 index_fields: Optional[pulumi.Input[Sequence[pulumi.Input['DomainIndexFieldArgs']]]] = None,
-                 multi_az: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 scaling_parameters: Optional[pulumi.Input['DomainScalingParametersArgs']] = None):
+                 endpoint_options: pulumi.Input[Optional['DomainEndpointOptionsArgs']] = None,
+                 index_fields: pulumi.Input[Optional[Sequence[pulumi.Input['DomainIndexFieldArgs']]]] = None,
+                 multi_az: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 scaling_parameters: pulumi.Input[Optional['DomainScalingParametersArgs']] = None):
         """
         The set of arguments for constructing a Domain resource.
 
@@ -52,90 +52,90 @@ class DomainArgs:
 
     @_builtins.property
     @pulumi.getter(name="endpointOptions")
-    def endpoint_options(self) -> Optional[pulumi.Input['DomainEndpointOptionsArgs']]:
+    def endpoint_options(self) -> pulumi.Input[Optional['DomainEndpointOptionsArgs']]:
         """
         Domain endpoint options. Documented below.
         """
         return pulumi.get(self, "endpoint_options")
 
     @endpoint_options.setter
-    def endpoint_options(self, value: Optional[pulumi.Input['DomainEndpointOptionsArgs']]):
+    def endpoint_options(self, value: pulumi.Input[Optional['DomainEndpointOptionsArgs']]):
         pulumi.set(self, "endpoint_options", value)
 
     @_builtins.property
     @pulumi.getter(name="indexFields")
-    def index_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainIndexFieldArgs']]]]:
+    def index_fields(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DomainIndexFieldArgs']]]]:
         """
         The index fields for documents added to the domain. Documented below.
         """
         return pulumi.get(self, "index_fields")
 
     @index_fields.setter
-    def index_fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DomainIndexFieldArgs']]]]):
+    def index_fields(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DomainIndexFieldArgs']]]]):
         pulumi.set(self, "index_fields", value)
 
     @_builtins.property
     @pulumi.getter(name="multiAz")
-    def multi_az(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def multi_az(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not to maintain extra instances for the domain in a second Availability Zone to ensure high availability.
         """
         return pulumi.get(self, "multi_az")
 
     @multi_az.setter
-    def multi_az(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def multi_az(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "multi_az", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the CloudSearch domain.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="scalingParameters")
-    def scaling_parameters(self) -> Optional[pulumi.Input['DomainScalingParametersArgs']]:
+    def scaling_parameters(self) -> pulumi.Input[Optional['DomainScalingParametersArgs']]:
         """
         Domain scaling parameters. Documented below.
         """
         return pulumi.get(self, "scaling_parameters")
 
     @scaling_parameters.setter
-    def scaling_parameters(self, value: Optional[pulumi.Input['DomainScalingParametersArgs']]):
+    def scaling_parameters(self, value: pulumi.Input[Optional['DomainScalingParametersArgs']]):
         pulumi.set(self, "scaling_parameters", value)
 
 
 @pulumi.input_type
 class _DomainState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 document_service_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_options: Optional[pulumi.Input['DomainEndpointOptionsArgs']] = None,
-                 index_fields: Optional[pulumi.Input[Sequence[pulumi.Input['DomainIndexFieldArgs']]]] = None,
-                 multi_az: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 scaling_parameters: Optional[pulumi.Input['DomainScalingParametersArgs']] = None,
-                 search_service_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 document_service_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_options: pulumi.Input[Optional['DomainEndpointOptionsArgs']] = None,
+                 index_fields: pulumi.Input[Optional[Sequence[pulumi.Input['DomainIndexFieldArgs']]]] = None,
+                 multi_az: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 scaling_parameters: pulumi.Input[Optional['DomainScalingParametersArgs']] = None,
+                 search_service_endpoint: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Domain resources.
 
@@ -173,122 +173,122 @@ class _DomainState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The domain's ARN.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="documentServiceEndpoint")
-    def document_service_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def document_service_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The service endpoint for updating documents in a search domain.
         """
         return pulumi.get(self, "document_service_endpoint")
 
     @document_service_endpoint.setter
-    def document_service_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def document_service_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "document_service_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="domainId")
-    def domain_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An internally generated unique identifier for the domain.
         """
         return pulumi.get(self, "domain_id")
 
     @domain_id.setter
-    def domain_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_id", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointOptions")
-    def endpoint_options(self) -> Optional[pulumi.Input['DomainEndpointOptionsArgs']]:
+    def endpoint_options(self) -> pulumi.Input[Optional['DomainEndpointOptionsArgs']]:
         """
         Domain endpoint options. Documented below.
         """
         return pulumi.get(self, "endpoint_options")
 
     @endpoint_options.setter
-    def endpoint_options(self, value: Optional[pulumi.Input['DomainEndpointOptionsArgs']]):
+    def endpoint_options(self, value: pulumi.Input[Optional['DomainEndpointOptionsArgs']]):
         pulumi.set(self, "endpoint_options", value)
 
     @_builtins.property
     @pulumi.getter(name="indexFields")
-    def index_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainIndexFieldArgs']]]]:
+    def index_fields(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DomainIndexFieldArgs']]]]:
         """
         The index fields for documents added to the domain. Documented below.
         """
         return pulumi.get(self, "index_fields")
 
     @index_fields.setter
-    def index_fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DomainIndexFieldArgs']]]]):
+    def index_fields(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DomainIndexFieldArgs']]]]):
         pulumi.set(self, "index_fields", value)
 
     @_builtins.property
     @pulumi.getter(name="multiAz")
-    def multi_az(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def multi_az(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not to maintain extra instances for the domain in a second Availability Zone to ensure high availability.
         """
         return pulumi.get(self, "multi_az")
 
     @multi_az.setter
-    def multi_az(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def multi_az(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "multi_az", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the CloudSearch domain.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="scalingParameters")
-    def scaling_parameters(self) -> Optional[pulumi.Input['DomainScalingParametersArgs']]:
+    def scaling_parameters(self) -> pulumi.Input[Optional['DomainScalingParametersArgs']]:
         """
         Domain scaling parameters. Documented below.
         """
         return pulumi.get(self, "scaling_parameters")
 
     @scaling_parameters.setter
-    def scaling_parameters(self, value: Optional[pulumi.Input['DomainScalingParametersArgs']]):
+    def scaling_parameters(self, value: pulumi.Input[Optional['DomainScalingParametersArgs']]):
         pulumi.set(self, "scaling_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="searchServiceEndpoint")
-    def search_service_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def search_service_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The service endpoint for requesting search results from a search domain.
         """
         return pulumi.get(self, "search_service_endpoint")
 
     @search_service_endpoint.setter
-    def search_service_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def search_service_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "search_service_endpoint", value)
 
 
@@ -298,12 +298,12 @@ class Domain(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 endpoint_options: Optional[pulumi.Input[Union['DomainEndpointOptionsArgs', 'DomainEndpointOptionsArgsDict']]] = None,
-                 index_fields: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DomainIndexFieldArgs', 'DomainIndexFieldArgsDict']]]]] = None,
-                 multi_az: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 scaling_parameters: Optional[pulumi.Input[Union['DomainScalingParametersArgs', 'DomainScalingParametersArgsDict']]] = None,
+                 endpoint_options: pulumi.Input[Optional[Union['DomainEndpointOptionsArgs', 'DomainEndpointOptionsArgsDict']]] = None,
+                 index_fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DomainIndexFieldArgs', 'DomainIndexFieldArgsDict']]]]] = None,
+                 multi_az: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 scaling_parameters: pulumi.Input[Optional[Union['DomainScalingParametersArgs', 'DomainScalingParametersArgsDict']]] = None,
                  __props__=None):
         """
         Provides an CloudSearch domain resource.
@@ -429,12 +429,12 @@ class Domain(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 endpoint_options: Optional[pulumi.Input[Union['DomainEndpointOptionsArgs', 'DomainEndpointOptionsArgsDict']]] = None,
-                 index_fields: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DomainIndexFieldArgs', 'DomainIndexFieldArgsDict']]]]] = None,
-                 multi_az: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 scaling_parameters: Optional[pulumi.Input[Union['DomainScalingParametersArgs', 'DomainScalingParametersArgsDict']]] = None,
+                 endpoint_options: pulumi.Input[Optional[Union['DomainEndpointOptionsArgs', 'DomainEndpointOptionsArgsDict']]] = None,
+                 index_fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DomainIndexFieldArgs', 'DomainIndexFieldArgsDict']]]]] = None,
+                 multi_az: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 scaling_parameters: pulumi.Input[Optional[Union['DomainScalingParametersArgs', 'DomainScalingParametersArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -464,16 +464,16 @@ class Domain(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            document_service_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            domain_id: Optional[pulumi.Input[_builtins.str]] = None,
-            endpoint_options: Optional[pulumi.Input[Union['DomainEndpointOptionsArgs', 'DomainEndpointOptionsArgsDict']]] = None,
-            index_fields: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DomainIndexFieldArgs', 'DomainIndexFieldArgsDict']]]]] = None,
-            multi_az: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            scaling_parameters: Optional[pulumi.Input[Union['DomainScalingParametersArgs', 'DomainScalingParametersArgsDict']]] = None,
-            search_service_endpoint: Optional[pulumi.Input[_builtins.str]] = None) -> 'Domain':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            document_service_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint_options: pulumi.Input[Optional[Union['DomainEndpointOptionsArgs', 'DomainEndpointOptionsArgsDict']]] = None,
+            index_fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DomainIndexFieldArgs', 'DomainIndexFieldArgsDict']]]]] = None,
+            multi_az: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            scaling_parameters: pulumi.Input[Optional[Union['DomainScalingParametersArgs', 'DomainScalingParametersArgsDict']]] = None,
+            search_service_endpoint: pulumi.Input[Optional[_builtins.str]] = None) -> 'Domain':
         """
         Get an existing Domain resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

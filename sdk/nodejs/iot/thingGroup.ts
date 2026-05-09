@@ -148,33 +148,33 @@ export interface ThingGroupState {
     /**
      * The ARN of the Thing Group.
      */
-    arn?: pulumi.Input<string>;
-    metadatas?: pulumi.Input<pulumi.Input<inputs.iot.ThingGroupMetadata>[]>;
+    arn?: pulumi.Input<string | undefined>;
+    metadatas?: pulumi.Input<pulumi.Input<inputs.iot.ThingGroupMetadata>[] | undefined>;
     /**
      * The name of the Thing Group.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the parent Thing Group.
      */
-    parentGroupName?: pulumi.Input<string>;
+    parentGroupName?: pulumi.Input<string | undefined>;
     /**
      * The Thing Group properties. Defined below.
      */
-    properties?: pulumi.Input<inputs.iot.ThingGroupProperties>;
+    properties?: pulumi.Input<inputs.iot.ThingGroupProperties | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value mapping of resource tags
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The current version of the Thing Group record in the registry.
      */
-    version?: pulumi.Input<number>;
+    version?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -184,21 +184,21 @@ export interface ThingGroupArgs {
     /**
      * The name of the Thing Group.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the parent Thing Group.
      */
-    parentGroupName?: pulumi.Input<string>;
+    parentGroupName?: pulumi.Input<string | undefined>;
     /**
      * The Thing Group properties. Defined below.
      */
-    properties?: pulumi.Input<inputs.iot.ThingGroupProperties>;
+    properties?: pulumi.Input<inputs.iot.ThingGroupProperties | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value mapping of resource tags
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

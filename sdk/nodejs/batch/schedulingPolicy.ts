@@ -136,41 +136,41 @@ export interface SchedulingPolicyState {
     /**
      * The Amazon Resource Name of the scheduling policy.
      */
-    arn?: pulumi.Input<string>;
-    fairSharePolicy?: pulumi.Input<inputs.batch.SchedulingPolicyFairSharePolicy>;
+    arn?: pulumi.Input<string | undefined>;
+    fairSharePolicy?: pulumi.Input<inputs.batch.SchedulingPolicyFairSharePolicy | undefined>;
     /**
      * Specifies the name of the scheduling policy.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
  * The set of arguments for constructing a SchedulingPolicy resource.
  */
 export interface SchedulingPolicyArgs {
-    fairSharePolicy?: pulumi.Input<inputs.batch.SchedulingPolicyFairSharePolicy>;
+    fairSharePolicy?: pulumi.Input<inputs.batch.SchedulingPolicyFairSharePolicy | undefined>;
     /**
      * Specifies the name of the scheduling policy.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

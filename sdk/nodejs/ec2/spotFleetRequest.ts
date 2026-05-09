@@ -78,7 +78,7 @@ import * as utilities from "../utilities";
  *     launchTemplateConfigs: [{
  *         launchTemplateSpecification: {
  *             id: foo.id,
- *             version: foo.latestVersion,
+ *             version: foo.latestVersion.apply(x =>String(x)),
  *         },
  *     }],
  * }, {
@@ -179,7 +179,7 @@ import * as utilities from "../utilities";
  *     launchTemplateConfigs: [{
  *         launchTemplateSpecification: {
  *             id: foo.id,
- *             version: foo.latestVersion,
+ *             version: foo.latestVersion.apply(x =>String(x)),
  *         },
  *         overrides: [
  *             {
@@ -470,43 +470,43 @@ export interface SpotFleetRequestState {
      * the Spot pools specified by the Spot fleet request. Valid values: `lowestPrice`, `diversified`, `capacityOptimized`, `capacityOptimizedPrioritized`, and `priceCapacityOptimized`. The default is
      * `lowestPrice`.
      */
-    allocationStrategy?: pulumi.Input<string>;
-    clientToken?: pulumi.Input<string>;
+    allocationStrategy?: pulumi.Input<string | undefined>;
+    clientToken?: pulumi.Input<string | undefined>;
     /**
      * Reserved.
      */
-    context?: pulumi.Input<string>;
+    context?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether running Spot
      * instances should be terminated if the target capacity of the Spot fleet
      * request is decreased below the current size of the Spot fleet.
      */
-    excessCapacityTerminationPolicy?: pulumi.Input<string>;
+    excessCapacityTerminationPolicy?: pulumi.Input<string | undefined>;
     /**
      * The type of fleet request. Indicates whether the Spot Fleet only requests the target
      * capacity or also attempts to maintain it. Default is `maintain`.
      */
-    fleetType?: pulumi.Input<string>;
+    fleetType?: pulumi.Input<string | undefined>;
     /**
      * Grants the Spot fleet permission to terminate
      * Spot instances on your behalf when you cancel its Spot fleet request using
      * CancelSpotFleetRequests or when the Spot fleet request expires, if you set
      * terminateInstancesWithExpiration.
      */
-    iamFleetRole?: pulumi.Input<string>;
+    iamFleetRole?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether a Spot
      * instance stops or terminates when it is interrupted. Default is
      * `terminate`.
      */
-    instanceInterruptionBehaviour?: pulumi.Input<string>;
+    instanceInterruptionBehaviour?: pulumi.Input<string | undefined>;
     /**
      * The number of Spot pools across which to allocate your target Spot capacity.
      * Valid only when `allocationStrategy` is set to `lowestPrice`. Spot Fleet selects
      * the cheapest Spot pools and evenly allocates your target Spot capacity across
      * the number of Spot pools that you specify.
      */
-    instancePoolsToUseCount?: pulumi.Input<number>;
+    instancePoolsToUseCount?: pulumi.Input<number | undefined>;
     /**
      * Used to define the launch configuration of the
      * spot-fleet request. Can be specified multiple times to define different bids
@@ -518,94 +518,94 @@ export interface SpotFleetRequestState {
      * [reference documentation](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetLaunchSpecification.html). Any normal `aws.ec2.Instance` parameter that corresponds to those inputs may be used and it have
      * a additional parameter `iamInstanceProfileArn` takes `aws.iam.InstanceProfile` attribute `arn` as input.
      */
-    launchSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.SpotFleetRequestLaunchSpecification>[]>;
+    launchSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.SpotFleetRequestLaunchSpecification>[] | undefined>;
     /**
      * Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launchSpecification`. At least one of `launchSpecification` or `launchTemplateConfig` is required.
      */
-    launchTemplateConfigs?: pulumi.Input<pulumi.Input<inputs.ec2.SpotFleetRequestLaunchTemplateConfig>[]>;
+    launchTemplateConfigs?: pulumi.Input<pulumi.Input<inputs.ec2.SpotFleetRequestLaunchTemplateConfig>[] | undefined>;
     /**
      * A list of elastic load balancer names to add to the Spot fleet.
      */
-    loadBalancers?: pulumi.Input<pulumi.Input<string>[]>;
+    loadBalancers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
      */
-    onDemandAllocationStrategy?: pulumi.Input<string>;
+    onDemandAllocationStrategy?: pulumi.Input<string | undefined>;
     /**
      * The maximum amount per hour for On-Demand Instances that you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
      */
-    onDemandMaxTotalPrice?: pulumi.Input<string>;
+    onDemandMaxTotalPrice?: pulumi.Input<string | undefined>;
     /**
      * The number of On-Demand units to request. If the request type is `maintain`, you can specify a target capacity of 0 and add capacity later.
      */
-    onDemandTargetCapacity?: pulumi.Input<number>;
+    onDemandTargetCapacity?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
      */
-    replaceUnhealthyInstances?: pulumi.Input<boolean>;
+    replaceUnhealthyInstances?: pulumi.Input<boolean | undefined>;
     /**
      * Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
      */
-    spotMaintenanceStrategies?: pulumi.Input<inputs.ec2.SpotFleetRequestSpotMaintenanceStrategies>;
+    spotMaintenanceStrategies?: pulumi.Input<inputs.ec2.SpotFleetRequestSpotMaintenanceStrategies | undefined>;
     /**
      * The maximum bid price per unit hour.
      */
-    spotPrice?: pulumi.Input<string>;
+    spotPrice?: pulumi.Input<string | undefined>;
     /**
      * The state of the Spot fleet request.
      */
-    spotRequestState?: pulumi.Input<string>;
+    spotRequestState?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The number of units to request. You can choose to set the
      * target capacity in terms of instances or a performance characteristic that is
      * important to your application workload, such as vCPUs, memory, or I/O.
      */
-    targetCapacity?: pulumi.Input<number>;
+    targetCapacity?: pulumi.Input<number | undefined>;
     /**
      * The unit for the target capacity. This can only be done with `instanceRequirements` defined
      */
-    targetCapacityUnitType?: pulumi.Input<string>;
+    targetCapacityUnitType?: pulumi.Input<string | undefined>;
     /**
      * A list of `aws.alb.TargetGroup` ARNs, for use with Application Load Balancing.
      */
-    targetGroupArns?: pulumi.Input<pulumi.Input<string>[]>;
+    targetGroupArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Indicates whether running Spot
      * instances should be terminated when the resource is deleted (and the Spot fleet request cancelled).
      * If no value is specified, the value of the `terminateInstancesWithExpiration` argument is used.
      */
-    terminateInstancesOnDelete?: pulumi.Input<string>;
+    terminateInstancesOnDelete?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether running Spot
      * instances should be terminated when the Spot fleet request expires.
      */
-    terminateInstancesWithExpiration?: pulumi.Input<boolean>;
+    terminateInstancesWithExpiration?: pulumi.Input<boolean | undefined>;
     /**
      * The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
      */
-    validFrom?: pulumi.Input<string>;
+    validFrom?: pulumi.Input<string | undefined>;
     /**
      * The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request.
      */
-    validUntil?: pulumi.Input<string>;
+    validUntil?: pulumi.Input<string | undefined>;
     /**
      * If set, this provider will
      * wait for the Spot Request to be fulfilled, and will throw an error if the
      * timeout of 10m is reached.
      */
-    waitForFulfillment?: pulumi.Input<boolean>;
+    waitForFulfillment?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -617,22 +617,22 @@ export interface SpotFleetRequestArgs {
      * the Spot pools specified by the Spot fleet request. Valid values: `lowestPrice`, `diversified`, `capacityOptimized`, `capacityOptimizedPrioritized`, and `priceCapacityOptimized`. The default is
      * `lowestPrice`.
      */
-    allocationStrategy?: pulumi.Input<string>;
+    allocationStrategy?: pulumi.Input<string | undefined>;
     /**
      * Reserved.
      */
-    context?: pulumi.Input<string>;
+    context?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether running Spot
      * instances should be terminated if the target capacity of the Spot fleet
      * request is decreased below the current size of the Spot fleet.
      */
-    excessCapacityTerminationPolicy?: pulumi.Input<string>;
+    excessCapacityTerminationPolicy?: pulumi.Input<string | undefined>;
     /**
      * The type of fleet request. Indicates whether the Spot Fleet only requests the target
      * capacity or also attempts to maintain it. Default is `maintain`.
      */
-    fleetType?: pulumi.Input<string>;
+    fleetType?: pulumi.Input<string | undefined>;
     /**
      * Grants the Spot fleet permission to terminate
      * Spot instances on your behalf when you cancel its Spot fleet request using
@@ -645,14 +645,14 @@ export interface SpotFleetRequestArgs {
      * instance stops or terminates when it is interrupted. Default is
      * `terminate`.
      */
-    instanceInterruptionBehaviour?: pulumi.Input<string>;
+    instanceInterruptionBehaviour?: pulumi.Input<string | undefined>;
     /**
      * The number of Spot pools across which to allocate your target Spot capacity.
      * Valid only when `allocationStrategy` is set to `lowestPrice`. Spot Fleet selects
      * the cheapest Spot pools and evenly allocates your target Spot capacity across
      * the number of Spot pools that you specify.
      */
-    instancePoolsToUseCount?: pulumi.Input<number>;
+    instancePoolsToUseCount?: pulumi.Input<number | undefined>;
     /**
      * Used to define the launch configuration of the
      * spot-fleet request. Can be specified multiple times to define different bids
@@ -664,47 +664,47 @@ export interface SpotFleetRequestArgs {
      * [reference documentation](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetLaunchSpecification.html). Any normal `aws.ec2.Instance` parameter that corresponds to those inputs may be used and it have
      * a additional parameter `iamInstanceProfileArn` takes `aws.iam.InstanceProfile` attribute `arn` as input.
      */
-    launchSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.SpotFleetRequestLaunchSpecification>[]>;
+    launchSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.SpotFleetRequestLaunchSpecification>[] | undefined>;
     /**
      * Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launchSpecification`. At least one of `launchSpecification` or `launchTemplateConfig` is required.
      */
-    launchTemplateConfigs?: pulumi.Input<pulumi.Input<inputs.ec2.SpotFleetRequestLaunchTemplateConfig>[]>;
+    launchTemplateConfigs?: pulumi.Input<pulumi.Input<inputs.ec2.SpotFleetRequestLaunchTemplateConfig>[] | undefined>;
     /**
      * A list of elastic load balancer names to add to the Spot fleet.
      */
-    loadBalancers?: pulumi.Input<pulumi.Input<string>[]>;
+    loadBalancers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
      */
-    onDemandAllocationStrategy?: pulumi.Input<string>;
+    onDemandAllocationStrategy?: pulumi.Input<string | undefined>;
     /**
      * The maximum amount per hour for On-Demand Instances that you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
      */
-    onDemandMaxTotalPrice?: pulumi.Input<string>;
+    onDemandMaxTotalPrice?: pulumi.Input<string | undefined>;
     /**
      * The number of On-Demand units to request. If the request type is `maintain`, you can specify a target capacity of 0 and add capacity later.
      */
-    onDemandTargetCapacity?: pulumi.Input<number>;
+    onDemandTargetCapacity?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
      */
-    replaceUnhealthyInstances?: pulumi.Input<boolean>;
+    replaceUnhealthyInstances?: pulumi.Input<boolean | undefined>;
     /**
      * Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
      */
-    spotMaintenanceStrategies?: pulumi.Input<inputs.ec2.SpotFleetRequestSpotMaintenanceStrategies>;
+    spotMaintenanceStrategies?: pulumi.Input<inputs.ec2.SpotFleetRequestSpotMaintenanceStrategies | undefined>;
     /**
      * The maximum bid price per unit hour.
      */
-    spotPrice?: pulumi.Input<string>;
+    spotPrice?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The number of units to request. You can choose to set the
      * target capacity in terms of instances or a performance characteristic that is
@@ -714,34 +714,34 @@ export interface SpotFleetRequestArgs {
     /**
      * The unit for the target capacity. This can only be done with `instanceRequirements` defined
      */
-    targetCapacityUnitType?: pulumi.Input<string>;
+    targetCapacityUnitType?: pulumi.Input<string | undefined>;
     /**
      * A list of `aws.alb.TargetGroup` ARNs, for use with Application Load Balancing.
      */
-    targetGroupArns?: pulumi.Input<pulumi.Input<string>[]>;
+    targetGroupArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Indicates whether running Spot
      * instances should be terminated when the resource is deleted (and the Spot fleet request cancelled).
      * If no value is specified, the value of the `terminateInstancesWithExpiration` argument is used.
      */
-    terminateInstancesOnDelete?: pulumi.Input<string>;
+    terminateInstancesOnDelete?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether running Spot
      * instances should be terminated when the Spot fleet request expires.
      */
-    terminateInstancesWithExpiration?: pulumi.Input<boolean>;
+    terminateInstancesWithExpiration?: pulumi.Input<boolean | undefined>;
     /**
      * The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
      */
-    validFrom?: pulumi.Input<string>;
+    validFrom?: pulumi.Input<string | undefined>;
     /**
      * The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request.
      */
-    validUntil?: pulumi.Input<string>;
+    validUntil?: pulumi.Input<string | undefined>;
     /**
      * If set, this provider will
      * wait for the Spot Request to be fulfilled, and will throw an error if the
      * timeout of 10m is reached.
      */
-    waitForFulfillment?: pulumi.Input<boolean>;
+    waitForFulfillment?: pulumi.Input<boolean | undefined>;
 }

@@ -153,27 +153,27 @@ export interface UserGroupState {
     /**
      * The description of the user group.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the user group.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The precedence of the user group.
      */
-    precedence?: pulumi.Input<number>;
+    precedence?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the IAM role to be associated with the user group.
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
     /**
      * The user pool ID.
      */
-    userPoolId?: pulumi.Input<string>;
+    userPoolId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -183,23 +183,23 @@ export interface UserGroupArgs {
     /**
      * The description of the user group.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the user group.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The precedence of the user group.
      */
-    precedence?: pulumi.Input<number>;
+    precedence?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the IAM role to be associated with the user group.
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
     /**
      * The user pool ID.
      */

@@ -505,10 +505,10 @@ def get_service(cluster_arn: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         task_definition=pulumi.get(__ret__, 'task_definition'),
         task_sets=pulumi.get(__ret__, 'task_sets'))
-def get_service_output(cluster_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                       region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                       service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                       tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_service_output(cluster_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                       region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                       tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceResult]:
     """
     The ECS Service data source allows access to details of a specific

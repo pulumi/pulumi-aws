@@ -19,35 +19,35 @@ __all__ = ['TopicArgs', 'Topic']
 @pulumi.input_type
 class TopicArgs:
     def __init__(__self__, *,
-                 application_failure_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_success_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_success_feedback_sample_rate: Optional[pulumi.Input[_builtins.int]] = None,
-                 archive_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_based_deduplication: Optional[pulumi.Input[_builtins.bool]] = None,
-                 delivery_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 fifo_throughput_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 fifo_topic: Optional[pulumi.Input[_builtins.bool]] = None,
-                 firehose_failure_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 firehose_success_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 firehose_success_feedback_sample_rate: Optional[pulumi.Input[_builtins.int]] = None,
-                 http_failure_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 http_success_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 http_success_feedback_sample_rate: Optional[pulumi.Input[_builtins.int]] = None,
-                 kms_master_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 lambda_failure_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 lambda_success_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 lambda_success_feedback_sample_rate: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 signature_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 sqs_failure_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 sqs_success_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 sqs_success_feedback_sample_rate: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tracing_config: Optional[pulumi.Input[_builtins.str]] = None):
+                 application_failure_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_success_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_success_feedback_sample_rate: pulumi.Input[Optional[_builtins.int]] = None,
+                 archive_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_based_deduplication: pulumi.Input[Optional[_builtins.bool]] = None,
+                 delivery_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 fifo_throughput_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 fifo_topic: pulumi.Input[Optional[_builtins.bool]] = None,
+                 firehose_failure_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 firehose_success_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 firehose_success_feedback_sample_rate: pulumi.Input[Optional[_builtins.int]] = None,
+                 http_failure_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_success_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_success_feedback_sample_rate: pulumi.Input[Optional[_builtins.int]] = None,
+                 kms_master_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 lambda_failure_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 lambda_success_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 lambda_success_feedback_sample_rate: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 signature_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 sqs_failure_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 sqs_success_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 sqs_success_feedback_sample_rate: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tracing_config: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Topic resource.
 
@@ -142,389 +142,389 @@ class TopicArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationFailureFeedbackRoleArn")
-    def application_failure_feedback_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_failure_feedback_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IAM role for failure feedback
         """
         return pulumi.get(self, "application_failure_feedback_role_arn")
 
     @application_failure_feedback_role_arn.setter
-    def application_failure_feedback_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_failure_feedback_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_failure_feedback_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="applicationSuccessFeedbackRoleArn")
-    def application_success_feedback_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_success_feedback_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IAM role permitted to receive success feedback for this topic
         """
         return pulumi.get(self, "application_success_feedback_role_arn")
 
     @application_success_feedback_role_arn.setter
-    def application_success_feedback_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_success_feedback_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_success_feedback_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="applicationSuccessFeedbackSampleRate")
-    def application_success_feedback_sample_rate(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def application_success_feedback_sample_rate(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Percentage of success to sample
         """
         return pulumi.get(self, "application_success_feedback_sample_rate")
 
     @application_success_feedback_sample_rate.setter
-    def application_success_feedback_sample_rate(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def application_success_feedback_sample_rate(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "application_success_feedback_sample_rate", value)
 
     @_builtins.property
     @pulumi.getter(name="archivePolicy")
-    def archive_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def archive_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The message archive policy for FIFO topics. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-topic-owner.html).
         """
         return pulumi.get(self, "archive_policy")
 
     @archive_policy.setter
-    def archive_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def archive_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "archive_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="contentBasedDeduplication")
-    def content_based_deduplication(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def content_based_deduplication(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)
         """
         return pulumi.get(self, "content_based_deduplication")
 
     @content_based_deduplication.setter
-    def content_based_deduplication(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def content_based_deduplication(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "content_based_deduplication", value)
 
     @_builtins.property
     @pulumi.getter(name="deliveryPolicy")
-    def delivery_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delivery_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SNS delivery policy. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html).
         """
         return pulumi.get(self, "delivery_policy")
 
     @delivery_policy.setter
-    def delivery_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delivery_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delivery_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name for the topic
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="fifoThroughputScope")
-    def fifo_throughput_scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fifo_throughput_scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables higher throughput for FIFO topics by adjusting the scope of deduplication. This attribute has two possible values, `Topic` and `MessageGroup`. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-high-throughput.html#enable-high-throughput-on-fifo-topic).
         """
         return pulumi.get(self, "fifo_throughput_scope")
 
     @fifo_throughput_scope.setter
-    def fifo_throughput_scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fifo_throughput_scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fifo_throughput_scope", value)
 
     @_builtins.property
     @pulumi.getter(name="fifoTopic")
-    def fifo_topic(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fifo_topic(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean indicating whether or not to create a FIFO (first-in-first-out) topic. FIFO topics can't deliver messages to customer managed endpoints, such as email addresses, mobile apps, SMS, or HTTP(S) endpoints. These endpoint types aren't guaranteed to preserve strict message ordering. Default is `false`.
         """
         return pulumi.get(self, "fifo_topic")
 
     @fifo_topic.setter
-    def fifo_topic(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fifo_topic(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fifo_topic", value)
 
     @_builtins.property
     @pulumi.getter(name="firehoseFailureFeedbackRoleArn")
-    def firehose_failure_feedback_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def firehose_failure_feedback_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IAM role for failure feedback
         """
         return pulumi.get(self, "firehose_failure_feedback_role_arn")
 
     @firehose_failure_feedback_role_arn.setter
-    def firehose_failure_feedback_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def firehose_failure_feedback_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "firehose_failure_feedback_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="firehoseSuccessFeedbackRoleArn")
-    def firehose_success_feedback_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def firehose_success_feedback_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IAM role permitted to receive success feedback for this topic
         """
         return pulumi.get(self, "firehose_success_feedback_role_arn")
 
     @firehose_success_feedback_role_arn.setter
-    def firehose_success_feedback_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def firehose_success_feedback_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "firehose_success_feedback_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="firehoseSuccessFeedbackSampleRate")
-    def firehose_success_feedback_sample_rate(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def firehose_success_feedback_sample_rate(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Percentage of success to sample
         """
         return pulumi.get(self, "firehose_success_feedback_sample_rate")
 
     @firehose_success_feedback_sample_rate.setter
-    def firehose_success_feedback_sample_rate(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def firehose_success_feedback_sample_rate(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "firehose_success_feedback_sample_rate", value)
 
     @_builtins.property
     @pulumi.getter(name="httpFailureFeedbackRoleArn")
-    def http_failure_feedback_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def http_failure_feedback_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IAM role for failure feedback
         """
         return pulumi.get(self, "http_failure_feedback_role_arn")
 
     @http_failure_feedback_role_arn.setter
-    def http_failure_feedback_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def http_failure_feedback_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "http_failure_feedback_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="httpSuccessFeedbackRoleArn")
-    def http_success_feedback_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def http_success_feedback_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IAM role permitted to receive success feedback for this topic
         """
         return pulumi.get(self, "http_success_feedback_role_arn")
 
     @http_success_feedback_role_arn.setter
-    def http_success_feedback_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def http_success_feedback_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "http_success_feedback_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="httpSuccessFeedbackSampleRate")
-    def http_success_feedback_sample_rate(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def http_success_feedback_sample_rate(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Percentage of success to sample
         """
         return pulumi.get(self, "http_success_feedback_sample_rate")
 
     @http_success_feedback_sample_rate.setter
-    def http_success_feedback_sample_rate(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def http_success_feedback_sample_rate(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "http_success_feedback_sample_rate", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsMasterKeyId")
-    def kms_master_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_master_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see [Key Terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms)
         """
         return pulumi.get(self, "kms_master_key_id")
 
     @kms_master_key_id.setter
-    def kms_master_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_master_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_master_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="lambdaFailureFeedbackRoleArn")
-    def lambda_failure_feedback_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lambda_failure_feedback_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IAM role for failure feedback
         """
         return pulumi.get(self, "lambda_failure_feedback_role_arn")
 
     @lambda_failure_feedback_role_arn.setter
-    def lambda_failure_feedback_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lambda_failure_feedback_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lambda_failure_feedback_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="lambdaSuccessFeedbackRoleArn")
-    def lambda_success_feedback_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lambda_success_feedback_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IAM role permitted to receive success feedback for this topic
         """
         return pulumi.get(self, "lambda_success_feedback_role_arn")
 
     @lambda_success_feedback_role_arn.setter
-    def lambda_success_feedback_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lambda_success_feedback_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lambda_success_feedback_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="lambdaSuccessFeedbackSampleRate")
-    def lambda_success_feedback_sample_rate(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def lambda_success_feedback_sample_rate(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Percentage of success to sample
         """
         return pulumi.get(self, "lambda_success_feedback_sample_rate")
 
     @lambda_success_feedback_sample_rate.setter
-    def lambda_success_feedback_sample_rate(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def lambda_success_feedback_sample_rate(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "lambda_success_feedback_sample_rate", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Creates a unique name beginning with the specified prefix. Conflicts with `name`
         """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
-    def name_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name_prefix", value)
 
     @_builtins.property
     @pulumi.getter
-    def policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully-formed AWS policy as JSON.
         """
         return pulumi.get(self, "policy")
 
     @policy.setter
-    def policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="signatureVersion")
-    def signature_version(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def signature_version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
         """
         return pulumi.get(self, "signature_version")
 
     @signature_version.setter
-    def signature_version(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def signature_version(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "signature_version", value)
 
     @_builtins.property
     @pulumi.getter(name="sqsFailureFeedbackRoleArn")
-    def sqs_failure_feedback_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sqs_failure_feedback_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IAM role for failure feedback
         """
         return pulumi.get(self, "sqs_failure_feedback_role_arn")
 
     @sqs_failure_feedback_role_arn.setter
-    def sqs_failure_feedback_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sqs_failure_feedback_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sqs_failure_feedback_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="sqsSuccessFeedbackRoleArn")
-    def sqs_success_feedback_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sqs_success_feedback_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IAM role permitted to receive success feedback for this topic
         """
         return pulumi.get(self, "sqs_success_feedback_role_arn")
 
     @sqs_success_feedback_role_arn.setter
-    def sqs_success_feedback_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sqs_success_feedback_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sqs_success_feedback_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="sqsSuccessFeedbackSampleRate")
-    def sqs_success_feedback_sample_rate(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def sqs_success_feedback_sample_rate(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Percentage of success to sample
         """
         return pulumi.get(self, "sqs_success_feedback_sample_rate")
 
     @sqs_success_feedback_sample_rate.setter
-    def sqs_success_feedback_sample_rate(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def sqs_success_feedback_sample_rate(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "sqs_success_feedback_sample_rate", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tracingConfig")
-    def tracing_config(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tracing_config(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Tracing mode of an Amazon SNS topic. Valid values: `"PassThrough"`, `"Active"`.
         """
         return pulumi.get(self, "tracing_config")
 
     @tracing_config.setter
-    def tracing_config(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tracing_config(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tracing_config", value)
 
 
 @pulumi.input_type
 class _TopicState:
     def __init__(__self__, *,
-                 application_failure_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_success_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_success_feedback_sample_rate: Optional[pulumi.Input[_builtins.int]] = None,
-                 archive_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 beginning_archive_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_based_deduplication: Optional[pulumi.Input[_builtins.bool]] = None,
-                 delivery_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 fifo_throughput_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 fifo_topic: Optional[pulumi.Input[_builtins.bool]] = None,
-                 firehose_failure_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 firehose_success_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 firehose_success_feedback_sample_rate: Optional[pulumi.Input[_builtins.int]] = None,
-                 http_failure_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 http_success_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 http_success_feedback_sample_rate: Optional[pulumi.Input[_builtins.int]] = None,
-                 kms_master_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 lambda_failure_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 lambda_success_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 lambda_success_feedback_sample_rate: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 signature_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 sqs_failure_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 sqs_success_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 sqs_success_feedback_sample_rate: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tracing_config: Optional[pulumi.Input[_builtins.str]] = None):
+                 application_failure_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_success_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_success_feedback_sample_rate: pulumi.Input[Optional[_builtins.int]] = None,
+                 archive_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 beginning_archive_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_based_deduplication: pulumi.Input[Optional[_builtins.bool]] = None,
+                 delivery_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 fifo_throughput_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 fifo_topic: pulumi.Input[Optional[_builtins.bool]] = None,
+                 firehose_failure_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 firehose_success_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 firehose_success_feedback_sample_rate: pulumi.Input[Optional[_builtins.int]] = None,
+                 http_failure_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_success_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_success_feedback_sample_rate: pulumi.Input[Optional[_builtins.int]] = None,
+                 kms_master_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 lambda_failure_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 lambda_success_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 lambda_success_feedback_sample_rate: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 signature_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 sqs_failure_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 sqs_success_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 sqs_success_feedback_sample_rate: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tracing_config: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Topic resources.
 
@@ -631,398 +631,398 @@ class _TopicState:
 
     @_builtins.property
     @pulumi.getter(name="applicationFailureFeedbackRoleArn")
-    def application_failure_feedback_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_failure_feedback_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IAM role for failure feedback
         """
         return pulumi.get(self, "application_failure_feedback_role_arn")
 
     @application_failure_feedback_role_arn.setter
-    def application_failure_feedback_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_failure_feedback_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_failure_feedback_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="applicationSuccessFeedbackRoleArn")
-    def application_success_feedback_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_success_feedback_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IAM role permitted to receive success feedback for this topic
         """
         return pulumi.get(self, "application_success_feedback_role_arn")
 
     @application_success_feedback_role_arn.setter
-    def application_success_feedback_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_success_feedback_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_success_feedback_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="applicationSuccessFeedbackSampleRate")
-    def application_success_feedback_sample_rate(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def application_success_feedback_sample_rate(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Percentage of success to sample
         """
         return pulumi.get(self, "application_success_feedback_sample_rate")
 
     @application_success_feedback_sample_rate.setter
-    def application_success_feedback_sample_rate(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def application_success_feedback_sample_rate(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "application_success_feedback_sample_rate", value)
 
     @_builtins.property
     @pulumi.getter(name="archivePolicy")
-    def archive_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def archive_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The message archive policy for FIFO topics. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-topic-owner.html).
         """
         return pulumi.get(self, "archive_policy")
 
     @archive_policy.setter
-    def archive_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def archive_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "archive_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the SNS topic, as a more obvious property (clone of id)
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="beginningArchiveTime")
-    def beginning_archive_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def beginning_archive_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The oldest timestamp at which a FIFO topic subscriber can start a replay.
         """
         return pulumi.get(self, "beginning_archive_time")
 
     @beginning_archive_time.setter
-    def beginning_archive_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def beginning_archive_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "beginning_archive_time", value)
 
     @_builtins.property
     @pulumi.getter(name="contentBasedDeduplication")
-    def content_based_deduplication(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def content_based_deduplication(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)
         """
         return pulumi.get(self, "content_based_deduplication")
 
     @content_based_deduplication.setter
-    def content_based_deduplication(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def content_based_deduplication(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "content_based_deduplication", value)
 
     @_builtins.property
     @pulumi.getter(name="deliveryPolicy")
-    def delivery_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delivery_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SNS delivery policy. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html).
         """
         return pulumi.get(self, "delivery_policy")
 
     @delivery_policy.setter
-    def delivery_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delivery_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delivery_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name for the topic
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="fifoThroughputScope")
-    def fifo_throughput_scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fifo_throughput_scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables higher throughput for FIFO topics by adjusting the scope of deduplication. This attribute has two possible values, `Topic` and `MessageGroup`. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-high-throughput.html#enable-high-throughput-on-fifo-topic).
         """
         return pulumi.get(self, "fifo_throughput_scope")
 
     @fifo_throughput_scope.setter
-    def fifo_throughput_scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fifo_throughput_scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fifo_throughput_scope", value)
 
     @_builtins.property
     @pulumi.getter(name="fifoTopic")
-    def fifo_topic(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fifo_topic(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean indicating whether or not to create a FIFO (first-in-first-out) topic. FIFO topics can't deliver messages to customer managed endpoints, such as email addresses, mobile apps, SMS, or HTTP(S) endpoints. These endpoint types aren't guaranteed to preserve strict message ordering. Default is `false`.
         """
         return pulumi.get(self, "fifo_topic")
 
     @fifo_topic.setter
-    def fifo_topic(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fifo_topic(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fifo_topic", value)
 
     @_builtins.property
     @pulumi.getter(name="firehoseFailureFeedbackRoleArn")
-    def firehose_failure_feedback_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def firehose_failure_feedback_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IAM role for failure feedback
         """
         return pulumi.get(self, "firehose_failure_feedback_role_arn")
 
     @firehose_failure_feedback_role_arn.setter
-    def firehose_failure_feedback_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def firehose_failure_feedback_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "firehose_failure_feedback_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="firehoseSuccessFeedbackRoleArn")
-    def firehose_success_feedback_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def firehose_success_feedback_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IAM role permitted to receive success feedback for this topic
         """
         return pulumi.get(self, "firehose_success_feedback_role_arn")
 
     @firehose_success_feedback_role_arn.setter
-    def firehose_success_feedback_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def firehose_success_feedback_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "firehose_success_feedback_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="firehoseSuccessFeedbackSampleRate")
-    def firehose_success_feedback_sample_rate(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def firehose_success_feedback_sample_rate(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Percentage of success to sample
         """
         return pulumi.get(self, "firehose_success_feedback_sample_rate")
 
     @firehose_success_feedback_sample_rate.setter
-    def firehose_success_feedback_sample_rate(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def firehose_success_feedback_sample_rate(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "firehose_success_feedback_sample_rate", value)
 
     @_builtins.property
     @pulumi.getter(name="httpFailureFeedbackRoleArn")
-    def http_failure_feedback_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def http_failure_feedback_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IAM role for failure feedback
         """
         return pulumi.get(self, "http_failure_feedback_role_arn")
 
     @http_failure_feedback_role_arn.setter
-    def http_failure_feedback_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def http_failure_feedback_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "http_failure_feedback_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="httpSuccessFeedbackRoleArn")
-    def http_success_feedback_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def http_success_feedback_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IAM role permitted to receive success feedback for this topic
         """
         return pulumi.get(self, "http_success_feedback_role_arn")
 
     @http_success_feedback_role_arn.setter
-    def http_success_feedback_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def http_success_feedback_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "http_success_feedback_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="httpSuccessFeedbackSampleRate")
-    def http_success_feedback_sample_rate(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def http_success_feedback_sample_rate(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Percentage of success to sample
         """
         return pulumi.get(self, "http_success_feedback_sample_rate")
 
     @http_success_feedback_sample_rate.setter
-    def http_success_feedback_sample_rate(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def http_success_feedback_sample_rate(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "http_success_feedback_sample_rate", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsMasterKeyId")
-    def kms_master_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_master_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see [Key Terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms)
         """
         return pulumi.get(self, "kms_master_key_id")
 
     @kms_master_key_id.setter
-    def kms_master_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_master_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_master_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="lambdaFailureFeedbackRoleArn")
-    def lambda_failure_feedback_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lambda_failure_feedback_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IAM role for failure feedback
         """
         return pulumi.get(self, "lambda_failure_feedback_role_arn")
 
     @lambda_failure_feedback_role_arn.setter
-    def lambda_failure_feedback_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lambda_failure_feedback_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lambda_failure_feedback_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="lambdaSuccessFeedbackRoleArn")
-    def lambda_success_feedback_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lambda_success_feedback_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IAM role permitted to receive success feedback for this topic
         """
         return pulumi.get(self, "lambda_success_feedback_role_arn")
 
     @lambda_success_feedback_role_arn.setter
-    def lambda_success_feedback_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lambda_success_feedback_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lambda_success_feedback_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="lambdaSuccessFeedbackSampleRate")
-    def lambda_success_feedback_sample_rate(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def lambda_success_feedback_sample_rate(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Percentage of success to sample
         """
         return pulumi.get(self, "lambda_success_feedback_sample_rate")
 
     @lambda_success_feedback_sample_rate.setter
-    def lambda_success_feedback_sample_rate(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def lambda_success_feedback_sample_rate(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "lambda_success_feedback_sample_rate", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Creates a unique name beginning with the specified prefix. Conflicts with `name`
         """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
-    def name_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name_prefix", value)
 
     @_builtins.property
     @pulumi.getter
-    def owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS Account ID of the SNS topic owner
         """
         return pulumi.get(self, "owner")
 
     @owner.setter
-    def owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner", value)
 
     @_builtins.property
     @pulumi.getter
-    def policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully-formed AWS policy as JSON.
         """
         return pulumi.get(self, "policy")
 
     @policy.setter
-    def policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="signatureVersion")
-    def signature_version(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def signature_version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
         """
         return pulumi.get(self, "signature_version")
 
     @signature_version.setter
-    def signature_version(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def signature_version(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "signature_version", value)
 
     @_builtins.property
     @pulumi.getter(name="sqsFailureFeedbackRoleArn")
-    def sqs_failure_feedback_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sqs_failure_feedback_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IAM role for failure feedback
         """
         return pulumi.get(self, "sqs_failure_feedback_role_arn")
 
     @sqs_failure_feedback_role_arn.setter
-    def sqs_failure_feedback_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sqs_failure_feedback_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sqs_failure_feedback_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="sqsSuccessFeedbackRoleArn")
-    def sqs_success_feedback_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sqs_success_feedback_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IAM role permitted to receive success feedback for this topic
         """
         return pulumi.get(self, "sqs_success_feedback_role_arn")
 
     @sqs_success_feedback_role_arn.setter
-    def sqs_success_feedback_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sqs_success_feedback_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sqs_success_feedback_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="sqsSuccessFeedbackSampleRate")
-    def sqs_success_feedback_sample_rate(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def sqs_success_feedback_sample_rate(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Percentage of success to sample
         """
         return pulumi.get(self, "sqs_success_feedback_sample_rate")
 
     @sqs_success_feedback_sample_rate.setter
-    def sqs_success_feedback_sample_rate(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def sqs_success_feedback_sample_rate(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "sqs_success_feedback_sample_rate", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="tracingConfig")
-    def tracing_config(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tracing_config(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Tracing mode of an Amazon SNS topic. Valid values: `"PassThrough"`, `"Active"`.
         """
         return pulumi.get(self, "tracing_config")
 
     @tracing_config.setter
-    def tracing_config(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tracing_config(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tracing_config", value)
 
 
@@ -1032,35 +1032,35 @@ class Topic(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_failure_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_success_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_success_feedback_sample_rate: Optional[pulumi.Input[_builtins.int]] = None,
-                 archive_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_based_deduplication: Optional[pulumi.Input[_builtins.bool]] = None,
-                 delivery_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 fifo_throughput_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 fifo_topic: Optional[pulumi.Input[_builtins.bool]] = None,
-                 firehose_failure_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 firehose_success_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 firehose_success_feedback_sample_rate: Optional[pulumi.Input[_builtins.int]] = None,
-                 http_failure_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 http_success_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 http_success_feedback_sample_rate: Optional[pulumi.Input[_builtins.int]] = None,
-                 kms_master_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 lambda_failure_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 lambda_success_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 lambda_success_feedback_sample_rate: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 signature_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 sqs_failure_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 sqs_success_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 sqs_success_feedback_sample_rate: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tracing_config: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_failure_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_success_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_success_feedback_sample_rate: pulumi.Input[Optional[_builtins.int]] = None,
+                 archive_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_based_deduplication: pulumi.Input[Optional[_builtins.bool]] = None,
+                 delivery_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 fifo_throughput_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 fifo_topic: pulumi.Input[Optional[_builtins.bool]] = None,
+                 firehose_failure_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 firehose_success_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 firehose_success_feedback_sample_rate: pulumi.Input[Optional[_builtins.int]] = None,
+                 http_failure_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_success_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_success_feedback_sample_rate: pulumi.Input[Optional[_builtins.int]] = None,
+                 kms_master_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 lambda_failure_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 lambda_success_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 lambda_success_feedback_sample_rate: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 signature_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 sqs_failure_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 sqs_success_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 sqs_success_feedback_sample_rate: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tracing_config: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides an SNS topic resource
@@ -1279,35 +1279,35 @@ class Topic(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_failure_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_success_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_success_feedback_sample_rate: Optional[pulumi.Input[_builtins.int]] = None,
-                 archive_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_based_deduplication: Optional[pulumi.Input[_builtins.bool]] = None,
-                 delivery_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 fifo_throughput_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 fifo_topic: Optional[pulumi.Input[_builtins.bool]] = None,
-                 firehose_failure_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 firehose_success_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 firehose_success_feedback_sample_rate: Optional[pulumi.Input[_builtins.int]] = None,
-                 http_failure_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 http_success_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 http_success_feedback_sample_rate: Optional[pulumi.Input[_builtins.int]] = None,
-                 kms_master_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 lambda_failure_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 lambda_success_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 lambda_success_feedback_sample_rate: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 signature_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 sqs_failure_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 sqs_success_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 sqs_success_feedback_sample_rate: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tracing_config: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_failure_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_success_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_success_feedback_sample_rate: pulumi.Input[Optional[_builtins.int]] = None,
+                 archive_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_based_deduplication: pulumi.Input[Optional[_builtins.bool]] = None,
+                 delivery_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 fifo_throughput_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 fifo_topic: pulumi.Input[Optional[_builtins.bool]] = None,
+                 firehose_failure_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 firehose_success_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 firehose_success_feedback_sample_rate: pulumi.Input[Optional[_builtins.int]] = None,
+                 http_failure_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_success_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_success_feedback_sample_rate: pulumi.Input[Optional[_builtins.int]] = None,
+                 kms_master_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 lambda_failure_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 lambda_success_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 lambda_success_feedback_sample_rate: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 signature_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 sqs_failure_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 sqs_success_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 sqs_success_feedback_sample_rate: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tracing_config: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1360,39 +1360,39 @@ class Topic(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            application_failure_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            application_success_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            application_success_feedback_sample_rate: Optional[pulumi.Input[_builtins.int]] = None,
-            archive_policy: Optional[pulumi.Input[_builtins.str]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            beginning_archive_time: Optional[pulumi.Input[_builtins.str]] = None,
-            content_based_deduplication: Optional[pulumi.Input[_builtins.bool]] = None,
-            delivery_policy: Optional[pulumi.Input[_builtins.str]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            fifo_throughput_scope: Optional[pulumi.Input[_builtins.str]] = None,
-            fifo_topic: Optional[pulumi.Input[_builtins.bool]] = None,
-            firehose_failure_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            firehose_success_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            firehose_success_feedback_sample_rate: Optional[pulumi.Input[_builtins.int]] = None,
-            http_failure_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            http_success_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            http_success_feedback_sample_rate: Optional[pulumi.Input[_builtins.int]] = None,
-            kms_master_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-            lambda_failure_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            lambda_success_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            lambda_success_feedback_sample_rate: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-            owner: Optional[pulumi.Input[_builtins.str]] = None,
-            policy: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            signature_version: Optional[pulumi.Input[_builtins.int]] = None,
-            sqs_failure_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            sqs_success_feedback_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            sqs_success_feedback_sample_rate: Optional[pulumi.Input[_builtins.int]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tracing_config: Optional[pulumi.Input[_builtins.str]] = None) -> 'Topic':
+            application_failure_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            application_success_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            application_success_feedback_sample_rate: pulumi.Input[Optional[_builtins.int]] = None,
+            archive_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            beginning_archive_time: pulumi.Input[Optional[_builtins.str]] = None,
+            content_based_deduplication: pulumi.Input[Optional[_builtins.bool]] = None,
+            delivery_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            fifo_throughput_scope: pulumi.Input[Optional[_builtins.str]] = None,
+            fifo_topic: pulumi.Input[Optional[_builtins.bool]] = None,
+            firehose_failure_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            firehose_success_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            firehose_success_feedback_sample_rate: pulumi.Input[Optional[_builtins.int]] = None,
+            http_failure_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            http_success_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            http_success_feedback_sample_rate: pulumi.Input[Optional[_builtins.int]] = None,
+            kms_master_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            lambda_failure_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            lambda_success_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            lambda_success_feedback_sample_rate: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            owner: pulumi.Input[Optional[_builtins.str]] = None,
+            policy: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            signature_version: pulumi.Input[Optional[_builtins.int]] = None,
+            sqs_failure_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            sqs_success_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            sqs_success_feedback_sample_rate: pulumi.Input[Optional[_builtins.int]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tracing_config: pulumi.Input[Optional[_builtins.str]] = None) -> 'Topic':
         """
         Get an existing Topic resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

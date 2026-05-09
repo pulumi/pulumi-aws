@@ -106,19 +106,19 @@ export function getCoipPoolOutput(args?: GetCoipPoolOutputArgs, opts?: pulumi.In
  * A collection of arguments for invoking getCoipPool.
  */
 export interface GetCoipPoolOutputArgs {
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetCoipPoolFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetCoipPoolFilterArgs>[] | undefined>;
     /**
      * Local Gateway Route Table Id assigned to desired COIP Pool
      */
-    localGatewayRouteTableId?: pulumi.Input<string>;
+    localGatewayRouteTableId?: pulumi.Input<string | undefined>;
     /**
      * ID of the specific COIP Pool to retrieve.
      */
-    poolId?: pulumi.Input<string>;
+    poolId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Mapping of tags, each pair of which must exactly match
      * a pair on the desired COIP Pool.
@@ -126,5 +126,5 @@ export interface GetCoipPoolOutputArgs {
      * More complex filters can be expressed using one or more `filter` sub-blocks,
      * which take the following arguments:
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

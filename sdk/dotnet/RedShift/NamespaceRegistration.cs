@@ -27,7 +27,7 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var current = Aws.Index.GetCallerIdentity.Invoke();
+    ///     var current = Aws.GetCallerIdentity.Invoke();
     /// 
     ///     var example = new Aws.RedshiftServerless.Namespace("example", new()
     ///     {
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.RedShift
     /// 
     ///     var exampleNamespaceRegistration = new Aws.RedShift.NamespaceRegistration("example", new()
     ///     {
-    ///         ConsumerIdentifier = Std.Index.Format.Invoke(new()
+    ///         ConsumerIdentifier = Std.Format.Invoke(new()
     ///         {
     ///             Input = "DataCatalog/%s",
     ///             Args = new[]
@@ -70,7 +70,7 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var current = Aws.Index.GetCallerIdentity.Invoke();
+    ///     var current = Aws.GetCallerIdentity.Invoke();
     /// 
     ///     var example = new Aws.RedShift.Cluster("example", new()
     ///     {
@@ -84,7 +84,7 @@ namespace Pulumi.Aws.RedShift
     /// 
     ///     var exampleNamespaceRegistration = new Aws.RedShift.NamespaceRegistration("example", new()
     ///     {
-    ///         ConsumerIdentifier = Std.Index.Format.Invoke(new()
+    ///         ConsumerIdentifier = Std.Format.Invoke(new()
     ///         {
     ///             Input = "DataCatalog/%s",
     ///             Args = new[]

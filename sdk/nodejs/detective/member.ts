@@ -166,48 +166,48 @@ export interface MemberState {
     /**
      * AWS account ID for the account.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * AWS account ID for the administrator account.
      */
-    administratorId?: pulumi.Input<string>;
+    administratorId?: pulumi.Input<string | undefined>;
     /**
      * If set to true, then the root user of the invited account will _not_ receive an email notification. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. By default, this is set to `false`.
      */
-    disableEmailNotification?: pulumi.Input<boolean>;
-    disabledReason?: pulumi.Input<string>;
+    disableEmailNotification?: pulumi.Input<boolean | undefined>;
+    disabledReason?: pulumi.Input<string | undefined>;
     /**
      * Email address for the account.
      */
-    emailAddress?: pulumi.Input<string>;
+    emailAddress?: pulumi.Input<string | undefined>;
     /**
      * ARN of the behavior graph to invite the member accounts to contribute their data to.
      */
-    graphArn?: pulumi.Input<string>;
+    graphArn?: pulumi.Input<string | undefined>;
     /**
      * Date and time, in UTC and extended RFC 3339 format, when an Amazon Detective membership invitation was last sent to the account.
      */
-    invitedTime?: pulumi.Input<string>;
+    invitedTime?: pulumi.Input<string | undefined>;
     /**
      * A custom message to include in the invitation. Amazon Detective adds this message to the standard content that it sends for an invitation.
      */
-    message?: pulumi.Input<string>;
+    message?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Current membership status of the member account.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Date and time, in UTC and extended RFC 3339 format, of the most recent change to the member account's status.
      */
-    updatedTime?: pulumi.Input<string>;
+    updatedTime?: pulumi.Input<string | undefined>;
     /**
      * Data volume in bytes per day for the member account.
      */
-    volumeUsageInBytes?: pulumi.Input<string>;
+    volumeUsageInBytes?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -221,7 +221,7 @@ export interface MemberArgs {
     /**
      * If set to true, then the root user of the invited account will _not_ receive an email notification. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. By default, this is set to `false`.
      */
-    disableEmailNotification?: pulumi.Input<boolean>;
+    disableEmailNotification?: pulumi.Input<boolean | undefined>;
     /**
      * Email address for the account.
      */
@@ -233,9 +233,9 @@ export interface MemberArgs {
     /**
      * A custom message to include in the invitation. Amazon Detective adds this message to the standard content that it sends for an invitation.
      */
-    message?: pulumi.Input<string>;
+    message?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

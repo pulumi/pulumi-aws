@@ -23,8 +23,8 @@ class ContainerServiceDeploymentVersionArgs:
     def __init__(__self__, *,
                  containers: pulumi.Input[Sequence[pulumi.Input['ContainerServiceDeploymentVersionContainerArgs']]],
                  service_name: pulumi.Input[_builtins.str],
-                 public_endpoint: Optional[pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 public_endpoint: pulumi.Input[Optional['ContainerServiceDeploymentVersionPublicEndpointArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ContainerServiceDeploymentVersion resource.
 
@@ -70,39 +70,39 @@ class ContainerServiceDeploymentVersionArgs:
 
     @_builtins.property
     @pulumi.getter(name="publicEndpoint")
-    def public_endpoint(self) -> Optional[pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointArgs']]:
+    def public_endpoint(self) -> pulumi.Input[Optional['ContainerServiceDeploymentVersionPublicEndpointArgs']]:
         """
         Configuration block that describes the settings of the public endpoint for the container service. See below.
         """
         return pulumi.get(self, "public_endpoint")
 
     @public_endpoint.setter
-    def public_endpoint(self, value: Optional[pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointArgs']]):
+    def public_endpoint(self, value: pulumi.Input[Optional['ContainerServiceDeploymentVersionPublicEndpointArgs']]):
         pulumi.set(self, "public_endpoint", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _ContainerServiceDeploymentVersionState:
     def __init__(__self__, *,
-                 containers: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerServiceDeploymentVersionContainerArgs']]]] = None,
-                 created_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_endpoint: Optional[pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.int]] = None):
+                 containers: pulumi.Input[Optional[Sequence[pulumi.Input['ContainerServiceDeploymentVersionContainerArgs']]]] = None,
+                 created_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_endpoint: pulumi.Input[Optional['ContainerServiceDeploymentVersionPublicEndpointArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering ContainerServiceDeploymentVersion resources.
 
@@ -133,55 +133,55 @@ class _ContainerServiceDeploymentVersionState:
 
     @_builtins.property
     @pulumi.getter
-    def containers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContainerServiceDeploymentVersionContainerArgs']]]]:
+    def containers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ContainerServiceDeploymentVersionContainerArgs']]]]:
         """
         Set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. See below.
         """
         return pulumi.get(self, "containers")
 
     @containers.setter
-    def containers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerServiceDeploymentVersionContainerArgs']]]]):
+    def containers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ContainerServiceDeploymentVersionContainerArgs']]]]):
         pulumi.set(self, "containers", value)
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date and time when the deployment was created.
         """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
-    def created_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_at", value)
 
     @_builtins.property
     @pulumi.getter(name="publicEndpoint")
-    def public_endpoint(self) -> Optional[pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointArgs']]:
+    def public_endpoint(self) -> pulumi.Input[Optional['ContainerServiceDeploymentVersionPublicEndpointArgs']]:
         """
         Configuration block that describes the settings of the public endpoint for the container service. See below.
         """
         return pulumi.get(self, "public_endpoint")
 
     @public_endpoint.setter
-    def public_endpoint(self, value: Optional[pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointArgs']]):
+    def public_endpoint(self, value: pulumi.Input[Optional['ContainerServiceDeploymentVersionPublicEndpointArgs']]):
         pulumi.set(self, "public_endpoint", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceName")
-    def service_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the container service.
 
@@ -190,31 +190,31 @@ class _ContainerServiceDeploymentVersionState:
         return pulumi.get(self, "service_name")
 
     @service_name.setter
-    def service_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Current state of the container service.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Version number of the deployment.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "version", value)
 
 
@@ -224,10 +224,10 @@ class ContainerServiceDeploymentVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 containers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerServiceDeploymentVersionContainerArgs', 'ContainerServiceDeploymentVersionContainerArgsDict']]]]] = None,
-                 public_endpoint: Optional[pulumi.Input[Union['ContainerServiceDeploymentVersionPublicEndpointArgs', 'ContainerServiceDeploymentVersionPublicEndpointArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 containers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContainerServiceDeploymentVersionContainerArgs', 'ContainerServiceDeploymentVersionContainerArgsDict']]]]] = None,
+                 public_endpoint: pulumi.Input[Optional[Union['ContainerServiceDeploymentVersionPublicEndpointArgs', 'ContainerServiceDeploymentVersionPublicEndpointArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Lightsail container service deployment version. Use this resource to deploy containerized applications to your Lightsail container service with specific container configurations and settings.
@@ -361,10 +361,10 @@ class ContainerServiceDeploymentVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 containers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerServiceDeploymentVersionContainerArgs', 'ContainerServiceDeploymentVersionContainerArgsDict']]]]] = None,
-                 public_endpoint: Optional[pulumi.Input[Union['ContainerServiceDeploymentVersionPublicEndpointArgs', 'ContainerServiceDeploymentVersionPublicEndpointArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 containers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContainerServiceDeploymentVersionContainerArgs', 'ContainerServiceDeploymentVersionContainerArgsDict']]]]] = None,
+                 public_endpoint: pulumi.Input[Optional[Union['ContainerServiceDeploymentVersionPublicEndpointArgs', 'ContainerServiceDeploymentVersionPublicEndpointArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -395,13 +395,13 @@ class ContainerServiceDeploymentVersion(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            containers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerServiceDeploymentVersionContainerArgs', 'ContainerServiceDeploymentVersionContainerArgsDict']]]]] = None,
-            created_at: Optional[pulumi.Input[_builtins.str]] = None,
-            public_endpoint: Optional[pulumi.Input[Union['ContainerServiceDeploymentVersionPublicEndpointArgs', 'ContainerServiceDeploymentVersionPublicEndpointArgsDict']]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            service_name: Optional[pulumi.Input[_builtins.str]] = None,
-            state: Optional[pulumi.Input[_builtins.str]] = None,
-            version: Optional[pulumi.Input[_builtins.int]] = None) -> 'ContainerServiceDeploymentVersion':
+            containers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContainerServiceDeploymentVersionContainerArgs', 'ContainerServiceDeploymentVersionContainerArgsDict']]]]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            public_endpoint: pulumi.Input[Optional[Union['ContainerServiceDeploymentVersionPublicEndpointArgs', 'ContainerServiceDeploymentVersionPublicEndpointArgsDict']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            service_name: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            version: pulumi.Input[Optional[_builtins.int]] = None) -> 'ContainerServiceDeploymentVersion':
         """
         Get an existing ContainerServiceDeploymentVersion resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

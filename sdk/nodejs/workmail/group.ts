@@ -163,41 +163,41 @@ export interface GroupState {
     /**
      * Timestamp when the group was disabled from WorkMail use.
      */
-    disabledDate?: pulumi.Input<string>;
+    disabledDate?: pulumi.Input<string | undefined>;
     /**
      * Primary email address used to register the group with WorkMail.
      */
-    email?: pulumi.Input<string>;
+    email?: pulumi.Input<string | undefined>;
     /**
      * Timestamp when the group was enabled for WorkMail use.
      */
-    enabledDate?: pulumi.Input<string>;
+    enabledDate?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the group.
      */
-    groupId?: pulumi.Input<string>;
+    groupId?: pulumi.Input<string | undefined>;
     /**
      * Whether to hide the group from the global address list.
      */
-    hiddenFromGlobalAddressList?: pulumi.Input<boolean>;
+    hiddenFromGlobalAddressList?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the group.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the WorkMail organization where the group is managed.
      *
      * The following arguments are optional:
      */
-    organizationId?: pulumi.Input<string>;
+    organizationId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Current WorkMail state of the group.
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -211,11 +211,11 @@ export interface GroupArgs {
     /**
      * Whether to hide the group from the global address list.
      */
-    hiddenFromGlobalAddressList?: pulumi.Input<boolean>;
+    hiddenFromGlobalAddressList?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the group.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the WorkMail organization where the group is managed.
      *
@@ -225,5 +225,5 @@ export interface GroupArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

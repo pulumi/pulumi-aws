@@ -21,9 +21,9 @@ __all__ = ['IndexingConfigurationArgs', 'IndexingConfiguration']
 @pulumi.input_type
 class IndexingConfigurationArgs:
     def __init__(__self__, *,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 thing_group_indexing_configuration: Optional[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationArgs']] = None,
-                 thing_indexing_configuration: Optional[pulumi.Input['IndexingConfigurationThingIndexingConfigurationArgs']] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 thing_group_indexing_configuration: pulumi.Input[Optional['IndexingConfigurationThingGroupIndexingConfigurationArgs']] = None,
+                 thing_indexing_configuration: pulumi.Input[Optional['IndexingConfigurationThingIndexingConfigurationArgs']] = None):
         """
         The set of arguments for constructing a IndexingConfiguration resource.
 
@@ -40,47 +40,47 @@ class IndexingConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="thingGroupIndexingConfiguration")
-    def thing_group_indexing_configuration(self) -> Optional[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationArgs']]:
+    def thing_group_indexing_configuration(self) -> pulumi.Input[Optional['IndexingConfigurationThingGroupIndexingConfigurationArgs']]:
         """
         Thing group indexing configuration. See below.
         """
         return pulumi.get(self, "thing_group_indexing_configuration")
 
     @thing_group_indexing_configuration.setter
-    def thing_group_indexing_configuration(self, value: Optional[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationArgs']]):
+    def thing_group_indexing_configuration(self, value: pulumi.Input[Optional['IndexingConfigurationThingGroupIndexingConfigurationArgs']]):
         pulumi.set(self, "thing_group_indexing_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="thingIndexingConfiguration")
-    def thing_indexing_configuration(self) -> Optional[pulumi.Input['IndexingConfigurationThingIndexingConfigurationArgs']]:
+    def thing_indexing_configuration(self) -> pulumi.Input[Optional['IndexingConfigurationThingIndexingConfigurationArgs']]:
         """
         Thing indexing configuration. See below.
         """
         return pulumi.get(self, "thing_indexing_configuration")
 
     @thing_indexing_configuration.setter
-    def thing_indexing_configuration(self, value: Optional[pulumi.Input['IndexingConfigurationThingIndexingConfigurationArgs']]):
+    def thing_indexing_configuration(self, value: pulumi.Input[Optional['IndexingConfigurationThingIndexingConfigurationArgs']]):
         pulumi.set(self, "thing_indexing_configuration", value)
 
 
 @pulumi.input_type
 class _IndexingConfigurationState:
     def __init__(__self__, *,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 thing_group_indexing_configuration: Optional[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationArgs']] = None,
-                 thing_indexing_configuration: Optional[pulumi.Input['IndexingConfigurationThingIndexingConfigurationArgs']] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 thing_group_indexing_configuration: pulumi.Input[Optional['IndexingConfigurationThingGroupIndexingConfigurationArgs']] = None,
+                 thing_indexing_configuration: pulumi.Input[Optional['IndexingConfigurationThingIndexingConfigurationArgs']] = None):
         """
         Input properties used for looking up and filtering IndexingConfiguration resources.
 
@@ -97,38 +97,38 @@ class _IndexingConfigurationState:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="thingGroupIndexingConfiguration")
-    def thing_group_indexing_configuration(self) -> Optional[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationArgs']]:
+    def thing_group_indexing_configuration(self) -> pulumi.Input[Optional['IndexingConfigurationThingGroupIndexingConfigurationArgs']]:
         """
         Thing group indexing configuration. See below.
         """
         return pulumi.get(self, "thing_group_indexing_configuration")
 
     @thing_group_indexing_configuration.setter
-    def thing_group_indexing_configuration(self, value: Optional[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationArgs']]):
+    def thing_group_indexing_configuration(self, value: pulumi.Input[Optional['IndexingConfigurationThingGroupIndexingConfigurationArgs']]):
         pulumi.set(self, "thing_group_indexing_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="thingIndexingConfiguration")
-    def thing_indexing_configuration(self) -> Optional[pulumi.Input['IndexingConfigurationThingIndexingConfigurationArgs']]:
+    def thing_indexing_configuration(self) -> pulumi.Input[Optional['IndexingConfigurationThingIndexingConfigurationArgs']]:
         """
         Thing indexing configuration. See below.
         """
         return pulumi.get(self, "thing_indexing_configuration")
 
     @thing_indexing_configuration.setter
-    def thing_indexing_configuration(self, value: Optional[pulumi.Input['IndexingConfigurationThingIndexingConfigurationArgs']]):
+    def thing_indexing_configuration(self, value: pulumi.Input[Optional['IndexingConfigurationThingIndexingConfigurationArgs']]):
         pulumi.set(self, "thing_indexing_configuration", value)
 
 
@@ -138,9 +138,9 @@ class IndexingConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 thing_group_indexing_configuration: Optional[pulumi.Input[Union['IndexingConfigurationThingGroupIndexingConfigurationArgs', 'IndexingConfigurationThingGroupIndexingConfigurationArgsDict']]] = None,
-                 thing_indexing_configuration: Optional[pulumi.Input[Union['IndexingConfigurationThingIndexingConfigurationArgs', 'IndexingConfigurationThingIndexingConfigurationArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 thing_group_indexing_configuration: pulumi.Input[Optional[Union['IndexingConfigurationThingGroupIndexingConfigurationArgs', 'IndexingConfigurationThingGroupIndexingConfigurationArgsDict']]] = None,
+                 thing_indexing_configuration: pulumi.Input[Optional[Union['IndexingConfigurationThingIndexingConfigurationArgs', 'IndexingConfigurationThingIndexingConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         Managing [IoT Thing indexing](https://docs.aws.amazon.com/iot/latest/developerguide/managing-index.html).
@@ -247,9 +247,9 @@ class IndexingConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 thing_group_indexing_configuration: Optional[pulumi.Input[Union['IndexingConfigurationThingGroupIndexingConfigurationArgs', 'IndexingConfigurationThingGroupIndexingConfigurationArgsDict']]] = None,
-                 thing_indexing_configuration: Optional[pulumi.Input[Union['IndexingConfigurationThingIndexingConfigurationArgs', 'IndexingConfigurationThingIndexingConfigurationArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 thing_group_indexing_configuration: pulumi.Input[Optional[Union['IndexingConfigurationThingGroupIndexingConfigurationArgs', 'IndexingConfigurationThingGroupIndexingConfigurationArgsDict']]] = None,
+                 thing_indexing_configuration: pulumi.Input[Optional[Union['IndexingConfigurationThingIndexingConfigurationArgs', 'IndexingConfigurationThingIndexingConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -272,9 +272,9 @@ class IndexingConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            thing_group_indexing_configuration: Optional[pulumi.Input[Union['IndexingConfigurationThingGroupIndexingConfigurationArgs', 'IndexingConfigurationThingGroupIndexingConfigurationArgsDict']]] = None,
-            thing_indexing_configuration: Optional[pulumi.Input[Union['IndexingConfigurationThingIndexingConfigurationArgs', 'IndexingConfigurationThingIndexingConfigurationArgsDict']]] = None) -> 'IndexingConfiguration':
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            thing_group_indexing_configuration: pulumi.Input[Optional[Union['IndexingConfigurationThingGroupIndexingConfigurationArgs', 'IndexingConfigurationThingGroupIndexingConfigurationArgsDict']]] = None,
+            thing_indexing_configuration: pulumi.Input[Optional[Union['IndexingConfigurationThingIndexingConfigurationArgs', 'IndexingConfigurationThingIndexingConfigurationArgsDict']]] = None) -> 'IndexingConfiguration':
         """
         Get an existing IndexingConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -23,8 +23,8 @@ class RouteServerVpcAssociationArgs:
     def __init__(__self__, *,
                  route_server_id: pulumi.Input[_builtins.str],
                  vpc_id: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input['RouteServerVpcAssociationTimeoutsArgs']] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional['RouteServerVpcAssociationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a RouteServerVpcAssociation resource.
 
@@ -69,33 +69,33 @@ class RouteServerVpcAssociationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['RouteServerVpcAssociationTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['RouteServerVpcAssociationTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['RouteServerVpcAssociationTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['RouteServerVpcAssociationTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _RouteServerVpcAssociationState:
     def __init__(__self__, *,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input['RouteServerVpcAssociationTimeoutsArgs']] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional['RouteServerVpcAssociationTimeoutsArgs']] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RouteServerVpcAssociation resources.
 
@@ -116,40 +116,40 @@ class _RouteServerVpcAssociationState:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="routeServerId")
-    def route_server_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def route_server_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique identifier for the route server to be associated.
         """
         return pulumi.get(self, "route_server_id")
 
     @route_server_id.setter
-    def route_server_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def route_server_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "route_server_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['RouteServerVpcAssociationTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['RouteServerVpcAssociationTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['RouteServerVpcAssociationTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['RouteServerVpcAssociationTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the VPC to associate with the route server.
 
@@ -158,7 +158,7 @@ class _RouteServerVpcAssociationState:
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
-    def vpc_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_id", value)
 
 
@@ -168,10 +168,10 @@ class RouteServerVpcAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input[Union['RouteServerVpcAssociationTimeoutsArgs', 'RouteServerVpcAssociationTimeoutsArgsDict']]] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional[Union['RouteServerVpcAssociationTimeoutsArgs', 'RouteServerVpcAssociationTimeoutsArgsDict']]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a resource for managing association between VPC (Virtual Private Cloud) route server and a VPC.
@@ -252,10 +252,10 @@ class RouteServerVpcAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input[Union['RouteServerVpcAssociationTimeoutsArgs', 'RouteServerVpcAssociationTimeoutsArgsDict']]] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional[Union['RouteServerVpcAssociationTimeoutsArgs', 'RouteServerVpcAssociationTimeoutsArgsDict']]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -283,10 +283,10 @@ class RouteServerVpcAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            route_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-            timeouts: Optional[pulumi.Input[Union['RouteServerVpcAssociationTimeoutsArgs', 'RouteServerVpcAssociationTimeoutsArgsDict']]] = None,
-            vpc_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'RouteServerVpcAssociation':
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            route_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['RouteServerVpcAssociationTimeoutsArgs', 'RouteServerVpcAssociationTimeoutsArgsDict']]] = None,
+            vpc_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'RouteServerVpcAssociation':
         """
         Get an existing RouteServerVpcAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

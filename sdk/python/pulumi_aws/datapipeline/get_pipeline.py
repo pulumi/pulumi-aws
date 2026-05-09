@@ -138,9 +138,9 @@ def get_pipeline(pipeline_id: Optional[_builtins.str] = None,
         pipeline_id=pulumi.get(__ret__, 'pipeline_id'),
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_pipeline_output(pipeline_id: Optional[pulumi.Input[_builtins.str]] = None,
-                        region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                        tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_pipeline_output(pipeline_id: pulumi.Input[Optional[_builtins.str]] = None,
+                        region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPipelineResult]:
     """
     Provides details about a specific DataPipeline Pipeline.

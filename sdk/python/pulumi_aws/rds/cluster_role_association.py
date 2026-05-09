@@ -21,8 +21,8 @@ class ClusterRoleAssociationArgs:
     def __init__(__self__, *,
                  db_cluster_identifier: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
-                 feature_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 feature_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ClusterRoleAssociation resource.
 
@@ -64,36 +64,36 @@ class ClusterRoleAssociationArgs:
 
     @_builtins.property
     @pulumi.getter(name="featureName")
-    def feature_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def feature_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
         """
         return pulumi.get(self, "feature_name")
 
     @feature_name.setter
-    def feature_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def feature_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "feature_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _ClusterRoleAssociationState:
     def __init__(__self__, *,
-                 db_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 feature_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 db_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 feature_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ClusterRoleAssociation resources.
 
@@ -113,50 +113,50 @@ class _ClusterRoleAssociationState:
 
     @_builtins.property
     @pulumi.getter(name="dbClusterIdentifier")
-    def db_cluster_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def db_cluster_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         DB Cluster Identifier to associate with the IAM Role.
         """
         return pulumi.get(self, "db_cluster_identifier")
 
     @db_cluster_identifier.setter
-    def db_cluster_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def db_cluster_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "db_cluster_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="featureName")
-    def feature_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def feature_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
         """
         return pulumi.get(self, "feature_name")
 
     @feature_name.setter
-    def feature_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def feature_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "feature_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) of the IAM Role to associate with the DB Cluster.
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
 
@@ -166,10 +166,10 @@ class ClusterRoleAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 db_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 feature_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 db_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 feature_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a RDS DB Cluster association with an IAM Role. Example use cases:
@@ -253,10 +253,10 @@ class ClusterRoleAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 db_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 feature_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 db_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 feature_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -284,10 +284,10 @@ class ClusterRoleAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            db_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-            feature_name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            role_arn: Optional[pulumi.Input[_builtins.str]] = None) -> 'ClusterRoleAssociation':
+            db_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            feature_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None) -> 'ClusterRoleAssociation':
         """
         Get an existing ClusterRoleAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

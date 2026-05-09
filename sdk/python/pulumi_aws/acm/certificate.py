@@ -21,19 +21,19 @@ __all__ = ['CertificateArgs', 'Certificate']
 @pulumi.input_type
 class CertificateArgs:
     def __init__(__self__, *,
-                 certificate_authority_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_body: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_chain: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 early_renewal_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 options: Optional[pulumi.Input['CertificateOptionsArgs']] = None,
-                 private_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 validation_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 validation_options: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateValidationOptionArgs']]]] = None):
+                 certificate_authority_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_body: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_chain: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 early_renewal_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 options: pulumi.Input[Optional['CertificateOptionsArgs']] = None,
+                 private_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject_alternative_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 validation_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 validation_options: pulumi.Input[Optional[Sequence[pulumi.Input['CertificateValidationOptionArgs']]]] = None):
         """
         The set of arguments for constructing a Certificate resource.
 
@@ -71,82 +71,82 @@ class CertificateArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateAuthorityArn")
-    def certificate_authority_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_authority_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "certificate_authority_arn")
 
     @certificate_authority_arn.setter
-    def certificate_authority_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_authority_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_authority_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateBody")
-    def certificate_body(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_body(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "certificate_body")
 
     @certificate_body.setter
-    def certificate_body(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_body(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_body", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateChain")
-    def certificate_chain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_chain(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "certificate_chain")
 
     @certificate_chain.setter
-    def certificate_chain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_chain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_chain", value)
 
     @_builtins.property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully qualified domain name (FQDN) in the certificate.
         """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
-    def domain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_name", value)
 
     @_builtins.property
     @pulumi.getter(name="earlyRenewalDuration")
-    def early_renewal_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def early_renewal_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "early_renewal_duration")
 
     @early_renewal_duration.setter
-    def early_renewal_duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def early_renewal_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "early_renewal_duration", value)
 
     @_builtins.property
     @pulumi.getter(name="keyAlgorithm")
-    def key_algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "key_algorithm")
 
     @key_algorithm.setter
-    def key_algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_algorithm", value)
 
     @_builtins.property
     @pulumi.getter
-    def options(self) -> Optional[pulumi.Input['CertificateOptionsArgs']]:
+    def options(self) -> pulumi.Input[Optional['CertificateOptionsArgs']]:
         return pulumi.get(self, "options")
 
     @options.setter
-    def options(self, value: Optional[pulumi.Input['CertificateOptionsArgs']]):
+    def options(self, value: pulumi.Input[Optional['CertificateOptionsArgs']]):
         pulumi.set(self, "options", value)
 
     @_builtins.property
     @pulumi.getter(name="privateKey")
-    def private_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "private_key")
 
     @private_key.setter
-    def private_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         * Creating an Amazon issued certificate
@@ -154,76 +154,76 @@ class CertificateArgs:
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="subjectAlternativeNames")
-    def subject_alternative_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subject_alternative_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "subject_alternative_names")
 
     @subject_alternative_names.setter
-    def subject_alternative_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subject_alternative_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subject_alternative_names", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="validationMethod")
-    def validation_method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def validation_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "validation_method")
 
     @validation_method.setter
-    def validation_method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def validation_method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "validation_method", value)
 
     @_builtins.property
     @pulumi.getter(name="validationOptions")
-    def validation_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateValidationOptionArgs']]]]:
+    def validation_options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CertificateValidationOptionArgs']]]]:
         return pulumi.get(self, "validation_options")
 
     @validation_options.setter
-    def validation_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateValidationOptionArgs']]]]):
+    def validation_options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CertificateValidationOptionArgs']]]]):
         pulumi.set(self, "validation_options", value)
 
 
 @pulumi.input_type
 class _CertificateState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_authority_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_body: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_chain: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_validation_options: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateDomainValidationOptionArgs']]]] = None,
-                 early_renewal_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 not_after: Optional[pulumi.Input[_builtins.str]] = None,
-                 not_before: Optional[pulumi.Input[_builtins.str]] = None,
-                 options: Optional[pulumi.Input['CertificateOptionsArgs']] = None,
-                 pending_renewal: Optional[pulumi.Input[_builtins.bool]] = None,
-                 private_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 renewal_eligibility: Optional[pulumi.Input[_builtins.str]] = None,
-                 renewal_summaries: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateRenewalSummaryArgs']]]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 validation_emails: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 validation_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 validation_options: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateValidationOptionArgs']]]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_authority_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_body: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_chain: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_validation_options: pulumi.Input[Optional[Sequence[pulumi.Input['CertificateDomainValidationOptionArgs']]]] = None,
+                 early_renewal_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 not_after: pulumi.Input[Optional[_builtins.str]] = None,
+                 not_before: pulumi.Input[Optional[_builtins.str]] = None,
+                 options: pulumi.Input[Optional['CertificateOptionsArgs']] = None,
+                 pending_renewal: pulumi.Input[Optional[_builtins.bool]] = None,
+                 private_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 renewal_eligibility: pulumi.Input[Optional[_builtins.str]] = None,
+                 renewal_summaries: pulumi.Input[Optional[Sequence[pulumi.Input['CertificateRenewalSummaryArgs']]]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject_alternative_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 validation_emails: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 validation_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 validation_options: pulumi.Input[Optional[Sequence[pulumi.Input['CertificateValidationOptionArgs']]]] = None):
         """
         Input properties used for looking up and filtering Certificate resources.
 
@@ -296,58 +296,58 @@ class _CertificateState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the certificate
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateAuthorityArn")
-    def certificate_authority_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_authority_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "certificate_authority_arn")
 
     @certificate_authority_arn.setter
-    def certificate_authority_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_authority_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_authority_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateBody")
-    def certificate_body(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_body(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "certificate_body")
 
     @certificate_body.setter
-    def certificate_body(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_body(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_body", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateChain")
-    def certificate_chain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_chain(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "certificate_chain")
 
     @certificate_chain.setter
-    def certificate_chain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_chain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_chain", value)
 
     @_builtins.property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully qualified domain name (FQDN) in the certificate.
         """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
-    def domain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_name", value)
 
     @_builtins.property
     @pulumi.getter(name="domainValidationOptions")
-    def domain_validation_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateDomainValidationOptionArgs']]]]:
+    def domain_validation_options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CertificateDomainValidationOptionArgs']]]]:
         """
         Set of domain validation objects which can be used to complete certificate validation.
         Can have more than one element, e.g., if SANs are defined.
@@ -356,84 +356,84 @@ class _CertificateState:
         return pulumi.get(self, "domain_validation_options")
 
     @domain_validation_options.setter
-    def domain_validation_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateDomainValidationOptionArgs']]]]):
+    def domain_validation_options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CertificateDomainValidationOptionArgs']]]]):
         pulumi.set(self, "domain_validation_options", value)
 
     @_builtins.property
     @pulumi.getter(name="earlyRenewalDuration")
-    def early_renewal_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def early_renewal_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "early_renewal_duration")
 
     @early_renewal_duration.setter
-    def early_renewal_duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def early_renewal_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "early_renewal_duration", value)
 
     @_builtins.property
     @pulumi.getter(name="keyAlgorithm")
-    def key_algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "key_algorithm")
 
     @key_algorithm.setter
-    def key_algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="notAfter")
-    def not_after(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def not_after(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Expiration date and time of the certificate.
         """
         return pulumi.get(self, "not_after")
 
     @not_after.setter
-    def not_after(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def not_after(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "not_after", value)
 
     @_builtins.property
     @pulumi.getter(name="notBefore")
-    def not_before(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def not_before(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Start of the validity period of the certificate.
         """
         return pulumi.get(self, "not_before")
 
     @not_before.setter
-    def not_before(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def not_before(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "not_before", value)
 
     @_builtins.property
     @pulumi.getter
-    def options(self) -> Optional[pulumi.Input['CertificateOptionsArgs']]:
+    def options(self) -> pulumi.Input[Optional['CertificateOptionsArgs']]:
         return pulumi.get(self, "options")
 
     @options.setter
-    def options(self, value: Optional[pulumi.Input['CertificateOptionsArgs']]):
+    def options(self, value: pulumi.Input[Optional['CertificateOptionsArgs']]):
         pulumi.set(self, "options", value)
 
     @_builtins.property
     @pulumi.getter(name="pendingRenewal")
-    def pending_renewal(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def pending_renewal(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         `true` if a Private certificate eligible for managed renewal is within the `early_renewal_duration` period.
         """
         return pulumi.get(self, "pending_renewal")
 
     @pending_renewal.setter
-    def pending_renewal(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def pending_renewal(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "pending_renewal", value)
 
     @_builtins.property
     @pulumi.getter(name="privateKey")
-    def private_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "private_key")
 
     @private_key.setter
-    def private_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         * Creating an Amazon issued certificate
@@ -441,118 +441,118 @@ class _CertificateState:
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="renewalEligibility")
-    def renewal_eligibility(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def renewal_eligibility(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether the certificate is eligible for managed renewal.
         """
         return pulumi.get(self, "renewal_eligibility")
 
     @renewal_eligibility.setter
-    def renewal_eligibility(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def renewal_eligibility(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "renewal_eligibility", value)
 
     @_builtins.property
     @pulumi.getter(name="renewalSummaries")
-    def renewal_summaries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateRenewalSummaryArgs']]]]:
+    def renewal_summaries(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CertificateRenewalSummaryArgs']]]]:
         """
         Contains information about the status of ACM's [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for the certificate.
         """
         return pulumi.get(self, "renewal_summaries")
 
     @renewal_summaries.setter
-    def renewal_summaries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateRenewalSummaryArgs']]]]):
+    def renewal_summaries(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CertificateRenewalSummaryArgs']]]]):
         pulumi.set(self, "renewal_summaries", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Status of the certificate.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="subjectAlternativeNames")
-    def subject_alternative_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subject_alternative_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "subject_alternative_names")
 
     @subject_alternative_names.setter
-    def subject_alternative_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subject_alternative_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subject_alternative_names", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Source of the certificate.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="validationEmails")
-    def validation_emails(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def validation_emails(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of addresses that received a validation email. Only set if `EMAIL` validation was used.
         """
         return pulumi.get(self, "validation_emails")
 
     @validation_emails.setter
-    def validation_emails(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def validation_emails(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "validation_emails", value)
 
     @_builtins.property
     @pulumi.getter(name="validationMethod")
-    def validation_method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def validation_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "validation_method")
 
     @validation_method.setter
-    def validation_method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def validation_method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "validation_method", value)
 
     @_builtins.property
     @pulumi.getter(name="validationOptions")
-    def validation_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateValidationOptionArgs']]]]:
+    def validation_options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CertificateValidationOptionArgs']]]]:
         return pulumi.get(self, "validation_options")
 
     @validation_options.setter
-    def validation_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateValidationOptionArgs']]]]):
+    def validation_options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CertificateValidationOptionArgs']]]]):
         pulumi.set(self, "validation_options", value)
 
 
@@ -562,19 +562,19 @@ class Certificate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_authority_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_body: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_chain: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 early_renewal_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 options: Optional[pulumi.Input[Union['CertificateOptionsArgs', 'CertificateOptionsArgsDict']]] = None,
-                 private_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 validation_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 validation_options: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CertificateValidationOptionArgs', 'CertificateValidationOptionArgsDict']]]]] = None,
+                 certificate_authority_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_body: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_chain: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 early_renewal_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 options: pulumi.Input[Optional[Union['CertificateOptionsArgs', 'CertificateOptionsArgsDict']]] = None,
+                 private_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject_alternative_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 validation_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 validation_options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CertificateValidationOptionArgs', 'CertificateValidationOptionArgsDict']]]]] = None,
                  __props__=None):
         """
         The ACM certificate resource allows requesting and management of certificates
@@ -664,14 +664,15 @@ class Certificate(pulumi.CustomResource):
 
         ```python
         import pulumi
+        from typing import Any
         import pulumi_aws as aws
 
-        example = []
-        for range in [{"key": k, "value": v} for [k, v] in ({dvo.domain_name: {
+        example: list[Any] = []
+        for range in [{"key": k, "value": v} for [k, v] in sorted(({dvo.domain_name: {
             name: dvo.resource_record_name,
             record: dvo.resource_record_value,
             type: dvo.resource_record_type,
-        } for dvo in example_aws_acm_certificate.domain_validation_options}).items()]:
+        } for dvo in example_aws_acm_certificate.domain_validation_options}).items())]:
             example.append(aws.route53.Record(f"example-{range['key']}",
                 allow_overwrite=True,
                 name=range["value"]["name"],
@@ -797,14 +798,15 @@ class Certificate(pulumi.CustomResource):
 
         ```python
         import pulumi
+        from typing import Any
         import pulumi_aws as aws
 
-        example = []
-        for range in [{"key": k, "value": v} for [k, v] in ({dvo.domain_name: {
+        example: list[Any] = []
+        for range in [{"key": k, "value": v} for [k, v] in sorted(({dvo.domain_name: {
             name: dvo.resource_record_name,
             record: dvo.resource_record_value,
             type: dvo.resource_record_type,
-        } for dvo in example_aws_acm_certificate.domain_validation_options}).items()]:
+        } for dvo in example_aws_acm_certificate.domain_validation_options}).items())]:
             example.append(aws.route53.Record(f"example-{range['key']}",
                 allow_overwrite=True,
                 name=range["value"]["name"],
@@ -844,19 +846,19 @@ class Certificate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_authority_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_body: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_chain: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 early_renewal_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 options: Optional[pulumi.Input[Union['CertificateOptionsArgs', 'CertificateOptionsArgsDict']]] = None,
-                 private_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 validation_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 validation_options: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CertificateValidationOptionArgs', 'CertificateValidationOptionArgsDict']]]]] = None,
+                 certificate_authority_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_body: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_chain: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 early_renewal_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 options: pulumi.Input[Optional[Union['CertificateOptionsArgs', 'CertificateOptionsArgsDict']]] = None,
+                 private_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject_alternative_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 validation_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 validation_options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CertificateValidationOptionArgs', 'CertificateValidationOptionArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -902,30 +904,30 @@ class Certificate(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            certificate_authority_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            certificate_body: Optional[pulumi.Input[_builtins.str]] = None,
-            certificate_chain: Optional[pulumi.Input[_builtins.str]] = None,
-            domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-            domain_validation_options: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CertificateDomainValidationOptionArgs', 'CertificateDomainValidationOptionArgsDict']]]]] = None,
-            early_renewal_duration: Optional[pulumi.Input[_builtins.str]] = None,
-            key_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-            not_after: Optional[pulumi.Input[_builtins.str]] = None,
-            not_before: Optional[pulumi.Input[_builtins.str]] = None,
-            options: Optional[pulumi.Input[Union['CertificateOptionsArgs', 'CertificateOptionsArgsDict']]] = None,
-            pending_renewal: Optional[pulumi.Input[_builtins.bool]] = None,
-            private_key: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            renewal_eligibility: Optional[pulumi.Input[_builtins.str]] = None,
-            renewal_summaries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CertificateRenewalSummaryArgs', 'CertificateRenewalSummaryArgsDict']]]]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None,
-            validation_emails: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            validation_method: Optional[pulumi.Input[_builtins.str]] = None,
-            validation_options: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CertificateValidationOptionArgs', 'CertificateValidationOptionArgsDict']]]]] = None) -> 'Certificate':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_authority_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_body: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_chain: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_validation_options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CertificateDomainValidationOptionArgs', 'CertificateDomainValidationOptionArgsDict']]]]] = None,
+            early_renewal_duration: pulumi.Input[Optional[_builtins.str]] = None,
+            key_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+            not_after: pulumi.Input[Optional[_builtins.str]] = None,
+            not_before: pulumi.Input[Optional[_builtins.str]] = None,
+            options: pulumi.Input[Optional[Union['CertificateOptionsArgs', 'CertificateOptionsArgsDict']]] = None,
+            pending_renewal: pulumi.Input[Optional[_builtins.bool]] = None,
+            private_key: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            renewal_eligibility: pulumi.Input[Optional[_builtins.str]] = None,
+            renewal_summaries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CertificateRenewalSummaryArgs', 'CertificateRenewalSummaryArgsDict']]]]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            subject_alternative_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            validation_emails: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            validation_method: pulumi.Input[Optional[_builtins.str]] = None,
+            validation_options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CertificateValidationOptionArgs', 'CertificateValidationOptionArgsDict']]]]] = None) -> 'Certificate':
         """
         Get an existing Certificate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

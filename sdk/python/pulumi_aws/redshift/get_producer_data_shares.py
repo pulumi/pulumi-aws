@@ -130,9 +130,9 @@ def get_producer_data_shares(producer_arn: Optional[_builtins.str] = None,
         producer_arn=pulumi.get(__ret__, 'producer_arn'),
         region=pulumi.get(__ret__, 'region'),
         status=pulumi.get(__ret__, 'status'))
-def get_producer_data_shares_output(producer_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                                    region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                    status: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_producer_data_shares_output(producer_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                                    region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                    status: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProducerDataSharesResult]:
     """
     Data source for managing AWS Redshift Producer Data Shares.

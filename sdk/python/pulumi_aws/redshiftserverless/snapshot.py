@@ -21,8 +21,8 @@ class SnapshotArgs:
     def __init__(__self__, *,
                  namespace_name: pulumi.Input[_builtins.str],
                  snapshot_name: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_period: Optional[pulumi.Input[_builtins.int]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_period: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a Snapshot resource.
 
@@ -64,43 +64,43 @@ class SnapshotArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionPeriod")
-    def retention_period(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_period(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         How long to retain the created snapshot. Default value is `-1`.
         """
         return pulumi.get(self, "retention_period")
 
     @retention_period.setter
-    def retention_period(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_period(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_period", value)
 
 
 @pulumi.input_type
 class _SnapshotState:
     def __init__(__self__, *,
-                 accounts_with_provisioned_restore_accesses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 accounts_with_restore_accesses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 admin_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner_account: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_period: Optional[pulumi.Input[_builtins.int]] = None,
-                 snapshot_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 accounts_with_provisioned_restore_accesses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 accounts_with_restore_accesses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 admin_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_account: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 snapshot_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Snapshot resources.
 
@@ -141,134 +141,134 @@ class _SnapshotState:
 
     @_builtins.property
     @pulumi.getter(name="accountsWithProvisionedRestoreAccesses")
-    def accounts_with_provisioned_restore_accesses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def accounts_with_provisioned_restore_accesses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         All of the Amazon Web Services accounts that have access to restore a snapshot to a provisioned cluster.
         """
         return pulumi.get(self, "accounts_with_provisioned_restore_accesses")
 
     @accounts_with_provisioned_restore_accesses.setter
-    def accounts_with_provisioned_restore_accesses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def accounts_with_provisioned_restore_accesses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "accounts_with_provisioned_restore_accesses", value)
 
     @_builtins.property
     @pulumi.getter(name="accountsWithRestoreAccesses")
-    def accounts_with_restore_accesses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def accounts_with_restore_accesses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         All of the Amazon Web Services accounts that have access to restore a snapshot to a namespace.
         """
         return pulumi.get(self, "accounts_with_restore_accesses")
 
     @accounts_with_restore_accesses.setter
-    def accounts_with_restore_accesses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def accounts_with_restore_accesses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "accounts_with_restore_accesses", value)
 
     @_builtins.property
     @pulumi.getter(name="adminUsername")
-    def admin_username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def admin_username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The username of the database within a snapshot.
         """
         return pulumi.get(self, "admin_username")
 
     @admin_username.setter
-    def admin_username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def admin_username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "admin_username", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the snapshot.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique identifier of the KMS key used to encrypt the snapshot.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="namespaceArn")
-    def namespace_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def namespace_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
         """
         return pulumi.get(self, "namespace_arn")
 
     @namespace_arn.setter
-    def namespace_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def namespace_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "namespace_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="namespaceName")
-    def namespace_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def namespace_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The namespace to create a snapshot for.
         """
         return pulumi.get(self, "namespace_name")
 
     @namespace_name.setter
-    def namespace_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def namespace_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "namespace_name", value)
 
     @_builtins.property
     @pulumi.getter(name="ownerAccount")
-    def owner_account(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner_account(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The owner Amazon Web Services; account of the snapshot.
         """
         return pulumi.get(self, "owner_account")
 
     @owner_account.setter
-    def owner_account(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner_account(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner_account", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionPeriod")
-    def retention_period(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_period(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         How long to retain the created snapshot. Default value is `-1`.
         """
         return pulumi.get(self, "retention_period")
 
     @retention_period.setter
-    def retention_period(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_period(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_period", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotName")
-    def snapshot_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def snapshot_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the snapshot.
         """
         return pulumi.get(self, "snapshot_name")
 
     @snapshot_name.setter
-    def snapshot_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def snapshot_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "snapshot_name", value)
 
 
@@ -278,10 +278,10 @@ class Snapshot(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_period: Optional[pulumi.Input[_builtins.int]] = None,
-                 snapshot_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Creates a new Amazon Redshift Serverless Snapshot.
@@ -357,10 +357,10 @@ class Snapshot(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_period: Optional[pulumi.Input[_builtins.int]] = None,
-                 snapshot_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -395,17 +395,17 @@ class Snapshot(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            accounts_with_provisioned_restore_accesses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            accounts_with_restore_accesses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            admin_username: Optional[pulumi.Input[_builtins.str]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-            namespace_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-            owner_account: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            retention_period: Optional[pulumi.Input[_builtins.int]] = None,
-            snapshot_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'Snapshot':
+            accounts_with_provisioned_restore_accesses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            accounts_with_restore_accesses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            admin_username: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            namespace_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_account: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            retention_period: pulumi.Input[Optional[_builtins.int]] = None,
+            snapshot_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'Snapshot':
         """
         Get an existing Snapshot resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

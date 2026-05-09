@@ -21,7 +21,7 @@ class VpcEndpointRouteTableAssociationArgs:
     def __init__(__self__, *,
                  route_table_id: pulumi.Input[_builtins.str],
                  vpc_endpoint_id: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VpcEndpointRouteTableAssociation resource.
 
@@ -60,23 +60,23 @@ class VpcEndpointRouteTableAssociationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _VpcEndpointRouteTableAssociationState:
     def __init__(__self__, *,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_table_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VpcEndpointRouteTableAssociation resources.
 
@@ -93,38 +93,38 @@ class _VpcEndpointRouteTableAssociationState:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="routeTableId")
-    def route_table_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def route_table_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
         """
         return pulumi.get(self, "route_table_id")
 
     @route_table_id.setter
-    def route_table_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def route_table_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "route_table_id", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcEndpointId")
-    def vpc_endpoint_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_endpoint_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the VPC Endpoint with which the EC2 Route Table will be associated.
         """
         return pulumi.get(self, "vpc_endpoint_id")
 
     @vpc_endpoint_id.setter
-    def vpc_endpoint_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_endpoint_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_endpoint_id", value)
 
 
@@ -134,9 +134,9 @@ class VpcEndpointRouteTableAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_table_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a VPC Endpoint Route Table Association
@@ -211,9 +211,9 @@ class VpcEndpointRouteTableAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_table_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -240,9 +240,9 @@ class VpcEndpointRouteTableAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            route_table_id: Optional[pulumi.Input[_builtins.str]] = None,
-            vpc_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'VpcEndpointRouteTableAssociation':
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
+            vpc_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'VpcEndpointRouteTableAssociation':
         """
         Get an existing VpcEndpointRouteTableAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

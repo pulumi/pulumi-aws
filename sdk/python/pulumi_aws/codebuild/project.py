@@ -25,27 +25,27 @@ class ProjectArgs:
                  environment: pulumi.Input['ProjectEnvironmentArgs'],
                  service_role: pulumi.Input[_builtins.str],
                  source: pulumi.Input['ProjectSourceArgs'],
-                 auto_retry_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 badge_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 build_batch_config: Optional[pulumi.Input['ProjectBuildBatchConfigArgs']] = None,
-                 build_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 cache: Optional[pulumi.Input['ProjectCacheArgs']] = None,
-                 concurrent_build_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_system_locations: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectFileSystemLocationArgs']]]] = None,
-                 logs_config: Optional[pulumi.Input['ProjectLogsConfigArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_visibility: Optional[pulumi.Input[_builtins.str]] = None,
-                 queued_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_access_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondaryArtifactArgs']]]] = None,
-                 secondary_source_versions: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceVersionArgs']]]] = None,
-                 secondary_sources: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceArgs']]]] = None,
-                 source_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_config: Optional[pulumi.Input['ProjectVpcConfigArgs']] = None):
+                 auto_retry_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 badge_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 build_batch_config: pulumi.Input[Optional['ProjectBuildBatchConfigArgs']] = None,
+                 build_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 cache: pulumi.Input[Optional['ProjectCacheArgs']] = None,
+                 concurrent_build_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_system_locations: pulumi.Input[Optional[Sequence[pulumi.Input['ProjectFileSystemLocationArgs']]]] = None,
+                 logs_config: pulumi.Input[Optional['ProjectLogsConfigArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_visibility: pulumi.Input[Optional[_builtins.str]] = None,
+                 queued_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_access_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_artifacts: pulumi.Input[Optional[Sequence[pulumi.Input['ProjectSecondaryArtifactArgs']]]] = None,
+                 secondary_source_versions: pulumi.Input[Optional[Sequence[pulumi.Input['ProjectSecondarySourceVersionArgs']]]] = None,
+                 secondary_sources: pulumi.Input[Optional[Sequence[pulumi.Input['ProjectSecondarySourceArgs']]]] = None,
+                 source_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vpc_config: pulumi.Input[Optional['ProjectVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a Project resource.
 
@@ -192,7 +192,7 @@ class ProjectArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoRetryLimit")
-    def auto_retry_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def auto_retry_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specify a maximum number of additional automatic retries after a failed build.
         The default is 0.
@@ -200,12 +200,12 @@ class ProjectArgs:
         return pulumi.get(self, "auto_retry_limit")
 
     @auto_retry_limit.setter
-    def auto_retry_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def auto_retry_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "auto_retry_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="badgeEnabled")
-    def badge_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def badge_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Generates a publicly-accessible URL for the projects build badge. Available as
         `badge_url` attribute when enabled.
@@ -213,24 +213,24 @@ class ProjectArgs:
         return pulumi.get(self, "badge_enabled")
 
     @badge_enabled.setter
-    def badge_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def badge_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "badge_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="buildBatchConfig")
-    def build_batch_config(self) -> Optional[pulumi.Input['ProjectBuildBatchConfigArgs']]:
+    def build_batch_config(self) -> pulumi.Input[Optional['ProjectBuildBatchConfigArgs']]:
         """
         Defines the batch build options for the project.
         """
         return pulumi.get(self, "build_batch_config")
 
     @build_batch_config.setter
-    def build_batch_config(self, value: Optional[pulumi.Input['ProjectBuildBatchConfigArgs']]):
+    def build_batch_config(self, value: pulumi.Input[Optional['ProjectBuildBatchConfigArgs']]):
         pulumi.set(self, "build_batch_config", value)
 
     @_builtins.property
     @pulumi.getter(name="buildTimeout")
-    def build_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def build_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out
         any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is
@@ -239,24 +239,24 @@ class ProjectArgs:
         return pulumi.get(self, "build_timeout")
 
     @build_timeout.setter
-    def build_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def build_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "build_timeout", value)
 
     @_builtins.property
     @pulumi.getter
-    def cache(self) -> Optional[pulumi.Input['ProjectCacheArgs']]:
+    def cache(self) -> pulumi.Input[Optional['ProjectCacheArgs']]:
         """
         Configuration block. Detailed below.
         """
         return pulumi.get(self, "cache")
 
     @cache.setter
-    def cache(self, value: Optional[pulumi.Input['ProjectCacheArgs']]):
+    def cache(self, value: pulumi.Input[Optional['ProjectCacheArgs']]):
         pulumi.set(self, "cache", value)
 
     @_builtins.property
     @pulumi.getter(name="concurrentBuildLimit")
-    def concurrent_build_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def concurrent_build_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specify a maximum number of concurrent builds for the project. The value
         specified must be greater than 0 and less than the account concurrent running builds limit.
@@ -264,24 +264,24 @@ class ProjectArgs:
         return pulumi.get(self, "concurrent_build_limit")
 
     @concurrent_build_limit.setter
-    def concurrent_build_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def concurrent_build_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "concurrent_build_limit", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Short description of the project.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionKey")
-    def encryption_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encryption_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting
         the build project's build output artifacts.
@@ -289,12 +289,12 @@ class ProjectArgs:
         return pulumi.get(self, "encryption_key")
 
     @encryption_key.setter
-    def encryption_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encryption_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encryption_key", value)
 
     @_builtins.property
     @pulumi.getter(name="fileSystemLocations")
-    def file_system_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectFileSystemLocationArgs']]]]:
+    def file_system_locations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProjectFileSystemLocationArgs']]]]:
         """
         A set of file system locations to mount inside the build. File system locations
         are documented below.
@@ -302,36 +302,36 @@ class ProjectArgs:
         return pulumi.get(self, "file_system_locations")
 
     @file_system_locations.setter
-    def file_system_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectFileSystemLocationArgs']]]]):
+    def file_system_locations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProjectFileSystemLocationArgs']]]]):
         pulumi.set(self, "file_system_locations", value)
 
     @_builtins.property
     @pulumi.getter(name="logsConfig")
-    def logs_config(self) -> Optional[pulumi.Input['ProjectLogsConfigArgs']]:
+    def logs_config(self) -> pulumi.Input[Optional['ProjectLogsConfigArgs']]:
         """
         Configuration block. Detailed below.
         """
         return pulumi.get(self, "logs_config")
 
     @logs_config.setter
-    def logs_config(self, value: Optional[pulumi.Input['ProjectLogsConfigArgs']]):
+    def logs_config(self, value: pulumi.Input[Optional['ProjectLogsConfigArgs']]):
         pulumi.set(self, "logs_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Project's name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="projectVisibility")
-    def project_visibility(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_visibility(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ`
         and `PRIVATE`. Default value is `PRIVATE`.
@@ -339,12 +339,12 @@ class ProjectArgs:
         return pulumi.get(self, "project_visibility")
 
     @project_visibility.setter
-    def project_visibility(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_visibility(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_visibility", value)
 
     @_builtins.property
     @pulumi.getter(name="queuedTimeout")
-    def queued_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def queued_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it
         times out. The default is 8 hours. The `queued_timeout` property is not available on the `Lambda` compute type.
@@ -352,24 +352,24 @@ class ProjectArgs:
         return pulumi.get(self, "queued_timeout")
 
     @queued_timeout.setter
-    def queued_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def queued_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "queued_timeout", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceAccessRole")
-    def resource_access_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_access_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and
         Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if
@@ -378,48 +378,48 @@ class ProjectArgs:
         return pulumi.get(self, "resource_access_role")
 
     @resource_access_role.setter
-    def resource_access_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_access_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_access_role", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryArtifacts")
-    def secondary_artifacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondaryArtifactArgs']]]]:
+    def secondary_artifacts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProjectSecondaryArtifactArgs']]]]:
         """
         Configuration block. Detailed below.
         """
         return pulumi.get(self, "secondary_artifacts")
 
     @secondary_artifacts.setter
-    def secondary_artifacts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondaryArtifactArgs']]]]):
+    def secondary_artifacts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProjectSecondaryArtifactArgs']]]]):
         pulumi.set(self, "secondary_artifacts", value)
 
     @_builtins.property
     @pulumi.getter(name="secondarySourceVersions")
-    def secondary_source_versions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceVersionArgs']]]]:
+    def secondary_source_versions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProjectSecondarySourceVersionArgs']]]]:
         """
         Configuration block. Detailed below.
         """
         return pulumi.get(self, "secondary_source_versions")
 
     @secondary_source_versions.setter
-    def secondary_source_versions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceVersionArgs']]]]):
+    def secondary_source_versions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProjectSecondarySourceVersionArgs']]]]):
         pulumi.set(self, "secondary_source_versions", value)
 
     @_builtins.property
     @pulumi.getter(name="secondarySources")
-    def secondary_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceArgs']]]]:
+    def secondary_sources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProjectSecondarySourceArgs']]]]:
         """
         Configuration block. Detailed below.
         """
         return pulumi.get(self, "secondary_sources")
 
     @secondary_sources.setter
-    def secondary_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceArgs']]]]):
+    def secondary_sources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProjectSecondarySourceArgs']]]]):
         pulumi.set(self, "secondary_sources", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceVersion")
-    def source_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version of the build input to be built for this project. If not specified, the latest
         version is used.
@@ -427,12 +427,12 @@ class ProjectArgs:
         return pulumi.get(self, "source_version")
 
     @source_version.setter
-    def source_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider 
         `default_tags` configuration block
@@ -441,54 +441,54 @@ class ProjectArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcConfig")
-    def vpc_config(self) -> Optional[pulumi.Input['ProjectVpcConfigArgs']]:
+    def vpc_config(self) -> pulumi.Input[Optional['ProjectVpcConfigArgs']]:
         """
         Configuration block. Detailed below.
         """
         return pulumi.get(self, "vpc_config")
 
     @vpc_config.setter
-    def vpc_config(self, value: Optional[pulumi.Input['ProjectVpcConfigArgs']]):
+    def vpc_config(self, value: pulumi.Input[Optional['ProjectVpcConfigArgs']]):
         pulumi.set(self, "vpc_config", value)
 
 
 @pulumi.input_type
 class _ProjectState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 artifacts: Optional[pulumi.Input['ProjectArtifactsArgs']] = None,
-                 auto_retry_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 badge_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 badge_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 build_batch_config: Optional[pulumi.Input['ProjectBuildBatchConfigArgs']] = None,
-                 build_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 cache: Optional[pulumi.Input['ProjectCacheArgs']] = None,
-                 concurrent_build_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input['ProjectEnvironmentArgs']] = None,
-                 file_system_locations: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectFileSystemLocationArgs']]]] = None,
-                 logs_config: Optional[pulumi.Input['ProjectLogsConfigArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_visibility: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_project_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 queued_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_access_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondaryArtifactArgs']]]] = None,
-                 secondary_source_versions: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceVersionArgs']]]] = None,
-                 secondary_sources: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceArgs']]]] = None,
-                 service_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input['ProjectSourceArgs']] = None,
-                 source_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_config: Optional[pulumi.Input['ProjectVpcConfigArgs']] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 artifacts: pulumi.Input[Optional['ProjectArtifactsArgs']] = None,
+                 auto_retry_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 badge_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 badge_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 build_batch_config: pulumi.Input[Optional['ProjectBuildBatchConfigArgs']] = None,
+                 build_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 cache: pulumi.Input[Optional['ProjectCacheArgs']] = None,
+                 concurrent_build_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional['ProjectEnvironmentArgs']] = None,
+                 file_system_locations: pulumi.Input[Optional[Sequence[pulumi.Input['ProjectFileSystemLocationArgs']]]] = None,
+                 logs_config: pulumi.Input[Optional['ProjectLogsConfigArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_visibility: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_project_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 queued_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_access_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_artifacts: pulumi.Input[Optional[Sequence[pulumi.Input['ProjectSecondaryArtifactArgs']]]] = None,
+                 secondary_source_versions: pulumi.Input[Optional[Sequence[pulumi.Input['ProjectSecondarySourceVersionArgs']]]] = None,
+                 secondary_sources: pulumi.Input[Optional[Sequence[pulumi.Input['ProjectSecondarySourceArgs']]]] = None,
+                 service_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional['ProjectSourceArgs']] = None,
+                 source_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vpc_config: pulumi.Input[Optional['ProjectVpcConfigArgs']] = None):
         """
         Input properties used for looking up and filtering Project resources.
 
@@ -601,31 +601,31 @@ class _ProjectState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the CodeBuild project.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def artifacts(self) -> Optional[pulumi.Input['ProjectArtifactsArgs']]:
+    def artifacts(self) -> pulumi.Input[Optional['ProjectArtifactsArgs']]:
         """
         Configuration block. Detailed below.
         """
         return pulumi.get(self, "artifacts")
 
     @artifacts.setter
-    def artifacts(self, value: Optional[pulumi.Input['ProjectArtifactsArgs']]):
+    def artifacts(self, value: pulumi.Input[Optional['ProjectArtifactsArgs']]):
         pulumi.set(self, "artifacts", value)
 
     @_builtins.property
     @pulumi.getter(name="autoRetryLimit")
-    def auto_retry_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def auto_retry_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specify a maximum number of additional automatic retries after a failed build.
         The default is 0.
@@ -633,12 +633,12 @@ class _ProjectState:
         return pulumi.get(self, "auto_retry_limit")
 
     @auto_retry_limit.setter
-    def auto_retry_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def auto_retry_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "auto_retry_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="badgeEnabled")
-    def badge_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def badge_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Generates a publicly-accessible URL for the projects build badge. Available as
         `badge_url` attribute when enabled.
@@ -646,36 +646,36 @@ class _ProjectState:
         return pulumi.get(self, "badge_enabled")
 
     @badge_enabled.setter
-    def badge_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def badge_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "badge_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="badgeUrl")
-    def badge_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def badge_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URL of the build badge when `badge_enabled` is enabled.
         """
         return pulumi.get(self, "badge_url")
 
     @badge_url.setter
-    def badge_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def badge_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "badge_url", value)
 
     @_builtins.property
     @pulumi.getter(name="buildBatchConfig")
-    def build_batch_config(self) -> Optional[pulumi.Input['ProjectBuildBatchConfigArgs']]:
+    def build_batch_config(self) -> pulumi.Input[Optional['ProjectBuildBatchConfigArgs']]:
         """
         Defines the batch build options for the project.
         """
         return pulumi.get(self, "build_batch_config")
 
     @build_batch_config.setter
-    def build_batch_config(self, value: Optional[pulumi.Input['ProjectBuildBatchConfigArgs']]):
+    def build_batch_config(self, value: pulumi.Input[Optional['ProjectBuildBatchConfigArgs']]):
         pulumi.set(self, "build_batch_config", value)
 
     @_builtins.property
     @pulumi.getter(name="buildTimeout")
-    def build_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def build_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out
         any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is
@@ -684,24 +684,24 @@ class _ProjectState:
         return pulumi.get(self, "build_timeout")
 
     @build_timeout.setter
-    def build_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def build_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "build_timeout", value)
 
     @_builtins.property
     @pulumi.getter
-    def cache(self) -> Optional[pulumi.Input['ProjectCacheArgs']]:
+    def cache(self) -> pulumi.Input[Optional['ProjectCacheArgs']]:
         """
         Configuration block. Detailed below.
         """
         return pulumi.get(self, "cache")
 
     @cache.setter
-    def cache(self, value: Optional[pulumi.Input['ProjectCacheArgs']]):
+    def cache(self, value: pulumi.Input[Optional['ProjectCacheArgs']]):
         pulumi.set(self, "cache", value)
 
     @_builtins.property
     @pulumi.getter(name="concurrentBuildLimit")
-    def concurrent_build_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def concurrent_build_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specify a maximum number of concurrent builds for the project. The value
         specified must be greater than 0 and less than the account concurrent running builds limit.
@@ -709,24 +709,24 @@ class _ProjectState:
         return pulumi.get(self, "concurrent_build_limit")
 
     @concurrent_build_limit.setter
-    def concurrent_build_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def concurrent_build_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "concurrent_build_limit", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Short description of the project.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionKey")
-    def encryption_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encryption_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting
         the build project's build output artifacts.
@@ -734,24 +734,24 @@ class _ProjectState:
         return pulumi.get(self, "encryption_key")
 
     @encryption_key.setter
-    def encryption_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encryption_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encryption_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def environment(self) -> Optional[pulumi.Input['ProjectEnvironmentArgs']]:
+    def environment(self) -> pulumi.Input[Optional['ProjectEnvironmentArgs']]:
         """
         Configuration block. Detailed below.
         """
         return pulumi.get(self, "environment")
 
     @environment.setter
-    def environment(self, value: Optional[pulumi.Input['ProjectEnvironmentArgs']]):
+    def environment(self, value: pulumi.Input[Optional['ProjectEnvironmentArgs']]):
         pulumi.set(self, "environment", value)
 
     @_builtins.property
     @pulumi.getter(name="fileSystemLocations")
-    def file_system_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectFileSystemLocationArgs']]]]:
+    def file_system_locations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProjectFileSystemLocationArgs']]]]:
         """
         A set of file system locations to mount inside the build. File system locations
         are documented below.
@@ -759,36 +759,36 @@ class _ProjectState:
         return pulumi.get(self, "file_system_locations")
 
     @file_system_locations.setter
-    def file_system_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectFileSystemLocationArgs']]]]):
+    def file_system_locations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProjectFileSystemLocationArgs']]]]):
         pulumi.set(self, "file_system_locations", value)
 
     @_builtins.property
     @pulumi.getter(name="logsConfig")
-    def logs_config(self) -> Optional[pulumi.Input['ProjectLogsConfigArgs']]:
+    def logs_config(self) -> pulumi.Input[Optional['ProjectLogsConfigArgs']]:
         """
         Configuration block. Detailed below.
         """
         return pulumi.get(self, "logs_config")
 
     @logs_config.setter
-    def logs_config(self, value: Optional[pulumi.Input['ProjectLogsConfigArgs']]):
+    def logs_config(self, value: pulumi.Input[Optional['ProjectLogsConfigArgs']]):
         pulumi.set(self, "logs_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Project's name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="projectVisibility")
-    def project_visibility(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_visibility(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ`
         and `PRIVATE`. Default value is `PRIVATE`.
@@ -796,24 +796,24 @@ class _ProjectState:
         return pulumi.get(self, "project_visibility")
 
     @project_visibility.setter
-    def project_visibility(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_visibility(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_visibility", value)
 
     @_builtins.property
     @pulumi.getter(name="publicProjectAlias")
-    def public_project_alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_project_alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The project identifier used with the public build APIs.
         """
         return pulumi.get(self, "public_project_alias")
 
     @public_project_alias.setter
-    def public_project_alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_project_alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_project_alias", value)
 
     @_builtins.property
     @pulumi.getter(name="queuedTimeout")
-    def queued_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def queued_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it
         times out. The default is 8 hours. The `queued_timeout` property is not available on the `Lambda` compute type.
@@ -821,24 +821,24 @@ class _ProjectState:
         return pulumi.get(self, "queued_timeout")
 
     @queued_timeout.setter
-    def queued_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def queued_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "queued_timeout", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceAccessRole")
-    def resource_access_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_access_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and
         Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if
@@ -847,48 +847,48 @@ class _ProjectState:
         return pulumi.get(self, "resource_access_role")
 
     @resource_access_role.setter
-    def resource_access_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_access_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_access_role", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryArtifacts")
-    def secondary_artifacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondaryArtifactArgs']]]]:
+    def secondary_artifacts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProjectSecondaryArtifactArgs']]]]:
         """
         Configuration block. Detailed below.
         """
         return pulumi.get(self, "secondary_artifacts")
 
     @secondary_artifacts.setter
-    def secondary_artifacts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondaryArtifactArgs']]]]):
+    def secondary_artifacts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProjectSecondaryArtifactArgs']]]]):
         pulumi.set(self, "secondary_artifacts", value)
 
     @_builtins.property
     @pulumi.getter(name="secondarySourceVersions")
-    def secondary_source_versions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceVersionArgs']]]]:
+    def secondary_source_versions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProjectSecondarySourceVersionArgs']]]]:
         """
         Configuration block. Detailed below.
         """
         return pulumi.get(self, "secondary_source_versions")
 
     @secondary_source_versions.setter
-    def secondary_source_versions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceVersionArgs']]]]):
+    def secondary_source_versions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProjectSecondarySourceVersionArgs']]]]):
         pulumi.set(self, "secondary_source_versions", value)
 
     @_builtins.property
     @pulumi.getter(name="secondarySources")
-    def secondary_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceArgs']]]]:
+    def secondary_sources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProjectSecondarySourceArgs']]]]:
         """
         Configuration block. Detailed below.
         """
         return pulumi.get(self, "secondary_sources")
 
     @secondary_sources.setter
-    def secondary_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceArgs']]]]):
+    def secondary_sources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProjectSecondarySourceArgs']]]]):
         pulumi.set(self, "secondary_sources", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceRole")
-    def service_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
         enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
@@ -896,12 +896,12 @@ class _ProjectState:
         return pulumi.get(self, "service_role")
 
     @service_role.setter
-    def service_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_role", value)
 
     @_builtins.property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input['ProjectSourceArgs']]:
+    def source(self) -> pulumi.Input[Optional['ProjectSourceArgs']]:
         """
         Configuration block. Detailed below.
 
@@ -910,12 +910,12 @@ class _ProjectState:
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input['ProjectSourceArgs']]):
+    def source(self, value: pulumi.Input[Optional['ProjectSourceArgs']]):
         pulumi.set(self, "source", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceVersion")
-    def source_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version of the build input to be built for this project. If not specified, the latest
         version is used.
@@ -923,12 +923,12 @@ class _ProjectState:
         return pulumi.get(self, "source_version")
 
     @source_version.setter
-    def source_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider 
         `default_tags` configuration block
@@ -937,12 +937,12 @@ class _ProjectState:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider 
         `default_tags` configuration block.
@@ -950,19 +950,19 @@ class _ProjectState:
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcConfig")
-    def vpc_config(self) -> Optional[pulumi.Input['ProjectVpcConfigArgs']]:
+    def vpc_config(self) -> pulumi.Input[Optional['ProjectVpcConfigArgs']]:
         """
         Configuration block. Detailed below.
         """
         return pulumi.get(self, "vpc_config")
 
     @vpc_config.setter
-    def vpc_config(self, value: Optional[pulumi.Input['ProjectVpcConfigArgs']]):
+    def vpc_config(self, value: pulumi.Input[Optional['ProjectVpcConfigArgs']]):
         pulumi.set(self, "vpc_config", value)
 
 
@@ -972,31 +972,31 @@ class Project(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 artifacts: Optional[pulumi.Input[Union['ProjectArtifactsArgs', 'ProjectArtifactsArgsDict']]] = None,
-                 auto_retry_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 badge_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 build_batch_config: Optional[pulumi.Input[Union['ProjectBuildBatchConfigArgs', 'ProjectBuildBatchConfigArgsDict']]] = None,
-                 build_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 cache: Optional[pulumi.Input[Union['ProjectCacheArgs', 'ProjectCacheArgsDict']]] = None,
-                 concurrent_build_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input[Union['ProjectEnvironmentArgs', 'ProjectEnvironmentArgsDict']]] = None,
-                 file_system_locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectFileSystemLocationArgs', 'ProjectFileSystemLocationArgsDict']]]]] = None,
-                 logs_config: Optional[pulumi.Input[Union['ProjectLogsConfigArgs', 'ProjectLogsConfigArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_visibility: Optional[pulumi.Input[_builtins.str]] = None,
-                 queued_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_access_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectSecondaryArtifactArgs', 'ProjectSecondaryArtifactArgsDict']]]]] = None,
-                 secondary_source_versions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectSecondarySourceVersionArgs', 'ProjectSecondarySourceVersionArgsDict']]]]] = None,
-                 secondary_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectSecondarySourceArgs', 'ProjectSecondarySourceArgsDict']]]]] = None,
-                 service_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[Union['ProjectSourceArgs', 'ProjectSourceArgsDict']]] = None,
-                 source_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_config: Optional[pulumi.Input[Union['ProjectVpcConfigArgs', 'ProjectVpcConfigArgsDict']]] = None,
+                 artifacts: pulumi.Input[Optional[Union['ProjectArtifactsArgs', 'ProjectArtifactsArgsDict']]] = None,
+                 auto_retry_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 badge_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 build_batch_config: pulumi.Input[Optional[Union['ProjectBuildBatchConfigArgs', 'ProjectBuildBatchConfigArgsDict']]] = None,
+                 build_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 cache: pulumi.Input[Optional[Union['ProjectCacheArgs', 'ProjectCacheArgsDict']]] = None,
+                 concurrent_build_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional[Union['ProjectEnvironmentArgs', 'ProjectEnvironmentArgsDict']]] = None,
+                 file_system_locations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectFileSystemLocationArgs', 'ProjectFileSystemLocationArgsDict']]]]] = None,
+                 logs_config: pulumi.Input[Optional[Union['ProjectLogsConfigArgs', 'ProjectLogsConfigArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_visibility: pulumi.Input[Optional[_builtins.str]] = None,
+                 queued_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_access_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_artifacts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectSecondaryArtifactArgs', 'ProjectSecondaryArtifactArgsDict']]]]] = None,
+                 secondary_source_versions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectSecondarySourceVersionArgs', 'ProjectSecondarySourceVersionArgsDict']]]]] = None,
+                 secondary_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectSecondarySourceArgs', 'ProjectSecondarySourceArgsDict']]]]] = None,
+                 service_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[Union['ProjectSourceArgs', 'ProjectSourceArgsDict']]] = None,
+                 source_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vpc_config: pulumi.Input[Optional[Union['ProjectVpcConfigArgs', 'ProjectVpcConfigArgsDict']]] = None,
                  __props__=None):
         """
         Provides a CodeBuild Project resource. See also the
@@ -1532,31 +1532,31 @@ class Project(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 artifacts: Optional[pulumi.Input[Union['ProjectArtifactsArgs', 'ProjectArtifactsArgsDict']]] = None,
-                 auto_retry_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 badge_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 build_batch_config: Optional[pulumi.Input[Union['ProjectBuildBatchConfigArgs', 'ProjectBuildBatchConfigArgsDict']]] = None,
-                 build_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 cache: Optional[pulumi.Input[Union['ProjectCacheArgs', 'ProjectCacheArgsDict']]] = None,
-                 concurrent_build_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input[Union['ProjectEnvironmentArgs', 'ProjectEnvironmentArgsDict']]] = None,
-                 file_system_locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectFileSystemLocationArgs', 'ProjectFileSystemLocationArgsDict']]]]] = None,
-                 logs_config: Optional[pulumi.Input[Union['ProjectLogsConfigArgs', 'ProjectLogsConfigArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_visibility: Optional[pulumi.Input[_builtins.str]] = None,
-                 queued_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_access_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectSecondaryArtifactArgs', 'ProjectSecondaryArtifactArgsDict']]]]] = None,
-                 secondary_source_versions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectSecondarySourceVersionArgs', 'ProjectSecondarySourceVersionArgsDict']]]]] = None,
-                 secondary_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectSecondarySourceArgs', 'ProjectSecondarySourceArgsDict']]]]] = None,
-                 service_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[Union['ProjectSourceArgs', 'ProjectSourceArgsDict']]] = None,
-                 source_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_config: Optional[pulumi.Input[Union['ProjectVpcConfigArgs', 'ProjectVpcConfigArgsDict']]] = None,
+                 artifacts: pulumi.Input[Optional[Union['ProjectArtifactsArgs', 'ProjectArtifactsArgsDict']]] = None,
+                 auto_retry_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 badge_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 build_batch_config: pulumi.Input[Optional[Union['ProjectBuildBatchConfigArgs', 'ProjectBuildBatchConfigArgsDict']]] = None,
+                 build_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 cache: pulumi.Input[Optional[Union['ProjectCacheArgs', 'ProjectCacheArgsDict']]] = None,
+                 concurrent_build_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional[Union['ProjectEnvironmentArgs', 'ProjectEnvironmentArgsDict']]] = None,
+                 file_system_locations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectFileSystemLocationArgs', 'ProjectFileSystemLocationArgsDict']]]]] = None,
+                 logs_config: pulumi.Input[Optional[Union['ProjectLogsConfigArgs', 'ProjectLogsConfigArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_visibility: pulumi.Input[Optional[_builtins.str]] = None,
+                 queued_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_access_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_artifacts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectSecondaryArtifactArgs', 'ProjectSecondaryArtifactArgsDict']]]]] = None,
+                 secondary_source_versions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectSecondarySourceVersionArgs', 'ProjectSecondarySourceVersionArgsDict']]]]] = None,
+                 secondary_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectSecondarySourceArgs', 'ProjectSecondarySourceArgsDict']]]]] = None,
+                 service_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[Union['ProjectSourceArgs', 'ProjectSourceArgsDict']]] = None,
+                 source_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vpc_config: pulumi.Input[Optional[Union['ProjectVpcConfigArgs', 'ProjectVpcConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1613,35 +1613,35 @@ class Project(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            artifacts: Optional[pulumi.Input[Union['ProjectArtifactsArgs', 'ProjectArtifactsArgsDict']]] = None,
-            auto_retry_limit: Optional[pulumi.Input[_builtins.int]] = None,
-            badge_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            badge_url: Optional[pulumi.Input[_builtins.str]] = None,
-            build_batch_config: Optional[pulumi.Input[Union['ProjectBuildBatchConfigArgs', 'ProjectBuildBatchConfigArgsDict']]] = None,
-            build_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-            cache: Optional[pulumi.Input[Union['ProjectCacheArgs', 'ProjectCacheArgsDict']]] = None,
-            concurrent_build_limit: Optional[pulumi.Input[_builtins.int]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            encryption_key: Optional[pulumi.Input[_builtins.str]] = None,
-            environment: Optional[pulumi.Input[Union['ProjectEnvironmentArgs', 'ProjectEnvironmentArgsDict']]] = None,
-            file_system_locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectFileSystemLocationArgs', 'ProjectFileSystemLocationArgsDict']]]]] = None,
-            logs_config: Optional[pulumi.Input[Union['ProjectLogsConfigArgs', 'ProjectLogsConfigArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            project_visibility: Optional[pulumi.Input[_builtins.str]] = None,
-            public_project_alias: Optional[pulumi.Input[_builtins.str]] = None,
-            queued_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_access_role: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectSecondaryArtifactArgs', 'ProjectSecondaryArtifactArgsDict']]]]] = None,
-            secondary_source_versions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectSecondarySourceVersionArgs', 'ProjectSecondarySourceVersionArgsDict']]]]] = None,
-            secondary_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectSecondarySourceArgs', 'ProjectSecondarySourceArgsDict']]]]] = None,
-            service_role: Optional[pulumi.Input[_builtins.str]] = None,
-            source: Optional[pulumi.Input[Union['ProjectSourceArgs', 'ProjectSourceArgsDict']]] = None,
-            source_version: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            vpc_config: Optional[pulumi.Input[Union['ProjectVpcConfigArgs', 'ProjectVpcConfigArgsDict']]] = None) -> 'Project':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            artifacts: pulumi.Input[Optional[Union['ProjectArtifactsArgs', 'ProjectArtifactsArgsDict']]] = None,
+            auto_retry_limit: pulumi.Input[Optional[_builtins.int]] = None,
+            badge_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            badge_url: pulumi.Input[Optional[_builtins.str]] = None,
+            build_batch_config: pulumi.Input[Optional[Union['ProjectBuildBatchConfigArgs', 'ProjectBuildBatchConfigArgsDict']]] = None,
+            build_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            cache: pulumi.Input[Optional[Union['ProjectCacheArgs', 'ProjectCacheArgsDict']]] = None,
+            concurrent_build_limit: pulumi.Input[Optional[_builtins.int]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            encryption_key: pulumi.Input[Optional[_builtins.str]] = None,
+            environment: pulumi.Input[Optional[Union['ProjectEnvironmentArgs', 'ProjectEnvironmentArgsDict']]] = None,
+            file_system_locations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectFileSystemLocationArgs', 'ProjectFileSystemLocationArgsDict']]]]] = None,
+            logs_config: pulumi.Input[Optional[Union['ProjectLogsConfigArgs', 'ProjectLogsConfigArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            project_visibility: pulumi.Input[Optional[_builtins.str]] = None,
+            public_project_alias: pulumi.Input[Optional[_builtins.str]] = None,
+            queued_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_access_role: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_artifacts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectSecondaryArtifactArgs', 'ProjectSecondaryArtifactArgsDict']]]]] = None,
+            secondary_source_versions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectSecondarySourceVersionArgs', 'ProjectSecondarySourceVersionArgsDict']]]]] = None,
+            secondary_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectSecondarySourceArgs', 'ProjectSecondarySourceArgsDict']]]]] = None,
+            service_role: pulumi.Input[Optional[_builtins.str]] = None,
+            source: pulumi.Input[Optional[Union['ProjectSourceArgs', 'ProjectSourceArgsDict']]] = None,
+            source_version: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            vpc_config: pulumi.Input[Optional[Union['ProjectVpcConfigArgs', 'ProjectVpcConfigArgsDict']]] = None) -> 'Project':
         """
         Get an existing Project resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

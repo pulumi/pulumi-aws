@@ -30,19 +30,19 @@ __all__ = [
 ]
 
 class ClusterMasterUserSecretArgsDict(TypedDict):
-    kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    kms_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
     """
-    secret_arn: NotRequired[pulumi.Input[_builtins.str]]
-    secret_status: NotRequired[pulumi.Input[_builtins.str]]
+    secret_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    secret_status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class ClusterMasterUserSecretArgs:
     def __init__(__self__, *,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_status: Optional[pulumi.Input[_builtins.str]] = None):
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
         """
@@ -55,32 +55,32 @@ class ClusterMasterUserSecretArgs:
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="secretArn")
-    def secret_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secret_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "secret_arn")
 
     @secret_arn.setter
-    def secret_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secret_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secret_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="secretStatus")
-    def secret_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secret_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "secret_status")
 
     @secret_status.setter
-    def secret_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secret_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secret_status", value)
 
 
@@ -93,7 +93,7 @@ class ClusterParameterGroupParameterArgsDict(TypedDict):
     """
     The value of the DocumentDB parameter.
     """
-    apply_method: NotRequired[pulumi.Input[_builtins.str]]
+    apply_method: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
     """
@@ -103,7 +103,7 @@ class ClusterParameterGroupParameterArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str],
-                 apply_method: Optional[pulumi.Input[_builtins.str]] = None):
+                 apply_method: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the DocumentDB parameter.
         :param pulumi.Input[_builtins.str] value: The value of the DocumentDB parameter.
@@ -140,14 +140,14 @@ class ClusterParameterGroupParameterArgs:
 
     @_builtins.property
     @pulumi.getter(name="applyMethod")
-    def apply_method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def apply_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
         """
         return pulumi.get(self, "apply_method")
 
     @apply_method.setter
-    def apply_method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def apply_method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "apply_method", value)
 
 
@@ -156,15 +156,15 @@ class ClusterRestoreToPointInTimeArgsDict(TypedDict):
     """
     The identifier of the source DB cluster from which to restore. Must match the identifier of an existing DB cluster.
     """
-    restore_to_time: NotRequired[pulumi.Input[_builtins.str]]
+    restore_to_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `use_latest_restorable_time`.
     """
-    restore_type: NotRequired[pulumi.Input[_builtins.str]]
+    restore_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The type of restore to be performed. Valid values are `full-copy`, `copy-on-write`.
     """
-    use_latest_restorable_time: NotRequired[pulumi.Input[_builtins.bool]]
+    use_latest_restorable_time: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A boolean value that indicates whether the DB cluster is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restore_to_time`.
     """
@@ -173,9 +173,9 @@ class ClusterRestoreToPointInTimeArgsDict(TypedDict):
 class ClusterRestoreToPointInTimeArgs:
     def __init__(__self__, *,
                  source_cluster_identifier: pulumi.Input[_builtins.str],
-                 restore_to_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 restore_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_latest_restorable_time: Optional[pulumi.Input[_builtins.bool]] = None):
+                 restore_to_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 restore_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_latest_restorable_time: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] source_cluster_identifier: The identifier of the source DB cluster from which to restore. Must match the identifier of an existing DB cluster.
         :param pulumi.Input[_builtins.str] restore_to_time: The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `use_latest_restorable_time`.
@@ -204,38 +204,38 @@ class ClusterRestoreToPointInTimeArgs:
 
     @_builtins.property
     @pulumi.getter(name="restoreToTime")
-    def restore_to_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def restore_to_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `use_latest_restorable_time`.
         """
         return pulumi.get(self, "restore_to_time")
 
     @restore_to_time.setter
-    def restore_to_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def restore_to_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "restore_to_time", value)
 
     @_builtins.property
     @pulumi.getter(name="restoreType")
-    def restore_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def restore_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of restore to be performed. Valid values are `full-copy`, `copy-on-write`.
         """
         return pulumi.get(self, "restore_type")
 
     @restore_type.setter
-    def restore_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def restore_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "restore_type", value)
 
     @_builtins.property
     @pulumi.getter(name="useLatestRestorableTime")
-    def use_latest_restorable_time(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_latest_restorable_time(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean value that indicates whether the DB cluster is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restore_to_time`.
         """
         return pulumi.get(self, "use_latest_restorable_time")
 
     @use_latest_restorable_time.setter
-    def use_latest_restorable_time(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_latest_restorable_time(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_latest_restorable_time", value)
 
 
@@ -287,15 +287,15 @@ class ClusterServerlessV2ScalingConfigurationArgs:
 
 
 class ElasticClusterTimeoutsArgsDict(TypedDict):
-    create: NotRequired[pulumi.Input[_builtins.str]]
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
-    delete: NotRequired[pulumi.Input[_builtins.str]]
+    delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     """
-    update: NotRequired[pulumi.Input[_builtins.str]]
+    update: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
@@ -303,9 +303,9 @@ class ElasticClusterTimeoutsArgsDict(TypedDict):
 @pulumi.input_type
 class ElasticClusterTimeoutsArgs:
     def __init__(__self__, *,
-                 create: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete: Optional[pulumi.Input[_builtins.str]] = None,
-                 update: Optional[pulumi.Input[_builtins.str]] = None):
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete: pulumi.Input[Optional[_builtins.str]] = None,
+                 update: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
@@ -320,47 +320,47 @@ class ElasticClusterTimeoutsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "create")
 
     @create.setter
-    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create", value)
 
     @_builtins.property
     @pulumi.getter
-    def delete(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delete(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
         """
         return pulumi.get(self, "delete")
 
     @delete.setter
-    def delete(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delete", value)
 
     @_builtins.property
     @pulumi.getter
-    def update(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def update(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "update")
 
     @update.setter
-    def update(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def update(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "update", value)
 
 
 class GlobalClusterGlobalClusterMemberArgsDict(TypedDict):
-    db_cluster_arn: NotRequired[pulumi.Input[_builtins.str]]
+    db_cluster_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Amazon Resource Name (ARN) of member DB Cluster.
     """
-    is_writer: NotRequired[pulumi.Input[_builtins.bool]]
+    is_writer: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether the member is the primary DB Cluster.
     """
@@ -368,8 +368,8 @@ class GlobalClusterGlobalClusterMemberArgsDict(TypedDict):
 @pulumi.input_type
 class GlobalClusterGlobalClusterMemberArgs:
     def __init__(__self__, *,
-                 db_cluster_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_writer: Optional[pulumi.Input[_builtins.bool]] = None):
+                 db_cluster_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_writer: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] db_cluster_arn: Amazon Resource Name (ARN) of member DB Cluster.
         :param pulumi.Input[_builtins.bool] is_writer: Whether the member is the primary DB Cluster.
@@ -381,26 +381,26 @@ class GlobalClusterGlobalClusterMemberArgs:
 
     @_builtins.property
     @pulumi.getter(name="dbClusterArn")
-    def db_cluster_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def db_cluster_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) of member DB Cluster.
         """
         return pulumi.get(self, "db_cluster_arn")
 
     @db_cluster_arn.setter
-    def db_cluster_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def db_cluster_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "db_cluster_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="isWriter")
-    def is_writer(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_writer(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the member is the primary DB Cluster.
         """
         return pulumi.get(self, "is_writer")
 
     @is_writer.setter
-    def is_writer(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_writer(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_writer", value)
 
 

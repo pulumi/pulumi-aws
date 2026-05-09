@@ -115,15 +115,15 @@ export interface DataCatalogEncryptionSettingsState {
     /**
      * The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
      */
-    catalogId?: pulumi.Input<string>;
+    catalogId?: pulumi.Input<string | undefined>;
     /**
      * The security configuration to set. see Data Catalog Encryption Settings.
      */
-    dataCatalogEncryptionSettings?: pulumi.Input<inputs.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettings>;
+    dataCatalogEncryptionSettings?: pulumi.Input<inputs.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettings | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -133,7 +133,7 @@ export interface DataCatalogEncryptionSettingsArgs {
     /**
      * The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
      */
-    catalogId?: pulumi.Input<string>;
+    catalogId?: pulumi.Input<string | undefined>;
     /**
      * The security configuration to set. see Data Catalog Encryption Settings.
      */
@@ -141,5 +141,5 @@ export interface DataCatalogEncryptionSettingsArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

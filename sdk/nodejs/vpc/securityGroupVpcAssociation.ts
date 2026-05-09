@@ -132,20 +132,20 @@ export interface SecurityGroupVpcAssociationState {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ID of the security group.
      */
-    securityGroupId?: pulumi.Input<string>;
+    securityGroupId?: pulumi.Input<string | undefined>;
     /**
      * State of the VPC association. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SecurityGroupVpcAssociation.html) for possible values.
      */
-    state?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.vpc.SecurityGroupVpcAssociationTimeouts>;
+    state?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.vpc.SecurityGroupVpcAssociationTimeouts | undefined>;
     /**
      * The ID of the VPC to make the association with.
      */
-    vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -155,12 +155,12 @@ export interface SecurityGroupVpcAssociationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ID of the security group.
      */
     securityGroupId: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.vpc.SecurityGroupVpcAssociationTimeouts>;
+    timeouts?: pulumi.Input<inputs.vpc.SecurityGroupVpcAssociationTimeouts | undefined>;
     /**
      * The ID of the VPC to make the association with.
      */

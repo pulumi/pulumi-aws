@@ -319,81 +319,81 @@ export interface EipState {
     /**
      * IP address from an EC2 BYOIP pool. This option is only available for VPC EIPs.
      */
-    address?: pulumi.Input<string>;
+    address?: pulumi.Input<string | undefined>;
     /**
      * ID that AWS assigns to represent the allocation of the Elastic IP address for use with instances in a VPC.
      */
-    allocationId?: pulumi.Input<string>;
-    arn?: pulumi.Input<string>;
+    allocationId?: pulumi.Input<string | undefined>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * User-specified primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
      */
-    associateWithPrivateIp?: pulumi.Input<string>;
+    associateWithPrivateIp?: pulumi.Input<string | undefined>;
     /**
      * ID representing the association of the address with an instance in a VPC.
      */
-    associationId?: pulumi.Input<string>;
+    associationId?: pulumi.Input<string | undefined>;
     /**
      * Carrier IP address.
      */
-    carrierIp?: pulumi.Input<string>;
+    carrierIp?: pulumi.Input<string | undefined>;
     /**
      * Customer owned IP.
      */
-    customerOwnedIp?: pulumi.Input<string>;
+    customerOwnedIp?: pulumi.Input<string | undefined>;
     /**
      * ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing).
      */
-    customerOwnedIpv4Pool?: pulumi.Input<string>;
+    customerOwnedIpv4Pool?: pulumi.Input<string | undefined>;
     /**
      * Indicates if this EIP is for use in VPC (`vpc`).
      */
-    domain?: pulumi.Input<string>;
+    domain?: pulumi.Input<string | undefined>;
     /**
      * EC2 instance ID.
      */
-    instance?: pulumi.Input<string>;
+    instance?: pulumi.Input<string | undefined>;
     /**
      * The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
      */
-    ipamPoolId?: pulumi.Input<string>;
+    ipamPoolId?: pulumi.Input<string | undefined>;
     /**
      * Location from which the IP address is advertised. Use this parameter to limit the address to this location.
      */
-    networkBorderGroup?: pulumi.Input<string>;
+    networkBorderGroup?: pulumi.Input<string | undefined>;
     /**
      * Network interface ID to associate with.
      */
-    networkInterface?: pulumi.Input<string>;
+    networkInterface?: pulumi.Input<string | undefined>;
     /**
      * The Private DNS associated with the Elastic IP address (if in VPC).
      */
-    privateDns?: pulumi.Input<string>;
+    privateDns?: pulumi.Input<string | undefined>;
     /**
      * Contains the private IP address (if in VPC).
      */
-    privateIp?: pulumi.Input<string>;
+    privateIp?: pulumi.Input<string | undefined>;
     /**
      * The DNS pointer (PTR) record for the IP address.
      */
-    ptrRecord?: pulumi.Input<string>;
+    ptrRecord?: pulumi.Input<string | undefined>;
     /**
      * Public DNS associated with the Elastic IP address.
      */
-    publicDns?: pulumi.Input<string>;
+    publicDns?: pulumi.Input<string | undefined>;
     /**
      * Contains the public IP address.
      */
-    publicIp?: pulumi.Input<string>;
+    publicIp?: pulumi.Input<string | undefined>;
     /**
      * EC2 IPv4 address pool identifier or `amazon`.
      * This option is only available for VPC EIPs.
      */
-    publicIpv4Pool?: pulumi.Input<string>;
+    publicIpv4Pool?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
@@ -403,11 +403,11 @@ export interface EipState {
      *
      * > **NOTE:** Specifying both `publicIpv4Pool` and `address` won't cause an error, however, only `address` will be used if both options are defined as the API only requires one of the two.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -417,44 +417,44 @@ export interface EipArgs {
     /**
      * IP address from an EC2 BYOIP pool. This option is only available for VPC EIPs.
      */
-    address?: pulumi.Input<string>;
+    address?: pulumi.Input<string | undefined>;
     /**
      * User-specified primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
      */
-    associateWithPrivateIp?: pulumi.Input<string>;
+    associateWithPrivateIp?: pulumi.Input<string | undefined>;
     /**
      * ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing).
      */
-    customerOwnedIpv4Pool?: pulumi.Input<string>;
+    customerOwnedIpv4Pool?: pulumi.Input<string | undefined>;
     /**
      * Indicates if this EIP is for use in VPC (`vpc`).
      */
-    domain?: pulumi.Input<string>;
+    domain?: pulumi.Input<string | undefined>;
     /**
      * EC2 instance ID.
      */
-    instance?: pulumi.Input<string>;
+    instance?: pulumi.Input<string | undefined>;
     /**
      * The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
      */
-    ipamPoolId?: pulumi.Input<string>;
+    ipamPoolId?: pulumi.Input<string | undefined>;
     /**
      * Location from which the IP address is advertised. Use this parameter to limit the address to this location.
      */
-    networkBorderGroup?: pulumi.Input<string>;
+    networkBorderGroup?: pulumi.Input<string | undefined>;
     /**
      * Network interface ID to associate with.
      */
-    networkInterface?: pulumi.Input<string>;
+    networkInterface?: pulumi.Input<string | undefined>;
     /**
      * EC2 IPv4 address pool identifier or `amazon`.
      * This option is only available for VPC EIPs.
      */
-    publicIpv4Pool?: pulumi.Input<string>;
+    publicIpv4Pool?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
@@ -464,5 +464,5 @@ export interface EipArgs {
      *
      * > **NOTE:** Specifying both `publicIpv4Pool` and `address` won't cause an error, however, only `address` will be used if both options are defined as the API only requires one of the two.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

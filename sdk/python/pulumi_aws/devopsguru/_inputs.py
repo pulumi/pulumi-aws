@@ -96,11 +96,11 @@ class EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs:
 
 
 class NotificationChannelFiltersArgsDict(TypedDict):
-    message_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    message_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Events to receive notifications for. Valid values are `NEW_INSIGHT`, `CLOSED_INSIGHT`, `NEW_ASSOCIATION`, `SEVERITY_UPGRADED`, and `NEW_RECOMMENDATION`.
     """
-    severities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    severities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Severity levels to receive notifications for. Valid values are `LOW`, `MEDIUM`, and `HIGH`.
     """
@@ -108,8 +108,8 @@ class NotificationChannelFiltersArgsDict(TypedDict):
 @pulumi.input_type
 class NotificationChannelFiltersArgs:
     def __init__(__self__, *,
-                 message_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 severities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 message_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 severities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] message_types: Events to receive notifications for. Valid values are `NEW_INSIGHT`, `CLOSED_INSIGHT`, `NEW_ASSOCIATION`, `SEVERITY_UPGRADED`, and `NEW_RECOMMENDATION`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] severities: Severity levels to receive notifications for. Valid values are `LOW`, `MEDIUM`, and `HIGH`.
@@ -121,26 +121,26 @@ class NotificationChannelFiltersArgs:
 
     @_builtins.property
     @pulumi.getter(name="messageTypes")
-    def message_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def message_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Events to receive notifications for. Valid values are `NEW_INSIGHT`, `CLOSED_INSIGHT`, `NEW_ASSOCIATION`, `SEVERITY_UPGRADED`, and `NEW_RECOMMENDATION`.
         """
         return pulumi.get(self, "message_types")
 
     @message_types.setter
-    def message_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def message_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "message_types", value)
 
     @_builtins.property
     @pulumi.getter
-    def severities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def severities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Severity levels to receive notifications for. Valid values are `LOW`, `MEDIUM`, and `HIGH`.
         """
         return pulumi.get(self, "severities")
 
     @severities.setter
-    def severities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def severities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "severities", value)
 
 
@@ -248,15 +248,15 @@ class ResourceCollectionTagsArgs:
 
 
 class ServiceIntegrationKmsServerSideEncryptionArgsDict(TypedDict):
-    kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    kms_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     KMS key ID. This value can be a key ID, key ARN, alias name, or alias ARN.
     """
-    opt_in_status: NotRequired[pulumi.Input[_builtins.str]]
+    opt_in_status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies whether KMS integration is enabled. Valid values are `DISABLED` and `ENABLED`.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Type of KMS key used. Valid values are `CUSTOMER_MANAGED_KEY` and `AWS_OWNED_KMS_KEY`.
     """
@@ -264,9 +264,9 @@ class ServiceIntegrationKmsServerSideEncryptionArgsDict(TypedDict):
 @pulumi.input_type
 class ServiceIntegrationKmsServerSideEncryptionArgs:
     def __init__(__self__, *,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 opt_in_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 opt_in_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] kms_key_id: KMS key ID. This value can be a key ID, key ARN, alias name, or alias ARN.
         :param pulumi.Input[_builtins.str] opt_in_status: Specifies whether KMS integration is enabled. Valid values are `DISABLED` and `ENABLED`.
@@ -281,43 +281,43 @@ class ServiceIntegrationKmsServerSideEncryptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         KMS key ID. This value can be a key ID, key ARN, alias name, or alias ARN.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="optInStatus")
-    def opt_in_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def opt_in_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether KMS integration is enabled. Valid values are `DISABLED` and `ENABLED`.
         """
         return pulumi.get(self, "opt_in_status")
 
     @opt_in_status.setter
-    def opt_in_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def opt_in_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "opt_in_status", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of KMS key used. Valid values are `CUSTOMER_MANAGED_KEY` and `AWS_OWNED_KMS_KEY`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
 class ServiceIntegrationLogsAnomalyDetectionArgsDict(TypedDict):
-    opt_in_status: NotRequired[pulumi.Input[_builtins.str]]
+    opt_in_status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies if DevOps Guru is configured to perform log anomaly detection on CloudWatch log groups. Valid values are `DISABLED` and `ENABLED`.
     """
@@ -325,7 +325,7 @@ class ServiceIntegrationLogsAnomalyDetectionArgsDict(TypedDict):
 @pulumi.input_type
 class ServiceIntegrationLogsAnomalyDetectionArgs:
     def __init__(__self__, *,
-                 opt_in_status: Optional[pulumi.Input[_builtins.str]] = None):
+                 opt_in_status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] opt_in_status: Specifies if DevOps Guru is configured to perform log anomaly detection on CloudWatch log groups. Valid values are `DISABLED` and `ENABLED`.
         """
@@ -334,19 +334,19 @@ class ServiceIntegrationLogsAnomalyDetectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="optInStatus")
-    def opt_in_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def opt_in_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies if DevOps Guru is configured to perform log anomaly detection on CloudWatch log groups. Valid values are `DISABLED` and `ENABLED`.
         """
         return pulumi.get(self, "opt_in_status")
 
     @opt_in_status.setter
-    def opt_in_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def opt_in_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "opt_in_status", value)
 
 
 class ServiceIntegrationOpsCenterArgsDict(TypedDict):
-    opt_in_status: NotRequired[pulumi.Input[_builtins.str]]
+    opt_in_status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies if DevOps Guru is enabled to create an AWS Systems Manager OpsItem for each created insight. Valid values are `DISABLED` and `ENABLED`.
     """
@@ -354,7 +354,7 @@ class ServiceIntegrationOpsCenterArgsDict(TypedDict):
 @pulumi.input_type
 class ServiceIntegrationOpsCenterArgs:
     def __init__(__self__, *,
-                 opt_in_status: Optional[pulumi.Input[_builtins.str]] = None):
+                 opt_in_status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] opt_in_status: Specifies if DevOps Guru is enabled to create an AWS Systems Manager OpsItem for each created insight. Valid values are `DISABLED` and `ENABLED`.
         """
@@ -363,14 +363,14 @@ class ServiceIntegrationOpsCenterArgs:
 
     @_builtins.property
     @pulumi.getter(name="optInStatus")
-    def opt_in_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def opt_in_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies if DevOps Guru is enabled to create an AWS Systems Manager OpsItem for each created insight. Valid values are `DISABLED` and `ENABLED`.
         """
         return pulumi.get(self, "opt_in_status")
 
     @opt_in_status.setter
-    def opt_in_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def opt_in_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "opt_in_status", value)
 
 

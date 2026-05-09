@@ -308,8 +308,8 @@ def get_launch_configuration(name: Optional[_builtins.str] = None,
         security_groups=pulumi.get(__ret__, 'security_groups'),
         spot_price=pulumi.get(__ret__, 'spot_price'),
         user_data=pulumi.get(__ret__, 'user_data'))
-def get_launch_configuration_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_launch_configuration_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLaunchConfigurationResult]:
     """
     Provides information about a Launch Configuration.

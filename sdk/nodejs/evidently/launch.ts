@@ -446,71 +446,71 @@ export interface LaunchState {
     /**
      * The ARN of the launch.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The date and time that the launch is created.
      */
-    createdTime?: pulumi.Input<string>;
+    createdTime?: pulumi.Input<string | undefined>;
     /**
      * Specifies the description of the launch.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A block that contains information about the start and end times of the launch. Detailed below
      */
-    executions?: pulumi.Input<pulumi.Input<inputs.evidently.LaunchExecution>[]>;
+    executions?: pulumi.Input<pulumi.Input<inputs.evidently.LaunchExecution>[] | undefined>;
     /**
      * One or up to five blocks that contain the feature and variations that are to be used for the launch. Detailed below.
      */
-    groups?: pulumi.Input<pulumi.Input<inputs.evidently.LaunchGroup>[]>;
+    groups?: pulumi.Input<pulumi.Input<inputs.evidently.LaunchGroup>[] | undefined>;
     /**
      * The date and time that the launch was most recently updated.
      */
-    lastUpdatedTime?: pulumi.Input<string>;
+    lastUpdatedTime?: pulumi.Input<string | undefined>;
     /**
      * One or up to three blocks that define the metrics that will be used to monitor the launch performance. Detailed below.
      */
-    metricMonitors?: pulumi.Input<pulumi.Input<inputs.evidently.LaunchMetricMonitor>[]>;
+    metricMonitors?: pulumi.Input<pulumi.Input<inputs.evidently.LaunchMetricMonitor>[] | undefined>;
     /**
      * The name for the new launch. Minimum length of `1`. Maximum length of `127`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name or ARN of the project that is to contain the new launch.
      */
-    project?: pulumi.Input<string>;
+    project?: pulumi.Input<string | undefined>;
     /**
      * When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and randomizationSalt. If you omit randomizationSalt, Evidently uses the launch name as the randomizationSalt.
      */
-    randomizationSalt?: pulumi.Input<string>;
+    randomizationSalt?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
      */
-    scheduledSplitsConfig?: pulumi.Input<inputs.evidently.LaunchScheduledSplitsConfig>;
+    scheduledSplitsConfig?: pulumi.Input<inputs.evidently.LaunchScheduledSplitsConfig | undefined>;
     /**
      * The current state of the launch. Valid values are `CREATED`, `UPDATING`, `RUNNING`, `COMPLETED`, and `CANCELLED`.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * If the launch was stopped, this is the string that was entered by the person who stopped the launch, to explain why it was stopped.
      */
-    statusReason?: pulumi.Input<string>;
+    statusReason?: pulumi.Input<string | undefined>;
     /**
      * Tags to apply to the launch. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The type of launch.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -520,7 +520,7 @@ export interface LaunchArgs {
     /**
      * Specifies the description of the launch.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * One or up to five blocks that contain the feature and variations that are to be used for the launch. Detailed below.
      */
@@ -528,11 +528,11 @@ export interface LaunchArgs {
     /**
      * One or up to three blocks that define the metrics that will be used to monitor the launch performance. Detailed below.
      */
-    metricMonitors?: pulumi.Input<pulumi.Input<inputs.evidently.LaunchMetricMonitor>[]>;
+    metricMonitors?: pulumi.Input<pulumi.Input<inputs.evidently.LaunchMetricMonitor>[] | undefined>;
     /**
      * The name for the new launch. Minimum length of `1`. Maximum length of `127`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name or ARN of the project that is to contain the new launch.
      */
@@ -540,17 +540,17 @@ export interface LaunchArgs {
     /**
      * When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and randomizationSalt. If you omit randomizationSalt, Evidently uses the launch name as the randomizationSalt.
      */
-    randomizationSalt?: pulumi.Input<string>;
+    randomizationSalt?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
      */
-    scheduledSplitsConfig?: pulumi.Input<inputs.evidently.LaunchScheduledSplitsConfig>;
+    scheduledSplitsConfig?: pulumi.Input<inputs.evidently.LaunchScheduledSplitsConfig | undefined>;
     /**
      * Tags to apply to the launch. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

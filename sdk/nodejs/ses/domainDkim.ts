@@ -125,15 +125,15 @@ export interface DomainDkimState {
      * Find out more about verifying domains in Amazon SES
      * in the [AWS SES docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html).
      */
-    dkimTokens?: pulumi.Input<pulumi.Input<string>[]>;
+    dkimTokens?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Verified domain name to generate DKIM tokens for.
      */
-    domain?: pulumi.Input<string>;
+    domain?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -147,5 +147,5 @@ export interface DomainDkimArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

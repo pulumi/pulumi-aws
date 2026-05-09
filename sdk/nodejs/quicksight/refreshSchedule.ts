@@ -188,29 +188,29 @@ export interface RefreshScheduleState {
     /**
      * Amazon Resource Name (ARN) of the refresh schedule.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
      */
-    awsAccountId?: pulumi.Input<string>;
+    awsAccountId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the dataset.
      */
-    dataSetId?: pulumi.Input<string>;
+    dataSetId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
      *
      * The following arguments are optional:
      */
-    schedule?: pulumi.Input<inputs.quicksight.RefreshScheduleSchedule>;
+    schedule?: pulumi.Input<inputs.quicksight.RefreshScheduleSchedule | undefined>;
     /**
      * The ID of the refresh schedule.
      */
-    scheduleId?: pulumi.Input<string>;
+    scheduleId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -220,7 +220,7 @@ export interface RefreshScheduleArgs {
     /**
      * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
      */
-    awsAccountId?: pulumi.Input<string>;
+    awsAccountId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the dataset.
      */
@@ -228,7 +228,7 @@ export interface RefreshScheduleArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
      *

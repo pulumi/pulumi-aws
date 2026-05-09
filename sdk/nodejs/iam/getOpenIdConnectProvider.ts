@@ -122,13 +122,13 @@ export interface GetOpenIdConnectProviderOutputArgs {
     /**
      * ARN of the OpenID Connect provider.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Map of resource tags for the IAM OIDC provider.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * URL of the OpenID Connect provider.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
 }

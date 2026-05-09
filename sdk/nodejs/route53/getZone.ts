@@ -216,15 +216,15 @@ export interface GetZoneOutputArgs {
     /**
      * Boolean to indicate whether to enable accelerated recovery for the hosted zone.
      */
-    enableAcceleratedRecovery?: pulumi.Input<boolean>;
+    enableAcceleratedRecovery?: pulumi.Input<boolean | undefined>;
     /**
      * Hosted Zone name of the desired Hosted Zone. If blank, then accept any name, filtering on only `privateZone`, `vpcId` and `tags`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Filter to only private Hosted Zones.
      */
-    privateZone?: pulumi.Input<boolean>;
+    privateZone?: pulumi.Input<boolean | undefined>;
     /**
      * A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
      *
@@ -232,14 +232,14 @@ export interface GetZoneOutputArgs {
      *
      * - The given filter must match exactly one Hosted Zone.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Filter to private Hosted Zones associated with the specified `vpcId`.
      */
-    vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string | undefined>;
     /**
      * and `name` are mutually exclusive.
      * - If you use the `name` argument for a private Hosted Zone, you need to set the `privateZone` argument to `true`.
      */
-    zoneId?: pulumi.Input<string>;
+    zoneId?: pulumi.Input<string | undefined>;
 }

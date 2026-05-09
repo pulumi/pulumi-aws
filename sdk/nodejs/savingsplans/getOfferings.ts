@@ -164,45 +164,45 @@ export interface GetOfferingsOutputArgs {
     /**
      * List of currencies.
      */
-    currencies?: pulumi.Input<pulumi.Input<string>[]>;
+    currencies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of descriptions.
      */
-    descriptions?: pulumi.Input<pulumi.Input<string>[]>;
+    descriptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of durations, in seconds.
      */
-    durations?: pulumi.Input<pulumi.Input<number>[]>;
+    durations?: pulumi.Input<pulumi.Input<number>[] | undefined>;
     /**
      * List of filters. See Filter.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.savingsplans.GetOfferingsFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.savingsplans.GetOfferingsFilterArgs>[] | undefined>;
     /**
      * List of offering IDs.
      */
-    offeringIds?: pulumi.Input<pulumi.Input<string>[]>;
+    offeringIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of operations.
      */
-    operations?: pulumi.Input<pulumi.Input<string>[]>;
+    operations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of payment options.
      */
-    paymentOptions?: pulumi.Input<pulumi.Input<string>[]>;
+    paymentOptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of plan types.
      */
-    planTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    planTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Product type.
      */
-    productType?: pulumi.Input<string>;
+    productType?: pulumi.Input<string | undefined>;
     /**
      * List of service codes.
      */
-    serviceCodes?: pulumi.Input<pulumi.Input<string>[]>;
+    serviceCodes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of usage types.
      */
-    usageTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    usageTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

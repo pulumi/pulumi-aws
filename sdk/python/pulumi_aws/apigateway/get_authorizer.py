@@ -227,9 +227,9 @@ def get_authorizer(authorizer_id: Optional[_builtins.str] = None,
         region=pulumi.get(__ret__, 'region'),
         rest_api_id=pulumi.get(__ret__, 'rest_api_id'),
         type=pulumi.get(__ret__, 'type'))
-def get_authorizer_output(authorizer_id: Optional[pulumi.Input[_builtins.str]] = None,
-                          region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                          rest_api_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_authorizer_output(authorizer_id: pulumi.Input[Optional[_builtins.str]] = None,
+                          region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          rest_api_id: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthorizerResult]:
     """
     Provides details about a specific API Gateway Authorizer.

@@ -137,27 +137,27 @@ export interface ModelState {
     /**
      * Content type of the model
      */
-    contentType?: pulumi.Input<string>;
+    contentType?: pulumi.Input<string | undefined>;
     /**
      * Description of the model
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of the model
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ID of the associated REST API
      */
-    restApi?: pulumi.Input<string | RestApi>;
+    restApi?: pulumi.Input<string | RestApi | undefined>;
     /**
      * Schema of the model in a JSON form
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -171,15 +171,15 @@ export interface ModelArgs {
     /**
      * Description of the model
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of the model
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ID of the associated REST API
      */
@@ -187,5 +187,5 @@ export interface ModelArgs {
     /**
      * Schema of the model in a JSON form
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
 }

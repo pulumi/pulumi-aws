@@ -121,23 +121,23 @@ export interface ApplicationSnapshotState {
     /**
      * The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
      */
-    applicationName?: pulumi.Input<string>;
+    applicationName?: pulumi.Input<string | undefined>;
     /**
      * The current application version ID when the snapshot was created.
      */
-    applicationVersionId?: pulumi.Input<number>;
+    applicationVersionId?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The timestamp of the application snapshot.
      */
-    snapshotCreationTimestamp?: pulumi.Input<string>;
+    snapshotCreationTimestamp?: pulumi.Input<string | undefined>;
     /**
      * The name of the application snapshot.
      */
-    snapshotName?: pulumi.Input<string>;
+    snapshotName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -151,7 +151,7 @@ export interface ApplicationSnapshotArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The name of the application snapshot.
      */

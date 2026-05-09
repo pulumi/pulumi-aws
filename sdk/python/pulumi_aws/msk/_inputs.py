@@ -106,15 +106,15 @@ class ClusterBrokerNodeGroupInfoArgsDict(TypedDict):
     """
     A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
     """
-    az_distribution: NotRequired[pulumi.Input[_builtins.str]]
+    az_distribution: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently, the only valid value is `DEFAULT`.
     """
-    connectivity_info: NotRequired[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoArgsDict']]
+    connectivity_info: NotRequired[pulumi.Input[Optional['ClusterBrokerNodeGroupInfoConnectivityInfoArgs']]]
     """
     Information about the cluster access configuration. See broker_node_group_info connectivity_info Argument Reference below. For security reasons, you can't turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
     """
-    storage_info: NotRequired[pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoArgsDict']]
+    storage_info: NotRequired[pulumi.Input[Optional['ClusterBrokerNodeGroupInfoStorageInfoArgs']]]
     """
     A block that contains information about storage volumes attached to MSK broker nodes. See broker_node_group_info storage_info Argument Reference below. This block must not be specified when an Express instance type is specified for `instance_type`.
     """
@@ -125,9 +125,9 @@ class ClusterBrokerNodeGroupInfoArgs:
                  client_subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  instance_type: pulumi.Input[_builtins.str],
                  security_groups: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 az_distribution: Optional[pulumi.Input[_builtins.str]] = None,
-                 connectivity_info: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoArgs']] = None,
-                 storage_info: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoArgs']] = None):
+                 az_distribution: pulumi.Input[Optional[_builtins.str]] = None,
+                 connectivity_info: pulumi.Input[Optional['ClusterBrokerNodeGroupInfoConnectivityInfoArgs']] = None,
+                 storage_info: pulumi.Input[Optional['ClusterBrokerNodeGroupInfoStorageInfoArgs']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] client_subnets: A list of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets)).
         :param pulumi.Input[_builtins.str] instance_type: Specify the instance type to use for the kafka brokersE.g., kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
@@ -184,51 +184,51 @@ class ClusterBrokerNodeGroupInfoArgs:
 
     @_builtins.property
     @pulumi.getter(name="azDistribution")
-    def az_distribution(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def az_distribution(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently, the only valid value is `DEFAULT`.
         """
         return pulumi.get(self, "az_distribution")
 
     @az_distribution.setter
-    def az_distribution(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def az_distribution(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "az_distribution", value)
 
     @_builtins.property
     @pulumi.getter(name="connectivityInfo")
-    def connectivity_info(self) -> Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoArgs']]:
+    def connectivity_info(self) -> pulumi.Input[Optional['ClusterBrokerNodeGroupInfoConnectivityInfoArgs']]:
         """
         Information about the cluster access configuration. See broker_node_group_info connectivity_info Argument Reference below. For security reasons, you can't turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
         """
         return pulumi.get(self, "connectivity_info")
 
     @connectivity_info.setter
-    def connectivity_info(self, value: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoArgs']]):
+    def connectivity_info(self, value: pulumi.Input[Optional['ClusterBrokerNodeGroupInfoConnectivityInfoArgs']]):
         pulumi.set(self, "connectivity_info", value)
 
     @_builtins.property
     @pulumi.getter(name="storageInfo")
-    def storage_info(self) -> Optional[pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoArgs']]:
+    def storage_info(self) -> pulumi.Input[Optional['ClusterBrokerNodeGroupInfoStorageInfoArgs']]:
         """
         A block that contains information about storage volumes attached to MSK broker nodes. See broker_node_group_info storage_info Argument Reference below. This block must not be specified when an Express instance type is specified for `instance_type`.
         """
         return pulumi.get(self, "storage_info")
 
     @storage_info.setter
-    def storage_info(self, value: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoArgs']]):
+    def storage_info(self, value: pulumi.Input[Optional['ClusterBrokerNodeGroupInfoStorageInfoArgs']]):
         pulumi.set(self, "storage_info", value)
 
 
 class ClusterBrokerNodeGroupInfoConnectivityInfoArgsDict(TypedDict):
-    network_type: NotRequired[pulumi.Input[_builtins.str]]
+    network_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Network type of the cluster. Valid values are: `IPV4` or `DUAL`. Default value: `IPV4`. Only updating from `IPV4` to `DUAL` is allowed.
     """
-    public_access: NotRequired[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgsDict']]
+    public_access: NotRequired[pulumi.Input[Optional['ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs']]]
     """
     Access control settings for brokers. See connectivity_info public_access Argument Reference below.
     """
-    vpc_connectivity: NotRequired[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgsDict']]
+    vpc_connectivity: NotRequired[pulumi.Input[Optional['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs']]]
     """
     VPC connectivity access control for brokers. See connectivity_info vpc_connectivity Argument Reference below.
     """
@@ -236,9 +236,9 @@ class ClusterBrokerNodeGroupInfoConnectivityInfoArgsDict(TypedDict):
 @pulumi.input_type
 class ClusterBrokerNodeGroupInfoConnectivityInfoArgs:
     def __init__(__self__, *,
-                 network_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_access: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs']] = None,
-                 vpc_connectivity: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs']] = None):
+                 network_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_access: pulumi.Input[Optional['ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs']] = None,
+                 vpc_connectivity: pulumi.Input[Optional['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] network_type: Network type of the cluster. Valid values are: `IPV4` or `DUAL`. Default value: `IPV4`. Only updating from `IPV4` to `DUAL` is allowed.
         :param pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs'] public_access: Access control settings for brokers. See connectivity_info public_access Argument Reference below.
@@ -253,43 +253,43 @@ class ClusterBrokerNodeGroupInfoConnectivityInfoArgs:
 
     @_builtins.property
     @pulumi.getter(name="networkType")
-    def network_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Network type of the cluster. Valid values are: `IPV4` or `DUAL`. Default value: `IPV4`. Only updating from `IPV4` to `DUAL` is allowed.
         """
         return pulumi.get(self, "network_type")
 
     @network_type.setter
-    def network_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_type", value)
 
     @_builtins.property
     @pulumi.getter(name="publicAccess")
-    def public_access(self) -> Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs']]:
+    def public_access(self) -> pulumi.Input[Optional['ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs']]:
         """
         Access control settings for brokers. See connectivity_info public_access Argument Reference below.
         """
         return pulumi.get(self, "public_access")
 
     @public_access.setter
-    def public_access(self, value: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs']]):
+    def public_access(self, value: pulumi.Input[Optional['ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs']]):
         pulumi.set(self, "public_access", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcConnectivity")
-    def vpc_connectivity(self) -> Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs']]:
+    def vpc_connectivity(self) -> pulumi.Input[Optional['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs']]:
         """
         VPC connectivity access control for brokers. See connectivity_info vpc_connectivity Argument Reference below.
         """
         return pulumi.get(self, "vpc_connectivity")
 
     @vpc_connectivity.setter
-    def vpc_connectivity(self, value: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs']]):
+    def vpc_connectivity(self, value: pulumi.Input[Optional['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs']]):
         pulumi.set(self, "vpc_connectivity", value)
 
 
 class ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgsDict(TypedDict):
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Public access type. Valid values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
     """
@@ -297,7 +297,7 @@ class ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgsDict(TypedDict):
 @pulumi.input_type
 class ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Public access type. Valid values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
         """
@@ -306,19 +306,19 @@ class ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Public access type. Valid values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
 class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgsDict(TypedDict):
-    client_authentication: NotRequired[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgsDict']]
+    client_authentication: NotRequired[pulumi.Input[Optional['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs']]]
     """
     Configuration block for specifying a client authentication. See client_authentication Argument Reference below.
     """
@@ -326,7 +326,7 @@ class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgsDict(TypedDic
 @pulumi.input_type
 class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs:
     def __init__(__self__, *,
-                 client_authentication: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs']] = None):
+                 client_authentication: pulumi.Input[Optional['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs']] = None):
         """
         :param pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs'] client_authentication: Configuration block for specifying a client authentication. See client_authentication Argument Reference below.
         """
@@ -335,23 +335,23 @@ class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientAuthentication")
-    def client_authentication(self) -> Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs']]:
+    def client_authentication(self) -> pulumi.Input[Optional['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs']]:
         """
         Configuration block for specifying a client authentication. See client_authentication Argument Reference below.
         """
         return pulumi.get(self, "client_authentication")
 
     @client_authentication.setter
-    def client_authentication(self, value: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs']]):
+    def client_authentication(self, value: pulumi.Input[Optional['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs']]):
         pulumi.set(self, "client_authentication", value)
 
 
 class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgsDict(TypedDict):
-    sasl: NotRequired[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgsDict']]
+    sasl: NotRequired[pulumi.Input[Optional['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs']]]
     """
     Configuration block for specifying SASL client authentication. See client_authentication sasl Argument Reference below.
     """
-    tls: NotRequired[pulumi.Input[_builtins.bool]]
+    tls: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Configuration block for specifying TLS client authentication. See client_authentication tls Argument Reference below.
     """
@@ -359,8 +359,8 @@ class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticat
 @pulumi.input_type
 class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs:
     def __init__(__self__, *,
-                 sasl: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs']] = None,
-                 tls: Optional[pulumi.Input[_builtins.bool]] = None):
+                 sasl: pulumi.Input[Optional['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs']] = None,
+                 tls: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs'] sasl: Configuration block for specifying SASL client authentication. See client_authentication sasl Argument Reference below.
         :param pulumi.Input[_builtins.bool] tls: Configuration block for specifying TLS client authentication. See client_authentication tls Argument Reference below.
@@ -372,38 +372,38 @@ class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticat
 
     @_builtins.property
     @pulumi.getter
-    def sasl(self) -> Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs']]:
+    def sasl(self) -> pulumi.Input[Optional['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs']]:
         """
         Configuration block for specifying SASL client authentication. See client_authentication sasl Argument Reference below.
         """
         return pulumi.get(self, "sasl")
 
     @sasl.setter
-    def sasl(self, value: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs']]):
+    def sasl(self, value: pulumi.Input[Optional['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs']]):
         pulumi.set(self, "sasl", value)
 
     @_builtins.property
     @pulumi.getter
-    def tls(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def tls(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Configuration block for specifying TLS client authentication. See client_authentication tls Argument Reference below.
         """
         return pulumi.get(self, "tls")
 
     @tls.setter
-    def tls(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def tls(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "tls", value)
 
 
 class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgsDict(TypedDict):
-    iam: NotRequired[pulumi.Input[_builtins.bool]]
-    scram: NotRequired[pulumi.Input[_builtins.bool]]
+    iam: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    scram: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
 class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs:
     def __init__(__self__, *,
-                 iam: Optional[pulumi.Input[_builtins.bool]] = None,
-                 scram: Optional[pulumi.Input[_builtins.bool]] = None):
+                 iam: pulumi.Input[Optional[_builtins.bool]] = None,
+                 scram: pulumi.Input[Optional[_builtins.bool]] = None):
         if iam is not None:
             pulumi.set(__self__, "iam", iam)
         if scram is not None:
@@ -411,25 +411,25 @@ class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticat
 
     @_builtins.property
     @pulumi.getter
-    def iam(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def iam(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "iam")
 
     @iam.setter
-    def iam(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def iam(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "iam", value)
 
     @_builtins.property
     @pulumi.getter
-    def scram(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def scram(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "scram")
 
     @scram.setter
-    def scram(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def scram(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "scram", value)
 
 
 class ClusterBrokerNodeGroupInfoStorageInfoArgsDict(TypedDict):
-    ebs_storage_info: NotRequired[pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgsDict']]
+    ebs_storage_info: NotRequired[pulumi.Input[Optional['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs']]]
     """
     A block that contains EBS volume information. See storage_info ebs_storage_info Argument Reference below.
     """
@@ -437,7 +437,7 @@ class ClusterBrokerNodeGroupInfoStorageInfoArgsDict(TypedDict):
 @pulumi.input_type
 class ClusterBrokerNodeGroupInfoStorageInfoArgs:
     def __init__(__self__, *,
-                 ebs_storage_info: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs']] = None):
+                 ebs_storage_info: pulumi.Input[Optional['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs']] = None):
         """
         :param pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs'] ebs_storage_info: A block that contains EBS volume information. See storage_info ebs_storage_info Argument Reference below.
         """
@@ -446,23 +446,23 @@ class ClusterBrokerNodeGroupInfoStorageInfoArgs:
 
     @_builtins.property
     @pulumi.getter(name="ebsStorageInfo")
-    def ebs_storage_info(self) -> Optional[pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs']]:
+    def ebs_storage_info(self) -> pulumi.Input[Optional['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs']]:
         """
         A block that contains EBS volume information. See storage_info ebs_storage_info Argument Reference below.
         """
         return pulumi.get(self, "ebs_storage_info")
 
     @ebs_storage_info.setter
-    def ebs_storage_info(self, value: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs']]):
+    def ebs_storage_info(self, value: pulumi.Input[Optional['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs']]):
         pulumi.set(self, "ebs_storage_info", value)
 
 
 class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgsDict(TypedDict):
-    provisioned_throughput: NotRequired[pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgsDict']]
+    provisioned_throughput: NotRequired[pulumi.Input[Optional['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs']]]
     """
     A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See ebs_storage_info provisioned_throughput Argument Reference below.
     """
-    volume_size: NotRequired[pulumi.Input[_builtins.int]]
+    volume_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The size in GiB of the EBS volume for the data drive on each broker node. Minimum value of `1` and maximum value of `16384`.
     """
@@ -470,8 +470,8 @@ class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgsDict(TypedDict):
 @pulumi.input_type
 class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs:
     def __init__(__self__, *,
-                 provisioned_throughput: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs']] = None,
-                 volume_size: Optional[pulumi.Input[_builtins.int]] = None):
+                 provisioned_throughput: pulumi.Input[Optional['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs']] = None,
+                 volume_size: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs'] provisioned_throughput: A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See ebs_storage_info provisioned_throughput Argument Reference below.
         :param pulumi.Input[_builtins.int] volume_size: The size in GiB of the EBS volume for the data drive on each broker node. Minimum value of `1` and maximum value of `16384`.
@@ -483,32 +483,32 @@ class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs:
 
     @_builtins.property
     @pulumi.getter(name="provisionedThroughput")
-    def provisioned_throughput(self) -> Optional[pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs']]:
+    def provisioned_throughput(self) -> pulumi.Input[Optional['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs']]:
         """
         A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See ebs_storage_info provisioned_throughput Argument Reference below.
         """
         return pulumi.get(self, "provisioned_throughput")
 
     @provisioned_throughput.setter
-    def provisioned_throughput(self, value: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs']]):
+    def provisioned_throughput(self, value: pulumi.Input[Optional['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs']]):
         pulumi.set(self, "provisioned_throughput", value)
 
     @_builtins.property
     @pulumi.getter(name="volumeSize")
-    def volume_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def volume_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The size in GiB of the EBS volume for the data drive on each broker node. Minimum value of `1` and maximum value of `16384`.
         """
         return pulumi.get(self, "volume_size")
 
     @volume_size.setter
-    def volume_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def volume_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "volume_size", value)
 
 
 class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgsDict(TypedDict):
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
-    volume_throughput: NotRequired[pulumi.Input[_builtins.int]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    volume_throughput: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second. The minimum value is `250`. The maximum value varies between broker type. You can refer to the valid values for the maximum volume throughput at the following [documentation on throughput bottlenecks](https://docs.aws.amazon.com/msk/latest/developerguide/msk-provision-throughput.html#throughput-bottlenecks)
     """
@@ -516,8 +516,8 @@ class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputAr
 @pulumi.input_type
 class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 volume_throughput: Optional[pulumi.Input[_builtins.int]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 volume_throughput: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] volume_throughput: Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second. The minimum value is `250`. The maximum value varies between broker type. You can refer to the valid values for the maximum volume throughput at the following [documentation on throughput bottlenecks](https://docs.aws.amazon.com/msk/latest/developerguide/msk-provision-throughput.html#throughput-bottlenecks)
         """
@@ -528,36 +528,36 @@ class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputAr
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="volumeThroughput")
-    def volume_throughput(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def volume_throughput(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second. The minimum value is `250`. The maximum value varies between broker type. You can refer to the valid values for the maximum volume throughput at the following [documentation on throughput bottlenecks](https://docs.aws.amazon.com/msk/latest/developerguide/msk-provision-throughput.html#throughput-bottlenecks)
         """
         return pulumi.get(self, "volume_throughput")
 
     @volume_throughput.setter
-    def volume_throughput(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def volume_throughput(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "volume_throughput", value)
 
 
 class ClusterClientAuthenticationArgsDict(TypedDict):
-    sasl: NotRequired[pulumi.Input['ClusterClientAuthenticationSaslArgsDict']]
+    sasl: NotRequired[pulumi.Input[Optional['ClusterClientAuthenticationSaslArgs']]]
     """
     Configuration block for specifying SASL client authentication. See client_authentication sasl Argument Reference below.
     """
-    tls: NotRequired[pulumi.Input['ClusterClientAuthenticationTlsArgsDict']]
+    tls: NotRequired[pulumi.Input[Optional['ClusterClientAuthenticationTlsArgs']]]
     """
     Configuration block for specifying TLS client authentication. See client_authentication tls Argument Reference below.
     """
-    unauthenticated: NotRequired[pulumi.Input[_builtins.bool]]
+    unauthenticated: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enables unauthenticated access.
     """
@@ -565,9 +565,9 @@ class ClusterClientAuthenticationArgsDict(TypedDict):
 @pulumi.input_type
 class ClusterClientAuthenticationArgs:
     def __init__(__self__, *,
-                 sasl: Optional[pulumi.Input['ClusterClientAuthenticationSaslArgs']] = None,
-                 tls: Optional[pulumi.Input['ClusterClientAuthenticationTlsArgs']] = None,
-                 unauthenticated: Optional[pulumi.Input[_builtins.bool]] = None):
+                 sasl: pulumi.Input[Optional['ClusterClientAuthenticationSaslArgs']] = None,
+                 tls: pulumi.Input[Optional['ClusterClientAuthenticationTlsArgs']] = None,
+                 unauthenticated: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input['ClusterClientAuthenticationSaslArgs'] sasl: Configuration block for specifying SASL client authentication. See client_authentication sasl Argument Reference below.
         :param pulumi.Input['ClusterClientAuthenticationTlsArgs'] tls: Configuration block for specifying TLS client authentication. See client_authentication tls Argument Reference below.
@@ -582,50 +582,50 @@ class ClusterClientAuthenticationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def sasl(self) -> Optional[pulumi.Input['ClusterClientAuthenticationSaslArgs']]:
+    def sasl(self) -> pulumi.Input[Optional['ClusterClientAuthenticationSaslArgs']]:
         """
         Configuration block for specifying SASL client authentication. See client_authentication sasl Argument Reference below.
         """
         return pulumi.get(self, "sasl")
 
     @sasl.setter
-    def sasl(self, value: Optional[pulumi.Input['ClusterClientAuthenticationSaslArgs']]):
+    def sasl(self, value: pulumi.Input[Optional['ClusterClientAuthenticationSaslArgs']]):
         pulumi.set(self, "sasl", value)
 
     @_builtins.property
     @pulumi.getter
-    def tls(self) -> Optional[pulumi.Input['ClusterClientAuthenticationTlsArgs']]:
+    def tls(self) -> pulumi.Input[Optional['ClusterClientAuthenticationTlsArgs']]:
         """
         Configuration block for specifying TLS client authentication. See client_authentication tls Argument Reference below.
         """
         return pulumi.get(self, "tls")
 
     @tls.setter
-    def tls(self, value: Optional[pulumi.Input['ClusterClientAuthenticationTlsArgs']]):
+    def tls(self, value: pulumi.Input[Optional['ClusterClientAuthenticationTlsArgs']]):
         pulumi.set(self, "tls", value)
 
     @_builtins.property
     @pulumi.getter
-    def unauthenticated(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def unauthenticated(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables unauthenticated access.
         """
         return pulumi.get(self, "unauthenticated")
 
     @unauthenticated.setter
-    def unauthenticated(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def unauthenticated(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "unauthenticated", value)
 
 
 class ClusterClientAuthenticationSaslArgsDict(TypedDict):
-    iam: NotRequired[pulumi.Input[_builtins.bool]]
-    scram: NotRequired[pulumi.Input[_builtins.bool]]
+    iam: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    scram: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
 class ClusterClientAuthenticationSaslArgs:
     def __init__(__self__, *,
-                 iam: Optional[pulumi.Input[_builtins.bool]] = None,
-                 scram: Optional[pulumi.Input[_builtins.bool]] = None):
+                 iam: pulumi.Input[Optional[_builtins.bool]] = None,
+                 scram: pulumi.Input[Optional[_builtins.bool]] = None):
         if iam is not None:
             pulumi.set(__self__, "iam", iam)
         if scram is not None:
@@ -633,25 +633,25 @@ class ClusterClientAuthenticationSaslArgs:
 
     @_builtins.property
     @pulumi.getter
-    def iam(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def iam(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "iam")
 
     @iam.setter
-    def iam(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def iam(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "iam", value)
 
     @_builtins.property
     @pulumi.getter
-    def scram(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def scram(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "scram")
 
     @scram.setter
-    def scram(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def scram(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "scram", value)
 
 
 class ClusterClientAuthenticationTlsArgsDict(TypedDict):
-    certificate_authority_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    certificate_authority_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of ACM Certificate Authority Amazon Resource Names (ARNs).
     """
@@ -659,7 +659,7 @@ class ClusterClientAuthenticationTlsArgsDict(TypedDict):
 @pulumi.input_type
 class ClusterClientAuthenticationTlsArgs:
     def __init__(__self__, *,
-                 certificate_authority_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 certificate_authority_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] certificate_authority_arns: List of ACM Certificate Authority Amazon Resource Names (ARNs).
         """
@@ -668,14 +668,14 @@ class ClusterClientAuthenticationTlsArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateAuthorityArns")
-    def certificate_authority_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def certificate_authority_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of ACM Certificate Authority Amazon Resource Names (ARNs).
         """
         return pulumi.get(self, "certificate_authority_arns")
 
     @certificate_authority_arns.setter
-    def certificate_authority_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def certificate_authority_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "certificate_authority_arns", value)
 
 
@@ -727,11 +727,11 @@ class ClusterConfigurationInfoArgs:
 
 
 class ClusterEncryptionInfoArgsDict(TypedDict):
-    encryption_at_rest_kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    encryption_at_rest_kms_key_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     You may specify a KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest.  If no key is specified, an AWS managed KMS ('aws/msk' managed service) key will be used for encrypting the data at rest.
     """
-    encryption_in_transit: NotRequired[pulumi.Input['ClusterEncryptionInfoEncryptionInTransitArgsDict']]
+    encryption_in_transit: NotRequired[pulumi.Input[Optional['ClusterEncryptionInfoEncryptionInTransitArgs']]]
     """
     Configuration block to specify encryption in transit. See encryption_info encryption_in_transit Argument Reference below.
     """
@@ -739,8 +739,8 @@ class ClusterEncryptionInfoArgsDict(TypedDict):
 @pulumi.input_type
 class ClusterEncryptionInfoArgs:
     def __init__(__self__, *,
-                 encryption_at_rest_kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_in_transit: Optional[pulumi.Input['ClusterEncryptionInfoEncryptionInTransitArgs']] = None):
+                 encryption_at_rest_kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_in_transit: pulumi.Input[Optional['ClusterEncryptionInfoEncryptionInTransitArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] encryption_at_rest_kms_key_arn: You may specify a KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest.  If no key is specified, an AWS managed KMS ('aws/msk' managed service) key will be used for encrypting the data at rest.
         :param pulumi.Input['ClusterEncryptionInfoEncryptionInTransitArgs'] encryption_in_transit: Configuration block to specify encryption in transit. See encryption_info encryption_in_transit Argument Reference below.
@@ -752,35 +752,35 @@ class ClusterEncryptionInfoArgs:
 
     @_builtins.property
     @pulumi.getter(name="encryptionAtRestKmsKeyArn")
-    def encryption_at_rest_kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encryption_at_rest_kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         You may specify a KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest.  If no key is specified, an AWS managed KMS ('aws/msk' managed service) key will be used for encrypting the data at rest.
         """
         return pulumi.get(self, "encryption_at_rest_kms_key_arn")
 
     @encryption_at_rest_kms_key_arn.setter
-    def encryption_at_rest_kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encryption_at_rest_kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encryption_at_rest_kms_key_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionInTransit")
-    def encryption_in_transit(self) -> Optional[pulumi.Input['ClusterEncryptionInfoEncryptionInTransitArgs']]:
+    def encryption_in_transit(self) -> pulumi.Input[Optional['ClusterEncryptionInfoEncryptionInTransitArgs']]:
         """
         Configuration block to specify encryption in transit. See encryption_info encryption_in_transit Argument Reference below.
         """
         return pulumi.get(self, "encryption_in_transit")
 
     @encryption_in_transit.setter
-    def encryption_in_transit(self, value: Optional[pulumi.Input['ClusterEncryptionInfoEncryptionInTransitArgs']]):
+    def encryption_in_transit(self, value: pulumi.Input[Optional['ClusterEncryptionInfoEncryptionInTransitArgs']]):
         pulumi.set(self, "encryption_in_transit", value)
 
 
 class ClusterEncryptionInfoEncryptionInTransitArgsDict(TypedDict):
-    client_broker: NotRequired[pulumi.Input[_builtins.str]]
+    client_broker: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value is `TLS`.
     """
-    in_cluster: NotRequired[pulumi.Input[_builtins.bool]]
+    in_cluster: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether data communication among broker nodes is encrypted. Default value: `true`.
     """
@@ -788,8 +788,8 @@ class ClusterEncryptionInfoEncryptionInTransitArgsDict(TypedDict):
 @pulumi.input_type
 class ClusterEncryptionInfoEncryptionInTransitArgs:
     def __init__(__self__, *,
-                 client_broker: Optional[pulumi.Input[_builtins.str]] = None,
-                 in_cluster: Optional[pulumi.Input[_builtins.bool]] = None):
+                 client_broker: pulumi.Input[Optional[_builtins.str]] = None,
+                 in_cluster: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] client_broker: Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value is `TLS`.
         :param pulumi.Input[_builtins.bool] in_cluster: Whether data communication among broker nodes is encrypted. Default value: `true`.
@@ -801,26 +801,26 @@ class ClusterEncryptionInfoEncryptionInTransitArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientBroker")
-    def client_broker(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_broker(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value is `TLS`.
         """
         return pulumi.get(self, "client_broker")
 
     @client_broker.setter
-    def client_broker(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_broker(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_broker", value)
 
     @_builtins.property
     @pulumi.getter(name="inCluster")
-    def in_cluster(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def in_cluster(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether data communication among broker nodes is encrypted. Default value: `true`.
         """
         return pulumi.get(self, "in_cluster")
 
     @in_cluster.setter
-    def in_cluster(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def in_cluster(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "in_cluster", value)
 
 
@@ -853,15 +853,15 @@ class ClusterLoggingInfoArgs:
 
 
 class ClusterLoggingInfoBrokerLogsArgsDict(TypedDict):
-    cloudwatch_logs: NotRequired[pulumi.Input['ClusterLoggingInfoBrokerLogsCloudwatchLogsArgsDict']]
+    cloudwatch_logs: NotRequired[pulumi.Input[Optional['ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs']]]
     """
     Configuration block for Cloudwatch Logs settings. See logging_info broker_logs cloudwatch_logs Argument Reference below.
     """
-    firehose: NotRequired[pulumi.Input['ClusterLoggingInfoBrokerLogsFirehoseArgsDict']]
+    firehose: NotRequired[pulumi.Input[Optional['ClusterLoggingInfoBrokerLogsFirehoseArgs']]]
     """
     Configuration block for Kinesis Data Firehose settings. See logging_info broker_logs firehose Argument Reference below.
     """
-    s3: NotRequired[pulumi.Input['ClusterLoggingInfoBrokerLogsS3ArgsDict']]
+    s3: NotRequired[pulumi.Input[Optional['ClusterLoggingInfoBrokerLogsS3Args']]]
     """
     Configuration block for S3 settings. See logging_info broker_logs s3 Argument Reference below.
     """
@@ -869,9 +869,9 @@ class ClusterLoggingInfoBrokerLogsArgsDict(TypedDict):
 @pulumi.input_type
 class ClusterLoggingInfoBrokerLogsArgs:
     def __init__(__self__, *,
-                 cloudwatch_logs: Optional[pulumi.Input['ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs']] = None,
-                 firehose: Optional[pulumi.Input['ClusterLoggingInfoBrokerLogsFirehoseArgs']] = None,
-                 s3: Optional[pulumi.Input['ClusterLoggingInfoBrokerLogsS3Args']] = None):
+                 cloudwatch_logs: pulumi.Input[Optional['ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs']] = None,
+                 firehose: pulumi.Input[Optional['ClusterLoggingInfoBrokerLogsFirehoseArgs']] = None,
+                 s3: pulumi.Input[Optional['ClusterLoggingInfoBrokerLogsS3Args']] = None):
         """
         :param pulumi.Input['ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs'] cloudwatch_logs: Configuration block for Cloudwatch Logs settings. See logging_info broker_logs cloudwatch_logs Argument Reference below.
         :param pulumi.Input['ClusterLoggingInfoBrokerLogsFirehoseArgs'] firehose: Configuration block for Kinesis Data Firehose settings. See logging_info broker_logs firehose Argument Reference below.
@@ -886,44 +886,44 @@ class ClusterLoggingInfoBrokerLogsArgs:
 
     @_builtins.property
     @pulumi.getter(name="cloudwatchLogs")
-    def cloudwatch_logs(self) -> Optional[pulumi.Input['ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs']]:
+    def cloudwatch_logs(self) -> pulumi.Input[Optional['ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs']]:
         """
         Configuration block for Cloudwatch Logs settings. See logging_info broker_logs cloudwatch_logs Argument Reference below.
         """
         return pulumi.get(self, "cloudwatch_logs")
 
     @cloudwatch_logs.setter
-    def cloudwatch_logs(self, value: Optional[pulumi.Input['ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs']]):
+    def cloudwatch_logs(self, value: pulumi.Input[Optional['ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs']]):
         pulumi.set(self, "cloudwatch_logs", value)
 
     @_builtins.property
     @pulumi.getter
-    def firehose(self) -> Optional[pulumi.Input['ClusterLoggingInfoBrokerLogsFirehoseArgs']]:
+    def firehose(self) -> pulumi.Input[Optional['ClusterLoggingInfoBrokerLogsFirehoseArgs']]:
         """
         Configuration block for Kinesis Data Firehose settings. See logging_info broker_logs firehose Argument Reference below.
         """
         return pulumi.get(self, "firehose")
 
     @firehose.setter
-    def firehose(self, value: Optional[pulumi.Input['ClusterLoggingInfoBrokerLogsFirehoseArgs']]):
+    def firehose(self, value: pulumi.Input[Optional['ClusterLoggingInfoBrokerLogsFirehoseArgs']]):
         pulumi.set(self, "firehose", value)
 
     @_builtins.property
     @pulumi.getter
-    def s3(self) -> Optional[pulumi.Input['ClusterLoggingInfoBrokerLogsS3Args']]:
+    def s3(self) -> pulumi.Input[Optional['ClusterLoggingInfoBrokerLogsS3Args']]:
         """
         Configuration block for S3 settings. See logging_info broker_logs s3 Argument Reference below.
         """
         return pulumi.get(self, "s3")
 
     @s3.setter
-    def s3(self, value: Optional[pulumi.Input['ClusterLoggingInfoBrokerLogsS3Args']]):
+    def s3(self, value: pulumi.Input[Optional['ClusterLoggingInfoBrokerLogsS3Args']]):
         pulumi.set(self, "s3", value)
 
 
 class ClusterLoggingInfoBrokerLogsCloudwatchLogsArgsDict(TypedDict):
     enabled: pulumi.Input[_builtins.bool]
-    log_group: NotRequired[pulumi.Input[_builtins.str]]
+    log_group: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the Cloudwatch Log Group to deliver logs to.
     """
@@ -932,7 +932,7 @@ class ClusterLoggingInfoBrokerLogsCloudwatchLogsArgsDict(TypedDict):
 class ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[_builtins.bool],
-                 log_group: Optional[pulumi.Input[_builtins.str]] = None):
+                 log_group: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] log_group: Name of the Cloudwatch Log Group to deliver logs to.
         """
@@ -951,20 +951,20 @@ class ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs:
 
     @_builtins.property
     @pulumi.getter(name="logGroup")
-    def log_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Cloudwatch Log Group to deliver logs to.
         """
         return pulumi.get(self, "log_group")
 
     @log_group.setter
-    def log_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_group", value)
 
 
 class ClusterLoggingInfoBrokerLogsFirehoseArgsDict(TypedDict):
     enabled: pulumi.Input[_builtins.bool]
-    delivery_stream: NotRequired[pulumi.Input[_builtins.str]]
+    delivery_stream: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the Kinesis Data Firehose delivery stream to deliver logs to.
     """
@@ -973,7 +973,7 @@ class ClusterLoggingInfoBrokerLogsFirehoseArgsDict(TypedDict):
 class ClusterLoggingInfoBrokerLogsFirehoseArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[_builtins.bool],
-                 delivery_stream: Optional[pulumi.Input[_builtins.str]] = None):
+                 delivery_stream: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] delivery_stream: Name of the Kinesis Data Firehose delivery stream to deliver logs to.
         """
@@ -992,24 +992,24 @@ class ClusterLoggingInfoBrokerLogsFirehoseArgs:
 
     @_builtins.property
     @pulumi.getter(name="deliveryStream")
-    def delivery_stream(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delivery_stream(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Kinesis Data Firehose delivery stream to deliver logs to.
         """
         return pulumi.get(self, "delivery_stream")
 
     @delivery_stream.setter
-    def delivery_stream(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delivery_stream(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delivery_stream", value)
 
 
 class ClusterLoggingInfoBrokerLogsS3ArgsDict(TypedDict):
     enabled: pulumi.Input[_builtins.bool]
-    bucket: NotRequired[pulumi.Input[_builtins.str]]
+    bucket: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the S3 bucket to deliver logs to.
     """
-    prefix: NotRequired[pulumi.Input[_builtins.str]]
+    prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Prefix to append to the folder name.
     """
@@ -1018,8 +1018,8 @@ class ClusterLoggingInfoBrokerLogsS3ArgsDict(TypedDict):
 class ClusterLoggingInfoBrokerLogsS3Args:
     def __init__(__self__, *,
                  enabled: pulumi.Input[_builtins.bool],
-                 bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] bucket: Name of the S3 bucket to deliver logs to.
         :param pulumi.Input[_builtins.str] prefix: Prefix to append to the folder name.
@@ -1041,26 +1041,26 @@ class ClusterLoggingInfoBrokerLogsS3Args:
 
     @_builtins.property
     @pulumi.getter
-    def bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the S3 bucket to deliver logs to.
         """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
-    def bucket(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket", value)
 
     @_builtins.property
     @pulumi.getter
-    def prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Prefix to append to the folder name.
         """
         return pulumi.get(self, "prefix")
 
     @prefix.setter
-    def prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "prefix", value)
 
 
@@ -1093,11 +1093,11 @@ class ClusterOpenMonitoringArgs:
 
 
 class ClusterOpenMonitoringPrometheusArgsDict(TypedDict):
-    jmx_exporter: NotRequired[pulumi.Input['ClusterOpenMonitoringPrometheusJmxExporterArgsDict']]
+    jmx_exporter: NotRequired[pulumi.Input[Optional['ClusterOpenMonitoringPrometheusJmxExporterArgs']]]
     """
     Configuration block for JMX Exporter. See open_monitoring prometheus jmx_exporter Argument Reference below.
     """
-    node_exporter: NotRequired[pulumi.Input['ClusterOpenMonitoringPrometheusNodeExporterArgsDict']]
+    node_exporter: NotRequired[pulumi.Input[Optional['ClusterOpenMonitoringPrometheusNodeExporterArgs']]]
     """
     Configuration block for Node Exporter. See open_monitoring prometheus node_exporter Argument Reference below.
     """
@@ -1105,8 +1105,8 @@ class ClusterOpenMonitoringPrometheusArgsDict(TypedDict):
 @pulumi.input_type
 class ClusterOpenMonitoringPrometheusArgs:
     def __init__(__self__, *,
-                 jmx_exporter: Optional[pulumi.Input['ClusterOpenMonitoringPrometheusJmxExporterArgs']] = None,
-                 node_exporter: Optional[pulumi.Input['ClusterOpenMonitoringPrometheusNodeExporterArgs']] = None):
+                 jmx_exporter: pulumi.Input[Optional['ClusterOpenMonitoringPrometheusJmxExporterArgs']] = None,
+                 node_exporter: pulumi.Input[Optional['ClusterOpenMonitoringPrometheusNodeExporterArgs']] = None):
         """
         :param pulumi.Input['ClusterOpenMonitoringPrometheusJmxExporterArgs'] jmx_exporter: Configuration block for JMX Exporter. See open_monitoring prometheus jmx_exporter Argument Reference below.
         :param pulumi.Input['ClusterOpenMonitoringPrometheusNodeExporterArgs'] node_exporter: Configuration block for Node Exporter. See open_monitoring prometheus node_exporter Argument Reference below.
@@ -1118,26 +1118,26 @@ class ClusterOpenMonitoringPrometheusArgs:
 
     @_builtins.property
     @pulumi.getter(name="jmxExporter")
-    def jmx_exporter(self) -> Optional[pulumi.Input['ClusterOpenMonitoringPrometheusJmxExporterArgs']]:
+    def jmx_exporter(self) -> pulumi.Input[Optional['ClusterOpenMonitoringPrometheusJmxExporterArgs']]:
         """
         Configuration block for JMX Exporter. See open_monitoring prometheus jmx_exporter Argument Reference below.
         """
         return pulumi.get(self, "jmx_exporter")
 
     @jmx_exporter.setter
-    def jmx_exporter(self, value: Optional[pulumi.Input['ClusterOpenMonitoringPrometheusJmxExporterArgs']]):
+    def jmx_exporter(self, value: pulumi.Input[Optional['ClusterOpenMonitoringPrometheusJmxExporterArgs']]):
         pulumi.set(self, "jmx_exporter", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeExporter")
-    def node_exporter(self) -> Optional[pulumi.Input['ClusterOpenMonitoringPrometheusNodeExporterArgs']]:
+    def node_exporter(self) -> pulumi.Input[Optional['ClusterOpenMonitoringPrometheusNodeExporterArgs']]:
         """
         Configuration block for Node Exporter. See open_monitoring prometheus node_exporter Argument Reference below.
         """
         return pulumi.get(self, "node_exporter")
 
     @node_exporter.setter
-    def node_exporter(self, value: Optional[pulumi.Input['ClusterOpenMonitoringPrometheusNodeExporterArgs']]):
+    def node_exporter(self, value: pulumi.Input[Optional['ClusterOpenMonitoringPrometheusNodeExporterArgs']]):
         pulumi.set(self, "node_exporter", value)
 
 
@@ -1311,7 +1311,7 @@ class ReplicatorKafkaClusterVpcConfigArgsDict(TypedDict):
     """
     The list of subnets to connect to in the virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
     """
-    security_groups_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    security_groups_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The AWS security groups to associate with the ENIs used by the replicator. If a security group is not specified, the default security group associated with the VPC is used.
     """
@@ -1320,7 +1320,7 @@ class ReplicatorKafkaClusterVpcConfigArgsDict(TypedDict):
 class ReplicatorKafkaClusterVpcConfigArgs:
     def __init__(__self__, *,
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 security_groups_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 security_groups_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The list of subnets to connect to in the virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups_ids: The AWS security groups to associate with the ENIs used by the replicator. If a security group is not specified, the default security group associated with the VPC is used.
@@ -1343,14 +1343,14 @@ class ReplicatorKafkaClusterVpcConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="securityGroupsIds")
-    def security_groups_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_groups_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The AWS security groups to associate with the ENIs used by the replicator. If a security group is not specified, the default security group associated with the VPC is used.
         """
         return pulumi.get(self, "security_groups_ids")
 
     @security_groups_ids.setter
-    def security_groups_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_groups_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_groups_ids", value)
 
 
@@ -1375,8 +1375,8 @@ class ReplicatorReplicationInfoListArgsDict(TypedDict):
     """
     Configuration relating to topic replication.
     """
-    source_kafka_cluster_alias: NotRequired[pulumi.Input[_builtins.str]]
-    target_kafka_cluster_alias: NotRequired[pulumi.Input[_builtins.str]]
+    source_kafka_cluster_alias: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    target_kafka_cluster_alias: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class ReplicatorReplicationInfoListArgs:
@@ -1386,8 +1386,8 @@ class ReplicatorReplicationInfoListArgs:
                  target_compression_type: pulumi.Input[_builtins.str],
                  target_kafka_cluster_arn: pulumi.Input[_builtins.str],
                  topic_replications: pulumi.Input[Sequence[pulumi.Input['ReplicatorReplicationInfoListTopicReplicationArgs']]],
-                 source_kafka_cluster_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_kafka_cluster_alias: Optional[pulumi.Input[_builtins.str]] = None):
+                 source_kafka_cluster_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_kafka_cluster_alias: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['ReplicatorReplicationInfoListConsumerGroupReplicationArgs']]] consumer_group_replications: Configuration relating to consumer group replication.
         :param pulumi.Input[_builtins.str] source_kafka_cluster_arn: The ARN of the source Kafka cluster.
@@ -1467,20 +1467,20 @@ class ReplicatorReplicationInfoListArgs:
 
     @_builtins.property
     @pulumi.getter(name="sourceKafkaClusterAlias")
-    def source_kafka_cluster_alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_kafka_cluster_alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "source_kafka_cluster_alias")
 
     @source_kafka_cluster_alias.setter
-    def source_kafka_cluster_alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_kafka_cluster_alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_kafka_cluster_alias", value)
 
     @_builtins.property
     @pulumi.getter(name="targetKafkaClusterAlias")
-    def target_kafka_cluster_alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_kafka_cluster_alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "target_kafka_cluster_alias")
 
     @target_kafka_cluster_alias.setter
-    def target_kafka_cluster_alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_kafka_cluster_alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_kafka_cluster_alias", value)
 
 
@@ -1489,15 +1489,15 @@ class ReplicatorReplicationInfoListConsumerGroupReplicationArgsDict(TypedDict):
     """
     List of regular expression patterns indicating the consumer groups to copy.
     """
-    consumer_groups_to_excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    consumer_groups_to_excludes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of regular expression patterns indicating the consumer groups that should not be replicated.
     """
-    detect_and_copy_new_consumer_groups: NotRequired[pulumi.Input[_builtins.bool]]
+    detect_and_copy_new_consumer_groups: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to periodically check for new consumer groups.
     """
-    synchronise_consumer_group_offsets: NotRequired[pulumi.Input[_builtins.bool]]
+    synchronise_consumer_group_offsets: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to periodically write the translated offsets to __consumer_offsets topic in target cluster.
     """
@@ -1506,9 +1506,9 @@ class ReplicatorReplicationInfoListConsumerGroupReplicationArgsDict(TypedDict):
 class ReplicatorReplicationInfoListConsumerGroupReplicationArgs:
     def __init__(__self__, *,
                  consumer_groups_to_replicates: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 consumer_groups_to_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 detect_and_copy_new_consumer_groups: Optional[pulumi.Input[_builtins.bool]] = None,
-                 synchronise_consumer_group_offsets: Optional[pulumi.Input[_builtins.bool]] = None):
+                 consumer_groups_to_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 detect_and_copy_new_consumer_groups: pulumi.Input[Optional[_builtins.bool]] = None,
+                 synchronise_consumer_group_offsets: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] consumer_groups_to_replicates: List of regular expression patterns indicating the consumer groups to copy.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] consumer_groups_to_excludes: List of regular expression patterns indicating the consumer groups that should not be replicated.
@@ -1537,38 +1537,38 @@ class ReplicatorReplicationInfoListConsumerGroupReplicationArgs:
 
     @_builtins.property
     @pulumi.getter(name="consumerGroupsToExcludes")
-    def consumer_groups_to_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def consumer_groups_to_excludes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of regular expression patterns indicating the consumer groups that should not be replicated.
         """
         return pulumi.get(self, "consumer_groups_to_excludes")
 
     @consumer_groups_to_excludes.setter
-    def consumer_groups_to_excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def consumer_groups_to_excludes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "consumer_groups_to_excludes", value)
 
     @_builtins.property
     @pulumi.getter(name="detectAndCopyNewConsumerGroups")
-    def detect_and_copy_new_consumer_groups(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def detect_and_copy_new_consumer_groups(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to periodically check for new consumer groups.
         """
         return pulumi.get(self, "detect_and_copy_new_consumer_groups")
 
     @detect_and_copy_new_consumer_groups.setter
-    def detect_and_copy_new_consumer_groups(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def detect_and_copy_new_consumer_groups(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "detect_and_copy_new_consumer_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="synchroniseConsumerGroupOffsets")
-    def synchronise_consumer_group_offsets(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def synchronise_consumer_group_offsets(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to periodically write the translated offsets to __consumer_offsets topic in target cluster.
         """
         return pulumi.get(self, "synchronise_consumer_group_offsets")
 
     @synchronise_consumer_group_offsets.setter
-    def synchronise_consumer_group_offsets(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def synchronise_consumer_group_offsets(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "synchronise_consumer_group_offsets", value)
 
 
@@ -1577,27 +1577,27 @@ class ReplicatorReplicationInfoListTopicReplicationArgsDict(TypedDict):
     """
     List of regular expression patterns indicating the topics to copy.
     """
-    copy_access_control_lists_for_topics: NotRequired[pulumi.Input[_builtins.bool]]
+    copy_access_control_lists_for_topics: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to periodically configure remote topic ACLs to match their corresponding upstream topics.
     """
-    copy_topic_configurations: NotRequired[pulumi.Input[_builtins.bool]]
+    copy_topic_configurations: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to periodically configure remote topics to match their corresponding upstream topics.
     """
-    detect_and_copy_new_topics: NotRequired[pulumi.Input[_builtins.bool]]
+    detect_and_copy_new_topics: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to periodically check for new topics and partitions.
     """
-    starting_position: NotRequired[pulumi.Input['ReplicatorReplicationInfoListTopicReplicationStartingPositionArgsDict']]
+    starting_position: NotRequired[pulumi.Input[Optional['ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs']]]
     """
     Configuration for specifying the position in the topics to start replicating from.
     """
-    topic_name_configuration: NotRequired[pulumi.Input['ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgsDict']]
+    topic_name_configuration: NotRequired[pulumi.Input[Optional['ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs']]]
     """
     Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
     """
-    topics_to_excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    topics_to_excludes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of regular expression patterns indicating the topics that should not be replica.
     """
@@ -1606,12 +1606,12 @@ class ReplicatorReplicationInfoListTopicReplicationArgsDict(TypedDict):
 class ReplicatorReplicationInfoListTopicReplicationArgs:
     def __init__(__self__, *,
                  topics_to_replicates: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 copy_access_control_lists_for_topics: Optional[pulumi.Input[_builtins.bool]] = None,
-                 copy_topic_configurations: Optional[pulumi.Input[_builtins.bool]] = None,
-                 detect_and_copy_new_topics: Optional[pulumi.Input[_builtins.bool]] = None,
-                 starting_position: Optional[pulumi.Input['ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs']] = None,
-                 topic_name_configuration: Optional[pulumi.Input['ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs']] = None,
-                 topics_to_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 copy_access_control_lists_for_topics: pulumi.Input[Optional[_builtins.bool]] = None,
+                 copy_topic_configurations: pulumi.Input[Optional[_builtins.bool]] = None,
+                 detect_and_copy_new_topics: pulumi.Input[Optional[_builtins.bool]] = None,
+                 starting_position: pulumi.Input[Optional['ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs']] = None,
+                 topic_name_configuration: pulumi.Input[Optional['ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs']] = None,
+                 topics_to_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] topics_to_replicates: List of regular expression patterns indicating the topics to copy.
         :param pulumi.Input[_builtins.bool] copy_access_control_lists_for_topics: Whether to periodically configure remote topic ACLs to match their corresponding upstream topics.
@@ -1649,79 +1649,79 @@ class ReplicatorReplicationInfoListTopicReplicationArgs:
 
     @_builtins.property
     @pulumi.getter(name="copyAccessControlListsForTopics")
-    def copy_access_control_lists_for_topics(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def copy_access_control_lists_for_topics(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to periodically configure remote topic ACLs to match their corresponding upstream topics.
         """
         return pulumi.get(self, "copy_access_control_lists_for_topics")
 
     @copy_access_control_lists_for_topics.setter
-    def copy_access_control_lists_for_topics(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def copy_access_control_lists_for_topics(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "copy_access_control_lists_for_topics", value)
 
     @_builtins.property
     @pulumi.getter(name="copyTopicConfigurations")
-    def copy_topic_configurations(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def copy_topic_configurations(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to periodically configure remote topics to match their corresponding upstream topics.
         """
         return pulumi.get(self, "copy_topic_configurations")
 
     @copy_topic_configurations.setter
-    def copy_topic_configurations(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def copy_topic_configurations(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "copy_topic_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="detectAndCopyNewTopics")
-    def detect_and_copy_new_topics(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def detect_and_copy_new_topics(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to periodically check for new topics and partitions.
         """
         return pulumi.get(self, "detect_and_copy_new_topics")
 
     @detect_and_copy_new_topics.setter
-    def detect_and_copy_new_topics(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def detect_and_copy_new_topics(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "detect_and_copy_new_topics", value)
 
     @_builtins.property
     @pulumi.getter(name="startingPosition")
-    def starting_position(self) -> Optional[pulumi.Input['ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs']]:
+    def starting_position(self) -> pulumi.Input[Optional['ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs']]:
         """
         Configuration for specifying the position in the topics to start replicating from.
         """
         return pulumi.get(self, "starting_position")
 
     @starting_position.setter
-    def starting_position(self, value: Optional[pulumi.Input['ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs']]):
+    def starting_position(self, value: pulumi.Input[Optional['ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs']]):
         pulumi.set(self, "starting_position", value)
 
     @_builtins.property
     @pulumi.getter(name="topicNameConfiguration")
-    def topic_name_configuration(self) -> Optional[pulumi.Input['ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs']]:
+    def topic_name_configuration(self) -> pulumi.Input[Optional['ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs']]:
         """
         Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
         """
         return pulumi.get(self, "topic_name_configuration")
 
     @topic_name_configuration.setter
-    def topic_name_configuration(self, value: Optional[pulumi.Input['ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs']]):
+    def topic_name_configuration(self, value: pulumi.Input[Optional['ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs']]):
         pulumi.set(self, "topic_name_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="topicsToExcludes")
-    def topics_to_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def topics_to_excludes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of regular expression patterns indicating the topics that should not be replica.
         """
         return pulumi.get(self, "topics_to_excludes")
 
     @topics_to_excludes.setter
-    def topics_to_excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def topics_to_excludes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "topics_to_excludes", value)
 
 
 class ReplicatorReplicationInfoListTopicReplicationStartingPositionArgsDict(TypedDict):
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The type of replication starting position. Supports `LATEST` and `EARLIEST`.
     """
@@ -1729,7 +1729,7 @@ class ReplicatorReplicationInfoListTopicReplicationStartingPositionArgsDict(Type
 @pulumi.input_type
 class ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: The type of replication starting position. Supports `LATEST` and `EARLIEST`.
         """
@@ -1738,19 +1738,19 @@ class ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of replication starting position. Supports `LATEST` and `EARLIEST`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
 class ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgsDict(TypedDict):
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The type of topic configuration name. Supports `PREFIXED_WITH_SOURCE_CLUSTER_ALIAS` and `IDENTICAL`.
     """
@@ -1758,7 +1758,7 @@ class ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgsDic
 @pulumi.input_type
 class ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: The type of topic configuration name. Supports `PREFIXED_WITH_SOURCE_CLUSTER_ALIAS` and `IDENTICAL`.
         """
@@ -1767,14 +1767,14 @@ class ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of topic configuration name. Supports `PREFIXED_WITH_SOURCE_CLUSTER_ALIAS` and `IDENTICAL`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -1867,7 +1867,7 @@ class ServerlessClusterVpcConfigArgsDict(TypedDict):
     """
     A list of subnets in at least two different Availability Zones that host your client applications.
     """
-    security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    security_group_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies up to five security groups that control inbound and outbound traffic for the serverless cluster.
     """
@@ -1876,7 +1876,7 @@ class ServerlessClusterVpcConfigArgsDict(TypedDict):
 class ServerlessClusterVpcConfigArgs:
     def __init__(__self__, *,
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of subnets in at least two different Availability Zones that host your client applications.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: Specifies up to five security groups that control inbound and outbound traffic for the serverless cluster.
@@ -1899,27 +1899,27 @@ class ServerlessClusterVpcConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies up to five security groups that control inbound and outbound traffic for the serverless cluster.
         """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
-    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_group_ids", value)
 
 
 class TopicTimeoutsArgsDict(TypedDict):
-    create: NotRequired[pulumi.Input[_builtins.str]]
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
-    delete: NotRequired[pulumi.Input[_builtins.str]]
+    delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     """
-    update: NotRequired[pulumi.Input[_builtins.str]]
+    update: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
@@ -1927,9 +1927,9 @@ class TopicTimeoutsArgsDict(TypedDict):
 @pulumi.input_type
 class TopicTimeoutsArgs:
     def __init__(__self__, *,
-                 create: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete: Optional[pulumi.Input[_builtins.str]] = None,
-                 update: Optional[pulumi.Input[_builtins.str]] = None):
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete: pulumi.Input[Optional[_builtins.str]] = None,
+                 update: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
@@ -1944,38 +1944,38 @@ class TopicTimeoutsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "create")
 
     @create.setter
-    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create", value)
 
     @_builtins.property
     @pulumi.getter
-    def delete(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delete(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
         """
         return pulumi.get(self, "delete")
 
     @delete.setter
-    def delete(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delete", value)
 
     @_builtins.property
     @pulumi.getter
-    def update(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def update(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "update")
 
     @update.setter
-    def update(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def update(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "update", value)
 
 

@@ -142,17 +142,17 @@ export interface GetServerCertificateOutputArgs {
     /**
      * sort results by expiration date. returns the certificate with expiration date in furthest in the future.
      */
-    latest?: pulumi.Input<boolean>;
+    latest?: pulumi.Input<boolean | undefined>;
     /**
      * exact name of the cert to lookup
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * prefix of cert to filter by
      */
-    namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string | undefined>;
     /**
      * prefix of path to filter by
      */
-    pathPrefix?: pulumi.Input<string>;
+    pathPrefix?: pulumi.Input<string | undefined>;
 }

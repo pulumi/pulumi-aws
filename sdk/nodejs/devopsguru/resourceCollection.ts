@@ -168,21 +168,21 @@ export interface ResourceCollectionState {
     /**
      * A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
      */
-    cloudformation?: pulumi.Input<inputs.devopsguru.ResourceCollectionCloudformation>;
+    cloudformation?: pulumi.Input<inputs.devopsguru.ResourceCollectionCloudformation | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
      */
-    tags?: pulumi.Input<inputs.devopsguru.ResourceCollectionTags>;
+    tags?: pulumi.Input<inputs.devopsguru.ResourceCollectionTags | undefined>;
     /**
      * Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
      *
      * The following arguments are optional:
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -192,15 +192,15 @@ export interface ResourceCollectionArgs {
     /**
      * A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
      */
-    cloudformation?: pulumi.Input<inputs.devopsguru.ResourceCollectionCloudformation>;
+    cloudformation?: pulumi.Input<inputs.devopsguru.ResourceCollectionCloudformation | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
      */
-    tags?: pulumi.Input<inputs.devopsguru.ResourceCollectionTags>;
+    tags?: pulumi.Input<inputs.devopsguru.ResourceCollectionTags | undefined>;
     /**
      * Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
      *

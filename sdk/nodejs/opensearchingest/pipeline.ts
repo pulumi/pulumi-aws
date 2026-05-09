@@ -233,59 +233,59 @@ export interface PipelineState {
     /**
      * Key-value pairs to configure persistent buffering for the pipeline. See `bufferOptions` below.
      */
-    bufferOptions?: pulumi.Input<inputs.opensearchingest.PipelineBufferOptions>;
+    bufferOptions?: pulumi.Input<inputs.opensearchingest.PipelineBufferOptions | undefined>;
     /**
      * Key-value pairs to configure encryption for data that is written to a persistent buffer. See `encryptionAtRestOptions` below.
      */
-    encryptionAtRestOptions?: pulumi.Input<inputs.opensearchingest.PipelineEncryptionAtRestOptions>;
+    encryptionAtRestOptions?: pulumi.Input<inputs.opensearchingest.PipelineEncryptionAtRestOptions | undefined>;
     /**
      * The list of ingestion endpoints for the pipeline, which you can send data to.
      */
-    ingestEndpointUrls?: pulumi.Input<pulumi.Input<string>[]>;
+    ingestEndpointUrls?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Key-value pairs to configure log publishing. See `logPublishingOptions` below.
      */
-    logPublishingOptions?: pulumi.Input<inputs.opensearchingest.PipelineLogPublishingOptions>;
+    logPublishingOptions?: pulumi.Input<inputs.opensearchingest.PipelineLogPublishingOptions | undefined>;
     /**
      * The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
      */
-    maxUnits?: pulumi.Input<number>;
+    maxUnits?: pulumi.Input<number | undefined>;
     /**
      * The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
      */
-    minUnits?: pulumi.Input<number>;
+    minUnits?: pulumi.Input<number | undefined>;
     /**
      * Amazon Resource Name (ARN) of the pipeline.
      */
-    pipelineArn?: pulumi.Input<string>;
+    pipelineArn?: pulumi.Input<string | undefined>;
     /**
      * The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with \n.
      */
-    pipelineConfigurationBody?: pulumi.Input<string>;
+    pipelineConfigurationBody?: pulumi.Input<string | undefined>;
     /**
      * The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
      *
      * The following arguments are optional:
      */
-    pipelineName?: pulumi.Input<string>;
+    pipelineName?: pulumi.Input<string | undefined>;
     /**
      * ARN of the IAM role that grants the pipeline permission to access AWS resources.
      */
-    pipelineRoleArn?: pulumi.Input<string>;
+    pipelineRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the pipeline. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.opensearchingest.PipelineTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.opensearchingest.PipelineTimeouts | undefined>;
     /**
      * Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint. See `vpcOptions` below.
      */
-    vpcOptions?: pulumi.Input<inputs.opensearchingest.PipelineVpcOptions>;
+    vpcOptions?: pulumi.Input<inputs.opensearchingest.PipelineVpcOptions | undefined>;
 }
 
 /**
@@ -295,15 +295,15 @@ export interface PipelineArgs {
     /**
      * Key-value pairs to configure persistent buffering for the pipeline. See `bufferOptions` below.
      */
-    bufferOptions?: pulumi.Input<inputs.opensearchingest.PipelineBufferOptions>;
+    bufferOptions?: pulumi.Input<inputs.opensearchingest.PipelineBufferOptions | undefined>;
     /**
      * Key-value pairs to configure encryption for data that is written to a persistent buffer. See `encryptionAtRestOptions` below.
      */
-    encryptionAtRestOptions?: pulumi.Input<inputs.opensearchingest.PipelineEncryptionAtRestOptions>;
+    encryptionAtRestOptions?: pulumi.Input<inputs.opensearchingest.PipelineEncryptionAtRestOptions | undefined>;
     /**
      * Key-value pairs to configure log publishing. See `logPublishingOptions` below.
      */
-    logPublishingOptions?: pulumi.Input<inputs.opensearchingest.PipelineLogPublishingOptions>;
+    logPublishingOptions?: pulumi.Input<inputs.opensearchingest.PipelineLogPublishingOptions | undefined>;
     /**
      * The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
      */
@@ -325,18 +325,18 @@ export interface PipelineArgs {
     /**
      * ARN of the IAM role that grants the pipeline permission to access AWS resources.
      */
-    pipelineRoleArn?: pulumi.Input<string>;
+    pipelineRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the pipeline. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.opensearchingest.PipelineTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.opensearchingest.PipelineTimeouts | undefined>;
     /**
      * Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint. See `vpcOptions` below.
      */
-    vpcOptions?: pulumi.Input<inputs.opensearchingest.PipelineVpcOptions>;
+    vpcOptions?: pulumi.Input<inputs.opensearchingest.PipelineVpcOptions | undefined>;
 }

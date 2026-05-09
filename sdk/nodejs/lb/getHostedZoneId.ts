@@ -98,9 +98,9 @@ export interface GetHostedZoneIdOutputArgs {
     /**
      * Type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
      */
-    loadBalancerType?: pulumi.Input<string>;
+    loadBalancerType?: pulumi.Input<string | undefined>;
     /**
      * Name of the Region whose AWS ELB HostedZoneId is desired. Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

@@ -169,9 +169,9 @@ def get_replication_subnet_group(region: Optional[_builtins.str] = None,
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-def get_replication_subnet_group_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                        replication_subnet_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                        tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_replication_subnet_group_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                        replication_subnet_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                        tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReplicationSubnetGroupResult]:
     """
     Data source for managing an AWS DMS (Database Migration) Replication Subnet Group.

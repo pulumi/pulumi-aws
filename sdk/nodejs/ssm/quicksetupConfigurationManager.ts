@@ -179,38 +179,38 @@ export interface QuicksetupConfigurationManagerState {
     /**
      * Definition of the Quick Setup configuration that the configuration manager deploys. See `configurationDefinition` below.
      */
-    configurationDefinition?: pulumi.Input<inputs.ssm.QuicksetupConfigurationManagerConfigurationDefinition>;
+    configurationDefinition?: pulumi.Input<inputs.ssm.QuicksetupConfigurationManagerConfigurationDefinition | undefined>;
     /**
      * Description of the configuration manager.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * ARN of the Configuration Manager.
      */
-    managerArn?: pulumi.Input<string>;
+    managerArn?: pulumi.Input<string | undefined>;
     /**
      * Configuration manager name.
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A summary of the state of the configuration manager. This includes deployment statuses, association statuses, drift statuses, health checks, and more. See `statusSummaries` below.
      */
-    statusSummaries?: pulumi.Input<pulumi.Input<inputs.ssm.QuicksetupConfigurationManagerStatusSummary>[]>;
+    statusSummaries?: pulumi.Input<pulumi.Input<inputs.ssm.QuicksetupConfigurationManagerStatusSummary>[] | undefined>;
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.ssm.QuicksetupConfigurationManagerTimeouts>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.ssm.QuicksetupConfigurationManagerTimeouts | undefined>;
 }
 
 /**
@@ -224,20 +224,20 @@ export interface QuicksetupConfigurationManagerArgs {
     /**
      * Description of the configuration manager.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Configuration manager name.
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.ssm.QuicksetupConfigurationManagerTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.ssm.QuicksetupConfigurationManagerTimeouts | undefined>;
 }

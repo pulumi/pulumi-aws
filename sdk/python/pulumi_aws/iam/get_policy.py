@@ -209,10 +209,10 @@ def get_policy(arn: Optional[_builtins.str] = None,
         policy=pulumi.get(__ret__, 'policy'),
         policy_id=pulumi.get(__ret__, 'policy_id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_policy_output(arn: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      path_prefix: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_policy_output(arn: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      path_prefix: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyResult]:
     """
     This data source can be used to fetch information about a specific

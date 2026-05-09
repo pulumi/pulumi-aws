@@ -145,11 +145,11 @@ export interface ProactiveEngagementState {
     /**
      * One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergencyContacts`.
      */
-    emergencyContacts?: pulumi.Input<pulumi.Input<inputs.shield.ProactiveEngagementEmergencyContact>[]>;
+    emergencyContacts?: pulumi.Input<pulumi.Input<inputs.shield.ProactiveEngagementEmergencyContact>[] | undefined>;
     /**
      * Boolean value indicating if Proactive Engagement should be enabled or not.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
 }
 
 /**

@@ -112,8 +112,8 @@ def get_user_groups(region: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'),
         user_pool_id=pulumi.get(__ret__, 'user_pool_id'))
-def get_user_groups_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                           user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_user_groups_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserGroupsResult]:
     """
     Data source for managing AWS Cognito IDP (Identity Provider) User Groups.

@@ -202,37 +202,37 @@ export interface AliasState {
     /**
      * ARN identifying your Lambda function alias.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Description of the alias.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name or ARN of the Lambda function.
      */
-    functionName?: pulumi.Input<string>;
+    functionName?: pulumi.Input<string | undefined>;
     /**
      * Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
      */
-    functionVersion?: pulumi.Input<string>;
+    functionVersion?: pulumi.Input<string | undefined>;
     /**
      * ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `uri`.
      */
-    invokeArn?: pulumi.Input<string>;
+    invokeArn?: pulumi.Input<string | undefined>;
     /**
      * Name for the alias. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`.
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Lambda alias' route configuration settings. See below.
      */
-    routingConfig?: pulumi.Input<inputs.lambda.AliasRoutingConfig>;
+    routingConfig?: pulumi.Input<inputs.lambda.AliasRoutingConfig | undefined>;
 }
 
 /**
@@ -242,7 +242,7 @@ export interface AliasArgs {
     /**
      * Description of the alias.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name or ARN of the Lambda function.
      */
@@ -256,13 +256,13 @@ export interface AliasArgs {
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Lambda alias' route configuration settings. See below.
      */
-    routingConfig?: pulumi.Input<inputs.lambda.AliasRoutingConfig>;
+    routingConfig?: pulumi.Input<inputs.lambda.AliasRoutingConfig | undefined>;
 }

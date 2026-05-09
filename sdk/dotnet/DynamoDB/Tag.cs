@@ -27,9 +27,9 @@ namespace Pulumi.Aws.DynamoDB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var replica = Aws.Index.GetRegion.Invoke();
+    ///     var replica = Aws.GetRegion.Invoke();
     /// 
-    ///     var current = Aws.Index.GetRegion.Invoke();
+    ///     var current = Aws.GetRegion.Invoke();
     /// 
     ///     var example = new Aws.DynamoDB.Table("example", new()
     ///     {
@@ -49,7 +49,7 @@ namespace Pulumi.Aws.DynamoDB
     ///             var arn = values.Item1;
     ///             var current = values.Item2;
     ///             var replica = values.Item3;
-    ///             return Std.Index.Replace.Invoke(new()
+    ///             return Std.Replace.Invoke(new()
     ///             {
     ///                 Text = arn,
     ///                 Search = current.Apply(getRegionResult =&gt; getRegionResult.Region),

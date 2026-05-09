@@ -23,15 +23,15 @@ class AuthorizerArgs:
     def __init__(__self__, *,
                  api_id: pulumi.Input[_builtins.str],
                  authorizer_type: pulumi.Input[_builtins.str],
-                 authorizer_credentials_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 authorizer_payload_format_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 authorizer_result_ttl_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 authorizer_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_simple_responses: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity_sources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 jwt_configuration: Optional[pulumi.Input['AuthorizerJwtConfigurationArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 authorizer_credentials_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 authorizer_payload_format_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 authorizer_result_ttl_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 authorizer_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_simple_responses: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity_sources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 jwt_configuration: pulumi.Input[Optional['AuthorizerJwtConfigurationArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Authorizer resource.
 
@@ -108,7 +108,7 @@ class AuthorizerArgs:
 
     @_builtins.property
     @pulumi.getter(name="authorizerCredentialsArn")
-    def authorizer_credentials_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authorizer_credentials_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Required credentials as an IAM role for API Gateway to invoke the authorizer.
         Supported only for `REQUEST` authorizers.
@@ -116,12 +116,12 @@ class AuthorizerArgs:
         return pulumi.get(self, "authorizer_credentials_arn")
 
     @authorizer_credentials_arn.setter
-    def authorizer_credentials_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authorizer_credentials_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authorizer_credentials_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="authorizerPayloadFormatVersion")
-    def authorizer_payload_format_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authorizer_payload_format_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.
         Valid values: `1.0`, `2.0`.
@@ -129,12 +129,12 @@ class AuthorizerArgs:
         return pulumi.get(self, "authorizer_payload_format_version")
 
     @authorizer_payload_format_version.setter
-    def authorizer_payload_format_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authorizer_payload_format_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authorizer_payload_format_version", value)
 
     @_builtins.property
     @pulumi.getter(name="authorizerResultTtlInSeconds")
-    def authorizer_result_ttl_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def authorizer_result_ttl_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
         If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Defaults to `300`.
@@ -143,12 +143,12 @@ class AuthorizerArgs:
         return pulumi.get(self, "authorizer_result_ttl_in_seconds")
 
     @authorizer_result_ttl_in_seconds.setter
-    def authorizer_result_ttl_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def authorizer_result_ttl_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "authorizer_result_ttl_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="authorizerUri")
-    def authorizer_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authorizer_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Authorizer's Uniform Resource Identifier (URI).
         For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invoke_arn` attribute of the `lambda.Function` resource.
@@ -157,12 +157,12 @@ class AuthorizerArgs:
         return pulumi.get(self, "authorizer_uri")
 
     @authorizer_uri.setter
-    def authorizer_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authorizer_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authorizer_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="enableSimpleResponses")
-    def enable_simple_responses(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_simple_responses(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether a Lambda authorizer returns a response in a simple format. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy.
         Supported only for HTTP APIs.
@@ -170,12 +170,12 @@ class AuthorizerArgs:
         return pulumi.get(self, "enable_simple_responses")
 
     @enable_simple_responses.setter
-    def enable_simple_responses(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_simple_responses(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_simple_responses", value)
 
     @_builtins.property
     @pulumi.getter(name="identitySources")
-    def identity_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def identity_sources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Identity sources for which authorization is requested.
         For `REQUEST` authorizers the value is a list of one or more mapping expressions of the specified request parameters.
@@ -184,12 +184,12 @@ class AuthorizerArgs:
         return pulumi.get(self, "identity_sources")
 
     @identity_sources.setter
-    def identity_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def identity_sources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "identity_sources", value)
 
     @_builtins.property
     @pulumi.getter(name="jwtConfiguration")
-    def jwt_configuration(self) -> Optional[pulumi.Input['AuthorizerJwtConfigurationArgs']]:
+    def jwt_configuration(self) -> pulumi.Input[Optional['AuthorizerJwtConfigurationArgs']]:
         """
         Configuration of a JWT authorizer. Required for the `JWT` authorizer type.
         Supported only for HTTP APIs.
@@ -197,48 +197,48 @@ class AuthorizerArgs:
         return pulumi.get(self, "jwt_configuration")
 
     @jwt_configuration.setter
-    def jwt_configuration(self, value: Optional[pulumi.Input['AuthorizerJwtConfigurationArgs']]):
+    def jwt_configuration(self, value: pulumi.Input[Optional['AuthorizerJwtConfigurationArgs']]):
         pulumi.set(self, "jwt_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the authorizer. Must be between 1 and 128 characters in length.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _AuthorizerState:
     def __init__(__self__, *,
-                 api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 authorizer_credentials_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 authorizer_payload_format_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 authorizer_result_ttl_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 authorizer_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 authorizer_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_simple_responses: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity_sources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 jwt_configuration: Optional[pulumi.Input['AuthorizerJwtConfigurationArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 authorizer_credentials_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 authorizer_payload_format_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 authorizer_result_ttl_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 authorizer_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 authorizer_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_simple_responses: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity_sources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 jwt_configuration: pulumi.Input[Optional['AuthorizerJwtConfigurationArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Authorizer resources.
 
@@ -291,19 +291,19 @@ class _AuthorizerState:
 
     @_builtins.property
     @pulumi.getter(name="apiId")
-    def api_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         API identifier.
         """
         return pulumi.get(self, "api_id")
 
     @api_id.setter
-    def api_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_id", value)
 
     @_builtins.property
     @pulumi.getter(name="authorizerCredentialsArn")
-    def authorizer_credentials_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authorizer_credentials_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Required credentials as an IAM role for API Gateway to invoke the authorizer.
         Supported only for `REQUEST` authorizers.
@@ -311,12 +311,12 @@ class _AuthorizerState:
         return pulumi.get(self, "authorizer_credentials_arn")
 
     @authorizer_credentials_arn.setter
-    def authorizer_credentials_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authorizer_credentials_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authorizer_credentials_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="authorizerPayloadFormatVersion")
-    def authorizer_payload_format_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authorizer_payload_format_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.
         Valid values: `1.0`, `2.0`.
@@ -324,12 +324,12 @@ class _AuthorizerState:
         return pulumi.get(self, "authorizer_payload_format_version")
 
     @authorizer_payload_format_version.setter
-    def authorizer_payload_format_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authorizer_payload_format_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authorizer_payload_format_version", value)
 
     @_builtins.property
     @pulumi.getter(name="authorizerResultTtlInSeconds")
-    def authorizer_result_ttl_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def authorizer_result_ttl_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
         If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Defaults to `300`.
@@ -338,12 +338,12 @@ class _AuthorizerState:
         return pulumi.get(self, "authorizer_result_ttl_in_seconds")
 
     @authorizer_result_ttl_in_seconds.setter
-    def authorizer_result_ttl_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def authorizer_result_ttl_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "authorizer_result_ttl_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="authorizerType")
-    def authorizer_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authorizer_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Authorizer type. Valid values: `JWT`, `REQUEST`.
         Specify `REQUEST` for a Lambda function using incoming request parameters.
@@ -352,12 +352,12 @@ class _AuthorizerState:
         return pulumi.get(self, "authorizer_type")
 
     @authorizer_type.setter
-    def authorizer_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authorizer_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authorizer_type", value)
 
     @_builtins.property
     @pulumi.getter(name="authorizerUri")
-    def authorizer_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authorizer_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Authorizer's Uniform Resource Identifier (URI).
         For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invoke_arn` attribute of the `lambda.Function` resource.
@@ -366,12 +366,12 @@ class _AuthorizerState:
         return pulumi.get(self, "authorizer_uri")
 
     @authorizer_uri.setter
-    def authorizer_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authorizer_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authorizer_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="enableSimpleResponses")
-    def enable_simple_responses(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_simple_responses(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether a Lambda authorizer returns a response in a simple format. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy.
         Supported only for HTTP APIs.
@@ -379,12 +379,12 @@ class _AuthorizerState:
         return pulumi.get(self, "enable_simple_responses")
 
     @enable_simple_responses.setter
-    def enable_simple_responses(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_simple_responses(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_simple_responses", value)
 
     @_builtins.property
     @pulumi.getter(name="identitySources")
-    def identity_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def identity_sources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Identity sources for which authorization is requested.
         For `REQUEST` authorizers the value is a list of one or more mapping expressions of the specified request parameters.
@@ -393,12 +393,12 @@ class _AuthorizerState:
         return pulumi.get(self, "identity_sources")
 
     @identity_sources.setter
-    def identity_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def identity_sources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "identity_sources", value)
 
     @_builtins.property
     @pulumi.getter(name="jwtConfiguration")
-    def jwt_configuration(self) -> Optional[pulumi.Input['AuthorizerJwtConfigurationArgs']]:
+    def jwt_configuration(self) -> pulumi.Input[Optional['AuthorizerJwtConfigurationArgs']]:
         """
         Configuration of a JWT authorizer. Required for the `JWT` authorizer type.
         Supported only for HTTP APIs.
@@ -406,31 +406,31 @@ class _AuthorizerState:
         return pulumi.get(self, "jwt_configuration")
 
     @jwt_configuration.setter
-    def jwt_configuration(self, value: Optional[pulumi.Input['AuthorizerJwtConfigurationArgs']]):
+    def jwt_configuration(self, value: pulumi.Input[Optional['AuthorizerJwtConfigurationArgs']]):
         pulumi.set(self, "jwt_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the authorizer. Must be between 1 and 128 characters in length.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
@@ -440,17 +440,17 @@ class Authorizer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 authorizer_credentials_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 authorizer_payload_format_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 authorizer_result_ttl_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 authorizer_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 authorizer_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_simple_responses: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity_sources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 jwt_configuration: Optional[pulumi.Input[Union['AuthorizerJwtConfigurationArgs', 'AuthorizerJwtConfigurationArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 authorizer_credentials_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 authorizer_payload_format_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 authorizer_result_ttl_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 authorizer_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 authorizer_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_simple_responses: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity_sources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 jwt_configuration: pulumi.Input[Optional[Union['AuthorizerJwtConfigurationArgs', 'AuthorizerJwtConfigurationArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an Amazon API Gateway Version 2 authorizer.
@@ -587,17 +587,17 @@ class Authorizer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 authorizer_credentials_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 authorizer_payload_format_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 authorizer_result_ttl_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 authorizer_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 authorizer_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_simple_responses: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity_sources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 jwt_configuration: Optional[pulumi.Input[Union['AuthorizerJwtConfigurationArgs', 'AuthorizerJwtConfigurationArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 authorizer_credentials_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 authorizer_payload_format_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 authorizer_result_ttl_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 authorizer_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 authorizer_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_simple_responses: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity_sources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 jwt_configuration: pulumi.Input[Optional[Union['AuthorizerJwtConfigurationArgs', 'AuthorizerJwtConfigurationArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -632,17 +632,17 @@ class Authorizer(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_id: Optional[pulumi.Input[_builtins.str]] = None,
-            authorizer_credentials_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            authorizer_payload_format_version: Optional[pulumi.Input[_builtins.str]] = None,
-            authorizer_result_ttl_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-            authorizer_type: Optional[pulumi.Input[_builtins.str]] = None,
-            authorizer_uri: Optional[pulumi.Input[_builtins.str]] = None,
-            enable_simple_responses: Optional[pulumi.Input[_builtins.bool]] = None,
-            identity_sources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            jwt_configuration: Optional[pulumi.Input[Union['AuthorizerJwtConfigurationArgs', 'AuthorizerJwtConfigurationArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None) -> 'Authorizer':
+            api_id: pulumi.Input[Optional[_builtins.str]] = None,
+            authorizer_credentials_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            authorizer_payload_format_version: pulumi.Input[Optional[_builtins.str]] = None,
+            authorizer_result_ttl_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            authorizer_type: pulumi.Input[Optional[_builtins.str]] = None,
+            authorizer_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            enable_simple_responses: pulumi.Input[Optional[_builtins.bool]] = None,
+            identity_sources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            jwt_configuration: pulumi.Input[Optional[Union['AuthorizerJwtConfigurationArgs', 'AuthorizerJwtConfigurationArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> 'Authorizer':
         """
         Get an existing Authorizer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

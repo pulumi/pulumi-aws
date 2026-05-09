@@ -166,9 +166,9 @@ def get_vpc_link(region: Optional[_builtins.str] = None,
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_link_id=pulumi.get(__ret__, 'vpc_link_id'))
-def get_vpc_link_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                        tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
-                        vpc_link_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_vpc_link_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
+                        vpc_link_id: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcLinkResult]:
     """
     Data source for managing an AWS API Gateway V2 VPC Link.

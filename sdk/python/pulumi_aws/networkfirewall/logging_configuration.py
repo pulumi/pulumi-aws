@@ -23,8 +23,8 @@ class LoggingConfigurationArgs:
     def __init__(__self__, *,
                  firewall_arn: pulumi.Input[_builtins.str],
                  logging_configuration: pulumi.Input['LoggingConfigurationLoggingConfigurationArgs'],
-                 enable_monitoring_dashboard: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 enable_monitoring_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a LoggingConfiguration resource.
 
@@ -66,36 +66,36 @@ class LoggingConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="enableMonitoringDashboard")
-    def enable_monitoring_dashboard(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_monitoring_dashboard(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable the detailed firewall monitoring dashboard on the firewall. Defaults to `false`.
         """
         return pulumi.get(self, "enable_monitoring_dashboard")
 
     @enable_monitoring_dashboard.setter
-    def enable_monitoring_dashboard(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_monitoring_dashboard(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_monitoring_dashboard", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _LoggingConfigurationState:
     def __init__(__self__, *,
-                 enable_monitoring_dashboard: Optional[pulumi.Input[_builtins.bool]] = None,
-                 firewall_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 logging_configuration: Optional[pulumi.Input['LoggingConfigurationLoggingConfigurationArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 enable_monitoring_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
+                 firewall_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 logging_configuration: pulumi.Input[Optional['LoggingConfigurationLoggingConfigurationArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LoggingConfiguration resources.
 
@@ -115,50 +115,50 @@ class _LoggingConfigurationState:
 
     @_builtins.property
     @pulumi.getter(name="enableMonitoringDashboard")
-    def enable_monitoring_dashboard(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_monitoring_dashboard(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable the detailed firewall monitoring dashboard on the firewall. Defaults to `false`.
         """
         return pulumi.get(self, "enable_monitoring_dashboard")
 
     @enable_monitoring_dashboard.setter
-    def enable_monitoring_dashboard(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_monitoring_dashboard(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_monitoring_dashboard", value)
 
     @_builtins.property
     @pulumi.getter(name="firewallArn")
-    def firewall_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def firewall_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the Network Firewall firewall.
         """
         return pulumi.get(self, "firewall_arn")
 
     @firewall_arn.setter
-    def firewall_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def firewall_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "firewall_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="loggingConfiguration")
-    def logging_configuration(self) -> Optional[pulumi.Input['LoggingConfigurationLoggingConfigurationArgs']]:
+    def logging_configuration(self) -> pulumi.Input[Optional['LoggingConfigurationLoggingConfigurationArgs']]:
         """
         A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
         """
         return pulumi.get(self, "logging_configuration")
 
     @logging_configuration.setter
-    def logging_configuration(self, value: Optional[pulumi.Input['LoggingConfigurationLoggingConfigurationArgs']]):
+    def logging_configuration(self, value: pulumi.Input[Optional['LoggingConfigurationLoggingConfigurationArgs']]):
         pulumi.set(self, "logging_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
@@ -168,10 +168,10 @@ class LoggingConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enable_monitoring_dashboard: Optional[pulumi.Input[_builtins.bool]] = None,
-                 firewall_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 logging_configuration: Optional[pulumi.Input[Union['LoggingConfigurationLoggingConfigurationArgs', 'LoggingConfigurationLoggingConfigurationArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 enable_monitoring_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
+                 firewall_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 logging_configuration: pulumi.Input[Optional[Union['LoggingConfigurationLoggingConfigurationArgs', 'LoggingConfigurationLoggingConfigurationArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides an AWS Network Firewall Logging Configuration Resource
@@ -345,10 +345,10 @@ class LoggingConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enable_monitoring_dashboard: Optional[pulumi.Input[_builtins.bool]] = None,
-                 firewall_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 logging_configuration: Optional[pulumi.Input[Union['LoggingConfigurationLoggingConfigurationArgs', 'LoggingConfigurationLoggingConfigurationArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 enable_monitoring_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
+                 firewall_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 logging_configuration: pulumi.Input[Optional[Union['LoggingConfigurationLoggingConfigurationArgs', 'LoggingConfigurationLoggingConfigurationArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -376,10 +376,10 @@ class LoggingConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            enable_monitoring_dashboard: Optional[pulumi.Input[_builtins.bool]] = None,
-            firewall_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            logging_configuration: Optional[pulumi.Input[Union['LoggingConfigurationLoggingConfigurationArgs', 'LoggingConfigurationLoggingConfigurationArgsDict']]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None) -> 'LoggingConfiguration':
+            enable_monitoring_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
+            firewall_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            logging_configuration: pulumi.Input[Optional[Union['LoggingConfigurationLoggingConfigurationArgs', 'LoggingConfigurationLoggingConfigurationArgsDict']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> 'LoggingConfiguration':
         """
         Get an existing LoggingConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

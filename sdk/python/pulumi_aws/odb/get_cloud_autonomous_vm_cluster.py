@@ -751,8 +751,8 @@ def get_cloud_autonomous_vm_cluster(id: Optional[_builtins.str] = None,
         time_ords_certificate_expires=pulumi.get(__ret__, 'time_ords_certificate_expires'),
         time_zone=pulumi.get(__ret__, 'time_zone'),
         total_container_databases=pulumi.get(__ret__, 'total_container_databases'))
-def get_cloud_autonomous_vm_cluster_output(id: Optional[pulumi.Input[_builtins.str]] = None,
-                                           region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_cloud_autonomous_vm_cluster_output(id: pulumi.Input[Optional[_builtins.str]] = None,
+                                           region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudAutonomousVmClusterResult]:
     """
     Data source for managing cloud autonomous vm cluster resource in AWS for Oracle Database@AWS.

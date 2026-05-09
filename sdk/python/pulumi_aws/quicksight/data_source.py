@@ -24,14 +24,14 @@ class DataSourceArgs:
                  data_source_id: pulumi.Input[_builtins.str],
                  parameters: pulumi.Input['DataSourceParametersArgs'],
                  type: pulumi.Input[_builtins.str],
-                 aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials: Optional[pulumi.Input['DataSourceCredentialsArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourcePermissionArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_properties: Optional[pulumi.Input['DataSourceSslPropertiesArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_connection_properties: Optional[pulumi.Input['DataSourceVpcConnectionPropertiesArgs']] = None):
+                 aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional['DataSourceCredentialsArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourcePermissionArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_properties: pulumi.Input[Optional['DataSourceSslPropertiesArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vpc_connection_properties: pulumi.Input[Optional['DataSourceVpcConnectionPropertiesArgs']] = None):
         """
         The set of arguments for constructing a DataSource resource.
 
@@ -109,117 +109,117 @@ class DataSourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
-    def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
-    def aws_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_account_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['DataSourceCredentialsArgs']]:
+    def credentials(self) -> pulumi.Input[Optional['DataSourceCredentialsArgs']]:
         """
         The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
         """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['DataSourceCredentialsArgs']]):
+    def credentials(self, value: pulumi.Input[Optional['DataSourceCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A name for the data source, maximum of 128 characters.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourcePermissionArgs']]]]:
+    def permissions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataSourcePermissionArgs']]]]:
         """
         A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
         """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
-    def permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourcePermissionArgs']]]]):
+    def permissions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourcePermissionArgs']]]]):
         pulumi.set(self, "permissions", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="sslProperties")
-    def ssl_properties(self) -> Optional[pulumi.Input['DataSourceSslPropertiesArgs']]:
+    def ssl_properties(self) -> pulumi.Input[Optional['DataSourceSslPropertiesArgs']]:
         """
         Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
         """
         return pulumi.get(self, "ssl_properties")
 
     @ssl_properties.setter
-    def ssl_properties(self, value: Optional[pulumi.Input['DataSourceSslPropertiesArgs']]):
+    def ssl_properties(self, value: pulumi.Input[Optional['DataSourceSslPropertiesArgs']]):
         pulumi.set(self, "ssl_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcConnectionProperties")
-    def vpc_connection_properties(self) -> Optional[pulumi.Input['DataSourceVpcConnectionPropertiesArgs']]:
+    def vpc_connection_properties(self) -> pulumi.Input[Optional['DataSourceVpcConnectionPropertiesArgs']]:
         """
         Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See VPC Connection Properties below for more details.
         """
         return pulumi.get(self, "vpc_connection_properties")
 
     @vpc_connection_properties.setter
-    def vpc_connection_properties(self, value: Optional[pulumi.Input['DataSourceVpcConnectionPropertiesArgs']]):
+    def vpc_connection_properties(self, value: pulumi.Input[Optional['DataSourceVpcConnectionPropertiesArgs']]):
         pulumi.set(self, "vpc_connection_properties", value)
 
 
 @pulumi.input_type
 class _DataSourceState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials: Optional[pulumi.Input['DataSourceCredentialsArgs']] = None,
-                 data_source_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input['DataSourceParametersArgs']] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourcePermissionArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_properties: Optional[pulumi.Input['DataSourceSslPropertiesArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_connection_properties: Optional[pulumi.Input['DataSourceVpcConnectionPropertiesArgs']] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional['DataSourceCredentialsArgs']] = None,
+                 data_source_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional['DataSourceParametersArgs']] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourcePermissionArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_properties: pulumi.Input[Optional['DataSourceSslPropertiesArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_connection_properties: pulumi.Input[Optional['DataSourceVpcConnectionPropertiesArgs']] = None):
         """
         Input properties used for looking up and filtering DataSource resources.
 
@@ -268,139 +268,139 @@ class _DataSourceState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) of the data source
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
-    def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
-    def aws_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_account_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['DataSourceCredentialsArgs']]:
+    def credentials(self) -> pulumi.Input[Optional['DataSourceCredentialsArgs']]:
         """
         The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
         """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['DataSourceCredentialsArgs']]):
+    def credentials(self, value: pulumi.Input[Optional['DataSourceCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
     @pulumi.getter(name="dataSourceId")
-    def data_source_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_source_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An identifier for the data source.
         """
         return pulumi.get(self, "data_source_id")
 
     @data_source_id.setter
-    def data_source_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_source_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_source_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A name for the data source, maximum of 128 characters.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input['DataSourceParametersArgs']]:
+    def parameters(self) -> pulumi.Input[Optional['DataSourceParametersArgs']]:
         """
         The parameters used to connect to this data source (exactly one).
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input['DataSourceParametersArgs']]):
+    def parameters(self, value: pulumi.Input[Optional['DataSourceParametersArgs']]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourcePermissionArgs']]]]:
+    def permissions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataSourcePermissionArgs']]]]:
         """
         A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
         """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
-    def permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourcePermissionArgs']]]]):
+    def permissions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourcePermissionArgs']]]]):
         pulumi.set(self, "permissions", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="sslProperties")
-    def ssl_properties(self) -> Optional[pulumi.Input['DataSourceSslPropertiesArgs']]:
+    def ssl_properties(self) -> pulumi.Input[Optional['DataSourceSslPropertiesArgs']]:
         """
         Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
         """
         return pulumi.get(self, "ssl_properties")
 
     @ssl_properties.setter
-    def ssl_properties(self, value: Optional[pulumi.Input['DataSourceSslPropertiesArgs']]):
+    def ssl_properties(self, value: pulumi.Input[Optional['DataSourceSslPropertiesArgs']]):
         pulumi.set(self, "ssl_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
 
@@ -409,19 +409,19 @@ class _DataSourceState:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcConnectionProperties")
-    def vpc_connection_properties(self) -> Optional[pulumi.Input['DataSourceVpcConnectionPropertiesArgs']]:
+    def vpc_connection_properties(self) -> pulumi.Input[Optional['DataSourceVpcConnectionPropertiesArgs']]:
         """
         Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See VPC Connection Properties below for more details.
         """
         return pulumi.get(self, "vpc_connection_properties")
 
     @vpc_connection_properties.setter
-    def vpc_connection_properties(self, value: Optional[pulumi.Input['DataSourceVpcConnectionPropertiesArgs']]):
+    def vpc_connection_properties(self, value: pulumi.Input[Optional['DataSourceVpcConnectionPropertiesArgs']]):
         pulumi.set(self, "vpc_connection_properties", value)
 
 
@@ -431,17 +431,17 @@ class DataSource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials: Optional[pulumi.Input[Union['DataSourceCredentialsArgs', 'DataSourceCredentialsArgsDict']]] = None,
-                 data_source_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Union['DataSourceParametersArgs', 'DataSourceParametersArgsDict']]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataSourcePermissionArgs', 'DataSourcePermissionArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_properties: Optional[pulumi.Input[Union['DataSourceSslPropertiesArgs', 'DataSourceSslPropertiesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_connection_properties: Optional[pulumi.Input[Union['DataSourceVpcConnectionPropertiesArgs', 'DataSourceVpcConnectionPropertiesArgsDict']]] = None,
+                 aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional[Union['DataSourceCredentialsArgs', 'DataSourceCredentialsArgsDict']]] = None,
+                 data_source_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Union['DataSourceParametersArgs', 'DataSourceParametersArgsDict']]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSourcePermissionArgs', 'DataSourcePermissionArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_properties: pulumi.Input[Optional[Union['DataSourceSslPropertiesArgs', 'DataSourceSslPropertiesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_connection_properties: pulumi.Input[Optional[Union['DataSourceVpcConnectionPropertiesArgs', 'DataSourceVpcConnectionPropertiesArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing QuickSight Data Source
@@ -712,17 +712,17 @@ class DataSource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials: Optional[pulumi.Input[Union['DataSourceCredentialsArgs', 'DataSourceCredentialsArgsDict']]] = None,
-                 data_source_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Union['DataSourceParametersArgs', 'DataSourceParametersArgsDict']]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataSourcePermissionArgs', 'DataSourcePermissionArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_properties: Optional[pulumi.Input[Union['DataSourceSslPropertiesArgs', 'DataSourceSslPropertiesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_connection_properties: Optional[pulumi.Input[Union['DataSourceVpcConnectionPropertiesArgs', 'DataSourceVpcConnectionPropertiesArgsDict']]] = None,
+                 aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional[Union['DataSourceCredentialsArgs', 'DataSourceCredentialsArgsDict']]] = None,
+                 data_source_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Union['DataSourceParametersArgs', 'DataSourceParametersArgsDict']]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSourcePermissionArgs', 'DataSourcePermissionArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_properties: pulumi.Input[Optional[Union['DataSourceSslPropertiesArgs', 'DataSourceSslPropertiesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_connection_properties: pulumi.Input[Optional[Union['DataSourceVpcConnectionPropertiesArgs', 'DataSourceVpcConnectionPropertiesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -761,19 +761,19 @@ class DataSource(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            credentials: Optional[pulumi.Input[Union['DataSourceCredentialsArgs', 'DataSourceCredentialsArgsDict']]] = None,
-            data_source_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            parameters: Optional[pulumi.Input[Union['DataSourceParametersArgs', 'DataSourceParametersArgsDict']]] = None,
-            permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataSourcePermissionArgs', 'DataSourcePermissionArgsDict']]]]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            ssl_properties: Optional[pulumi.Input[Union['DataSourceSslPropertiesArgs', 'DataSourceSslPropertiesArgsDict']]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None,
-            vpc_connection_properties: Optional[pulumi.Input[Union['DataSourceVpcConnectionPropertiesArgs', 'DataSourceVpcConnectionPropertiesArgsDict']]] = None) -> 'DataSource':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            credentials: pulumi.Input[Optional[Union['DataSourceCredentialsArgs', 'DataSourceCredentialsArgsDict']]] = None,
+            data_source_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Union['DataSourceParametersArgs', 'DataSourceParametersArgsDict']]] = None,
+            permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSourcePermissionArgs', 'DataSourcePermissionArgsDict']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            ssl_properties: pulumi.Input[Optional[Union['DataSourceSslPropertiesArgs', 'DataSourceSslPropertiesArgsDict']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            vpc_connection_properties: pulumi.Input[Optional[Union['DataSourceVpcConnectionPropertiesArgs', 'DataSourceVpcConnectionPropertiesArgsDict']]] = None) -> 'DataSource':
         """
         Get an existing DataSource resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

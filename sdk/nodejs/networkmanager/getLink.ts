@@ -127,5 +127,5 @@ export interface GetLinkOutputArgs {
     /**
      * Key-value tags for the link.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

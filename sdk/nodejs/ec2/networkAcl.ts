@@ -173,39 +173,39 @@ export interface NetworkAclState {
     /**
      * The ARN of the network ACL
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Specifies an egress rule. Parameters defined below.
      */
-    egress?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkAclEgress>[]>;
+    egress?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkAclEgress>[] | undefined>;
     /**
      * Specifies an ingress rule. Parameters defined below.
      */
-    ingress?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkAclIngress>[]>;
+    ingress?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkAclIngress>[] | undefined>;
     /**
      * The ID of the AWS account that owns the network ACL.
      */
-    ownerId?: pulumi.Input<string>;
+    ownerId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A list of Subnet IDs to apply the ACL to
      */
-    subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    subnetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ID of the associated VPC.
      */
-    vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -215,23 +215,23 @@ export interface NetworkAclArgs {
     /**
      * Specifies an egress rule. Parameters defined below.
      */
-    egress?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkAclEgress>[]>;
+    egress?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkAclEgress>[] | undefined>;
     /**
      * Specifies an ingress rule. Parameters defined below.
      */
-    ingress?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkAclIngress>[]>;
+    ingress?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkAclIngress>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A list of Subnet IDs to apply the ACL to
      */
-    subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    subnetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ID of the associated VPC.
      */

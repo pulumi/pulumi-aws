@@ -23,12 +23,12 @@ class ContainerServiceArgs:
     def __init__(__self__, *,
                  power: pulumi.Input[_builtins.str],
                  scale: pulumi.Input[_builtins.int],
-                 is_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_registry_access: Optional[pulumi.Input['ContainerServicePrivateRegistryAccessArgs']] = None,
-                 public_domain_names: Optional[pulumi.Input['ContainerServicePublicDomainNamesArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 is_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_registry_access: pulumi.Input[Optional['ContainerServicePrivateRegistryAccessArgs']] = None,
+                 public_domain_names: pulumi.Input[Optional['ContainerServicePublicDomainNamesArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ContainerService resource.
 
@@ -86,98 +86,98 @@ class ContainerServiceArgs:
 
     @_builtins.property
     @pulumi.getter(name="isDisabled")
-    def is_disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to disable the container service. Defaults to `false`.
         """
         return pulumi.get(self, "is_disabled")
 
     @is_disabled.setter
-    def is_disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_disabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the container service. Names must be of length 1 to 63, and be unique within each AWS Region in your Lightsail account.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="privateRegistryAccess")
-    def private_registry_access(self) -> Optional[pulumi.Input['ContainerServicePrivateRegistryAccessArgs']]:
+    def private_registry_access(self) -> pulumi.Input[Optional['ContainerServicePrivateRegistryAccessArgs']]:
         """
         Configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See below.
         """
         return pulumi.get(self, "private_registry_access")
 
     @private_registry_access.setter
-    def private_registry_access(self, value: Optional[pulumi.Input['ContainerServicePrivateRegistryAccessArgs']]):
+    def private_registry_access(self, value: pulumi.Input[Optional['ContainerServicePrivateRegistryAccessArgs']]):
         pulumi.set(self, "private_registry_access", value)
 
     @_builtins.property
     @pulumi.getter(name="publicDomainNames")
-    def public_domain_names(self) -> Optional[pulumi.Input['ContainerServicePublicDomainNamesArgs']]:
+    def public_domain_names(self) -> pulumi.Input[Optional['ContainerServicePublicDomainNamesArgs']]:
         """
         Public domain names to use with the container service, such as example.com and www.example.com. You can specify up to four public domain names for a container service. The domain names that you specify are used when you create a deployment with a container configured as the public endpoint of your container service. If you don't specify public domain names, then you can use the default domain of the container service. See below.
         """
         return pulumi.get(self, "public_domain_names")
 
     @public_domain_names.setter
-    def public_domain_names(self, value: Optional[pulumi.Input['ContainerServicePublicDomainNamesArgs']]):
+    def public_domain_names(self, value: pulumi.Input[Optional['ContainerServicePublicDomainNamesArgs']]):
         pulumi.set(self, "public_domain_names", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _ContainerServiceState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 power: Optional[pulumi.Input[_builtins.str]] = None,
-                 power_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_registry_access: Optional[pulumi.Input['ContainerServicePrivateRegistryAccessArgs']] = None,
-                 public_domain_names: Optional[pulumi.Input['ContainerServicePublicDomainNamesArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 scale: Optional[pulumi.Input[_builtins.int]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 power: pulumi.Input[Optional[_builtins.str]] = None,
+                 power_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_registry_access: pulumi.Input[Optional['ContainerServicePrivateRegistryAccessArgs']] = None,
+                 public_domain_names: pulumi.Input[Optional['ContainerServicePublicDomainNamesArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 scale: pulumi.Input[Optional[_builtins.int]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ContainerService resources.
 
@@ -241,163 +241,163 @@ class _ContainerServiceState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the container service.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def availability_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Availability Zone. Follows the format us-east-2a (case-sensitive).
         """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
-    def availability_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def availability_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "availability_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date and time when the container service was created.
         """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
-    def created_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_at", value)
 
     @_builtins.property
     @pulumi.getter(name="isDisabled")
-    def is_disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to disable the container service. Defaults to `false`.
         """
         return pulumi.get(self, "is_disabled")
 
     @is_disabled.setter
-    def is_disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_disabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the container service. Names must be of length 1 to 63, and be unique within each AWS Region in your Lightsail account.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def power(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def power(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Power specification for the container service. The power specifies the amount of memory, the number of vCPUs, and the monthly price of each node of the container service. Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
         """
         return pulumi.get(self, "power")
 
     @power.setter
-    def power(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def power(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "power", value)
 
     @_builtins.property
     @pulumi.getter(name="powerId")
-    def power_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def power_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Power ID of the container service.
         """
         return pulumi.get(self, "power_id")
 
     @power_id.setter
-    def power_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def power_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "power_id", value)
 
     @_builtins.property
     @pulumi.getter(name="principalArn")
-    def principal_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Principal ARN of the container service. The principal ARN can be used to create a trust relationship between your standard AWS account and your Lightsail container service.
         """
         return pulumi.get(self, "principal_arn")
 
     @principal_arn.setter
-    def principal_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="privateDomainName")
-    def private_domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Private domain name of the container service. The private domain name is accessible only by other resources within the default virtual private cloud (VPC) of your Lightsail account.
         """
         return pulumi.get(self, "private_domain_name")
 
     @private_domain_name.setter
-    def private_domain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_domain_name", value)
 
     @_builtins.property
     @pulumi.getter(name="privateRegistryAccess")
-    def private_registry_access(self) -> Optional[pulumi.Input['ContainerServicePrivateRegistryAccessArgs']]:
+    def private_registry_access(self) -> pulumi.Input[Optional['ContainerServicePrivateRegistryAccessArgs']]:
         """
         Configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See below.
         """
         return pulumi.get(self, "private_registry_access")
 
     @private_registry_access.setter
-    def private_registry_access(self, value: Optional[pulumi.Input['ContainerServicePrivateRegistryAccessArgs']]):
+    def private_registry_access(self, value: pulumi.Input[Optional['ContainerServicePrivateRegistryAccessArgs']]):
         pulumi.set(self, "private_registry_access", value)
 
     @_builtins.property
     @pulumi.getter(name="publicDomainNames")
-    def public_domain_names(self) -> Optional[pulumi.Input['ContainerServicePublicDomainNamesArgs']]:
+    def public_domain_names(self) -> pulumi.Input[Optional['ContainerServicePublicDomainNamesArgs']]:
         """
         Public domain names to use with the container service, such as example.com and www.example.com. You can specify up to four public domain names for a container service. The domain names that you specify are used when you create a deployment with a container configured as the public endpoint of your container service. If you don't specify public domain names, then you can use the default domain of the container service. See below.
         """
         return pulumi.get(self, "public_domain_names")
 
     @public_domain_names.setter
-    def public_domain_names(self, value: Optional[pulumi.Input['ContainerServicePublicDomainNamesArgs']]):
+    def public_domain_names(self, value: pulumi.Input[Optional['ContainerServicePublicDomainNamesArgs']]):
         pulumi.set(self, "public_domain_names", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceType")
-    def resource_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Lightsail resource type of the container service (i.e., ContainerService).
         """
         return pulumi.get(self, "resource_type")
 
     @resource_type.setter
-    def resource_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def scale(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def scale(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Scale specification for the container service. The scale specifies the allocated compute nodes of the container service.
 
@@ -406,55 +406,55 @@ class _ContainerServiceState:
         return pulumi.get(self, "scale")
 
     @scale.setter
-    def scale(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def scale(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "scale", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Current state of the container service.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Publicly accessible URL of the container service. If no public endpoint is specified in the currentDeployment, this URL returns a 404 response.
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
 
@@ -464,14 +464,14 @@ class ContainerService(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 is_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 power: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_registry_access: Optional[pulumi.Input[Union['ContainerServicePrivateRegistryAccessArgs', 'ContainerServicePrivateRegistryAccessArgsDict']]] = None,
-                 public_domain_names: Optional[pulumi.Input[Union['ContainerServicePublicDomainNamesArgs', 'ContainerServicePublicDomainNamesArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 scale: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 is_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 power: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_registry_access: pulumi.Input[Optional[Union['ContainerServicePrivateRegistryAccessArgs', 'ContainerServicePrivateRegistryAccessArgsDict']]] = None,
+                 public_domain_names: pulumi.Input[Optional[Union['ContainerServicePublicDomainNamesArgs', 'ContainerServicePublicDomainNamesArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 scale: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Lightsail container service. Use this resource to create and manage a scalable compute and networking platform for deploying, running, and managing containerized applications in Lightsail.
@@ -659,14 +659,14 @@ class ContainerService(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 is_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 power: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_registry_access: Optional[pulumi.Input[Union['ContainerServicePrivateRegistryAccessArgs', 'ContainerServicePrivateRegistryAccessArgsDict']]] = None,
-                 public_domain_names: Optional[pulumi.Input[Union['ContainerServicePublicDomainNamesArgs', 'ContainerServicePublicDomainNamesArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 scale: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 is_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 power: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_registry_access: pulumi.Input[Optional[Union['ContainerServicePrivateRegistryAccessArgs', 'ContainerServicePrivateRegistryAccessArgsDict']]] = None,
+                 public_domain_names: pulumi.Input[Optional[Union['ContainerServicePublicDomainNamesArgs', 'ContainerServicePublicDomainNamesArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 scale: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -708,24 +708,24 @@ class ContainerService(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-            created_at: Optional[pulumi.Input[_builtins.str]] = None,
-            is_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            power: Optional[pulumi.Input[_builtins.str]] = None,
-            power_id: Optional[pulumi.Input[_builtins.str]] = None,
-            principal_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            private_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-            private_registry_access: Optional[pulumi.Input[Union['ContainerServicePrivateRegistryAccessArgs', 'ContainerServicePrivateRegistryAccessArgsDict']]] = None,
-            public_domain_names: Optional[pulumi.Input[Union['ContainerServicePublicDomainNamesArgs', 'ContainerServicePublicDomainNamesArgsDict']]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-            scale: Optional[pulumi.Input[_builtins.int]] = None,
-            state: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            url: Optional[pulumi.Input[_builtins.str]] = None) -> 'ContainerService':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            is_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            power: pulumi.Input[Optional[_builtins.str]] = None,
+            power_id: pulumi.Input[Optional[_builtins.str]] = None,
+            principal_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            private_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            private_registry_access: pulumi.Input[Optional[Union['ContainerServicePrivateRegistryAccessArgs', 'ContainerServicePrivateRegistryAccessArgsDict']]] = None,
+            public_domain_names: pulumi.Input[Optional[Union['ContainerServicePublicDomainNamesArgs', 'ContainerServicePublicDomainNamesArgsDict']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+            scale: pulumi.Input[Optional[_builtins.int]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None) -> 'ContainerService':
         """
         Get an existing ContainerService resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -157,11 +157,11 @@ def get_vpn_attachment(filters: Optional[Sequence[Union['GetVpnAttachmentFilterA
         tags=pulumi.get(__ret__, 'tags'),
         transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'),
         vpn_connection_id=pulumi.get(__ret__, 'vpn_connection_id'))
-def get_vpn_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetVpnAttachmentFilterArgs', 'GetVpnAttachmentFilterArgsDict']]]]] = None,
-                              region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                              tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
-                              transit_gateway_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                              vpn_connection_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_vpn_attachment_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetVpnAttachmentFilterArgs', 'GetVpnAttachmentFilterArgsDict']]]]] = None,
+                              region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
+                              transit_gateway_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              vpn_connection_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpnAttachmentResult]:
     """
     Get information on an EC2 Transit Gateway VPN Attachment.

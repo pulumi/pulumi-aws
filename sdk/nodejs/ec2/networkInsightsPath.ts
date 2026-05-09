@@ -180,61 +180,61 @@ export interface NetworkInsightsPathState {
     /**
      * ARN of the Network Insights Path.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN. Either the `destination` argument or the `destinationAddress` argument in the `filterAtSource` block must be specified.
      */
-    destination?: pulumi.Input<string>;
+    destination?: pulumi.Input<string | undefined>;
     /**
      * ARN of the destination.
      */
-    destinationArn?: pulumi.Input<string>;
+    destinationArn?: pulumi.Input<string | undefined>;
     /**
      * IP address of the destination resource.
      */
-    destinationIp?: pulumi.Input<string>;
+    destinationIp?: pulumi.Input<string | undefined>;
     /**
      * Destination port to analyze access to.
      */
-    destinationPort?: pulumi.Input<number>;
+    destinationPort?: pulumi.Input<number | undefined>;
     /**
      * Scopes the analysis to network paths that match specific filters at the destination. If you specify this parameter, you can't specify `destinationIp`. See below for details. Note that Terraform performs drift detection on this argument only when the value is provided.
      */
-    filterAtDestination?: pulumi.Input<inputs.ec2.NetworkInsightsPathFilterAtDestination>;
+    filterAtDestination?: pulumi.Input<inputs.ec2.NetworkInsightsPathFilterAtDestination | undefined>;
     /**
      * Scopes the analysis to network paths that match specific filters at the source. If you specify this parameter, you can't specify `sourceIp` or `destinationPort`. See below for details. Note that Terraform performs drift detection on this argument only when the value is provided.
      */
-    filterAtSource?: pulumi.Input<inputs.ec2.NetworkInsightsPathFilterAtSource>;
+    filterAtSource?: pulumi.Input<inputs.ec2.NetworkInsightsPathFilterAtSource | undefined>;
     /**
      * Protocol to use for analysis. Valid options are `tcp` or `udp`.
      *
      * The following arguments are optional:
      */
-    protocol?: pulumi.Input<string>;
+    protocol?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
      */
-    source?: pulumi.Input<string>;
+    source?: pulumi.Input<string | undefined>;
     /**
      * ARN of the source.
      */
-    sourceArn?: pulumi.Input<string>;
+    sourceArn?: pulumi.Input<string | undefined>;
     /**
      * IP address of the source resource.
      */
-    sourceIp?: pulumi.Input<string>;
+    sourceIp?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -244,23 +244,23 @@ export interface NetworkInsightsPathArgs {
     /**
      * ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN. Either the `destination` argument or the `destinationAddress` argument in the `filterAtSource` block must be specified.
      */
-    destination?: pulumi.Input<string>;
+    destination?: pulumi.Input<string | undefined>;
     /**
      * IP address of the destination resource.
      */
-    destinationIp?: pulumi.Input<string>;
+    destinationIp?: pulumi.Input<string | undefined>;
     /**
      * Destination port to analyze access to.
      */
-    destinationPort?: pulumi.Input<number>;
+    destinationPort?: pulumi.Input<number | undefined>;
     /**
      * Scopes the analysis to network paths that match specific filters at the destination. If you specify this parameter, you can't specify `destinationIp`. See below for details. Note that Terraform performs drift detection on this argument only when the value is provided.
      */
-    filterAtDestination?: pulumi.Input<inputs.ec2.NetworkInsightsPathFilterAtDestination>;
+    filterAtDestination?: pulumi.Input<inputs.ec2.NetworkInsightsPathFilterAtDestination | undefined>;
     /**
      * Scopes the analysis to network paths that match specific filters at the source. If you specify this parameter, you can't specify `sourceIp` or `destinationPort`. See below for details. Note that Terraform performs drift detection on this argument only when the value is provided.
      */
-    filterAtSource?: pulumi.Input<inputs.ec2.NetworkInsightsPathFilterAtSource>;
+    filterAtSource?: pulumi.Input<inputs.ec2.NetworkInsightsPathFilterAtSource | undefined>;
     /**
      * Protocol to use for analysis. Valid options are `tcp` or `udp`.
      *
@@ -270,7 +270,7 @@ export interface NetworkInsightsPathArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
      */
@@ -278,9 +278,9 @@ export interface NetworkInsightsPathArgs {
     /**
      * IP address of the source resource.
      */
-    sourceIp?: pulumi.Input<string>;
+    sourceIp?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

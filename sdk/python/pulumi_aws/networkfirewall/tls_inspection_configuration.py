@@ -22,12 +22,12 @@ __all__ = ['TlsInspectionConfigurationArgs', 'TlsInspectionConfiguration']
 class TlsInspectionConfigurationArgs:
     def __init__(__self__, *,
                  tls_inspection_configuration: pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationArgs'],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationEncryptionConfigurationArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['TlsInspectionConfigurationTimeoutsArgs']] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['TlsInspectionConfigurationEncryptionConfigurationArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['TlsInspectionConfigurationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a TlsInspectionConfiguration resource.
 
@@ -69,88 +69,88 @@ class TlsInspectionConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the TLS inspection configuration.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionConfigurations")
-    def encryption_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationEncryptionConfigurationArgs']]]]:
+    def encryption_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TlsInspectionConfigurationEncryptionConfigurationArgs']]]]:
         """
         Encryption configuration block. Detailed below.
         """
         return pulumi.get(self, "encryption_configurations")
 
     @encryption_configurations.setter
-    def encryption_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationEncryptionConfigurationArgs']]]]):
+    def encryption_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TlsInspectionConfigurationEncryptionConfigurationArgs']]]]):
         pulumi.set(self, "encryption_configurations", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Descriptive name of the TLS inspection configuration.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['TlsInspectionConfigurationTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['TlsInspectionConfigurationTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['TlsInspectionConfigurationTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['TlsInspectionConfigurationTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _TlsInspectionConfigurationState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_authorities: Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationCertificateAuthorityArgs']]]] = None,
-                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationCertificateArgs']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationEncryptionConfigurationArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 number_of_associations: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['TlsInspectionConfigurationTimeoutsArgs']] = None,
-                 tls_inspection_configuration: Optional[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationArgs']] = None,
-                 tls_inspection_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 update_token: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_authorities: pulumi.Input[Optional[Sequence[pulumi.Input['TlsInspectionConfigurationCertificateAuthorityArgs']]]] = None,
+                 certificates: pulumi.Input[Optional[Sequence[pulumi.Input['TlsInspectionConfigurationCertificateArgs']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['TlsInspectionConfigurationEncryptionConfigurationArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 number_of_associations: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['TlsInspectionConfigurationTimeoutsArgs']] = None,
+                 tls_inspection_configuration: pulumi.Input[Optional['TlsInspectionConfigurationTlsInspectionConfigurationArgs']] = None,
+                 tls_inspection_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 update_token: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TlsInspectionConfiguration resources.
 
@@ -199,130 +199,130 @@ class _TlsInspectionConfigurationState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the TLS Inspection Configuration.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateAuthorities")
-    def certificate_authorities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationCertificateAuthorityArgs']]]]:
+    def certificate_authorities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TlsInspectionConfigurationCertificateAuthorityArgs']]]]:
         """
         Certificate Manager certificate block. See Certificate Authority below for details.
         """
         return pulumi.get(self, "certificate_authorities")
 
     @certificate_authorities.setter
-    def certificate_authorities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationCertificateAuthorityArgs']]]]):
+    def certificate_authorities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TlsInspectionConfigurationCertificateAuthorityArgs']]]]):
         pulumi.set(self, "certificate_authorities", value)
 
     @_builtins.property
     @pulumi.getter
-    def certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationCertificateArgs']]]]:
+    def certificates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TlsInspectionConfigurationCertificateArgs']]]]:
         """
         List of certificate blocks describing certificates associated with the TLS inspection configuration. See Certificates below for details.
         """
         return pulumi.get(self, "certificates")
 
     @certificates.setter
-    def certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationCertificateArgs']]]]):
+    def certificates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TlsInspectionConfigurationCertificateArgs']]]]):
         pulumi.set(self, "certificates", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the TLS inspection configuration.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionConfigurations")
-    def encryption_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationEncryptionConfigurationArgs']]]]:
+    def encryption_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TlsInspectionConfigurationEncryptionConfigurationArgs']]]]:
         """
         Encryption configuration block. Detailed below.
         """
         return pulumi.get(self, "encryption_configurations")
 
     @encryption_configurations.setter
-    def encryption_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationEncryptionConfigurationArgs']]]]):
+    def encryption_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TlsInspectionConfigurationEncryptionConfigurationArgs']]]]):
         pulumi.set(self, "encryption_configurations", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Descriptive name of the TLS inspection configuration.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="numberOfAssociations")
-    def number_of_associations(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def number_of_associations(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of firewall policies that use this TLS inspection configuration.
         """
         return pulumi.get(self, "number_of_associations")
 
     @number_of_associations.setter
-    def number_of_associations(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def number_of_associations(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "number_of_associations", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['TlsInspectionConfigurationTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['TlsInspectionConfigurationTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['TlsInspectionConfigurationTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['TlsInspectionConfigurationTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter(name="tlsInspectionConfiguration")
-    def tls_inspection_configuration(self) -> Optional[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationArgs']]:
+    def tls_inspection_configuration(self) -> pulumi.Input[Optional['TlsInspectionConfigurationTlsInspectionConfigurationArgs']]:
         """
         TLS inspection configuration block. Detailed below.
 
@@ -331,31 +331,31 @@ class _TlsInspectionConfigurationState:
         return pulumi.get(self, "tls_inspection_configuration")
 
     @tls_inspection_configuration.setter
-    def tls_inspection_configuration(self, value: Optional[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationArgs']]):
+    def tls_inspection_configuration(self, value: pulumi.Input[Optional['TlsInspectionConfigurationTlsInspectionConfigurationArgs']]):
         pulumi.set(self, "tls_inspection_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="tlsInspectionConfigurationId")
-    def tls_inspection_configuration_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tls_inspection_configuration_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique identifier for the TLS inspection configuration.
         """
         return pulumi.get(self, "tls_inspection_configuration_id")
 
     @tls_inspection_configuration_id.setter
-    def tls_inspection_configuration_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tls_inspection_configuration_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tls_inspection_configuration_id", value)
 
     @_builtins.property
     @pulumi.getter(name="updateToken")
-    def update_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def update_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         String token used when updating the rule group.
         """
         return pulumi.get(self, "update_token")
 
     @update_token.setter
-    def update_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def update_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "update_token", value)
 
 
@@ -365,13 +365,13 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TlsInspectionConfigurationEncryptionConfigurationArgs', 'TlsInspectionConfigurationEncryptionConfigurationArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['TlsInspectionConfigurationTimeoutsArgs', 'TlsInspectionConfigurationTimeoutsArgsDict']]] = None,
-                 tls_inspection_configuration: Optional[pulumi.Input[Union['TlsInspectionConfigurationTlsInspectionConfigurationArgs', 'TlsInspectionConfigurationTlsInspectionConfigurationArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TlsInspectionConfigurationEncryptionConfigurationArgs', 'TlsInspectionConfigurationEncryptionConfigurationArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['TlsInspectionConfigurationTimeoutsArgs', 'TlsInspectionConfigurationTimeoutsArgsDict']]] = None,
+                 tls_inspection_configuration: pulumi.Input[Optional[Union['TlsInspectionConfigurationTlsInspectionConfigurationArgs', 'TlsInspectionConfigurationTlsInspectionConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Network Firewall TLS Inspection Configuration.
@@ -868,13 +868,13 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TlsInspectionConfigurationEncryptionConfigurationArgs', 'TlsInspectionConfigurationEncryptionConfigurationArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['TlsInspectionConfigurationTimeoutsArgs', 'TlsInspectionConfigurationTimeoutsArgsDict']]] = None,
-                 tls_inspection_configuration: Optional[pulumi.Input[Union['TlsInspectionConfigurationTlsInspectionConfigurationArgs', 'TlsInspectionConfigurationTlsInspectionConfigurationArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TlsInspectionConfigurationEncryptionConfigurationArgs', 'TlsInspectionConfigurationEncryptionConfigurationArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['TlsInspectionConfigurationTimeoutsArgs', 'TlsInspectionConfigurationTimeoutsArgsDict']]] = None,
+                 tls_inspection_configuration: pulumi.Input[Optional[Union['TlsInspectionConfigurationTlsInspectionConfigurationArgs', 'TlsInspectionConfigurationTlsInspectionConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -910,20 +910,20 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            certificate_authorities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TlsInspectionConfigurationCertificateAuthorityArgs', 'TlsInspectionConfigurationCertificateAuthorityArgsDict']]]]] = None,
-            certificates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TlsInspectionConfigurationCertificateArgs', 'TlsInspectionConfigurationCertificateArgsDict']]]]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            encryption_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TlsInspectionConfigurationEncryptionConfigurationArgs', 'TlsInspectionConfigurationEncryptionConfigurationArgsDict']]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            number_of_associations: Optional[pulumi.Input[_builtins.int]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: Optional[pulumi.Input[Union['TlsInspectionConfigurationTimeoutsArgs', 'TlsInspectionConfigurationTimeoutsArgsDict']]] = None,
-            tls_inspection_configuration: Optional[pulumi.Input[Union['TlsInspectionConfigurationTlsInspectionConfigurationArgs', 'TlsInspectionConfigurationTlsInspectionConfigurationArgsDict']]] = None,
-            tls_inspection_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-            update_token: Optional[pulumi.Input[_builtins.str]] = None) -> 'TlsInspectionConfiguration':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_authorities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TlsInspectionConfigurationCertificateAuthorityArgs', 'TlsInspectionConfigurationCertificateAuthorityArgsDict']]]]] = None,
+            certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TlsInspectionConfigurationCertificateArgs', 'TlsInspectionConfigurationCertificateArgsDict']]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            encryption_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TlsInspectionConfigurationEncryptionConfigurationArgs', 'TlsInspectionConfigurationEncryptionConfigurationArgsDict']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            number_of_associations: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['TlsInspectionConfigurationTimeoutsArgs', 'TlsInspectionConfigurationTimeoutsArgsDict']]] = None,
+            tls_inspection_configuration: pulumi.Input[Optional[Union['TlsInspectionConfigurationTlsInspectionConfigurationArgs', 'TlsInspectionConfigurationTlsInspectionConfigurationArgsDict']]] = None,
+            tls_inspection_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+            update_token: pulumi.Input[Optional[_builtins.str]] = None) -> 'TlsInspectionConfiguration':
         """
         Get an existing TlsInspectionConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -300,57 +300,57 @@ export interface PipelineState {
     /**
      * Codepipeline ARN.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * One or more artifactStore blocks. Artifact stores are documented below.
      */
-    artifactStores?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineArtifactStore>[]>;
+    artifactStores?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineArtifactStore>[] | undefined>;
     /**
      * The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
      */
-    executionMode?: pulumi.Input<string>;
+    executionMode?: pulumi.Input<string | undefined>;
     /**
      * The name of the pipeline.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
      */
-    pipelineType?: pulumi.Input<string>;
+    pipelineType?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
     /**
      * A stage block. Stages are documented below.
      */
-    stages?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineStage>[]>;
+    stages?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineStage>[] | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A list of all triggers present on the pipeline, including default triggers added by AWS for `V2` pipelines which omit an explicit `trigger` definition.
      */
-    triggerAlls?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineTriggerAll>[]>;
+    triggerAlls?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineTriggerAll>[] | undefined>;
     /**
      * A trigger block. Valid only when `pipelineType` is `V2`. Triggers are documented below.
      */
-    triggers?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineTrigger>[]>;
+    triggers?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineTrigger>[] | undefined>;
     /**
      * A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.
      *
      * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
      */
-    variables?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineVariable>[]>;
+    variables?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineVariable>[] | undefined>;
 }
 
 /**
@@ -364,19 +364,19 @@ export interface PipelineArgs {
     /**
      * The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
      */
-    executionMode?: pulumi.Input<string>;
+    executionMode?: pulumi.Input<string | undefined>;
     /**
      * The name of the pipeline.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
      */
-    pipelineType?: pulumi.Input<string>;
+    pipelineType?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
      */
@@ -388,15 +388,15 @@ export interface PipelineArgs {
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A trigger block. Valid only when `pipelineType` is `V2`. Triggers are documented below.
      */
-    triggers?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineTrigger>[]>;
+    triggers?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineTrigger>[] | undefined>;
     /**
      * A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.
      *
      * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
      */
-    variables?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineVariable>[]>;
+    variables?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineVariable>[] | undefined>;
 }

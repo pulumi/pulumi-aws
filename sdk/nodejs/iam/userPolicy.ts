@@ -132,19 +132,19 @@ export interface UserPolicyState {
     /**
      * The name of the policy. If omitted, the provider will assign a random, unique name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string | undefined>;
     /**
      * The policy document. This is a JSON formatted string.
      */
-    policy?: pulumi.Input<string | inputs.iam.PolicyDocument>;
+    policy?: pulumi.Input<string | inputs.iam.PolicyDocument | undefined>;
     /**
      * IAM user to which to attach this policy.
      */
-    user?: pulumi.Input<string>;
+    user?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -154,11 +154,11 @@ export interface UserPolicyArgs {
     /**
      * The name of the policy. If omitted, the provider will assign a random, unique name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string | undefined>;
     /**
      * The policy document. This is a JSON formatted string.
      */

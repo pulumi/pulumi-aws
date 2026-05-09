@@ -20,10 +20,10 @@ __all__ = ['RequestValidatorArgs', 'RequestValidator']
 class RequestValidatorArgs:
     def __init__(__self__, *,
                  rest_api: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 validate_request_body: Optional[pulumi.Input[_builtins.bool]] = None,
-                 validate_request_parameters: Optional[pulumi.Input[_builtins.bool]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 validate_request_body: pulumi.Input[Optional[_builtins.bool]] = None,
+                 validate_request_parameters: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a RequestValidator resource.
 
@@ -57,61 +57,61 @@ class RequestValidatorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the request validator
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="validateRequestBody")
-    def validate_request_body(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def validate_request_body(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean whether to validate request body. Defaults to `false`.
         """
         return pulumi.get(self, "validate_request_body")
 
     @validate_request_body.setter
-    def validate_request_body(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def validate_request_body(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "validate_request_body", value)
 
     @_builtins.property
     @pulumi.getter(name="validateRequestParameters")
-    def validate_request_parameters(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def validate_request_parameters(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean whether to validate request parameters. Defaults to `false`.
         """
         return pulumi.get(self, "validate_request_parameters")
 
     @validate_request_parameters.setter
-    def validate_request_parameters(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def validate_request_parameters(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "validate_request_parameters", value)
 
 
 @pulumi.input_type
 class _RequestValidatorState:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rest_api: Optional[pulumi.Input[_builtins.str]] = None,
-                 validate_request_body: Optional[pulumi.Input[_builtins.bool]] = None,
-                 validate_request_parameters: Optional[pulumi.Input[_builtins.bool]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rest_api: pulumi.Input[Optional[_builtins.str]] = None,
+                 validate_request_body: pulumi.Input[Optional[_builtins.bool]] = None,
+                 validate_request_parameters: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering RequestValidator resources.
 
@@ -134,62 +134,62 @@ class _RequestValidatorState:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the request validator
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="restApi")
-    def rest_api(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rest_api(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the associated Rest API
         """
         return pulumi.get(self, "rest_api")
 
     @rest_api.setter
-    def rest_api(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rest_api(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rest_api", value)
 
     @_builtins.property
     @pulumi.getter(name="validateRequestBody")
-    def validate_request_body(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def validate_request_body(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean whether to validate request body. Defaults to `false`.
         """
         return pulumi.get(self, "validate_request_body")
 
     @validate_request_body.setter
-    def validate_request_body(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def validate_request_body(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "validate_request_body", value)
 
     @_builtins.property
     @pulumi.getter(name="validateRequestParameters")
-    def validate_request_parameters(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def validate_request_parameters(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean whether to validate request parameters. Defaults to `false`.
         """
         return pulumi.get(self, "validate_request_parameters")
 
     @validate_request_parameters.setter
-    def validate_request_parameters(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def validate_request_parameters(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "validate_request_parameters", value)
 
 
@@ -199,11 +199,11 @@ class RequestValidator(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rest_api: Optional[pulumi.Input[_builtins.str]] = None,
-                 validate_request_body: Optional[pulumi.Input[_builtins.bool]] = None,
-                 validate_request_parameters: Optional[pulumi.Input[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rest_api: pulumi.Input[Optional[_builtins.str]] = None,
+                 validate_request_body: pulumi.Input[Optional[_builtins.bool]] = None,
+                 validate_request_parameters: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manages an API Gateway Request Validator.
@@ -284,11 +284,11 @@ class RequestValidator(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rest_api: Optional[pulumi.Input[_builtins.str]] = None,
-                 validate_request_body: Optional[pulumi.Input[_builtins.bool]] = None,
-                 validate_request_parameters: Optional[pulumi.Input[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rest_api: pulumi.Input[Optional[_builtins.str]] = None,
+                 validate_request_body: pulumi.Input[Optional[_builtins.bool]] = None,
+                 validate_request_parameters: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -315,11 +315,11 @@ class RequestValidator(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            rest_api: Optional[pulumi.Input[_builtins.str]] = None,
-            validate_request_body: Optional[pulumi.Input[_builtins.bool]] = None,
-            validate_request_parameters: Optional[pulumi.Input[_builtins.bool]] = None) -> 'RequestValidator':
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            rest_api: pulumi.Input[Optional[_builtins.str]] = None,
+            validate_request_body: pulumi.Input[Optional[_builtins.bool]] = None,
+            validate_request_parameters: pulumi.Input[Optional[_builtins.bool]] = None) -> 'RequestValidator':
         """
         Get an existing RequestValidator resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

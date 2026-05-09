@@ -37,8 +37,8 @@ public final class NetworkfirewallFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
      * import com.pulumi.aws.networkfirewall.inputs.GetFirewallArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -70,8 +70,8 @@ public final class NetworkfirewallFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
      * import com.pulumi.aws.networkfirewall.inputs.GetFirewallArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -103,8 +103,8 @@ public final class NetworkfirewallFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
      * import com.pulumi.aws.networkfirewall.inputs.GetFirewallArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -146,8 +146,8 @@ public final class NetworkfirewallFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
      * import com.pulumi.aws.networkfirewall.inputs.GetFirewallArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -179,8 +179,8 @@ public final class NetworkfirewallFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
      * import com.pulumi.aws.networkfirewall.inputs.GetFirewallArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -212,8 +212,8 @@ public final class NetworkfirewallFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
      * import com.pulumi.aws.networkfirewall.inputs.GetFirewallArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -255,8 +255,8 @@ public final class NetworkfirewallFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
      * import com.pulumi.aws.networkfirewall.inputs.GetFirewallArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -288,8 +288,8 @@ public final class NetworkfirewallFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
      * import com.pulumi.aws.networkfirewall.inputs.GetFirewallArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -321,8 +321,8 @@ public final class NetworkfirewallFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
      * import com.pulumi.aws.networkfirewall.inputs.GetFirewallArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -364,8 +364,8 @@ public final class NetworkfirewallFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
      * import com.pulumi.aws.networkfirewall.inputs.GetFirewallArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -397,8 +397,8 @@ public final class NetworkfirewallFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
      * import com.pulumi.aws.networkfirewall.inputs.GetFirewallArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -430,8 +430,8 @@ public final class NetworkfirewallFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
      * import com.pulumi.aws.networkfirewall.inputs.GetFirewallArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -473,8 +473,8 @@ public final class NetworkfirewallFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
      * import com.pulumi.aws.networkfirewall.inputs.GetFirewallArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -506,8 +506,8 @@ public final class NetworkfirewallFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
      * import com.pulumi.aws.networkfirewall.inputs.GetFirewallArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -539,8 +539,8 @@ public final class NetworkfirewallFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
      * import com.pulumi.aws.networkfirewall.inputs.GetFirewallArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -582,8 +582,8 @@ public final class NetworkfirewallFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
      * import com.pulumi.aws.networkfirewall.inputs.GetFirewallArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -615,8 +615,8 @@ public final class NetworkfirewallFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
      * import com.pulumi.aws.networkfirewall.inputs.GetFirewallArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -648,8 +648,8 @@ public final class NetworkfirewallFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
      * import com.pulumi.aws.networkfirewall.inputs.GetFirewallArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -691,8 +691,8 @@ public final class NetworkfirewallFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
      * import com.pulumi.aws.networkfirewall.inputs.GetFirewallArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -724,8 +724,8 @@ public final class NetworkfirewallFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
      * import com.pulumi.aws.networkfirewall.inputs.GetFirewallArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -757,8 +757,8 @@ public final class NetworkfirewallFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
      * import com.pulumi.aws.networkfirewall.inputs.GetFirewallArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -800,8 +800,8 @@ public final class NetworkfirewallFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
      * import com.pulumi.aws.networkfirewall.inputs.GetFirewallPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -833,8 +833,8 @@ public final class NetworkfirewallFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
      * import com.pulumi.aws.networkfirewall.inputs.GetFirewallPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -866,8 +866,8 @@ public final class NetworkfirewallFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
      * import com.pulumi.aws.networkfirewall.inputs.GetFirewallPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -913,8 +913,8 @@ public final class NetworkfirewallFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
      * import com.pulumi.aws.networkfirewall.inputs.GetFirewallPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -946,8 +946,8 @@ public final class NetworkfirewallFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
      * import com.pulumi.aws.networkfirewall.inputs.GetFirewallPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -979,8 +979,8 @@ public final class NetworkfirewallFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
      * import com.pulumi.aws.networkfirewall.inputs.GetFirewallPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1026,8 +1026,8 @@ public final class NetworkfirewallFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
      * import com.pulumi.aws.networkfirewall.inputs.GetFirewallPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1059,8 +1059,8 @@ public final class NetworkfirewallFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
      * import com.pulumi.aws.networkfirewall.inputs.GetFirewallPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1092,8 +1092,8 @@ public final class NetworkfirewallFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
      * import com.pulumi.aws.networkfirewall.inputs.GetFirewallPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1139,8 +1139,8 @@ public final class NetworkfirewallFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
      * import com.pulumi.aws.networkfirewall.inputs.GetFirewallPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1172,8 +1172,8 @@ public final class NetworkfirewallFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
      * import com.pulumi.aws.networkfirewall.inputs.GetFirewallPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1205,8 +1205,8 @@ public final class NetworkfirewallFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
      * import com.pulumi.aws.networkfirewall.inputs.GetFirewallPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1252,8 +1252,8 @@ public final class NetworkfirewallFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
      * import com.pulumi.aws.networkfirewall.inputs.GetFirewallPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1285,8 +1285,8 @@ public final class NetworkfirewallFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
      * import com.pulumi.aws.networkfirewall.inputs.GetFirewallPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1318,8 +1318,8 @@ public final class NetworkfirewallFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
      * import com.pulumi.aws.networkfirewall.inputs.GetFirewallPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1365,8 +1365,8 @@ public final class NetworkfirewallFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
      * import com.pulumi.aws.networkfirewall.inputs.GetFirewallPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1398,8 +1398,8 @@ public final class NetworkfirewallFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
      * import com.pulumi.aws.networkfirewall.inputs.GetFirewallPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1431,8 +1431,8 @@ public final class NetworkfirewallFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
      * import com.pulumi.aws.networkfirewall.inputs.GetFirewallPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1478,8 +1478,8 @@ public final class NetworkfirewallFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
      * import com.pulumi.aws.networkfirewall.inputs.GetFirewallPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1511,8 +1511,8 @@ public final class NetworkfirewallFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
      * import com.pulumi.aws.networkfirewall.inputs.GetFirewallPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1544,8 +1544,8 @@ public final class NetworkfirewallFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
      * import com.pulumi.aws.networkfirewall.inputs.GetFirewallPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1589,8 +1589,8 @@ public final class NetworkfirewallFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
      * import com.pulumi.aws.networkfirewall.inputs.GetResourcePolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1629,8 +1629,8 @@ public final class NetworkfirewallFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
      * import com.pulumi.aws.networkfirewall.inputs.GetResourcePolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1669,8 +1669,8 @@ public final class NetworkfirewallFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
      * import com.pulumi.aws.networkfirewall.inputs.GetResourcePolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1709,8 +1709,8 @@ public final class NetworkfirewallFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
      * import com.pulumi.aws.networkfirewall.inputs.GetResourcePolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1749,8 +1749,8 @@ public final class NetworkfirewallFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
      * import com.pulumi.aws.networkfirewall.inputs.GetResourcePolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

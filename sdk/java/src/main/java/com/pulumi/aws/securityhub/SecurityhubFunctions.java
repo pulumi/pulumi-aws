@@ -35,8 +35,8 @@ public final class SecurityhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.securityhub.SecurityhubFunctions;
      * import com.pulumi.aws.securityhub.inputs.GetEnabledStandardsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -74,8 +74,8 @@ public final class SecurityhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.securityhub.SecurityhubFunctions;
      * import com.pulumi.aws.securityhub.inputs.GetEnabledStandardsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -113,8 +113,8 @@ public final class SecurityhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.securityhub.SecurityhubFunctions;
      * import com.pulumi.aws.securityhub.inputs.GetEnabledStandardsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -152,8 +152,8 @@ public final class SecurityhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.securityhub.SecurityhubFunctions;
      * import com.pulumi.aws.securityhub.inputs.GetEnabledStandardsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -191,8 +191,8 @@ public final class SecurityhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.securityhub.SecurityhubFunctions;
      * import com.pulumi.aws.securityhub.inputs.GetEnabledStandardsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -230,8 +230,8 @@ public final class SecurityhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.securityhub.SecurityhubFunctions;
      * import com.pulumi.aws.securityhub.inputs.GetEnabledStandardsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -269,8 +269,8 @@ public final class SecurityhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.securityhub.SecurityhubFunctions;
      * import com.pulumi.aws.securityhub.inputs.GetEnabledStandardsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -310,8 +310,8 @@ public final class SecurityhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.securityhub.SecurityhubFunctions;
      * import com.pulumi.aws.securityhub.inputs.GetSecurityControlsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -353,8 +353,8 @@ public final class SecurityhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.securityhub.SecurityhubFunctions;
      * import com.pulumi.aws.securityhub.inputs.GetSecurityControlsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -396,8 +396,8 @@ public final class SecurityhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.securityhub.SecurityhubFunctions;
      * import com.pulumi.aws.securityhub.inputs.GetSecurityControlsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -439,8 +439,8 @@ public final class SecurityhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.securityhub.SecurityhubFunctions;
      * import com.pulumi.aws.securityhub.inputs.GetSecurityControlsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -482,8 +482,8 @@ public final class SecurityhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.securityhub.SecurityhubFunctions;
      * import com.pulumi.aws.securityhub.inputs.GetSecurityControlsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -525,8 +525,8 @@ public final class SecurityhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.securityhub.SecurityhubFunctions;
      * import com.pulumi.aws.securityhub.inputs.GetSecurityControlsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -568,8 +568,8 @@ public final class SecurityhubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.securityhub.SecurityhubFunctions;
      * import com.pulumi.aws.securityhub.inputs.GetSecurityControlsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -612,8 +612,8 @@ public final class SecurityhubFunctions {
      * import com.pulumi.aws.securityhub.Account;
      * import com.pulumi.aws.securityhub.SecurityhubFunctions;
      * import com.pulumi.aws.securityhub.inputs.GetStandardsControlAssociationsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -657,8 +657,8 @@ public final class SecurityhubFunctions {
      * import com.pulumi.aws.securityhub.Account;
      * import com.pulumi.aws.securityhub.SecurityhubFunctions;
      * import com.pulumi.aws.securityhub.inputs.GetStandardsControlAssociationsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -702,8 +702,8 @@ public final class SecurityhubFunctions {
      * import com.pulumi.aws.securityhub.Account;
      * import com.pulumi.aws.securityhub.SecurityhubFunctions;
      * import com.pulumi.aws.securityhub.inputs.GetStandardsControlAssociationsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -747,8 +747,8 @@ public final class SecurityhubFunctions {
      * import com.pulumi.aws.securityhub.Account;
      * import com.pulumi.aws.securityhub.SecurityhubFunctions;
      * import com.pulumi.aws.securityhub.inputs.GetStandardsControlAssociationsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -792,8 +792,8 @@ public final class SecurityhubFunctions {
      * import com.pulumi.aws.securityhub.Account;
      * import com.pulumi.aws.securityhub.SecurityhubFunctions;
      * import com.pulumi.aws.securityhub.inputs.GetStandardsControlAssociationsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

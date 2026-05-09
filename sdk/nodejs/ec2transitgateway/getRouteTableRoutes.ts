@@ -109,7 +109,7 @@ export interface GetRouteTableRoutesOutputArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Identifier of EC2 Transit Gateway Route Table.
      *

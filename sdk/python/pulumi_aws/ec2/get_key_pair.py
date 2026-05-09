@@ -232,12 +232,12 @@ def get_key_pair(filters: Optional[Sequence[Union['GetKeyPairFilterArgs', 'GetKe
         public_key=pulumi.get(__ret__, 'public_key'),
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_key_pair_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetKeyPairFilterArgs', 'GetKeyPairFilterArgsDict']]]]] = None,
-                        include_public_key: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                        key_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                        key_pair_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                        region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                        tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_key_pair_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetKeyPairFilterArgs', 'GetKeyPairFilterArgsDict']]]]] = None,
+                        include_public_key: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                        key_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        key_pair_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKeyPairResult]:
     """
     Use this data source to get information about a specific EC2 Key Pair.

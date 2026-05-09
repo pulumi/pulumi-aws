@@ -151,19 +151,19 @@ export interface OrganizationConfigurationState {
     /**
      * Whether to automatically enable Security Hub for new accounts in the organization.
      */
-    autoEnable?: pulumi.Input<boolean>;
+    autoEnable?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
      */
-    autoEnableStandards?: pulumi.Input<string>;
+    autoEnableStandards?: pulumi.Input<string | undefined>;
     /**
      * Provides information about the way an organization is configured in Security Hub.
      */
-    organizationConfiguration?: pulumi.Input<inputs.securityhub.OrganizationConfigurationOrganizationConfiguration>;
+    organizationConfiguration?: pulumi.Input<inputs.securityhub.OrganizationConfigurationOrganizationConfiguration | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -177,13 +177,13 @@ export interface OrganizationConfigurationArgs {
     /**
      * Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
      */
-    autoEnableStandards?: pulumi.Input<string>;
+    autoEnableStandards?: pulumi.Input<string | undefined>;
     /**
      * Provides information about the way an organization is configured in Security Hub.
      */
-    organizationConfiguration?: pulumi.Input<inputs.securityhub.OrganizationConfigurationOrganizationConfiguration>;
+    organizationConfiguration?: pulumi.Input<inputs.securityhub.OrganizationConfigurationOrganizationConfiguration | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

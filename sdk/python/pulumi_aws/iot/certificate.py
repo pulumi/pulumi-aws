@@ -20,10 +20,10 @@ __all__ = ['CertificateArgs', 'Certificate']
 class CertificateArgs:
     def __init__(__self__, *,
                  active: pulumi.Input[_builtins.bool],
-                 ca_pem: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_pem: Optional[pulumi.Input[_builtins.str]] = None,
-                 csr: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 ca_pem: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_pem: pulumi.Input[Optional[_builtins.str]] = None,
+                 csr: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Certificate resource.
 
@@ -65,19 +65,19 @@ class CertificateArgs:
 
     @_builtins.property
     @pulumi.getter(name="caPem")
-    def ca_pem(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ca_pem(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The CA certificate for the certificate to be registered. If this is set, the CA needs to be registered with AWS IoT beforehand.
         """
         return pulumi.get(self, "ca_pem")
 
     @ca_pem.setter
-    def ca_pem(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ca_pem(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ca_pem", value)
 
     @_builtins.property
     @pulumi.getter(name="certificatePem")
-    def certificate_pem(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_pem(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The certificate to be registered. If `ca_pem` is unspecified, review
         [RegisterCertificateWithoutCA](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificateWithoutCA.html).
@@ -88,12 +88,12 @@ class CertificateArgs:
         return pulumi.get(self, "certificate_pem")
 
     @certificate_pem.setter
-    def certificate_pem(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_pem(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_pem", value)
 
     @_builtins.property
     @pulumi.getter
-    def csr(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def csr(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The certificate signing request. Review
         [CreateCertificateFromCsr](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateCertificateFromCsr.html)
@@ -104,34 +104,34 @@ class CertificateArgs:
         return pulumi.get(self, "csr")
 
     @csr.setter
-    def csr(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def csr(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "csr", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _CertificateState:
     def __init__(__self__, *,
-                 active: Optional[pulumi.Input[_builtins.bool]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 ca_certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ca_pem: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_pem: Optional[pulumi.Input[_builtins.str]] = None,
-                 csr: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 active: pulumi.Input[Optional[_builtins.bool]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 ca_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ca_pem: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_pem: pulumi.Input[Optional[_builtins.str]] = None,
+                 csr: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Certificate resources.
 
@@ -174,55 +174,55 @@ class _CertificateState:
 
     @_builtins.property
     @pulumi.getter
-    def active(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def active(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean flag to indicate if the certificate should be active
         """
         return pulumi.get(self, "active")
 
     @active.setter
-    def active(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def active(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "active", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the created certificate.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="caCertificateId")
-    def ca_certificate_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ca_certificate_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The certificate ID of the CA certificate used to sign the certificate.
         """
         return pulumi.get(self, "ca_certificate_id")
 
     @ca_certificate_id.setter
-    def ca_certificate_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ca_certificate_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ca_certificate_id", value)
 
     @_builtins.property
     @pulumi.getter(name="caPem")
-    def ca_pem(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ca_pem(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The CA certificate for the certificate to be registered. If this is set, the CA needs to be registered with AWS IoT beforehand.
         """
         return pulumi.get(self, "ca_pem")
 
     @ca_pem.setter
-    def ca_pem(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ca_pem(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ca_pem", value)
 
     @_builtins.property
     @pulumi.getter(name="certificatePem")
-    def certificate_pem(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_pem(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The certificate to be registered. If `ca_pem` is unspecified, review
         [RegisterCertificateWithoutCA](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificateWithoutCA.html).
@@ -233,12 +233,12 @@ class _CertificateState:
         return pulumi.get(self, "certificate_pem")
 
     @certificate_pem.setter
-    def certificate_pem(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_pem(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_pem", value)
 
     @_builtins.property
     @pulumi.getter
-    def csr(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def csr(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The certificate signing request. Review
         [CreateCertificateFromCsr](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateCertificateFromCsr.html)
@@ -249,43 +249,43 @@ class _CertificateState:
         return pulumi.get(self, "csr")
 
     @csr.setter
-    def csr(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def csr(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "csr", value)
 
     @_builtins.property
     @pulumi.getter(name="privateKey")
-    def private_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         When neither CSR nor certificate is provided, the private key.
         """
         return pulumi.get(self, "private_key")
 
     @private_key.setter
-    def private_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_key", value)
 
     @_builtins.property
     @pulumi.getter(name="publicKey")
-    def public_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         When neither CSR nor certificate is provided, the public key.
         """
         return pulumi.get(self, "public_key")
 
     @public_key.setter
-    def public_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
@@ -295,11 +295,11 @@ class Certificate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 active: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ca_pem: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_pem: Optional[pulumi.Input[_builtins.str]] = None,
-                 csr: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 active: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ca_pem: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_pem: pulumi.Input[Optional[_builtins.str]] = None,
+                 csr: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Creates and manages an AWS IoT certificate.
@@ -416,11 +416,11 @@ class Certificate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 active: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ca_pem: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_pem: Optional[pulumi.Input[_builtins.str]] = None,
-                 csr: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 active: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ca_pem: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_pem: pulumi.Input[Optional[_builtins.str]] = None,
+                 csr: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -453,15 +453,15 @@ class Certificate(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            active: Optional[pulumi.Input[_builtins.bool]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            ca_certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-            ca_pem: Optional[pulumi.Input[_builtins.str]] = None,
-            certificate_pem: Optional[pulumi.Input[_builtins.str]] = None,
-            csr: Optional[pulumi.Input[_builtins.str]] = None,
-            private_key: Optional[pulumi.Input[_builtins.str]] = None,
-            public_key: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None) -> 'Certificate':
+            active: pulumi.Input[Optional[_builtins.bool]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            ca_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+            ca_pem: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_pem: pulumi.Input[Optional[_builtins.str]] = None,
+            csr: pulumi.Input[Optional[_builtins.str]] = None,
+            private_key: pulumi.Input[Optional[_builtins.str]] = None,
+            public_key: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> 'Certificate':
         """
         Get an existing Certificate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

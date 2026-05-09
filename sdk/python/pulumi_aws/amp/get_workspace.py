@@ -192,9 +192,9 @@ def get_workspace(region: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         workspace_id=pulumi.get(__ret__, 'workspace_id'))
-def get_workspace_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                         tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
-                         workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_workspace_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                         tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
+                         workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
     Provides an Amazon Managed Prometheus workspace data source.

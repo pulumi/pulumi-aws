@@ -113,15 +113,15 @@ export interface VpcDhcpOptionsAssociationState {
     /**
      * The ID of the DHCP Options Set to associate to the VPC.
      */
-    dhcpOptionsId?: pulumi.Input<string>;
+    dhcpOptionsId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ID of the VPC to which we would like to associate a DHCP Options Set.
      */
-    vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -135,7 +135,7 @@ export interface VpcDhcpOptionsAssociationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ID of the VPC to which we would like to associate a DHCP Options Set.
      */

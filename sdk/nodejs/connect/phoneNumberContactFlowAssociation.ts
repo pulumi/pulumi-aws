@@ -118,19 +118,19 @@ export interface PhoneNumberContactFlowAssociationState {
     /**
      * Contact flow ID.
      */
-    contactFlowId?: pulumi.Input<string>;
+    contactFlowId?: pulumi.Input<string | undefined>;
     /**
      * Amazon Connect instance ID.
      */
-    instanceId?: pulumi.Input<string>;
+    instanceId?: pulumi.Input<string | undefined>;
     /**
      * Phone number ID.
      */
-    phoneNumberId?: pulumi.Input<string>;
+    phoneNumberId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -152,5 +152,5 @@ export interface PhoneNumberContactFlowAssociationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

@@ -145,23 +145,23 @@ export interface IdentityPoolProviderPrincipalTagState {
     /**
      * An identity pool ID.
      */
-    identityPoolId?: pulumi.Input<string>;
+    identityPoolId?: pulumi.Input<string | undefined>;
     /**
      * The name of the identity provider.
      */
-    identityProviderName?: pulumi.Input<string>;
+    identityProviderName?: pulumi.Input<string | undefined>;
     /**
      * String to string map of variables.
      */
-    principalTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    principalTags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * use default (username and clientID) attribute mappings.
      */
-    useDefaults?: pulumi.Input<boolean>;
+    useDefaults?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -179,13 +179,13 @@ export interface IdentityPoolProviderPrincipalTagArgs {
     /**
      * String to string map of variables.
      */
-    principalTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    principalTags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * use default (username and clientID) attribute mappings.
      */
-    useDefaults?: pulumi.Input<boolean>;
+    useDefaults?: pulumi.Input<boolean | undefined>;
 }

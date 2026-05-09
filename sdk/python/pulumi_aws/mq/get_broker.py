@@ -352,10 +352,10 @@ def get_broker(broker_id: Optional[_builtins.str] = None,
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         tags=pulumi.get(__ret__, 'tags'),
         users=pulumi.get(__ret__, 'users'))
-def get_broker_output(broker_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      broker_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_broker_output(broker_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      broker_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBrokerResult]:
     """
     Provides details about an existing Amazon MQ broker. Use this data source to retrieve configuration and metadata for an Amazon MQ broker by ID or name.

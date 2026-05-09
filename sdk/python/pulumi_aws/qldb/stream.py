@@ -26,9 +26,9 @@ class StreamArgs:
                  ledger_name: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
                  stream_name: pulumi.Input[_builtins.str],
-                 exclusive_end_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 exclusive_end_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Stream resource.
 
@@ -115,54 +115,54 @@ class StreamArgs:
 
     @_builtins.property
     @pulumi.getter(name="exclusiveEndTime")
-    def exclusive_end_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def exclusive_end_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The exclusive date and time that specifies when the stream ends. If you don't define this parameter, the stream runs indefinitely until you cancel it. It must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.
         """
         return pulumi.get(self, "exclusive_end_time")
 
     @exclusive_end_time.setter
-    def exclusive_end_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def exclusive_end_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "exclusive_end_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _StreamState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 exclusive_end_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 inclusive_start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 kinesis_configuration: Optional[pulumi.Input['StreamKinesisConfigurationArgs']] = None,
-                 ledger_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 exclusive_end_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 inclusive_start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 kinesis_configuration: pulumi.Input[Optional['StreamKinesisConfigurationArgs']] = None,
+                 ledger_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Stream resources.
 
@@ -200,122 +200,122 @@ class _StreamState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the QLDB Stream.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="exclusiveEndTime")
-    def exclusive_end_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def exclusive_end_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The exclusive date and time that specifies when the stream ends. If you don't define this parameter, the stream runs indefinitely until you cancel it. It must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.
         """
         return pulumi.get(self, "exclusive_end_time")
 
     @exclusive_end_time.setter
-    def exclusive_end_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def exclusive_end_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "exclusive_end_time", value)
 
     @_builtins.property
     @pulumi.getter(name="inclusiveStartTime")
-    def inclusive_start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def inclusive_start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The inclusive start date and time from which to start streaming journal data. This parameter must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.  This cannot be in the future and must be before `exclusive_end_time`.  If you provide a value that is before the ledger's `CreationDateTime`, QLDB effectively defaults it to the ledger's `CreationDateTime`.
         """
         return pulumi.get(self, "inclusive_start_time")
 
     @inclusive_start_time.setter
-    def inclusive_start_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def inclusive_start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "inclusive_start_time", value)
 
     @_builtins.property
     @pulumi.getter(name="kinesisConfiguration")
-    def kinesis_configuration(self) -> Optional[pulumi.Input['StreamKinesisConfigurationArgs']]:
+    def kinesis_configuration(self) -> pulumi.Input[Optional['StreamKinesisConfigurationArgs']]:
         """
         The configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
         """
         return pulumi.get(self, "kinesis_configuration")
 
     @kinesis_configuration.setter
-    def kinesis_configuration(self, value: Optional[pulumi.Input['StreamKinesisConfigurationArgs']]):
+    def kinesis_configuration(self, value: pulumi.Input[Optional['StreamKinesisConfigurationArgs']]):
         pulumi.set(self, "kinesis_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="ledgerName")
-    def ledger_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ledger_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the QLDB ledger.
         """
         return pulumi.get(self, "ledger_name")
 
     @ledger_name.setter
-    def ledger_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ledger_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ledger_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="streamName")
-    def stream_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stream_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.  Your stream name must be unique among other active streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in the [Amazon QLDB Developer Guide](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming).
         """
         return pulumi.get(self, "stream_name")
 
     @stream_name.setter
-    def stream_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stream_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stream_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
 
@@ -325,14 +325,14 @@ class Stream(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 exclusive_end_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 inclusive_start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 kinesis_configuration: Optional[pulumi.Input[Union['StreamKinesisConfigurationArgs', 'StreamKinesisConfigurationArgsDict']]] = None,
-                 ledger_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 exclusive_end_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 inclusive_start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 kinesis_configuration: pulumi.Input[Optional[Union['StreamKinesisConfigurationArgs', 'StreamKinesisConfigurationArgsDict']]] = None,
+                 ledger_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides an AWS Quantum Ledger Database (QLDB) Stream resource
@@ -414,14 +414,14 @@ class Stream(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 exclusive_end_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 inclusive_start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 kinesis_configuration: Optional[pulumi.Input[Union['StreamKinesisConfigurationArgs', 'StreamKinesisConfigurationArgsDict']]] = None,
-                 ledger_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 exclusive_end_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 inclusive_start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 kinesis_configuration: pulumi.Input[Optional[Union['StreamKinesisConfigurationArgs', 'StreamKinesisConfigurationArgsDict']]] = None,
+                 ledger_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -461,16 +461,16 @@ class Stream(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            exclusive_end_time: Optional[pulumi.Input[_builtins.str]] = None,
-            inclusive_start_time: Optional[pulumi.Input[_builtins.str]] = None,
-            kinesis_configuration: Optional[pulumi.Input[Union['StreamKinesisConfigurationArgs', 'StreamKinesisConfigurationArgsDict']]] = None,
-            ledger_name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            stream_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Stream':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            exclusive_end_time: pulumi.Input[Optional[_builtins.str]] = None,
+            inclusive_start_time: pulumi.Input[Optional[_builtins.str]] = None,
+            kinesis_configuration: pulumi.Input[Optional[Union['StreamKinesisConfigurationArgs', 'StreamKinesisConfigurationArgsDict']]] = None,
+            ledger_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            stream_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Stream':
         """
         Get an existing Stream resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

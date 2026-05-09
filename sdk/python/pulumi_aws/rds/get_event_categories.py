@@ -120,8 +120,8 @@ def get_event_categories(region: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'),
         source_type=pulumi.get(__ret__, 'source_type'))
-def get_event_categories_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                source_type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_event_categories_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                source_type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventCategoriesResult]:
     """
     ## Example Usage

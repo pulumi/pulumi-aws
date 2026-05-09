@@ -196,10 +196,10 @@ def get_bundle(bundle_id: Optional[_builtins.str] = None,
         region=pulumi.get(__ret__, 'region'),
         root_storages=pulumi.get(__ret__, 'root_storages'),
         user_storages=pulumi.get(__ret__, 'user_storages'))
-def get_bundle_output(bundle_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      owner: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_bundle_output(bundle_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      owner: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBundleResult]:
     """
     Retrieve information about an AWS WorkSpaces bundle.

@@ -130,23 +130,23 @@ export interface CustomDomainAssociationState {
     /**
      * ARN of the certificate for the custom domain association.
      */
-    customDomainCertificateArn?: pulumi.Input<string>;
+    customDomainCertificateArn?: pulumi.Input<string | undefined>;
     /**
      * Expiration time for the certificate.
      */
-    customDomainCertificateExpiryTime?: pulumi.Input<string>;
+    customDomainCertificateExpiryTime?: pulumi.Input<string | undefined>;
     /**
      * Custom domain to associate with the workgroup.
      */
-    customDomainName?: pulumi.Input<string>;
+    customDomainName?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Name of the workgroup.
      */
-    workgroupName?: pulumi.Input<string>;
+    workgroupName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -164,7 +164,7 @@ export interface CustomDomainAssociationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Name of the workgroup.
      */

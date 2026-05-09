@@ -213,34 +213,34 @@ export interface ReplicationSetState {
     /**
      * The ARN of the replication set.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the user who created the replication set.
      */
-    createdBy?: pulumi.Input<string>;
+    createdBy?: pulumi.Input<string | undefined>;
     /**
      * If `true`, the last region in a replication set cannot be deleted.
      */
-    deletionProtected?: pulumi.Input<boolean>;
+    deletionProtected?: pulumi.Input<boolean | undefined>;
     /**
      * A timestamp showing when the replication set was last modified.
      */
-    lastModifiedBy?: pulumi.Input<string>;
+    lastModifiedBy?: pulumi.Input<string | undefined>;
     /**
      * The replication set's Regions. Use `regions` instead.
      *
      * @deprecated region is deprecated. Use regions instead.
      */
-    region?: pulumi.Input<pulumi.Input<inputs.ssmincidents.ReplicationSetRegion>[]>;
+    region?: pulumi.Input<pulumi.Input<inputs.ssmincidents.ReplicationSetRegion>[] | undefined>;
     /**
      * The replication set's Regions.
      */
-    regions?: pulumi.Input<pulumi.Input<inputs.ssmincidents.ReplicationSetRegion>[]>;
+    regions?: pulumi.Input<pulumi.Input<inputs.ssmincidents.ReplicationSetRegion>[] | undefined>;
     /**
      * The current status of the Region.
      * * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
@@ -256,11 +256,11 @@ export interface ReplicationSetState {
      *
      * > **NOTE:** If possible, create all the customer managed keys you need (using the deploy command) before you create the replication set, or create the keys and replication set in the same deploy command. Otherwise, to delete a replication set, you must run one deploy command to delete the replication set and another to delete the AWS KMS keys used by the replication set. Deleting the AWS KMS keys before deleting the replication set results in an error. In that case, you must manually reenable the deleted key using the AWS Management Console before you can delete the replication set.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -272,11 +272,11 @@ export interface ReplicationSetArgs {
      *
      * @deprecated region is deprecated. Use regions instead.
      */
-    region?: pulumi.Input<pulumi.Input<inputs.ssmincidents.ReplicationSetRegion>[]>;
+    region?: pulumi.Input<pulumi.Input<inputs.ssmincidents.ReplicationSetRegion>[] | undefined>;
     /**
      * The replication set's Regions.
      */
-    regions?: pulumi.Input<pulumi.Input<inputs.ssmincidents.ReplicationSetRegion>[]>;
+    regions?: pulumi.Input<pulumi.Input<inputs.ssmincidents.ReplicationSetRegion>[] | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
@@ -292,5 +292,5 @@ export interface ReplicationSetArgs {
      *
      * > **NOTE:** If possible, create all the customer managed keys you need (using the deploy command) before you create the replication set, or create the keys and replication set in the same deploy command. Otherwise, to delete a replication set, you must run one deploy command to delete the replication set and another to delete the AWS KMS keys used by the replication set. Deleting the AWS KMS keys before deleting the replication set results in an error. In that case, you must manually reenable the deleted key using the AWS Management Console before you can delete the replication set.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

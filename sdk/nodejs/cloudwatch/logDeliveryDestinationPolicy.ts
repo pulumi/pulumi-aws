@@ -110,15 +110,15 @@ export interface LogDeliveryDestinationPolicyState {
     /**
      * The name of the delivery destination to assign this policy to.
      */
-    deliveryDestinationName?: pulumi.Input<string>;
+    deliveryDestinationName?: pulumi.Input<string | undefined>;
     /**
      * The contents of the policy.
      */
-    deliveryDestinationPolicy?: pulumi.Input<string>;
+    deliveryDestinationPolicy?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -136,5 +136,5 @@ export interface LogDeliveryDestinationPolicyArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

@@ -283,10 +283,10 @@ def get_thesaurus(index_id: Optional[_builtins.str] = None,
         term_count=pulumi.get(__ret__, 'term_count'),
         thesaurus_id=pulumi.get(__ret__, 'thesaurus_id'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_thesaurus_output(index_id: Optional[pulumi.Input[_builtins.str]] = None,
-                         region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                         tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
-                         thesaurus_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_thesaurus_output(index_id: pulumi.Input[Optional[_builtins.str]] = None,
+                         region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                         tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
+                         thesaurus_id: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetThesaurusResult]:
     """
     Provides details about a specific Amazon Kendra Thesaurus.

@@ -24,16 +24,16 @@ class AgentcoreGatewayArgs:
                  authorizer_type: pulumi.Input[_builtins.str],
                  protocol_type: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
-                 authorizer_configuration: Optional[pulumi.Input['AgentcoreGatewayAuthorizerConfigurationArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 exception_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 interceptor_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayInterceptorConfigurationArgs']]]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol_configuration: Optional[pulumi.Input['AgentcoreGatewayProtocolConfigurationArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['AgentcoreGatewayTimeoutsArgs']] = None):
+                 authorizer_configuration: pulumi.Input[Optional['AgentcoreGatewayAuthorizerConfigurationArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 exception_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 interceptor_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreGatewayInterceptorConfigurationArgs']]]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol_configuration: pulumi.Input[Optional['AgentcoreGatewayProtocolConfigurationArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['AgentcoreGatewayTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AgentcoreGateway resource.
 
@@ -116,143 +116,143 @@ class AgentcoreGatewayArgs:
 
     @_builtins.property
     @pulumi.getter(name="authorizerConfiguration")
-    def authorizer_configuration(self) -> Optional[pulumi.Input['AgentcoreGatewayAuthorizerConfigurationArgs']]:
+    def authorizer_configuration(self) -> pulumi.Input[Optional['AgentcoreGatewayAuthorizerConfigurationArgs']]:
         """
         Configuration for request authorization. Required when `authorizer_type` is set to `CUSTOM_JWT`. See `authorizer_configuration` below.
         """
         return pulumi.get(self, "authorizer_configuration")
 
     @authorizer_configuration.setter
-    def authorizer_configuration(self, value: Optional[pulumi.Input['AgentcoreGatewayAuthorizerConfigurationArgs']]):
+    def authorizer_configuration(self, value: pulumi.Input[Optional['AgentcoreGatewayAuthorizerConfigurationArgs']]):
         pulumi.set(self, "authorizer_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the gateway.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="exceptionLevel")
-    def exception_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def exception_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Exception level for the gateway. Valid values: `INFO`, `WARN`, `ERROR`.
         """
         return pulumi.get(self, "exception_level")
 
     @exception_level.setter
-    def exception_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def exception_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "exception_level", value)
 
     @_builtins.property
     @pulumi.getter(name="interceptorConfigurations")
-    def interceptor_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayInterceptorConfigurationArgs']]]]:
+    def interceptor_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreGatewayInterceptorConfigurationArgs']]]]:
         """
         List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptor_configuration` below.
         """
         return pulumi.get(self, "interceptor_configurations")
 
     @interceptor_configurations.setter
-    def interceptor_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayInterceptorConfigurationArgs']]]]):
+    def interceptor_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreGatewayInterceptorConfigurationArgs']]]]):
         pulumi.set(self, "interceptor_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the KMS key used to encrypt the gateway data.
         """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
-    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the gateway.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="protocolConfiguration")
-    def protocol_configuration(self) -> Optional[pulumi.Input['AgentcoreGatewayProtocolConfigurationArgs']]:
+    def protocol_configuration(self) -> pulumi.Input[Optional['AgentcoreGatewayProtocolConfigurationArgs']]:
         """
         Protocol-specific configuration for the gateway. See `protocol_configuration` below.
         """
         return pulumi.get(self, "protocol_configuration")
 
     @protocol_configuration.setter
-    def protocol_configuration(self, value: Optional[pulumi.Input['AgentcoreGatewayProtocolConfigurationArgs']]):
+    def protocol_configuration(self, value: pulumi.Input[Optional['AgentcoreGatewayProtocolConfigurationArgs']]):
         pulumi.set(self, "protocol_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['AgentcoreGatewayTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['AgentcoreGatewayTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['AgentcoreGatewayTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['AgentcoreGatewayTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _AgentcoreGatewayState:
     def __init__(__self__, *,
-                 authorizer_configuration: Optional[pulumi.Input['AgentcoreGatewayAuthorizerConfigurationArgs']] = None,
-                 authorizer_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 exception_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 interceptor_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayInterceptorConfigurationArgs']]]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol_configuration: Optional[pulumi.Input['AgentcoreGatewayProtocolConfigurationArgs']] = None,
-                 protocol_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['AgentcoreGatewayTimeoutsArgs']] = None,
-                 workload_identity_details: Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayWorkloadIdentityDetailArgs']]]] = None):
+                 authorizer_configuration: pulumi.Input[Optional['AgentcoreGatewayAuthorizerConfigurationArgs']] = None,
+                 authorizer_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 exception_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 interceptor_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreGatewayInterceptorConfigurationArgs']]]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol_configuration: pulumi.Input[Optional['AgentcoreGatewayProtocolConfigurationArgs']] = None,
+                 protocol_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['AgentcoreGatewayTimeoutsArgs']] = None,
+                 workload_identity_details: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreGatewayWorkloadIdentityDetailArgs']]]] = None):
         """
         Input properties used for looking up and filtering AgentcoreGateway resources.
 
@@ -315,163 +315,163 @@ class _AgentcoreGatewayState:
 
     @_builtins.property
     @pulumi.getter(name="authorizerConfiguration")
-    def authorizer_configuration(self) -> Optional[pulumi.Input['AgentcoreGatewayAuthorizerConfigurationArgs']]:
+    def authorizer_configuration(self) -> pulumi.Input[Optional['AgentcoreGatewayAuthorizerConfigurationArgs']]:
         """
         Configuration for request authorization. Required when `authorizer_type` is set to `CUSTOM_JWT`. See `authorizer_configuration` below.
         """
         return pulumi.get(self, "authorizer_configuration")
 
     @authorizer_configuration.setter
-    def authorizer_configuration(self, value: Optional[pulumi.Input['AgentcoreGatewayAuthorizerConfigurationArgs']]):
+    def authorizer_configuration(self, value: pulumi.Input[Optional['AgentcoreGatewayAuthorizerConfigurationArgs']]):
         pulumi.set(self, "authorizer_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="authorizerType")
-    def authorizer_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authorizer_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `authorizer_configuration` block is required.
         """
         return pulumi.get(self, "authorizer_type")
 
     @authorizer_type.setter
-    def authorizer_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authorizer_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authorizer_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the gateway.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="exceptionLevel")
-    def exception_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def exception_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Exception level for the gateway. Valid values: `INFO`, `WARN`, `ERROR`.
         """
         return pulumi.get(self, "exception_level")
 
     @exception_level.setter
-    def exception_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def exception_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "exception_level", value)
 
     @_builtins.property
     @pulumi.getter(name="gatewayArn")
-    def gateway_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gateway_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the Gateway.
         """
         return pulumi.get(self, "gateway_arn")
 
     @gateway_arn.setter
-    def gateway_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gateway_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gateway_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="gatewayId")
-    def gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gateway_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique identifier of the Gateway.
         """
         return pulumi.get(self, "gateway_id")
 
     @gateway_id.setter
-    def gateway_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gateway_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gateway_id", value)
 
     @_builtins.property
     @pulumi.getter(name="gatewayUrl")
-    def gateway_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gateway_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URL endpoint for the gateway.
         """
         return pulumi.get(self, "gateway_url")
 
     @gateway_url.setter
-    def gateway_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gateway_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gateway_url", value)
 
     @_builtins.property
     @pulumi.getter(name="interceptorConfigurations")
-    def interceptor_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayInterceptorConfigurationArgs']]]]:
+    def interceptor_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreGatewayInterceptorConfigurationArgs']]]]:
         """
         List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptor_configuration` below.
         """
         return pulumi.get(self, "interceptor_configurations")
 
     @interceptor_configurations.setter
-    def interceptor_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayInterceptorConfigurationArgs']]]]):
+    def interceptor_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreGatewayInterceptorConfigurationArgs']]]]):
         pulumi.set(self, "interceptor_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the KMS key used to encrypt the gateway data.
         """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
-    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the gateway.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="protocolConfiguration")
-    def protocol_configuration(self) -> Optional[pulumi.Input['AgentcoreGatewayProtocolConfigurationArgs']]:
+    def protocol_configuration(self) -> pulumi.Input[Optional['AgentcoreGatewayProtocolConfigurationArgs']]:
         """
         Protocol-specific configuration for the gateway. See `protocol_configuration` below.
         """
         return pulumi.get(self, "protocol_configuration")
 
     @protocol_configuration.setter
-    def protocol_configuration(self, value: Optional[pulumi.Input['AgentcoreGatewayProtocolConfigurationArgs']]):
+    def protocol_configuration(self, value: pulumi.Input[Optional['AgentcoreGatewayProtocolConfigurationArgs']]):
         pulumi.set(self, "protocol_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="protocolType")
-    def protocol_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def protocol_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Protocol type for the gateway. Valid values: `MCP`.
         """
         return pulumi.get(self, "protocol_type")
 
     @protocol_type.setter
-    def protocol_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def protocol_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "protocol_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the IAM role that the gateway assumes to access AWS services.
 
@@ -480,52 +480,52 @@ class _AgentcoreGatewayState:
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['AgentcoreGatewayTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['AgentcoreGatewayTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['AgentcoreGatewayTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['AgentcoreGatewayTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter(name="workloadIdentityDetails")
-    def workload_identity_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayWorkloadIdentityDetailArgs']]]]:
+    def workload_identity_details(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreGatewayWorkloadIdentityDetailArgs']]]]:
         """
         Workload identity details for the gateway. See `workload_identity_details` below.
         """
         return pulumi.get(self, "workload_identity_details")
 
     @workload_identity_details.setter
-    def workload_identity_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayWorkloadIdentityDetailArgs']]]]):
+    def workload_identity_details(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreGatewayWorkloadIdentityDetailArgs']]]]):
         pulumi.set(self, "workload_identity_details", value)
 
 
@@ -535,19 +535,19 @@ class AgentcoreGateway(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorizer_configuration: Optional[pulumi.Input[Union['AgentcoreGatewayAuthorizerConfigurationArgs', 'AgentcoreGatewayAuthorizerConfigurationArgsDict']]] = None,
-                 authorizer_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 exception_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 interceptor_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreGatewayInterceptorConfigurationArgs', 'AgentcoreGatewayInterceptorConfigurationArgsDict']]]]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol_configuration: Optional[pulumi.Input[Union['AgentcoreGatewayProtocolConfigurationArgs', 'AgentcoreGatewayProtocolConfigurationArgsDict']]] = None,
-                 protocol_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['AgentcoreGatewayTimeoutsArgs', 'AgentcoreGatewayTimeoutsArgsDict']]] = None,
+                 authorizer_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayAuthorizerConfigurationArgs', 'AgentcoreGatewayAuthorizerConfigurationArgsDict']]] = None,
+                 authorizer_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 exception_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 interceptor_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreGatewayInterceptorConfigurationArgs', 'AgentcoreGatewayInterceptorConfigurationArgsDict']]]]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayProtocolConfigurationArgs', 'AgentcoreGatewayProtocolConfigurationArgsDict']]] = None,
+                 protocol_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentcoreGatewayTimeoutsArgs', 'AgentcoreGatewayTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Manages an AWS Bedrock AgentCore Gateway. With Gateway, developers can convert APIs, Lambda functions, and existing services into Model Context Protocol (MCP)-compatible tools.
@@ -829,19 +829,19 @@ class AgentcoreGateway(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorizer_configuration: Optional[pulumi.Input[Union['AgentcoreGatewayAuthorizerConfigurationArgs', 'AgentcoreGatewayAuthorizerConfigurationArgsDict']]] = None,
-                 authorizer_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 exception_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 interceptor_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreGatewayInterceptorConfigurationArgs', 'AgentcoreGatewayInterceptorConfigurationArgsDict']]]]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol_configuration: Optional[pulumi.Input[Union['AgentcoreGatewayProtocolConfigurationArgs', 'AgentcoreGatewayProtocolConfigurationArgsDict']]] = None,
-                 protocol_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['AgentcoreGatewayTimeoutsArgs', 'AgentcoreGatewayTimeoutsArgsDict']]] = None,
+                 authorizer_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayAuthorizerConfigurationArgs', 'AgentcoreGatewayAuthorizerConfigurationArgsDict']]] = None,
+                 authorizer_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 exception_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 interceptor_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreGatewayInterceptorConfigurationArgs', 'AgentcoreGatewayInterceptorConfigurationArgsDict']]]]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayProtocolConfigurationArgs', 'AgentcoreGatewayProtocolConfigurationArgsDict']]] = None,
+                 protocol_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentcoreGatewayTimeoutsArgs', 'AgentcoreGatewayTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -885,24 +885,24 @@ class AgentcoreGateway(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            authorizer_configuration: Optional[pulumi.Input[Union['AgentcoreGatewayAuthorizerConfigurationArgs', 'AgentcoreGatewayAuthorizerConfigurationArgsDict']]] = None,
-            authorizer_type: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            exception_level: Optional[pulumi.Input[_builtins.str]] = None,
-            gateway_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-            gateway_url: Optional[pulumi.Input[_builtins.str]] = None,
-            interceptor_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreGatewayInterceptorConfigurationArgs', 'AgentcoreGatewayInterceptorConfigurationArgsDict']]]]] = None,
-            kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            protocol_configuration: Optional[pulumi.Input[Union['AgentcoreGatewayProtocolConfigurationArgs', 'AgentcoreGatewayProtocolConfigurationArgsDict']]] = None,
-            protocol_type: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: Optional[pulumi.Input[Union['AgentcoreGatewayTimeoutsArgs', 'AgentcoreGatewayTimeoutsArgsDict']]] = None,
-            workload_identity_details: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreGatewayWorkloadIdentityDetailArgs', 'AgentcoreGatewayWorkloadIdentityDetailArgsDict']]]]] = None) -> 'AgentcoreGateway':
+            authorizer_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayAuthorizerConfigurationArgs', 'AgentcoreGatewayAuthorizerConfigurationArgsDict']]] = None,
+            authorizer_type: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            exception_level: pulumi.Input[Optional[_builtins.str]] = None,
+            gateway_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+            gateway_url: pulumi.Input[Optional[_builtins.str]] = None,
+            interceptor_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreGatewayInterceptorConfigurationArgs', 'AgentcoreGatewayInterceptorConfigurationArgsDict']]]]] = None,
+            kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            protocol_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayProtocolConfigurationArgs', 'AgentcoreGatewayProtocolConfigurationArgsDict']]] = None,
+            protocol_type: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['AgentcoreGatewayTimeoutsArgs', 'AgentcoreGatewayTimeoutsArgsDict']]] = None,
+            workload_identity_details: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreGatewayWorkloadIdentityDetailArgs', 'AgentcoreGatewayWorkloadIdentityDetailArgsDict']]]]] = None) -> 'AgentcoreGateway':
         """
         Get an existing AgentcoreGateway resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -157,41 +157,41 @@ export interface LinkState {
     /**
      * Link ARN.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Upload speed and download speed in Mbps. See below.
      */
-    bandwidth?: pulumi.Input<inputs.networkmanager.LinkBandwidth>;
+    bandwidth?: pulumi.Input<inputs.networkmanager.LinkBandwidth | undefined>;
     /**
      * Description of the link.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * ID of the global network.
      */
-    globalNetworkId?: pulumi.Input<string>;
+    globalNetworkId?: pulumi.Input<string | undefined>;
     /**
      * Provider of the link.
      */
-    providerName?: pulumi.Input<string>;
+    providerName?: pulumi.Input<string | undefined>;
     /**
      * ID of the site.
      *
      * The following arguments are optional:
      */
-    siteId?: pulumi.Input<string>;
+    siteId?: pulumi.Input<string | undefined>;
     /**
      * Key-value tags for the link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Type of the link.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -205,7 +205,7 @@ export interface LinkArgs {
     /**
      * Description of the link.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * ID of the global network.
      */
@@ -213,7 +213,7 @@ export interface LinkArgs {
     /**
      * Provider of the link.
      */
-    providerName?: pulumi.Input<string>;
+    providerName?: pulumi.Input<string | undefined>;
     /**
      * ID of the site.
      *
@@ -223,9 +223,9 @@ export interface LinkArgs {
     /**
      * Key-value tags for the link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Type of the link.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }

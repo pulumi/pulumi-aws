@@ -259,58 +259,58 @@ export interface AddonState {
      * Name of the EKS add-on. The name must match one of
      * the names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
      */
-    addonName?: pulumi.Input<string>;
+    addonName?: pulumi.Input<string | undefined>;
     /**
      * The version of the EKS add-on. The version must
      * match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
      */
-    addonVersion?: pulumi.Input<string>;
+    addonVersion?: pulumi.Input<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the EKS add-on.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Name of the EKS Cluster.
      *
      * The following arguments are optional:
      */
-    clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string | undefined>;
     /**
      * Custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
      */
-    configurationValues?: pulumi.Input<string>;
+    configurationValues?: pulumi.Input<string | undefined>;
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
      */
-    createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string | undefined>;
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
      */
-    modifiedAt?: pulumi.Input<string>;
+    modifiedAt?: pulumi.Input<string | undefined>;
     /**
      * Namespace configuration for the add-on. See `namespaceConfig` below for details.
      */
-    namespaceConfig?: pulumi.Input<inputs.eks.AddonNamespaceConfig>;
+    namespaceConfig?: pulumi.Input<inputs.eks.AddonNamespaceConfig | undefined>;
     /**
      * Configuration block with EKS Pod Identity association settings. See `podIdentityAssociation` below for details.
      */
-    podIdentityAssociations?: pulumi.Input<pulumi.Input<inputs.eks.AddonPodIdentityAssociation>[]>;
+    podIdentityAssociations?: pulumi.Input<pulumi.Input<inputs.eks.AddonPodIdentityAssociation>[] | undefined>;
     /**
      * Indicates if you want to preserve the created resources when deleting the EKS add-on.
      */
-    preserve?: pulumi.Input<boolean>;
+    preserve?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * How to resolve field value conflicts when migrating a self-managed add-on to an Amazon EKS add-on. Valid values are `NONE` and `OVERWRITE`. For more details see the [CreateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateAddon.html) API Documentation.
      */
-    resolveConflictsOnCreate?: pulumi.Input<string>;
+    resolveConflictsOnCreate?: pulumi.Input<string | undefined>;
     /**
      * How to resolve field value conflicts for an Amazon EKS add-on if you've changed a value from the Amazon EKS default value. Valid values are `NONE`, `OVERWRITE`, and `PRESERVE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Documentation.
      */
-    resolveConflictsOnUpdate?: pulumi.Input<string>;
+    resolveConflictsOnUpdate?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of an
      * existing IAM role to bind to the add-on's service account. The role must be
@@ -324,15 +324,15 @@ export interface AddonState {
      * for service accounts on your cluster](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html)
      * in the Amazon EKS User Guide.
      */
-    serviceAccountRoleArn?: pulumi.Input<string>;
+    serviceAccountRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -348,7 +348,7 @@ export interface AddonArgs {
      * The version of the EKS add-on. The version must
      * match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
      */
-    addonVersion?: pulumi.Input<string>;
+    addonVersion?: pulumi.Input<string | undefined>;
     /**
      * Name of the EKS Cluster.
      *
@@ -358,31 +358,31 @@ export interface AddonArgs {
     /**
      * Custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
      */
-    configurationValues?: pulumi.Input<string>;
+    configurationValues?: pulumi.Input<string | undefined>;
     /**
      * Namespace configuration for the add-on. See `namespaceConfig` below for details.
      */
-    namespaceConfig?: pulumi.Input<inputs.eks.AddonNamespaceConfig>;
+    namespaceConfig?: pulumi.Input<inputs.eks.AddonNamespaceConfig | undefined>;
     /**
      * Configuration block with EKS Pod Identity association settings. See `podIdentityAssociation` below for details.
      */
-    podIdentityAssociations?: pulumi.Input<pulumi.Input<inputs.eks.AddonPodIdentityAssociation>[]>;
+    podIdentityAssociations?: pulumi.Input<pulumi.Input<inputs.eks.AddonPodIdentityAssociation>[] | undefined>;
     /**
      * Indicates if you want to preserve the created resources when deleting the EKS add-on.
      */
-    preserve?: pulumi.Input<boolean>;
+    preserve?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * How to resolve field value conflicts when migrating a self-managed add-on to an Amazon EKS add-on. Valid values are `NONE` and `OVERWRITE`. For more details see the [CreateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateAddon.html) API Documentation.
      */
-    resolveConflictsOnCreate?: pulumi.Input<string>;
+    resolveConflictsOnCreate?: pulumi.Input<string | undefined>;
     /**
      * How to resolve field value conflicts for an Amazon EKS add-on if you've changed a value from the Amazon EKS default value. Valid values are `NONE`, `OVERWRITE`, and `PRESERVE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Documentation.
      */
-    resolveConflictsOnUpdate?: pulumi.Input<string>;
+    resolveConflictsOnUpdate?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of an
      * existing IAM role to bind to the add-on's service account. The role must be
@@ -396,9 +396,9 @@ export interface AddonArgs {
      * for service accounts on your cluster](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html)
      * in the Amazon EKS User Guide.
      */
-    serviceAccountRoleArn?: pulumi.Input<string>;
+    serviceAccountRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

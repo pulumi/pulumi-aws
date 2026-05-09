@@ -126,25 +126,25 @@ export interface TargetAccountConfigurationState {
     /**
      * Account ID of the target account.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * Description of the target account.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Experiment Template ID.
      *
      * The following arguments are optional:
      */
-    experimentTemplateId?: pulumi.Input<string>;
+    experimentTemplateId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN of the IAM Role for the target account.
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -158,7 +158,7 @@ export interface TargetAccountConfigurationArgs {
     /**
      * Description of the target account.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Experiment Template ID.
      *
@@ -168,9 +168,9 @@ export interface TargetAccountConfigurationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN of the IAM Role for the target account.
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
 }

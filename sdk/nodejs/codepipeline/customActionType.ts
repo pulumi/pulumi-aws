@@ -165,33 +165,33 @@ export interface CustomActionTypeState {
     /**
      * The action ARN.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
      */
-    category?: pulumi.Input<string>;
+    category?: pulumi.Input<string | undefined>;
     /**
      * The configuration properties for the custom action. Max 10 items.
      */
-    configurationProperties?: pulumi.Input<pulumi.Input<inputs.codepipeline.CustomActionTypeConfigurationProperty>[]>;
-    inputArtifactDetails?: pulumi.Input<inputs.codepipeline.CustomActionTypeInputArtifactDetails>;
-    outputArtifactDetails?: pulumi.Input<inputs.codepipeline.CustomActionTypeOutputArtifactDetails>;
+    configurationProperties?: pulumi.Input<pulumi.Input<inputs.codepipeline.CustomActionTypeConfigurationProperty>[] | undefined>;
+    inputArtifactDetails?: pulumi.Input<inputs.codepipeline.CustomActionTypeInputArtifactDetails | undefined>;
+    outputArtifactDetails?: pulumi.Input<inputs.codepipeline.CustomActionTypeOutputArtifactDetails | undefined>;
     /**
      * The creator of the action being called.
      */
-    owner?: pulumi.Input<string>;
-    providerName?: pulumi.Input<string>;
+    owner?: pulumi.Input<string | undefined>;
+    providerName?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    settings?: pulumi.Input<inputs.codepipeline.CustomActionTypeSettings>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    region?: pulumi.Input<string | undefined>;
+    settings?: pulumi.Input<inputs.codepipeline.CustomActionTypeSettings | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    version?: pulumi.Input<string>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    version?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -205,15 +205,15 @@ export interface CustomActionTypeArgs {
     /**
      * The configuration properties for the custom action. Max 10 items.
      */
-    configurationProperties?: pulumi.Input<pulumi.Input<inputs.codepipeline.CustomActionTypeConfigurationProperty>[]>;
+    configurationProperties?: pulumi.Input<pulumi.Input<inputs.codepipeline.CustomActionTypeConfigurationProperty>[] | undefined>;
     inputArtifactDetails: pulumi.Input<inputs.codepipeline.CustomActionTypeInputArtifactDetails>;
     outputArtifactDetails: pulumi.Input<inputs.codepipeline.CustomActionTypeOutputArtifactDetails>;
     providerName: pulumi.Input<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    settings?: pulumi.Input<inputs.codepipeline.CustomActionTypeSettings>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    region?: pulumi.Input<string | undefined>;
+    settings?: pulumi.Input<inputs.codepipeline.CustomActionTypeSettings | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     version: pulumi.Input<string>;
 }

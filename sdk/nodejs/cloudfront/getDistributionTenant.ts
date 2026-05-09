@@ -126,14 +126,14 @@ export interface GetDistributionTenantOutputArgs {
     /**
      * ARN (Amazon Resource Name) for the distribution tenant.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * An associated domain of the distribution tenant. Exactly one of `id` or `domain` must be specified.
      */
-    domain?: pulumi.Input<string>;
+    domain?: pulumi.Input<string | undefined>;
     /**
      * Identifier for the distribution tenant. For example: `EDFDVBD632BHDS5`. Exactly one of `id` or `domain` must be specified.
      */
-    id?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
 }

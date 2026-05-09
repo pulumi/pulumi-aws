@@ -23,12 +23,12 @@ class CachesIscsiVolumeArgs:
                  network_interface_id: pulumi.Input[_builtins.str],
                  target_name: pulumi.Input[_builtins.str],
                  volume_size_in_bytes: pulumi.Input[_builtins.int],
-                 kms_encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kms_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshot_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_volume_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 kms_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kms_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshot_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_volume_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CachesIscsiVolume resource.
 
@@ -110,98 +110,98 @@ class CachesIscsiVolumeArgs:
 
     @_builtins.property
     @pulumi.getter(name="kmsEncrypted")
-    def kms_encrypted(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def kms_encrypted(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3.
         """
         return pulumi.get(self, "kms_encrypted")
 
     @kms_encrypted.setter
-    def kms_encrypted(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def kms_encrypted(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "kms_encrypted", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKey")
-    def kms_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kms_encrypted` is set.
         """
         return pulumi.get(self, "kms_key")
 
     @kms_key.setter
-    def kms_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotId")
-    def snapshot_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def snapshot_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The snapshot ID of the snapshot to restore as the new cached volumeE.g., `snap-1122aabb`.
         """
         return pulumi.get(self, "snapshot_id")
 
     @snapshot_id.setter
-    def snapshot_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def snapshot_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "snapshot_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceVolumeArn")
-    def source_volume_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_volume_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volume_size_in_bytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
         """
         return pulumi.get(self, "source_volume_arn")
 
     @source_volume_arn.setter
-    def source_volume_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_volume_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_volume_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _CachesIscsiVolumeState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 chap_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 gateway_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kms_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 lun_number: Optional[pulumi.Input[_builtins.int]] = None,
-                 network_interface_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interface_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshot_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_volume_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 volume_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 volume_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 volume_size_in_bytes: Optional[pulumi.Input[_builtins.int]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 chap_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 gateway_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kms_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 lun_number: pulumi.Input[Optional[_builtins.int]] = None,
+                 network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interface_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshot_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_volume_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 volume_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 volume_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 volume_size_in_bytes: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering CachesIscsiVolume resources.
 
@@ -263,218 +263,218 @@ class _CachesIscsiVolumeState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="chapEnabled")
-    def chap_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def chap_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether mutual CHAP is enabled for the iSCSI target.
         """
         return pulumi.get(self, "chap_enabled")
 
     @chap_enabled.setter
-    def chap_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def chap_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "chap_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="gatewayArn")
-    def gateway_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gateway_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the gateway.
         """
         return pulumi.get(self, "gateway_arn")
 
     @gateway_arn.setter
-    def gateway_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gateway_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gateway_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsEncrypted")
-    def kms_encrypted(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def kms_encrypted(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3.
         """
         return pulumi.get(self, "kms_encrypted")
 
     @kms_encrypted.setter
-    def kms_encrypted(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def kms_encrypted(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "kms_encrypted", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKey")
-    def kms_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kms_encrypted` is set.
         """
         return pulumi.get(self, "kms_key")
 
     @kms_key.setter
-    def kms_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key", value)
 
     @_builtins.property
     @pulumi.getter(name="lunNumber")
-    def lun_number(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def lun_number(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Logical disk number.
         """
         return pulumi.get(self, "lun_number")
 
     @lun_number.setter
-    def lun_number(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def lun_number(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "lun_number", value)
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaceId")
-    def network_interface_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_interface_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
         """
         return pulumi.get(self, "network_interface_id")
 
     @network_interface_id.setter
-    def network_interface_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_interface_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_interface_id", value)
 
     @_builtins.property
     @pulumi.getter(name="networkInterfacePort")
-    def network_interface_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def network_interface_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The port used to communicate with iSCSI targets.
         """
         return pulumi.get(self, "network_interface_port")
 
     @network_interface_port.setter
-    def network_interface_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def network_interface_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "network_interface_port", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotId")
-    def snapshot_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def snapshot_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The snapshot ID of the snapshot to restore as the new cached volumeE.g., `snap-1122aabb`.
         """
         return pulumi.get(self, "snapshot_id")
 
     @snapshot_id.setter
-    def snapshot_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def snapshot_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "snapshot_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceVolumeArn")
-    def source_volume_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_volume_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volume_size_in_bytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
         """
         return pulumi.get(self, "source_volume_arn")
 
     @source_volume_arn.setter
-    def source_volume_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_volume_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_volume_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="targetArn")
-    def target_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
         """
         return pulumi.get(self, "target_arn")
 
     @target_arn.setter
-    def target_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="targetName")
-    def target_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
         """
         return pulumi.get(self, "target_name")
 
     @target_name.setter
-    def target_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_name", value)
 
     @_builtins.property
     @pulumi.getter(name="volumeArn")
-    def volume_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def volume_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
         """
         return pulumi.get(self, "volume_arn")
 
     @volume_arn.setter
-    def volume_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def volume_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "volume_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="volumeId")
-    def volume_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def volume_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Volume ID, e.g., `vol-12345678`.
         """
         return pulumi.get(self, "volume_id")
 
     @volume_id.setter
-    def volume_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def volume_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "volume_id", value)
 
     @_builtins.property
     @pulumi.getter(name="volumeSizeInBytes")
-    def volume_size_in_bytes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def volume_size_in_bytes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The size of the volume in bytes.
         """
         return pulumi.get(self, "volume_size_in_bytes")
 
     @volume_size_in_bytes.setter
-    def volume_size_in_bytes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def volume_size_in_bytes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "volume_size_in_bytes", value)
 
 
@@ -484,16 +484,16 @@ class CachesIscsiVolume(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 gateway_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kms_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interface_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshot_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_volume_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 volume_size_in_bytes: Optional[pulumi.Input[_builtins.int]] = None,
+                 gateway_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kms_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshot_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_volume_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 volume_size_in_bytes: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Manages an AWS Storage Gateway cached iSCSI volume.
@@ -516,7 +516,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
             gateway_arn=example_aws_storagegateway_cache["gatewayArn"],
             network_interface_id=example_aws_instance["privateIp"],
             target_name="example",
-            volume_size_in_bytes=5368709120)
+            volume_size_in_bytes=int(5368709120))
         ```
 
         ### Create Cached iSCSI Volume From Snapshot
@@ -530,7 +530,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
             network_interface_id=example_aws_instance["privateIp"],
             snapshot_id=example_aws_ebs_snapshot["id"],
             target_name="example",
-            volume_size_in_bytes=example_aws_ebs_snapshot["volumeSize"] * 1024 * 1024 * 1024)
+            volume_size_in_bytes=int(float(example_aws_ebs_snapshot["volumeSize"]) * float(1024) * float(1024) * float(1024)))
         ```
 
         ### Create Cached iSCSI Volume From Source Volume
@@ -544,7 +544,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
             network_interface_id=example_aws_instance["privateIp"],
             source_volume_arn=existing["arn"],
             target_name="example",
-            volume_size_in_bytes=existing["volumeSizeInBytes"])
+            volume_size_in_bytes=int(existing["volumeSizeInBytes"]))
         ```
 
         ## Import
@@ -596,7 +596,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
             gateway_arn=example_aws_storagegateway_cache["gatewayArn"],
             network_interface_id=example_aws_instance["privateIp"],
             target_name="example",
-            volume_size_in_bytes=5368709120)
+            volume_size_in_bytes=int(5368709120))
         ```
 
         ### Create Cached iSCSI Volume From Snapshot
@@ -610,7 +610,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
             network_interface_id=example_aws_instance["privateIp"],
             snapshot_id=example_aws_ebs_snapshot["id"],
             target_name="example",
-            volume_size_in_bytes=example_aws_ebs_snapshot["volumeSize"] * 1024 * 1024 * 1024)
+            volume_size_in_bytes=int(float(example_aws_ebs_snapshot["volumeSize"]) * float(1024) * float(1024) * float(1024)))
         ```
 
         ### Create Cached iSCSI Volume From Source Volume
@@ -624,7 +624,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
             network_interface_id=example_aws_instance["privateIp"],
             source_volume_arn=existing["arn"],
             target_name="example",
-            volume_size_in_bytes=existing["volumeSizeInBytes"])
+            volume_size_in_bytes=int(existing["volumeSizeInBytes"]))
         ```
 
         ## Import
@@ -651,16 +651,16 @@ class CachesIscsiVolume(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 gateway_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kms_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interface_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshot_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_volume_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 volume_size_in_bytes: Optional[pulumi.Input[_builtins.int]] = None,
+                 gateway_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kms_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshot_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_volume_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 volume_size_in_bytes: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -706,24 +706,24 @@ class CachesIscsiVolume(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            chap_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            gateway_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            kms_encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-            kms_key: Optional[pulumi.Input[_builtins.str]] = None,
-            lun_number: Optional[pulumi.Input[_builtins.int]] = None,
-            network_interface_id: Optional[pulumi.Input[_builtins.str]] = None,
-            network_interface_port: Optional[pulumi.Input[_builtins.int]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            snapshot_id: Optional[pulumi.Input[_builtins.str]] = None,
-            source_volume_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            target_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            target_name: Optional[pulumi.Input[_builtins.str]] = None,
-            volume_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            volume_id: Optional[pulumi.Input[_builtins.str]] = None,
-            volume_size_in_bytes: Optional[pulumi.Input[_builtins.int]] = None) -> 'CachesIscsiVolume':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            chap_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            gateway_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+            kms_key: pulumi.Input[Optional[_builtins.str]] = None,
+            lun_number: pulumi.Input[Optional[_builtins.int]] = None,
+            network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
+            network_interface_port: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            snapshot_id: pulumi.Input[Optional[_builtins.str]] = None,
+            source_volume_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            target_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            target_name: pulumi.Input[Optional[_builtins.str]] = None,
+            volume_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            volume_id: pulumi.Input[Optional[_builtins.str]] = None,
+            volume_size_in_bytes: pulumi.Input[Optional[_builtins.int]] = None) -> 'CachesIscsiVolume':
         """
         Get an existing CachesIscsiVolume resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

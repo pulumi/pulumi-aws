@@ -21,15 +21,15 @@ class SnapshotCopyArgs:
     def __init__(__self__, *,
                  source_db_snapshot_identifier: pulumi.Input[_builtins.str],
                  target_db_snapshot_identifier: pulumi.Input[_builtins.str],
-                 copy_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 destination_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 option_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 presigned_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 shared_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_custom_availability_zone: Optional[pulumi.Input[_builtins.str]] = None):
+                 copy_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 destination_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 option_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 presigned_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_custom_availability_zone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SnapshotCopy resource.
 
@@ -92,141 +92,141 @@ class SnapshotCopyArgs:
 
     @_builtins.property
     @pulumi.getter(name="copyTags")
-    def copy_tags(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def copy_tags(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to copy existing tags. Defaults to `false`.
         """
         return pulumi.get(self, "copy_tags")
 
     @copy_tags.setter
-    def copy_tags(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def copy_tags(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "copy_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationRegion")
-    def destination_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Destination region to place snapshot copy.
         """
         return pulumi.get(self, "destination_region")
 
     @destination_region.setter
-    def destination_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_region", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         KMS key ID.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="optionGroupName")
-    def option_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def option_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of an option group to associate with the copy of the snapshot.
         """
         return pulumi.get(self, "option_group_name")
 
     @option_group_name.setter
-    def option_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def option_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "option_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="presignedUrl")
-    def presigned_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def presigned_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         he URL that contains a Signature Version 4 signed request.
         """
         return pulumi.get(self, "presigned_url")
 
     @presigned_url.setter
-    def presigned_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def presigned_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "presigned_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="sharedAccounts")
-    def shared_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def shared_accounts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
         """
         return pulumi.get(self, "shared_accounts")
 
     @shared_accounts.setter
-    def shared_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def shared_accounts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "shared_accounts", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="targetCustomAvailabilityZone")
-    def target_custom_availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_custom_availability_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The external custom Availability Zone.
         """
         return pulumi.get(self, "target_custom_availability_zone")
 
     @target_custom_availability_zone.setter
-    def target_custom_availability_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_custom_availability_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_custom_availability_zone", value)
 
 
 @pulumi.input_type
 class _SnapshotCopyState:
     def __init__(__self__, *,
-                 allocated_storage: Optional[pulumi.Input[_builtins.int]] = None,
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 copy_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 db_snapshot_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 engine: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 iops: Optional[pulumi.Input[_builtins.int]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 license_model: Optional[pulumi.Input[_builtins.str]] = None,
-                 option_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 presigned_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 shared_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 snapshot_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_db_snapshot_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_custom_availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_db_snapshot_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 allocated_storage: pulumi.Input[Optional[_builtins.int]] = None,
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 copy_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 db_snapshot_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 engine: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 iops: pulumi.Input[Optional[_builtins.int]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 license_model: pulumi.Input[Optional[_builtins.str]] = None,
+                 option_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 presigned_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 snapshot_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_db_snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_custom_availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_db_snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SnapshotCopy resources.
 
@@ -307,296 +307,296 @@ class _SnapshotCopyState:
 
     @_builtins.property
     @pulumi.getter(name="allocatedStorage")
-    def allocated_storage(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def allocated_storage(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the allocated storage size in gigabytes (GB).
         """
         return pulumi.get(self, "allocated_storage")
 
     @allocated_storage.setter
-    def allocated_storage(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def allocated_storage(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "allocated_storage", value)
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def availability_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
         """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
-    def availability_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def availability_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "availability_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="copyTags")
-    def copy_tags(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def copy_tags(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to copy existing tags. Defaults to `false`.
         """
         return pulumi.get(self, "copy_tags")
 
     @copy_tags.setter
-    def copy_tags(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def copy_tags(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "copy_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="dbSnapshotArn")
-    def db_snapshot_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def db_snapshot_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) for the DB snapshot.
         """
         return pulumi.get(self, "db_snapshot_arn")
 
     @db_snapshot_arn.setter
-    def db_snapshot_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def db_snapshot_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "db_snapshot_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationRegion")
-    def destination_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Destination region to place snapshot copy.
         """
         return pulumi.get(self, "destination_region")
 
     @destination_region.setter
-    def destination_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_region", value)
 
     @_builtins.property
     @pulumi.getter
-    def encrypted(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def encrypted(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the DB snapshot is encrypted.
         """
         return pulumi.get(self, "encrypted")
 
     @encrypted.setter
-    def encrypted(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def encrypted(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "encrypted", value)
 
     @_builtins.property
     @pulumi.getter
-    def engine(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def engine(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the database engine.
         """
         return pulumi.get(self, "engine")
 
     @engine.setter
-    def engine(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def engine(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "engine", value)
 
     @_builtins.property
     @pulumi.getter(name="engineVersion")
-    def engine_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def engine_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the version of the database engine.
         """
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
-    def engine_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def engine_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "engine_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def iops(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def iops(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
         """
         return pulumi.get(self, "iops")
 
     @iops.setter
-    def iops(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def iops(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "iops", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         KMS key ID.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="licenseModel")
-    def license_model(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def license_model(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         License model information for the restored DB instance.
         """
         return pulumi.get(self, "license_model")
 
     @license_model.setter
-    def license_model(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def license_model(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "license_model", value)
 
     @_builtins.property
     @pulumi.getter(name="optionGroupName")
-    def option_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def option_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of an option group to associate with the copy of the snapshot.
         """
         return pulumi.get(self, "option_group_name")
 
     @option_group_name.setter
-    def option_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def option_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "option_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter(name="presignedUrl")
-    def presigned_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def presigned_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         he URL that contains a Signature Version 4 signed request.
         """
         return pulumi.get(self, "presigned_url")
 
     @presigned_url.setter
-    def presigned_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def presigned_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "presigned_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="sharedAccounts")
-    def shared_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def shared_accounts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
         """
         return pulumi.get(self, "shared_accounts")
 
     @shared_accounts.setter
-    def shared_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def shared_accounts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "shared_accounts", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotType")
-    def snapshot_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def snapshot_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "snapshot_type")
 
     @snapshot_type.setter
-    def snapshot_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def snapshot_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "snapshot_type", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceDbSnapshotIdentifier")
-    def source_db_snapshot_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_db_snapshot_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Snapshot identifier of the source snapshot.
         """
         return pulumi.get(self, "source_db_snapshot_identifier")
 
     @source_db_snapshot_identifier.setter
-    def source_db_snapshot_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_db_snapshot_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_db_snapshot_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceRegion")
-    def source_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The region that the DB snapshot was created in or copied from.
         """
         return pulumi.get(self, "source_region")
 
     @source_region.setter
-    def source_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_region", value)
 
     @_builtins.property
     @pulumi.getter(name="storageType")
-    def storage_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the storage type associated with DB snapshot.
         """
         return pulumi.get(self, "storage_type")
 
     @storage_type.setter
-    def storage_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="targetCustomAvailabilityZone")
-    def target_custom_availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_custom_availability_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The external custom Availability Zone.
         """
         return pulumi.get(self, "target_custom_availability_zone")
 
     @target_custom_availability_zone.setter
-    def target_custom_availability_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_custom_availability_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_custom_availability_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="targetDbSnapshotIdentifier")
-    def target_db_snapshot_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_db_snapshot_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Identifier for the snapshot.
         """
         return pulumi.get(self, "target_db_snapshot_identifier")
 
     @target_db_snapshot_identifier.setter
-    def target_db_snapshot_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_db_snapshot_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_db_snapshot_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Provides the VPC ID associated with the DB snapshot.
         """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
-    def vpc_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_id", value)
 
 
@@ -606,17 +606,17 @@ class SnapshotCopy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 copy_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 destination_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 option_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 presigned_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 shared_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 source_db_snapshot_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_custom_availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_db_snapshot_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+                 copy_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 destination_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 option_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 presigned_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_db_snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_custom_availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_db_snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an RDS database instance snapshot copy. For managing RDS database cluster snapshots, see the `rds.ClusterSnapshot` resource.
@@ -727,17 +727,17 @@ class SnapshotCopy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 copy_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 destination_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 option_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 presigned_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 shared_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 source_db_snapshot_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_custom_availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_db_snapshot_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+                 copy_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 destination_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 option_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 presigned_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_db_snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_custom_availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_db_snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -786,31 +786,31 @@ class SnapshotCopy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            allocated_storage: Optional[pulumi.Input[_builtins.int]] = None,
-            availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-            copy_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-            db_snapshot_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            destination_region: Optional[pulumi.Input[_builtins.str]] = None,
-            encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-            engine: Optional[pulumi.Input[_builtins.str]] = None,
-            engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-            iops: Optional[pulumi.Input[_builtins.int]] = None,
-            kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-            license_model: Optional[pulumi.Input[_builtins.str]] = None,
-            option_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            port: Optional[pulumi.Input[_builtins.int]] = None,
-            presigned_url: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            shared_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            snapshot_type: Optional[pulumi.Input[_builtins.str]] = None,
-            source_db_snapshot_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-            source_region: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_type: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            target_custom_availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-            target_db_snapshot_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-            vpc_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'SnapshotCopy':
+            allocated_storage: pulumi.Input[Optional[_builtins.int]] = None,
+            availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            copy_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+            db_snapshot_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            destination_region: pulumi.Input[Optional[_builtins.str]] = None,
+            encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+            engine: pulumi.Input[Optional[_builtins.str]] = None,
+            engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+            iops: pulumi.Input[Optional[_builtins.int]] = None,
+            kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            license_model: pulumi.Input[Optional[_builtins.str]] = None,
+            option_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            port: pulumi.Input[Optional[_builtins.int]] = None,
+            presigned_url: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            shared_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            snapshot_type: pulumi.Input[Optional[_builtins.str]] = None,
+            source_db_snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            source_region: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            target_custom_availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            target_db_snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            vpc_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'SnapshotCopy':
         """
         Get an existing SnapshotCopy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -109,11 +109,11 @@ export interface MonitoringSubscriptionState {
     /**
      * The ID of the distribution that you are enabling metrics for.
      */
-    distributionId?: pulumi.Input<string>;
+    distributionId?: pulumi.Input<string | undefined>;
     /**
      * A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
      */
-    monitoringSubscription?: pulumi.Input<inputs.cloudfront.MonitoringSubscriptionMonitoringSubscription>;
+    monitoringSubscription?: pulumi.Input<inputs.cloudfront.MonitoringSubscriptionMonitoringSubscription | undefined>;
 }
 
 /**

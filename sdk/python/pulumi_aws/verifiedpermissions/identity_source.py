@@ -23,8 +23,8 @@ class IdentitySourceArgs:
     def __init__(__self__, *,
                  configuration: pulumi.Input['IdentitySourceConfigurationArgs'],
                  policy_store_id: pulumi.Input[_builtins.str],
-                 principal_entity_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 principal_entity_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a IdentitySource resource.
 
@@ -66,36 +66,36 @@ class IdentitySourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="principalEntityType")
-    def principal_entity_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_entity_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
         """
         return pulumi.get(self, "principal_entity_type")
 
     @principal_entity_type.setter
-    def principal_entity_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_entity_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_entity_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _IdentitySourceState:
     def __init__(__self__, *,
-                 configuration: Optional[pulumi.Input['IdentitySourceConfigurationArgs']] = None,
-                 policy_store_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_entity_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 configuration: pulumi.Input[Optional['IdentitySourceConfigurationArgs']] = None,
+                 policy_store_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_entity_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IdentitySource resources.
 
@@ -115,50 +115,50 @@ class _IdentitySourceState:
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input['IdentitySourceConfigurationArgs']]:
+    def configuration(self) -> pulumi.Input[Optional['IdentitySourceConfigurationArgs']]:
         """
         Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
         """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input['IdentitySourceConfigurationArgs']]):
+    def configuration(self, value: pulumi.Input[Optional['IdentitySourceConfigurationArgs']]):
         pulumi.set(self, "configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="policyStoreId")
-    def policy_store_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_store_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the policy store in which you want to store this identity source.
         """
         return pulumi.get(self, "policy_store_id")
 
     @policy_store_id.setter
-    def policy_store_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_store_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_store_id", value)
 
     @_builtins.property
     @pulumi.getter(name="principalEntityType")
-    def principal_entity_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_entity_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
         """
         return pulumi.get(self, "principal_entity_type")
 
     @principal_entity_type.setter
-    def principal_entity_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_entity_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_entity_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
@@ -168,10 +168,10 @@ class IdentitySource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[Union['IdentitySourceConfigurationArgs', 'IdentitySourceConfigurationArgsDict']]] = None,
-                 policy_store_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_entity_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 configuration: pulumi.Input[Optional[Union['IdentitySourceConfigurationArgs', 'IdentitySourceConfigurationArgsDict']]] = None,
+                 policy_store_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_entity_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Verified Permissions Identity Source.
@@ -337,10 +337,10 @@ class IdentitySource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[Union['IdentitySourceConfigurationArgs', 'IdentitySourceConfigurationArgsDict']]] = None,
-                 policy_store_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_entity_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 configuration: pulumi.Input[Optional[Union['IdentitySourceConfigurationArgs', 'IdentitySourceConfigurationArgsDict']]] = None,
+                 policy_store_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_entity_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -368,10 +368,10 @@ class IdentitySource(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            configuration: Optional[pulumi.Input[Union['IdentitySourceConfigurationArgs', 'IdentitySourceConfigurationArgsDict']]] = None,
-            policy_store_id: Optional[pulumi.Input[_builtins.str]] = None,
-            principal_entity_type: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None) -> 'IdentitySource':
+            configuration: pulumi.Input[Optional[Union['IdentitySourceConfigurationArgs', 'IdentitySourceConfigurationArgsDict']]] = None,
+            policy_store_id: pulumi.Input[Optional[_builtins.str]] = None,
+            principal_entity_type: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> 'IdentitySource':
         """
         Get an existing IdentitySource resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

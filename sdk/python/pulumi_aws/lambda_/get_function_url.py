@@ -188,7 +188,7 @@ def get_function_url(function_name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.lambda.get_function_url(function_name="my_lambda_function")
+    example = aws.lambda_.get_function_url(function_name="my_lambda_function")
     pulumi.export("functionUrl", example.function_url)
     ```
 
@@ -199,7 +199,7 @@ def get_function_url(function_name: Optional[_builtins.str] = None,
     import pulumi_aws as aws
     import pulumi_std as std
 
-    example = aws.lambda.get_function_url(function_name=example_aws_lambda_function["functionName"],
+    example = aws.lambda_.get_function_url(function_name=example_aws_lambda_function["functionName"],
         qualifier="production")
     # Use the URL in other resources
     lambda_alias = aws.route53.Record("lambda_alias",
@@ -218,7 +218,7 @@ def get_function_url(function_name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.lambda.get_function_url(function_name="api_function")
+    example = aws.lambda_.get_function_url(function_name="api_function")
     cors_config = len(example.cors).apply(lambda length: example.cors[0] if length > 0 else None)
     allowed_origins = cors_config["allowOrigins"] if cors_config != None else []
     pulumi.export("corsAllowedOrigins", allowed_origins)
@@ -251,9 +251,9 @@ def get_function_url(function_name: Optional[_builtins.str] = None,
         qualifier=pulumi.get(__ret__, 'qualifier'),
         region=pulumi.get(__ret__, 'region'),
         url_id=pulumi.get(__ret__, 'url_id'))
-def get_function_url_output(function_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            qualifier: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                            region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_function_url_output(function_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            qualifier: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                            region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFunctionUrlResult]:
     """
     Provides details about an AWS Lambda Function URL. Use this data source to retrieve information about an existing function URL configuration.
@@ -266,7 +266,7 @@ def get_function_url_output(function_name: Optional[pulumi.Input[_builtins.str]]
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.lambda.get_function_url(function_name="my_lambda_function")
+    example = aws.lambda_.get_function_url(function_name="my_lambda_function")
     pulumi.export("functionUrl", example.function_url)
     ```
 
@@ -277,7 +277,7 @@ def get_function_url_output(function_name: Optional[pulumi.Input[_builtins.str]]
     import pulumi_aws as aws
     import pulumi_std as std
 
-    example = aws.lambda.get_function_url(function_name=example_aws_lambda_function["functionName"],
+    example = aws.lambda_.get_function_url(function_name=example_aws_lambda_function["functionName"],
         qualifier="production")
     # Use the URL in other resources
     lambda_alias = aws.route53.Record("lambda_alias",
@@ -296,7 +296,7 @@ def get_function_url_output(function_name: Optional[pulumi.Input[_builtins.str]]
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.lambda.get_function_url(function_name="api_function")
+    example = aws.lambda_.get_function_url(function_name="api_function")
     cors_config = len(example.cors).apply(lambda length: example.cors[0] if length > 0 else None)
     allowed_origins = cors_config["allowOrigins"] if cors_config != None else []
     pulumi.export("corsAllowedOrigins", allowed_origins)

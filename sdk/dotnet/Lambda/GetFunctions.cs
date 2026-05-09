@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Lambda
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["functionCount"] = all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames).Length,
+        ///         ["functionCount"] = all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames).Length(),
         ///         ["allFunctionNames"] = all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames),
         ///     };
         /// });
@@ -51,31 +51,35 @@ namespace Pulumi.Aws.Lambda
         /// 
         ///     // Create CloudWatch alarms for all functions
         ///     var lambdaErrors = new List&lt;Aws.CloudWatch.MetricAlarm&gt;();
-        ///     for (var rangeIndex = 0; rangeIndex &lt; all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames).Length; rangeIndex++)
+        ///     all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames).Length().Apply(rangeBody =&gt;
         ///     {
-        ///         var range = new { Value = rangeIndex };
-        ///         lambdaErrors.Add(new Aws.CloudWatch.MetricAlarm($"lambda_errors-{range.Value}", new()
+        ///         for (var rangeIndex = 0; rangeIndex &lt; rangeBody; rangeIndex++)
         ///         {
-        ///             Name = $"{all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames)[range.Value]}-errors",
-        ///             ComparisonOperator = "GreaterThanThreshold",
-        ///             EvaluationPeriods = 2,
-        ///             MetricName = "Errors",
-        ///             Namespace = "AWS/Lambda",
-        ///             Period = 300,
-        ///             Statistic = "Sum",
-        ///             Threshold = 5,
-        ///             AlarmDescription = "This metric monitors lambda errors",
-        ///             Dimensions = 
+        ///             var range = new { Value = rangeIndex };
+        ///             lambdaErrors.Add(new Aws.CloudWatch.MetricAlarm($"lambda_errors-{range.Value}", new()
         ///             {
-        ///                 { "FunctionName", all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames)[range.Value] },
-        ///             },
-        ///             Tags = 
-        ///             {
-        ///                 { "Environment", "monitoring" },
-        ///                 { "Purpose", "lambda-error-tracking" },
-        ///             },
-        ///         }));
-        ///     }
+        ///                 Name = $"{all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames)[range.Value]}-errors",
+        ///                 ComparisonOperator = "GreaterThanThreshold",
+        ///                 EvaluationPeriods = 2,
+        ///                 MetricName = "Errors",
+        ///                 Namespace = "AWS/Lambda",
+        ///                 Period = 300,
+        ///                 Statistic = "Sum",
+        ///                 Threshold = 5,
+        ///                 AlarmDescription = "This metric monitors lambda errors",
+        ///                 Dimensions = 
+        ///                 {
+        ///                     { "FunctionName", all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames)[range.Value] },
+        ///                 },
+        ///                 Tags = 
+        ///                 {
+        ///                     { "Environment", "monitoring" },
+        ///                     { "Purpose", "lambda-error-tracking" },
+        ///                 },
+        ///             }));
+        ///         }
+        ///         return 0;
+        ///     });
         /// });
         /// ```
         /// 
@@ -145,7 +149,7 @@ namespace Pulumi.Aws.Lambda
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["functionCount"] = all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames).Length,
+        ///         ["functionCount"] = all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames).Length(),
         ///         ["allFunctionNames"] = all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames),
         ///     };
         /// });
@@ -166,31 +170,35 @@ namespace Pulumi.Aws.Lambda
         /// 
         ///     // Create CloudWatch alarms for all functions
         ///     var lambdaErrors = new List&lt;Aws.CloudWatch.MetricAlarm&gt;();
-        ///     for (var rangeIndex = 0; rangeIndex &lt; all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames).Length; rangeIndex++)
+        ///     all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames).Length().Apply(rangeBody =&gt;
         ///     {
-        ///         var range = new { Value = rangeIndex };
-        ///         lambdaErrors.Add(new Aws.CloudWatch.MetricAlarm($"lambda_errors-{range.Value}", new()
+        ///         for (var rangeIndex = 0; rangeIndex &lt; rangeBody; rangeIndex++)
         ///         {
-        ///             Name = $"{all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames)[range.Value]}-errors",
-        ///             ComparisonOperator = "GreaterThanThreshold",
-        ///             EvaluationPeriods = 2,
-        ///             MetricName = "Errors",
-        ///             Namespace = "AWS/Lambda",
-        ///             Period = 300,
-        ///             Statistic = "Sum",
-        ///             Threshold = 5,
-        ///             AlarmDescription = "This metric monitors lambda errors",
-        ///             Dimensions = 
+        ///             var range = new { Value = rangeIndex };
+        ///             lambdaErrors.Add(new Aws.CloudWatch.MetricAlarm($"lambda_errors-{range.Value}", new()
         ///             {
-        ///                 { "FunctionName", all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames)[range.Value] },
-        ///             },
-        ///             Tags = 
-        ///             {
-        ///                 { "Environment", "monitoring" },
-        ///                 { "Purpose", "lambda-error-tracking" },
-        ///             },
-        ///         }));
-        ///     }
+        ///                 Name = $"{all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames)[range.Value]}-errors",
+        ///                 ComparisonOperator = "GreaterThanThreshold",
+        ///                 EvaluationPeriods = 2,
+        ///                 MetricName = "Errors",
+        ///                 Namespace = "AWS/Lambda",
+        ///                 Period = 300,
+        ///                 Statistic = "Sum",
+        ///                 Threshold = 5,
+        ///                 AlarmDescription = "This metric monitors lambda errors",
+        ///                 Dimensions = 
+        ///                 {
+        ///                     { "FunctionName", all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames)[range.Value] },
+        ///                 },
+        ///                 Tags = 
+        ///                 {
+        ///                     { "Environment", "monitoring" },
+        ///                     { "Purpose", "lambda-error-tracking" },
+        ///                 },
+        ///             }));
+        ///         }
+        ///         return 0;
+        ///     });
         /// });
         /// ```
         /// 
@@ -260,7 +268,7 @@ namespace Pulumi.Aws.Lambda
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["functionCount"] = all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames).Length,
+        ///         ["functionCount"] = all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames).Length(),
         ///         ["allFunctionNames"] = all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames),
         ///     };
         /// });
@@ -281,31 +289,35 @@ namespace Pulumi.Aws.Lambda
         /// 
         ///     // Create CloudWatch alarms for all functions
         ///     var lambdaErrors = new List&lt;Aws.CloudWatch.MetricAlarm&gt;();
-        ///     for (var rangeIndex = 0; rangeIndex &lt; all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames).Length; rangeIndex++)
+        ///     all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames).Length().Apply(rangeBody =&gt;
         ///     {
-        ///         var range = new { Value = rangeIndex };
-        ///         lambdaErrors.Add(new Aws.CloudWatch.MetricAlarm($"lambda_errors-{range.Value}", new()
+        ///         for (var rangeIndex = 0; rangeIndex &lt; rangeBody; rangeIndex++)
         ///         {
-        ///             Name = $"{all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames)[range.Value]}-errors",
-        ///             ComparisonOperator = "GreaterThanThreshold",
-        ///             EvaluationPeriods = 2,
-        ///             MetricName = "Errors",
-        ///             Namespace = "AWS/Lambda",
-        ///             Period = 300,
-        ///             Statistic = "Sum",
-        ///             Threshold = 5,
-        ///             AlarmDescription = "This metric monitors lambda errors",
-        ///             Dimensions = 
+        ///             var range = new { Value = rangeIndex };
+        ///             lambdaErrors.Add(new Aws.CloudWatch.MetricAlarm($"lambda_errors-{range.Value}", new()
         ///             {
-        ///                 { "FunctionName", all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames)[range.Value] },
-        ///             },
-        ///             Tags = 
-        ///             {
-        ///                 { "Environment", "monitoring" },
-        ///                 { "Purpose", "lambda-error-tracking" },
-        ///             },
-        ///         }));
-        ///     }
+        ///                 Name = $"{all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames)[range.Value]}-errors",
+        ///                 ComparisonOperator = "GreaterThanThreshold",
+        ///                 EvaluationPeriods = 2,
+        ///                 MetricName = "Errors",
+        ///                 Namespace = "AWS/Lambda",
+        ///                 Period = 300,
+        ///                 Statistic = "Sum",
+        ///                 Threshold = 5,
+        ///                 AlarmDescription = "This metric monitors lambda errors",
+        ///                 Dimensions = 
+        ///                 {
+        ///                     { "FunctionName", all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames)[range.Value] },
+        ///                 },
+        ///                 Tags = 
+        ///                 {
+        ///                     { "Environment", "monitoring" },
+        ///                     { "Purpose", "lambda-error-tracking" },
+        ///                 },
+        ///             }));
+        ///         }
+        ///         return 0;
+        ///     });
         /// });
         /// ```
         /// 

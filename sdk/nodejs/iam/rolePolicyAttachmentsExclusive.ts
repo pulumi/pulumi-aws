@@ -126,11 +126,11 @@ export interface RolePolicyAttachmentsExclusiveState {
     /**
      * A list of managed IAM policy ARNs to be attached to the role. Policies attached to this role but not configured in this argument will be removed.
      */
-    policyArns?: pulumi.Input<pulumi.Input<string>[]>;
+    policyArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * IAM role name.
      */
-    roleName?: pulumi.Input<string>;
+    roleName?: pulumi.Input<string | undefined>;
 }
 
 /**

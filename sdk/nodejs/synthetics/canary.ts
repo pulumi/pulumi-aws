@@ -263,105 +263,105 @@ export interface CanaryState {
     /**
      * Amazon Resource Name (ARN) of the Canary.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
      */
-    artifactConfig?: pulumi.Input<inputs.synthetics.CanaryArtifactConfig>;
+    artifactConfig?: pulumi.Input<inputs.synthetics.CanaryArtifactConfig | undefined>;
     /**
      * Location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary.
      */
-    artifactS3Location?: pulumi.Input<string>;
+    artifactS3Location?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether to also delete the Lambda functions and layers used by this canary. The default is `false`.
      */
-    deleteLambda?: pulumi.Input<boolean>;
+    deleteLambda?: pulumi.Input<boolean | undefined>;
     /**
      * ARN of the Lambda function that is used as your canary's engine.
      */
-    engineArn?: pulumi.Input<string>;
+    engineArn?: pulumi.Input<string | undefined>;
     /**
      * ARN of the IAM role to be used to run the canary. see [AWS Docs](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CreateCanary.html#API_CreateCanary_RequestSyntax) for permissions needs for IAM Role.
      */
-    executionRoleArn?: pulumi.Input<string>;
+    executionRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Number of days to retain data about failed runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
      */
-    failureRetentionPeriod?: pulumi.Input<number>;
+    failureRetentionPeriod?: pulumi.Input<number | undefined>;
     /**
      * Entry point to use for the source code when running the canary. This value must end with the string `.handler` .
      */
-    handler?: pulumi.Input<string>;
+    handler?: pulumi.Input<string | undefined>;
     /**
      * Name for this canary. Has a maximum length of 255 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for individual canary runs. Detailed below.
      */
-    runConfig?: pulumi.Input<inputs.synthetics.CanaryRunConfig>;
+    runConfig?: pulumi.Input<inputs.synthetics.CanaryRunConfig | undefined>;
     /**
      * Runtime version to use for the canary. Versions change often so consult the [Amazon CloudWatch documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html) for the latest valid versions. Values include `syn-python-selenium-1.0`, `syn-nodejs-puppeteer-3.0`, `syn-nodejs-2.2`, `syn-nodejs-2.1`, `syn-nodejs-2.0`, and `syn-1.0`.
      */
-    runtimeVersion?: pulumi.Input<string>;
+    runtimeVersion?: pulumi.Input<string | undefined>;
     /**
      * Full bucket name which is used if your canary script is located in S3. The bucket must already exist. **Conflicts with `zipFile`.**
      */
-    s3Bucket?: pulumi.Input<string>;
+    s3Bucket?: pulumi.Input<string | undefined>;
     /**
      * S3 key of your script. **Conflicts with `zipFile`.**
      */
-    s3Key?: pulumi.Input<string>;
+    s3Key?: pulumi.Input<string | undefined>;
     /**
      * S3 version ID of your script. **Conflicts with `zipFile`.**
      */
-    s3Version?: pulumi.Input<string>;
+    s3Version?: pulumi.Input<string | undefined>;
     /**
      * Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
      *
      * The following arguments are optional:
      */
-    schedule?: pulumi.Input<inputs.synthetics.CanarySchedule>;
+    schedule?: pulumi.Input<inputs.synthetics.CanarySchedule | undefined>;
     /**
      * ARN of the Lambda layer where Synthetics stores the canary script code.
      */
-    sourceLocationArn?: pulumi.Input<string>;
+    sourceLocationArn?: pulumi.Input<string | undefined>;
     /**
      * Whether to run or stop the canary.
      */
-    startCanary?: pulumi.Input<boolean>;
+    startCanary?: pulumi.Input<boolean | undefined>;
     /**
      * Canary status.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Number of days to retain data about successful runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
      */
-    successRetentionPeriod?: pulumi.Input<number>;
+    successRetentionPeriod?: pulumi.Input<number | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Structure that contains information about when the canary was created, modified, and most recently run. see Timeline.
      */
-    timelines?: pulumi.Input<pulumi.Input<inputs.synthetics.CanaryTimeline>[]>;
+    timelines?: pulumi.Input<pulumi.Input<inputs.synthetics.CanaryTimeline>[] | undefined>;
     /**
      * Configuration block. Detailed below.
      */
-    vpcConfig?: pulumi.Input<inputs.synthetics.CanaryVpcConfig>;
+    vpcConfig?: pulumi.Input<inputs.synthetics.CanaryVpcConfig | undefined>;
     /**
      * ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 225KB. **Conflicts with `s3Bucket`, `s3Key`, and `s3Version`.**
      */
-    zipFile?: pulumi.Input<string>;
+    zipFile?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -371,7 +371,7 @@ export interface CanaryArgs {
     /**
      * configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
      */
-    artifactConfig?: pulumi.Input<inputs.synthetics.CanaryArtifactConfig>;
+    artifactConfig?: pulumi.Input<inputs.synthetics.CanaryArtifactConfig | undefined>;
     /**
      * Location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary.
      */
@@ -379,7 +379,7 @@ export interface CanaryArgs {
     /**
      * Specifies whether to also delete the Lambda functions and layers used by this canary. The default is `false`.
      */
-    deleteLambda?: pulumi.Input<boolean>;
+    deleteLambda?: pulumi.Input<boolean | undefined>;
     /**
      * ARN of the IAM role to be used to run the canary. see [AWS Docs](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CreateCanary.html#API_CreateCanary_RequestSyntax) for permissions needs for IAM Role.
      */
@@ -387,7 +387,7 @@ export interface CanaryArgs {
     /**
      * Number of days to retain data about failed runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
      */
-    failureRetentionPeriod?: pulumi.Input<number>;
+    failureRetentionPeriod?: pulumi.Input<number | undefined>;
     /**
      * Entry point to use for the source code when running the canary. This value must end with the string `.handler` .
      */
@@ -395,15 +395,15 @@ export interface CanaryArgs {
     /**
      * Name for this canary. Has a maximum length of 255 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for individual canary runs. Detailed below.
      */
-    runConfig?: pulumi.Input<inputs.synthetics.CanaryRunConfig>;
+    runConfig?: pulumi.Input<inputs.synthetics.CanaryRunConfig | undefined>;
     /**
      * Runtime version to use for the canary. Versions change often so consult the [Amazon CloudWatch documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html) for the latest valid versions. Values include `syn-python-selenium-1.0`, `syn-nodejs-puppeteer-3.0`, `syn-nodejs-2.2`, `syn-nodejs-2.1`, `syn-nodejs-2.0`, and `syn-1.0`.
      */
@@ -411,15 +411,15 @@ export interface CanaryArgs {
     /**
      * Full bucket name which is used if your canary script is located in S3. The bucket must already exist. **Conflicts with `zipFile`.**
      */
-    s3Bucket?: pulumi.Input<string>;
+    s3Bucket?: pulumi.Input<string | undefined>;
     /**
      * S3 key of your script. **Conflicts with `zipFile`.**
      */
-    s3Key?: pulumi.Input<string>;
+    s3Key?: pulumi.Input<string | undefined>;
     /**
      * S3 version ID of your script. **Conflicts with `zipFile`.**
      */
-    s3Version?: pulumi.Input<string>;
+    s3Version?: pulumi.Input<string | undefined>;
     /**
      * Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
      *
@@ -429,21 +429,21 @@ export interface CanaryArgs {
     /**
      * Whether to run or stop the canary.
      */
-    startCanary?: pulumi.Input<boolean>;
+    startCanary?: pulumi.Input<boolean | undefined>;
     /**
      * Number of days to retain data about successful runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
      */
-    successRetentionPeriod?: pulumi.Input<number>;
+    successRetentionPeriod?: pulumi.Input<number | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Configuration block. Detailed below.
      */
-    vpcConfig?: pulumi.Input<inputs.synthetics.CanaryVpcConfig>;
+    vpcConfig?: pulumi.Input<inputs.synthetics.CanaryVpcConfig | undefined>;
     /**
      * ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 225KB. **Conflicts with `s3Bucket`, `s3Key`, and `s3Version`.**
      */
-    zipFile?: pulumi.Input<string>;
+    zipFile?: pulumi.Input<string | undefined>;
 }

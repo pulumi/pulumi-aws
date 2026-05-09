@@ -114,12 +114,12 @@ export interface TelemetryEnrichmentState {
     /**
      * ARN of the AWS Resource Explorer managed view created for the telemetry enrichment feature.
      */
-    awsResourceExplorerManagedViewArn?: pulumi.Input<string>;
+    awsResourceExplorerManagedViewArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.observabilityadmin.TelemetryEnrichmentTimeouts>;
+    region?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.observabilityadmin.TelemetryEnrichmentTimeouts | undefined>;
 }
 
 /**
@@ -129,6 +129,6 @@ export interface TelemetryEnrichmentArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.observabilityadmin.TelemetryEnrichmentTimeouts>;
+    region?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.observabilityadmin.TelemetryEnrichmentTimeouts | undefined>;
 }

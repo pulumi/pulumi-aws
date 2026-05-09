@@ -19,9 +19,9 @@ __all__ = ['AccountCustomizationsArgs', 'AccountCustomizations']
 @pulumi.input_type
 class AccountCustomizationsArgs:
     def __init__(__self__, *,
-                 account_color: Optional[pulumi.Input[_builtins.str]] = None,
-                 visible_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 visible_services: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 account_color: pulumi.Input[Optional[_builtins.str]] = None,
+                 visible_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 visible_services: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AccountCustomizations resource.
 
@@ -38,47 +38,47 @@ class AccountCustomizationsArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountColor")
-    def account_color(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_color(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Color used to identify the account in the AWS Management Console. Valid values are `none`, `red`, `darkBlue`, `lightBlue`, `green`, `yellow`, `orange`, `pink`, `purple`, and `teal`. Defaults to `none`.
         """
         return pulumi.get(self, "account_color")
 
     @account_color.setter
-    def account_color(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_color(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_color", value)
 
     @_builtins.property
     @pulumi.getter(name="visibleRegions")
-    def visible_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def visible_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of AWS region codes to display in the console. When omitted or empty, all regions are visible.
         """
         return pulumi.get(self, "visible_regions")
 
     @visible_regions.setter
-    def visible_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def visible_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "visible_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="visibleServices")
-    def visible_services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def visible_services(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of AWS service identifiers to display in the console. When omitted or empty, all services are visible.
         """
         return pulumi.get(self, "visible_services")
 
     @visible_services.setter
-    def visible_services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def visible_services(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "visible_services", value)
 
 
 @pulumi.input_type
 class _AccountCustomizationsState:
     def __init__(__self__, *,
-                 account_color: Optional[pulumi.Input[_builtins.str]] = None,
-                 visible_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 visible_services: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 account_color: pulumi.Input[Optional[_builtins.str]] = None,
+                 visible_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 visible_services: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering AccountCustomizations resources.
 
@@ -95,38 +95,38 @@ class _AccountCustomizationsState:
 
     @_builtins.property
     @pulumi.getter(name="accountColor")
-    def account_color(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_color(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Color used to identify the account in the AWS Management Console. Valid values are `none`, `red`, `darkBlue`, `lightBlue`, `green`, `yellow`, `orange`, `pink`, `purple`, and `teal`. Defaults to `none`.
         """
         return pulumi.get(self, "account_color")
 
     @account_color.setter
-    def account_color(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_color(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_color", value)
 
     @_builtins.property
     @pulumi.getter(name="visibleRegions")
-    def visible_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def visible_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of AWS region codes to display in the console. When omitted or empty, all regions are visible.
         """
         return pulumi.get(self, "visible_regions")
 
     @visible_regions.setter
-    def visible_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def visible_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "visible_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="visibleServices")
-    def visible_services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def visible_services(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of AWS service identifiers to display in the console. When omitted or empty, all services are visible.
         """
         return pulumi.get(self, "visible_services")
 
     @visible_services.setter
-    def visible_services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def visible_services(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "visible_services", value)
 
 
@@ -136,9 +136,9 @@ class AccountCustomizations(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_color: Optional[pulumi.Input[_builtins.str]] = None,
-                 visible_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 visible_services: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 account_color: pulumi.Input[Optional[_builtins.str]] = None,
+                 visible_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 visible_services: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages UXC Account Customizations for an AWS Account. This resource controls the console experience for the account, including the account color and which AWS regions and services are visible in the AWS Management Console.
@@ -265,9 +265,9 @@ class AccountCustomizations(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_color: Optional[pulumi.Input[_builtins.str]] = None,
-                 visible_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 visible_services: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 account_color: pulumi.Input[Optional[_builtins.str]] = None,
+                 visible_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 visible_services: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -290,9 +290,9 @@ class AccountCustomizations(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_color: Optional[pulumi.Input[_builtins.str]] = None,
-            visible_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            visible_services: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'AccountCustomizations':
+            account_color: pulumi.Input[Optional[_builtins.str]] = None,
+            visible_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            visible_services: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'AccountCustomizations':
         """
         Get an existing AccountCustomizations resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

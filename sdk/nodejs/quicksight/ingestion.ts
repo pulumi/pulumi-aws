@@ -140,33 +140,33 @@ export interface IngestionState {
     /**
      * ARN of the Ingestion.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
      */
-    awsAccountId?: pulumi.Input<string>;
+    awsAccountId?: pulumi.Input<string | undefined>;
     /**
      * ID of the dataset used in the ingestion.
      */
-    dataSetId?: pulumi.Input<string>;
+    dataSetId?: pulumi.Input<string | undefined>;
     /**
      * ID for the ingestion.
      */
-    ingestionId?: pulumi.Input<string>;
+    ingestionId?: pulumi.Input<string | undefined>;
     /**
      * Ingestion status.
      */
-    ingestionStatus?: pulumi.Input<string>;
+    ingestionStatus?: pulumi.Input<string | undefined>;
     /**
      * Type of ingestion to be created. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
      *
      * The following arguments are optional:
      */
-    ingestionType?: pulumi.Input<string>;
+    ingestionType?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -176,7 +176,7 @@ export interface IngestionArgs {
     /**
      * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
      */
-    awsAccountId?: pulumi.Input<string>;
+    awsAccountId?: pulumi.Input<string | undefined>;
     /**
      * ID of the dataset used in the ingestion.
      */
@@ -194,5 +194,5 @@ export interface IngestionArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

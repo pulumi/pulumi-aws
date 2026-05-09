@@ -21,9 +21,9 @@ __all__ = ['ReplicationSetArgs', 'ReplicationSet']
 @pulumi.input_type
 class ReplicationSetArgs:
     def __init__(__self__, *,
-                 region: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArgs']]]] = None,
-                 regions: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 region: pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationSetRegionArgs']]]] = None,
+                 regions: pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationSetRegionArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ReplicationSet resource.
 
@@ -56,31 +56,31 @@ class ReplicationSetArgs:
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""region is deprecated. Use regions instead.""")
-    def region(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArgs']]]]:
+    def region(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationSetRegionArgs']]]]:
         """
         The replication set's Regions. Use `regions` instead.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArgs']]]]):
+    def region(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationSetRegionArgs']]]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArgs']]]]:
+    def regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationSetRegionArgs']]]]:
         """
         The replication set's Regions.
         """
         return pulumi.get(self, "regions")
 
     @regions.setter
-    def regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArgs']]]]):
+    def regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationSetRegionArgs']]]]):
         pulumi.set(self, "regions", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 
@@ -99,22 +99,22 @@ class ReplicationSetArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _ReplicationSetState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 deletion_protected: Optional[pulumi.Input[_builtins.bool]] = None,
-                 last_modified_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArgs']]]] = None,
-                 regions: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArgs']]]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 deletion_protected: pulumi.Input[Optional[_builtins.bool]] = None,
+                 last_modified_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationSetRegionArgs']]]] = None,
+                 regions: pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationSetRegionArgs']]]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ReplicationSet resources.
 
@@ -165,80 +165,80 @@ class _ReplicationSetState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the replication set.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_by(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the user who created the replication set.
         """
         return pulumi.get(self, "created_by")
 
     @created_by.setter
-    def created_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_by(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_by", value)
 
     @_builtins.property
     @pulumi.getter(name="deletionProtected")
-    def deletion_protected(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def deletion_protected(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If `true`, the last region in a replication set cannot be deleted.
         """
         return pulumi.get(self, "deletion_protected")
 
     @deletion_protected.setter
-    def deletion_protected(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def deletion_protected(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "deletion_protected", value)
 
     @_builtins.property
     @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_modified_by(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A timestamp showing when the replication set was last modified.
         """
         return pulumi.get(self, "last_modified_by")
 
     @last_modified_by.setter
-    def last_modified_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_modified_by(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_modified_by", value)
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""region is deprecated. Use regions instead.""")
-    def region(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArgs']]]]:
+    def region(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationSetRegionArgs']]]]:
         """
         The replication set's Regions. Use `regions` instead.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArgs']]]]):
+    def region(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationSetRegionArgs']]]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArgs']]]]:
+    def regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationSetRegionArgs']]]]:
         """
         The replication set's Regions.
         """
         return pulumi.get(self, "regions")
 
     @regions.setter
-    def regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArgs']]]]):
+    def regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationSetRegionArgs']]]]):
         pulumi.set(self, "regions", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The current status of the Region.
         * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
@@ -246,12 +246,12 @@ class _ReplicationSetState:
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 
@@ -270,19 +270,19 @@ class _ReplicationSetState:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
 
@@ -292,9 +292,9 @@ class ReplicationSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 region: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict']]]]] = None,
-                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict']]]]] = None,
+                 regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a resource for managing a replication set in AWS Systems Manager Incident Manager.
@@ -493,9 +493,9 @@ class ReplicationSet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 region: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict']]]]] = None,
-                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict']]]]] = None,
+                 regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -524,15 +524,15 @@ class ReplicationSet(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            created_by: Optional[pulumi.Input[_builtins.str]] = None,
-            deletion_protected: Optional[pulumi.Input[_builtins.bool]] = None,
-            last_modified_by: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict']]]]] = None,
-            regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict']]]]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'ReplicationSet':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            created_by: pulumi.Input[Optional[_builtins.str]] = None,
+            deletion_protected: pulumi.Input[Optional[_builtins.bool]] = None,
+            last_modified_by: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict']]]]] = None,
+            regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict']]]]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'ReplicationSet':
         """
         Get an existing ReplicationSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -21,14 +21,14 @@ __all__ = ['ControlArgs', 'Control']
 @pulumi.input_type
 class ControlArgs:
     def __init__(__self__, *,
-                 action_plan_instructions: Optional[pulumi.Input[_builtins.str]] = None,
-                 action_plan_title: Optional[pulumi.Input[_builtins.str]] = None,
-                 control_mapping_sources: Optional[pulumi.Input[Sequence[pulumi.Input['ControlControlMappingSourceArgs']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 testing_information: Optional[pulumi.Input[_builtins.str]] = None):
+                 action_plan_instructions: pulumi.Input[Optional[_builtins.str]] = None,
+                 action_plan_title: pulumi.Input[Optional[_builtins.str]] = None,
+                 control_mapping_sources: pulumi.Input[Optional[Sequence[pulumi.Input['ControlControlMappingSourceArgs']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 testing_information: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Control resource.
 
@@ -62,31 +62,31 @@ class ControlArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionPlanInstructions")
-    def action_plan_instructions(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def action_plan_instructions(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Recommended actions to carry out if the control isn't fulfilled.
         """
         return pulumi.get(self, "action_plan_instructions")
 
     @action_plan_instructions.setter
-    def action_plan_instructions(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def action_plan_instructions(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "action_plan_instructions", value)
 
     @_builtins.property
     @pulumi.getter(name="actionPlanTitle")
-    def action_plan_title(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def action_plan_title(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Title of the action plan for remediating the control.
         """
         return pulumi.get(self, "action_plan_title")
 
     @action_plan_title.setter
-    def action_plan_title(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def action_plan_title(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "action_plan_title", value)
 
     @_builtins.property
     @pulumi.getter(name="controlMappingSources")
-    def control_mapping_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ControlControlMappingSourceArgs']]]]:
+    def control_mapping_sources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ControlControlMappingSourceArgs']]]]:
         """
         Data mapping sources. See `control_mapping_sources` below.
 
@@ -95,84 +95,84 @@ class ControlArgs:
         return pulumi.get(self, "control_mapping_sources")
 
     @control_mapping_sources.setter
-    def control_mapping_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ControlControlMappingSourceArgs']]]]):
+    def control_mapping_sources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ControlControlMappingSourceArgs']]]]):
         pulumi.set(self, "control_mapping_sources", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the control.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the control.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the control. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="testingInformation")
-    def testing_information(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def testing_information(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Steps to follow to determine if the control is satisfied.
         """
         return pulumi.get(self, "testing_information")
 
     @testing_information.setter
-    def testing_information(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def testing_information(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "testing_information", value)
 
 
 @pulumi.input_type
 class _ControlState:
     def __init__(__self__, *,
-                 action_plan_instructions: Optional[pulumi.Input[_builtins.str]] = None,
-                 action_plan_title: Optional[pulumi.Input[_builtins.str]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 control_mapping_sources: Optional[pulumi.Input[Sequence[pulumi.Input['ControlControlMappingSourceArgs']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 testing_information: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 action_plan_instructions: pulumi.Input[Optional[_builtins.str]] = None,
+                 action_plan_title: pulumi.Input[Optional[_builtins.str]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 control_mapping_sources: pulumi.Input[Optional[Sequence[pulumi.Input['ControlControlMappingSourceArgs']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 testing_information: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Control resources.
 
@@ -215,31 +215,31 @@ class _ControlState:
 
     @_builtins.property
     @pulumi.getter(name="actionPlanInstructions")
-    def action_plan_instructions(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def action_plan_instructions(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Recommended actions to carry out if the control isn't fulfilled.
         """
         return pulumi.get(self, "action_plan_instructions")
 
     @action_plan_instructions.setter
-    def action_plan_instructions(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def action_plan_instructions(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "action_plan_instructions", value)
 
     @_builtins.property
     @pulumi.getter(name="actionPlanTitle")
-    def action_plan_title(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def action_plan_title(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Title of the action plan for remediating the control.
         """
         return pulumi.get(self, "action_plan_title")
 
     @action_plan_title.setter
-    def action_plan_title(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def action_plan_title(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "action_plan_title", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) of the control.
         * `control_mapping_sources.*.source_id` - Unique identifier for the source.
@@ -247,12 +247,12 @@ class _ControlState:
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="controlMappingSources")
-    def control_mapping_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ControlControlMappingSourceArgs']]]]:
+    def control_mapping_sources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ControlControlMappingSourceArgs']]]]:
         """
         Data mapping sources. See `control_mapping_sources` below.
 
@@ -261,88 +261,88 @@ class _ControlState:
         return pulumi.get(self, "control_mapping_sources")
 
     @control_mapping_sources.setter
-    def control_mapping_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ControlControlMappingSourceArgs']]]]):
+    def control_mapping_sources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ControlControlMappingSourceArgs']]]]):
         pulumi.set(self, "control_mapping_sources", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the control.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the control.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the control. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="testingInformation")
-    def testing_information(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def testing_information(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Steps to follow to determine if the control is satisfied.
         """
         return pulumi.get(self, "testing_information")
 
     @testing_information.setter
-    def testing_information(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def testing_information(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "testing_information", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of control, such as a custom control or a standard control.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -352,14 +352,14 @@ class Control(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_plan_instructions: Optional[pulumi.Input[_builtins.str]] = None,
-                 action_plan_title: Optional[pulumi.Input[_builtins.str]] = None,
-                 control_mapping_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ControlControlMappingSourceArgs', 'ControlControlMappingSourceArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 testing_information: Optional[pulumi.Input[_builtins.str]] = None,
+                 action_plan_instructions: pulumi.Input[Optional[_builtins.str]] = None,
+                 action_plan_title: pulumi.Input[Optional[_builtins.str]] = None,
+                 control_mapping_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ControlControlMappingSourceArgs', 'ControlControlMappingSourceArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 testing_information: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Audit Manager Control.
@@ -453,14 +453,14 @@ class Control(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_plan_instructions: Optional[pulumi.Input[_builtins.str]] = None,
-                 action_plan_title: Optional[pulumi.Input[_builtins.str]] = None,
-                 control_mapping_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ControlControlMappingSourceArgs', 'ControlControlMappingSourceArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 testing_information: Optional[pulumi.Input[_builtins.str]] = None,
+                 action_plan_instructions: pulumi.Input[Optional[_builtins.str]] = None,
+                 action_plan_title: pulumi.Input[Optional[_builtins.str]] = None,
+                 control_mapping_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ControlControlMappingSourceArgs', 'ControlControlMappingSourceArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 testing_information: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -491,17 +491,17 @@ class Control(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            action_plan_instructions: Optional[pulumi.Input[_builtins.str]] = None,
-            action_plan_title: Optional[pulumi.Input[_builtins.str]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            control_mapping_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ControlControlMappingSourceArgs', 'ControlControlMappingSourceArgsDict']]]]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            testing_information: Optional[pulumi.Input[_builtins.str]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None) -> 'Control':
+            action_plan_instructions: pulumi.Input[Optional[_builtins.str]] = None,
+            action_plan_title: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            control_mapping_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ControlControlMappingSourceArgs', 'ControlControlMappingSourceArgsDict']]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            testing_information: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> 'Control':
         """
         Get an existing Control resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

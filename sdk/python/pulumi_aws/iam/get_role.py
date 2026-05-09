@@ -219,8 +219,8 @@ def get_role(name: Optional[_builtins.str] = None,
         role_last_useds=pulumi.get(__ret__, 'role_last_useds'),
         tags=pulumi.get(__ret__, 'tags'),
         unique_id=pulumi.get(__ret__, 'unique_id'))
-def get_role_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                    tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_role_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                    tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRoleResult]:
     """
     This data source can be used to fetch information about a specific

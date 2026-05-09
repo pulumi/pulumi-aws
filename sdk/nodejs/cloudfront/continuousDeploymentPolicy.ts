@@ -195,27 +195,27 @@ export interface ContinuousDeploymentPolicyState {
     /**
      * The continuous deployment policy ARN.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Whether this continuous deployment policy is enabled.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Current version of the continuous distribution policy.
      */
-    etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * Date and time the continuous deployment policy was last modified.
      */
-    lastModifiedTime?: pulumi.Input<string>;
+    lastModifiedTime?: pulumi.Input<string | undefined>;
     /**
      * CloudFront domain name of the staging distribution. See `stagingDistributionDnsNames`.
      */
-    stagingDistributionDnsNames?: pulumi.Input<inputs.cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNames>;
+    stagingDistributionDnsNames?: pulumi.Input<inputs.cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNames | undefined>;
     /**
      * Parameters for routing production traffic from primary to staging distributions. See `trafficConfig`.
      */
-    trafficConfig?: pulumi.Input<inputs.cloudfront.ContinuousDeploymentPolicyTrafficConfig>;
+    trafficConfig?: pulumi.Input<inputs.cloudfront.ContinuousDeploymentPolicyTrafficConfig | undefined>;
 }
 
 /**
@@ -233,5 +233,5 @@ export interface ContinuousDeploymentPolicyArgs {
     /**
      * Parameters for routing production traffic from primary to staging distributions. See `trafficConfig`.
      */
-    trafficConfig?: pulumi.Input<inputs.cloudfront.ContinuousDeploymentPolicyTrafficConfig>;
+    trafficConfig?: pulumi.Input<inputs.cloudfront.ContinuousDeploymentPolicyTrafficConfig | undefined>;
 }

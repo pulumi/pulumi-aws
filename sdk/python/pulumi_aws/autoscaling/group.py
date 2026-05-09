@@ -24,46 +24,46 @@ class GroupArgs:
     def __init__(__self__, *,
                  max_size: pulumi.Input[_builtins.int],
                  min_size: pulumi.Input[_builtins.int],
-                 availability_zone_distribution: Optional[pulumi.Input['GroupAvailabilityZoneDistributionArgs']] = None,
-                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 capacity_rebalance: Optional[pulumi.Input[_builtins.bool]] = None,
-                 capacity_reservation_specification: Optional[pulumi.Input['GroupCapacityReservationSpecificationArgs']] = None,
-                 context: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_cooldown: Optional[pulumi.Input[_builtins.int]] = None,
-                 default_instance_warmup: Optional[pulumi.Input[_builtins.int]] = None,
-                 desired_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 desired_capacity_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input['Metric']]]] = None,
-                 force_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 force_delete_warm_pool: Optional[pulumi.Input[_builtins.bool]] = None,
-                 health_check_grace_period: Optional[pulumi.Input[_builtins.int]] = None,
-                 health_check_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_failed_scaling_activities: Optional[pulumi.Input[_builtins.bool]] = None,
-                 initial_lifecycle_hooks: Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitialLifecycleHookArgs']]]] = None,
-                 instance_maintenance_policy: Optional[pulumi.Input['GroupInstanceMaintenancePolicyArgs']] = None,
-                 instance_refresh: Optional[pulumi.Input['GroupInstanceRefreshArgs']] = None,
-                 launch_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 launch_template: Optional[pulumi.Input['GroupLaunchTemplateArgs']] = None,
-                 load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 max_instance_lifetime: Optional[pulumi.Input[_builtins.int]] = None,
-                 metrics_granularity: Optional[pulumi.Input[Union[_builtins.str, 'MetricsGranularity']]] = None,
-                 min_elb_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 mixed_instances_policy: Optional[pulumi.Input['GroupMixedInstancesPolicyArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 placement_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 protect_from_scale_in: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_linked_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 suspended_processes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['GroupTagArgs']]]] = None,
-                 target_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 termination_policies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 traffic_sources: Optional[pulumi.Input[Sequence[pulumi.Input['GroupTrafficSourceArgs']]]] = None,
-                 vpc_zone_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 wait_for_capacity_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 wait_for_elb_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 warm_pool: Optional[pulumi.Input['GroupWarmPoolArgs']] = None):
+                 availability_zone_distribution: pulumi.Input[Optional['GroupAvailabilityZoneDistributionArgs']] = None,
+                 availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 capacity_rebalance: pulumi.Input[Optional[_builtins.bool]] = None,
+                 capacity_reservation_specification: pulumi.Input[Optional['GroupCapacityReservationSpecificationArgs']] = None,
+                 context: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_cooldown: pulumi.Input[Optional[_builtins.int]] = None,
+                 default_instance_warmup: pulumi.Input[Optional[_builtins.int]] = None,
+                 desired_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 desired_capacity_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled_metrics: pulumi.Input[Optional[Sequence[pulumi.Input['Metric']]]] = None,
+                 force_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 force_delete_warm_pool: pulumi.Input[Optional[_builtins.bool]] = None,
+                 health_check_grace_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 health_check_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_failed_scaling_activities: pulumi.Input[Optional[_builtins.bool]] = None,
+                 initial_lifecycle_hooks: pulumi.Input[Optional[Sequence[pulumi.Input['GroupInitialLifecycleHookArgs']]]] = None,
+                 instance_maintenance_policy: pulumi.Input[Optional['GroupInstanceMaintenancePolicyArgs']] = None,
+                 instance_refresh: pulumi.Input[Optional['GroupInstanceRefreshArgs']] = None,
+                 launch_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 launch_template: pulumi.Input[Optional['GroupLaunchTemplateArgs']] = None,
+                 load_balancers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 max_instance_lifetime: pulumi.Input[Optional[_builtins.int]] = None,
+                 metrics_granularity: pulumi.Input[Optional[Union[_builtins.str, 'MetricsGranularity']]] = None,
+                 min_elb_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 mixed_instances_policy: pulumi.Input[Optional['GroupMixedInstancesPolicyArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 placement_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 protect_from_scale_in: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_linked_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 suspended_processes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['GroupTagArgs']]]] = None,
+                 target_group_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 termination_policies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 traffic_sources: pulumi.Input[Optional[Sequence[pulumi.Input['GroupTrafficSourceArgs']]]] = None,
+                 vpc_zone_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 wait_for_capacity_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 wait_for_elb_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 warm_pool: pulumi.Input[Optional['GroupWarmPoolArgs']] = None):
         """
         The set of arguments for constructing a Group resource.
 
@@ -254,91 +254,91 @@ class GroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="availabilityZoneDistribution")
-    def availability_zone_distribution(self) -> Optional[pulumi.Input['GroupAvailabilityZoneDistributionArgs']]:
+    def availability_zone_distribution(self) -> pulumi.Input[Optional['GroupAvailabilityZoneDistributionArgs']]:
         """
         The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
         """
         return pulumi.get(self, "availability_zone_distribution")
 
     @availability_zone_distribution.setter
-    def availability_zone_distribution(self, value: Optional[pulumi.Input['GroupAvailabilityZoneDistributionArgs']]):
+    def availability_zone_distribution(self, value: pulumi.Input[Optional['GroupAvailabilityZoneDistributionArgs']]):
         pulumi.set(self, "availability_zone_distribution", value)
 
     @_builtins.property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def availability_zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpc_zone_identifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpc_zone_identifier`.
         """
         return pulumi.get(self, "availability_zones")
 
     @availability_zones.setter
-    def availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def availability_zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "availability_zones", value)
 
     @_builtins.property
     @pulumi.getter(name="capacityRebalance")
-    def capacity_rebalance(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def capacity_rebalance(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
         """
         return pulumi.get(self, "capacity_rebalance")
 
     @capacity_rebalance.setter
-    def capacity_rebalance(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def capacity_rebalance(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "capacity_rebalance", value)
 
     @_builtins.property
     @pulumi.getter(name="capacityReservationSpecification")
-    def capacity_reservation_specification(self) -> Optional[pulumi.Input['GroupCapacityReservationSpecificationArgs']]:
+    def capacity_reservation_specification(self) -> pulumi.Input[Optional['GroupCapacityReservationSpecificationArgs']]:
         """
         The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See Capacity Reservation Specification below for more details.
         """
         return pulumi.get(self, "capacity_reservation_specification")
 
     @capacity_reservation_specification.setter
-    def capacity_reservation_specification(self, value: Optional[pulumi.Input['GroupCapacityReservationSpecificationArgs']]):
+    def capacity_reservation_specification(self, value: pulumi.Input[Optional['GroupCapacityReservationSpecificationArgs']]):
         pulumi.set(self, "capacity_reservation_specification", value)
 
     @_builtins.property
     @pulumi.getter
-    def context(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def context(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Reserved.
         """
         return pulumi.get(self, "context")
 
     @context.setter
-    def context(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def context(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "context", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultCooldown")
-    def default_cooldown(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def default_cooldown(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
         """
         return pulumi.get(self, "default_cooldown")
 
     @default_cooldown.setter
-    def default_cooldown(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def default_cooldown(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "default_cooldown", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultInstanceWarmup")
-    def default_instance_warmup(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def default_instance_warmup(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
         """
         return pulumi.get(self, "default_instance_warmup")
 
     @default_instance_warmup.setter
-    def default_instance_warmup(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def default_instance_warmup(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "default_instance_warmup", value)
 
     @_builtins.property
     @pulumi.getter(name="desiredCapacity")
-    def desired_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def desired_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of Amazon EC2 instances that
         should be running in the group. (See also Waiting for
@@ -347,36 +347,36 @@ class GroupArgs:
         return pulumi.get(self, "desired_capacity")
 
     @desired_capacity.setter
-    def desired_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def desired_capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "desired_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="desiredCapacityType")
-    def desired_capacity_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def desired_capacity_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unit of measurement for the value specified for `desired_capacity`. Supported for attribute-based instance type selection only. Valid values: `"units"`, `"vcpu"`, `"memory-mib"`.
         """
         return pulumi.get(self, "desired_capacity_type")
 
     @desired_capacity_type.setter
-    def desired_capacity_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def desired_capacity_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "desired_capacity_type", value)
 
     @_builtins.property
     @pulumi.getter(name="enabledMetrics")
-    def enabled_metrics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['Metric']]]]:
+    def enabled_metrics(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['Metric']]]]:
         """
         List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
         """
         return pulumi.get(self, "enabled_metrics")
 
     @enabled_metrics.setter
-    def enabled_metrics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['Metric']]]]):
+    def enabled_metrics(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['Metric']]]]):
         pulumi.set(self, "enabled_metrics", value)
 
     @_builtins.property
     @pulumi.getter(name="forceDelete")
-    def force_delete(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def force_delete(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Allows deleting the Auto Scaling Group without waiting
         for all instances in the pool to terminate. You can force an Auto Scaling Group to delete
@@ -387,60 +387,60 @@ class GroupArgs:
         return pulumi.get(self, "force_delete")
 
     @force_delete.setter
-    def force_delete(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def force_delete(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "force_delete", value)
 
     @_builtins.property
     @pulumi.getter(name="forceDeleteWarmPool")
-    def force_delete_warm_pool(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def force_delete_warm_pool(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Allows deleting the Auto Scaling Group without waiting for all instances in the warm pool to terminate.
         """
         return pulumi.get(self, "force_delete_warm_pool")
 
     @force_delete_warm_pool.setter
-    def force_delete_warm_pool(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def force_delete_warm_pool(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "force_delete_warm_pool", value)
 
     @_builtins.property
     @pulumi.getter(name="healthCheckGracePeriod")
-    def health_check_grace_period(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def health_check_grace_period(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Time (in seconds) after instance comes into service before checking health.
         """
         return pulumi.get(self, "health_check_grace_period")
 
     @health_check_grace_period.setter
-    def health_check_grace_period(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def health_check_grace_period(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "health_check_grace_period", value)
 
     @_builtins.property
     @pulumi.getter(name="healthCheckType")
-    def health_check_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def health_check_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         "EC2" or "ELB". Controls how health checking is done.
         """
         return pulumi.get(self, "health_check_type")
 
     @health_check_type.setter
-    def health_check_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def health_check_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "health_check_type", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreFailedScalingActivities")
-    def ignore_failed_scaling_activities(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_failed_scaling_activities(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to ignore failed [Auto Scaling scaling activities](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html) while waiting for capacity. The default is `false` -- failed scaling activities cause errors to be returned.
         """
         return pulumi.get(self, "ignore_failed_scaling_activities")
 
     @ignore_failed_scaling_activities.setter
-    def ignore_failed_scaling_activities(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_failed_scaling_activities(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_failed_scaling_activities", value)
 
     @_builtins.property
     @pulumi.getter(name="initialLifecycleHooks")
-    def initial_lifecycle_hooks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitialLifecycleHookArgs']]]]:
+    def initial_lifecycle_hooks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GroupInitialLifecycleHookArgs']]]]:
         """
         One or more
         [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
@@ -453,24 +453,24 @@ class GroupArgs:
         return pulumi.get(self, "initial_lifecycle_hooks")
 
     @initial_lifecycle_hooks.setter
-    def initial_lifecycle_hooks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitialLifecycleHookArgs']]]]):
+    def initial_lifecycle_hooks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GroupInitialLifecycleHookArgs']]]]):
         pulumi.set(self, "initial_lifecycle_hooks", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceMaintenancePolicy")
-    def instance_maintenance_policy(self) -> Optional[pulumi.Input['GroupInstanceMaintenancePolicyArgs']]:
+    def instance_maintenance_policy(self) -> pulumi.Input[Optional['GroupInstanceMaintenancePolicyArgs']]:
         """
         If this block is configured, add a instance maintenance policy to the specified Auto Scaling group. Defined below.
         """
         return pulumi.get(self, "instance_maintenance_policy")
 
     @instance_maintenance_policy.setter
-    def instance_maintenance_policy(self, value: Optional[pulumi.Input['GroupInstanceMaintenancePolicyArgs']]):
+    def instance_maintenance_policy(self, value: pulumi.Input[Optional['GroupInstanceMaintenancePolicyArgs']]):
         pulumi.set(self, "instance_maintenance_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceRefresh")
-    def instance_refresh(self) -> Optional[pulumi.Input['GroupInstanceRefreshArgs']]:
+    def instance_refresh(self) -> pulumi.Input[Optional['GroupInstanceRefreshArgs']]:
         """
         If this block is configured, start an
         [Instance Refresh](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html)
@@ -479,36 +479,36 @@ class GroupArgs:
         return pulumi.get(self, "instance_refresh")
 
     @instance_refresh.setter
-    def instance_refresh(self, value: Optional[pulumi.Input['GroupInstanceRefreshArgs']]):
+    def instance_refresh(self, value: pulumi.Input[Optional['GroupInstanceRefreshArgs']]):
         pulumi.set(self, "instance_refresh", value)
 
     @_builtins.property
     @pulumi.getter(name="launchConfiguration")
-    def launch_configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def launch_configuration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the launch configuration to use.
         """
         return pulumi.get(self, "launch_configuration")
 
     @launch_configuration.setter
-    def launch_configuration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def launch_configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "launch_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="launchTemplate")
-    def launch_template(self) -> Optional[pulumi.Input['GroupLaunchTemplateArgs']]:
+    def launch_template(self) -> pulumi.Input[Optional['GroupLaunchTemplateArgs']]:
         """
         Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
         """
         return pulumi.get(self, "launch_template")
 
     @launch_template.setter
-    def launch_template(self, value: Optional[pulumi.Input['GroupLaunchTemplateArgs']]):
+    def launch_template(self, value: pulumi.Input[Optional['GroupLaunchTemplateArgs']]):
         pulumi.set(self, "launch_template", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancers")
-    def load_balancers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def load_balancers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of elastic load balancer names to add to the autoscaling
         group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead. To remove all load balancer attachments an empty list should be specified.
@@ -516,36 +516,36 @@ class GroupArgs:
         return pulumi.get(self, "load_balancers")
 
     @load_balancers.setter
-    def load_balancers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def load_balancers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "load_balancers", value)
 
     @_builtins.property
     @pulumi.getter(name="maxInstanceLifetime")
-    def max_instance_lifetime(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_instance_lifetime(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 86400 and 31536000 seconds.
         """
         return pulumi.get(self, "max_instance_lifetime")
 
     @max_instance_lifetime.setter
-    def max_instance_lifetime(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_instance_lifetime(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_instance_lifetime", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsGranularity")
-    def metrics_granularity(self) -> Optional[pulumi.Input[Union[_builtins.str, 'MetricsGranularity']]]:
+    def metrics_granularity(self) -> pulumi.Input[Optional[Union[_builtins.str, 'MetricsGranularity']]]:
         """
         Granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
         """
         return pulumi.get(self, "metrics_granularity")
 
     @metrics_granularity.setter
-    def metrics_granularity(self, value: Optional[pulumi.Input[Union[_builtins.str, 'MetricsGranularity']]]):
+    def metrics_granularity(self, value: pulumi.Input[Optional[Union[_builtins.str, 'MetricsGranularity']]]):
         pulumi.set(self, "metrics_granularity", value)
 
     @_builtins.property
     @pulumi.getter(name="minElbCapacity")
-    def min_elb_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_elb_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Setting this causes Pulumi to wait for
         this number of instances from this Auto Scaling Group to show up healthy in the
@@ -555,36 +555,36 @@ class GroupArgs:
         return pulumi.get(self, "min_elb_capacity")
 
     @min_elb_capacity.setter
-    def min_elb_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_elb_capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_elb_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="mixedInstancesPolicy")
-    def mixed_instances_policy(self) -> Optional[pulumi.Input['GroupMixedInstancesPolicyArgs']]:
+    def mixed_instances_policy(self) -> pulumi.Input[Optional['GroupMixedInstancesPolicyArgs']]:
         """
         Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
         """
         return pulumi.get(self, "mixed_instances_policy")
 
     @mixed_instances_policy.setter
-    def mixed_instances_policy(self, value: Optional[pulumi.Input['GroupMixedInstancesPolicyArgs']]):
+    def mixed_instances_policy(self, value: pulumi.Input[Optional['GroupMixedInstancesPolicyArgs']]):
         pulumi.set(self, "mixed_instances_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Auto Scaling Group. By default generated by Pulumi. Conflicts with `name_prefix`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Creates a unique name beginning with the specified
         prefix. Conflicts with `name`.
@@ -592,24 +592,24 @@ class GroupArgs:
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
-    def name_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="placementGroup")
-    def placement_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def placement_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the placement group into which you'll launch your instances, if any.
         """
         return pulumi.get(self, "placement_group")
 
     @placement_group.setter
-    def placement_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def placement_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "placement_group", value)
 
     @_builtins.property
     @pulumi.getter(name="protectFromScaleIn")
-    def protect_from_scale_in(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def protect_from_scale_in(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether newly launched instances
         are automatically protected from termination by Amazon EC2 Auto Scaling when
@@ -620,36 +620,36 @@ class GroupArgs:
         return pulumi.get(self, "protect_from_scale_in")
 
     @protect_from_scale_in.setter
-    def protect_from_scale_in(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def protect_from_scale_in(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "protect_from_scale_in", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceLinkedRoleArn")
-    def service_linked_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_linked_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the service-linked role that the ASG will use to call other AWS services
         """
         return pulumi.get(self, "service_linked_role_arn")
 
     @service_linked_role_arn.setter
-    def service_linked_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_linked_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_linked_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="suspendedProcesses")
-    def suspended_processes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def suspended_processes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
         Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
@@ -657,72 +657,72 @@ class GroupArgs:
         return pulumi.get(self, "suspended_processes")
 
     @suspended_processes.setter
-    def suspended_processes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def suspended_processes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "suspended_processes", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GroupTagArgs']]]]:
         """
         Configuration block(s) containing resource tags. See Tag below for more details.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GroupTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="targetGroupArns")
-    def target_group_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def target_group_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of `lb.TargetGroup` ARNs, for use with Application or Network Load Balancing. To remove all target group attachments an empty list should be specified.
         """
         return pulumi.get(self, "target_group_arns")
 
     @target_group_arns.setter
-    def target_group_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def target_group_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "target_group_arns", value)
 
     @_builtins.property
     @pulumi.getter(name="terminationPolicies")
-    def termination_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def termination_policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`. Additionally, the ARN of a Lambda function can be specified for custom termination policies.
         """
         return pulumi.get(self, "termination_policies")
 
     @termination_policies.setter
-    def termination_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def termination_policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "termination_policies", value)
 
     @_builtins.property
     @pulumi.getter(name="trafficSources")
-    def traffic_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupTrafficSourceArgs']]]]:
+    def traffic_sources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GroupTrafficSourceArgs']]]]:
         """
         Attaches one or more traffic sources to the specified Auto Scaling group.
         """
         return pulumi.get(self, "traffic_sources")
 
     @traffic_sources.setter
-    def traffic_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupTrafficSourceArgs']]]]):
+    def traffic_sources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GroupTrafficSourceArgs']]]]):
         pulumi.set(self, "traffic_sources", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcZoneIdentifiers")
-    def vpc_zone_identifiers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def vpc_zone_identifiers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availability_zones`.
         """
         return pulumi.get(self, "vpc_zone_identifiers")
 
     @vpc_zone_identifiers.setter
-    def vpc_zone_identifiers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def vpc_zone_identifiers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "vpc_zone_identifiers", value)
 
     @_builtins.property
     @pulumi.getter(name="waitForCapacityTimeout")
-    def wait_for_capacity_timeout(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def wait_for_capacity_timeout(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Maximum
         [duration](https://golang.org/pkg/time/#ParseDuration) that the provider should
@@ -733,12 +733,12 @@ class GroupArgs:
         return pulumi.get(self, "wait_for_capacity_timeout")
 
     @wait_for_capacity_timeout.setter
-    def wait_for_capacity_timeout(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def wait_for_capacity_timeout(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "wait_for_capacity_timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="waitForElbCapacity")
-    def wait_for_elb_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def wait_for_elb_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Setting this will cause Pulumi to wait
         for exactly this number of healthy instances from this Auto Scaling Group in
@@ -749,12 +749,12 @@ class GroupArgs:
         return pulumi.get(self, "wait_for_elb_capacity")
 
     @wait_for_elb_capacity.setter
-    def wait_for_elb_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def wait_for_elb_capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "wait_for_elb_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="warmPool")
-    def warm_pool(self) -> Optional[pulumi.Input['GroupWarmPoolArgs']]:
+    def warm_pool(self) -> pulumi.Input[Optional['GroupWarmPoolArgs']]:
         """
         If this block is configured, add a [Warm Pool](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html)
         to the specified Auto Scaling group. Defined below
@@ -762,58 +762,58 @@ class GroupArgs:
         return pulumi.get(self, "warm_pool")
 
     @warm_pool.setter
-    def warm_pool(self, value: Optional[pulumi.Input['GroupWarmPoolArgs']]):
+    def warm_pool(self, value: pulumi.Input[Optional['GroupWarmPoolArgs']]):
         pulumi.set(self, "warm_pool", value)
 
 
 @pulumi.input_type
 class _GroupState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 availability_zone_distribution: Optional[pulumi.Input['GroupAvailabilityZoneDistributionArgs']] = None,
-                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 capacity_rebalance: Optional[pulumi.Input[_builtins.bool]] = None,
-                 capacity_reservation_specification: Optional[pulumi.Input['GroupCapacityReservationSpecificationArgs']] = None,
-                 context: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_cooldown: Optional[pulumi.Input[_builtins.int]] = None,
-                 default_instance_warmup: Optional[pulumi.Input[_builtins.int]] = None,
-                 desired_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 desired_capacity_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input['Metric']]]] = None,
-                 force_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 force_delete_warm_pool: Optional[pulumi.Input[_builtins.bool]] = None,
-                 health_check_grace_period: Optional[pulumi.Input[_builtins.int]] = None,
-                 health_check_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_failed_scaling_activities: Optional[pulumi.Input[_builtins.bool]] = None,
-                 initial_lifecycle_hooks: Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitialLifecycleHookArgs']]]] = None,
-                 instance_maintenance_policy: Optional[pulumi.Input['GroupInstanceMaintenancePolicyArgs']] = None,
-                 instance_refresh: Optional[pulumi.Input['GroupInstanceRefreshArgs']] = None,
-                 launch_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 launch_template: Optional[pulumi.Input['GroupLaunchTemplateArgs']] = None,
-                 load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 max_instance_lifetime: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 metrics_granularity: Optional[pulumi.Input[Union[_builtins.str, 'MetricsGranularity']]] = None,
-                 min_elb_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 mixed_instances_policy: Optional[pulumi.Input['GroupMixedInstancesPolicyArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 placement_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 predicted_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 protect_from_scale_in: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_linked_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 suspended_processes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['GroupTagArgs']]]] = None,
-                 target_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 termination_policies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 traffic_sources: Optional[pulumi.Input[Sequence[pulumi.Input['GroupTrafficSourceArgs']]]] = None,
-                 vpc_zone_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 wait_for_capacity_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 wait_for_elb_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 warm_pool: Optional[pulumi.Input['GroupWarmPoolArgs']] = None,
-                 warm_pool_size: Optional[pulumi.Input[_builtins.int]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 availability_zone_distribution: pulumi.Input[Optional['GroupAvailabilityZoneDistributionArgs']] = None,
+                 availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 capacity_rebalance: pulumi.Input[Optional[_builtins.bool]] = None,
+                 capacity_reservation_specification: pulumi.Input[Optional['GroupCapacityReservationSpecificationArgs']] = None,
+                 context: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_cooldown: pulumi.Input[Optional[_builtins.int]] = None,
+                 default_instance_warmup: pulumi.Input[Optional[_builtins.int]] = None,
+                 desired_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 desired_capacity_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled_metrics: pulumi.Input[Optional[Sequence[pulumi.Input['Metric']]]] = None,
+                 force_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 force_delete_warm_pool: pulumi.Input[Optional[_builtins.bool]] = None,
+                 health_check_grace_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 health_check_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_failed_scaling_activities: pulumi.Input[Optional[_builtins.bool]] = None,
+                 initial_lifecycle_hooks: pulumi.Input[Optional[Sequence[pulumi.Input['GroupInitialLifecycleHookArgs']]]] = None,
+                 instance_maintenance_policy: pulumi.Input[Optional['GroupInstanceMaintenancePolicyArgs']] = None,
+                 instance_refresh: pulumi.Input[Optional['GroupInstanceRefreshArgs']] = None,
+                 launch_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 launch_template: pulumi.Input[Optional['GroupLaunchTemplateArgs']] = None,
+                 load_balancers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 max_instance_lifetime: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 metrics_granularity: pulumi.Input[Optional[Union[_builtins.str, 'MetricsGranularity']]] = None,
+                 min_elb_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 mixed_instances_policy: pulumi.Input[Optional['GroupMixedInstancesPolicyArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 placement_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 predicted_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 protect_from_scale_in: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_linked_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 suspended_processes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['GroupTagArgs']]]] = None,
+                 target_group_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 termination_policies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 traffic_sources: pulumi.Input[Optional[Sequence[pulumi.Input['GroupTrafficSourceArgs']]]] = None,
+                 vpc_zone_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 wait_for_capacity_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 wait_for_elb_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 warm_pool: pulumi.Input[Optional['GroupWarmPoolArgs']] = None,
+                 warm_pool_size: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering Group resources.
 
@@ -990,103 +990,103 @@ class _GroupState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN for this Auto Scaling Group
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="availabilityZoneDistribution")
-    def availability_zone_distribution(self) -> Optional[pulumi.Input['GroupAvailabilityZoneDistributionArgs']]:
+    def availability_zone_distribution(self) -> pulumi.Input[Optional['GroupAvailabilityZoneDistributionArgs']]:
         """
         The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
         """
         return pulumi.get(self, "availability_zone_distribution")
 
     @availability_zone_distribution.setter
-    def availability_zone_distribution(self, value: Optional[pulumi.Input['GroupAvailabilityZoneDistributionArgs']]):
+    def availability_zone_distribution(self, value: pulumi.Input[Optional['GroupAvailabilityZoneDistributionArgs']]):
         pulumi.set(self, "availability_zone_distribution", value)
 
     @_builtins.property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def availability_zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpc_zone_identifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpc_zone_identifier`.
         """
         return pulumi.get(self, "availability_zones")
 
     @availability_zones.setter
-    def availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def availability_zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "availability_zones", value)
 
     @_builtins.property
     @pulumi.getter(name="capacityRebalance")
-    def capacity_rebalance(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def capacity_rebalance(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
         """
         return pulumi.get(self, "capacity_rebalance")
 
     @capacity_rebalance.setter
-    def capacity_rebalance(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def capacity_rebalance(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "capacity_rebalance", value)
 
     @_builtins.property
     @pulumi.getter(name="capacityReservationSpecification")
-    def capacity_reservation_specification(self) -> Optional[pulumi.Input['GroupCapacityReservationSpecificationArgs']]:
+    def capacity_reservation_specification(self) -> pulumi.Input[Optional['GroupCapacityReservationSpecificationArgs']]:
         """
         The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See Capacity Reservation Specification below for more details.
         """
         return pulumi.get(self, "capacity_reservation_specification")
 
     @capacity_reservation_specification.setter
-    def capacity_reservation_specification(self, value: Optional[pulumi.Input['GroupCapacityReservationSpecificationArgs']]):
+    def capacity_reservation_specification(self, value: pulumi.Input[Optional['GroupCapacityReservationSpecificationArgs']]):
         pulumi.set(self, "capacity_reservation_specification", value)
 
     @_builtins.property
     @pulumi.getter
-    def context(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def context(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Reserved.
         """
         return pulumi.get(self, "context")
 
     @context.setter
-    def context(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def context(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "context", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultCooldown")
-    def default_cooldown(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def default_cooldown(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
         """
         return pulumi.get(self, "default_cooldown")
 
     @default_cooldown.setter
-    def default_cooldown(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def default_cooldown(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "default_cooldown", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultInstanceWarmup")
-    def default_instance_warmup(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def default_instance_warmup(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
         """
         return pulumi.get(self, "default_instance_warmup")
 
     @default_instance_warmup.setter
-    def default_instance_warmup(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def default_instance_warmup(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "default_instance_warmup", value)
 
     @_builtins.property
     @pulumi.getter(name="desiredCapacity")
-    def desired_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def desired_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of Amazon EC2 instances that
         should be running in the group. (See also Waiting for
@@ -1095,36 +1095,36 @@ class _GroupState:
         return pulumi.get(self, "desired_capacity")
 
     @desired_capacity.setter
-    def desired_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def desired_capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "desired_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="desiredCapacityType")
-    def desired_capacity_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def desired_capacity_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unit of measurement for the value specified for `desired_capacity`. Supported for attribute-based instance type selection only. Valid values: `"units"`, `"vcpu"`, `"memory-mib"`.
         """
         return pulumi.get(self, "desired_capacity_type")
 
     @desired_capacity_type.setter
-    def desired_capacity_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def desired_capacity_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "desired_capacity_type", value)
 
     @_builtins.property
     @pulumi.getter(name="enabledMetrics")
-    def enabled_metrics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['Metric']]]]:
+    def enabled_metrics(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['Metric']]]]:
         """
         List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
         """
         return pulumi.get(self, "enabled_metrics")
 
     @enabled_metrics.setter
-    def enabled_metrics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['Metric']]]]):
+    def enabled_metrics(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['Metric']]]]):
         pulumi.set(self, "enabled_metrics", value)
 
     @_builtins.property
     @pulumi.getter(name="forceDelete")
-    def force_delete(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def force_delete(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Allows deleting the Auto Scaling Group without waiting
         for all instances in the pool to terminate. You can force an Auto Scaling Group to delete
@@ -1135,60 +1135,60 @@ class _GroupState:
         return pulumi.get(self, "force_delete")
 
     @force_delete.setter
-    def force_delete(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def force_delete(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "force_delete", value)
 
     @_builtins.property
     @pulumi.getter(name="forceDeleteWarmPool")
-    def force_delete_warm_pool(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def force_delete_warm_pool(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Allows deleting the Auto Scaling Group without waiting for all instances in the warm pool to terminate.
         """
         return pulumi.get(self, "force_delete_warm_pool")
 
     @force_delete_warm_pool.setter
-    def force_delete_warm_pool(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def force_delete_warm_pool(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "force_delete_warm_pool", value)
 
     @_builtins.property
     @pulumi.getter(name="healthCheckGracePeriod")
-    def health_check_grace_period(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def health_check_grace_period(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Time (in seconds) after instance comes into service before checking health.
         """
         return pulumi.get(self, "health_check_grace_period")
 
     @health_check_grace_period.setter
-    def health_check_grace_period(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def health_check_grace_period(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "health_check_grace_period", value)
 
     @_builtins.property
     @pulumi.getter(name="healthCheckType")
-    def health_check_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def health_check_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         "EC2" or "ELB". Controls how health checking is done.
         """
         return pulumi.get(self, "health_check_type")
 
     @health_check_type.setter
-    def health_check_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def health_check_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "health_check_type", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreFailedScalingActivities")
-    def ignore_failed_scaling_activities(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_failed_scaling_activities(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to ignore failed [Auto Scaling scaling activities](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html) while waiting for capacity. The default is `false` -- failed scaling activities cause errors to be returned.
         """
         return pulumi.get(self, "ignore_failed_scaling_activities")
 
     @ignore_failed_scaling_activities.setter
-    def ignore_failed_scaling_activities(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_failed_scaling_activities(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_failed_scaling_activities", value)
 
     @_builtins.property
     @pulumi.getter(name="initialLifecycleHooks")
-    def initial_lifecycle_hooks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitialLifecycleHookArgs']]]]:
+    def initial_lifecycle_hooks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GroupInitialLifecycleHookArgs']]]]:
         """
         One or more
         [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
@@ -1201,24 +1201,24 @@ class _GroupState:
         return pulumi.get(self, "initial_lifecycle_hooks")
 
     @initial_lifecycle_hooks.setter
-    def initial_lifecycle_hooks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitialLifecycleHookArgs']]]]):
+    def initial_lifecycle_hooks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GroupInitialLifecycleHookArgs']]]]):
         pulumi.set(self, "initial_lifecycle_hooks", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceMaintenancePolicy")
-    def instance_maintenance_policy(self) -> Optional[pulumi.Input['GroupInstanceMaintenancePolicyArgs']]:
+    def instance_maintenance_policy(self) -> pulumi.Input[Optional['GroupInstanceMaintenancePolicyArgs']]:
         """
         If this block is configured, add a instance maintenance policy to the specified Auto Scaling group. Defined below.
         """
         return pulumi.get(self, "instance_maintenance_policy")
 
     @instance_maintenance_policy.setter
-    def instance_maintenance_policy(self, value: Optional[pulumi.Input['GroupInstanceMaintenancePolicyArgs']]):
+    def instance_maintenance_policy(self, value: pulumi.Input[Optional['GroupInstanceMaintenancePolicyArgs']]):
         pulumi.set(self, "instance_maintenance_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceRefresh")
-    def instance_refresh(self) -> Optional[pulumi.Input['GroupInstanceRefreshArgs']]:
+    def instance_refresh(self) -> pulumi.Input[Optional['GroupInstanceRefreshArgs']]:
         """
         If this block is configured, start an
         [Instance Refresh](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html)
@@ -1227,36 +1227,36 @@ class _GroupState:
         return pulumi.get(self, "instance_refresh")
 
     @instance_refresh.setter
-    def instance_refresh(self, value: Optional[pulumi.Input['GroupInstanceRefreshArgs']]):
+    def instance_refresh(self, value: pulumi.Input[Optional['GroupInstanceRefreshArgs']]):
         pulumi.set(self, "instance_refresh", value)
 
     @_builtins.property
     @pulumi.getter(name="launchConfiguration")
-    def launch_configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def launch_configuration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the launch configuration to use.
         """
         return pulumi.get(self, "launch_configuration")
 
     @launch_configuration.setter
-    def launch_configuration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def launch_configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "launch_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="launchTemplate")
-    def launch_template(self) -> Optional[pulumi.Input['GroupLaunchTemplateArgs']]:
+    def launch_template(self) -> pulumi.Input[Optional['GroupLaunchTemplateArgs']]:
         """
         Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
         """
         return pulumi.get(self, "launch_template")
 
     @launch_template.setter
-    def launch_template(self, value: Optional[pulumi.Input['GroupLaunchTemplateArgs']]):
+    def launch_template(self, value: pulumi.Input[Optional['GroupLaunchTemplateArgs']]):
         pulumi.set(self, "launch_template", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancers")
-    def load_balancers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def load_balancers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of elastic load balancer names to add to the autoscaling
         group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead. To remove all load balancer attachments an empty list should be specified.
@@ -1264,48 +1264,48 @@ class _GroupState:
         return pulumi.get(self, "load_balancers")
 
     @load_balancers.setter
-    def load_balancers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def load_balancers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "load_balancers", value)
 
     @_builtins.property
     @pulumi.getter(name="maxInstanceLifetime")
-    def max_instance_lifetime(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_instance_lifetime(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 86400 and 31536000 seconds.
         """
         return pulumi.get(self, "max_instance_lifetime")
 
     @max_instance_lifetime.setter
-    def max_instance_lifetime(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_instance_lifetime(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_instance_lifetime", value)
 
     @_builtins.property
     @pulumi.getter(name="maxSize")
-    def max_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum size of the Auto Scaling Group.
         """
         return pulumi.get(self, "max_size")
 
     @max_size.setter
-    def max_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_size", value)
 
     @_builtins.property
     @pulumi.getter(name="metricsGranularity")
-    def metrics_granularity(self) -> Optional[pulumi.Input[Union[_builtins.str, 'MetricsGranularity']]]:
+    def metrics_granularity(self) -> pulumi.Input[Optional[Union[_builtins.str, 'MetricsGranularity']]]:
         """
         Granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
         """
         return pulumi.get(self, "metrics_granularity")
 
     @metrics_granularity.setter
-    def metrics_granularity(self, value: Optional[pulumi.Input[Union[_builtins.str, 'MetricsGranularity']]]):
+    def metrics_granularity(self, value: pulumi.Input[Optional[Union[_builtins.str, 'MetricsGranularity']]]):
         pulumi.set(self, "metrics_granularity", value)
 
     @_builtins.property
     @pulumi.getter(name="minElbCapacity")
-    def min_elb_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_elb_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Setting this causes Pulumi to wait for
         this number of instances from this Auto Scaling Group to show up healthy in the
@@ -1315,12 +1315,12 @@ class _GroupState:
         return pulumi.get(self, "min_elb_capacity")
 
     @min_elb_capacity.setter
-    def min_elb_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_elb_capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_elb_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="minSize")
-    def min_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Minimum size of the Auto Scaling Group.
         (See also Waiting for Capacity below.)
@@ -1328,36 +1328,36 @@ class _GroupState:
         return pulumi.get(self, "min_size")
 
     @min_size.setter
-    def min_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_size", value)
 
     @_builtins.property
     @pulumi.getter(name="mixedInstancesPolicy")
-    def mixed_instances_policy(self) -> Optional[pulumi.Input['GroupMixedInstancesPolicyArgs']]:
+    def mixed_instances_policy(self) -> pulumi.Input[Optional['GroupMixedInstancesPolicyArgs']]:
         """
         Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
         """
         return pulumi.get(self, "mixed_instances_policy")
 
     @mixed_instances_policy.setter
-    def mixed_instances_policy(self, value: Optional[pulumi.Input['GroupMixedInstancesPolicyArgs']]):
+    def mixed_instances_policy(self, value: pulumi.Input[Optional['GroupMixedInstancesPolicyArgs']]):
         pulumi.set(self, "mixed_instances_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Auto Scaling Group. By default generated by Pulumi. Conflicts with `name_prefix`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Creates a unique name beginning with the specified
         prefix. Conflicts with `name`.
@@ -1365,36 +1365,36 @@ class _GroupState:
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
-    def name_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="placementGroup")
-    def placement_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def placement_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the placement group into which you'll launch your instances, if any.
         """
         return pulumi.get(self, "placement_group")
 
     @placement_group.setter
-    def placement_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def placement_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "placement_group", value)
 
     @_builtins.property
     @pulumi.getter(name="predictedCapacity")
-    def predicted_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def predicted_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Predicted capacity of the group.
         """
         return pulumi.get(self, "predicted_capacity")
 
     @predicted_capacity.setter
-    def predicted_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def predicted_capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "predicted_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="protectFromScaleIn")
-    def protect_from_scale_in(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def protect_from_scale_in(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether newly launched instances
         are automatically protected from termination by Amazon EC2 Auto Scaling when
@@ -1405,36 +1405,36 @@ class _GroupState:
         return pulumi.get(self, "protect_from_scale_in")
 
     @protect_from_scale_in.setter
-    def protect_from_scale_in(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def protect_from_scale_in(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "protect_from_scale_in", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceLinkedRoleArn")
-    def service_linked_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_linked_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the service-linked role that the ASG will use to call other AWS services
         """
         return pulumi.get(self, "service_linked_role_arn")
 
     @service_linked_role_arn.setter
-    def service_linked_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_linked_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_linked_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="suspendedProcesses")
-    def suspended_processes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def suspended_processes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
         Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
@@ -1442,72 +1442,72 @@ class _GroupState:
         return pulumi.get(self, "suspended_processes")
 
     @suspended_processes.setter
-    def suspended_processes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def suspended_processes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "suspended_processes", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GroupTagArgs']]]]:
         """
         Configuration block(s) containing resource tags. See Tag below for more details.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GroupTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="targetGroupArns")
-    def target_group_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def target_group_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of `lb.TargetGroup` ARNs, for use with Application or Network Load Balancing. To remove all target group attachments an empty list should be specified.
         """
         return pulumi.get(self, "target_group_arns")
 
     @target_group_arns.setter
-    def target_group_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def target_group_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "target_group_arns", value)
 
     @_builtins.property
     @pulumi.getter(name="terminationPolicies")
-    def termination_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def termination_policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`. Additionally, the ARN of a Lambda function can be specified for custom termination policies.
         """
         return pulumi.get(self, "termination_policies")
 
     @termination_policies.setter
-    def termination_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def termination_policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "termination_policies", value)
 
     @_builtins.property
     @pulumi.getter(name="trafficSources")
-    def traffic_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupTrafficSourceArgs']]]]:
+    def traffic_sources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GroupTrafficSourceArgs']]]]:
         """
         Attaches one or more traffic sources to the specified Auto Scaling group.
         """
         return pulumi.get(self, "traffic_sources")
 
     @traffic_sources.setter
-    def traffic_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupTrafficSourceArgs']]]]):
+    def traffic_sources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GroupTrafficSourceArgs']]]]):
         pulumi.set(self, "traffic_sources", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcZoneIdentifiers")
-    def vpc_zone_identifiers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def vpc_zone_identifiers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availability_zones`.
         """
         return pulumi.get(self, "vpc_zone_identifiers")
 
     @vpc_zone_identifiers.setter
-    def vpc_zone_identifiers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def vpc_zone_identifiers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "vpc_zone_identifiers", value)
 
     @_builtins.property
     @pulumi.getter(name="waitForCapacityTimeout")
-    def wait_for_capacity_timeout(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def wait_for_capacity_timeout(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Maximum
         [duration](https://golang.org/pkg/time/#ParseDuration) that the provider should
@@ -1518,12 +1518,12 @@ class _GroupState:
         return pulumi.get(self, "wait_for_capacity_timeout")
 
     @wait_for_capacity_timeout.setter
-    def wait_for_capacity_timeout(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def wait_for_capacity_timeout(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "wait_for_capacity_timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="waitForElbCapacity")
-    def wait_for_elb_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def wait_for_elb_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Setting this will cause Pulumi to wait
         for exactly this number of healthy instances from this Auto Scaling Group in
@@ -1534,12 +1534,12 @@ class _GroupState:
         return pulumi.get(self, "wait_for_elb_capacity")
 
     @wait_for_elb_capacity.setter
-    def wait_for_elb_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def wait_for_elb_capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "wait_for_elb_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="warmPool")
-    def warm_pool(self) -> Optional[pulumi.Input['GroupWarmPoolArgs']]:
+    def warm_pool(self) -> pulumi.Input[Optional['GroupWarmPoolArgs']]:
         """
         If this block is configured, add a [Warm Pool](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html)
         to the specified Auto Scaling group. Defined below
@@ -1547,19 +1547,19 @@ class _GroupState:
         return pulumi.get(self, "warm_pool")
 
     @warm_pool.setter
-    def warm_pool(self, value: Optional[pulumi.Input['GroupWarmPoolArgs']]):
+    def warm_pool(self, value: pulumi.Input[Optional['GroupWarmPoolArgs']]):
         pulumi.set(self, "warm_pool", value)
 
     @_builtins.property
     @pulumi.getter(name="warmPoolSize")
-    def warm_pool_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def warm_pool_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Current size of the warm pool.
         """
         return pulumi.get(self, "warm_pool_size")
 
     @warm_pool_size.setter
-    def warm_pool_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def warm_pool_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "warm_pool_size", value)
 
 
@@ -1569,48 +1569,48 @@ class Group(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 availability_zone_distribution: Optional[pulumi.Input[Union['GroupAvailabilityZoneDistributionArgs', 'GroupAvailabilityZoneDistributionArgsDict']]] = None,
-                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 capacity_rebalance: Optional[pulumi.Input[_builtins.bool]] = None,
-                 capacity_reservation_specification: Optional[pulumi.Input[Union['GroupCapacityReservationSpecificationArgs', 'GroupCapacityReservationSpecificationArgsDict']]] = None,
-                 context: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_cooldown: Optional[pulumi.Input[_builtins.int]] = None,
-                 default_instance_warmup: Optional[pulumi.Input[_builtins.int]] = None,
-                 desired_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 desired_capacity_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input['Metric']]]] = None,
-                 force_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 force_delete_warm_pool: Optional[pulumi.Input[_builtins.bool]] = None,
-                 health_check_grace_period: Optional[pulumi.Input[_builtins.int]] = None,
-                 health_check_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_failed_scaling_activities: Optional[pulumi.Input[_builtins.bool]] = None,
-                 initial_lifecycle_hooks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GroupInitialLifecycleHookArgs', 'GroupInitialLifecycleHookArgsDict']]]]] = None,
-                 instance_maintenance_policy: Optional[pulumi.Input[Union['GroupInstanceMaintenancePolicyArgs', 'GroupInstanceMaintenancePolicyArgsDict']]] = None,
-                 instance_refresh: Optional[pulumi.Input[Union['GroupInstanceRefreshArgs', 'GroupInstanceRefreshArgsDict']]] = None,
-                 launch_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 launch_template: Optional[pulumi.Input[Union['GroupLaunchTemplateArgs', 'GroupLaunchTemplateArgsDict']]] = None,
-                 load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 max_instance_lifetime: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 metrics_granularity: Optional[pulumi.Input[Union[_builtins.str, 'MetricsGranularity']]] = None,
-                 min_elb_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 mixed_instances_policy: Optional[pulumi.Input[Union['GroupMixedInstancesPolicyArgs', 'GroupMixedInstancesPolicyArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 placement_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 protect_from_scale_in: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_linked_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 suspended_processes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GroupTagArgs', 'GroupTagArgsDict']]]]] = None,
-                 target_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 termination_policies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 traffic_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GroupTrafficSourceArgs', 'GroupTrafficSourceArgsDict']]]]] = None,
-                 vpc_zone_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 wait_for_capacity_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 wait_for_elb_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 warm_pool: Optional[pulumi.Input[Union['GroupWarmPoolArgs', 'GroupWarmPoolArgsDict']]] = None,
+                 availability_zone_distribution: pulumi.Input[Optional[Union['GroupAvailabilityZoneDistributionArgs', 'GroupAvailabilityZoneDistributionArgsDict']]] = None,
+                 availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 capacity_rebalance: pulumi.Input[Optional[_builtins.bool]] = None,
+                 capacity_reservation_specification: pulumi.Input[Optional[Union['GroupCapacityReservationSpecificationArgs', 'GroupCapacityReservationSpecificationArgsDict']]] = None,
+                 context: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_cooldown: pulumi.Input[Optional[_builtins.int]] = None,
+                 default_instance_warmup: pulumi.Input[Optional[_builtins.int]] = None,
+                 desired_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 desired_capacity_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled_metrics: pulumi.Input[Optional[Sequence[pulumi.Input['Metric']]]] = None,
+                 force_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 force_delete_warm_pool: pulumi.Input[Optional[_builtins.bool]] = None,
+                 health_check_grace_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 health_check_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_failed_scaling_activities: pulumi.Input[Optional[_builtins.bool]] = None,
+                 initial_lifecycle_hooks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupInitialLifecycleHookArgs', 'GroupInitialLifecycleHookArgsDict']]]]] = None,
+                 instance_maintenance_policy: pulumi.Input[Optional[Union['GroupInstanceMaintenancePolicyArgs', 'GroupInstanceMaintenancePolicyArgsDict']]] = None,
+                 instance_refresh: pulumi.Input[Optional[Union['GroupInstanceRefreshArgs', 'GroupInstanceRefreshArgsDict']]] = None,
+                 launch_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 launch_template: pulumi.Input[Optional[Union['GroupLaunchTemplateArgs', 'GroupLaunchTemplateArgsDict']]] = None,
+                 load_balancers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 max_instance_lifetime: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 metrics_granularity: pulumi.Input[Optional[Union[_builtins.str, 'MetricsGranularity']]] = None,
+                 min_elb_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 mixed_instances_policy: pulumi.Input[Optional[Union['GroupMixedInstancesPolicyArgs', 'GroupMixedInstancesPolicyArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 placement_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 protect_from_scale_in: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_linked_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 suspended_processes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupTagArgs', 'GroupTagArgsDict']]]]] = None,
+                 target_group_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 termination_policies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 traffic_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupTrafficSourceArgs', 'GroupTrafficSourceArgsDict']]]]] = None,
+                 vpc_zone_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 wait_for_capacity_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 wait_for_elb_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 warm_pool: pulumi.Input[Optional[Union['GroupWarmPoolArgs', 'GroupWarmPoolArgsDict']]] = None,
                  __props__=None):
         """
         Provides an Auto Scaling Group resource.
@@ -1914,7 +1914,7 @@ class Group(pulumi.CustomResource):
             min_size=1,
             launch_template={
                 "id": example_launch_template.id,
-                "version": example_launch_template.latest_version,
+                "version": example_launch_template.latest_version.apply(lambda x: str(x)),
             },
             tags=[{
                 "key": "Key",
@@ -1965,7 +1965,7 @@ class Group(pulumi.CustomResource):
             traffic_sources=[{
                 "identifier": entry["value"]["arn"],
                 "type": "vpc-lattice",
-            } for entry in [{"key": k, "value": v} for k, v in [__item for __item in test_aws_vpclattice_target_group].items()]],
+            } for entry in [{"key": k, "value": v} for k, v in sorted([__item for __item in test_aws_vpclattice_target_group].items())]],
             vpc_zone_identifiers=test_aws_subnet["id"],
             max_size=1,
             min_size=1,
@@ -2441,7 +2441,7 @@ class Group(pulumi.CustomResource):
             min_size=1,
             launch_template={
                 "id": example_launch_template.id,
-                "version": example_launch_template.latest_version,
+                "version": example_launch_template.latest_version.apply(lambda x: str(x)),
             },
             tags=[{
                 "key": "Key",
@@ -2492,7 +2492,7 @@ class Group(pulumi.CustomResource):
             traffic_sources=[{
                 "identifier": entry["value"]["arn"],
                 "type": "vpc-lattice",
-            } for entry in [{"key": k, "value": v} for k, v in [__item for __item in test_aws_vpclattice_target_group].items()]],
+            } for entry in [{"key": k, "value": v} for k, v in sorted([__item for __item in test_aws_vpclattice_target_group].items())]],
             vpc_zone_identifiers=test_aws_subnet["id"],
             max_size=1,
             min_size=1,
@@ -2596,48 +2596,48 @@ class Group(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 availability_zone_distribution: Optional[pulumi.Input[Union['GroupAvailabilityZoneDistributionArgs', 'GroupAvailabilityZoneDistributionArgsDict']]] = None,
-                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 capacity_rebalance: Optional[pulumi.Input[_builtins.bool]] = None,
-                 capacity_reservation_specification: Optional[pulumi.Input[Union['GroupCapacityReservationSpecificationArgs', 'GroupCapacityReservationSpecificationArgsDict']]] = None,
-                 context: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_cooldown: Optional[pulumi.Input[_builtins.int]] = None,
-                 default_instance_warmup: Optional[pulumi.Input[_builtins.int]] = None,
-                 desired_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 desired_capacity_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input['Metric']]]] = None,
-                 force_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 force_delete_warm_pool: Optional[pulumi.Input[_builtins.bool]] = None,
-                 health_check_grace_period: Optional[pulumi.Input[_builtins.int]] = None,
-                 health_check_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_failed_scaling_activities: Optional[pulumi.Input[_builtins.bool]] = None,
-                 initial_lifecycle_hooks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GroupInitialLifecycleHookArgs', 'GroupInitialLifecycleHookArgsDict']]]]] = None,
-                 instance_maintenance_policy: Optional[pulumi.Input[Union['GroupInstanceMaintenancePolicyArgs', 'GroupInstanceMaintenancePolicyArgsDict']]] = None,
-                 instance_refresh: Optional[pulumi.Input[Union['GroupInstanceRefreshArgs', 'GroupInstanceRefreshArgsDict']]] = None,
-                 launch_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 launch_template: Optional[pulumi.Input[Union['GroupLaunchTemplateArgs', 'GroupLaunchTemplateArgsDict']]] = None,
-                 load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 max_instance_lifetime: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 metrics_granularity: Optional[pulumi.Input[Union[_builtins.str, 'MetricsGranularity']]] = None,
-                 min_elb_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 mixed_instances_policy: Optional[pulumi.Input[Union['GroupMixedInstancesPolicyArgs', 'GroupMixedInstancesPolicyArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 placement_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 protect_from_scale_in: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_linked_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 suspended_processes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GroupTagArgs', 'GroupTagArgsDict']]]]] = None,
-                 target_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 termination_policies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 traffic_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GroupTrafficSourceArgs', 'GroupTrafficSourceArgsDict']]]]] = None,
-                 vpc_zone_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 wait_for_capacity_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 wait_for_elb_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 warm_pool: Optional[pulumi.Input[Union['GroupWarmPoolArgs', 'GroupWarmPoolArgsDict']]] = None,
+                 availability_zone_distribution: pulumi.Input[Optional[Union['GroupAvailabilityZoneDistributionArgs', 'GroupAvailabilityZoneDistributionArgsDict']]] = None,
+                 availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 capacity_rebalance: pulumi.Input[Optional[_builtins.bool]] = None,
+                 capacity_reservation_specification: pulumi.Input[Optional[Union['GroupCapacityReservationSpecificationArgs', 'GroupCapacityReservationSpecificationArgsDict']]] = None,
+                 context: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_cooldown: pulumi.Input[Optional[_builtins.int]] = None,
+                 default_instance_warmup: pulumi.Input[Optional[_builtins.int]] = None,
+                 desired_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 desired_capacity_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled_metrics: pulumi.Input[Optional[Sequence[pulumi.Input['Metric']]]] = None,
+                 force_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 force_delete_warm_pool: pulumi.Input[Optional[_builtins.bool]] = None,
+                 health_check_grace_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 health_check_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_failed_scaling_activities: pulumi.Input[Optional[_builtins.bool]] = None,
+                 initial_lifecycle_hooks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupInitialLifecycleHookArgs', 'GroupInitialLifecycleHookArgsDict']]]]] = None,
+                 instance_maintenance_policy: pulumi.Input[Optional[Union['GroupInstanceMaintenancePolicyArgs', 'GroupInstanceMaintenancePolicyArgsDict']]] = None,
+                 instance_refresh: pulumi.Input[Optional[Union['GroupInstanceRefreshArgs', 'GroupInstanceRefreshArgsDict']]] = None,
+                 launch_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 launch_template: pulumi.Input[Optional[Union['GroupLaunchTemplateArgs', 'GroupLaunchTemplateArgsDict']]] = None,
+                 load_balancers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 max_instance_lifetime: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 metrics_granularity: pulumi.Input[Optional[Union[_builtins.str, 'MetricsGranularity']]] = None,
+                 min_elb_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 mixed_instances_policy: pulumi.Input[Optional[Union['GroupMixedInstancesPolicyArgs', 'GroupMixedInstancesPolicyArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 placement_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 protect_from_scale_in: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_linked_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 suspended_processes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupTagArgs', 'GroupTagArgsDict']]]]] = None,
+                 target_group_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 termination_policies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 traffic_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupTrafficSourceArgs', 'GroupTrafficSourceArgsDict']]]]] = None,
+                 vpc_zone_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 wait_for_capacity_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 wait_for_elb_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 warm_pool: pulumi.Input[Optional[Union['GroupWarmPoolArgs', 'GroupWarmPoolArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -2706,51 +2706,51 @@ class Group(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            availability_zone_distribution: Optional[pulumi.Input[Union['GroupAvailabilityZoneDistributionArgs', 'GroupAvailabilityZoneDistributionArgsDict']]] = None,
-            availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            capacity_rebalance: Optional[pulumi.Input[_builtins.bool]] = None,
-            capacity_reservation_specification: Optional[pulumi.Input[Union['GroupCapacityReservationSpecificationArgs', 'GroupCapacityReservationSpecificationArgsDict']]] = None,
-            context: Optional[pulumi.Input[_builtins.str]] = None,
-            default_cooldown: Optional[pulumi.Input[_builtins.int]] = None,
-            default_instance_warmup: Optional[pulumi.Input[_builtins.int]] = None,
-            desired_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-            desired_capacity_type: Optional[pulumi.Input[_builtins.str]] = None,
-            enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input['Metric']]]] = None,
-            force_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-            force_delete_warm_pool: Optional[pulumi.Input[_builtins.bool]] = None,
-            health_check_grace_period: Optional[pulumi.Input[_builtins.int]] = None,
-            health_check_type: Optional[pulumi.Input[_builtins.str]] = None,
-            ignore_failed_scaling_activities: Optional[pulumi.Input[_builtins.bool]] = None,
-            initial_lifecycle_hooks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GroupInitialLifecycleHookArgs', 'GroupInitialLifecycleHookArgsDict']]]]] = None,
-            instance_maintenance_policy: Optional[pulumi.Input[Union['GroupInstanceMaintenancePolicyArgs', 'GroupInstanceMaintenancePolicyArgsDict']]] = None,
-            instance_refresh: Optional[pulumi.Input[Union['GroupInstanceRefreshArgs', 'GroupInstanceRefreshArgsDict']]] = None,
-            launch_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-            launch_template: Optional[pulumi.Input[Union['GroupLaunchTemplateArgs', 'GroupLaunchTemplateArgsDict']]] = None,
-            load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            max_instance_lifetime: Optional[pulumi.Input[_builtins.int]] = None,
-            max_size: Optional[pulumi.Input[_builtins.int]] = None,
-            metrics_granularity: Optional[pulumi.Input[Union[_builtins.str, 'MetricsGranularity']]] = None,
-            min_elb_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-            min_size: Optional[pulumi.Input[_builtins.int]] = None,
-            mixed_instances_policy: Optional[pulumi.Input[Union['GroupMixedInstancesPolicyArgs', 'GroupMixedInstancesPolicyArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-            placement_group: Optional[pulumi.Input[_builtins.str]] = None,
-            predicted_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-            protect_from_scale_in: Optional[pulumi.Input[_builtins.bool]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            service_linked_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            suspended_processes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GroupTagArgs', 'GroupTagArgsDict']]]]] = None,
-            target_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            termination_policies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            traffic_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GroupTrafficSourceArgs', 'GroupTrafficSourceArgsDict']]]]] = None,
-            vpc_zone_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            wait_for_capacity_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-            wait_for_elb_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-            warm_pool: Optional[pulumi.Input[Union['GroupWarmPoolArgs', 'GroupWarmPoolArgsDict']]] = None,
-            warm_pool_size: Optional[pulumi.Input[_builtins.int]] = None) -> 'Group':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            availability_zone_distribution: pulumi.Input[Optional[Union['GroupAvailabilityZoneDistributionArgs', 'GroupAvailabilityZoneDistributionArgsDict']]] = None,
+            availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            capacity_rebalance: pulumi.Input[Optional[_builtins.bool]] = None,
+            capacity_reservation_specification: pulumi.Input[Optional[Union['GroupCapacityReservationSpecificationArgs', 'GroupCapacityReservationSpecificationArgsDict']]] = None,
+            context: pulumi.Input[Optional[_builtins.str]] = None,
+            default_cooldown: pulumi.Input[Optional[_builtins.int]] = None,
+            default_instance_warmup: pulumi.Input[Optional[_builtins.int]] = None,
+            desired_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            desired_capacity_type: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled_metrics: pulumi.Input[Optional[Sequence[pulumi.Input['Metric']]]] = None,
+            force_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+            force_delete_warm_pool: pulumi.Input[Optional[_builtins.bool]] = None,
+            health_check_grace_period: pulumi.Input[Optional[_builtins.int]] = None,
+            health_check_type: pulumi.Input[Optional[_builtins.str]] = None,
+            ignore_failed_scaling_activities: pulumi.Input[Optional[_builtins.bool]] = None,
+            initial_lifecycle_hooks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupInitialLifecycleHookArgs', 'GroupInitialLifecycleHookArgsDict']]]]] = None,
+            instance_maintenance_policy: pulumi.Input[Optional[Union['GroupInstanceMaintenancePolicyArgs', 'GroupInstanceMaintenancePolicyArgsDict']]] = None,
+            instance_refresh: pulumi.Input[Optional[Union['GroupInstanceRefreshArgs', 'GroupInstanceRefreshArgsDict']]] = None,
+            launch_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+            launch_template: pulumi.Input[Optional[Union['GroupLaunchTemplateArgs', 'GroupLaunchTemplateArgsDict']]] = None,
+            load_balancers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            max_instance_lifetime: pulumi.Input[Optional[_builtins.int]] = None,
+            max_size: pulumi.Input[Optional[_builtins.int]] = None,
+            metrics_granularity: pulumi.Input[Optional[Union[_builtins.str, 'MetricsGranularity']]] = None,
+            min_elb_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            min_size: pulumi.Input[Optional[_builtins.int]] = None,
+            mixed_instances_policy: pulumi.Input[Optional[Union['GroupMixedInstancesPolicyArgs', 'GroupMixedInstancesPolicyArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            placement_group: pulumi.Input[Optional[_builtins.str]] = None,
+            predicted_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            protect_from_scale_in: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            service_linked_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            suspended_processes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupTagArgs', 'GroupTagArgsDict']]]]] = None,
+            target_group_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            termination_policies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            traffic_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupTrafficSourceArgs', 'GroupTrafficSourceArgsDict']]]]] = None,
+            vpc_zone_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            wait_for_capacity_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+            wait_for_elb_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            warm_pool: pulumi.Input[Optional[Union['GroupWarmPoolArgs', 'GroupWarmPoolArgsDict']]] = None,
+            warm_pool_size: pulumi.Input[Optional[_builtins.int]] = None) -> 'Group':
         """
         Get an existing Group resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

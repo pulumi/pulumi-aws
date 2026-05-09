@@ -201,48 +201,48 @@ export interface ServiceState {
     /**
      * The ARN of the service.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The description of the service.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dnsConfig` Block for details.
      */
-    dnsConfig?: pulumi.Input<inputs.servicediscovery.ServiceDnsConfig>;
+    dnsConfig?: pulumi.Input<inputs.servicediscovery.ServiceDnsConfig | undefined>;
     /**
      * A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable. Defaults to `false`.
      */
-    forceDestroy?: pulumi.Input<boolean>;
+    forceDestroy?: pulumi.Input<boolean | undefined>;
     /**
      * A complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `healthCheckConfig` Block for details.
      */
-    healthCheckConfig?: pulumi.Input<inputs.servicediscovery.ServiceHealthCheckConfig>;
+    healthCheckConfig?: pulumi.Input<inputs.servicediscovery.ServiceHealthCheckConfig | undefined>;
     /**
      * Please use `healthCheckConfig` instead. See `healthCheckCustomConfig` Block for details.
      */
-    healthCheckCustomConfig?: pulumi.Input<inputs.servicediscovery.ServiceHealthCheckCustomConfig>;
+    healthCheckCustomConfig?: pulumi.Input<inputs.servicediscovery.ServiceHealthCheckCustomConfig | undefined>;
     /**
      * The name of the service.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the namespace that you want to use to create the service.
      */
-    namespaceId?: pulumi.Input<string>;
+    namespaceId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * If present, specifies that the service instances are only discoverable using the `DiscoverInstances` API operation. No DNS records is registered for the service instances. The only valid value is `HTTP`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -252,41 +252,41 @@ export interface ServiceArgs {
     /**
      * The description of the service.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dnsConfig` Block for details.
      */
-    dnsConfig?: pulumi.Input<inputs.servicediscovery.ServiceDnsConfig>;
+    dnsConfig?: pulumi.Input<inputs.servicediscovery.ServiceDnsConfig | undefined>;
     /**
      * A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable. Defaults to `false`.
      */
-    forceDestroy?: pulumi.Input<boolean>;
+    forceDestroy?: pulumi.Input<boolean | undefined>;
     /**
      * A complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `healthCheckConfig` Block for details.
      */
-    healthCheckConfig?: pulumi.Input<inputs.servicediscovery.ServiceHealthCheckConfig>;
+    healthCheckConfig?: pulumi.Input<inputs.servicediscovery.ServiceHealthCheckConfig | undefined>;
     /**
      * Please use `healthCheckConfig` instead. See `healthCheckCustomConfig` Block for details.
      */
-    healthCheckCustomConfig?: pulumi.Input<inputs.servicediscovery.ServiceHealthCheckCustomConfig>;
+    healthCheckCustomConfig?: pulumi.Input<inputs.servicediscovery.ServiceHealthCheckCustomConfig | undefined>;
     /**
      * The name of the service.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the namespace that you want to use to create the service.
      */
-    namespaceId?: pulumi.Input<string>;
+    namespaceId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * If present, specifies that the service instances are only discoverable using the `DiscoverInstances` API operation. No DNS records is registered for the service instances. The only valid value is `HTTP`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }

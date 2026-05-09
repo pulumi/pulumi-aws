@@ -226,65 +226,65 @@ export interface ScheduleState {
     /**
      * Action that applies to the schedule after completing invocation of the target. Valid values are `NONE` and `DELETE`. Defaults to `NONE`.
      */
-    actionAfterCompletion?: pulumi.Input<string>;
+    actionAfterCompletion?: pulumi.Input<string | undefined>;
     /**
      * ARN of the schedule.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Brief description of the schedule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the end date you specify. EventBridge Scheduler ignores the end date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
      */
-    endDate?: pulumi.Input<string>;
+    endDate?: pulumi.Input<string | undefined>;
     /**
      * Configures a time window during which EventBridge Scheduler invokes the schedule. Detailed below.
      */
-    flexibleTimeWindow?: pulumi.Input<inputs.scheduler.ScheduleFlexibleTimeWindow>;
+    flexibleTimeWindow?: pulumi.Input<inputs.scheduler.ScheduleFlexibleTimeWindow | undefined>;
     /**
      * Name of the schedule group to associate with this schedule. When omitted, the `default` schedule group is used.
      */
-    groupName?: pulumi.Input<string>;
+    groupName?: pulumi.Input<string | undefined>;
     /**
      * ARN for the customer managed KMS key that EventBridge Scheduler will use to encrypt and decrypt your data.
      */
-    kmsKeyArn?: pulumi.Input<string>;
+    kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
      * Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Defines when the schedule runs. Read more in [Schedule types on EventBridge Scheduler](https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html).
      */
-    scheduleExpression?: pulumi.Input<string>;
+    scheduleExpression?: pulumi.Input<string | undefined>;
     /**
      * Timezone in which the scheduling expression is evaluated. Defaults to `UTC`. Example: `Australia/Sydney`.
      */
-    scheduleExpressionTimezone?: pulumi.Input<string>;
+    scheduleExpressionTimezone?: pulumi.Input<string | undefined>;
     /**
      * The date, in UTC, after which the schedule can begin invoking its target. Depending on the schedule's recurrence expression, invocations might occur on, or after, the start date you specify. EventBridge Scheduler ignores the start date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
      */
-    startDate?: pulumi.Input<string>;
+    startDate?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the schedule is enabled or disabled. One of: `ENABLED` (default), `DISABLED`.
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
     /**
      * Configures the target of the schedule. Detailed below.
      *
      * The following arguments are optional:
      */
-    target?: pulumi.Input<inputs.scheduler.ScheduleTarget>;
+    target?: pulumi.Input<inputs.scheduler.ScheduleTarget | undefined>;
 }
 
 /**
@@ -294,15 +294,15 @@ export interface ScheduleArgs {
     /**
      * Action that applies to the schedule after completing invocation of the target. Valid values are `NONE` and `DELETE`. Defaults to `NONE`.
      */
-    actionAfterCompletion?: pulumi.Input<string>;
+    actionAfterCompletion?: pulumi.Input<string | undefined>;
     /**
      * Brief description of the schedule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the end date you specify. EventBridge Scheduler ignores the end date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
      */
-    endDate?: pulumi.Input<string>;
+    endDate?: pulumi.Input<string | undefined>;
     /**
      * Configures a time window during which EventBridge Scheduler invokes the schedule. Detailed below.
      */
@@ -310,23 +310,23 @@ export interface ScheduleArgs {
     /**
      * Name of the schedule group to associate with this schedule. When omitted, the `default` schedule group is used.
      */
-    groupName?: pulumi.Input<string>;
+    groupName?: pulumi.Input<string | undefined>;
     /**
      * ARN for the customer managed KMS key that EventBridge Scheduler will use to encrypt and decrypt your data.
      */
-    kmsKeyArn?: pulumi.Input<string>;
+    kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
      * Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Defines when the schedule runs. Read more in [Schedule types on EventBridge Scheduler](https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html).
      */
@@ -334,15 +334,15 @@ export interface ScheduleArgs {
     /**
      * Timezone in which the scheduling expression is evaluated. Defaults to `UTC`. Example: `Australia/Sydney`.
      */
-    scheduleExpressionTimezone?: pulumi.Input<string>;
+    scheduleExpressionTimezone?: pulumi.Input<string | undefined>;
     /**
      * The date, in UTC, after which the schedule can begin invoking its target. Depending on the schedule's recurrence expression, invocations might occur on, or after, the start date you specify. EventBridge Scheduler ignores the start date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
      */
-    startDate?: pulumi.Input<string>;
+    startDate?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the schedule is enabled or disabled. One of: `ENABLED` (default), `DISABLED`.
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
     /**
      * Configures the target of the schedule. Detailed below.
      *

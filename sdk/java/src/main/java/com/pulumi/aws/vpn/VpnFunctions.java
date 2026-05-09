@@ -31,8 +31,8 @@ public final class VpnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpnConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -68,8 +68,8 @@ public final class VpnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpnConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -115,8 +115,8 @@ public final class VpnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpnConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -152,8 +152,8 @@ public final class VpnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpnConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -199,8 +199,8 @@ public final class VpnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpnConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -236,8 +236,8 @@ public final class VpnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpnConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -283,8 +283,8 @@ public final class VpnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpnConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -320,8 +320,8 @@ public final class VpnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpnConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -367,8 +367,8 @@ public final class VpnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpnConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -404,8 +404,8 @@ public final class VpnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpnConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -451,8 +451,8 @@ public final class VpnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpnConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -488,8 +488,8 @@ public final class VpnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpnConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -535,8 +535,8 @@ public final class VpnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpnConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -572,8 +572,8 @@ public final class VpnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpnConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

@@ -156,27 +156,27 @@ export interface MemberDetectorFeatureState {
     /**
      * Member account ID to be updated.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * Additional feature configuration block. See below.
      */
-    additionalConfigurations?: pulumi.Input<pulumi.Input<inputs.guardduty.MemberDetectorFeatureAdditionalConfiguration>[]>;
+    additionalConfigurations?: pulumi.Input<pulumi.Input<inputs.guardduty.MemberDetectorFeatureAdditionalConfiguration>[] | undefined>;
     /**
      * Amazon GuardDuty detector ID.
      */
-    detectorId?: pulumi.Input<string>;
+    detectorId?: pulumi.Input<string | undefined>;
     /**
      * The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -190,7 +190,7 @@ export interface MemberDetectorFeatureArgs {
     /**
      * Additional feature configuration block. See below.
      */
-    additionalConfigurations?: pulumi.Input<pulumi.Input<inputs.guardduty.MemberDetectorFeatureAdditionalConfiguration>[]>;
+    additionalConfigurations?: pulumi.Input<pulumi.Input<inputs.guardduty.MemberDetectorFeatureAdditionalConfiguration>[] | undefined>;
     /**
      * Amazon GuardDuty detector ID.
      */
@@ -198,11 +198,11 @@ export interface MemberDetectorFeatureArgs {
     /**
      * The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
      */

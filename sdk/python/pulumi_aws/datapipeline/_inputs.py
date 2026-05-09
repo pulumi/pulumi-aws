@@ -34,7 +34,7 @@ class PipelineDefinitionParameterObjectArgsDict(TypedDict):
     """
     ID of the parameter object.
     """
-    attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionParameterObjectAttributeArgsDict']]]]
+    attributes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipelineDefinitionParameterObjectAttributeArgs']]]]]
     """
     Configuration block for attributes of the parameter object. See below
     """
@@ -43,7 +43,7 @@ class PipelineDefinitionParameterObjectArgsDict(TypedDict):
 class PipelineDefinitionParameterObjectArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[_builtins.str],
-                 attributes: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionParameterObjectAttributeArgs']]]] = None):
+                 attributes: pulumi.Input[Optional[Sequence[pulumi.Input['PipelineDefinitionParameterObjectAttributeArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] id: ID of the parameter object.
         :param pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionParameterObjectAttributeArgs']]] attributes: Configuration block for attributes of the parameter object. See below
@@ -66,14 +66,14 @@ class PipelineDefinitionParameterObjectArgs:
 
     @_builtins.property
     @pulumi.getter
-    def attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionParameterObjectAttributeArgs']]]]:
+    def attributes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PipelineDefinitionParameterObjectAttributeArgs']]]]:
         """
         Configuration block for attributes of the parameter object. See below
         """
         return pulumi.get(self, "attributes")
 
     @attributes.setter
-    def attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionParameterObjectAttributeArgs']]]]):
+    def attributes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PipelineDefinitionParameterObjectAttributeArgs']]]]):
         pulumi.set(self, "attributes", value)
 
 
@@ -180,7 +180,7 @@ class PipelineDefinitionPipelineObjectArgsDict(TypedDict):
     """
     ARN of the storage connector.
     """
-    fields: NotRequired[pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionPipelineObjectFieldArgsDict']]]]
+    fields: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipelineDefinitionPipelineObjectFieldArgs']]]]]
     """
     Configuration block for Key-value pairs that define the properties of the object. See below
     """
@@ -190,7 +190,7 @@ class PipelineDefinitionPipelineObjectArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
-                 fields: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionPipelineObjectFieldArgs']]]] = None):
+                 fields: pulumi.Input[Optional[Sequence[pulumi.Input['PipelineDefinitionPipelineObjectFieldArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] id: ID of the object.
         :param pulumi.Input[_builtins.str] name: ARN of the storage connector.
@@ -227,14 +227,14 @@ class PipelineDefinitionPipelineObjectArgs:
 
     @_builtins.property
     @pulumi.getter
-    def fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionPipelineObjectFieldArgs']]]]:
+    def fields(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PipelineDefinitionPipelineObjectFieldArgs']]]]:
         """
         Configuration block for Key-value pairs that define the properties of the object. See below
         """
         return pulumi.get(self, "fields")
 
     @fields.setter
-    def fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionPipelineObjectFieldArgs']]]]):
+    def fields(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PipelineDefinitionPipelineObjectFieldArgs']]]]):
         pulumi.set(self, "fields", value)
 
 
@@ -243,11 +243,11 @@ class PipelineDefinitionPipelineObjectFieldArgsDict(TypedDict):
     """
     Field identifier.
     """
-    ref_value: NotRequired[pulumi.Input[_builtins.str]]
+    ref_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Field value, expressed as the identifier of another object
     """
-    string_value: NotRequired[pulumi.Input[_builtins.str]]
+    string_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Field value, expressed as a String.
     """
@@ -256,8 +256,8 @@ class PipelineDefinitionPipelineObjectFieldArgsDict(TypedDict):
 class PipelineDefinitionPipelineObjectFieldArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
-                 ref_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 string_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 ref_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 string_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] key: Field identifier.
         :param pulumi.Input[_builtins.str] ref_value: Field value, expressed as the identifier of another object
@@ -283,26 +283,26 @@ class PipelineDefinitionPipelineObjectFieldArgs:
 
     @_builtins.property
     @pulumi.getter(name="refValue")
-    def ref_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ref_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Field value, expressed as the identifier of another object
         """
         return pulumi.get(self, "ref_value")
 
     @ref_value.setter
-    def ref_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ref_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ref_value", value)
 
     @_builtins.property
     @pulumi.getter(name="stringValue")
-    def string_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def string_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Field value, expressed as a String.
         """
         return pulumi.get(self, "string_value")
 
     @string_value.setter
-    def string_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def string_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "string_value", value)
 
 

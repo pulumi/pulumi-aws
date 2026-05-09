@@ -188,13 +188,13 @@ export interface GetVpnConnectionOutputArgs {
     /**
      * Configuration block(s) for filtering. Detailed below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpnConnectionFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpnConnectionFilterArgs>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the EC2 VPN Connection.
      */
-    vpnConnectionId?: pulumi.Input<string>;
+    vpnConnectionId?: pulumi.Input<string | undefined>;
 }

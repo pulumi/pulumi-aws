@@ -21,9 +21,9 @@ class PrincipalPortfolioAssociationArgs:
     def __init__(__self__, *,
                  portfolio_id: pulumi.Input[_builtins.str],
                  principal_arn: pulumi.Input[_builtins.str],
-                 accept_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 accept_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PrincipalPortfolioAssociation resource.
 
@@ -72,49 +72,49 @@ class PrincipalPortfolioAssociationArgs:
 
     @_builtins.property
     @pulumi.getter(name="acceptLanguage")
-    def accept_language(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def accept_language(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         """
         return pulumi.get(self, "accept_language")
 
     @accept_language.setter
-    def accept_language(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def accept_language(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "accept_language", value)
 
     @_builtins.property
     @pulumi.getter(name="principalType")
-    def principal_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Principal type. Setting this argument empty (e.g., `principal_type = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
         """
         return pulumi.get(self, "principal_type")
 
     @principal_type.setter
-    def principal_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _PrincipalPortfolioAssociationState:
     def __init__(__self__, *,
-                 accept_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 portfolio_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 accept_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 portfolio_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PrincipalPortfolioAssociation resources.
 
@@ -139,31 +139,31 @@ class _PrincipalPortfolioAssociationState:
 
     @_builtins.property
     @pulumi.getter(name="acceptLanguage")
-    def accept_language(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def accept_language(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         """
         return pulumi.get(self, "accept_language")
 
     @accept_language.setter
-    def accept_language(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def accept_language(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "accept_language", value)
 
     @_builtins.property
     @pulumi.getter(name="portfolioId")
-    def portfolio_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def portfolio_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Portfolio identifier.
         """
         return pulumi.get(self, "portfolio_id")
 
     @portfolio_id.setter
-    def portfolio_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def portfolio_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "portfolio_id", value)
 
     @_builtins.property
     @pulumi.getter(name="principalArn")
-    def principal_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Principal ARN.
 
@@ -172,31 +172,31 @@ class _PrincipalPortfolioAssociationState:
         return pulumi.get(self, "principal_arn")
 
     @principal_arn.setter
-    def principal_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="principalType")
-    def principal_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Principal type. Setting this argument empty (e.g., `principal_type = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
         """
         return pulumi.get(self, "principal_type")
 
     @principal_type.setter
-    def principal_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
@@ -206,11 +206,11 @@ class PrincipalPortfolioAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accept_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 portfolio_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 accept_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 portfolio_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Service Catalog Principal Portfolio Association.
@@ -293,11 +293,11 @@ class PrincipalPortfolioAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accept_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 portfolio_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 accept_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 portfolio_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -326,11 +326,11 @@ class PrincipalPortfolioAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            accept_language: Optional[pulumi.Input[_builtins.str]] = None,
-            portfolio_id: Optional[pulumi.Input[_builtins.str]] = None,
-            principal_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            principal_type: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None) -> 'PrincipalPortfolioAssociation':
+            accept_language: pulumi.Input[Optional[_builtins.str]] = None,
+            portfolio_id: pulumi.Input[Optional[_builtins.str]] = None,
+            principal_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            principal_type: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> 'PrincipalPortfolioAssociation':
         """
         Get an existing PrincipalPortfolioAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

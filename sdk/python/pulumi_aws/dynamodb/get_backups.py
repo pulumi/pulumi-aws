@@ -157,11 +157,11 @@ def get_backups(backup_type: Optional[_builtins.str] = None,
         table_name=pulumi.get(__ret__, 'table_name'),
         time_range_lower_bound=pulumi.get(__ret__, 'time_range_lower_bound'),
         time_range_upper_bound=pulumi.get(__ret__, 'time_range_upper_bound'))
-def get_backups_output(backup_type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                       region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                       table_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                       time_range_lower_bound: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                       time_range_upper_bound: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_backups_output(backup_type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       table_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       time_range_lower_bound: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       time_range_upper_bound: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBackupsResult]:
     """
     Data source for listing AWS DynamoDB backups.

@@ -20,9 +20,9 @@ __all__ = ['ApprovalRuleTemplateArgs', 'ApprovalRuleTemplate']
 class ApprovalRuleTemplateArgs:
     def __init__(__self__, *,
                  content: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApprovalRuleTemplate resource.
 
@@ -53,53 +53,53 @@ class ApprovalRuleTemplateArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the approval rule template. Maximum of 1000 characters.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name for the approval rule template. Maximum of 100 characters.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _ApprovalRuleTemplateState:
     def __init__(__self__, *,
-                 approval_rule_template_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 creation_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_modified_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_modified_user: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_content_sha256: Optional[pulumi.Input[_builtins.str]] = None):
+                 approval_rule_template_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 creation_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_modified_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_modified_user: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_content_sha256: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApprovalRuleTemplate resources.
 
@@ -134,110 +134,110 @@ class _ApprovalRuleTemplateState:
 
     @_builtins.property
     @pulumi.getter(name="approvalRuleTemplateId")
-    def approval_rule_template_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def approval_rule_template_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the approval rule template
         """
         return pulumi.get(self, "approval_rule_template_id")
 
     @approval_rule_template_id.setter
-    def approval_rule_template_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def approval_rule_template_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "approval_rule_template_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def content(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The content of the approval rule template. Maximum of 3000 characters.
         """
         return pulumi.get(self, "content")
 
     @content.setter
-    def content(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content", value)
 
     @_builtins.property
     @pulumi.getter(name="creationDate")
-    def creation_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def creation_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date the approval rule template was created, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         """
         return pulumi.get(self, "creation_date")
 
     @creation_date.setter
-    def creation_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def creation_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "creation_date", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the approval rule template. Maximum of 1000 characters.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="lastModifiedDate")
-    def last_modified_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_modified_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         """
         return pulumi.get(self, "last_modified_date")
 
     @last_modified_date.setter
-    def last_modified_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_modified_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_modified_date", value)
 
     @_builtins.property
     @pulumi.getter(name="lastModifiedUser")
-    def last_modified_user(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_modified_user(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
         """
         return pulumi.get(self, "last_modified_user")
 
     @last_modified_user.setter
-    def last_modified_user(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_modified_user(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_modified_user", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name for the approval rule template. Maximum of 100 characters.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleContentSha256")
-    def rule_content_sha256(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rule_content_sha256(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SHA-256 hash signature for the content of the approval rule template.
         """
         return pulumi.get(self, "rule_content_sha256")
 
     @rule_content_sha256.setter
-    def rule_content_sha256(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rule_content_sha256(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rule_content_sha256", value)
 
 
@@ -247,10 +247,10 @@ class ApprovalRuleTemplate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a CodeCommit Approval Rule Template Resource.
@@ -346,10 +346,10 @@ class ApprovalRuleTemplate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -380,15 +380,15 @@ class ApprovalRuleTemplate(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            approval_rule_template_id: Optional[pulumi.Input[_builtins.str]] = None,
-            content: Optional[pulumi.Input[_builtins.str]] = None,
-            creation_date: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            last_modified_date: Optional[pulumi.Input[_builtins.str]] = None,
-            last_modified_user: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            rule_content_sha256: Optional[pulumi.Input[_builtins.str]] = None) -> 'ApprovalRuleTemplate':
+            approval_rule_template_id: pulumi.Input[Optional[_builtins.str]] = None,
+            content: pulumi.Input[Optional[_builtins.str]] = None,
+            creation_date: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            last_modified_date: pulumi.Input[Optional[_builtins.str]] = None,
+            last_modified_user: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            rule_content_sha256: pulumi.Input[Optional[_builtins.str]] = None) -> 'ApprovalRuleTemplate':
         """
         Get an existing ApprovalRuleTemplate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

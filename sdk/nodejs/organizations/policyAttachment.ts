@@ -147,15 +147,15 @@ export interface PolicyAttachmentState {
     /**
      * The unique identifier (ID) of the policy that you want to attach to the target.
      */
-    policyId?: pulumi.Input<string>;
+    policyId?: pulumi.Input<string | undefined>;
     /**
      * If set to `true`, destroy will **not** detach the policy and instead just remove the resource from state. This can be useful in situations where the attachment must be preserved to meet the AWS minimum requirement of 1 attached policy.
      */
-    skipDestroy?: pulumi.Input<boolean>;
+    skipDestroy?: pulumi.Input<boolean | undefined>;
     /**
      * The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
      */
-    targetId?: pulumi.Input<string>;
+    targetId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -169,7 +169,7 @@ export interface PolicyAttachmentArgs {
     /**
      * If set to `true`, destroy will **not** detach the policy and instead just remove the resource from state. This can be useful in situations where the attachment must be preserved to meet the AWS minimum requirement of 1 attached policy.
      */
-    skipDestroy?: pulumi.Input<boolean>;
+    skipDestroy?: pulumi.Input<boolean | undefined>;
     /**
      * The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
      */

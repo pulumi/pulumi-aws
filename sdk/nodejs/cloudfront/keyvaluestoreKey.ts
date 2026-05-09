@@ -137,19 +137,19 @@ export interface KeyvaluestoreKeyState {
     /**
      * Key to put.
      */
-    key?: pulumi.Input<string>;
+    key?: pulumi.Input<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the Key Value Store.
      */
-    keyValueStoreArn?: pulumi.Input<string>;
+    keyValueStoreArn?: pulumi.Input<string | undefined>;
     /**
      * Total size of the Key Value Store in bytes.
      */
-    totalSizeInBytes?: pulumi.Input<number>;
+    totalSizeInBytes?: pulumi.Input<number | undefined>;
     /**
      * Value to put.
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 /**

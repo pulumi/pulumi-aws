@@ -118,11 +118,11 @@ export interface UserGroupMembershipState {
     /**
      * A list of IAM Groups to add the user to
      */
-    groups?: pulumi.Input<pulumi.Input<string>[]>;
+    groups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the IAM User to add to groups
      */
-    user?: pulumi.Input<string>;
+    user?: pulumi.Input<string | undefined>;
 }
 
 /**

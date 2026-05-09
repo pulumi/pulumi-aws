@@ -227,9 +227,9 @@ def get_certificate(certificate_id: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         valid_from_date=pulumi.get(__ret__, 'valid_from_date'),
         valid_to_date=pulumi.get(__ret__, 'valid_to_date'))
-def get_certificate_output(certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                           region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                           tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_certificate_output(certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                           region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateResult]:
     """
     Data source for managing an AWS DMS (Database Migration) Certificate.

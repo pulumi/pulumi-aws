@@ -283,22 +283,22 @@ export interface GameServerGroupState {
     /**
      * The ARN of the GameLift Game Server Group.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the created EC2 Auto Scaling group.
      */
-    autoScalingGroupArn?: pulumi.Input<string>;
-    autoScalingPolicy?: pulumi.Input<inputs.gamelift.GameServerGroupAutoScalingPolicy>;
+    autoScalingGroupArn?: pulumi.Input<string | undefined>;
+    autoScalingPolicy?: pulumi.Input<inputs.gamelift.GameServerGroupAutoScalingPolicy | undefined>;
     /**
      * Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances.
      * Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
      */
-    balancingStrategy?: pulumi.Input<string>;
+    balancingStrategy?: pulumi.Input<string | undefined>;
     /**
      * Name of the game server group.
      * This value is used to generate unique ARN identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server group.
      */
-    gameServerGroupName?: pulumi.Input<string>;
+    gameServerGroupName?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether instances in the game server group are protected from early termination.
      * Unprotected instances that have active game servers running might be terminated during a scale-down event,
@@ -307,49 +307,49 @@ export interface GameServerGroupState {
      * of a forced game server group deletion.
      * Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
      */
-    gameServerProtectionPolicy?: pulumi.Input<string>;
-    instanceDefinitions?: pulumi.Input<pulumi.Input<inputs.gamelift.GameServerGroupInstanceDefinition>[]>;
-    launchTemplate?: pulumi.Input<inputs.gamelift.GameServerGroupLaunchTemplate>;
+    gameServerProtectionPolicy?: pulumi.Input<string | undefined>;
+    instanceDefinitions?: pulumi.Input<pulumi.Input<inputs.gamelift.GameServerGroupInstanceDefinition>[] | undefined>;
+    launchTemplate?: pulumi.Input<inputs.gamelift.GameServerGroupLaunchTemplate | undefined>;
     /**
      * The maximum number of instances allowed in the EC2 Auto Scaling group.
      * During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.
      */
-    maxSize?: pulumi.Input<number>;
+    maxSize?: pulumi.Input<number | undefined>;
     /**
      * The minimum number of instances allowed in the EC2 Auto Scaling group.
      * During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
      */
-    minSize?: pulumi.Input<number>;
+    minSize?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A list of VPC subnets to use with instances in the game server group.
      * By default, all GameLift FleetIQ-supported Availability Zones are used.
      */
-    vpcSubnets?: pulumi.Input<pulumi.Input<string>[]>;
+    vpcSubnets?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
  * The set of arguments for constructing a GameServerGroup resource.
  */
 export interface GameServerGroupArgs {
-    autoScalingPolicy?: pulumi.Input<inputs.gamelift.GameServerGroupAutoScalingPolicy>;
+    autoScalingPolicy?: pulumi.Input<inputs.gamelift.GameServerGroupAutoScalingPolicy | undefined>;
     /**
      * Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances.
      * Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
      */
-    balancingStrategy?: pulumi.Input<string>;
+    balancingStrategy?: pulumi.Input<string | undefined>;
     /**
      * Name of the game server group.
      * This value is used to generate unique ARN identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server group.
@@ -363,7 +363,7 @@ export interface GameServerGroupArgs {
      * of a forced game server group deletion.
      * Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
      */
-    gameServerProtectionPolicy?: pulumi.Input<string>;
+    gameServerProtectionPolicy?: pulumi.Input<string | undefined>;
     instanceDefinitions: pulumi.Input<pulumi.Input<inputs.gamelift.GameServerGroupInstanceDefinition>[]>;
     launchTemplate: pulumi.Input<inputs.gamelift.GameServerGroupLaunchTemplate>;
     /**
@@ -379,7 +379,7 @@ export interface GameServerGroupArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
      */
@@ -387,10 +387,10 @@ export interface GameServerGroupArgs {
     /**
      * Key-value map of resource tags
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A list of VPC subnets to use with instances in the game server group.
      * By default, all GameLift FleetIQ-supported Availability Zones are used.
      */
-    vpcSubnets?: pulumi.Input<pulumi.Input<string>[]>;
+    vpcSubnets?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

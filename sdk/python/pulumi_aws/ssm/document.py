@@ -23,14 +23,14 @@ class DocumentArgs:
     def __init__(__self__, *,
                  content: pulumi.Input[_builtins.str],
                  document_type: pulumi.Input[_builtins.str],
-                 attachments_sources: Optional[pulumi.Input[Sequence[pulumi.Input['DocumentAttachmentsSourceArgs']]]] = None,
-                 document_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 version_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 attachments_sources: pulumi.Input[Optional[Sequence[pulumi.Input['DocumentAttachmentsSourceArgs']]]] = None,
+                 document_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 permissions: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Document resource.
 
@@ -90,128 +90,128 @@ class DocumentArgs:
 
     @_builtins.property
     @pulumi.getter(name="attachmentsSources")
-    def attachments_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DocumentAttachmentsSourceArgs']]]]:
+    def attachments_sources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DocumentAttachmentsSourceArgs']]]]:
         """
         One or more configuration blocks describing attachments sources to a version of a document. See `attachments_source` block below for details.
         """
         return pulumi.get(self, "attachments_sources")
 
     @attachments_sources.setter
-    def attachments_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DocumentAttachmentsSourceArgs']]]]):
+    def attachments_sources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DocumentAttachmentsSourceArgs']]]]):
         pulumi.set(self, "attachments_sources", value)
 
     @_builtins.property
     @pulumi.getter(name="documentFormat")
-    def document_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def document_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The format of the document. Valid values: `JSON`, `TEXT`, `YAML`.
         """
         return pulumi.get(self, "document_format")
 
     @document_format.setter
-    def document_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def document_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "document_format", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the document.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def permissions(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def permissions(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Additional permissions to attach to the document. See Permissions below for details.
         """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
-    def permissions(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def permissions(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "permissions", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="targetType")
-    def target_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The target type which defines the kinds of resources the document can run on. For example, `/AWS::EC2::Instance`. For a list of valid resource types, see [AWS resource and property types reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html).
         """
         return pulumi.get(self, "target_type")
 
     @target_type.setter
-    def target_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_type", value)
 
     @_builtins.property
     @pulumi.getter(name="versionName")
-    def version_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the artifact associated with the document. For example, `12.6`. This value is unique across all versions of a document, and can't be changed.
         """
         return pulumi.get(self, "version_name")
 
     @version_name.setter
-    def version_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version_name", value)
 
 
 @pulumi.input_type
 class _DocumentState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 attachments_sources: Optional[pulumi.Input[Sequence[pulumi.Input['DocumentAttachmentsSourceArgs']]]] = None,
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 document_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 document_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 document_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 hash: Optional[pulumi.Input[_builtins.str]] = None,
-                 hash_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 latest_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['DocumentParameterArgs']]]] = None,
-                 permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 platform_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 version_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 attachments_sources: pulumi.Input[Optional[Sequence[pulumi.Input['DocumentAttachmentsSourceArgs']]]] = None,
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 document_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 document_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 document_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 hash: pulumi.Input[Optional[_builtins.str]] = None,
+                 hash_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 latest_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input['DocumentParameterArgs']]]] = None,
+                 permissions: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 platform_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Document resources.
 
@@ -291,290 +291,290 @@ class _DocumentState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the document.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="attachmentsSources")
-    def attachments_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DocumentAttachmentsSourceArgs']]]]:
+    def attachments_sources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DocumentAttachmentsSourceArgs']]]]:
         """
         One or more configuration blocks describing attachments sources to a version of a document. See `attachments_source` block below for details.
         """
         return pulumi.get(self, "attachments_sources")
 
     @attachments_sources.setter
-    def attachments_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DocumentAttachmentsSourceArgs']]]]):
+    def attachments_sources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DocumentAttachmentsSourceArgs']]]]):
         pulumi.set(self, "attachments_sources", value)
 
     @_builtins.property
     @pulumi.getter
-    def content(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The content for the SSM document in JSON or YAML format. The content of the document must not exceed 64KB. This quota also includes the content specified for input parameters at runtime. We recommend storing the contents for your new document in an external JSON or YAML file and referencing the file in a command.
         """
         return pulumi.get(self, "content")
 
     @content.setter
-    def content(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content", value)
 
     @_builtins.property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date the document was created.
         """
         return pulumi.get(self, "created_date")
 
     @created_date.setter
-    def created_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_date", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultVersion")
-    def default_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default version of the document.
         """
         return pulumi.get(self, "default_version")
 
     @default_version.setter
-    def default_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of what the parameter does, how to use it, the default value, and whether or not the parameter is optional.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="documentFormat")
-    def document_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def document_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The format of the document. Valid values: `JSON`, `TEXT`, `YAML`.
         """
         return pulumi.get(self, "document_format")
 
     @document_format.setter
-    def document_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def document_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "document_format", value)
 
     @_builtins.property
     @pulumi.getter(name="documentType")
-    def document_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def document_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the document. For a list of valid values, see the [API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateDocument.html#systemsmanager-CreateDocument-request-DocumentType).
         """
         return pulumi.get(self, "document_type")
 
     @document_type.setter
-    def document_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def document_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "document_type", value)
 
     @_builtins.property
     @pulumi.getter(name="documentVersion")
-    def document_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def document_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The document version.
         """
         return pulumi.get(self, "document_version")
 
     @document_version.setter
-    def document_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def document_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "document_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def hash(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hash(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Sha256 or Sha1 hash created by the system when the document was created.
         """
         return pulumi.get(self, "hash")
 
     @hash.setter
-    def hash(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hash(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hash", value)
 
     @_builtins.property
     @pulumi.getter(name="hashType")
-    def hash_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hash_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The hash type of the document. Valid values: `Sha256`, `Sha1`.
         """
         return pulumi.get(self, "hash_type")
 
     @hash_type.setter
-    def hash_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hash_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hash_type", value)
 
     @_builtins.property
     @pulumi.getter(name="latestVersion")
-    def latest_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def latest_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The latest version of the document.
         """
         return pulumi.get(self, "latest_version")
 
     @latest_version.setter
-    def latest_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def latest_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "latest_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the document.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Web Services user that created the document.
         """
         return pulumi.get(self, "owner")
 
     @owner.setter
-    def owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DocumentParameterArgs']]]]:
+    def parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DocumentParameterArgs']]]]:
         """
         One or more configuration blocks describing the parameters for the document. See `parameter` block below for details.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DocumentParameterArgs']]]]):
+    def parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DocumentParameterArgs']]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def permissions(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def permissions(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Additional permissions to attach to the document. See Permissions below for details.
         """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
-    def permissions(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def permissions(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "permissions", value)
 
     @_builtins.property
     @pulumi.getter(name="platformTypes")
-    def platform_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def platform_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of operating system (OS) platforms compatible with this SSM document. Valid values: `Windows`, `Linux`, `MacOS`.
         """
         return pulumi.get(self, "platform_types")
 
     @platform_types.setter
-    def platform_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def platform_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "platform_types", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaVersion")
-    def schema_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The schema version of the document.
         """
         return pulumi.get(self, "schema_version")
 
     @schema_version.setter
-    def schema_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of the SSM document. Valid values: `Creating`, `Active`, `Updating`, `Deleting`, `Failed`.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="targetType")
-    def target_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The target type which defines the kinds of resources the document can run on. For example, `/AWS::EC2::Instance`. For a list of valid resource types, see [AWS resource and property types reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html).
         """
         return pulumi.get(self, "target_type")
 
     @target_type.setter
-    def target_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_type", value)
 
     @_builtins.property
     @pulumi.getter(name="versionName")
-    def version_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the artifact associated with the document. For example, `12.6`. This value is unique across all versions of a document, and can't be changed.
         """
         return pulumi.get(self, "version_name")
 
     @version_name.setter
-    def version_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version_name", value)
 
 
@@ -584,16 +584,16 @@ class Document(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attachments_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DocumentAttachmentsSourceArgs', 'DocumentAttachmentsSourceArgsDict']]]]] = None,
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 document_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 document_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 version_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 attachments_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DocumentAttachmentsSourceArgs', 'DocumentAttachmentsSourceArgsDict']]]]] = None,
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 document_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 document_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 permissions: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides an SSM Document resource
@@ -817,16 +817,16 @@ class Document(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attachments_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DocumentAttachmentsSourceArgs', 'DocumentAttachmentsSourceArgsDict']]]]] = None,
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 document_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 document_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 version_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 attachments_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DocumentAttachmentsSourceArgs', 'DocumentAttachmentsSourceArgsDict']]]]] = None,
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 document_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 document_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 permissions: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -874,30 +874,30 @@ class Document(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            attachments_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DocumentAttachmentsSourceArgs', 'DocumentAttachmentsSourceArgsDict']]]]] = None,
-            content: Optional[pulumi.Input[_builtins.str]] = None,
-            created_date: Optional[pulumi.Input[_builtins.str]] = None,
-            default_version: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            document_format: Optional[pulumi.Input[_builtins.str]] = None,
-            document_type: Optional[pulumi.Input[_builtins.str]] = None,
-            document_version: Optional[pulumi.Input[_builtins.str]] = None,
-            hash: Optional[pulumi.Input[_builtins.str]] = None,
-            hash_type: Optional[pulumi.Input[_builtins.str]] = None,
-            latest_version: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            owner: Optional[pulumi.Input[_builtins.str]] = None,
-            parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DocumentParameterArgs', 'DocumentParameterArgsDict']]]]] = None,
-            permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            platform_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            schema_version: Optional[pulumi.Input[_builtins.str]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            target_type: Optional[pulumi.Input[_builtins.str]] = None,
-            version_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'Document':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            attachments_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DocumentAttachmentsSourceArgs', 'DocumentAttachmentsSourceArgsDict']]]]] = None,
+            content: pulumi.Input[Optional[_builtins.str]] = None,
+            created_date: pulumi.Input[Optional[_builtins.str]] = None,
+            default_version: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            document_format: pulumi.Input[Optional[_builtins.str]] = None,
+            document_type: pulumi.Input[Optional[_builtins.str]] = None,
+            document_version: pulumi.Input[Optional[_builtins.str]] = None,
+            hash: pulumi.Input[Optional[_builtins.str]] = None,
+            hash_type: pulumi.Input[Optional[_builtins.str]] = None,
+            latest_version: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            owner: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DocumentParameterArgs', 'DocumentParameterArgsDict']]]]] = None,
+            permissions: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            platform_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            schema_version: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            target_type: pulumi.Input[Optional[_builtins.str]] = None,
+            version_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'Document':
         """
         Get an existing Document resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -52,64 +52,65 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// example, err := organizations.LookupOrganization(ctx, &organizations.LookupOrganizationArgs{
-// }, nil);
-// if err != nil {
-// return err
-// }
-// snsTopic, err := sns.NewTopic(ctx, "sns_topic", &sns.TopicArgs{
-// Name: pulumi.String("my-sns-topic"),
-// })
-// if err != nil {
-// return err
-// }
-// snsTopicPolicy := snsTopic.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
-// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement([]iam.GetPolicyDocumentStatement{
-// {
-// Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
-// Actions: []string{
-// "SNS:Subscribe",
-// "SNS:Publish",
-// },
-// Conditions: []iam.GetPolicyDocumentStatementCondition{
-// {
-// Test: "StringEquals",
-// Variable: "aws:PrincipalOrgID",
-// Values: interface{}{
-// example.Id,
-// },
-// },
-// },
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Type: "AWS",
-// Identifiers: []string{
-// "*",
-// },
-// },
-// },
-// Resources: []string{
-// arn,
-// },
-// },
-// }),
-// }, nil))), nil
-// }).(iam.GetPolicyDocumentResultOutput)
-// _, err = sns.NewTopicPolicy(ctx, "sns_topic_policy", &sns.TopicPolicyArgs{
-// Arn: snsTopic.Arn,
-// Policy: pulumi.String(snsTopicPolicy.ApplyT(func(snsTopicPolicy iam.GetPolicyDocumentResult) (*string, error) {
-// return &snsTopicPolicy.Json, nil
-// }).(pulumi.StringPtrOutput)),
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := organizations.LookupOrganization(ctx, &organizations.LookupOrganizationArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			snsTopic, err := sns.NewTopic(ctx, "sns_topic", &sns.TopicArgs{
+//				Name: pulumi.String("my-sns-topic"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			snsTopicPolicy := snsTopic.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
+//				return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//					Statements: []iam.GetPolicyDocumentStatement([]iam.GetPolicyDocumentStatement{
+//						{
+//							Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
+//							Actions: []string{
+//								"SNS:Subscribe",
+//								"SNS:Publish",
+//							},
+//							Conditions: []iam.GetPolicyDocumentStatementCondition{
+//								{
+//									Test:     "StringEquals",
+//									Variable: "aws:PrincipalOrgID",
+//									Values: pulumi.StringArray{
+//										example.Id,
+//									},
+//								},
+//							},
+//							Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//								{
+//									Type: "AWS",
+//									Identifiers: []string{
+//										"*",
+//									},
+//								},
+//							},
+//							Resources: []string{
+//								arn,
+//							},
+//						},
+//					}),
+//				}, nil))), nil
+//			}).(iam.GetPolicyDocumentResultOutput)
+//			_, err = sns.NewTopicPolicy(ctx, "sns_topic_policy", &sns.TopicPolicyArgs{
+//				Arn: snsTopic.Arn,
+//				Policy: pulumi.String(snsTopicPolicy.ApplyT(func(snsTopicPolicy iam.GetPolicyDocumentResult) (*string, error) {
+//					return &snsTopicPolicy.Json, nil
+//				}).(pulumi.StringPtrOutput)),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupOrganization(ctx *pulumi.Context, args *LookupOrganizationArgs, opts ...pulumi.InvokeOption) (*LookupOrganizationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)

@@ -175,37 +175,37 @@ export interface AppImageConfigState {
     /**
      * The name of the App Image Config.
      */
-    appImageConfigName?: pulumi.Input<string>;
+    appImageConfigName?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this App Image Config.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The CodeEditorAppImageConfig. See Code Editor App Image Config details below.
      */
-    codeEditorAppImageConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigCodeEditorAppImageConfig>;
+    codeEditorAppImageConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigCodeEditorAppImageConfig | undefined>;
     /**
      * The JupyterLabAppImageConfig. See Jupyter Lab Image Config details below.
      */
-    jupyterLabImageConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigJupyterLabImageConfig>;
+    jupyterLabImageConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigJupyterLabImageConfig | undefined>;
     /**
      * The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
      */
-    kernelGatewayImageConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigKernelGatewayImageConfig>;
+    kernelGatewayImageConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigKernelGatewayImageConfig | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
      * > **NOTE:** Exactly one of `codeEditorAppImageConfig`, `jupyterLabImageConfig`, or `kernelGatewayImageConfig` must be configured. Empty blocks (e.g., `codeEditorAppImageConfig {}`) are valid configurations.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -219,23 +219,23 @@ export interface AppImageConfigArgs {
     /**
      * The CodeEditorAppImageConfig. See Code Editor App Image Config details below.
      */
-    codeEditorAppImageConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigCodeEditorAppImageConfig>;
+    codeEditorAppImageConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigCodeEditorAppImageConfig | undefined>;
     /**
      * The JupyterLabAppImageConfig. See Jupyter Lab Image Config details below.
      */
-    jupyterLabImageConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigJupyterLabImageConfig>;
+    jupyterLabImageConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigJupyterLabImageConfig | undefined>;
     /**
      * The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
      */
-    kernelGatewayImageConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigKernelGatewayImageConfig>;
+    kernelGatewayImageConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigKernelGatewayImageConfig | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
      * > **NOTE:** Exactly one of `codeEditorAppImageConfig`, `jupyterLabImageConfig`, or `kernelGatewayImageConfig` must be configured. Empty blocks (e.g., `codeEditorAppImageConfig {}`) are valid configurations.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

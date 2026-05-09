@@ -203,7 +203,7 @@ def get_core_network(core_network_id: Optional[_builtins.str] = None,
         segments=pulumi.get(__ret__, 'segments'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_core_network_output(core_network_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_core_network_output(core_network_id: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCoreNetworkResult]:
     """
     Provides details about an AWS Network Manager Core Network.

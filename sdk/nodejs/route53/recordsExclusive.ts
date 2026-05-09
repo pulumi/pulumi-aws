@@ -146,14 +146,14 @@ export interface RecordsExclusiveState {
      * A list of all resource record sets associated with the hosted zone.
      * See `resourceRecordSet` below.
      */
-    resourceRecordSets?: pulumi.Input<pulumi.Input<inputs.route53.RecordsExclusiveResourceRecordSet>[]>;
-    timeouts?: pulumi.Input<inputs.route53.RecordsExclusiveTimeouts>;
+    resourceRecordSets?: pulumi.Input<pulumi.Input<inputs.route53.RecordsExclusiveResourceRecordSet>[] | undefined>;
+    timeouts?: pulumi.Input<inputs.route53.RecordsExclusiveTimeouts | undefined>;
     /**
      * ID of the hosted zone containing the resource record sets.
      *
      * The following arguments are optional:
      */
-    zoneId?: pulumi.Input<string>;
+    zoneId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -164,8 +164,8 @@ export interface RecordsExclusiveArgs {
      * A list of all resource record sets associated with the hosted zone.
      * See `resourceRecordSet` below.
      */
-    resourceRecordSets?: pulumi.Input<pulumi.Input<inputs.route53.RecordsExclusiveResourceRecordSet>[]>;
-    timeouts?: pulumi.Input<inputs.route53.RecordsExclusiveTimeouts>;
+    resourceRecordSets?: pulumi.Input<pulumi.Input<inputs.route53.RecordsExclusiveResourceRecordSet>[] | undefined>;
+    timeouts?: pulumi.Input<inputs.route53.RecordsExclusiveTimeouts | undefined>;
     /**
      * ID of the hosted zone containing the resource record sets.
      *

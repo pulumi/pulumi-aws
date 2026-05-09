@@ -58,8 +58,8 @@ class GroupPolicyAttachmentArgs:
 @pulumi.input_type
 class _GroupPolicyAttachmentState:
     def __init__(__self__, *,
-                 group: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 group: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GroupPolicyAttachment resources.
 
@@ -73,26 +73,26 @@ class _GroupPolicyAttachmentState:
 
     @_builtins.property
     @pulumi.getter
-    def group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The group the policy should be applied to
         """
         return pulumi.get(self, "group")
 
     @group.setter
-    def group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group", value)
 
     @_builtins.property
     @pulumi.getter(name="policyArn")
-    def policy_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the policy you want to apply
         """
         return pulumi.get(self, "policy_arn")
 
     @policy_arn.setter
-    def policy_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_arn", value)
 
 
@@ -102,8 +102,8 @@ class GroupPolicyAttachment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 group: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 group: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Attaches a Managed IAM Policy to an IAM group
@@ -213,8 +213,8 @@ class GroupPolicyAttachment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 group: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 group: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -240,8 +240,8 @@ class GroupPolicyAttachment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            group: Optional[pulumi.Input[_builtins.str]] = None,
-            policy_arn: Optional[pulumi.Input[_builtins.str]] = None) -> 'GroupPolicyAttachment':
+            group: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_arn: pulumi.Input[Optional[_builtins.str]] = None) -> 'GroupPolicyAttachment':
         """
         Get an existing GroupPolicyAttachment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

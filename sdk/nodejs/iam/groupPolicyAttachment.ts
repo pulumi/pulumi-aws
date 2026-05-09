@@ -123,11 +123,11 @@ export interface GroupPolicyAttachmentState {
     /**
      * The group the policy should be applied to
      */
-    group?: pulumi.Input<string | Group>;
+    group?: pulumi.Input<string | Group | undefined>;
     /**
      * The ARN of the policy you want to apply
      */
-    policyArn?: pulumi.Input<string>;
+    policyArn?: pulumi.Input<string | undefined>;
 }
 
 /**

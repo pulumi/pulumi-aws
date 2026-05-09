@@ -143,9 +143,9 @@ export interface GetResponseHeadersPolicyOutputArgs {
     /**
      * Identifier for the response headers policy.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Unique name to identify the response headers policy.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

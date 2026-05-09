@@ -219,75 +219,75 @@ export interface VpcEndpointServiceState {
     /**
      * Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
      */
-    acceptanceRequired?: pulumi.Input<boolean>;
+    acceptanceRequired?: pulumi.Input<boolean | undefined>;
     /**
      * The ARNs of one or more principals allowed to discover the endpoint service.
      */
-    allowedPrincipals?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedPrincipals?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the VPC endpoint service.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * A set of Availability Zones in which the service is available.
      */
-    availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
+    availabilityZones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A set of DNS names for the service.
      */
-    baseEndpointDnsNames?: pulumi.Input<pulumi.Input<string>[]>;
+    baseEndpointDnsNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
      */
-    gatewayLoadBalancerArns?: pulumi.Input<pulumi.Input<string>[]>;
+    gatewayLoadBalancerArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Whether or not the service manages its VPC endpoints - `true` or `false`.
      */
-    managesVpcEndpoints?: pulumi.Input<boolean>;
+    managesVpcEndpoints?: pulumi.Input<boolean | undefined>;
     /**
      * Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
      */
-    networkLoadBalancerArns?: pulumi.Input<pulumi.Input<string>[]>;
+    networkLoadBalancerArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The private DNS name for the service.
      */
-    privateDnsName?: pulumi.Input<string>;
+    privateDnsName?: pulumi.Input<string | undefined>;
     /**
      * List of objects containing information about the endpoint service private DNS name configuration.
      */
-    privateDnsNameConfigurations?: pulumi.Input<pulumi.Input<inputs.ec2.VpcEndpointServicePrivateDnsNameConfiguration>[]>;
+    privateDnsNameConfigurations?: pulumi.Input<pulumi.Input<inputs.ec2.VpcEndpointServicePrivateDnsNameConfiguration>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The service name.
      */
-    serviceName?: pulumi.Input<string>;
+    serviceName?: pulumi.Input<string | undefined>;
     /**
      * The service type, `Gateway` or `Interface`.
      */
-    serviceType?: pulumi.Input<string>;
+    serviceType?: pulumi.Input<string | undefined>;
     /**
      * Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
     /**
      * The supported IP address types. The possible values are `ipv4` and `ipv6`.
      */
-    supportedIpAddressTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    supportedIpAddressTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The set of regions from which service consumers can access the service.
      */
-    supportedRegions?: pulumi.Input<pulumi.Input<string>[]>;
+    supportedRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -301,33 +301,33 @@ export interface VpcEndpointServiceArgs {
     /**
      * The ARNs of one or more principals allowed to discover the endpoint service.
      */
-    allowedPrincipals?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedPrincipals?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
      */
-    gatewayLoadBalancerArns?: pulumi.Input<pulumi.Input<string>[]>;
+    gatewayLoadBalancerArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
      */
-    networkLoadBalancerArns?: pulumi.Input<pulumi.Input<string>[]>;
+    networkLoadBalancerArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The private DNS name for the service.
      */
-    privateDnsName?: pulumi.Input<string>;
+    privateDnsName?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The supported IP address types. The possible values are `ipv4` and `ipv6`.
      */
-    supportedIpAddressTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    supportedIpAddressTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The set of regions from which service consumers can access the service.
      */
-    supportedRegions?: pulumi.Input<pulumi.Input<string>[]>;
+    supportedRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

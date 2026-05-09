@@ -39,8 +39,8 @@ public final class LicensemanagerFunctions {
      * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import com.pulumi.aws.licensemanager.LicensemanagerFunctions;
      * import com.pulumi.aws.licensemanager.inputs.GetLicenseGrantsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -89,8 +89,8 @@ public final class LicensemanagerFunctions {
      * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import com.pulumi.aws.licensemanager.LicensemanagerFunctions;
      * import com.pulumi.aws.licensemanager.inputs.GetLicenseGrantsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -139,8 +139,8 @@ public final class LicensemanagerFunctions {
      * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import com.pulumi.aws.licensemanager.LicensemanagerFunctions;
      * import com.pulumi.aws.licensemanager.inputs.GetLicenseGrantsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -189,8 +189,8 @@ public final class LicensemanagerFunctions {
      * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import com.pulumi.aws.licensemanager.LicensemanagerFunctions;
      * import com.pulumi.aws.licensemanager.inputs.GetLicenseGrantsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -239,8 +239,8 @@ public final class LicensemanagerFunctions {
      * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import com.pulumi.aws.licensemanager.LicensemanagerFunctions;
      * import com.pulumi.aws.licensemanager.inputs.GetLicenseGrantsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -289,8 +289,8 @@ public final class LicensemanagerFunctions {
      * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import com.pulumi.aws.licensemanager.LicensemanagerFunctions;
      * import com.pulumi.aws.licensemanager.inputs.GetLicenseGrantsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -339,8 +339,8 @@ public final class LicensemanagerFunctions {
      * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import com.pulumi.aws.licensemanager.LicensemanagerFunctions;
      * import com.pulumi.aws.licensemanager.inputs.GetLicenseGrantsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -387,8 +387,8 @@ public final class LicensemanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.licensemanager.LicensemanagerFunctions;
      * import com.pulumi.aws.licensemanager.inputs.GetReceivedLicenseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -429,8 +429,8 @@ public final class LicensemanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.licensemanager.LicensemanagerFunctions;
      * import com.pulumi.aws.licensemanager.inputs.GetReceivedLicenseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -471,8 +471,8 @@ public final class LicensemanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.licensemanager.LicensemanagerFunctions;
      * import com.pulumi.aws.licensemanager.inputs.GetReceivedLicenseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -513,8 +513,8 @@ public final class LicensemanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.licensemanager.LicensemanagerFunctions;
      * import com.pulumi.aws.licensemanager.inputs.GetReceivedLicenseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -555,8 +555,8 @@ public final class LicensemanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.licensemanager.LicensemanagerFunctions;
      * import com.pulumi.aws.licensemanager.inputs.GetReceivedLicenseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -597,8 +597,8 @@ public final class LicensemanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.licensemanager.LicensemanagerFunctions;
      * import com.pulumi.aws.licensemanager.inputs.GetReceivedLicensesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -642,8 +642,8 @@ public final class LicensemanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.licensemanager.LicensemanagerFunctions;
      * import com.pulumi.aws.licensemanager.inputs.GetReceivedLicensesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -687,8 +687,8 @@ public final class LicensemanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.licensemanager.LicensemanagerFunctions;
      * import com.pulumi.aws.licensemanager.inputs.GetReceivedLicensesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -732,8 +732,8 @@ public final class LicensemanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.licensemanager.LicensemanagerFunctions;
      * import com.pulumi.aws.licensemanager.inputs.GetReceivedLicensesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -777,8 +777,8 @@ public final class LicensemanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.licensemanager.LicensemanagerFunctions;
      * import com.pulumi.aws.licensemanager.inputs.GetReceivedLicensesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -822,8 +822,8 @@ public final class LicensemanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.licensemanager.LicensemanagerFunctions;
      * import com.pulumi.aws.licensemanager.inputs.GetReceivedLicensesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -867,8 +867,8 @@ public final class LicensemanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.licensemanager.LicensemanagerFunctions;
      * import com.pulumi.aws.licensemanager.inputs.GetReceivedLicensesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

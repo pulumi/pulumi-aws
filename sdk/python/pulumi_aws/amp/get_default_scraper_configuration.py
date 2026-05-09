@@ -96,7 +96,7 @@ def get_default_scraper_configuration(region: Optional[_builtins.str] = None,
         configuration=pulumi.get(__ret__, 'configuration'),
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'))
-def get_default_scraper_configuration_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_default_scraper_configuration_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDefaultScraperConfigurationResult]:
     """
     Returns the default scraper configuration used when Amazon EKS creates a scraper for you.

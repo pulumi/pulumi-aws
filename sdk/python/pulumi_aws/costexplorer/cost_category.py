@@ -23,11 +23,11 @@ class CostCategoryArgs:
     def __init__(__self__, *,
                  rule_version: pulumi.Input[_builtins.str],
                  rules: pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleArgs']]],
-                 default_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 effective_start: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 split_charge_rules: Optional[pulumi.Input[Sequence[pulumi.Input['CostCategorySplitChargeRuleArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 default_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 effective_start: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 split_charge_rules: pulumi.Input[Optional[Sequence[pulumi.Input['CostCategorySplitChargeRuleArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CostCategory resource.
 
@@ -82,78 +82,78 @@ class CostCategoryArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultValue")
-    def default_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Default value for the cost category.
         """
         return pulumi.get(self, "default_value")
 
     @default_value.setter
-    def default_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_value", value)
 
     @_builtins.property
     @pulumi.getter(name="effectiveStart")
-    def effective_start(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def effective_start(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
         """
         return pulumi.get(self, "effective_start")
 
     @effective_start.setter
-    def effective_start(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def effective_start(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "effective_start", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique name for the Cost Category.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="splitChargeRules")
-    def split_charge_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CostCategorySplitChargeRuleArgs']]]]:
+    def split_charge_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CostCategorySplitChargeRuleArgs']]]]:
         """
         Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
         """
         return pulumi.get(self, "split_charge_rules")
 
     @split_charge_rules.setter
-    def split_charge_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CostCategorySplitChargeRuleArgs']]]]):
+    def split_charge_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CostCategorySplitChargeRuleArgs']]]]):
         pulumi.set(self, "split_charge_rules", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _CostCategoryState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 effective_end: Optional[pulumi.Input[_builtins.str]] = None,
-                 effective_start: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleArgs']]]] = None,
-                 split_charge_rules: Optional[pulumi.Input[Sequence[pulumi.Input['CostCategorySplitChargeRuleArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 effective_end: pulumi.Input[Optional[_builtins.str]] = None,
+                 effective_start: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input['CostCategoryRuleArgs']]]] = None,
+                 split_charge_rules: pulumi.Input[Optional[Sequence[pulumi.Input['CostCategorySplitChargeRuleArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering CostCategory resources.
 
@@ -193,67 +193,67 @@ class _CostCategoryState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the cost category.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultValue")
-    def default_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Default value for the cost category.
         """
         return pulumi.get(self, "default_value")
 
     @default_value.setter
-    def default_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_value", value)
 
     @_builtins.property
     @pulumi.getter(name="effectiveEnd")
-    def effective_end(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def effective_end(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Effective end data of your Cost Category.
         """
         return pulumi.get(self, "effective_end")
 
     @effective_end.setter
-    def effective_end(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def effective_end(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "effective_end", value)
 
     @_builtins.property
     @pulumi.getter(name="effectiveStart")
-    def effective_start(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def effective_start(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
         """
         return pulumi.get(self, "effective_start")
 
     @effective_start.setter
-    def effective_start(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def effective_start(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "effective_start", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique name for the Cost Category.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleVersion")
-    def rule_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rule_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Rule schema version in this particular Cost Category.
 
@@ -262,55 +262,55 @@ class _CostCategoryState:
         return pulumi.get(self, "rule_version")
 
     @rule_version.setter
-    def rule_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rule_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rule_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleArgs']]]]:
+    def rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CostCategoryRuleArgs']]]]:
         """
         Configuration block for the Cost Category rules used to categorize costs. See below.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleArgs']]]]):
+    def rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CostCategoryRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
     @_builtins.property
     @pulumi.getter(name="splitChargeRules")
-    def split_charge_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CostCategorySplitChargeRuleArgs']]]]:
+    def split_charge_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CostCategorySplitChargeRuleArgs']]]]:
         """
         Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
         """
         return pulumi.get(self, "split_charge_rules")
 
     @split_charge_rules.setter
-    def split_charge_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CostCategorySplitChargeRuleArgs']]]]):
+    def split_charge_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CostCategorySplitChargeRuleArgs']]]]):
         pulumi.set(self, "split_charge_rules", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
 
@@ -320,13 +320,13 @@ class CostCategory(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 effective_start: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CostCategoryRuleArgs', 'CostCategoryRuleArgsDict']]]]] = None,
-                 split_charge_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CostCategorySplitChargeRuleArgs', 'CostCategorySplitChargeRuleArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 default_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 effective_start: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CostCategoryRuleArgs', 'CostCategoryRuleArgsDict']]]]] = None,
+                 split_charge_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CostCategorySplitChargeRuleArgs', 'CostCategorySplitChargeRuleArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a CE Cost Category.
@@ -483,13 +483,13 @@ class CostCategory(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 effective_start: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CostCategoryRuleArgs', 'CostCategoryRuleArgsDict']]]]] = None,
-                 split_charge_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CostCategorySplitChargeRuleArgs', 'CostCategorySplitChargeRuleArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 default_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 effective_start: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CostCategoryRuleArgs', 'CostCategoryRuleArgsDict']]]]] = None,
+                 split_charge_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CostCategorySplitChargeRuleArgs', 'CostCategorySplitChargeRuleArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -523,16 +523,16 @@ class CostCategory(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            default_value: Optional[pulumi.Input[_builtins.str]] = None,
-            effective_end: Optional[pulumi.Input[_builtins.str]] = None,
-            effective_start: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            rule_version: Optional[pulumi.Input[_builtins.str]] = None,
-            rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CostCategoryRuleArgs', 'CostCategoryRuleArgsDict']]]]] = None,
-            split_charge_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CostCategorySplitChargeRuleArgs', 'CostCategorySplitChargeRuleArgsDict']]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'CostCategory':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            default_value: pulumi.Input[Optional[_builtins.str]] = None,
+            effective_end: pulumi.Input[Optional[_builtins.str]] = None,
+            effective_start: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            rule_version: pulumi.Input[Optional[_builtins.str]] = None,
+            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CostCategoryRuleArgs', 'CostCategoryRuleArgsDict']]]]] = None,
+            split_charge_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CostCategorySplitChargeRuleArgs', 'CostCategorySplitChargeRuleArgsDict']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'CostCategory':
         """
         Get an existing CostCategory resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

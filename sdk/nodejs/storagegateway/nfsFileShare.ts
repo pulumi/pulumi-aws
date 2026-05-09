@@ -251,103 +251,103 @@ export interface NfsFileShareState {
     /**
      * Amazon Resource Name (ARN) of the NFS File Share.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the storage used for audit logs.
      */
-    auditDestinationArn?: pulumi.Input<string>;
+    auditDestinationArn?: pulumi.Input<string | undefined>;
     /**
      * The region of the S3 bucket used by the file share. Required when specifying `vpcEndpointDnsName`.
      */
-    bucketRegion?: pulumi.Input<string>;
+    bucketRegion?: pulumi.Input<string | undefined>;
     /**
      * Refresh cache information. see Cache Attributes for more details.
      */
-    cacheAttributes?: pulumi.Input<inputs.storagegateway.NfsFileShareCacheAttributes>;
+    cacheAttributes?: pulumi.Input<inputs.storagegateway.NfsFileShareCacheAttributes | undefined>;
     /**
      * The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
      */
-    clientLists?: pulumi.Input<pulumi.Input<string>[]>;
+    clientLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
      */
-    defaultStorageClass?: pulumi.Input<string>;
+    defaultStorageClass?: pulumi.Input<string | undefined>;
     /**
      * The name of the file share. Must be set if an S3 prefix name is set in `locationArn`.
      */
-    fileShareName?: pulumi.Input<string>;
+    fileShareName?: pulumi.Input<string | undefined>;
     /**
      * ID of the NFS File Share.
      */
-    fileshareId?: pulumi.Input<string>;
+    fileshareId?: pulumi.Input<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the file gateway.
      */
-    gatewayArn?: pulumi.Input<string>;
+    gatewayArn?: pulumi.Input<string | undefined>;
     /**
      * Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
      */
-    guessMimeTypeEnabled?: pulumi.Input<boolean>;
+    guessMimeTypeEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
      */
-    kmsEncrypted?: pulumi.Input<boolean>;
+    kmsEncrypted?: pulumi.Input<boolean | undefined>;
     /**
      * Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
      */
-    kmsKeyArn?: pulumi.Input<string>;
+    kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the backed storage used for storing file data.
      */
-    locationArn?: pulumi.Input<string>;
+    locationArn?: pulumi.Input<string | undefined>;
     /**
      * Nested argument with file share default values. More information below. see NFS File Share Defaults for more details.
      */
-    nfsFileShareDefaults?: pulumi.Input<inputs.storagegateway.NfsFileShareNfsFileShareDefaults>;
+    nfsFileShareDefaults?: pulumi.Input<inputs.storagegateway.NfsFileShareNfsFileShareDefaults | undefined>;
     /**
      * The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
      */
-    notificationPolicy?: pulumi.Input<string>;
+    notificationPolicy?: pulumi.Input<string | undefined>;
     /**
      * Access Control List permission for S3 objects. Defaults to `private`.
      */
-    objectAcl?: pulumi.Input<string>;
+    objectAcl?: pulumi.Input<string | undefined>;
     /**
      * File share path used by the NFS client to identify the mount point.
      */
-    path?: pulumi.Input<string>;
+    path?: pulumi.Input<string | undefined>;
     /**
      * Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
      */
-    readOnly?: pulumi.Input<boolean>;
+    readOnly?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
      */
-    requesterPays?: pulumi.Input<boolean>;
+    requesterPays?: pulumi.Input<boolean | undefined>;
     /**
      * The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
     /**
      * Maps a user to anonymous user. Defaults to `RootSquash`. Valid values: `RootSquash` (only root is mapped to anonymous user), `NoSquash` (no one is mapped to anonymous user), `AllSquash` (everyone is mapped to anonymous user)
      */
-    squash?: pulumi.Input<string>;
+    squash?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The DNS name of the VPC endpoint for S3 PrivateLink.
      */
-    vpcEndpointDnsName?: pulumi.Input<string>;
+    vpcEndpointDnsName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -357,15 +357,15 @@ export interface NfsFileShareArgs {
     /**
      * The Amazon Resource Name (ARN) of the storage used for audit logs.
      */
-    auditDestinationArn?: pulumi.Input<string>;
+    auditDestinationArn?: pulumi.Input<string | undefined>;
     /**
      * The region of the S3 bucket used by the file share. Required when specifying `vpcEndpointDnsName`.
      */
-    bucketRegion?: pulumi.Input<string>;
+    bucketRegion?: pulumi.Input<string | undefined>;
     /**
      * Refresh cache information. see Cache Attributes for more details.
      */
-    cacheAttributes?: pulumi.Input<inputs.storagegateway.NfsFileShareCacheAttributes>;
+    cacheAttributes?: pulumi.Input<inputs.storagegateway.NfsFileShareCacheAttributes | undefined>;
     /**
      * The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
      */
@@ -373,11 +373,11 @@ export interface NfsFileShareArgs {
     /**
      * The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
      */
-    defaultStorageClass?: pulumi.Input<string>;
+    defaultStorageClass?: pulumi.Input<string | undefined>;
     /**
      * The name of the file share. Must be set if an S3 prefix name is set in `locationArn`.
      */
-    fileShareName?: pulumi.Input<string>;
+    fileShareName?: pulumi.Input<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the file gateway.
      */
@@ -385,15 +385,15 @@ export interface NfsFileShareArgs {
     /**
      * Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
      */
-    guessMimeTypeEnabled?: pulumi.Input<boolean>;
+    guessMimeTypeEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
      */
-    kmsEncrypted?: pulumi.Input<boolean>;
+    kmsEncrypted?: pulumi.Input<boolean | undefined>;
     /**
      * Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
      */
-    kmsKeyArn?: pulumi.Input<string>;
+    kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the backed storage used for storing file data.
      */
@@ -401,27 +401,27 @@ export interface NfsFileShareArgs {
     /**
      * Nested argument with file share default values. More information below. see NFS File Share Defaults for more details.
      */
-    nfsFileShareDefaults?: pulumi.Input<inputs.storagegateway.NfsFileShareNfsFileShareDefaults>;
+    nfsFileShareDefaults?: pulumi.Input<inputs.storagegateway.NfsFileShareNfsFileShareDefaults | undefined>;
     /**
      * The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
      */
-    notificationPolicy?: pulumi.Input<string>;
+    notificationPolicy?: pulumi.Input<string | undefined>;
     /**
      * Access Control List permission for S3 objects. Defaults to `private`.
      */
-    objectAcl?: pulumi.Input<string>;
+    objectAcl?: pulumi.Input<string | undefined>;
     /**
      * Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
      */
-    readOnly?: pulumi.Input<boolean>;
+    readOnly?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
      */
-    requesterPays?: pulumi.Input<boolean>;
+    requesterPays?: pulumi.Input<boolean | undefined>;
     /**
      * The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
      */
@@ -429,13 +429,13 @@ export interface NfsFileShareArgs {
     /**
      * Maps a user to anonymous user. Defaults to `RootSquash`. Valid values: `RootSquash` (only root is mapped to anonymous user), `NoSquash` (no one is mapped to anonymous user), `AllSquash` (everyone is mapped to anonymous user)
      */
-    squash?: pulumi.Input<string>;
+    squash?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The DNS name of the VPC endpoint for S3 PrivateLink.
      */
-    vpcEndpointDnsName?: pulumi.Input<string>;
+    vpcEndpointDnsName?: pulumi.Input<string | undefined>;
 }

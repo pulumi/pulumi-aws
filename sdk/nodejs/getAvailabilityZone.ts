@@ -55,7 +55,7 @@ import * as utilities from "./utilities";
  * const exampleVpc = new aws.ec2.Vpc("example", {cidrBlock: example.then(example => std.cidrsubnet({
  *     input: "10.0.0.0/8",
  *     newbits: 4,
- *     netnum: regionNumber[example.region],
+ *     netnum: Number(regionNumber[example.region]),
  * })).then(invoke => invoke.result)});
  * // Create a subnet for the AZ within the regional VPC
  * const exampleSubnet = new aws.ec2.Subnet("example", {
@@ -63,7 +63,7 @@ import * as utilities from "./utilities";
  *     cidrBlock: pulumi.all([exampleVpc.cidrBlock, example]).apply(([cidrBlock, example]) => std.cidrsubnetOutput({
  *         input: cidrBlock,
  *         newbits: 4,
- *         netnum: azNumber[example.nameSuffix],
+ *         netnum: Number(azNumber[example.nameSuffix]),
  *     })).apply(invoke => invoke.result),
  * });
  * ```
@@ -212,7 +212,7 @@ export interface GetAvailabilityZoneResult {
  * const exampleVpc = new aws.ec2.Vpc("example", {cidrBlock: example.then(example => std.cidrsubnet({
  *     input: "10.0.0.0/8",
  *     newbits: 4,
- *     netnum: regionNumber[example.region],
+ *     netnum: Number(regionNumber[example.region]),
  * })).then(invoke => invoke.result)});
  * // Create a subnet for the AZ within the regional VPC
  * const exampleSubnet = new aws.ec2.Subnet("example", {
@@ -220,7 +220,7 @@ export interface GetAvailabilityZoneResult {
  *     cidrBlock: pulumi.all([exampleVpc.cidrBlock, example]).apply(([cidrBlock, example]) => std.cidrsubnetOutput({
  *         input: cidrBlock,
  *         newbits: 4,
- *         netnum: azNumber[example.nameSuffix],
+ *         netnum: Number(azNumber[example.nameSuffix]),
  *     })).apply(invoke => invoke.result),
  * });
  * ```
@@ -245,23 +245,23 @@ export interface GetAvailabilityZoneOutputArgs {
     /**
      * Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
      */
-    allAvailabilityZones?: pulumi.Input<boolean>;
+    allAvailabilityZones?: pulumi.Input<boolean | undefined>;
     /**
      * Configuration block(s) for filtering. Detailed below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.GetAvailabilityZoneFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetAvailabilityZoneFilterArgs>[] | undefined>;
     /**
      * Full name of the availability zone to select.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
     /**
      * Zone ID of the availability zone to select.
      *
@@ -269,5 +269,5 @@ export interface GetAvailabilityZoneOutputArgs {
      * availability zones. The given filters must match exactly one availability
      * zone whose data will be exported as attributes.
      */
-    zoneId?: pulumi.Input<string>;
+    zoneId?: pulumi.Input<string | undefined>;
 }

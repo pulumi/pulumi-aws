@@ -119,15 +119,15 @@ export interface RegexMatchSetState {
     /**
      * Amazon Resource Name (ARN)
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The name or description of the Regex Match Set.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The regular expression pattern that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings. See below.
      */
-    regexMatchTuples?: pulumi.Input<pulumi.Input<inputs.waf.RegexMatchSetRegexMatchTuple>[]>;
+    regexMatchTuples?: pulumi.Input<pulumi.Input<inputs.waf.RegexMatchSetRegexMatchTuple>[] | undefined>;
 }
 
 /**
@@ -137,9 +137,9 @@ export interface RegexMatchSetArgs {
     /**
      * The name or description of the Regex Match Set.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The regular expression pattern that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings. See below.
      */
-    regexMatchTuples?: pulumi.Input<pulumi.Input<inputs.waf.RegexMatchSetRegexMatchTuple>[]>;
+    regexMatchTuples?: pulumi.Input<pulumi.Input<inputs.waf.RegexMatchSetRegexMatchTuple>[] | undefined>;
 }

@@ -167,43 +167,43 @@ export interface UserProfileState {
     /**
      * The user profile Amazon Resource Name (ARN).
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The ID of the associated Domain.
      */
-    domainId?: pulumi.Input<string>;
+    domainId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the user's profile in the Amazon Elastic File System (EFS) volume.
      */
-    homeEfsFileSystemUid?: pulumi.Input<string>;
+    homeEfsFileSystemUid?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A specifier for the type of value specified in `singleSignOnUserValue`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
      */
-    singleSignOnUserIdentifier?: pulumi.Input<string>;
+    singleSignOnUserIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The username of the associated AWS Single Sign-On User for this User Profile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
      */
-    singleSignOnUserValue?: pulumi.Input<string>;
+    singleSignOnUserValue?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name for the User Profile.
      */
-    userProfileName?: pulumi.Input<string>;
+    userProfileName?: pulumi.Input<string | undefined>;
     /**
      * The user settings. See User Settings below.
      */
-    userSettings?: pulumi.Input<inputs.sagemaker.UserProfileUserSettings>;
+    userSettings?: pulumi.Input<inputs.sagemaker.UserProfileUserSettings | undefined>;
 }
 
 /**
@@ -217,19 +217,19 @@ export interface UserProfileArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A specifier for the type of value specified in `singleSignOnUserValue`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
      */
-    singleSignOnUserIdentifier?: pulumi.Input<string>;
+    singleSignOnUserIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The username of the associated AWS Single Sign-On User for this User Profile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
      */
-    singleSignOnUserValue?: pulumi.Input<string>;
+    singleSignOnUserValue?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name for the User Profile.
      */
@@ -237,5 +237,5 @@ export interface UserProfileArgs {
     /**
      * The user settings. See User Settings below.
      */
-    userSettings?: pulumi.Input<inputs.sagemaker.UserProfileUserSettings>;
+    userSettings?: pulumi.Input<inputs.sagemaker.UserProfileUserSettings | undefined>;
 }

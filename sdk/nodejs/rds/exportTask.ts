@@ -295,70 +295,70 @@ export interface ExportTaskState {
     /**
      * Data to be exported from the snapshot. If this parameter is not provided, all the snapshot data is exported. Valid values are documented in the [AWS StartExportTask API documentation](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartExportTask.html#API_StartExportTask_RequestParameters).
      */
-    exportOnlies?: pulumi.Input<pulumi.Input<string>[]>;
+    exportOnlies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Unique identifier for the snapshot export task.
      */
-    exportTaskIdentifier?: pulumi.Input<string>;
+    exportTaskIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Reason the export failed, if it failed.
      */
-    failureCause?: pulumi.Input<string>;
+    failureCause?: pulumi.Input<string | undefined>;
     /**
      * ARN of the IAM role to use for writing to the Amazon S3 bucket.
      */
-    iamRoleArn?: pulumi.Input<string>;
+    iamRoleArn?: pulumi.Input<string | undefined>;
     /**
      * ID of the Amazon Web Services KMS key to use to encrypt the snapshot.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * Progress of the snapshot export task as a percentage.
      */
-    percentProgress?: pulumi.Input<number>;
+    percentProgress?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Name of the Amazon S3 bucket to export the snapshot to.
      */
-    s3BucketName?: pulumi.Input<string>;
+    s3BucketName?: pulumi.Input<string | undefined>;
     /**
      * Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
      */
-    s3Prefix?: pulumi.Input<string>;
+    s3Prefix?: pulumi.Input<string | undefined>;
     /**
      * Time that the snapshot was created.
      */
-    snapshotTime?: pulumi.Input<string>;
+    snapshotTime?: pulumi.Input<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the snapshot to export.
      *
      * The following arguments are optional:
      */
-    sourceArn?: pulumi.Input<string>;
+    sourceArn?: pulumi.Input<string | undefined>;
     /**
      * Type of source for the export.
      */
-    sourceType?: pulumi.Input<string>;
+    sourceType?: pulumi.Input<string | undefined>;
     /**
      * Status of the export task.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Time that the snapshot export task completed.
      */
-    taskEndTime?: pulumi.Input<string>;
+    taskEndTime?: pulumi.Input<string | undefined>;
     /**
      * Time that the snapshot export task started.
      */
-    taskStartTime?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.rds.ExportTaskTimeouts>;
+    taskStartTime?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.rds.ExportTaskTimeouts | undefined>;
     /**
      * Warning about the snapshot export task, if any.
      */
-    warningMessage?: pulumi.Input<string>;
+    warningMessage?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -368,7 +368,7 @@ export interface ExportTaskArgs {
     /**
      * Data to be exported from the snapshot. If this parameter is not provided, all the snapshot data is exported. Valid values are documented in the [AWS StartExportTask API documentation](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartExportTask.html#API_StartExportTask_RequestParameters).
      */
-    exportOnlies?: pulumi.Input<pulumi.Input<string>[]>;
+    exportOnlies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Unique identifier for the snapshot export task.
      */
@@ -384,7 +384,7 @@ export interface ExportTaskArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Name of the Amazon S3 bucket to export the snapshot to.
      */
@@ -392,12 +392,12 @@ export interface ExportTaskArgs {
     /**
      * Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
      */
-    s3Prefix?: pulumi.Input<string>;
+    s3Prefix?: pulumi.Input<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the snapshot to export.
      *
      * The following arguments are optional:
      */
     sourceArn: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.rds.ExportTaskTimeouts>;
+    timeouts?: pulumi.Input<inputs.rds.ExportTaskTimeouts | undefined>;
 }

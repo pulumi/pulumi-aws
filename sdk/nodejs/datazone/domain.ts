@@ -301,59 +301,59 @@ export interface DomainState {
     /**
      * ARN of the Domain.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Description of the Domain.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * ARN of the role used by DataZone to configure the Domain.
      *
      * The following arguments are optional:
      */
-    domainExecutionRole?: pulumi.Input<string>;
+    domainExecutionRole?: pulumi.Input<string | undefined>;
     /**
      * Version of the Domain. Valid values are `V1` and `V2`. Defaults to `V1`.
      */
-    domainVersion?: pulumi.Input<string>;
+    domainVersion?: pulumi.Input<string | undefined>;
     /**
      * ARN of the KMS key used to encrypt the Amazon DataZone domain, metadata and reporting data.
      */
-    kmsKeyIdentifier?: pulumi.Input<string>;
+    kmsKeyIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Name of the Domain.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * URL of the data portal for the Domain.
      */
-    portalUrl?: pulumi.Input<string>;
+    portalUrl?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ID of the root domain unit.
      */
-    rootDomainUnitId?: pulumi.Input<string>;
+    rootDomainUnitId?: pulumi.Input<string | undefined>;
     /**
      * ARN of the service role used by DataZone. Required when `domainVersion` is set to `V2`.
      */
-    serviceRole?: pulumi.Input<string>;
+    serviceRole?: pulumi.Input<string | undefined>;
     /**
      * Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
      */
-    singleSignOn?: pulumi.Input<inputs.datazone.DomainSingleSignOn>;
+    singleSignOn?: pulumi.Input<inputs.datazone.DomainSingleSignOn | undefined>;
     /**
      * Whether to skip the deletion check for the Domain.
      */
-    skipDeletionCheck?: pulumi.Input<boolean>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    skipDeletionCheck?: pulumi.Input<boolean | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.datazone.DomainTimeouts>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.datazone.DomainTimeouts | undefined>;
 }
 
 /**
@@ -363,7 +363,7 @@ export interface DomainArgs {
     /**
      * Description of the Domain.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * ARN of the role used by DataZone to configure the Domain.
      *
@@ -373,31 +373,31 @@ export interface DomainArgs {
     /**
      * Version of the Domain. Valid values are `V1` and `V2`. Defaults to `V1`.
      */
-    domainVersion?: pulumi.Input<string>;
+    domainVersion?: pulumi.Input<string | undefined>;
     /**
      * ARN of the KMS key used to encrypt the Amazon DataZone domain, metadata and reporting data.
      */
-    kmsKeyIdentifier?: pulumi.Input<string>;
+    kmsKeyIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Name of the Domain.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN of the service role used by DataZone. Required when `domainVersion` is set to `V2`.
      */
-    serviceRole?: pulumi.Input<string>;
+    serviceRole?: pulumi.Input<string | undefined>;
     /**
      * Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
      */
-    singleSignOn?: pulumi.Input<inputs.datazone.DomainSingleSignOn>;
+    singleSignOn?: pulumi.Input<inputs.datazone.DomainSingleSignOn | undefined>;
     /**
      * Whether to skip the deletion check for the Domain.
      */
-    skipDeletionCheck?: pulumi.Input<boolean>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.datazone.DomainTimeouts>;
+    skipDeletionCheck?: pulumi.Input<boolean | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.datazone.DomainTimeouts | undefined>;
 }

@@ -155,43 +155,43 @@ export interface ServiceNetworkServiceAssociationState {
     /**
      * The ARN of the Association.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The account that created the association.
      */
-    createdBy?: pulumi.Input<string>;
+    createdBy?: pulumi.Input<string | undefined>;
     /**
      * The custom domain name of the service.
      */
-    customDomainName?: pulumi.Input<string>;
+    customDomainName?: pulumi.Input<string | undefined>;
     /**
      * The DNS name of the service.
      */
-    dnsEntries?: pulumi.Input<pulumi.Input<inputs.vpclattice.ServiceNetworkServiceAssociationDnsEntry>[]>;
+    dnsEntries?: pulumi.Input<pulumi.Input<inputs.vpclattice.ServiceNetworkServiceAssociationDnsEntry>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ID or Amazon Resource Identifier (ARN) of the service.
      */
-    serviceIdentifier?: pulumi.Input<string>;
+    serviceIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
      */
-    serviceNetworkIdentifier?: pulumi.Input<string>;
+    serviceNetworkIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -201,7 +201,7 @@ export interface ServiceNetworkServiceAssociationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ID or Amazon Resource Identifier (ARN) of the service.
      */
@@ -213,5 +213,5 @@ export interface ServiceNetworkServiceAssociationArgs {
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

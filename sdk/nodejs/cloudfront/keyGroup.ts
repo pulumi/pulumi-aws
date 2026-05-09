@@ -120,19 +120,19 @@ export interface KeyGroupState {
     /**
      * A comment to describe the key group..
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * The identifier for this version of the key group.
      */
-    etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * A list of the identifiers of the public keys in the key group.
      */
-    items?: pulumi.Input<pulumi.Input<string>[]>;
+    items?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A name to identify the key group.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -142,7 +142,7 @@ export interface KeyGroupArgs {
     /**
      * A comment to describe the key group..
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * A list of the identifiers of the public keys in the key group.
      */
@@ -150,5 +150,5 @@ export interface KeyGroupArgs {
     /**
      * A name to identify the key group.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

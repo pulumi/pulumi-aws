@@ -20,14 +20,14 @@ __all__ = ['ApplicationArgs', 'Application']
 class ApplicationArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 auto_config_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_create: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cwe_monitor_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 grouping_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 ops_center_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ops_item_sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 auto_config_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_create: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cwe_monitor_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 grouping_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 ops_center_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ops_item_sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Application resource.
 
@@ -77,115 +77,115 @@ class ApplicationArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoConfigEnabled")
-    def auto_config_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_config_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
         """
         return pulumi.get(self, "auto_config_enabled")
 
     @auto_config_enabled.setter
-    def auto_config_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_config_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_config_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="autoCreate")
-    def auto_create(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_create(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Configures all of the resources in the resource group by applying the recommended configurations.
         """
         return pulumi.get(self, "auto_create")
 
     @auto_create.setter
-    def auto_create(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_create(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_create", value)
 
     @_builtins.property
     @pulumi.getter(name="cweMonitorEnabled")
-    def cwe_monitor_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cwe_monitor_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
         """
         return pulumi.get(self, "cwe_monitor_enabled")
 
     @cwe_monitor_enabled.setter
-    def cwe_monitor_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cwe_monitor_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cwe_monitor_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="groupingType")
-    def grouping_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def grouping_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
         """
         return pulumi.get(self, "grouping_type")
 
     @grouping_type.setter
-    def grouping_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def grouping_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "grouping_type", value)
 
     @_builtins.property
     @pulumi.getter(name="opsCenterEnabled")
-    def ops_center_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ops_center_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set to `true`, creates opsItems for any problems detected on an application.
         """
         return pulumi.get(self, "ops_center_enabled")
 
     @ops_center_enabled.setter
-    def ops_center_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ops_center_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ops_center_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="opsItemSnsTopicArn")
-    def ops_item_sns_topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ops_item_sns_topic_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
         """
         return pulumi.get(self, "ops_item_sns_topic_arn")
 
     @ops_item_sns_topic_arn.setter
-    def ops_item_sns_topic_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ops_item_sns_topic_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ops_item_sns_topic_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _ApplicationState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_config_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_create: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cwe_monitor_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 grouping_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 ops_center_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ops_item_sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_config_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_create: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cwe_monitor_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 grouping_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 ops_center_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ops_item_sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Application resources.
 
@@ -228,103 +228,103 @@ class _ApplicationState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the Application.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="autoConfigEnabled")
-    def auto_config_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_config_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
         """
         return pulumi.get(self, "auto_config_enabled")
 
     @auto_config_enabled.setter
-    def auto_config_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_config_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_config_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="autoCreate")
-    def auto_create(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_create(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Configures all of the resources in the resource group by applying the recommended configurations.
         """
         return pulumi.get(self, "auto_create")
 
     @auto_create.setter
-    def auto_create(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_create(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_create", value)
 
     @_builtins.property
     @pulumi.getter(name="cweMonitorEnabled")
-    def cwe_monitor_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cwe_monitor_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
         """
         return pulumi.get(self, "cwe_monitor_enabled")
 
     @cwe_monitor_enabled.setter
-    def cwe_monitor_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cwe_monitor_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cwe_monitor_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="groupingType")
-    def grouping_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def grouping_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
         """
         return pulumi.get(self, "grouping_type")
 
     @grouping_type.setter
-    def grouping_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def grouping_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "grouping_type", value)
 
     @_builtins.property
     @pulumi.getter(name="opsCenterEnabled")
-    def ops_center_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ops_center_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set to `true`, creates opsItems for any problems detected on an application.
         """
         return pulumi.get(self, "ops_center_enabled")
 
     @ops_center_enabled.setter
-    def ops_center_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ops_center_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ops_center_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="opsItemSnsTopicArn")
-    def ops_item_sns_topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ops_item_sns_topic_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
         """
         return pulumi.get(self, "ops_item_sns_topic_arn")
 
     @ops_item_sns_topic_arn.setter
-    def ops_item_sns_topic_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ops_item_sns_topic_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ops_item_sns_topic_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the resource group.
 
@@ -333,31 +333,31 @@ class _ApplicationState:
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
 
@@ -367,15 +367,15 @@ class Application(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_config_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_create: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cwe_monitor_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 grouping_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 ops_center_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ops_item_sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 auto_config_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_create: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cwe_monitor_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 grouping_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 ops_center_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ops_item_sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a ApplicationInsights Application resource.
@@ -478,15 +478,15 @@ class Application(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_config_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_create: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cwe_monitor_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 grouping_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 ops_center_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ops_item_sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 auto_config_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_create: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cwe_monitor_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 grouping_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 ops_center_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ops_item_sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -519,17 +519,17 @@ class Application(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            auto_config_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            auto_create: Optional[pulumi.Input[_builtins.bool]] = None,
-            cwe_monitor_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            grouping_type: Optional[pulumi.Input[_builtins.str]] = None,
-            ops_center_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            ops_item_sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Application':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_config_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            auto_create: pulumi.Input[Optional[_builtins.bool]] = None,
+            cwe_monitor_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            grouping_type: pulumi.Input[Optional[_builtins.str]] = None,
+            ops_center_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            ops_item_sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Application':
         """
         Get an existing Application resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

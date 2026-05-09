@@ -122,29 +122,29 @@ export interface CellState {
     /**
      * ARN of the cell
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Unique name describing the cell.
      *
      * The following arguments are optional:
      */
-    cellName?: pulumi.Input<string>;
+    cellName?: pulumi.Input<string | undefined>;
     /**
      * List of cell arns to add as nested fault domains within this cell.
      */
-    cells?: pulumi.Input<pulumi.Input<string>[]>;
+    cells?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of readiness scopes (recovery groups or cells) that contain this cell.
      */
-    parentReadinessScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    parentReadinessScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -160,9 +160,9 @@ export interface CellArgs {
     /**
      * List of cell arns to add as nested fault domains within this cell.
      */
-    cells?: pulumi.Input<pulumi.Input<string>[]>;
+    cells?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

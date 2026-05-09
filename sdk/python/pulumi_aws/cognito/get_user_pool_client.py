@@ -391,9 +391,9 @@ def get_user_pool_client(client_id: Optional[_builtins.str] = None,
         token_validity_units=pulumi.get(__ret__, 'token_validity_units'),
         user_pool_id=pulumi.get(__ret__, 'user_pool_id'),
         write_attributes=pulumi.get(__ret__, 'write_attributes'))
-def get_user_pool_client_output(client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_user_pool_client_output(client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserPoolClientResult]:
     """
     Provides a Cognito User Pool Client resource.

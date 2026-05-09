@@ -23,9 +23,9 @@ class DetectorFeatureArgs:
     def __init__(__self__, *,
                  detector_id: pulumi.Input[_builtins.str],
                  status: pulumi.Input[_builtins.str],
-                 additional_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorFeatureAdditionalConfigurationArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 additional_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['DetectorFeatureAdditionalConfigurationArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a DetectorFeature resource.
 
@@ -70,49 +70,49 @@ class DetectorFeatureArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalConfigurations")
-    def additional_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DetectorFeatureAdditionalConfigurationArgs']]]]:
+    def additional_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DetectorFeatureAdditionalConfigurationArgs']]]]:
         """
         Additional feature configuration block for features`EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
         """
         return pulumi.get(self, "additional_configurations")
 
     @additional_configurations.setter
-    def additional_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorFeatureAdditionalConfigurationArgs']]]]):
+    def additional_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DetectorFeatureAdditionalConfigurationArgs']]]]):
         pulumi.set(self, "additional_configurations", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _DetectorFeatureState:
     def __init__(__self__, *,
-                 additional_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorFeatureAdditionalConfigurationArgs']]]] = None,
-                 detector_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 additional_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['DetectorFeatureAdditionalConfigurationArgs']]]] = None,
+                 detector_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DetectorFeature resources.
 
@@ -135,62 +135,62 @@ class _DetectorFeatureState:
 
     @_builtins.property
     @pulumi.getter(name="additionalConfigurations")
-    def additional_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DetectorFeatureAdditionalConfigurationArgs']]]]:
+    def additional_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DetectorFeatureAdditionalConfigurationArgs']]]]:
         """
         Additional feature configuration block for features`EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
         """
         return pulumi.get(self, "additional_configurations")
 
     @additional_configurations.setter
-    def additional_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorFeatureAdditionalConfigurationArgs']]]]):
+    def additional_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DetectorFeatureAdditionalConfigurationArgs']]]]):
         pulumi.set(self, "additional_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="detectorId")
-    def detector_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def detector_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon GuardDuty detector ID.
         """
         return pulumi.get(self, "detector_id")
 
     @detector_id.setter
-    def detector_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def detector_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "detector_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
@@ -200,11 +200,11 @@ class DetectorFeature(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DetectorFeatureAdditionalConfigurationArgs', 'DetectorFeatureAdditionalConfigurationArgsDict']]]]] = None,
-                 detector_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
+                 additional_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DetectorFeatureAdditionalConfigurationArgs', 'DetectorFeatureAdditionalConfigurationArgsDict']]]]] = None,
+                 detector_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a resource to manage a single Amazon GuardDuty [detector feature](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-features-activation-model.html#guardduty-features).
@@ -319,11 +319,11 @@ class DetectorFeature(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DetectorFeatureAdditionalConfigurationArgs', 'DetectorFeatureAdditionalConfigurationArgsDict']]]]] = None,
-                 detector_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
+                 additional_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DetectorFeatureAdditionalConfigurationArgs', 'DetectorFeatureAdditionalConfigurationArgsDict']]]]] = None,
+                 detector_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -352,11 +352,11 @@ class DetectorFeature(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            additional_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DetectorFeatureAdditionalConfigurationArgs', 'DetectorFeatureAdditionalConfigurationArgsDict']]]]] = None,
-            detector_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None) -> 'DetectorFeature':
+            additional_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DetectorFeatureAdditionalConfigurationArgs', 'DetectorFeatureAdditionalConfigurationArgsDict']]]]] = None,
+            detector_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None) -> 'DetectorFeature':
         """
         Get an existing DetectorFeature resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -196,44 +196,44 @@ export interface CertificateState {
     /**
      * Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
      */
-    apiPassthrough?: pulumi.Input<string>;
+    apiPassthrough?: pulumi.Input<string | undefined>;
     /**
      * ARN of the certificate.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * PEM-encoded certificate value.
      */
-    certificate?: pulumi.Input<string>;
+    certificate?: pulumi.Input<string | undefined>;
     /**
      * ARN of the certificate authority.
      */
-    certificateAuthorityArn?: pulumi.Input<string>;
+    certificateAuthorityArn?: pulumi.Input<string | undefined>;
     /**
      * PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
      */
-    certificateChain?: pulumi.Input<string>;
+    certificateChain?: pulumi.Input<string | undefined>;
     /**
      * Certificate Signing Request in PEM format.
      */
-    certificateSigningRequest?: pulumi.Input<string>;
+    certificateSigningRequest?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
      */
-    signingAlgorithm?: pulumi.Input<string>;
+    signingAlgorithm?: pulumi.Input<string | undefined>;
     /**
      * Template to use when issuing a certificate.
      * See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
      */
-    templateArn?: pulumi.Input<string>;
+    templateArn?: pulumi.Input<string | undefined>;
     /**
      * Configures end of the validity period for the certificate. See validity block below.
      */
-    validity?: pulumi.Input<inputs.acmpca.CertificateValidity>;
+    validity?: pulumi.Input<inputs.acmpca.CertificateValidity | undefined>;
 }
 
 /**
@@ -243,7 +243,7 @@ export interface CertificateArgs {
     /**
      * Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
      */
-    apiPassthrough?: pulumi.Input<string>;
+    apiPassthrough?: pulumi.Input<string | undefined>;
     /**
      * ARN of the certificate authority.
      */
@@ -255,7 +255,7 @@ export interface CertificateArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
      */
@@ -264,7 +264,7 @@ export interface CertificateArgs {
      * Template to use when issuing a certificate.
      * See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
      */
-    templateArn?: pulumi.Input<string>;
+    templateArn?: pulumi.Input<string | undefined>;
     /**
      * Configures end of the validity period for the certificate. See validity block below.
      */

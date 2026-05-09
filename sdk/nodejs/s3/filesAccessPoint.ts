@@ -169,46 +169,46 @@ export interface FilesAccessPointState {
     /**
      * ARN of the access point.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * File system ID. Changing this value forces replacement.
      */
-    fileSystemId?: pulumi.Input<string>;
+    fileSystemId?: pulumi.Input<string | undefined>;
     /**
      * Access point name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * AWS account ID of the owner.
      */
-    ownerId?: pulumi.Input<string>;
+    ownerId?: pulumi.Input<string | undefined>;
     /**
      * POSIX user configuration. See `posixUser` below. Changing this value forces replacement.
      *
      * The following arguments are optional:
      */
-    posixUsers?: pulumi.Input<pulumi.Input<inputs.s3.FilesAccessPointPosixUser>[]>;
+    posixUsers?: pulumi.Input<pulumi.Input<inputs.s3.FilesAccessPointPosixUser>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Root directory configuration. See `rootDirectory` below. Changing this value forces replacement.
      */
-    rootDirectories?: pulumi.Input<pulumi.Input<inputs.s3.FilesAccessPointRootDirectory>[]>;
+    rootDirectories?: pulumi.Input<pulumi.Input<inputs.s3.FilesAccessPointRootDirectory>[] | undefined>;
     /**
      * Access point status.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.s3.FilesAccessPointTimeouts>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.s3.FilesAccessPointTimeouts | undefined>;
 }
 
 /**
@@ -224,18 +224,18 @@ export interface FilesAccessPointArgs {
      *
      * The following arguments are optional:
      */
-    posixUsers?: pulumi.Input<pulumi.Input<inputs.s3.FilesAccessPointPosixUser>[]>;
+    posixUsers?: pulumi.Input<pulumi.Input<inputs.s3.FilesAccessPointPosixUser>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Root directory configuration. See `rootDirectory` below. Changing this value forces replacement.
      */
-    rootDirectories?: pulumi.Input<pulumi.Input<inputs.s3.FilesAccessPointRootDirectory>[]>;
+    rootDirectories?: pulumi.Input<pulumi.Input<inputs.s3.FilesAccessPointRootDirectory>[] | undefined>;
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.s3.FilesAccessPointTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.s3.FilesAccessPointTimeouts | undefined>;
 }

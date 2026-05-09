@@ -83,15 +83,15 @@ __all__ = [
 ]
 
 class ProfilesAssociationTimeoutsArgsDict(TypedDict):
-    create: NotRequired[pulumi.Input[_builtins.str]]
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
-    delete: NotRequired[pulumi.Input[_builtins.str]]
+    delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     """
-    update: NotRequired[pulumi.Input[_builtins.str]]
+    update: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
@@ -99,9 +99,9 @@ class ProfilesAssociationTimeoutsArgsDict(TypedDict):
 @pulumi.input_type
 class ProfilesAssociationTimeoutsArgs:
     def __init__(__self__, *,
-                 create: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete: Optional[pulumi.Input[_builtins.str]] = None,
-                 update: Optional[pulumi.Input[_builtins.str]] = None):
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete: pulumi.Input[Optional[_builtins.str]] = None,
+                 update: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
@@ -116,51 +116,51 @@ class ProfilesAssociationTimeoutsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "create")
 
     @create.setter
-    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create", value)
 
     @_builtins.property
     @pulumi.getter
-    def delete(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delete(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
         """
         return pulumi.get(self, "delete")
 
     @delete.setter
-    def delete(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delete", value)
 
     @_builtins.property
     @pulumi.getter
-    def update(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def update(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "update")
 
     @update.setter
-    def update(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def update(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "update", value)
 
 
 class ProfilesProfileTimeoutsArgsDict(TypedDict):
-    create: NotRequired[pulumi.Input[_builtins.str]]
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
-    delete: NotRequired[pulumi.Input[_builtins.str]]
+    delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     """
-    read: NotRequired[pulumi.Input[_builtins.str]]
+    read: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
     """
@@ -168,9 +168,9 @@ class ProfilesProfileTimeoutsArgsDict(TypedDict):
 @pulumi.input_type
 class ProfilesProfileTimeoutsArgs:
     def __init__(__self__, *,
-                 create: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete: Optional[pulumi.Input[_builtins.str]] = None,
-                 read: Optional[pulumi.Input[_builtins.str]] = None):
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete: pulumi.Input[Optional[_builtins.str]] = None,
+                 read: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
@@ -185,51 +185,51 @@ class ProfilesProfileTimeoutsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "create")
 
     @create.setter
-    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create", value)
 
     @_builtins.property
     @pulumi.getter
-    def delete(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delete(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
         """
         return pulumi.get(self, "delete")
 
     @delete.setter
-    def delete(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delete", value)
 
     @_builtins.property
     @pulumi.getter
-    def read(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def read(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
         """
         return pulumi.get(self, "read")
 
     @read.setter
-    def read(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def read(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "read", value)
 
 
 class ProfilesResourceAssociationTimeoutsArgsDict(TypedDict):
-    create: NotRequired[pulumi.Input[_builtins.str]]
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
-    delete: NotRequired[pulumi.Input[_builtins.str]]
+    delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     """
-    read: NotRequired[pulumi.Input[_builtins.str]]
+    read: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
     """
@@ -237,9 +237,9 @@ class ProfilesResourceAssociationTimeoutsArgsDict(TypedDict):
 @pulumi.input_type
 class ProfilesResourceAssociationTimeoutsArgs:
     def __init__(__self__, *,
-                 create: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete: Optional[pulumi.Input[_builtins.str]] = None,
-                 read: Optional[pulumi.Input[_builtins.str]] = None):
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete: pulumi.Input[Optional[_builtins.str]] = None,
+                 read: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
@@ -254,38 +254,38 @@ class ProfilesResourceAssociationTimeoutsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "create")
 
     @create.setter
-    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create", value)
 
     @_builtins.property
     @pulumi.getter
-    def delete(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delete(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
         """
         return pulumi.get(self, "delete")
 
     @delete.setter
-    def delete(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delete", value)
 
     @_builtins.property
     @pulumi.getter
-    def read(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def read(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
         """
         return pulumi.get(self, "read")
 
     @read.setter
-    def read(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def read(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "read", value)
 
 
@@ -431,15 +431,15 @@ class RecordFailoverRoutingPolicyArgs:
 
 
 class RecordGeolocationRoutingPolicyArgsDict(TypedDict):
-    continent: NotRequired[pulumi.Input[_builtins.str]]
+    continent: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A two-letter continent code. See http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html for code details. Either `continent` or `country` must be specified.
     """
-    country: NotRequired[pulumi.Input[_builtins.str]]
+    country: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A two-character country code or `*` to indicate a default resource record set.
     """
-    subdivision: NotRequired[pulumi.Input[_builtins.str]]
+    subdivision: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A subdivision code for a country.
     """
@@ -447,9 +447,9 @@ class RecordGeolocationRoutingPolicyArgsDict(TypedDict):
 @pulumi.input_type
 class RecordGeolocationRoutingPolicyArgs:
     def __init__(__self__, *,
-                 continent: Optional[pulumi.Input[_builtins.str]] = None,
-                 country: Optional[pulumi.Input[_builtins.str]] = None,
-                 subdivision: Optional[pulumi.Input[_builtins.str]] = None):
+                 continent: pulumi.Input[Optional[_builtins.str]] = None,
+                 country: pulumi.Input[Optional[_builtins.str]] = None,
+                 subdivision: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] continent: A two-letter continent code. See http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html for code details. Either `continent` or `country` must be specified.
         :param pulumi.Input[_builtins.str] country: A two-character country code or `*` to indicate a default resource record set.
@@ -464,55 +464,55 @@ class RecordGeolocationRoutingPolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def continent(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def continent(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A two-letter continent code. See http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html for code details. Either `continent` or `country` must be specified.
         """
         return pulumi.get(self, "continent")
 
     @continent.setter
-    def continent(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def continent(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "continent", value)
 
     @_builtins.property
     @pulumi.getter
-    def country(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def country(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A two-character country code or `*` to indicate a default resource record set.
         """
         return pulumi.get(self, "country")
 
     @country.setter
-    def country(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def country(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "country", value)
 
     @_builtins.property
     @pulumi.getter
-    def subdivision(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subdivision(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A subdivision code for a country.
         """
         return pulumi.get(self, "subdivision")
 
     @subdivision.setter
-    def subdivision(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subdivision(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subdivision", value)
 
 
 class RecordGeoproximityRoutingPolicyArgsDict(TypedDict):
-    aws_region: NotRequired[pulumi.Input[_builtins.str]]
+    aws_region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A AWS region where the resource is present.
     """
-    bias: NotRequired[pulumi.Input[_builtins.int]]
+    bias: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Route more traffic or less traffic to the resource by specifying a value ranges between -90 to 90. See https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html for bias details.
     """
-    coordinates: NotRequired[pulumi.Input[Sequence[pulumi.Input['RecordGeoproximityRoutingPolicyCoordinateArgsDict']]]]
+    coordinates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RecordGeoproximityRoutingPolicyCoordinateArgs']]]]]
     """
     Specify `latitude` and `longitude` for routing traffic to non-AWS resources.
     """
-    local_zone_group: NotRequired[pulumi.Input[_builtins.str]]
+    local_zone_group: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A AWS local zone group where the resource is present. See https://docs.aws.amazon.com/local-zones/latest/ug/available-local-zones.html for local zone group list.
     """
@@ -520,10 +520,10 @@ class RecordGeoproximityRoutingPolicyArgsDict(TypedDict):
 @pulumi.input_type
 class RecordGeoproximityRoutingPolicyArgs:
     def __init__(__self__, *,
-                 aws_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 bias: Optional[pulumi.Input[_builtins.int]] = None,
-                 coordinates: Optional[pulumi.Input[Sequence[pulumi.Input['RecordGeoproximityRoutingPolicyCoordinateArgs']]]] = None,
-                 local_zone_group: Optional[pulumi.Input[_builtins.str]] = None):
+                 aws_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 bias: pulumi.Input[Optional[_builtins.int]] = None,
+                 coordinates: pulumi.Input[Optional[Sequence[pulumi.Input['RecordGeoproximityRoutingPolicyCoordinateArgs']]]] = None,
+                 local_zone_group: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] aws_region: A AWS region where the resource is present.
         :param pulumi.Input[_builtins.int] bias: Route more traffic or less traffic to the resource by specifying a value ranges between -90 to 90. See https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html for bias details.
@@ -541,50 +541,50 @@ class RecordGeoproximityRoutingPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegion")
-    def aws_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A AWS region where the resource is present.
         """
         return pulumi.get(self, "aws_region")
 
     @aws_region.setter
-    def aws_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_region", value)
 
     @_builtins.property
     @pulumi.getter
-    def bias(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def bias(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Route more traffic or less traffic to the resource by specifying a value ranges between -90 to 90. See https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html for bias details.
         """
         return pulumi.get(self, "bias")
 
     @bias.setter
-    def bias(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def bias(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "bias", value)
 
     @_builtins.property
     @pulumi.getter
-    def coordinates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecordGeoproximityRoutingPolicyCoordinateArgs']]]]:
+    def coordinates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RecordGeoproximityRoutingPolicyCoordinateArgs']]]]:
         """
         Specify `latitude` and `longitude` for routing traffic to non-AWS resources.
         """
         return pulumi.get(self, "coordinates")
 
     @coordinates.setter
-    def coordinates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RecordGeoproximityRoutingPolicyCoordinateArgs']]]]):
+    def coordinates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RecordGeoproximityRoutingPolicyCoordinateArgs']]]]):
         pulumi.set(self, "coordinates", value)
 
     @_builtins.property
     @pulumi.getter(name="localZoneGroup")
-    def local_zone_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def local_zone_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A AWS local zone group where the resource is present. See https://docs.aws.amazon.com/local-zones/latest/ug/available-local-zones.html for local zone group list.
         """
         return pulumi.get(self, "local_zone_group")
 
     @local_zone_group.setter
-    def local_zone_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def local_zone_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "local_zone_group", value)
 
 
@@ -680,64 +680,64 @@ class RecordsExclusiveResourceRecordSetArgsDict(TypedDict):
     """
     Name of the record.
     """
-    alias_target: NotRequired[pulumi.Input['RecordsExclusiveResourceRecordSetAliasTargetArgsDict']]
+    alias_target: NotRequired[pulumi.Input[Optional['RecordsExclusiveResourceRecordSetAliasTargetArgs']]]
     """
     Alias target block.
     See `alias_target` below.
     """
-    cidr_routing_config: NotRequired[pulumi.Input['RecordsExclusiveResourceRecordSetCidrRoutingConfigArgsDict']]
-    failover: NotRequired[pulumi.Input[_builtins.str]]
+    cidr_routing_config: NotRequired[pulumi.Input[Optional['RecordsExclusiveResourceRecordSetCidrRoutingConfigArgs']]]
+    failover: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Type of failover resource record.
     Valid values are `PRIMARY` and `SECONDARY`.
     See the [AWS documentation on DNS failover](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html) for additional details.
     """
-    geolocation: NotRequired[pulumi.Input['RecordsExclusiveResourceRecordSetGeolocationArgsDict']]
+    geolocation: NotRequired[pulumi.Input[Optional['RecordsExclusiveResourceRecordSetGeolocationArgs']]]
     """
     Geolocation block to control how Amazon Route 53 responds to DNS queries based on the geographic origin of the query.
     See `geolocation` below.
     """
-    geoproximity_location: NotRequired[pulumi.Input['RecordsExclusiveResourceRecordSetGeoproximityLocationArgsDict']]
+    geoproximity_location: NotRequired[pulumi.Input[Optional['RecordsExclusiveResourceRecordSetGeoproximityLocationArgs']]]
     """
     Geoproximity location block.
     See `geoproximity_location` below.
     """
-    health_check_id: NotRequired[pulumi.Input[_builtins.str]]
+    health_check_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Health check the record should be associated with.
     """
-    multi_value_answer: NotRequired[pulumi.Input[_builtins.bool]]
+    multi_value_answer: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Set to `true` to indicate this record is a multivalue answer record and traffic should be routed approximately randomly to multiple resources.
     """
-    region: NotRequired[pulumi.Input[_builtins.str]]
+    region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     AWS region of the resource this record set refers to.
     Must be a valid AWS region name.
     See the [AWS documentation](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-latency) on latency based routing for additional details.
     """
-    resource_records: NotRequired[pulumi.Input[Sequence[pulumi.Input['RecordsExclusiveResourceRecordSetResourceRecordArgsDict']]]]
+    resource_records: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RecordsExclusiveResourceRecordSetResourceRecordArgs']]]]]
     """
     Information about the resource records to act upon.
     See `resource_records` below.
     """
-    set_identifier: NotRequired[pulumi.Input[_builtins.str]]
+    set_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An identifier that differentiates among multiple resource record sets that have the same combination of name and type.
     Required if using `cidr_routing_config`, `failover`, `geolocation`,`geoproximity_location`, `multi_value_answer`, `region`, or `weight`.
     """
-    traffic_policy_instance_id: NotRequired[pulumi.Input[_builtins.str]]
+    traffic_policy_instance_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ID of the traffic policy instance that Route 53 created this resource record set for.
     To delete the resource record set that is associated with a traffic policy instance, use the `DeleteTrafficPolicyInstance` API.
     Route 53 will delete the resource record set automatically.
     If the resource record set is deleted via `ChangeResourceRecordSets` (the API underpinning this Terraform resource), Route 53 doesn't automatically delete the traffic policy instance, and you'll continue to be charged for it.
     """
-    ttl: NotRequired[pulumi.Input[_builtins.int]]
+    ttl: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Resource record cache time to live (TTL), in seconds.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Record type.
     Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV`, `TXT`, `TLSA`, `SSHFP`, `SVCB`, and `HTTPS`.
@@ -746,7 +746,7 @@ class RecordsExclusiveResourceRecordSetArgsDict(TypedDict):
 
     > Exactly one of `resource_records` or `alias_target` must be specified.
     """
-    weight: NotRequired[pulumi.Input[_builtins.int]]
+    weight: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Among resource record sets that have the same combination of DNS name and type, a value that determines the proportion of DNS queries that Amazon Route 53 responds to using the current resource record set.
     """
@@ -755,20 +755,20 @@ class RecordsExclusiveResourceRecordSetArgsDict(TypedDict):
 class RecordsExclusiveResourceRecordSetArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 alias_target: Optional[pulumi.Input['RecordsExclusiveResourceRecordSetAliasTargetArgs']] = None,
-                 cidr_routing_config: Optional[pulumi.Input['RecordsExclusiveResourceRecordSetCidrRoutingConfigArgs']] = None,
-                 failover: Optional[pulumi.Input[_builtins.str]] = None,
-                 geolocation: Optional[pulumi.Input['RecordsExclusiveResourceRecordSetGeolocationArgs']] = None,
-                 geoproximity_location: Optional[pulumi.Input['RecordsExclusiveResourceRecordSetGeoproximityLocationArgs']] = None,
-                 health_check_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 multi_value_answer: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_records: Optional[pulumi.Input[Sequence[pulumi.Input['RecordsExclusiveResourceRecordSetResourceRecordArgs']]]] = None,
-                 set_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 traffic_policy_instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 weight: Optional[pulumi.Input[_builtins.int]] = None):
+                 alias_target: pulumi.Input[Optional['RecordsExclusiveResourceRecordSetAliasTargetArgs']] = None,
+                 cidr_routing_config: pulumi.Input[Optional['RecordsExclusiveResourceRecordSetCidrRoutingConfigArgs']] = None,
+                 failover: pulumi.Input[Optional[_builtins.str]] = None,
+                 geolocation: pulumi.Input[Optional['RecordsExclusiveResourceRecordSetGeolocationArgs']] = None,
+                 geoproximity_location: pulumi.Input[Optional['RecordsExclusiveResourceRecordSetGeoproximityLocationArgs']] = None,
+                 health_check_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 multi_value_answer: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_records: pulumi.Input[Optional[Sequence[pulumi.Input['RecordsExclusiveResourceRecordSetResourceRecordArgs']]]] = None,
+                 set_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 traffic_policy_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 weight: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] name: Name of the record.
         :param pulumi.Input['RecordsExclusiveResourceRecordSetAliasTargetArgs'] alias_target: Alias target block.
@@ -846,7 +846,7 @@ class RecordsExclusiveResourceRecordSetArgs:
 
     @_builtins.property
     @pulumi.getter(name="aliasTarget")
-    def alias_target(self) -> Optional[pulumi.Input['RecordsExclusiveResourceRecordSetAliasTargetArgs']]:
+    def alias_target(self) -> pulumi.Input[Optional['RecordsExclusiveResourceRecordSetAliasTargetArgs']]:
         """
         Alias target block.
         See `alias_target` below.
@@ -854,21 +854,21 @@ class RecordsExclusiveResourceRecordSetArgs:
         return pulumi.get(self, "alias_target")
 
     @alias_target.setter
-    def alias_target(self, value: Optional[pulumi.Input['RecordsExclusiveResourceRecordSetAliasTargetArgs']]):
+    def alias_target(self, value: pulumi.Input[Optional['RecordsExclusiveResourceRecordSetAliasTargetArgs']]):
         pulumi.set(self, "alias_target", value)
 
     @_builtins.property
     @pulumi.getter(name="cidrRoutingConfig")
-    def cidr_routing_config(self) -> Optional[pulumi.Input['RecordsExclusiveResourceRecordSetCidrRoutingConfigArgs']]:
+    def cidr_routing_config(self) -> pulumi.Input[Optional['RecordsExclusiveResourceRecordSetCidrRoutingConfigArgs']]:
         return pulumi.get(self, "cidr_routing_config")
 
     @cidr_routing_config.setter
-    def cidr_routing_config(self, value: Optional[pulumi.Input['RecordsExclusiveResourceRecordSetCidrRoutingConfigArgs']]):
+    def cidr_routing_config(self, value: pulumi.Input[Optional['RecordsExclusiveResourceRecordSetCidrRoutingConfigArgs']]):
         pulumi.set(self, "cidr_routing_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def failover(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def failover(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of failover resource record.
         Valid values are `PRIMARY` and `SECONDARY`.
@@ -877,12 +877,12 @@ class RecordsExclusiveResourceRecordSetArgs:
         return pulumi.get(self, "failover")
 
     @failover.setter
-    def failover(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def failover(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "failover", value)
 
     @_builtins.property
     @pulumi.getter
-    def geolocation(self) -> Optional[pulumi.Input['RecordsExclusiveResourceRecordSetGeolocationArgs']]:
+    def geolocation(self) -> pulumi.Input[Optional['RecordsExclusiveResourceRecordSetGeolocationArgs']]:
         """
         Geolocation block to control how Amazon Route 53 responds to DNS queries based on the geographic origin of the query.
         See `geolocation` below.
@@ -890,12 +890,12 @@ class RecordsExclusiveResourceRecordSetArgs:
         return pulumi.get(self, "geolocation")
 
     @geolocation.setter
-    def geolocation(self, value: Optional[pulumi.Input['RecordsExclusiveResourceRecordSetGeolocationArgs']]):
+    def geolocation(self, value: pulumi.Input[Optional['RecordsExclusiveResourceRecordSetGeolocationArgs']]):
         pulumi.set(self, "geolocation", value)
 
     @_builtins.property
     @pulumi.getter(name="geoproximityLocation")
-    def geoproximity_location(self) -> Optional[pulumi.Input['RecordsExclusiveResourceRecordSetGeoproximityLocationArgs']]:
+    def geoproximity_location(self) -> pulumi.Input[Optional['RecordsExclusiveResourceRecordSetGeoproximityLocationArgs']]:
         """
         Geoproximity location block.
         See `geoproximity_location` below.
@@ -903,36 +903,36 @@ class RecordsExclusiveResourceRecordSetArgs:
         return pulumi.get(self, "geoproximity_location")
 
     @geoproximity_location.setter
-    def geoproximity_location(self, value: Optional[pulumi.Input['RecordsExclusiveResourceRecordSetGeoproximityLocationArgs']]):
+    def geoproximity_location(self, value: pulumi.Input[Optional['RecordsExclusiveResourceRecordSetGeoproximityLocationArgs']]):
         pulumi.set(self, "geoproximity_location", value)
 
     @_builtins.property
     @pulumi.getter(name="healthCheckId")
-    def health_check_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def health_check_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Health check the record should be associated with.
         """
         return pulumi.get(self, "health_check_id")
 
     @health_check_id.setter
-    def health_check_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def health_check_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "health_check_id", value)
 
     @_builtins.property
     @pulumi.getter(name="multiValueAnswer")
-    def multi_value_answer(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def multi_value_answer(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to `true` to indicate this record is a multivalue answer record and traffic should be routed approximately randomly to multiple resources.
         """
         return pulumi.get(self, "multi_value_answer")
 
     @multi_value_answer.setter
-    def multi_value_answer(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def multi_value_answer(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "multi_value_answer", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS region of the resource this record set refers to.
         Must be a valid AWS region name.
@@ -941,12 +941,12 @@ class RecordsExclusiveResourceRecordSetArgs:
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceRecords")
-    def resource_records(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecordsExclusiveResourceRecordSetResourceRecordArgs']]]]:
+    def resource_records(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RecordsExclusiveResourceRecordSetResourceRecordArgs']]]]:
         """
         Information about the resource records to act upon.
         See `resource_records` below.
@@ -954,12 +954,12 @@ class RecordsExclusiveResourceRecordSetArgs:
         return pulumi.get(self, "resource_records")
 
     @resource_records.setter
-    def resource_records(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RecordsExclusiveResourceRecordSetResourceRecordArgs']]]]):
+    def resource_records(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RecordsExclusiveResourceRecordSetResourceRecordArgs']]]]):
         pulumi.set(self, "resource_records", value)
 
     @_builtins.property
     @pulumi.getter(name="setIdentifier")
-    def set_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def set_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An identifier that differentiates among multiple resource record sets that have the same combination of name and type.
         Required if using `cidr_routing_config`, `failover`, `geolocation`,`geoproximity_location`, `multi_value_answer`, `region`, or `weight`.
@@ -967,12 +967,12 @@ class RecordsExclusiveResourceRecordSetArgs:
         return pulumi.get(self, "set_identifier")
 
     @set_identifier.setter
-    def set_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def set_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "set_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="trafficPolicyInstanceId")
-    def traffic_policy_instance_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def traffic_policy_instance_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the traffic policy instance that Route 53 created this resource record set for.
         To delete the resource record set that is associated with a traffic policy instance, use the `DeleteTrafficPolicyInstance` API.
@@ -982,24 +982,24 @@ class RecordsExclusiveResourceRecordSetArgs:
         return pulumi.get(self, "traffic_policy_instance_id")
 
     @traffic_policy_instance_id.setter
-    def traffic_policy_instance_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def traffic_policy_instance_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "traffic_policy_instance_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def ttl(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ttl(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Resource record cache time to live (TTL), in seconds.
         """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
-    def ttl(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ttl(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ttl", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Record type.
         Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV`, `TXT`, `TLSA`, `SSHFP`, `SVCB`, and `HTTPS`.
@@ -1011,19 +1011,19 @@ class RecordsExclusiveResourceRecordSetArgs:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter
-    def weight(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def weight(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Among resource record sets that have the same combination of DNS name and type, a value that determines the proportion of DNS queries that Amazon Route 53 responds to using the current resource record set.
         """
         return pulumi.get(self, "weight")
 
     @weight.setter
-    def weight(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def weight(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "weight", value)
 
 
@@ -1153,17 +1153,17 @@ class RecordsExclusiveResourceRecordSetCidrRoutingConfigArgs:
 
 
 class RecordsExclusiveResourceRecordSetGeolocationArgsDict(TypedDict):
-    continent_code: NotRequired[pulumi.Input[_builtins.str]]
+    continent_code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Two-letter continent code.
     See the [AWS documentation](http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html) for valid values.
     """
-    country_code: NotRequired[pulumi.Input[_builtins.str]]
+    country_code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Two-letter country code.
     See the ISO standard linked from the [AWS documentation](http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html) for valid values.
     """
-    subdivision_code: NotRequired[pulumi.Input[_builtins.str]]
+    subdivision_code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Subdivision code.
     """
@@ -1171,9 +1171,9 @@ class RecordsExclusiveResourceRecordSetGeolocationArgsDict(TypedDict):
 @pulumi.input_type
 class RecordsExclusiveResourceRecordSetGeolocationArgs:
     def __init__(__self__, *,
-                 continent_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 country_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 subdivision_code: Optional[pulumi.Input[_builtins.str]] = None):
+                 continent_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 country_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 subdivision_code: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] continent_code: Two-letter continent code.
                See the [AWS documentation](http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html) for valid values.
@@ -1190,7 +1190,7 @@ class RecordsExclusiveResourceRecordSetGeolocationArgs:
 
     @_builtins.property
     @pulumi.getter(name="continentCode")
-    def continent_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def continent_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Two-letter continent code.
         See the [AWS documentation](http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html) for valid values.
@@ -1198,12 +1198,12 @@ class RecordsExclusiveResourceRecordSetGeolocationArgs:
         return pulumi.get(self, "continent_code")
 
     @continent_code.setter
-    def continent_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def continent_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "continent_code", value)
 
     @_builtins.property
     @pulumi.getter(name="countryCode")
-    def country_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def country_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Two-letter country code.
         See the ISO standard linked from the [AWS documentation](http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html) for valid values.
@@ -1211,40 +1211,40 @@ class RecordsExclusiveResourceRecordSetGeolocationArgs:
         return pulumi.get(self, "country_code")
 
     @country_code.setter
-    def country_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def country_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "country_code", value)
 
     @_builtins.property
     @pulumi.getter(name="subdivisionCode")
-    def subdivision_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subdivision_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Subdivision code.
         """
         return pulumi.get(self, "subdivision_code")
 
     @subdivision_code.setter
-    def subdivision_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subdivision_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subdivision_code", value)
 
 
 class RecordsExclusiveResourceRecordSetGeoproximityLocationArgsDict(TypedDict):
-    aws_region: NotRequired[pulumi.Input[_builtins.str]]
+    aws_region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     AWS region of the resource where DNS traffic is directed to.
     """
-    bias: NotRequired[pulumi.Input[_builtins.int]]
+    bias: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Increases or decreases the size of the geographic region from which Route 53 routes traffic to a resource.
     To expand the size of the geographic region from which Route 53 routes traffic to a resource, specify a positive integer from `1` to `99`.
     To shrink the size of the geographic region from which Route 53 routes traffic to a resource, specify a negative bias of `-1` to `-99`.
     See the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html) for additional details.
     """
-    coordinates: NotRequired[pulumi.Input['RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesArgsDict']]
+    coordinates: NotRequired[pulumi.Input[Optional['RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesArgs']]]
     """
     Coordinates for a geoproximity resource record.
     See `coordinates` below.
     """
-    local_zone_group: NotRequired[pulumi.Input[_builtins.str]]
+    local_zone_group: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     AWS local zone group.
     Identify the Local Zones Group for a specific Local Zone by using the [`describe-availability-zones` CLI command](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-availability-zones.html).
@@ -1253,10 +1253,10 @@ class RecordsExclusiveResourceRecordSetGeoproximityLocationArgsDict(TypedDict):
 @pulumi.input_type
 class RecordsExclusiveResourceRecordSetGeoproximityLocationArgs:
     def __init__(__self__, *,
-                 aws_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 bias: Optional[pulumi.Input[_builtins.int]] = None,
-                 coordinates: Optional[pulumi.Input['RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesArgs']] = None,
-                 local_zone_group: Optional[pulumi.Input[_builtins.str]] = None):
+                 aws_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 bias: pulumi.Input[Optional[_builtins.int]] = None,
+                 coordinates: pulumi.Input[Optional['RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesArgs']] = None,
+                 local_zone_group: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] aws_region: AWS region of the resource where DNS traffic is directed to.
         :param pulumi.Input[_builtins.int] bias: Increases or decreases the size of the geographic region from which Route 53 routes traffic to a resource.
@@ -1279,19 +1279,19 @@ class RecordsExclusiveResourceRecordSetGeoproximityLocationArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegion")
-    def aws_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS region of the resource where DNS traffic is directed to.
         """
         return pulumi.get(self, "aws_region")
 
     @aws_region.setter
-    def aws_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_region", value)
 
     @_builtins.property
     @pulumi.getter
-    def bias(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def bias(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Increases or decreases the size of the geographic region from which Route 53 routes traffic to a resource.
         To expand the size of the geographic region from which Route 53 routes traffic to a resource, specify a positive integer from `1` to `99`.
@@ -1301,12 +1301,12 @@ class RecordsExclusiveResourceRecordSetGeoproximityLocationArgs:
         return pulumi.get(self, "bias")
 
     @bias.setter
-    def bias(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def bias(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "bias", value)
 
     @_builtins.property
     @pulumi.getter
-    def coordinates(self) -> Optional[pulumi.Input['RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesArgs']]:
+    def coordinates(self) -> pulumi.Input[Optional['RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesArgs']]:
         """
         Coordinates for a geoproximity resource record.
         See `coordinates` below.
@@ -1314,12 +1314,12 @@ class RecordsExclusiveResourceRecordSetGeoproximityLocationArgs:
         return pulumi.get(self, "coordinates")
 
     @coordinates.setter
-    def coordinates(self, value: Optional[pulumi.Input['RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesArgs']]):
+    def coordinates(self, value: pulumi.Input[Optional['RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesArgs']]):
         pulumi.set(self, "coordinates", value)
 
     @_builtins.property
     @pulumi.getter(name="localZoneGroup")
-    def local_zone_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def local_zone_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS local zone group.
         Identify the Local Zones Group for a specific Local Zone by using the [`describe-availability-zones` CLI command](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-availability-zones.html).
@@ -1327,7 +1327,7 @@ class RecordsExclusiveResourceRecordSetGeoproximityLocationArgs:
         return pulumi.get(self, "local_zone_group")
 
     @local_zone_group.setter
-    def local_zone_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def local_zone_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "local_zone_group", value)
 
 
@@ -1407,11 +1407,11 @@ class RecordsExclusiveResourceRecordSetResourceRecordArgs:
 
 
 class RecordsExclusiveTimeoutsArgsDict(TypedDict):
-    create: NotRequired[pulumi.Input[_builtins.str]]
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
-    update: NotRequired[pulumi.Input[_builtins.str]]
+    update: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
@@ -1419,8 +1419,8 @@ class RecordsExclusiveTimeoutsArgsDict(TypedDict):
 @pulumi.input_type
 class RecordsExclusiveTimeoutsArgs:
     def __init__(__self__, *,
-                 create: Optional[pulumi.Input[_builtins.str]] = None,
-                 update: Optional[pulumi.Input[_builtins.str]] = None):
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 update: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         :param pulumi.Input[_builtins.str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
@@ -1432,26 +1432,26 @@ class RecordsExclusiveTimeoutsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "create")
 
     @create.setter
-    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create", value)
 
     @_builtins.property
     @pulumi.getter
-    def update(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def update(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "update")
 
     @update.setter
-    def update(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def update(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "update", value)
 
 
@@ -1460,12 +1460,12 @@ class ResolverEndpointIpAddressArgsDict(TypedDict):
     """
     ID of the subnet that contains the IP address.
     """
-    ip: NotRequired[pulumi.Input[_builtins.str]]
+    ip: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     IPv4 address in the subnet that you want to use for DNS queries.
     """
-    ip_id: NotRequired[pulumi.Input[_builtins.str]]
-    ipv6: NotRequired[pulumi.Input[_builtins.str]]
+    ip_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    ipv6: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     IPv6 address in the subnet that you want to use for DNS queries.
     """
@@ -1474,9 +1474,9 @@ class ResolverEndpointIpAddressArgsDict(TypedDict):
 class ResolverEndpointIpAddressArgs:
     def __init__(__self__, *,
                  subnet_id: pulumi.Input[_builtins.str],
-                 ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv6: Optional[pulumi.Input[_builtins.str]] = None):
+                 ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv6: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] subnet_id: ID of the subnet that contains the IP address.
         :param pulumi.Input[_builtins.str] ip: IPv4 address in the subnet that you want to use for DNS queries.
@@ -1504,52 +1504,52 @@ class ResolverEndpointIpAddressArgs:
 
     @_builtins.property
     @pulumi.getter
-    def ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IPv4 address in the subnet that you want to use for DNS queries.
         """
         return pulumi.get(self, "ip")
 
     @ip.setter
-    def ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip", value)
 
     @_builtins.property
     @pulumi.getter(name="ipId")
-    def ip_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "ip_id")
 
     @ip_id.setter
-    def ip_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def ipv6(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipv6(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IPv6 address in the subnet that you want to use for DNS queries.
         """
         return pulumi.get(self, "ipv6")
 
     @ipv6.setter
-    def ipv6(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipv6(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipv6", value)
 
 
 class ResolverRuleTargetIpArgsDict(TypedDict):
-    ip: NotRequired[pulumi.Input[_builtins.str]]
+    ip: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     One IPv4 address that you want to forward DNS queries to.
     """
-    ipv6: NotRequired[pulumi.Input[_builtins.str]]
+    ipv6: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     One IPv6 address that you want to forward DNS queries to.
     """
-    port: NotRequired[pulumi.Input[_builtins.int]]
+    port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Port at `ip` that you want to forward DNS queries to. Default value is `53`.
     """
-    protocol: NotRequired[pulumi.Input[_builtins.str]]
+    protocol: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Protocol for the resolver endpoint. Valid values can be found in the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_TargetAddress.html). Default value is `Do53`.
     """
@@ -1557,10 +1557,10 @@ class ResolverRuleTargetIpArgsDict(TypedDict):
 @pulumi.input_type
 class ResolverRuleTargetIpArgs:
     def __init__(__self__, *,
-                 ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv6: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None):
+                 ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv6: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] ip: One IPv4 address that you want to forward DNS queries to.
         :param pulumi.Input[_builtins.str] ipv6: One IPv6 address that you want to forward DNS queries to.
@@ -1578,50 +1578,50 @@ class ResolverRuleTargetIpArgs:
 
     @_builtins.property
     @pulumi.getter
-    def ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         One IPv4 address that you want to forward DNS queries to.
         """
         return pulumi.get(self, "ip")
 
     @ip.setter
-    def ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip", value)
 
     @_builtins.property
     @pulumi.getter
-    def ipv6(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipv6(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         One IPv6 address that you want to forward DNS queries to.
         """
         return pulumi.get(self, "ipv6")
 
     @ipv6.setter
-    def ipv6(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipv6(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipv6", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Port at `ip` that you want to forward DNS queries to. Default value is `53`.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Protocol for the resolver endpoint. Valid values can be found in the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_TargetAddress.html). Default value is `Do53`.
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "protocol", value)
 
 
@@ -1630,7 +1630,7 @@ class ZoneVpcArgsDict(TypedDict):
     """
     ID of the VPC to associate.
     """
-    vpc_region: NotRequired[pulumi.Input[_builtins.str]]
+    vpc_region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Region of the VPC to associate. Defaults to AWS provider region.
     """
@@ -1639,7 +1639,7 @@ class ZoneVpcArgsDict(TypedDict):
 class ZoneVpcArgs:
     def __init__(__self__, *,
                  vpc_id: pulumi.Input[_builtins.str],
-                 vpc_region: Optional[pulumi.Input[_builtins.str]] = None):
+                 vpc_region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC to associate.
         :param pulumi.Input[_builtins.str] vpc_region: Region of the VPC to associate. Defaults to AWS provider region.
@@ -1662,14 +1662,14 @@ class ZoneVpcArgs:
 
     @_builtins.property
     @pulumi.getter(name="vpcRegion")
-    def vpc_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region of the VPC to associate. Defaults to AWS provider region.
         """
         return pulumi.get(self, "vpc_region")
 
     @vpc_region.setter
-    def vpc_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_region", value)
 
 

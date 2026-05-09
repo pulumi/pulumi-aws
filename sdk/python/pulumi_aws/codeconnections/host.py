@@ -23,11 +23,11 @@ class HostArgs:
     def __init__(__self__, *,
                  provider_endpoint: pulumi.Input[_builtins.str],
                  provider_type: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['HostTimeoutsArgs']] = None,
-                 vpc_configuration: Optional[pulumi.Input['HostVpcConfigurationArgs']] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['HostTimeoutsArgs']] = None,
+                 vpc_configuration: pulumi.Input[Optional['HostVpcConfigurationArgs']] = None):
         """
         The set of arguments for constructing a Host resource.
 
@@ -76,71 +76,71 @@ class HostArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the host to be created. The name must be unique in the calling AWS account.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['HostTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['HostTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['HostTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['HostTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcConfiguration")
-    def vpc_configuration(self) -> Optional[pulumi.Input['HostVpcConfigurationArgs']]:
+    def vpc_configuration(self) -> pulumi.Input[Optional['HostVpcConfigurationArgs']]:
         """
         The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
         """
         return pulumi.get(self, "vpc_configuration")
 
     @vpc_configuration.setter
-    def vpc_configuration(self, value: Optional[pulumi.Input['HostVpcConfigurationArgs']]):
+    def vpc_configuration(self, value: pulumi.Input[Optional['HostVpcConfigurationArgs']]):
         pulumi.set(self, "vpc_configuration", value)
 
 
 @pulumi.input_type
 class _HostState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['HostTimeoutsArgs']] = None,
-                 vpc_configuration: Optional[pulumi.Input['HostVpcConfigurationArgs']] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['HostTimeoutsArgs']] = None,
+                 vpc_configuration: pulumi.Input[Optional['HostVpcConfigurationArgs']] = None):
         """
         Input properties used for looking up and filtering Host resources.
 
@@ -172,101 +172,101 @@ class _HostState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The CodeConnections Host ARN.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the host to be created. The name must be unique in the calling AWS account.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="providerEndpoint")
-    def provider_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provider_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The endpoint of the infrastructure to be represented by the host after it is created.
         """
         return pulumi.get(self, "provider_endpoint")
 
     @provider_endpoint.setter
-    def provider_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provider_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provider_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="providerType")
-    def provider_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provider_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the external provider where your third-party code repository is configured.
         """
         return pulumi.get(self, "provider_type")
 
     @provider_type.setter
-    def provider_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provider_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provider_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['HostTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['HostTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['HostTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['HostTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcConfiguration")
-    def vpc_configuration(self) -> Optional[pulumi.Input['HostVpcConfigurationArgs']]:
+    def vpc_configuration(self) -> pulumi.Input[Optional['HostVpcConfigurationArgs']]:
         """
         The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
         """
         return pulumi.get(self, "vpc_configuration")
 
     @vpc_configuration.setter
-    def vpc_configuration(self, value: Optional[pulumi.Input['HostVpcConfigurationArgs']]):
+    def vpc_configuration(self, value: pulumi.Input[Optional['HostVpcConfigurationArgs']]):
         pulumi.set(self, "vpc_configuration", value)
 
 
@@ -276,13 +276,13 @@ class Host(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['HostTimeoutsArgs', 'HostTimeoutsArgsDict']]] = None,
-                 vpc_configuration: Optional[pulumi.Input[Union['HostVpcConfigurationArgs', 'HostVpcConfigurationArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['HostTimeoutsArgs', 'HostTimeoutsArgsDict']]] = None,
+                 vpc_configuration: pulumi.Input[Optional[Union['HostVpcConfigurationArgs', 'HostVpcConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS CodeConnections Host.
@@ -381,13 +381,13 @@ class Host(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['HostTimeoutsArgs', 'HostTimeoutsArgsDict']]] = None,
-                 vpc_configuration: Optional[pulumi.Input[Union['HostVpcConfigurationArgs', 'HostVpcConfigurationArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['HostTimeoutsArgs', 'HostTimeoutsArgsDict']]] = None,
+                 vpc_configuration: pulumi.Input[Optional[Union['HostVpcConfigurationArgs', 'HostVpcConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -420,15 +420,15 @@ class Host(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            provider_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            provider_type: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: Optional[pulumi.Input[Union['HostTimeoutsArgs', 'HostTimeoutsArgsDict']]] = None,
-            vpc_configuration: Optional[pulumi.Input[Union['HostVpcConfigurationArgs', 'HostVpcConfigurationArgsDict']]] = None) -> 'Host':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            provider_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            provider_type: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['HostTimeoutsArgs', 'HostTimeoutsArgsDict']]] = None,
+            vpc_configuration: pulumi.Input[Optional[Union['HostVpcConfigurationArgs', 'HostVpcConfigurationArgsDict']]] = None) -> 'Host':
         """
         Get an existing Host resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

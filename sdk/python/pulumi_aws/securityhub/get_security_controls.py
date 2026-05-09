@@ -127,8 +127,8 @@ def get_security_controls(region: Optional[_builtins.str] = None,
         region=pulumi.get(__ret__, 'region'),
         security_control_definitions=pulumi.get(__ret__, 'security_control_definitions'),
         standards_arn=pulumi.get(__ret__, 'standards_arn'))
-def get_security_controls_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                 standards_arn: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_security_controls_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                 standards_arn: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityControlsResult]:
     """
     Lists security controls.

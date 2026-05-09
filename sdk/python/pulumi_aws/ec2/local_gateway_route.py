@@ -22,7 +22,7 @@ class LocalGatewayRouteArgs:
                  destination_cidr_block: pulumi.Input[_builtins.str],
                  local_gateway_route_table_id: pulumi.Input[_builtins.str],
                  local_gateway_virtual_interface_group_id: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a LocalGatewayRoute resource.
 
@@ -75,24 +75,24 @@ class LocalGatewayRouteArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _LocalGatewayRouteState:
     def __init__(__self__, *,
-                 destination_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_gateway_route_table_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_gateway_virtual_interface_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 destination_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_gateway_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_gateway_virtual_interface_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LocalGatewayRoute resources.
 
@@ -112,50 +112,50 @@ class _LocalGatewayRouteState:
 
     @_builtins.property
     @pulumi.getter(name="destinationCidrBlock")
-    def destination_cidr_block(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_cidr_block(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
         """
         return pulumi.get(self, "destination_cidr_block")
 
     @destination_cidr_block.setter
-    def destination_cidr_block(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_cidr_block(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_cidr_block", value)
 
     @_builtins.property
     @pulumi.getter(name="localGatewayRouteTableId")
-    def local_gateway_route_table_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def local_gateway_route_table_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of EC2 Local Gateway Route Table.
         """
         return pulumi.get(self, "local_gateway_route_table_id")
 
     @local_gateway_route_table_id.setter
-    def local_gateway_route_table_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def local_gateway_route_table_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "local_gateway_route_table_id", value)
 
     @_builtins.property
     @pulumi.getter(name="localGatewayVirtualInterfaceGroupId")
-    def local_gateway_virtual_interface_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def local_gateway_virtual_interface_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of EC2 Local Gateway Virtual Interface Group.
         """
         return pulumi.get(self, "local_gateway_virtual_interface_group_id")
 
     @local_gateway_virtual_interface_group_id.setter
-    def local_gateway_virtual_interface_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def local_gateway_virtual_interface_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "local_gateway_virtual_interface_group_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
@@ -165,10 +165,10 @@ class LocalGatewayRoute(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_gateway_route_table_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_gateway_virtual_interface_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 destination_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_gateway_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_gateway_virtual_interface_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an EC2 Local Gateway Route. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
@@ -246,10 +246,10 @@ class LocalGatewayRoute(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_gateway_route_table_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_gateway_virtual_interface_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 destination_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_gateway_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_gateway_virtual_interface_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -279,10 +279,10 @@ class LocalGatewayRoute(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            destination_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-            local_gateway_route_table_id: Optional[pulumi.Input[_builtins.str]] = None,
-            local_gateway_virtual_interface_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None) -> 'LocalGatewayRoute':
+            destination_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+            local_gateway_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
+            local_gateway_virtual_interface_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> 'LocalGatewayRoute':
         """
         Get an existing LocalGatewayRoute resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

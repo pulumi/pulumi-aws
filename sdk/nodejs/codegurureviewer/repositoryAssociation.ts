@@ -168,52 +168,52 @@ export interface RepositoryAssociationState {
     /**
      * The Amazon Resource Name (ARN) identifying the repository association.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The ID of the repository association.
      */
-    associationId?: pulumi.Input<string>;
+    associationId?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
      */
-    connectionArn?: pulumi.Input<string>;
+    connectionArn?: pulumi.Input<string | undefined>;
     /**
      * An object describing the KMS key to asssociate. Block is documented below.
      */
-    kmsKeyDetails?: pulumi.Input<inputs.codegurureviewer.RepositoryAssociationKmsKeyDetails>;
+    kmsKeyDetails?: pulumi.Input<inputs.codegurureviewer.RepositoryAssociationKmsKeyDetails | undefined>;
     /**
      * The name of the repository.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The owner of the repository.
      */
-    owner?: pulumi.Input<string>;
+    owner?: pulumi.Input<string | undefined>;
     /**
      * The provider type of the repository association.
      */
-    providerType?: pulumi.Input<string>;
+    providerType?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `githubEnterpriseServer`, or `s3Bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `githubEnterpriseServer`) the connection must be in `Available` status prior to creating this resource.
      *
      * The following arguments are optional:
      */
-    repository?: pulumi.Input<inputs.codegurureviewer.RepositoryAssociationRepository>;
-    s3RepositoryDetails?: pulumi.Input<pulumi.Input<inputs.codegurureviewer.RepositoryAssociationS3RepositoryDetail>[]>;
+    repository?: pulumi.Input<inputs.codegurureviewer.RepositoryAssociationRepository | undefined>;
+    s3RepositoryDetails?: pulumi.Input<pulumi.Input<inputs.codegurureviewer.RepositoryAssociationS3RepositoryDetail>[] | undefined>;
     /**
      * The state of the repository association.
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
     /**
      * A description of why the repository association is in the current state.
      */
-    stateReason?: pulumi.Input<string>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    stateReason?: pulumi.Input<string | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -223,16 +223,16 @@ export interface RepositoryAssociationArgs {
     /**
      * An object describing the KMS key to asssociate. Block is documented below.
      */
-    kmsKeyDetails?: pulumi.Input<inputs.codegurureviewer.RepositoryAssociationKmsKeyDetails>;
+    kmsKeyDetails?: pulumi.Input<inputs.codegurureviewer.RepositoryAssociationKmsKeyDetails | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `githubEnterpriseServer`, or `s3Bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `githubEnterpriseServer`) the connection must be in `Available` status prior to creating this resource.
      *
      * The following arguments are optional:
      */
     repository: pulumi.Input<inputs.codegurureviewer.RepositoryAssociationRepository>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

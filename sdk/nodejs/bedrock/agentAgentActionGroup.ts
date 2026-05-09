@@ -281,58 +281,58 @@ export interface AgentAgentActionGroupState {
      *
      * The following arguments are optional:
      */
-    actionGroupExecutor?: pulumi.Input<inputs.bedrock.AgentAgentActionGroupActionGroupExecutor>;
+    actionGroupExecutor?: pulumi.Input<inputs.bedrock.AgentAgentActionGroupActionGroupExecutor | undefined>;
     /**
      * Unique identifier of the action group.
      */
-    actionGroupId?: pulumi.Input<string>;
+    actionGroupId?: pulumi.Input<string | undefined>;
     /**
      * Name of the action group.
      */
-    actionGroupName?: pulumi.Input<string>;
+    actionGroupName?: pulumi.Input<string | undefined>;
     /**
      * Whether the action group is available for the agent to invoke or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
      */
-    actionGroupState?: pulumi.Input<string>;
+    actionGroupState?: pulumi.Input<string | undefined>;
     /**
      * The unique identifier of the agent for which to create the action group.
      */
-    agentId?: pulumi.Input<string>;
+    agentId?: pulumi.Input<string | undefined>;
     /**
      * Version of the agent for which to create the action group. Valid values: `DRAFT`.
      */
-    agentVersion?: pulumi.Input<string>;
+    agentVersion?: pulumi.Input<string | undefined>;
     /**
      * Either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html). See `apiSchema` Block for details.
      */
-    apiSchema?: pulumi.Input<inputs.bedrock.AgentAgentActionGroupApiSchema>;
+    apiSchema?: pulumi.Input<inputs.bedrock.AgentAgentActionGroupApiSchema | undefined>;
     /**
      * Description of the action group.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Describes the function schema for the action group.
      * Each function represents an action in an action group.
      * See `functionSchema` Block for details.
      */
-    functionSchema?: pulumi.Input<inputs.bedrock.AgentAgentActionGroupFunctionSchema>;
+    functionSchema?: pulumi.Input<inputs.bedrock.AgentAgentActionGroupFunctionSchema | undefined>;
     /**
      * To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `apiSchema`, and `actionGroupExecutor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
      */
-    parentActionGroupSignature?: pulumi.Input<string>;
+    parentActionGroupSignature?: pulumi.Input<string | undefined>;
     /**
      * Whether or not to prepare the agent after creation or modification. Defaults to `true`.
      */
-    prepareAgent?: pulumi.Input<boolean>;
+    prepareAgent?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Whether the in-use check is skipped when deleting the action group.
      */
-    skipResourceInUseCheck?: pulumi.Input<boolean>;
-    timeouts?: pulumi.Input<inputs.bedrock.AgentAgentActionGroupTimeouts>;
+    skipResourceInUseCheck?: pulumi.Input<boolean | undefined>;
+    timeouts?: pulumi.Input<inputs.bedrock.AgentAgentActionGroupTimeouts | undefined>;
 }
 
 /**
@@ -344,7 +344,7 @@ export interface AgentAgentActionGroupArgs {
      *
      * The following arguments are optional:
      */
-    actionGroupExecutor?: pulumi.Input<inputs.bedrock.AgentAgentActionGroupActionGroupExecutor>;
+    actionGroupExecutor?: pulumi.Input<inputs.bedrock.AgentAgentActionGroupActionGroupExecutor | undefined>;
     /**
      * Name of the action group.
      */
@@ -352,7 +352,7 @@ export interface AgentAgentActionGroupArgs {
     /**
      * Whether the action group is available for the agent to invoke or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
      */
-    actionGroupState?: pulumi.Input<string>;
+    actionGroupState?: pulumi.Input<string | undefined>;
     /**
      * The unique identifier of the agent for which to create the action group.
      */
@@ -364,32 +364,32 @@ export interface AgentAgentActionGroupArgs {
     /**
      * Either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html). See `apiSchema` Block for details.
      */
-    apiSchema?: pulumi.Input<inputs.bedrock.AgentAgentActionGroupApiSchema>;
+    apiSchema?: pulumi.Input<inputs.bedrock.AgentAgentActionGroupApiSchema | undefined>;
     /**
      * Description of the action group.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Describes the function schema for the action group.
      * Each function represents an action in an action group.
      * See `functionSchema` Block for details.
      */
-    functionSchema?: pulumi.Input<inputs.bedrock.AgentAgentActionGroupFunctionSchema>;
+    functionSchema?: pulumi.Input<inputs.bedrock.AgentAgentActionGroupFunctionSchema | undefined>;
     /**
      * To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `apiSchema`, and `actionGroupExecutor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
      */
-    parentActionGroupSignature?: pulumi.Input<string>;
+    parentActionGroupSignature?: pulumi.Input<string | undefined>;
     /**
      * Whether or not to prepare the agent after creation or modification. Defaults to `true`.
      */
-    prepareAgent?: pulumi.Input<boolean>;
+    prepareAgent?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Whether the in-use check is skipped when deleting the action group.
      */
-    skipResourceInUseCheck?: pulumi.Input<boolean>;
-    timeouts?: pulumi.Input<inputs.bedrock.AgentAgentActionGroupTimeouts>;
+    skipResourceInUseCheck?: pulumi.Input<boolean | undefined>;
+    timeouts?: pulumi.Input<inputs.bedrock.AgentAgentActionGroupTimeouts | undefined>;
 }

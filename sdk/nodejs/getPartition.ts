@@ -98,5 +98,5 @@ export interface GetPartitionOutputArgs {
     /**
      * Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
 }

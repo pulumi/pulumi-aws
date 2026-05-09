@@ -221,13 +221,13 @@ def get_resolver_rule(domain_name: Optional[_builtins.str] = None,
         share_status=pulumi.get(__ret__, 'share_status'),
         tags=pulumi.get(__ret__, 'tags'),
         target_ips=pulumi.get(__ret__, 'target_ips'))
-def get_resolver_rule_output(domain_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                             name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                             region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                             resolver_endpoint_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                             resolver_rule_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                             rule_type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                             tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_resolver_rule_output(domain_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             resolver_endpoint_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             resolver_rule_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             rule_type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResolverRuleResult]:
     """
     `route53.ResolverRule` provides details about a specific Route53 Resolver rule.

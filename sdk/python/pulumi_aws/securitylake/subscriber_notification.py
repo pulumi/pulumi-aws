@@ -23,7 +23,7 @@ class SubscriberNotificationArgs:
     def __init__(__self__, *,
                  configuration: pulumi.Input['SubscriberNotificationConfigurationArgs'],
                  subscriber_id: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SubscriberNotification resource.
 
@@ -62,25 +62,25 @@ class SubscriberNotificationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _SubscriberNotificationState:
     def __init__(__self__, *,
-                 configuration: Optional[pulumi.Input['SubscriberNotificationConfigurationArgs']] = None,
-                 endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscriber_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscriber_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 configuration: pulumi.Input[Optional['SubscriberNotificationConfigurationArgs']] = None,
+                 endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscriber_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscriber_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SubscriberNotification resources.
 
@@ -106,63 +106,63 @@ class _SubscriberNotificationState:
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input['SubscriberNotificationConfigurationArgs']]:
+    def configuration(self) -> pulumi.Input[Optional['SubscriberNotificationConfigurationArgs']]:
         """
         Specify the configuration using which you want to create the subscriber notification..
         """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input['SubscriberNotificationConfigurationArgs']]):
+    def configuration(self, value: pulumi.Input[Optional['SubscriberNotificationConfigurationArgs']]):
         pulumi.set(self, "configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointId")
     @_utilities.deprecated("""Use subscriber_endpoint instead""")
-    def endpoint_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (**Deprecated**) The subscriber endpoint to which exception messages are posted.
         """
         return pulumi.get(self, "endpoint_id")
 
     @endpoint_id.setter
-    def endpoint_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriberEndpoint")
-    def subscriber_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subscriber_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subscriber endpoint to which exception messages are posted.
         """
         return pulumi.get(self, "subscriber_endpoint")
 
     @subscriber_endpoint.setter
-    def subscriber_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subscriber_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subscriber_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriberId")
-    def subscriber_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subscriber_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subscriber ID for the notification subscription.
         """
         return pulumi.get(self, "subscriber_id")
 
     @subscriber_id.setter
-    def subscriber_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subscriber_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subscriber_id", value)
 
 
@@ -172,9 +172,9 @@ class SubscriberNotification(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[Union['SubscriberNotificationConfigurationArgs', 'SubscriberNotificationConfigurationArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscriber_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 configuration: pulumi.Input[Optional[Union['SubscriberNotificationConfigurationArgs', 'SubscriberNotificationConfigurationArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscriber_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Security Lake Subscriber Notification.
@@ -273,9 +273,9 @@ class SubscriberNotification(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[Union['SubscriberNotificationConfigurationArgs', 'SubscriberNotificationConfigurationArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscriber_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 configuration: pulumi.Input[Optional[Union['SubscriberNotificationConfigurationArgs', 'SubscriberNotificationConfigurationArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscriber_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -304,11 +304,11 @@ class SubscriberNotification(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            configuration: Optional[pulumi.Input[Union['SubscriberNotificationConfigurationArgs', 'SubscriberNotificationConfigurationArgsDict']]] = None,
-            endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            subscriber_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            subscriber_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'SubscriberNotification':
+            configuration: pulumi.Input[Optional[Union['SubscriberNotificationConfigurationArgs', 'SubscriberNotificationConfigurationArgsDict']]] = None,
+            endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            subscriber_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            subscriber_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'SubscriberNotification':
         """
         Get an existing SubscriberNotification resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

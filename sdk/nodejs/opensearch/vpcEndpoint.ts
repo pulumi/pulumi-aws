@@ -128,19 +128,19 @@ export interface VpcEndpointState {
     /**
      * Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
      */
-    domainArn?: pulumi.Input<string>;
+    domainArn?: pulumi.Input<string | undefined>;
     /**
      * The connection endpoint ID for connecting to the domain.
      */
-    endpoint?: pulumi.Input<string>;
+    endpoint?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Options to specify the subnets and security groups for the endpoint.
      */
-    vpcOptions?: pulumi.Input<inputs.opensearch.VpcEndpointVpcOptions>;
+    vpcOptions?: pulumi.Input<inputs.opensearch.VpcEndpointVpcOptions | undefined>;
 }
 
 /**
@@ -154,7 +154,7 @@ export interface VpcEndpointArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Options to specify the subnets and security groups for the endpoint.
      */

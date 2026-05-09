@@ -192,67 +192,67 @@ export interface NetworkProfileState {
     /**
      * The Amazon Resource Name of this network profile.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The description of the network profile.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
      */
-    downlinkBandwidthBits?: pulumi.Input<number>;
+    downlinkBandwidthBits?: pulumi.Input<number | undefined>;
     /**
      * Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
      */
-    downlinkDelayMs?: pulumi.Input<number>;
+    downlinkDelayMs?: pulumi.Input<number | undefined>;
     /**
      * Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
      */
-    downlinkJitterMs?: pulumi.Input<number>;
+    downlinkJitterMs?: pulumi.Input<number | undefined>;
     /**
      * Proportion of received packets that fail to arrive from `0` to `100` percent.
      */
-    downlinkLossPercent?: pulumi.Input<number>;
+    downlinkLossPercent?: pulumi.Input<number | undefined>;
     /**
      * The name for the network profile.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the project for the network profile.
      */
-    projectArn?: pulumi.Input<string>;
+    projectArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The type of network profile to create. Valid values are listed are `PRIVATE` and `CURATED`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
      */
-    uplinkBandwidthBits?: pulumi.Input<number>;
+    uplinkBandwidthBits?: pulumi.Input<number | undefined>;
     /**
      * Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
      */
-    uplinkDelayMs?: pulumi.Input<number>;
+    uplinkDelayMs?: pulumi.Input<number | undefined>;
     /**
      * Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
      */
-    uplinkJitterMs?: pulumi.Input<number>;
+    uplinkJitterMs?: pulumi.Input<number | undefined>;
     /**
      * Proportion of received packets that fail to arrive from `0` to `100` percent.
      */
-    uplinkLossPercent?: pulumi.Input<number>;
+    uplinkLossPercent?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -262,27 +262,27 @@ export interface NetworkProfileArgs {
     /**
      * The description of the network profile.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
      */
-    downlinkBandwidthBits?: pulumi.Input<number>;
+    downlinkBandwidthBits?: pulumi.Input<number | undefined>;
     /**
      * Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
      */
-    downlinkDelayMs?: pulumi.Input<number>;
+    downlinkDelayMs?: pulumi.Input<number | undefined>;
     /**
      * Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
      */
-    downlinkJitterMs?: pulumi.Input<number>;
+    downlinkJitterMs?: pulumi.Input<number | undefined>;
     /**
      * Proportion of received packets that fail to arrive from `0` to `100` percent.
      */
-    downlinkLossPercent?: pulumi.Input<number>;
+    downlinkLossPercent?: pulumi.Input<number | undefined>;
     /**
      * The name for the network profile.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the project for the network profile.
      */
@@ -290,29 +290,29 @@ export interface NetworkProfileArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The type of network profile to create. Valid values are listed are `PRIVATE` and `CURATED`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
      */
-    uplinkBandwidthBits?: pulumi.Input<number>;
+    uplinkBandwidthBits?: pulumi.Input<number | undefined>;
     /**
      * Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
      */
-    uplinkDelayMs?: pulumi.Input<number>;
+    uplinkDelayMs?: pulumi.Input<number | undefined>;
     /**
      * Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
      */
-    uplinkJitterMs?: pulumi.Input<number>;
+    uplinkJitterMs?: pulumi.Input<number | undefined>;
     /**
      * Proportion of received packets that fail to arrive from `0` to `100` percent.
      */
-    uplinkLossPercent?: pulumi.Input<number>;
+    uplinkLossPercent?: pulumi.Input<number | undefined>;
 }

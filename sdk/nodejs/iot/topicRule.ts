@@ -256,78 +256,78 @@ export interface TopicRuleState {
     /**
      * The ARN of the topic rule
      */
-    arn?: pulumi.Input<string>;
-    cloudwatchAlarms?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleCloudwatchAlarm>[]>;
-    cloudwatchLogs?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleCloudwatchLog>[]>;
-    cloudwatchMetrics?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleCloudwatchMetric>[]>;
+    arn?: pulumi.Input<string | undefined>;
+    cloudwatchAlarms?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleCloudwatchAlarm>[] | undefined>;
+    cloudwatchLogs?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleCloudwatchLog>[] | undefined>;
+    cloudwatchMetrics?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleCloudwatchMetric>[] | undefined>;
     /**
      * The description of the rule.
      */
-    description?: pulumi.Input<string>;
-    dynamodbs?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleDynamodb>[]>;
-    dynamodbv2s?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleDynamodbv2>[]>;
-    elasticsearch?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleElasticsearch>[]>;
+    description?: pulumi.Input<string | undefined>;
+    dynamodbs?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleDynamodb>[] | undefined>;
+    dynamodbv2s?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleDynamodbv2>[] | undefined>;
+    elasticsearch?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleElasticsearch>[] | undefined>;
     /**
      * Specifies whether the rule is enabled.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchLogs`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `http`, `iotAnalytics`, `iotEvents`, `kafka`, `kinesis`, `lambda`, `republish`, `s3`, `sns`, `sqs`, `stepFunctions`, `timestream` configuration blocks for further configuration details.
      */
-    errorAction?: pulumi.Input<inputs.iot.TopicRuleErrorAction>;
-    firehoses?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleFirehose>[]>;
-    https?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleHttp>[]>;
-    iotAnalytics?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleIotAnalytic>[]>;
-    iotEvents?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleIotEvent>[]>;
-    kafkas?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleKafka>[]>;
-    kineses?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleKinesis>[]>;
-    lambdas?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleLambda>[]>;
+    errorAction?: pulumi.Input<inputs.iot.TopicRuleErrorAction | undefined>;
+    firehoses?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleFirehose>[] | undefined>;
+    https?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleHttp>[] | undefined>;
+    iotAnalytics?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleIotAnalytic>[] | undefined>;
+    iotEvents?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleIotEvent>[] | undefined>;
+    kafkas?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleKafka>[] | undefined>;
+    kineses?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleKinesis>[] | undefined>;
+    lambdas?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleLambda>[] | undefined>;
     /**
      * The name of the rule.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    republishes?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleRepublish>[]>;
-    s3?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleS3>[]>;
-    sns?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleSns>[]>;
+    region?: pulumi.Input<string | undefined>;
+    republishes?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleRepublish>[] | undefined>;
+    s3?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleS3>[] | undefined>;
+    sns?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleSns>[] | undefined>;
     /**
      * The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
      */
-    sql?: pulumi.Input<string>;
+    sql?: pulumi.Input<string | undefined>;
     /**
      * The version of the SQL rules engine to use when evaluating the rule.
      */
-    sqlVersion?: pulumi.Input<string>;
-    sqs?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleSqs>[]>;
-    stepFunctions?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleStepFunction>[]>;
+    sqlVersion?: pulumi.Input<string | undefined>;
+    sqs?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleSqs>[] | undefined>;
+    stepFunctions?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleStepFunction>[] | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timestreams?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleTimestream>[]>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timestreams?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleTimestream>[] | undefined>;
 }
 
 /**
  * The set of arguments for constructing a TopicRule resource.
  */
 export interface TopicRuleArgs {
-    cloudwatchAlarms?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleCloudwatchAlarm>[]>;
-    cloudwatchLogs?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleCloudwatchLog>[]>;
-    cloudwatchMetrics?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleCloudwatchMetric>[]>;
+    cloudwatchAlarms?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleCloudwatchAlarm>[] | undefined>;
+    cloudwatchLogs?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleCloudwatchLog>[] | undefined>;
+    cloudwatchMetrics?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleCloudwatchMetric>[] | undefined>;
     /**
      * The description of the rule.
      */
-    description?: pulumi.Input<string>;
-    dynamodbs?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleDynamodb>[]>;
-    dynamodbv2s?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleDynamodbv2>[]>;
-    elasticsearch?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleElasticsearch>[]>;
+    description?: pulumi.Input<string | undefined>;
+    dynamodbs?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleDynamodb>[] | undefined>;
+    dynamodbv2s?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleDynamodbv2>[] | undefined>;
+    elasticsearch?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleElasticsearch>[] | undefined>;
     /**
      * Specifies whether the rule is enabled.
      */
@@ -335,25 +335,25 @@ export interface TopicRuleArgs {
     /**
      * Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchLogs`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `http`, `iotAnalytics`, `iotEvents`, `kafka`, `kinesis`, `lambda`, `republish`, `s3`, `sns`, `sqs`, `stepFunctions`, `timestream` configuration blocks for further configuration details.
      */
-    errorAction?: pulumi.Input<inputs.iot.TopicRuleErrorAction>;
-    firehoses?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleFirehose>[]>;
-    https?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleHttp>[]>;
-    iotAnalytics?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleIotAnalytic>[]>;
-    iotEvents?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleIotEvent>[]>;
-    kafkas?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleKafka>[]>;
-    kineses?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleKinesis>[]>;
-    lambdas?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleLambda>[]>;
+    errorAction?: pulumi.Input<inputs.iot.TopicRuleErrorAction | undefined>;
+    firehoses?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleFirehose>[] | undefined>;
+    https?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleHttp>[] | undefined>;
+    iotAnalytics?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleIotAnalytic>[] | undefined>;
+    iotEvents?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleIotEvent>[] | undefined>;
+    kafkas?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleKafka>[] | undefined>;
+    kineses?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleKinesis>[] | undefined>;
+    lambdas?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleLambda>[] | undefined>;
     /**
      * The name of the rule.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    republishes?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleRepublish>[]>;
-    s3?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleS3>[]>;
-    sns?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleSns>[]>;
+    region?: pulumi.Input<string | undefined>;
+    republishes?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleRepublish>[] | undefined>;
+    s3?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleS3>[] | undefined>;
+    sns?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleSns>[] | undefined>;
     /**
      * The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
      */
@@ -362,11 +362,11 @@ export interface TopicRuleArgs {
      * The version of the SQL rules engine to use when evaluating the rule.
      */
     sqlVersion: pulumi.Input<string>;
-    sqs?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleSqs>[]>;
-    stepFunctions?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleStepFunction>[]>;
+    sqs?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleSqs>[] | undefined>;
+    stepFunctions?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleStepFunction>[] | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timestreams?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleTimestream>[]>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timestreams?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleTimestream>[] | undefined>;
 }

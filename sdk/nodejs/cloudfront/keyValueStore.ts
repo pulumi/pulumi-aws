@@ -131,23 +131,23 @@ export interface KeyValueStoreState {
     /**
      * Amazon Resource Name (ARN) identifying your CloudFront KeyValueStore.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Comment.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * ETag hash of the KeyValueStore.
      */
-    etag?: pulumi.Input<string>;
-    lastModifiedTime?: pulumi.Input<string>;
+    etag?: pulumi.Input<string | undefined>;
+    lastModifiedTime?: pulumi.Input<string | undefined>;
     /**
      * Unique name for your CloudFront KeyValueStore.
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.cloudfront.KeyValueStoreTimeouts>;
+    name?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.cloudfront.KeyValueStoreTimeouts | undefined>;
 }
 
 /**
@@ -157,12 +157,12 @@ export interface KeyValueStoreArgs {
     /**
      * Comment.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Unique name for your CloudFront KeyValueStore.
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.cloudfront.KeyValueStoreTimeouts>;
+    name?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.cloudfront.KeyValueStoreTimeouts | undefined>;
 }

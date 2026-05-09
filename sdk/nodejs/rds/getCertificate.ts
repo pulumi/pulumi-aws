@@ -120,17 +120,17 @@ export interface GetCertificateOutputArgs {
     /**
      * When enabled, returns the default certificate for new RDS instances.
      */
-    defaultForNewLaunches?: pulumi.Input<boolean>;
+    defaultForNewLaunches?: pulumi.Input<boolean | undefined>;
     /**
      * Certificate identifier. For example, `rds-ca-2019`.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * When enabled, returns the certificate with the latest `ValidTill`.
      */
-    latestValidTill?: pulumi.Input<boolean>;
+    latestValidTill?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

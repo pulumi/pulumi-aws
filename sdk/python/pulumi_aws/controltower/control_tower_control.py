@@ -23,8 +23,8 @@ class ControlTowerControlArgs:
     def __init__(__self__, *,
                  control_identifier: pulumi.Input[_builtins.str],
                  target_identifier: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ControlTowerControlParameterArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input['ControlTowerControlParameterArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ControlTowerControl resource.
 
@@ -70,37 +70,37 @@ class ControlTowerControlArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ControlTowerControlParameterArgs']]]]:
+    def parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ControlTowerControlParameterArgs']]]]:
         """
         Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ControlTowerControlParameterArgs']]]]):
+    def parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ControlTowerControlParameterArgs']]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _ControlTowerControlState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 control_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ControlTowerControlParameterArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_identifier: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 control_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input['ControlTowerControlParameterArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_identifier: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ControlTowerControl resources.
 
@@ -125,55 +125,55 @@ class _ControlTowerControlState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the EnabledControl resource.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="controlIdentifier")
-    def control_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def control_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
         """
         return pulumi.get(self, "control_identifier")
 
     @control_identifier.setter
-    def control_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def control_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "control_identifier", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ControlTowerControlParameterArgs']]]]:
+    def parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ControlTowerControlParameterArgs']]]]:
         """
         Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ControlTowerControlParameterArgs']]]]):
+    def parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ControlTowerControlParameterArgs']]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="targetIdentifier")
-    def target_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the organizational unit.
 
@@ -182,7 +182,7 @@ class _ControlTowerControlState:
         return pulumi.get(self, "target_identifier")
 
     @target_identifier.setter
-    def target_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_identifier", value)
 
 
@@ -192,10 +192,10 @@ class ControlTowerControl(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 control_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ControlTowerControlParameterArgs', 'ControlTowerControlParameterArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+                 control_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ControlTowerControlParameterArgs', 'ControlTowerControlParameterArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Allows the application of pre-defined controls to organizational units. For more information on usage, please see the
@@ -291,10 +291,10 @@ class ControlTowerControl(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 control_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ControlTowerControlParameterArgs', 'ControlTowerControlParameterArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+                 control_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ControlTowerControlParameterArgs', 'ControlTowerControlParameterArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -323,11 +323,11 @@ class ControlTowerControl(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            control_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-            parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ControlTowerControlParameterArgs', 'ControlTowerControlParameterArgsDict']]]]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            target_identifier: Optional[pulumi.Input[_builtins.str]] = None) -> 'ControlTowerControl':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            control_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ControlTowerControlParameterArgs', 'ControlTowerControlParameterArgsDict']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            target_identifier: pulumi.Input[Optional[_builtins.str]] = None) -> 'ControlTowerControl':
         """
         Get an existing ControlTowerControl resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

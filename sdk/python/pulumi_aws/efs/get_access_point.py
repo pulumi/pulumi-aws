@@ -188,9 +188,9 @@ def get_access_point(access_point_id: Optional[_builtins.str] = None,
         region=pulumi.get(__ret__, 'region'),
         root_directories=pulumi.get(__ret__, 'root_directories'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_access_point_output(access_point_id: Optional[pulumi.Input[_builtins.str]] = None,
-                            region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                            tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_access_point_output(access_point_id: pulumi.Input[Optional[_builtins.str]] = None,
+                            region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                            tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessPointResult]:
     """
     Provides information about an Elastic File System (EFS) Access Point.

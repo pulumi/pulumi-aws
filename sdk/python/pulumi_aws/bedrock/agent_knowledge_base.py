@@ -23,12 +23,12 @@ class AgentKnowledgeBaseArgs:
     def __init__(__self__, *,
                  knowledge_base_configuration: pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationArgs'],
                  role_arn: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_configuration: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['AgentKnowledgeBaseTimeoutsArgs']] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_configuration: pulumi.Input[Optional['AgentKnowledgeBaseStorageConfigurationArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['AgentKnowledgeBaseTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AgentKnowledgeBase resource.
 
@@ -85,90 +85,90 @@ class AgentKnowledgeBaseArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the knowledge base.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the knowledge base.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="storageConfiguration")
-    def storage_configuration(self) -> Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationArgs']]:
+    def storage_configuration(self) -> pulumi.Input[Optional['AgentKnowledgeBaseStorageConfigurationArgs']]:
         """
         Details about the storage configuration of the knowledge base. See `storage_configuration` block for details.
         """
         return pulumi.get(self, "storage_configuration")
 
     @storage_configuration.setter
-    def storage_configuration(self, value: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationArgs']]):
+    def storage_configuration(self, value: pulumi.Input[Optional['AgentKnowledgeBaseStorageConfigurationArgs']]):
         pulumi.set(self, "storage_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['AgentKnowledgeBaseTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['AgentKnowledgeBaseTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['AgentKnowledgeBaseTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['AgentKnowledgeBaseTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _AgentKnowledgeBaseState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 failure_reasons: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 knowledge_base_configuration: Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_configuration: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['AgentKnowledgeBaseTimeoutsArgs']] = None,
-                 updated_at: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 failure_reasons: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 knowledge_base_configuration: pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_configuration: pulumi.Input[Optional['AgentKnowledgeBaseStorageConfigurationArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['AgentKnowledgeBaseTimeoutsArgs']] = None,
+                 updated_at: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AgentKnowledgeBase resources.
 
@@ -215,88 +215,88 @@ class _AgentKnowledgeBaseState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the knowledge base.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Time at which the knowledge base was created.
         """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
-    def created_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_at", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the knowledge base.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="failureReasons")
-    def failure_reasons(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def failure_reasons(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "failure_reasons")
 
     @failure_reasons.setter
-    def failure_reasons(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def failure_reasons(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "failure_reasons", value)
 
     @_builtins.property
     @pulumi.getter(name="knowledgeBaseConfiguration")
-    def knowledge_base_configuration(self) -> Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationArgs']]:
+    def knowledge_base_configuration(self) -> pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationArgs']]:
         """
         Details about the embeddings configuration of the knowledge base. See `knowledge_base_configuration` block for details.
         """
         return pulumi.get(self, "knowledge_base_configuration")
 
     @knowledge_base_configuration.setter
-    def knowledge_base_configuration(self, value: Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationArgs']]):
+    def knowledge_base_configuration(self, value: pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationArgs']]):
         pulumi.set(self, "knowledge_base_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the knowledge base.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the IAM role with permissions to invoke API operations on the knowledge base.
 
@@ -305,64 +305,64 @@ class _AgentKnowledgeBaseState:
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="storageConfiguration")
-    def storage_configuration(self) -> Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationArgs']]:
+    def storage_configuration(self) -> pulumi.Input[Optional['AgentKnowledgeBaseStorageConfigurationArgs']]:
         """
         Details about the storage configuration of the knowledge base. See `storage_configuration` block for details.
         """
         return pulumi.get(self, "storage_configuration")
 
     @storage_configuration.setter
-    def storage_configuration(self, value: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationArgs']]):
+    def storage_configuration(self, value: pulumi.Input[Optional['AgentKnowledgeBaseStorageConfigurationArgs']]):
         pulumi.set(self, "storage_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['AgentKnowledgeBaseTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['AgentKnowledgeBaseTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['AgentKnowledgeBaseTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['AgentKnowledgeBaseTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter(name="updatedAt")
-    def updated_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def updated_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Time at which the knowledge base was last updated.
         """
         return pulumi.get(self, "updated_at")
 
     @updated_at.setter
-    def updated_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def updated_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "updated_at", value)
 
 
@@ -372,14 +372,14 @@ class AgentKnowledgeBase(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 knowledge_base_configuration: Optional[pulumi.Input[Union['AgentKnowledgeBaseKnowledgeBaseConfigurationArgs', 'AgentKnowledgeBaseKnowledgeBaseConfigurationArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_configuration: Optional[pulumi.Input[Union['AgentKnowledgeBaseStorageConfigurationArgs', 'AgentKnowledgeBaseStorageConfigurationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['AgentKnowledgeBaseTimeoutsArgs', 'AgentKnowledgeBaseTimeoutsArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 knowledge_base_configuration: pulumi.Input[Optional[Union['AgentKnowledgeBaseKnowledgeBaseConfigurationArgs', 'AgentKnowledgeBaseKnowledgeBaseConfigurationArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_configuration: pulumi.Input[Optional[Union['AgentKnowledgeBaseStorageConfigurationArgs', 'AgentKnowledgeBaseStorageConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentKnowledgeBaseTimeoutsArgs', 'AgentKnowledgeBaseTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Agents for Amazon Bedrock Knowledge Base.
@@ -822,14 +822,14 @@ class AgentKnowledgeBase(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 knowledge_base_configuration: Optional[pulumi.Input[Union['AgentKnowledgeBaseKnowledgeBaseConfigurationArgs', 'AgentKnowledgeBaseKnowledgeBaseConfigurationArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_configuration: Optional[pulumi.Input[Union['AgentKnowledgeBaseStorageConfigurationArgs', 'AgentKnowledgeBaseStorageConfigurationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['AgentKnowledgeBaseTimeoutsArgs', 'AgentKnowledgeBaseTimeoutsArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 knowledge_base_configuration: pulumi.Input[Optional[Union['AgentKnowledgeBaseKnowledgeBaseConfigurationArgs', 'AgentKnowledgeBaseKnowledgeBaseConfigurationArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_configuration: pulumi.Input[Optional[Union['AgentKnowledgeBaseStorageConfigurationArgs', 'AgentKnowledgeBaseStorageConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentKnowledgeBaseTimeoutsArgs', 'AgentKnowledgeBaseTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -866,19 +866,19 @@ class AgentKnowledgeBase(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            created_at: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            failure_reasons: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            knowledge_base_configuration: Optional[pulumi.Input[Union['AgentKnowledgeBaseKnowledgeBaseConfigurationArgs', 'AgentKnowledgeBaseKnowledgeBaseConfigurationArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_configuration: Optional[pulumi.Input[Union['AgentKnowledgeBaseStorageConfigurationArgs', 'AgentKnowledgeBaseStorageConfigurationArgsDict']]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: Optional[pulumi.Input[Union['AgentKnowledgeBaseTimeoutsArgs', 'AgentKnowledgeBaseTimeoutsArgsDict']]] = None,
-            updated_at: Optional[pulumi.Input[_builtins.str]] = None) -> 'AgentKnowledgeBase':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            failure_reasons: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            knowledge_base_configuration: pulumi.Input[Optional[Union['AgentKnowledgeBaseKnowledgeBaseConfigurationArgs', 'AgentKnowledgeBaseKnowledgeBaseConfigurationArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_configuration: pulumi.Input[Optional[Union['AgentKnowledgeBaseStorageConfigurationArgs', 'AgentKnowledgeBaseStorageConfigurationArgsDict']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['AgentKnowledgeBaseTimeoutsArgs', 'AgentKnowledgeBaseTimeoutsArgsDict']]] = None,
+            updated_at: pulumi.Input[Optional[_builtins.str]] = None) -> 'AgentKnowledgeBase':
         """
         Get an existing AgentKnowledgeBase resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

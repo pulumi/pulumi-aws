@@ -215,69 +215,69 @@ export interface EnvironmentState {
     /**
      * The ID of the Amazon Web Services account where the environment exists
      */
-    accountIdentifier?: pulumi.Input<string>;
+    accountIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Web Services region where the environment exists.
      */
-    accountRegion?: pulumi.Input<string>;
+    accountRegion?: pulumi.Input<string | undefined>;
     /**
      * The blueprint with which the environment is created.
      */
-    blueprintIdentifier?: pulumi.Input<string>;
+    blueprintIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The time the environment was created.
      */
-    createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string | undefined>;
     /**
      * The user who created the environment.
      */
-    createdBy?: pulumi.Input<string>;
+    createdBy?: pulumi.Input<string | undefined>;
     /**
      * The description of the environment.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of the domain where the environment exists.
      */
-    domainIdentifier?: pulumi.Input<string>;
+    domainIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The business glossary terms that can be used in this environment.
      */
-    glossaryTerms?: pulumi.Input<pulumi.Input<string>[]>;
+    glossaryTerms?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The details of the last deployment of the environment.
      */
-    lastDeployments?: pulumi.Input<pulumi.Input<inputs.datazone.EnvironmentLastDeployment>[]>;
+    lastDeployments?: pulumi.Input<pulumi.Input<inputs.datazone.EnvironmentLastDeployment>[] | undefined>;
     /**
      * The name of the environment.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the profile with which the environment is created.
      */
-    profileIdentifier?: pulumi.Input<string>;
+    profileIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project where the environment exists.
      *
      * The following arguments are optional:
      */
-    projectIdentifier?: pulumi.Input<string>;
+    projectIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The provider of the environment.
      */
-    providerEnvironment?: pulumi.Input<string>;
-    provisionedResources?: pulumi.Input<pulumi.Input<inputs.datazone.EnvironmentProvisionedResource>[]>;
+    providerEnvironment?: pulumi.Input<string | undefined>;
+    provisionedResources?: pulumi.Input<pulumi.Input<inputs.datazone.EnvironmentProvisionedResource>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.datazone.EnvironmentTimeouts>;
+    region?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.datazone.EnvironmentTimeouts | undefined>;
     /**
      * The user parameters that are used in the environment.
      * See User Parameters for more information.
      * Changing these values recreates the resource.
      */
-    userParameters?: pulumi.Input<pulumi.Input<inputs.datazone.EnvironmentUserParameter>[]>;
+    userParameters?: pulumi.Input<pulumi.Input<inputs.datazone.EnvironmentUserParameter>[] | undefined>;
 }
 
 /**
@@ -287,19 +287,19 @@ export interface EnvironmentArgs {
     /**
      * The ID of the Amazon Web Services account where the environment exists
      */
-    accountIdentifier?: pulumi.Input<string>;
+    accountIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Web Services region where the environment exists.
      */
-    accountRegion?: pulumi.Input<string>;
+    accountRegion?: pulumi.Input<string | undefined>;
     /**
      * The blueprint with which the environment is created.
      */
-    blueprintIdentifier?: pulumi.Input<string>;
+    blueprintIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The description of the environment.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of the domain where the environment exists.
      */
@@ -307,11 +307,11 @@ export interface EnvironmentArgs {
     /**
      * The business glossary terms that can be used in this environment.
      */
-    glossaryTerms?: pulumi.Input<pulumi.Input<string>[]>;
+    glossaryTerms?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the environment.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the profile with which the environment is created.
      */
@@ -325,12 +325,12 @@ export interface EnvironmentArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.datazone.EnvironmentTimeouts>;
+    region?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.datazone.EnvironmentTimeouts | undefined>;
     /**
      * The user parameters that are used in the environment.
      * See User Parameters for more information.
      * Changing these values recreates the resource.
      */
-    userParameters?: pulumi.Input<pulumi.Input<inputs.datazone.EnvironmentUserParameter>[]>;
+    userParameters?: pulumi.Input<pulumi.Input<inputs.datazone.EnvironmentUserParameter>[] | undefined>;
 }

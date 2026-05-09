@@ -127,21 +127,21 @@ export interface EmailTemplateState {
     /**
      * Amazon Resource Name (ARN) of the message template.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
      */
-    emailTemplates?: pulumi.Input<pulumi.Input<inputs.pinpoint.EmailTemplateEmailTemplate>[]>;
+    emailTemplates?: pulumi.Input<pulumi.Input<inputs.pinpoint.EmailTemplateEmailTemplate>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    region?: pulumi.Input<string | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
      */
-    templateName?: pulumi.Input<string>;
+    templateName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -151,12 +151,12 @@ export interface EmailTemplateArgs {
     /**
      * Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
      */
-    emailTemplates?: pulumi.Input<pulumi.Input<inputs.pinpoint.EmailTemplateEmailTemplate>[]>;
+    emailTemplates?: pulumi.Input<pulumi.Input<inputs.pinpoint.EmailTemplateEmailTemplate>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    region?: pulumi.Input<string | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
      */

@@ -139,13 +139,13 @@ export interface GetAmiIdsOutputArgs {
     /**
      * Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.autoscaling.GetAmiIdsFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.autoscaling.GetAmiIdsFilterArgs>[] | undefined>;
     /**
      * List of autoscaling group names
      */
-    names?: pulumi.Input<pulumi.Input<string>[]>;
+    names?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

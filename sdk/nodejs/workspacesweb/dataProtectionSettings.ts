@@ -230,45 +230,45 @@ export interface DataProtectionSettingsState {
     /**
      * Additional encryption context for the data protection settings.
      */
-    additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * List of web portal ARNs that this data protection settings resource is associated with.
      */
-    associatedPortalArns?: pulumi.Input<pulumi.Input<string>[]>;
+    associatedPortalArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * ARN of the customer managed KMS key.
      */
-    customerManagedKey?: pulumi.Input<string>;
+    customerManagedKey?: pulumi.Input<string | undefined>;
     /**
      * ARN of the data protection settings resource.
      */
-    dataProtectionSettingsArn?: pulumi.Input<string>;
+    dataProtectionSettingsArn?: pulumi.Input<string | undefined>;
     /**
      * The description of the data protection settings.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name of the data protection settings.
      *
      * The following arguments are optional:
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The inline redaction configuration of the data protection settings. Detailed below.
      */
-    inlineRedactionConfiguration?: pulumi.Input<inputs.workspacesweb.DataProtectionSettingsInlineRedactionConfiguration>;
+    inlineRedactionConfiguration?: pulumi.Input<inputs.workspacesweb.DataProtectionSettingsInlineRedactionConfiguration | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -278,15 +278,15 @@ export interface DataProtectionSettingsArgs {
     /**
      * Additional encryption context for the data protection settings.
      */
-    additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * ARN of the customer managed KMS key.
      */
-    customerManagedKey?: pulumi.Input<string>;
+    customerManagedKey?: pulumi.Input<string | undefined>;
     /**
      * The description of the data protection settings.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name of the data protection settings.
      *
@@ -296,13 +296,13 @@ export interface DataProtectionSettingsArgs {
     /**
      * The inline redaction configuration of the data protection settings. Detailed below.
      */
-    inlineRedactionConfiguration?: pulumi.Input<inputs.workspacesweb.DataProtectionSettingsInlineRedactionConfiguration>;
+    inlineRedactionConfiguration?: pulumi.Input<inputs.workspacesweb.DataProtectionSettingsInlineRedactionConfiguration | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

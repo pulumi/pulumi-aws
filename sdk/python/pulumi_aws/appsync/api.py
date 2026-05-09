@@ -22,10 +22,10 @@ __all__ = ['ApiArgs', 'Api']
 class ApiArgs:
     def __init__(__self__, *,
                  event_config: pulumi.Input['ApiEventConfigArgs'],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner_contact: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_contact: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Api resource.
 
@@ -61,7 +61,7 @@ class ApiArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Event API.
 
@@ -70,60 +70,60 @@ class ApiArgs:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="ownerContact")
-    def owner_contact(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner_contact(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Contact information for the owner of the Event API.
         """
         return pulumi.get(self, "owner_contact")
 
     @owner_contact.setter
-    def owner_contact(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner_contact(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner_contact", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _ApiState:
     def __init__(__self__, *,
-                 api_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 event_config: Optional[pulumi.Input['ApiEventConfigArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner_contact: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 waf_web_acl_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 xray_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 api_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 event_config: pulumi.Input[Optional['ApiEventConfigArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_contact: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 waf_web_acl_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 xray_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Api resources.
 
@@ -165,55 +165,55 @@ class _ApiState:
 
     @_builtins.property
     @pulumi.getter(name="apiArn")
-    def api_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the Event API.
         """
         return pulumi.get(self, "api_arn")
 
     @api_arn.setter
-    def api_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="apiId")
-    def api_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the Event API.
         """
         return pulumi.get(self, "api_id")
 
     @api_id.setter
-    def api_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def dns(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def dns(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         DNS configuration for the Event API.
         """
         return pulumi.get(self, "dns")
 
     @dns.setter
-    def dns(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def dns(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "dns", value)
 
     @_builtins.property
     @pulumi.getter(name="eventConfig")
-    def event_config(self) -> Optional[pulumi.Input['ApiEventConfigArgs']]:
+    def event_config(self) -> pulumi.Input[Optional['ApiEventConfigArgs']]:
         """
         Configuration for the Event API. See Event Config below.
         """
         return pulumi.get(self, "event_config")
 
     @event_config.setter
-    def event_config(self, value: Optional[pulumi.Input['ApiEventConfigArgs']]):
+    def event_config(self, value: pulumi.Input[Optional['ApiEventConfigArgs']]):
         pulumi.set(self, "event_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Event API.
 
@@ -222,76 +222,76 @@ class _ApiState:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="ownerContact")
-    def owner_contact(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner_contact(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Contact information for the owner of the Event API.
         """
         return pulumi.get(self, "owner_contact")
 
     @owner_contact.setter
-    def owner_contact(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner_contact(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner_contact", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="wafWebAclArn")
-    def waf_web_acl_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def waf_web_acl_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the associated WAF web ACL.
         """
         return pulumi.get(self, "waf_web_acl_arn")
 
     @waf_web_acl_arn.setter
-    def waf_web_acl_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def waf_web_acl_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "waf_web_acl_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="xrayEnabled")
-    def xray_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def xray_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "xray_enabled")
 
     @xray_enabled.setter
-    def xray_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def xray_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "xray_enabled", value)
 
 
@@ -301,11 +301,11 @@ class Api(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 event_config: Optional[pulumi.Input[Union['ApiEventConfigArgs', 'ApiEventConfigArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner_contact: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 event_config: pulumi.Input[Optional[Union['ApiEventConfigArgs', 'ApiEventConfigArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_contact: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages an [AWS AppSync Event API](https://docs.aws.amazon.com/appsync/latest/eventapi/event-api-concepts.html#API). Event APIs enable real-time subscriptions and event-driven communication in AppSync applications.
@@ -530,11 +530,11 @@ class Api(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 event_config: Optional[pulumi.Input[Union['ApiEventConfigArgs', 'ApiEventConfigArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner_contact: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 event_config: pulumi.Input[Optional[Union['ApiEventConfigArgs', 'ApiEventConfigArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_contact: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -567,17 +567,17 @@ class Api(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            api_id: Optional[pulumi.Input[_builtins.str]] = None,
-            dns: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            event_config: Optional[pulumi.Input[Union['ApiEventConfigArgs', 'ApiEventConfigArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            owner_contact: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            waf_web_acl_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            xray_enabled: Optional[pulumi.Input[_builtins.bool]] = None) -> 'Api':
+            api_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            api_id: pulumi.Input[Optional[_builtins.str]] = None,
+            dns: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            event_config: pulumi.Input[Optional[Union['ApiEventConfigArgs', 'ApiEventConfigArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_contact: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            waf_web_acl_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            xray_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> 'Api':
         """
         Get an existing Api resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

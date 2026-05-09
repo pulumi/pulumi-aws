@@ -111,5 +111,5 @@ export interface GetSamlProviderOutputArgs {
     /**
      * Tags attached to the SAML provider.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

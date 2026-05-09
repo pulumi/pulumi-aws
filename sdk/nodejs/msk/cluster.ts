@@ -419,123 +419,123 @@ export interface ClusterState {
     /**
      * Amazon Resource Name (ARN) of the MSK cluster.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster. Contains a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `PLAINTEXT` or `TLS_PLAINTEXT`. The resource sorts values alphabetically. AWS may not always return all endpoints so this value is not guaranteed to be stable across applies.
      */
-    bootstrapBrokers?: pulumi.Input<string>;
+    bootstrapBrokers?: pulumi.Input<string | undefined>;
     /**
      * One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      */
-    bootstrapBrokersPublicSaslIam?: pulumi.Input<string>;
+    bootstrapBrokersPublicSaslIam?: pulumi.Input<string | undefined>;
     /**
      * One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      */
-    bootstrapBrokersPublicSaslScram?: pulumi.Input<string>;
+    bootstrapBrokersPublicSaslScram?: pulumi.Input<string | undefined>;
     /**
      * One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      */
-    bootstrapBrokersPublicTls?: pulumi.Input<string>;
+    bootstrapBrokersPublicTls?: pulumi.Input<string | undefined>;
     /**
      * One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      */
-    bootstrapBrokersSaslIam?: pulumi.Input<string>;
+    bootstrapBrokersSaslIam?: pulumi.Input<string | undefined>;
     /**
      * One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      */
-    bootstrapBrokersSaslScram?: pulumi.Input<string>;
+    bootstrapBrokersSaslScram?: pulumi.Input<string | undefined>;
     /**
      * One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      */
-    bootstrapBrokersTls?: pulumi.Input<string>;
+    bootstrapBrokersTls?: pulumi.Input<string | undefined>;
     /**
      * A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
      */
-    bootstrapBrokersVpcConnectivitySaslIam?: pulumi.Input<string>;
+    bootstrapBrokersVpcConnectivitySaslIam?: pulumi.Input<string | undefined>;
     /**
      * A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
      */
-    bootstrapBrokersVpcConnectivitySaslScram?: pulumi.Input<string>;
+    bootstrapBrokersVpcConnectivitySaslScram?: pulumi.Input<string | undefined>;
     /**
      * A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
      */
-    bootstrapBrokersVpcConnectivityTls?: pulumi.Input<string>;
+    bootstrapBrokersVpcConnectivityTls?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for the broker nodes of the Kafka cluster. See brokerNodeGroupInfo Argument Reference below.
      */
-    brokerNodeGroupInfo?: pulumi.Input<inputs.msk.ClusterBrokerNodeGroupInfo>;
+    brokerNodeGroupInfo?: pulumi.Input<inputs.msk.ClusterBrokerNodeGroupInfo | undefined>;
     /**
      * Configuration block for specifying a client authentication. See clientAuthentication Argument Reference below.
      */
-    clientAuthentication?: pulumi.Input<inputs.msk.ClusterClientAuthentication>;
+    clientAuthentication?: pulumi.Input<inputs.msk.ClusterClientAuthentication | undefined>;
     /**
      * Name of the MSK cluster.
      */
-    clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string | undefined>;
     /**
      * UUID of the MSK cluster, for use in IAM policies.
      */
-    clusterUuid?: pulumi.Input<string>;
+    clusterUuid?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See configurationInfo Argument Reference below.
      */
-    configurationInfo?: pulumi.Input<inputs.msk.ClusterConfigurationInfo>;
+    configurationInfo?: pulumi.Input<inputs.msk.ClusterConfigurationInfo | undefined>;
     /**
      * Current version of the MSK Cluster used for updates, e.g., `K13V1IB3VIYZZH`
      */
-    currentVersion?: pulumi.Input<string>;
+    currentVersion?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for specifying encryption. See encryptionInfo Argument Reference below.
      */
-    encryptionInfo?: pulumi.Input<inputs.msk.ClusterEncryptionInfo>;
+    encryptionInfo?: pulumi.Input<inputs.msk.ClusterEncryptionInfo | undefined>;
     /**
      * Specify the desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
      */
-    enhancedMonitoring?: pulumi.Input<string>;
+    enhancedMonitoring?: pulumi.Input<string | undefined>;
     /**
      * Specify the desired Kafka software version.
      */
-    kafkaVersion?: pulumi.Input<string>;
+    kafkaVersion?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See loggingInfo Argument Reference below.
      */
-    loggingInfo?: pulumi.Input<inputs.msk.ClusterLoggingInfo>;
+    loggingInfo?: pulumi.Input<inputs.msk.ClusterLoggingInfo | undefined>;
     /**
      * The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
      */
-    numberOfBrokerNodes?: pulumi.Input<number>;
+    numberOfBrokerNodes?: pulumi.Input<number | undefined>;
     /**
      * Configuration block for JMX and Node monitoring for the MSK cluster. See openMonitoring Argument Reference below.
      */
-    openMonitoring?: pulumi.Input<inputs.msk.ClusterOpenMonitoring>;
+    openMonitoring?: pulumi.Input<inputs.msk.ClusterOpenMonitoring | undefined>;
     /**
      * Configuration block for intelligent rebalancing. See rebalancing Argument Reference below. Only applicable to MSK Provisioned clusters with Express brokers.
      */
-    rebalancing?: pulumi.Input<inputs.msk.ClusterRebalancing>;
+    rebalancing?: pulumi.Input<inputs.msk.ClusterRebalancing | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
      */
-    storageMode?: pulumi.Input<string>;
+    storageMode?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
      */
-    zookeeperConnectString?: pulumi.Input<string>;
+    zookeeperConnectString?: pulumi.Input<string | undefined>;
     /**
      * A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
      */
-    zookeeperConnectStringTls?: pulumi.Input<string>;
+    zookeeperConnectStringTls?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -549,23 +549,23 @@ export interface ClusterArgs {
     /**
      * Configuration block for specifying a client authentication. See clientAuthentication Argument Reference below.
      */
-    clientAuthentication?: pulumi.Input<inputs.msk.ClusterClientAuthentication>;
+    clientAuthentication?: pulumi.Input<inputs.msk.ClusterClientAuthentication | undefined>;
     /**
      * Name of the MSK cluster.
      */
-    clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See configurationInfo Argument Reference below.
      */
-    configurationInfo?: pulumi.Input<inputs.msk.ClusterConfigurationInfo>;
+    configurationInfo?: pulumi.Input<inputs.msk.ClusterConfigurationInfo | undefined>;
     /**
      * Configuration block for specifying encryption. See encryptionInfo Argument Reference below.
      */
-    encryptionInfo?: pulumi.Input<inputs.msk.ClusterEncryptionInfo>;
+    encryptionInfo?: pulumi.Input<inputs.msk.ClusterEncryptionInfo | undefined>;
     /**
      * Specify the desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
      */
-    enhancedMonitoring?: pulumi.Input<string>;
+    enhancedMonitoring?: pulumi.Input<string | undefined>;
     /**
      * Specify the desired Kafka software version.
      */
@@ -573,7 +573,7 @@ export interface ClusterArgs {
     /**
      * Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See loggingInfo Argument Reference below.
      */
-    loggingInfo?: pulumi.Input<inputs.msk.ClusterLoggingInfo>;
+    loggingInfo?: pulumi.Input<inputs.msk.ClusterLoggingInfo | undefined>;
     /**
      * The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
      */
@@ -581,21 +581,21 @@ export interface ClusterArgs {
     /**
      * Configuration block for JMX and Node monitoring for the MSK cluster. See openMonitoring Argument Reference below.
      */
-    openMonitoring?: pulumi.Input<inputs.msk.ClusterOpenMonitoring>;
+    openMonitoring?: pulumi.Input<inputs.msk.ClusterOpenMonitoring | undefined>;
     /**
      * Configuration block for intelligent rebalancing. See rebalancing Argument Reference below. Only applicable to MSK Provisioned clusters with Express brokers.
      */
-    rebalancing?: pulumi.Input<inputs.msk.ClusterRebalancing>;
+    rebalancing?: pulumi.Input<inputs.msk.ClusterRebalancing | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
      */
-    storageMode?: pulumi.Input<string>;
+    storageMode?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -21,7 +21,7 @@ class VaultPolicyArgs:
     def __init__(__self__, *,
                  backup_vault_name: pulumi.Input[_builtins.str],
                  policy: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VaultPolicy resource.
 
@@ -60,24 +60,24 @@ class VaultPolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _VaultPolicyState:
     def __init__(__self__, *,
-                 backup_vault_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 backup_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 backup_vault_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 backup_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VaultPolicy resources.
 
@@ -97,50 +97,50 @@ class _VaultPolicyState:
 
     @_builtins.property
     @pulumi.getter(name="backupVaultArn")
-    def backup_vault_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backup_vault_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the vault.
         """
         return pulumi.get(self, "backup_vault_arn")
 
     @backup_vault_arn.setter
-    def backup_vault_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backup_vault_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backup_vault_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="backupVaultName")
-    def backup_vault_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backup_vault_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the backup vault to add policy for.
         """
         return pulumi.get(self, "backup_vault_name")
 
     @backup_vault_name.setter
-    def backup_vault_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backup_vault_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backup_vault_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The backup vault access policy document in JSON format.
         """
         return pulumi.get(self, "policy")
 
     @policy.setter
-    def policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
@@ -150,9 +150,9 @@ class VaultPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 backup_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides an AWS Backup vault policy resource.
@@ -267,9 +267,9 @@ class VaultPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 backup_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -297,10 +297,10 @@ class VaultPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            backup_vault_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            backup_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
-            policy: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None) -> 'VaultPolicy':
+            backup_vault_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            backup_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+            policy: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> 'VaultPolicy':
         """
         Get an existing VaultPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -173,47 +173,47 @@ export interface PolicyState {
     /**
      * ARN assigned by AWS to this policy.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Number of entities (users, groups, and roles) that the policy is attached to.
      */
-    attachmentCount?: pulumi.Input<number>;
+    attachmentCount?: pulumi.Input<number | undefined>;
     /**
      * Number of ms to wait between creating the policy and setting its version as default. May be required in environments with very high S3 IO loads.
      */
-    delayAfterPolicyCreationInMs?: pulumi.Input<number>;
+    delayAfterPolicyCreationInMs?: pulumi.Input<number | undefined>;
     /**
      * Description of the IAM policy.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of the policy. If omitted, the provider will assign a random, unique name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string | undefined>;
     /**
      * Path in which to create the policy. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
      */
-    path?: pulumi.Input<string>;
+    path?: pulumi.Input<string | undefined>;
     /**
      * Policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide
      */
-    policy?: pulumi.Input<string | inputs.iam.PolicyDocument>;
+    policy?: pulumi.Input<string | inputs.iam.PolicyDocument | undefined>;
     /**
      * Policy's ID.
      */
-    policyId?: pulumi.Input<string>;
+    policyId?: pulumi.Input<string | undefined>;
     /**
      * Map of resource tags for the IAM Policy. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -223,23 +223,23 @@ export interface PolicyArgs {
     /**
      * Number of ms to wait between creating the policy and setting its version as default. May be required in environments with very high S3 IO loads.
      */
-    delayAfterPolicyCreationInMs?: pulumi.Input<number>;
+    delayAfterPolicyCreationInMs?: pulumi.Input<number | undefined>;
     /**
      * Description of the IAM policy.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of the policy. If omitted, the provider will assign a random, unique name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string | undefined>;
     /**
      * Path in which to create the policy. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
      */
-    path?: pulumi.Input<string>;
+    path?: pulumi.Input<string | undefined>;
     /**
      * Policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide
      */
@@ -247,5 +247,5 @@ export interface PolicyArgs {
     /**
      * Map of resource tags for the IAM Policy. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

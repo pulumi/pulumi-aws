@@ -656,9 +656,9 @@ def get_instance(db_instance_identifier: Optional[_builtins.str] = None,
         timezone=pulumi.get(__ret__, 'timezone'),
         upgrade_rollout_order=pulumi.get(__ret__, 'upgrade_rollout_order'),
         vpc_security_groups=pulumi.get(__ret__, 'vpc_security_groups'))
-def get_instance_output(db_instance_identifier: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                        region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                        tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_instance_output(db_instance_identifier: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceResult]:
     """
     Use this data source to get information about an RDS instance

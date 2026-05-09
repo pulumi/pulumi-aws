@@ -446,26 +446,26 @@ export interface BucketLifecycleConfigurationState {
     /**
      * Name of the source S3 bucket you want Amazon S3 to monitor.
      */
-    bucket?: pulumi.Input<string>;
+    bucket?: pulumi.Input<string | undefined>;
     /**
      * Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
      *
      * @deprecated This attribute will be removed in a future verion of the provider.
      */
-    expectedBucketOwner?: pulumi.Input<string>;
+    expectedBucketOwner?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * List of configuration blocks describing the rules managing the replication. See below.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.s3.BucketLifecycleConfigurationRule>[]>;
-    timeouts?: pulumi.Input<inputs.s3.BucketLifecycleConfigurationTimeouts>;
+    rules?: pulumi.Input<pulumi.Input<inputs.s3.BucketLifecycleConfigurationRule>[] | undefined>;
+    timeouts?: pulumi.Input<inputs.s3.BucketLifecycleConfigurationTimeouts | undefined>;
     /**
      * The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `variesByStorageClass`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `objectSizeGreaterThan` or `objectSizeLessThan` value. Custom filters always take precedence over the default transition behavior.
      */
-    transitionDefaultMinimumObjectSize?: pulumi.Input<string>;
+    transitionDefaultMinimumObjectSize?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -481,18 +481,18 @@ export interface BucketLifecycleConfigurationArgs {
      *
      * @deprecated This attribute will be removed in a future verion of the provider.
      */
-    expectedBucketOwner?: pulumi.Input<string>;
+    expectedBucketOwner?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * List of configuration blocks describing the rules managing the replication. See below.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.s3.BucketLifecycleConfigurationRule>[]>;
-    timeouts?: pulumi.Input<inputs.s3.BucketLifecycleConfigurationTimeouts>;
+    rules?: pulumi.Input<pulumi.Input<inputs.s3.BucketLifecycleConfigurationRule>[] | undefined>;
+    timeouts?: pulumi.Input<inputs.s3.BucketLifecycleConfigurationTimeouts | undefined>;
     /**
      * The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `variesByStorageClass`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `objectSizeGreaterThan` or `objectSizeLessThan` value. Custom filters always take precedence over the default transition behavior.
      */
-    transitionDefaultMinimumObjectSize?: pulumi.Input<string>;
+    transitionDefaultMinimumObjectSize?: pulumi.Input<string | undefined>;
 }

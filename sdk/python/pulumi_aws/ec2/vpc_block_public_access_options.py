@@ -22,8 +22,8 @@ __all__ = ['VpcBlockPublicAccessOptionsArgs', 'VpcBlockPublicAccessOptions']
 class VpcBlockPublicAccessOptionsArgs:
     def __init__(__self__, *,
                  internet_gateway_block_mode: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input['VpcBlockPublicAccessOptionsTimeoutsArgs']] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional['VpcBlockPublicAccessOptionsTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a VpcBlockPublicAccessOptions resource.
 
@@ -50,34 +50,34 @@ class VpcBlockPublicAccessOptionsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['VpcBlockPublicAccessOptionsTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['VpcBlockPublicAccessOptionsTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['VpcBlockPublicAccessOptionsTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['VpcBlockPublicAccessOptionsTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _VpcBlockPublicAccessOptionsState:
     def __init__(__self__, *,
-                 aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 internet_gateway_block_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input['VpcBlockPublicAccessOptionsTimeoutsArgs']] = None):
+                 aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 internet_gateway_block_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional['VpcBlockPublicAccessOptionsTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering VpcBlockPublicAccessOptions resources.
 
@@ -99,59 +99,59 @@ class _VpcBlockPublicAccessOptionsState:
 
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
-    def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS account id to which these options apply.
         """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
-    def aws_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="awsRegion")
-    def aws_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS region to which these options apply.
         """
         return pulumi.get(self, "aws_region")
 
     @aws_region.setter
-    def aws_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_region", value)
 
     @_builtins.property
     @pulumi.getter(name="internetGatewayBlockMode")
-    def internet_gateway_block_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def internet_gateway_block_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
         """
         return pulumi.get(self, "internet_gateway_block_mode")
 
     @internet_gateway_block_mode.setter
-    def internet_gateway_block_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def internet_gateway_block_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "internet_gateway_block_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['VpcBlockPublicAccessOptionsTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['VpcBlockPublicAccessOptionsTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['VpcBlockPublicAccessOptionsTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['VpcBlockPublicAccessOptionsTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
@@ -161,9 +161,9 @@ class VpcBlockPublicAccessOptions(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 internet_gateway_block_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input[Union['VpcBlockPublicAccessOptionsTimeoutsArgs', 'VpcBlockPublicAccessOptionsTimeoutsArgsDict']]] = None,
+                 internet_gateway_block_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional[Union['VpcBlockPublicAccessOptionsTimeoutsArgs', 'VpcBlockPublicAccessOptionsTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS VPC Block Public Access Options.
@@ -237,9 +237,9 @@ class VpcBlockPublicAccessOptions(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 internet_gateway_block_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input[Union['VpcBlockPublicAccessOptionsTimeoutsArgs', 'VpcBlockPublicAccessOptionsTimeoutsArgsDict']]] = None,
+                 internet_gateway_block_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional[Union['VpcBlockPublicAccessOptionsTimeoutsArgs', 'VpcBlockPublicAccessOptionsTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -266,11 +266,11 @@ class VpcBlockPublicAccessOptions(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            aws_region: Optional[pulumi.Input[_builtins.str]] = None,
-            internet_gateway_block_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            timeouts: Optional[pulumi.Input[Union['VpcBlockPublicAccessOptionsTimeoutsArgs', 'VpcBlockPublicAccessOptionsTimeoutsArgsDict']]] = None) -> 'VpcBlockPublicAccessOptions':
+            aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            aws_region: pulumi.Input[Optional[_builtins.str]] = None,
+            internet_gateway_block_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['VpcBlockPublicAccessOptionsTimeoutsArgs', 'VpcBlockPublicAccessOptionsTimeoutsArgsDict']]] = None) -> 'VpcBlockPublicAccessOptions':
         """
         Get an existing VpcBlockPublicAccessOptions resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

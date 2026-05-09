@@ -107,11 +107,11 @@ export interface PreferencesState {
     /**
      * Customize whether the member accounts can see the "After Discounts" savings estimates. Valid values are `All` and `None`. Default value is `All`.
      */
-    memberAccountDiscountVisibility?: pulumi.Input<string>;
+    memberAccountDiscountVisibility?: pulumi.Input<string | undefined>;
     /**
      * Customize how estimated monthly savings are calculated. Valid values are `BeforeDiscounts` and `AfterDiscounts`. Default value is `BeforeDiscounts`.
      */
-    savingsEstimationMode?: pulumi.Input<string>;
+    savingsEstimationMode?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -121,9 +121,9 @@ export interface PreferencesArgs {
     /**
      * Customize whether the member accounts can see the "After Discounts" savings estimates. Valid values are `All` and `None`. Default value is `All`.
      */
-    memberAccountDiscountVisibility?: pulumi.Input<string>;
+    memberAccountDiscountVisibility?: pulumi.Input<string | undefined>;
     /**
      * Customize how estimated monthly savings are calculated. Valid values are `BeforeDiscounts` and `AfterDiscounts`. Default value is `BeforeDiscounts`.
      */
-    savingsEstimationMode?: pulumi.Input<string>;
+    savingsEstimationMode?: pulumi.Input<string | undefined>;
 }

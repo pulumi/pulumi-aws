@@ -113,7 +113,7 @@ def get_delegation_set(id: Optional[_builtins.str] = None,
         caller_reference=pulumi.get(__ret__, 'caller_reference'),
         id=pulumi.get(__ret__, 'id'),
         name_servers=pulumi.get(__ret__, 'name_servers'))
-def get_delegation_set_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_delegation_set_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDelegationSetResult]:
     """
     `route53.DelegationSet` provides details about a specific Route 53 Delegation Set.

@@ -152,41 +152,41 @@ export interface ConnectionState {
     /**
      * ARN of the connection.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * ID of the second device in the connection.
      */
-    connectedDeviceId?: pulumi.Input<string>;
+    connectedDeviceId?: pulumi.Input<string | undefined>;
     /**
      * ID of the link for the second device.
      */
-    connectedLinkId?: pulumi.Input<string>;
+    connectedLinkId?: pulumi.Input<string | undefined>;
     /**
      * Description of the connection.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * ID of the first device in the connection.
      */
-    deviceId?: pulumi.Input<string>;
+    deviceId?: pulumi.Input<string | undefined>;
     /**
      * ID of the global network.
      *
      * The following arguments are optional:
      */
-    globalNetworkId?: pulumi.Input<string>;
+    globalNetworkId?: pulumi.Input<string | undefined>;
     /**
      * ID of the link for the first device.
      */
-    linkId?: pulumi.Input<string>;
+    linkId?: pulumi.Input<string | undefined>;
     /**
      * Key-value tags for the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -200,11 +200,11 @@ export interface ConnectionArgs {
     /**
      * ID of the link for the second device.
      */
-    connectedLinkId?: pulumi.Input<string>;
+    connectedLinkId?: pulumi.Input<string | undefined>;
     /**
      * Description of the connection.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * ID of the first device in the connection.
      */
@@ -218,9 +218,9 @@ export interface ConnectionArgs {
     /**
      * ID of the link for the first device.
      */
-    linkId?: pulumi.Input<string>;
+    linkId?: pulumi.Input<string | undefined>;
     /**
      * Key-value tags for the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

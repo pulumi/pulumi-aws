@@ -233,55 +233,55 @@ export interface UserState {
     /**
      * Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
      */
-    accessString?: pulumi.Input<string>;
+    accessString?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the created ElastiCache User.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Denotes the user's authentication properties. Detailed below.
      */
-    authenticationMode?: pulumi.Input<inputs.elasticache.UserAuthenticationMode>;
+    authenticationMode?: pulumi.Input<inputs.elasticache.UserAuthenticationMode | undefined>;
     /**
      * The current supported values are `redis`, `valkey` (case insensitive).
      */
-    engine?: pulumi.Input<string>;
+    engine?: pulumi.Input<string | undefined>;
     /**
      * Indicates a password is not required for this user.
      */
-    noPasswordRequired?: pulumi.Input<boolean>;
+    noPasswordRequired?: pulumi.Input<boolean | undefined>;
     /**
      * Passwords used for this user. You can create up to two passwords for each user.
      */
-    passwords?: pulumi.Input<pulumi.Input<string>[]>;
+    passwords?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
      * Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authenticationMode`. See Write-Only Arguments for more information. Requires Terraform 1.11+.
      */
-    passwordsWo?: pulumi.Input<string>;
+    passwordsWo?: pulumi.Input<string | undefined>;
     /**
      * Version number for `passwordsWo`. Increment this value to trigger a password update. Required when using `passwordsWo`.
      */
-    passwordsWoVersion?: pulumi.Input<number>;
+    passwordsWoVersion?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A list of tags to be added to this resource. A tag is a key-value pair.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ID of the user.
      */
-    userId?: pulumi.Input<string>;
+    userId?: pulumi.Input<string | undefined>;
     /**
      * The username of the user.
      *
      * The following arguments are optional:
      */
-    userName?: pulumi.Input<string>;
+    userName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -295,7 +295,7 @@ export interface UserArgs {
     /**
      * Denotes the user's authentication properties. Detailed below.
      */
-    authenticationMode?: pulumi.Input<inputs.elasticache.UserAuthenticationMode>;
+    authenticationMode?: pulumi.Input<inputs.elasticache.UserAuthenticationMode | undefined>;
     /**
      * The current supported values are `redis`, `valkey` (case insensitive).
      */
@@ -303,28 +303,28 @@ export interface UserArgs {
     /**
      * Indicates a password is not required for this user.
      */
-    noPasswordRequired?: pulumi.Input<boolean>;
+    noPasswordRequired?: pulumi.Input<boolean | undefined>;
     /**
      * Passwords used for this user. You can create up to two passwords for each user.
      */
-    passwords?: pulumi.Input<pulumi.Input<string>[]>;
+    passwords?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
      * Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authenticationMode`. See Write-Only Arguments for more information. Requires Terraform 1.11+.
      */
-    passwordsWo?: pulumi.Input<string>;
+    passwordsWo?: pulumi.Input<string | undefined>;
     /**
      * Version number for `passwordsWo`. Increment this value to trigger a password update. Required when using `passwordsWo`.
      */
-    passwordsWoVersion?: pulumi.Input<number>;
+    passwordsWoVersion?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A list of tags to be added to this resource. A tag is a key-value pair.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ID of the user.
      */

@@ -23,13 +23,13 @@ class OptionGroupArgs:
     def __init__(__self__, *,
                  engine_name: pulumi.Input[_builtins.str],
                  major_engine_version: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 option_group_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 options: Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 option_group_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 options: pulumi.Input[Optional[Sequence[pulumi.Input['OptionGroupOptionArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a OptionGroup resource.
 
@@ -88,103 +88,103 @@ class OptionGroupArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
         """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
-    def name_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="optionGroupDescription")
-    def option_group_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def option_group_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the option group. Defaults to "Managed by Pulumi".
         """
         return pulumi.get(self, "option_group_description")
 
     @option_group_description.setter
-    def option_group_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def option_group_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "option_group_description", value)
 
     @_builtins.property
     @pulumi.getter
-    def options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionArgs']]]]:
+    def options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OptionGroupOptionArgs']]]]:
         """
         The options to apply. See `option` Block below for more details.
         """
         return pulumi.get(self, "options")
 
     @options.setter
-    def options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionArgs']]]]):
+    def options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OptionGroupOptionArgs']]]]):
         pulumi.set(self, "options", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="skipDestroy")
-    def skip_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_destroy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
         """
         return pulumi.get(self, "skip_destroy")
 
     @skip_destroy.setter
-    def skip_destroy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_destroy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_destroy", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _OptionGroupState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 major_engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 option_group_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 options: Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 major_engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 option_group_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 options: pulumi.Input[Optional[Sequence[pulumi.Input['OptionGroupOptionArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering OptionGroup resources.
 
@@ -227,134 +227,134 @@ class _OptionGroupState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the DB option group.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="engineName")
-    def engine_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def engine_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the engine that this option group should be associated with.
         """
         return pulumi.get(self, "engine_name")
 
     @engine_name.setter
-    def engine_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def engine_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "engine_name", value)
 
     @_builtins.property
     @pulumi.getter(name="majorEngineVersion")
-    def major_engine_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def major_engine_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the major version of the engine that this option group should be associated with.
         """
         return pulumi.get(self, "major_engine_version")
 
     @major_engine_version.setter
-    def major_engine_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def major_engine_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "major_engine_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
         """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
-    def name_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="optionGroupDescription")
-    def option_group_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def option_group_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the option group. Defaults to "Managed by Pulumi".
         """
         return pulumi.get(self, "option_group_description")
 
     @option_group_description.setter
-    def option_group_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def option_group_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "option_group_description", value)
 
     @_builtins.property
     @pulumi.getter
-    def options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionArgs']]]]:
+    def options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OptionGroupOptionArgs']]]]:
         """
         The options to apply. See `option` Block below for more details.
         """
         return pulumi.get(self, "options")
 
     @options.setter
-    def options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionArgs']]]]):
+    def options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OptionGroupOptionArgs']]]]):
         pulumi.set(self, "options", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="skipDestroy")
-    def skip_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_destroy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
         """
         return pulumi.get(self, "skip_destroy")
 
     @skip_destroy.setter
-    def skip_destroy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_destroy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_destroy", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
 
@@ -364,15 +364,15 @@ class OptionGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 engine_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 major_engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 option_group_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 options: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OptionGroupOptionArgs', 'OptionGroupOptionArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 engine_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 major_engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 option_group_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OptionGroupOptionArgs', 'OptionGroupOptionArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides an RDS DB option group resource. Documentation of the available options for various RDS engines can be found at:
@@ -525,15 +525,15 @@ class OptionGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 engine_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 major_engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 option_group_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 options: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OptionGroupOptionArgs', 'OptionGroupOptionArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 engine_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 major_engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 option_group_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OptionGroupOptionArgs', 'OptionGroupOptionArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -570,17 +570,17 @@ class OptionGroup(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            engine_name: Optional[pulumi.Input[_builtins.str]] = None,
-            major_engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-            option_group_description: Optional[pulumi.Input[_builtins.str]] = None,
-            options: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OptionGroupOptionArgs', 'OptionGroupOptionArgsDict']]]]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            skip_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'OptionGroup':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            engine_name: pulumi.Input[Optional[_builtins.str]] = None,
+            major_engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            option_group_description: pulumi.Input[Optional[_builtins.str]] = None,
+            options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OptionGroupOptionArgs', 'OptionGroupOptionArgsDict']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'OptionGroup':
         """
         Get an existing OptionGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

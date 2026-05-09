@@ -127,19 +127,19 @@ export interface VpcEndpointConnectionAccepterState {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * AWS VPC Endpoint ID.
      */
-    vpcEndpointId?: pulumi.Input<string>;
+    vpcEndpointId?: pulumi.Input<string | undefined>;
     /**
      * AWS VPC Endpoint Service ID.
      */
-    vpcEndpointServiceId?: pulumi.Input<string>;
+    vpcEndpointServiceId?: pulumi.Input<string | undefined>;
     /**
      * State of the VPC Endpoint.
      */
-    vpcEndpointState?: pulumi.Input<string>;
+    vpcEndpointState?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -149,7 +149,7 @@ export interface VpcEndpointConnectionAccepterArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * AWS VPC Endpoint ID.
      */

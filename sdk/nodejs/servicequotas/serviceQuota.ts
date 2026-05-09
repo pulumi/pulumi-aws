@@ -167,45 +167,45 @@ export interface ServiceQuotaState {
     /**
      * Whether the service quota can be increased.
      */
-    adjustable?: pulumi.Input<boolean>;
+    adjustable?: pulumi.Input<boolean | undefined>;
     /**
      * Amazon Resource Name (ARN) of the service quota.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Default value of the service quota.
      */
-    defaultValue?: pulumi.Input<number>;
+    defaultValue?: pulumi.Input<number | undefined>;
     /**
      * Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
      */
-    quotaCode?: pulumi.Input<string>;
+    quotaCode?: pulumi.Input<string | undefined>;
     /**
      * Name of the quota.
      */
-    quotaName?: pulumi.Input<string>;
+    quotaName?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    requestId?: pulumi.Input<string>;
-    requestStatus?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
+    requestId?: pulumi.Input<string | undefined>;
+    requestStatus?: pulumi.Input<string | undefined>;
     /**
      * Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
      */
-    serviceCode?: pulumi.Input<string>;
+    serviceCode?: pulumi.Input<string | undefined>;
     /**
      * Name of the service.
      */
-    serviceName?: pulumi.Input<string>;
+    serviceName?: pulumi.Input<string | undefined>;
     /**
      * Information about the measurement.
      */
-    usageMetrics?: pulumi.Input<pulumi.Input<inputs.servicequotas.ServiceQuotaUsageMetric>[]>;
+    usageMetrics?: pulumi.Input<pulumi.Input<inputs.servicequotas.ServiceQuotaUsageMetric>[] | undefined>;
     /**
      * Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
      */
-    value?: pulumi.Input<number>;
+    value?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -219,7 +219,7 @@ export interface ServiceQuotaArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
      */

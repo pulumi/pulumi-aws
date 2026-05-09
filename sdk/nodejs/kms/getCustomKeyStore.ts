@@ -106,13 +106,13 @@ export interface GetCustomKeyStoreOutputArgs {
     /**
      * The ID for the custom key store.
      */
-    customKeyStoreId?: pulumi.Input<string>;
+    customKeyStoreId?: pulumi.Input<string | undefined>;
     /**
      * The user-specified friendly name for the custom key store.
      */
-    customKeyStoreName?: pulumi.Input<string>;
+    customKeyStoreName?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

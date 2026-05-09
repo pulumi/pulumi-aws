@@ -232,8 +232,8 @@ def get_distribution(id: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         web_acl_id=pulumi.get(__ret__, 'web_acl_id'))
-def get_distribution_output(id: Optional[pulumi.Input[_builtins.str]] = None,
-                            tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_distribution_output(id: pulumi.Input[Optional[_builtins.str]] = None,
+                            tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDistributionResult]:
     """
     Use this data source to retrieve information about a CloudFront distribution.

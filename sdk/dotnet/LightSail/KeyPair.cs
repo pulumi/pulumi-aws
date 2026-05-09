@@ -67,7 +67,7 @@ namespace Pulumi.Aws.LightSail
     ///     var example = new Aws.LightSail.KeyPair("example", new()
     ///     {
     ///         Name = "example",
-    ///         PublicKey = Std.Index.File.Invoke(new()
+    ///         PublicKey = Std.File.Invoke(new()
     ///         {
     ///             Input = "~/.ssh/id_rsa.pub",
     ///         }).Apply(invoke =&gt; invoke.Result),

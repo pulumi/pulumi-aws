@@ -36,11 +36,11 @@ __all__ = [
 ]
 
 class FastSnapshotRestoreTimeoutsArgsDict(TypedDict):
-    create: NotRequired[pulumi.Input[_builtins.str]]
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
-    delete: NotRequired[pulumi.Input[_builtins.str]]
+    delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     """
@@ -48,8 +48,8 @@ class FastSnapshotRestoreTimeoutsArgsDict(TypedDict):
 @pulumi.input_type
 class FastSnapshotRestoreTimeoutsArgs:
     def __init__(__self__, *,
-                 create: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete: Optional[pulumi.Input[_builtins.str]] = None):
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
@@ -61,43 +61,43 @@ class FastSnapshotRestoreTimeoutsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "create")
 
     @create.setter
-    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create", value)
 
     @_builtins.property
     @pulumi.getter
-    def delete(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delete(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
         """
         return pulumi.get(self, "delete")
 
     @delete.setter
-    def delete(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delete", value)
 
 
 class SnapshotImportClientDataArgsDict(TypedDict):
-    comment: NotRequired[pulumi.Input[_builtins.str]]
+    comment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A user-defined comment about the disk upload.
     """
-    upload_end: NotRequired[pulumi.Input[_builtins.str]]
+    upload_end: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The time that the disk upload ends.
     """
-    upload_size: NotRequired[pulumi.Input[_builtins.float]]
+    upload_size: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The size of the uploaded disk image, in GiB.
     """
-    upload_start: NotRequired[pulumi.Input[_builtins.str]]
+    upload_start: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The time that the disk upload starts.
     """
@@ -105,10 +105,10 @@ class SnapshotImportClientDataArgsDict(TypedDict):
 @pulumi.input_type
 class SnapshotImportClientDataArgs:
     def __init__(__self__, *,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 upload_end: Optional[pulumi.Input[_builtins.str]] = None,
-                 upload_size: Optional[pulumi.Input[_builtins.float]] = None,
-                 upload_start: Optional[pulumi.Input[_builtins.str]] = None):
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 upload_end: pulumi.Input[Optional[_builtins.str]] = None,
+                 upload_size: pulumi.Input[Optional[_builtins.float]] = None,
+                 upload_start: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] comment: A user-defined comment about the disk upload.
         :param pulumi.Input[_builtins.str] upload_end: The time that the disk upload ends.
@@ -126,50 +126,50 @@ class SnapshotImportClientDataArgs:
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A user-defined comment about the disk upload.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="uploadEnd")
-    def upload_end(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def upload_end(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time that the disk upload ends.
         """
         return pulumi.get(self, "upload_end")
 
     @upload_end.setter
-    def upload_end(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def upload_end(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "upload_end", value)
 
     @_builtins.property
     @pulumi.getter(name="uploadSize")
-    def upload_size(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def upload_size(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The size of the uploaded disk image, in GiB.
         """
         return pulumi.get(self, "upload_size")
 
     @upload_size.setter
-    def upload_size(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def upload_size(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "upload_size", value)
 
     @_builtins.property
     @pulumi.getter(name="uploadStart")
-    def upload_start(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def upload_start(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time that the disk upload starts.
         """
         return pulumi.get(self, "upload_start")
 
     @upload_start.setter
-    def upload_start(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def upload_start(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "upload_start", value)
 
 
@@ -178,15 +178,15 @@ class SnapshotImportDiskContainerArgsDict(TypedDict):
     """
     The format of the disk image being imported. One of `VHD` or `VMDK`.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description of the disk image being imported.
     """
-    url: NotRequired[pulumi.Input[_builtins.str]]
+    url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..). One of `url` or `user_bucket` must be set.
     """
-    user_bucket: NotRequired[pulumi.Input['SnapshotImportDiskContainerUserBucketArgsDict']]
+    user_bucket: NotRequired[pulumi.Input[Optional['SnapshotImportDiskContainerUserBucketArgs']]]
     """
     The Amazon S3 bucket for the disk image. One of `url` or `user_bucket` must be set. Detailed below.
     """
@@ -195,9 +195,9 @@ class SnapshotImportDiskContainerArgsDict(TypedDict):
 class SnapshotImportDiskContainerArgs:
     def __init__(__self__, *,
                  format: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_bucket: Optional[pulumi.Input['SnapshotImportDiskContainerUserBucketArgs']] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_bucket: pulumi.Input[Optional['SnapshotImportDiskContainerUserBucketArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] format: The format of the disk image being imported. One of `VHD` or `VMDK`.
         :param pulumi.Input[_builtins.str] description: The description of the disk image being imported.
@@ -226,38 +226,38 @@ class SnapshotImportDiskContainerArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the disk image being imported.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..). One of `url` or `user_bucket` must be set.
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
     @_builtins.property
     @pulumi.getter(name="userBucket")
-    def user_bucket(self) -> Optional[pulumi.Input['SnapshotImportDiskContainerUserBucketArgs']]:
+    def user_bucket(self) -> pulumi.Input[Optional['SnapshotImportDiskContainerUserBucketArgs']]:
         """
         The Amazon S3 bucket for the disk image. One of `url` or `user_bucket` must be set. Detailed below.
         """
         return pulumi.get(self, "user_bucket")
 
     @user_bucket.setter
-    def user_bucket(self, value: Optional[pulumi.Input['SnapshotImportDiskContainerUserBucketArgs']]):
+    def user_bucket(self, value: pulumi.Input[Optional['SnapshotImportDiskContainerUserBucketArgs']]):
         pulumi.set(self, "user_bucket", value)
 
 
@@ -309,15 +309,15 @@ class SnapshotImportDiskContainerUserBucketArgs:
 
 
 class VolumeCopyTimeoutsArgsDict(TypedDict):
-    create: NotRequired[pulumi.Input[_builtins.str]]
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
-    delete: NotRequired[pulumi.Input[_builtins.str]]
+    delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     """
-    update: NotRequired[pulumi.Input[_builtins.str]]
+    update: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
@@ -325,9 +325,9 @@ class VolumeCopyTimeoutsArgsDict(TypedDict):
 @pulumi.input_type
 class VolumeCopyTimeoutsArgs:
     def __init__(__self__, *,
-                 create: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete: Optional[pulumi.Input[_builtins.str]] = None,
-                 update: Optional[pulumi.Input[_builtins.str]] = None):
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete: pulumi.Input[Optional[_builtins.str]] = None,
+                 update: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
@@ -342,38 +342,38 @@ class VolumeCopyTimeoutsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "create")
 
     @create.setter
-    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create", value)
 
     @_builtins.property
     @pulumi.getter
-    def delete(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delete(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
         """
         return pulumi.get(self, "delete")
 
     @delete.setter
-    def delete(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delete", value)
 
     @_builtins.property
     @pulumi.getter
-    def update(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def update(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "update")
 
     @update.setter
-    def update(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def update(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "update", value)
 
 

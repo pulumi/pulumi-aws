@@ -381,8 +381,8 @@ def get_user_pool(region: Optional[_builtins.str] = None,
         user_pool_id=pulumi.get(__ret__, 'user_pool_id'),
         user_pool_tags=pulumi.get(__ret__, 'user_pool_tags'),
         username_attributes=pulumi.get(__ret__, 'username_attributes'))
-def get_user_pool_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                         user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_user_pool_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                         user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserPoolResult]:
     """
     Data source for managing an AWS Cognito User Pool.

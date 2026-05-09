@@ -38,8 +38,8 @@ public final class EfsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.efs.EfsFunctions;
      * import com.pulumi.aws.efs.inputs.GetAccessPointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -78,8 +78,8 @@ public final class EfsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.efs.EfsFunctions;
      * import com.pulumi.aws.efs.inputs.GetAccessPointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -118,8 +118,8 @@ public final class EfsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.efs.EfsFunctions;
      * import com.pulumi.aws.efs.inputs.GetAccessPointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -158,8 +158,8 @@ public final class EfsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.efs.EfsFunctions;
      * import com.pulumi.aws.efs.inputs.GetAccessPointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -198,8 +198,8 @@ public final class EfsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.efs.EfsFunctions;
      * import com.pulumi.aws.efs.inputs.GetAccessPointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -238,8 +238,8 @@ public final class EfsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.efs.EfsFunctions;
      * import com.pulumi.aws.efs.inputs.GetAccessPointsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -278,8 +278,8 @@ public final class EfsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.efs.EfsFunctions;
      * import com.pulumi.aws.efs.inputs.GetAccessPointsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -318,8 +318,8 @@ public final class EfsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.efs.EfsFunctions;
      * import com.pulumi.aws.efs.inputs.GetAccessPointsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -358,8 +358,8 @@ public final class EfsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.efs.EfsFunctions;
      * import com.pulumi.aws.efs.inputs.GetAccessPointsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -398,8 +398,8 @@ public final class EfsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.efs.EfsFunctions;
      * import com.pulumi.aws.efs.inputs.GetAccessPointsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -438,8 +438,8 @@ public final class EfsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.efs.EfsFunctions;
      * import com.pulumi.aws.efs.inputs.GetFileSystemArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -484,8 +484,8 @@ public final class EfsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.efs.EfsFunctions;
      * import com.pulumi.aws.efs.inputs.GetFileSystemArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -530,8 +530,8 @@ public final class EfsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.efs.EfsFunctions;
      * import com.pulumi.aws.efs.inputs.GetFileSystemArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -576,8 +576,8 @@ public final class EfsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.efs.EfsFunctions;
      * import com.pulumi.aws.efs.inputs.GetFileSystemArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -622,8 +622,8 @@ public final class EfsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.efs.EfsFunctions;
      * import com.pulumi.aws.efs.inputs.GetFileSystemArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -668,8 +668,8 @@ public final class EfsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.efs.EfsFunctions;
      * import com.pulumi.aws.efs.inputs.GetFileSystemArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -714,8 +714,8 @@ public final class EfsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.efs.EfsFunctions;
      * import com.pulumi.aws.efs.inputs.GetFileSystemArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -760,8 +760,8 @@ public final class EfsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.efs.EfsFunctions;
      * import com.pulumi.aws.efs.inputs.GetMountTargetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -802,8 +802,8 @@ public final class EfsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.efs.EfsFunctions;
      * import com.pulumi.aws.efs.inputs.GetMountTargetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -844,8 +844,8 @@ public final class EfsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.efs.EfsFunctions;
      * import com.pulumi.aws.efs.inputs.GetMountTargetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -886,8 +886,8 @@ public final class EfsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.efs.EfsFunctions;
      * import com.pulumi.aws.efs.inputs.GetMountTargetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -928,8 +928,8 @@ public final class EfsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.efs.EfsFunctions;
      * import com.pulumi.aws.efs.inputs.GetMountTargetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -970,8 +970,8 @@ public final class EfsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.efs.EfsFunctions;
      * import com.pulumi.aws.efs.inputs.GetMountTargetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1012,8 +1012,8 @@ public final class EfsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.efs.EfsFunctions;
      * import com.pulumi.aws.efs.inputs.GetMountTargetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

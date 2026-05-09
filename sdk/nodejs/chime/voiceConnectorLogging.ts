@@ -116,19 +116,19 @@ export interface VoiceConnectorLoggingState {
     /**
      * When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
      */
-    enableMediaMetricLogs?: pulumi.Input<boolean>;
+    enableMediaMetricLogs?: pulumi.Input<boolean | undefined>;
     /**
      * When true, enables SIP message logs for sending to Amazon CloudWatch Logs.
      */
-    enableSipLogs?: pulumi.Input<boolean>;
+    enableSipLogs?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Chime Voice Connector ID.
      */
-    voiceConnectorId?: pulumi.Input<string>;
+    voiceConnectorId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -138,15 +138,15 @@ export interface VoiceConnectorLoggingArgs {
     /**
      * When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
      */
-    enableMediaMetricLogs?: pulumi.Input<boolean>;
+    enableMediaMetricLogs?: pulumi.Input<boolean | undefined>;
     /**
      * When true, enables SIP message logs for sending to Amazon CloudWatch Logs.
      */
-    enableSipLogs?: pulumi.Input<boolean>;
+    enableSipLogs?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Chime Voice Connector ID.
      */

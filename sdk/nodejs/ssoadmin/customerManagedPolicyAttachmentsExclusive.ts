@@ -178,22 +178,22 @@ export interface CustomerManagedPolicyAttachmentsExclusiveState {
     /**
      * Specifies the names and paths of the customer managed policies to attach. See Customer Managed Policy Reference below.
      */
-    customerManagedPolicyReferences?: pulumi.Input<pulumi.Input<inputs.ssoadmin.CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReference>[]>;
+    customerManagedPolicyReferences?: pulumi.Input<pulumi.Input<inputs.ssoadmin.CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReference>[] | undefined>;
     /**
      * ARN of the SSO Instance.
      */
-    instanceArn?: pulumi.Input<string>;
+    instanceArn?: pulumi.Input<string | undefined>;
     /**
      * ARN of the Permission Set.
      *
      * The following arguments are optional:
      */
-    permissionSetArn?: pulumi.Input<string>;
+    permissionSetArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.ssoadmin.CustomerManagedPolicyAttachmentsExclusiveTimeouts>;
+    region?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.ssoadmin.CustomerManagedPolicyAttachmentsExclusiveTimeouts | undefined>;
 }
 
 /**
@@ -203,7 +203,7 @@ export interface CustomerManagedPolicyAttachmentsExclusiveArgs {
     /**
      * Specifies the names and paths of the customer managed policies to attach. See Customer Managed Policy Reference below.
      */
-    customerManagedPolicyReferences?: pulumi.Input<pulumi.Input<inputs.ssoadmin.CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReference>[]>;
+    customerManagedPolicyReferences?: pulumi.Input<pulumi.Input<inputs.ssoadmin.CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReference>[] | undefined>;
     /**
      * ARN of the SSO Instance.
      */
@@ -217,6 +217,6 @@ export interface CustomerManagedPolicyAttachmentsExclusiveArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.ssoadmin.CustomerManagedPolicyAttachmentsExclusiveTimeouts>;
+    region?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.ssoadmin.CustomerManagedPolicyAttachmentsExclusiveTimeouts | undefined>;
 }

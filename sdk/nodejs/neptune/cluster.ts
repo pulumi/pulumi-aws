@@ -331,155 +331,155 @@ export interface ClusterState {
     /**
      * Whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engineVersion` parameter that uses a different major version than the DB cluster's current version. Default is `false`.
      */
-    allowMajorVersionUpgrade?: pulumi.Input<boolean>;
+    allowMajorVersionUpgrade?: pulumi.Input<boolean | undefined>;
     /**
      * Whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
      */
-    applyImmediately?: pulumi.Input<boolean>;
+    applyImmediately?: pulumi.Input<boolean | undefined>;
     /**
      * Neptune Cluster ARN
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * List of EC2 Availability Zones that instances in the Neptune cluster can be created in.
      */
-    availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
+    availabilityZones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Days to retain backups for. Default `1`
      */
-    backupRetentionPeriod?: pulumi.Input<number>;
+    backupRetentionPeriod?: pulumi.Input<number | undefined>;
     /**
      * Cluster identifier. If omitted, Terraform will assign a random, unique identifier.
      */
-    clusterIdentifier?: pulumi.Input<string>;
+    clusterIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
      */
-    clusterIdentifierPrefix?: pulumi.Input<string>;
+    clusterIdentifierPrefix?: pulumi.Input<string | undefined>;
     /**
      * List of Neptune Instances that are a part of this cluster
      */
-    clusterMembers?: pulumi.Input<pulumi.Input<string>[]>;
+    clusterMembers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Neptune Cluster Resource ID
      */
-    clusterResourceId?: pulumi.Input<string>;
+    clusterResourceId?: pulumi.Input<string | undefined>;
     /**
      * If set to true, tags are copied to any snapshot of the DB cluster that is created.
      */
-    copyTagsToSnapshot?: pulumi.Input<boolean>;
+    copyTagsToSnapshot?: pulumi.Input<boolean | undefined>;
     /**
      * Value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
      */
-    deletionProtection?: pulumi.Input<boolean>;
+    deletionProtection?: pulumi.Input<boolean | undefined>;
     /**
      * List of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
      */
-    enableCloudwatchLogsExports?: pulumi.Input<pulumi.Input<string>[]>;
+    enableCloudwatchLogsExports?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * DNS address of the Neptune instance
      */
-    endpoint?: pulumi.Input<string>;
+    endpoint?: pulumi.Input<string | undefined>;
     /**
      * Name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
      */
-    engine?: pulumi.Input<string>;
+    engine?: pulumi.Input<string | undefined>;
     /**
      * Database engine version.
      */
-    engineVersion?: pulumi.Input<string>;
+    engineVersion?: pulumi.Input<string | undefined>;
     /**
      * Name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
      */
-    finalSnapshotIdentifier?: pulumi.Input<string>;
+    finalSnapshotIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Global cluster identifier specified on `aws.neptune.GlobalCluster`.
      */
-    globalClusterIdentifier?: pulumi.Input<string>;
+    globalClusterIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Route53 Hosted Zone ID of the endpoint
      */
-    hostedZoneId?: pulumi.Input<string>;
+    hostedZoneId?: pulumi.Input<string | undefined>;
     /**
      * Whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
      */
-    iamDatabaseAuthenticationEnabled?: pulumi.Input<boolean>;
+    iamDatabaseAuthenticationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * List of ARNs for the IAM roles to associate to the Neptune Cluster.
      */
-    iamRoles?: pulumi.Input<pulumi.Input<string>[]>;
+    iamRoles?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * ARN for the KMS encryption key. When specifying `kmsKeyArn`, `storageEncrypted` needs to be set to true.
      */
-    kmsKeyArn?: pulumi.Input<string>;
+    kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
      * Cluster parameter group to associate with the cluster.
      */
-    neptuneClusterParameterGroupName?: pulumi.Input<string>;
+    neptuneClusterParameterGroupName?: pulumi.Input<string | undefined>;
     /**
      * Name of DB parameter group to apply to all instances in the cluster. When upgrading, AWS does not return this value, so do not reference it in other arguments—either leave it unset, configure each instance directly, or ensure it matches the `engineVersion`.
      */
-    neptuneInstanceParameterGroupName?: pulumi.Input<string>;
+    neptuneInstanceParameterGroupName?: pulumi.Input<string | undefined>;
     /**
      * Neptune subnet group to associate with this Neptune instance.
      */
-    neptuneSubnetGroupName?: pulumi.Input<string>;
+    neptuneSubnetGroupName?: pulumi.Input<string | undefined>;
     /**
      * Port on which the Neptune accepts connections. Default is `8182`.
      */
-    port?: pulumi.Input<number>;
+    port?: pulumi.Input<number | undefined>;
     /**
      * Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
      */
-    preferredBackupWindow?: pulumi.Input<string>;
+    preferredBackupWindow?: pulumi.Input<string | undefined>;
     /**
      * Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
      */
-    preferredMaintenanceWindow?: pulumi.Input<string>;
+    preferredMaintenanceWindow?: pulumi.Input<string | undefined>;
     /**
      * Read-only endpoint for the Neptune cluster, automatically load-balanced across replicas
      */
-    readerEndpoint?: pulumi.Input<string>;
+    readerEndpoint?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
      */
-    replicationSourceIdentifier?: pulumi.Input<string>;
+    replicationSourceIdentifier?: pulumi.Input<string | undefined>;
     /**
      * If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
      */
-    serverlessV2ScalingConfiguration?: pulumi.Input<inputs.neptune.ClusterServerlessV2ScalingConfiguration>;
+    serverlessV2ScalingConfiguration?: pulumi.Input<inputs.neptune.ClusterServerlessV2ScalingConfiguration | undefined>;
     /**
      * Whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
      */
-    skipFinalSnapshot?: pulumi.Input<boolean>;
+    skipFinalSnapshot?: pulumi.Input<boolean | undefined>;
     /**
      * Whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
      */
-    snapshotIdentifier?: pulumi.Input<string>;
+    snapshotIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Whether the Neptune cluster is encrypted. The default is `false` if not specified.
      */
-    storageEncrypted?: pulumi.Input<boolean>;
+    storageEncrypted?: pulumi.Input<boolean | undefined>;
     /**
      * Storage type associated with the cluster `standard/iopt1`. Default: `standard`.
      */
-    storageType?: pulumi.Input<string>;
+    storageType?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the Neptune cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * List of VPC security groups to associate with the Cluster
      */
-    vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -489,125 +489,125 @@ export interface ClusterArgs {
     /**
      * Whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engineVersion` parameter that uses a different major version than the DB cluster's current version. Default is `false`.
      */
-    allowMajorVersionUpgrade?: pulumi.Input<boolean>;
+    allowMajorVersionUpgrade?: pulumi.Input<boolean | undefined>;
     /**
      * Whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
      */
-    applyImmediately?: pulumi.Input<boolean>;
+    applyImmediately?: pulumi.Input<boolean | undefined>;
     /**
      * List of EC2 Availability Zones that instances in the Neptune cluster can be created in.
      */
-    availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
+    availabilityZones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Days to retain backups for. Default `1`
      */
-    backupRetentionPeriod?: pulumi.Input<number>;
+    backupRetentionPeriod?: pulumi.Input<number | undefined>;
     /**
      * Cluster identifier. If omitted, Terraform will assign a random, unique identifier.
      */
-    clusterIdentifier?: pulumi.Input<string>;
+    clusterIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
      */
-    clusterIdentifierPrefix?: pulumi.Input<string>;
+    clusterIdentifierPrefix?: pulumi.Input<string | undefined>;
     /**
      * If set to true, tags are copied to any snapshot of the DB cluster that is created.
      */
-    copyTagsToSnapshot?: pulumi.Input<boolean>;
+    copyTagsToSnapshot?: pulumi.Input<boolean | undefined>;
     /**
      * Value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
      */
-    deletionProtection?: pulumi.Input<boolean>;
+    deletionProtection?: pulumi.Input<boolean | undefined>;
     /**
      * List of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
      */
-    enableCloudwatchLogsExports?: pulumi.Input<pulumi.Input<string>[]>;
+    enableCloudwatchLogsExports?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
      */
-    engine?: pulumi.Input<string>;
+    engine?: pulumi.Input<string | undefined>;
     /**
      * Database engine version.
      */
-    engineVersion?: pulumi.Input<string>;
+    engineVersion?: pulumi.Input<string | undefined>;
     /**
      * Name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
      */
-    finalSnapshotIdentifier?: pulumi.Input<string>;
+    finalSnapshotIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Global cluster identifier specified on `aws.neptune.GlobalCluster`.
      */
-    globalClusterIdentifier?: pulumi.Input<string>;
+    globalClusterIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
      */
-    iamDatabaseAuthenticationEnabled?: pulumi.Input<boolean>;
+    iamDatabaseAuthenticationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * List of ARNs for the IAM roles to associate to the Neptune Cluster.
      */
-    iamRoles?: pulumi.Input<pulumi.Input<string>[]>;
+    iamRoles?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * ARN for the KMS encryption key. When specifying `kmsKeyArn`, `storageEncrypted` needs to be set to true.
      */
-    kmsKeyArn?: pulumi.Input<string>;
+    kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
      * Cluster parameter group to associate with the cluster.
      */
-    neptuneClusterParameterGroupName?: pulumi.Input<string>;
+    neptuneClusterParameterGroupName?: pulumi.Input<string | undefined>;
     /**
      * Name of DB parameter group to apply to all instances in the cluster. When upgrading, AWS does not return this value, so do not reference it in other arguments—either leave it unset, configure each instance directly, or ensure it matches the `engineVersion`.
      */
-    neptuneInstanceParameterGroupName?: pulumi.Input<string>;
+    neptuneInstanceParameterGroupName?: pulumi.Input<string | undefined>;
     /**
      * Neptune subnet group to associate with this Neptune instance.
      */
-    neptuneSubnetGroupName?: pulumi.Input<string>;
+    neptuneSubnetGroupName?: pulumi.Input<string | undefined>;
     /**
      * Port on which the Neptune accepts connections. Default is `8182`.
      */
-    port?: pulumi.Input<number>;
+    port?: pulumi.Input<number | undefined>;
     /**
      * Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
      */
-    preferredBackupWindow?: pulumi.Input<string>;
+    preferredBackupWindow?: pulumi.Input<string | undefined>;
     /**
      * Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
      */
-    preferredMaintenanceWindow?: pulumi.Input<string>;
+    preferredMaintenanceWindow?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
      */
-    replicationSourceIdentifier?: pulumi.Input<string>;
+    replicationSourceIdentifier?: pulumi.Input<string | undefined>;
     /**
      * If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
      */
-    serverlessV2ScalingConfiguration?: pulumi.Input<inputs.neptune.ClusterServerlessV2ScalingConfiguration>;
+    serverlessV2ScalingConfiguration?: pulumi.Input<inputs.neptune.ClusterServerlessV2ScalingConfiguration | undefined>;
     /**
      * Whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
      */
-    skipFinalSnapshot?: pulumi.Input<boolean>;
+    skipFinalSnapshot?: pulumi.Input<boolean | undefined>;
     /**
      * Whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
      */
-    snapshotIdentifier?: pulumi.Input<string>;
+    snapshotIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Whether the Neptune cluster is encrypted. The default is `false` if not specified.
      */
-    storageEncrypted?: pulumi.Input<boolean>;
+    storageEncrypted?: pulumi.Input<boolean | undefined>;
     /**
      * Storage type associated with the cluster `standard/iopt1`. Default: `standard`.
      */
-    storageType?: pulumi.Input<string>;
+    storageType?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the Neptune cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * List of VPC security groups to associate with the Cluster
      */
-    vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

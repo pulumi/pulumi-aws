@@ -169,9 +169,9 @@ def get_application(application_id: Optional[_builtins.str] = None,
         semantic_version=pulumi.get(__ret__, 'semantic_version'),
         source_code_url=pulumi.get(__ret__, 'source_code_url'),
         template_url=pulumi.get(__ret__, 'template_url'))
-def get_application_output(application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                           region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                           semantic_version: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_application_output(application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                           region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           semantic_version: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationResult]:
     """
     Use this data source to get information about an AWS Serverless Application Repository application. For example, this can be used to determine the required `capabilities` for an application.

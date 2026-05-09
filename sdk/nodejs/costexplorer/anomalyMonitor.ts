@@ -164,31 +164,31 @@ export interface AnomalyMonitorState {
     /**
      * ARN of the anomaly monitor.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The dimensions to evaluate. Valid values: `COST_CATEGORY`, `LINKED_ACCOUNT`, `SERVICE`, `TAG`.
      */
-    monitorDimension?: pulumi.Input<string>;
+    monitorDimension?: pulumi.Input<string | undefined>;
     /**
      * A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
      */
-    monitorSpecification?: pulumi.Input<string>;
+    monitorSpecification?: pulumi.Input<string | undefined>;
     /**
      * The possible type values. Valid values: `DIMENSIONAL` | `CUSTOM`.
      */
-    monitorType?: pulumi.Input<string>;
+    monitorType?: pulumi.Input<string | undefined>;
     /**
      * The name of the monitor.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -198,11 +198,11 @@ export interface AnomalyMonitorArgs {
     /**
      * The dimensions to evaluate. Valid values: `COST_CATEGORY`, `LINKED_ACCOUNT`, `SERVICE`, `TAG`.
      */
-    monitorDimension?: pulumi.Input<string>;
+    monitorDimension?: pulumi.Input<string | undefined>;
     /**
      * A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
      */
-    monitorSpecification?: pulumi.Input<string>;
+    monitorSpecification?: pulumi.Input<string | undefined>;
     /**
      * The possible type values. Valid values: `DIMENSIONAL` | `CUSTOM`.
      */
@@ -210,9 +210,9 @@ export interface AnomalyMonitorArgs {
     /**
      * The name of the monitor.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

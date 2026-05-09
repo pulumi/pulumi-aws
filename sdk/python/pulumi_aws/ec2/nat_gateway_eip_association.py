@@ -23,8 +23,8 @@ class NatGatewayEipAssociationArgs:
     def __init__(__self__, *,
                  allocation_id: pulumi.Input[_builtins.str],
                  nat_gateway_id: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input['NatGatewayEipAssociationTimeoutsArgs']] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional['NatGatewayEipAssociationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a NatGatewayEipAssociation resource.
 
@@ -69,34 +69,34 @@ class NatGatewayEipAssociationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['NatGatewayEipAssociationTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['NatGatewayEipAssociationTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['NatGatewayEipAssociationTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['NatGatewayEipAssociationTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _NatGatewayEipAssociationState:
     def __init__(__self__, *,
-                 allocation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 association_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 nat_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input['NatGatewayEipAssociationTimeoutsArgs']] = None):
+                 allocation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 association_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 nat_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional['NatGatewayEipAssociationTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering NatGatewayEipAssociation resources.
 
@@ -119,28 +119,28 @@ class _NatGatewayEipAssociationState:
 
     @_builtins.property
     @pulumi.getter(name="allocationId")
-    def allocation_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def allocation_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Elastic IP Allocation to associate with the NAT Gateway.
         """
         return pulumi.get(self, "allocation_id")
 
     @allocation_id.setter
-    def allocation_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def allocation_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "allocation_id", value)
 
     @_builtins.property
     @pulumi.getter(name="associationId")
-    def association_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def association_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "association_id")
 
     @association_id.setter
-    def association_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def association_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "association_id", value)
 
     @_builtins.property
     @pulumi.getter(name="natGatewayId")
-    def nat_gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def nat_gateway_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the NAT Gateway to associate the Elastic IP Allocation to.
 
@@ -149,28 +149,28 @@ class _NatGatewayEipAssociationState:
         return pulumi.get(self, "nat_gateway_id")
 
     @nat_gateway_id.setter
-    def nat_gateway_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def nat_gateway_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "nat_gateway_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['NatGatewayEipAssociationTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['NatGatewayEipAssociationTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['NatGatewayEipAssociationTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['NatGatewayEipAssociationTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
@@ -180,10 +180,10 @@ class NatGatewayEipAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allocation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 nat_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input[Union['NatGatewayEipAssociationTimeoutsArgs', 'NatGatewayEipAssociationTimeoutsArgsDict']]] = None,
+                 allocation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 nat_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional[Union['NatGatewayEipAssociationTimeoutsArgs', 'NatGatewayEipAssociationTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS VPC NAT Gateway EIP Association.
@@ -268,10 +268,10 @@ class NatGatewayEipAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allocation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 nat_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input[Union['NatGatewayEipAssociationTimeoutsArgs', 'NatGatewayEipAssociationTimeoutsArgsDict']]] = None,
+                 allocation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 nat_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional[Union['NatGatewayEipAssociationTimeoutsArgs', 'NatGatewayEipAssociationTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -300,11 +300,11 @@ class NatGatewayEipAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            allocation_id: Optional[pulumi.Input[_builtins.str]] = None,
-            association_id: Optional[pulumi.Input[_builtins.str]] = None,
-            nat_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            timeouts: Optional[pulumi.Input[Union['NatGatewayEipAssociationTimeoutsArgs', 'NatGatewayEipAssociationTimeoutsArgsDict']]] = None) -> 'NatGatewayEipAssociation':
+            allocation_id: pulumi.Input[Optional[_builtins.str]] = None,
+            association_id: pulumi.Input[Optional[_builtins.str]] = None,
+            nat_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['NatGatewayEipAssociationTimeoutsArgs', 'NatGatewayEipAssociationTimeoutsArgsDict']]] = None) -> 'NatGatewayEipAssociation':
         """
         Get an existing NatGatewayEipAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

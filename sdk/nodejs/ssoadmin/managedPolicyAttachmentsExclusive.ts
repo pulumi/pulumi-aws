@@ -167,22 +167,22 @@ export interface ManagedPolicyAttachmentsExclusiveState {
     /**
      * ARN of the SSO Instance.
      */
-    instanceArn?: pulumi.Input<string>;
+    instanceArn?: pulumi.Input<string | undefined>;
     /**
      * Set of ARNs of IAM managed policies to attach to the Permission Set.
      */
-    managedPolicyArns?: pulumi.Input<pulumi.Input<string>[]>;
+    managedPolicyArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * ARN of the Permission Set.
      *
      * The following arguments are optional:
      */
-    permissionSetArn?: pulumi.Input<string>;
+    permissionSetArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.ssoadmin.ManagedPolicyAttachmentsExclusiveTimeouts>;
+    region?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.ssoadmin.ManagedPolicyAttachmentsExclusiveTimeouts | undefined>;
 }
 
 /**
@@ -206,6 +206,6 @@ export interface ManagedPolicyAttachmentsExclusiveArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.ssoadmin.ManagedPolicyAttachmentsExclusiveTimeouts>;
+    region?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.ssoadmin.ManagedPolicyAttachmentsExclusiveTimeouts | undefined>;
 }

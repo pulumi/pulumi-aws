@@ -99,7 +99,7 @@ def get_required_tags(region: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'),
         required_tags=pulumi.get(__ret__, 'required_tags'))
-def get_required_tags_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_required_tags_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRequiredTagsResult]:
     """
     Lists the required tags for supported resource types in an AWS account. Required tags are defined through AWS Organizations [tag policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html).

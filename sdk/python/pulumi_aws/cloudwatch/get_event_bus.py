@@ -164,8 +164,8 @@ def get_event_bus(name: Optional[_builtins.str] = None,
         log_configs=pulumi.get(__ret__, 'log_configs'),
         name=pulumi.get(__ret__, 'name'),
         region=pulumi.get(__ret__, 'region'))
-def get_event_bus_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                         region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_event_bus_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                         region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventBusResult]:
     """
     This data source can be used to fetch information about a specific

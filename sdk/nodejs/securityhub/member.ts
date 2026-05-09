@@ -138,27 +138,27 @@ export interface MemberState {
     /**
      * The ID of the member AWS account.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The email of the member AWS account.
      */
-    email?: pulumi.Input<string>;
+    email?: pulumi.Input<string | undefined>;
     /**
      * Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
      */
-    invite?: pulumi.Input<boolean>;
+    invite?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the master Security Hub AWS account.
      */
-    masterId?: pulumi.Input<string>;
+    masterId?: pulumi.Input<string | undefined>;
     /**
      * The status of the member account relationship.
      */
-    memberStatus?: pulumi.Input<string>;
+    memberStatus?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -172,13 +172,13 @@ export interface MemberArgs {
     /**
      * The email of the member AWS account.
      */
-    email?: pulumi.Input<string>;
+    email?: pulumi.Input<string | undefined>;
     /**
      * Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
      */
-    invite?: pulumi.Input<boolean>;
+    invite?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

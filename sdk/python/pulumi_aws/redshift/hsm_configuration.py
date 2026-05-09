@@ -25,8 +25,8 @@ class HsmConfigurationArgs:
                  hsm_partition_name: pulumi.Input[_builtins.str],
                  hsm_partition_password: pulumi.Input[_builtins.str],
                  hsm_server_public_certificate: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a HsmConfiguration resource.
 
@@ -124,42 +124,42 @@ class HsmConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _HsmConfigurationState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 hsm_configuration_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 hsm_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 hsm_partition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 hsm_partition_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 hsm_server_public_certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 hsm_configuration_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 hsm_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 hsm_partition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 hsm_partition_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 hsm_server_public_certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering HsmConfiguration resources.
 
@@ -197,122 +197,122 @@ class _HsmConfigurationState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) of the Hsm Client Certificate.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A text description of the HSM configuration to be created.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="hsmConfigurationIdentifier")
-    def hsm_configuration_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hsm_configuration_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier to be assigned to the new Amazon Redshift HSM configuration.
         """
         return pulumi.get(self, "hsm_configuration_identifier")
 
     @hsm_configuration_identifier.setter
-    def hsm_configuration_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hsm_configuration_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hsm_configuration_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="hsmIpAddress")
-    def hsm_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hsm_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IP address that the Amazon Redshift cluster must use to access the HSM.
         """
         return pulumi.get(self, "hsm_ip_address")
 
     @hsm_ip_address.setter
-    def hsm_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hsm_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hsm_ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="hsmPartitionName")
-    def hsm_partition_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hsm_partition_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
         """
         return pulumi.get(self, "hsm_partition_name")
 
     @hsm_partition_name.setter
-    def hsm_partition_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hsm_partition_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hsm_partition_name", value)
 
     @_builtins.property
     @pulumi.getter(name="hsmPartitionPassword")
-    def hsm_partition_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hsm_partition_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password required to access the HSM partition.
         """
         return pulumi.get(self, "hsm_partition_password")
 
     @hsm_partition_password.setter
-    def hsm_partition_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hsm_partition_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hsm_partition_password", value)
 
     @_builtins.property
     @pulumi.getter(name="hsmServerPublicCertificate")
-    def hsm_server_public_certificate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hsm_server_public_certificate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
         """
         return pulumi.get(self, "hsm_server_public_certificate")
 
     @hsm_server_public_certificate.setter
-    def hsm_server_public_certificate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hsm_server_public_certificate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hsm_server_public_certificate", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
 
@@ -322,14 +322,14 @@ class HsmConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 hsm_configuration_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 hsm_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 hsm_partition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 hsm_partition_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 hsm_server_public_certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 hsm_configuration_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 hsm_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 hsm_partition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 hsm_partition_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 hsm_server_public_certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Creates an HSM configuration that contains the information required by an Amazon Redshift cluster to store and use database encryption keys in a Hardware Security Module (HSM).
@@ -417,14 +417,14 @@ class HsmConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 hsm_configuration_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 hsm_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 hsm_partition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 hsm_partition_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 hsm_server_public_certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 hsm_configuration_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 hsm_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 hsm_partition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 hsm_partition_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 hsm_server_public_certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -468,16 +468,16 @@ class HsmConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            hsm_configuration_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-            hsm_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-            hsm_partition_name: Optional[pulumi.Input[_builtins.str]] = None,
-            hsm_partition_password: Optional[pulumi.Input[_builtins.str]] = None,
-            hsm_server_public_certificate: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'HsmConfiguration':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            hsm_configuration_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            hsm_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+            hsm_partition_name: pulumi.Input[Optional[_builtins.str]] = None,
+            hsm_partition_password: pulumi.Input[Optional[_builtins.str]] = None,
+            hsm_server_public_certificate: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'HsmConfiguration':
         """
         Get an existing HsmConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

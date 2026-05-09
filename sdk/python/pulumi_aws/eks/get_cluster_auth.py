@@ -115,8 +115,8 @@ def get_cluster_auth(name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         region=pulumi.get(__ret__, 'region'),
         token=pulumi.get(__ret__, 'token'))
-def get_cluster_auth_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                            region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_cluster_auth_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                            region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterAuthResult]:
     """
     Get an authentication token to communicate with an EKS cluster.

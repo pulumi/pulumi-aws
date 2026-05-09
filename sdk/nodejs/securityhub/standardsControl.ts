@@ -173,47 +173,47 @@ export interface StandardsControlState {
     /**
      * The identifier of the security standard control.
      */
-    controlId?: pulumi.Input<string>;
+    controlId?: pulumi.Input<string | undefined>;
     /**
      * The control status could be `ENABLED` or `DISABLED`. You have to specify `disabledReason` argument for `DISABLED` control status.
      */
-    controlStatus?: pulumi.Input<string>;
+    controlStatus?: pulumi.Input<string | undefined>;
     /**
      * The date and time that the status of the security standard control was most recently updated.
      */
-    controlStatusUpdatedAt?: pulumi.Input<string>;
+    controlStatusUpdatedAt?: pulumi.Input<string | undefined>;
     /**
      * The standard control longer description. Provides information about what the control is checking for.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A description of the reason why you are disabling a security standard control. If you specify this attribute, `controlStatus` will be set to `DISABLED` automatically.
      */
-    disabledReason?: pulumi.Input<string>;
+    disabledReason?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The list of requirements that are related to this control.
      */
-    relatedRequirements?: pulumi.Input<pulumi.Input<string>[]>;
+    relatedRequirements?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A link to remediation information for the control in the Security Hub user documentation.
      */
-    remediationUrl?: pulumi.Input<string>;
+    remediationUrl?: pulumi.Input<string | undefined>;
     /**
      * The severity of findings generated from this security standard control.
      */
-    severityRating?: pulumi.Input<string>;
+    severityRating?: pulumi.Input<string | undefined>;
     /**
      * The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
      */
-    standardsControlArn?: pulumi.Input<string>;
+    standardsControlArn?: pulumi.Input<string | undefined>;
     /**
      * The standard control title.
      */
-    title?: pulumi.Input<string>;
+    title?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -227,11 +227,11 @@ export interface StandardsControlArgs {
     /**
      * A description of the reason why you are disabling a security standard control. If you specify this attribute, `controlStatus` will be set to `DISABLED` automatically.
      */
-    disabledReason?: pulumi.Input<string>;
+    disabledReason?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
      */

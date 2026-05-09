@@ -277,45 +277,45 @@ export interface SessionLoggerState {
     /**
      * Map of additional encryption context key-value pairs.
      */
-    additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * List of ARNs of the web portals associated with the session logger.
      */
-    associatedPortalArns?: pulumi.Input<pulumi.Input<string>[]>;
+    associatedPortalArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * ARN of the customer managed KMS key used to encrypt sensitive information.
      */
-    customerManagedKey?: pulumi.Input<string>;
+    customerManagedKey?: pulumi.Input<string | undefined>;
     /**
      * Human-readable display name for the session logger resource. Forces replacement if changed.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Event filter that determines which events are logged. See Event Filter below.
      */
-    eventFilter?: pulumi.Input<inputs.workspacesweb.SessionLoggerEventFilter>;
+    eventFilter?: pulumi.Input<inputs.workspacesweb.SessionLoggerEventFilter | undefined>;
     /**
      * Configuration block for specifying where logs are delivered. See Log Configuration below.
      *
      * The following arguments are optional:
      */
-    logConfiguration?: pulumi.Input<inputs.workspacesweb.SessionLoggerLogConfiguration>;
+    logConfiguration?: pulumi.Input<inputs.workspacesweb.SessionLoggerLogConfiguration | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN of the session logger.
      */
-    sessionLoggerArn?: pulumi.Input<string>;
+    sessionLoggerArn?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -325,15 +325,15 @@ export interface SessionLoggerArgs {
     /**
      * Map of additional encryption context key-value pairs.
      */
-    additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * ARN of the customer managed KMS key used to encrypt sensitive information.
      */
-    customerManagedKey?: pulumi.Input<string>;
+    customerManagedKey?: pulumi.Input<string | undefined>;
     /**
      * Human-readable display name for the session logger resource. Forces replacement if changed.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Event filter that determines which events are logged. See Event Filter below.
      */
@@ -347,9 +347,9 @@ export interface SessionLoggerArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

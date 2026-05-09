@@ -88,7 +88,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			lambda, err := s3.GetObject(ctx, &s3.GetObjectArgs{
+//			lambda2, err := s3.GetObject(ctx, &s3.GetObjectArgs{
 //				Bucket: "ourcorp-lambda-functions",
 //				Key:    "hello-world.zip",
 //			}, nil)
@@ -96,9 +96,9 @@ import (
 //				return err
 //			}
 //			_, err = lambda.NewFunction(ctx, "test_lambda", &lambda.FunctionArgs{
-//				S3Bucket:        pulumi.String(pulumi.String(lambda.Bucket)),
-//				S3Key:           pulumi.String(pulumi.String(lambda.Key)),
-//				S3ObjectVersion: pulumi.String(pulumi.String(lambda.VersionId)),
+//				S3Bucket:        pulumi.String(pulumi.String(lambda2.Bucket)),
+//				S3Key:           pulumi.String(pulumi.String(lambda2.Key)),
+//				S3ObjectVersion: pulumi.String(pulumi.String(lambda2.VersionId)),
 //				Name:            pulumi.String("lambda_function_name"),
 //				Role:            pulumi.Any(iamForLambda.Arn),
 //				Handler:         pulumi.String("exports.test"),

@@ -158,7 +158,7 @@ export interface GetContactFlowOutputArgs {
     /**
      * Returns information on a specific Contact Flow by contact flow id
      */
-    contactFlowId?: pulumi.Input<string>;
+    contactFlowId?: pulumi.Input<string | undefined>;
     /**
      * Reference to the hosting Amazon Connect Instance
      */
@@ -168,17 +168,17 @@ export interface GetContactFlowOutputArgs {
      *
      * > **NOTE:** `instanceId` and one of either `name` or `contactFlowId` is required.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Tags to assign to the Contact Flow.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Type of Contact Flow.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }

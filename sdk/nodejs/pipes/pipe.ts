@@ -363,73 +363,73 @@ export interface PipeState {
     /**
      * ARN of this pipe.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * A description of the pipe. At most 512 characters.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The state the pipe should be in. One of: `RUNNING`, `STOPPED`.
      */
-    desiredState?: pulumi.Input<string>;
+    desiredState?: pulumi.Input<string | undefined>;
     /**
      * Enrichment resource of the pipe (typically an ARN). Read more about enrichment in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-enrichment).
      */
-    enrichment?: pulumi.Input<string>;
+    enrichment?: pulumi.Input<string | undefined>;
     /**
      * Parameters to configure enrichment for your pipe. Detailed below.
      */
-    enrichmentParameters?: pulumi.Input<inputs.pipes.PipeEnrichmentParameters>;
+    enrichmentParameters?: pulumi.Input<inputs.pipes.PipeEnrichmentParameters | undefined>;
     /**
      * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
      */
-    kmsKeyIdentifier?: pulumi.Input<string>;
+    kmsKeyIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Logging configuration settings for the pipe. Detailed below.
      */
-    logConfiguration?: pulumi.Input<inputs.pipes.PipeLogConfiguration>;
+    logConfiguration?: pulumi.Input<inputs.pipes.PipeLogConfiguration | undefined>;
     /**
      * Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN of the role that allows the pipe to send data to the target.
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
     /**
      * Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
      */
-    source?: pulumi.Input<string>;
+    source?: pulumi.Input<string | undefined>;
     /**
      * Parameters to configure a source for the pipe. Detailed below.
      */
-    sourceParameters?: pulumi.Input<inputs.pipes.PipeSourceParameters>;
+    sourceParameters?: pulumi.Input<inputs.pipes.PipeSourceParameters | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Target resource of the pipe (typically an ARN).
      *
      * The following arguments are optional:
      */
-    target?: pulumi.Input<string>;
+    target?: pulumi.Input<string | undefined>;
     /**
      * Parameters to configure a target for your pipe. Detailed below.
      */
-    targetParameters?: pulumi.Input<inputs.pipes.PipeTargetParameters>;
+    targetParameters?: pulumi.Input<inputs.pipes.PipeTargetParameters | undefined>;
 }
 
 /**
@@ -439,39 +439,39 @@ export interface PipeArgs {
     /**
      * A description of the pipe. At most 512 characters.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The state the pipe should be in. One of: `RUNNING`, `STOPPED`.
      */
-    desiredState?: pulumi.Input<string>;
+    desiredState?: pulumi.Input<string | undefined>;
     /**
      * Enrichment resource of the pipe (typically an ARN). Read more about enrichment in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-enrichment).
      */
-    enrichment?: pulumi.Input<string>;
+    enrichment?: pulumi.Input<string | undefined>;
     /**
      * Parameters to configure enrichment for your pipe. Detailed below.
      */
-    enrichmentParameters?: pulumi.Input<inputs.pipes.PipeEnrichmentParameters>;
+    enrichmentParameters?: pulumi.Input<inputs.pipes.PipeEnrichmentParameters | undefined>;
     /**
      * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
      */
-    kmsKeyIdentifier?: pulumi.Input<string>;
+    kmsKeyIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Logging configuration settings for the pipe. Detailed below.
      */
-    logConfiguration?: pulumi.Input<inputs.pipes.PipeLogConfiguration>;
+    logConfiguration?: pulumi.Input<inputs.pipes.PipeLogConfiguration | undefined>;
     /**
      * Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN of the role that allows the pipe to send data to the target.
      */
@@ -483,11 +483,11 @@ export interface PipeArgs {
     /**
      * Parameters to configure a source for the pipe. Detailed below.
      */
-    sourceParameters?: pulumi.Input<inputs.pipes.PipeSourceParameters>;
+    sourceParameters?: pulumi.Input<inputs.pipes.PipeSourceParameters | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Target resource of the pipe (typically an ARN).
      *
@@ -497,5 +497,5 @@ export interface PipeArgs {
     /**
      * Parameters to configure a target for your pipe. Detailed below.
      */
-    targetParameters?: pulumi.Input<inputs.pipes.PipeTargetParameters>;
+    targetParameters?: pulumi.Input<inputs.pipes.PipeTargetParameters | undefined>;
 }

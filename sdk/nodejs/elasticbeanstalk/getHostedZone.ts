@@ -71,5 +71,5 @@ export interface GetHostedZoneOutputArgs {
     /**
      * Name of the Region whose hosted zone is desired. Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

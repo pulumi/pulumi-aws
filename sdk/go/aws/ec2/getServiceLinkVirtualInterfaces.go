@@ -24,24 +24,26 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := ec2.GetServiceLinkVirtualInterfaces(ctx, &ec2.GetServiceLinkVirtualInterfacesArgs{
-// Filters: []ec2.GetServiceLinkVirtualInterfacesFilter{
-// {
-// Name: "outpost-arn",
-// Values: interface{}{
-// exampleAwsOutpostsOutpost.Arn,
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.GetServiceLinkVirtualInterfaces(ctx, &ec2.GetServiceLinkVirtualInterfacesArgs{
+//				Filters: []ec2.GetServiceLinkVirtualInterfacesFilter{
+//					{
+//						Name: "outpost-arn",
+//						Values: pulumi.StringArray{
+//							exampleAwsOutpostsOutpost.Arn,
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetServiceLinkVirtualInterfaces(ctx *pulumi.Context, args *GetServiceLinkVirtualInterfacesArgs, opts ...pulumi.InvokeOption) (*GetServiceLinkVirtualInterfacesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)

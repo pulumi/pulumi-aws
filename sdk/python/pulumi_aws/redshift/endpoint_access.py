@@ -24,9 +24,9 @@ class EndpointAccessArgs:
                  cluster_identifier: pulumi.Input[_builtins.str],
                  endpoint_name: pulumi.Input[_builtins.str],
                  subnet_group_name: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a EndpointAccess resource.
 
@@ -85,53 +85,53 @@ class EndpointAccessArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceOwner")
-    def resource_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.
         """
         return pulumi.get(self, "resource_owner")
 
     @resource_owner.setter
-    def resource_owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_owner", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcSecurityGroupIds")
-    def vpc_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def vpc_security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
         """
         return pulumi.get(self, "vpc_security_group_ids")
 
     @vpc_security_group_ids.setter
-    def vpc_security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def vpc_security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "vpc_security_group_ids", value)
 
 
 @pulumi.input_type
 class _EndpointAccessState:
     def __init__(__self__, *,
-                 address: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointAccessVpcEndpointArgs']]]] = None,
-                 vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 address: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input['EndpointAccessVpcEndpointArgs']]]] = None,
+                 vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering EndpointAccess resources.
 
@@ -166,110 +166,110 @@ class _EndpointAccessState:
 
     @_builtins.property
     @pulumi.getter
-    def address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The DNS address of the endpoint.
         """
         return pulumi.get(self, "address")
 
     @address.setter
-    def address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "address", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
-    def cluster_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The cluster identifier of the cluster to access.
         """
         return pulumi.get(self, "cluster_identifier")
 
     @cluster_identifier.setter
-    def cluster_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointName")
-    def endpoint_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Redshift-managed VPC endpoint name.
         """
         return pulumi.get(self, "endpoint_name")
 
     @endpoint_name.setter
-    def endpoint_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The port number on which the cluster accepts incoming connections.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceOwner")
-    def resource_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.
         """
         return pulumi.get(self, "resource_owner")
 
     @resource_owner.setter
-    def resource_owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_owner", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetGroupName")
-    def subnet_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subnet group from which Amazon Redshift chooses the subnet to deploy the endpoint.
         """
         return pulumi.get(self, "subnet_group_name")
 
     @subnet_group_name.setter
-    def subnet_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcEndpoints")
-    def vpc_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointAccessVpcEndpointArgs']]]]:
+    def vpc_endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EndpointAccessVpcEndpointArgs']]]]:
         """
         The connection endpoint for connecting to an Amazon Redshift cluster through the proxy. See details below.
         """
         return pulumi.get(self, "vpc_endpoints")
 
     @vpc_endpoints.setter
-    def vpc_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointAccessVpcEndpointArgs']]]]):
+    def vpc_endpoints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EndpointAccessVpcEndpointArgs']]]]):
         pulumi.set(self, "vpc_endpoints", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcSecurityGroupIds")
-    def vpc_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def vpc_security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
         """
         return pulumi.get(self, "vpc_security_group_ids")
 
     @vpc_security_group_ids.setter
-    def vpc_security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def vpc_security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "vpc_security_group_ids", value)
 
 
@@ -279,12 +279,12 @@ class EndpointAccess(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Creates a new Amazon Redshift endpoint access.
@@ -364,12 +364,12 @@ class EndpointAccess(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -404,15 +404,15 @@ class EndpointAccess(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            address: Optional[pulumi.Input[_builtins.str]] = None,
-            cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-            endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-            port: Optional[pulumi.Input[_builtins.int]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_owner: Optional[pulumi.Input[_builtins.str]] = None,
-            subnet_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            vpc_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndpointAccessVpcEndpointArgs', 'EndpointAccessVpcEndpointArgsDict']]]]] = None,
-            vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'EndpointAccess':
+            address: pulumi.Input[Optional[_builtins.str]] = None,
+            cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+            port: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_owner: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            vpc_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointAccessVpcEndpointArgs', 'EndpointAccessVpcEndpointArgsDict']]]]] = None,
+            vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'EndpointAccess':
         """
         Get an existing EndpointAccess resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

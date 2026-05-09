@@ -259,10 +259,10 @@ def get_ontap_storage_virtual_machine(filters: Optional[Sequence[Union['GetOntap
         subtype=pulumi.get(__ret__, 'subtype'),
         tags=pulumi.get(__ret__, 'tags'),
         uuid=pulumi.get(__ret__, 'uuid'))
-def get_ontap_storage_virtual_machine_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetOntapStorageVirtualMachineFilterArgs', 'GetOntapStorageVirtualMachineFilterArgsDict']]]]] = None,
-                                             id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                             region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                             tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_ontap_storage_virtual_machine_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetOntapStorageVirtualMachineFilterArgs', 'GetOntapStorageVirtualMachineFilterArgsDict']]]]] = None,
+                                             id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                             region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                             tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOntapStorageVirtualMachineResult]:
     """
     Retrieve information on FSx ONTAP Storage Virtual Machine (SVM).

@@ -120,27 +120,27 @@ export class GroupMembership extends pulumi.CustomResource {
  * Input properties used for looking up and filtering GroupMembership resources.
  */
 export interface GroupMembershipState {
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
      */
-    awsAccountId?: pulumi.Input<string>;
+    awsAccountId?: pulumi.Input<string | undefined>;
     /**
      * The name of the group in which the member will be added.
      */
-    groupName?: pulumi.Input<string>;
+    groupName?: pulumi.Input<string | undefined>;
     /**
      * The name of the member to add to the group.
      */
-    memberName?: pulumi.Input<string>;
+    memberName?: pulumi.Input<string | undefined>;
     /**
      * The namespace that you want the user to be a part of. Defaults to `default`.
      */
-    namespace?: pulumi.Input<string>;
+    namespace?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -150,7 +150,7 @@ export interface GroupMembershipArgs {
     /**
      * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
      */
-    awsAccountId?: pulumi.Input<string>;
+    awsAccountId?: pulumi.Input<string | undefined>;
     /**
      * The name of the group in which the member will be added.
      */
@@ -162,9 +162,9 @@ export interface GroupMembershipArgs {
     /**
      * The namespace that you want the user to be a part of. Defaults to `default`.
      */
-    namespace?: pulumi.Input<string>;
+    namespace?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

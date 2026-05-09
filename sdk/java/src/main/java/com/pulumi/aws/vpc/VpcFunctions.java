@@ -37,8 +37,8 @@ public final class VpcFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.vpc.VpcFunctions;
      * import com.pulumi.aws.vpc.inputs.GetEndpointAssociationsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -79,8 +79,8 @@ public final class VpcFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.vpc.VpcFunctions;
      * import com.pulumi.aws.vpc.inputs.GetEndpointAssociationsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -121,8 +121,8 @@ public final class VpcFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.vpc.VpcFunctions;
      * import com.pulumi.aws.vpc.inputs.GetEndpointAssociationsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -163,8 +163,8 @@ public final class VpcFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.vpc.VpcFunctions;
      * import com.pulumi.aws.vpc.inputs.GetEndpointAssociationsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -205,8 +205,8 @@ public final class VpcFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.vpc.VpcFunctions;
      * import com.pulumi.aws.vpc.inputs.GetEndpointAssociationsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -245,8 +245,8 @@ public final class VpcFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.vpc.VpcFunctions;
      * import com.pulumi.aws.vpc.inputs.GetSecurityGroupRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -285,8 +285,8 @@ public final class VpcFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.vpc.VpcFunctions;
      * import com.pulumi.aws.vpc.inputs.GetSecurityGroupRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -325,8 +325,8 @@ public final class VpcFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.vpc.VpcFunctions;
      * import com.pulumi.aws.vpc.inputs.GetSecurityGroupRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -365,8 +365,8 @@ public final class VpcFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.vpc.VpcFunctions;
      * import com.pulumi.aws.vpc.inputs.GetSecurityGroupRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -405,8 +405,8 @@ public final class VpcFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.vpc.VpcFunctions;
      * import com.pulumi.aws.vpc.inputs.GetSecurityGroupRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -445,8 +445,8 @@ public final class VpcFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.vpc.VpcFunctions;
      * import com.pulumi.aws.vpc.inputs.GetSecurityGroupRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -485,8 +485,8 @@ public final class VpcFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.vpc.VpcFunctions;
      * import com.pulumi.aws.vpc.inputs.GetSecurityGroupRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -525,8 +525,8 @@ public final class VpcFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.vpc.VpcFunctions;
      * import com.pulumi.aws.vpc.inputs.GetSecurityGroupRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -568,8 +568,8 @@ public final class VpcFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.vpc.VpcFunctions;
      * import com.pulumi.aws.vpc.inputs.GetSecurityGroupRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -611,8 +611,8 @@ public final class VpcFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.vpc.VpcFunctions;
      * import com.pulumi.aws.vpc.inputs.GetSecurityGroupRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -654,8 +654,8 @@ public final class VpcFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.vpc.VpcFunctions;
      * import com.pulumi.aws.vpc.inputs.GetSecurityGroupRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -697,8 +697,8 @@ public final class VpcFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.vpc.VpcFunctions;
      * import com.pulumi.aws.vpc.inputs.GetSecurityGroupRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -740,8 +740,8 @@ public final class VpcFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.vpc.VpcFunctions;
      * import com.pulumi.aws.vpc.inputs.GetSecurityGroupRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -783,8 +783,8 @@ public final class VpcFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.vpc.VpcFunctions;
      * import com.pulumi.aws.vpc.inputs.GetSecurityGroupRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

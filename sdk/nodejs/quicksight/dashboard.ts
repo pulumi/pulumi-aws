@@ -276,78 +276,78 @@ export interface DashboardState {
     /**
      * ARN of the dashboard.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
      */
-    awsAccountId?: pulumi.Input<string>;
+    awsAccountId?: pulumi.Input<string | undefined>;
     /**
      * The time that the dashboard was created.
      */
-    createdTime?: pulumi.Input<string>;
+    createdTime?: pulumi.Input<string | undefined>;
     /**
      * Identifier for the dashboard.
      */
-    dashboardId?: pulumi.Input<string>;
+    dashboardId?: pulumi.Input<string | undefined>;
     /**
      * Options for publishing the dashboard. See dashboard_publish_options.
      */
-    dashboardPublishOptions?: pulumi.Input<inputs.quicksight.DashboardDashboardPublishOptions>;
-    lastPublishedTime?: pulumi.Input<string>;
+    dashboardPublishOptions?: pulumi.Input<inputs.quicksight.DashboardDashboardPublishOptions | undefined>;
+    lastPublishedTime?: pulumi.Input<string | undefined>;
     /**
      * The time that the dashboard was last updated.
      */
-    lastUpdatedTime?: pulumi.Input<string>;
+    lastUpdatedTime?: pulumi.Input<string | undefined>;
     /**
      * Display name for the dashboard.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
      */
-    parameters?: pulumi.Input<inputs.quicksight.DashboardParameters>;
+    parameters?: pulumi.Input<inputs.quicksight.DashboardParameters | undefined>;
     /**
      * A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
      */
-    permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardPermission>[]>;
+    permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardPermission>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
      */
-    sourceEntity?: pulumi.Input<inputs.quicksight.DashboardSourceEntity>;
+    sourceEntity?: pulumi.Input<inputs.quicksight.DashboardSourceEntity | undefined>;
     /**
      * Amazon Resource Name (ARN) of a template that was used to create this dashboard.
      */
-    sourceEntityArn?: pulumi.Input<string>;
+    sourceEntityArn?: pulumi.Input<string | undefined>;
     /**
      * The dashboard creation status.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
      */
-    themeArn?: pulumi.Input<string>;
+    themeArn?: pulumi.Input<string | undefined>;
     /**
      * A description of the current dashboard version being created/updated.
      *
      * The following arguments are optional:
      */
-    versionDescription?: pulumi.Input<string>;
+    versionDescription?: pulumi.Input<string | undefined>;
     /**
      * The version number of the dashboard version.
      */
-    versionNumber?: pulumi.Input<number>;
+    versionNumber?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -357,7 +357,7 @@ export interface DashboardArgs {
     /**
      * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
      */
-    awsAccountId?: pulumi.Input<string>;
+    awsAccountId?: pulumi.Input<string | undefined>;
     /**
      * Identifier for the dashboard.
      */
@@ -365,35 +365,35 @@ export interface DashboardArgs {
     /**
      * Options for publishing the dashboard. See dashboard_publish_options.
      */
-    dashboardPublishOptions?: pulumi.Input<inputs.quicksight.DashboardDashboardPublishOptions>;
+    dashboardPublishOptions?: pulumi.Input<inputs.quicksight.DashboardDashboardPublishOptions | undefined>;
     /**
      * Display name for the dashboard.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
      */
-    parameters?: pulumi.Input<inputs.quicksight.DashboardParameters>;
+    parameters?: pulumi.Input<inputs.quicksight.DashboardParameters | undefined>;
     /**
      * A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
      */
-    permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardPermission>[]>;
+    permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardPermission>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
      */
-    sourceEntity?: pulumi.Input<inputs.quicksight.DashboardSourceEntity>;
+    sourceEntity?: pulumi.Input<inputs.quicksight.DashboardSourceEntity | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
      */
-    themeArn?: pulumi.Input<string>;
+    themeArn?: pulumi.Input<string | undefined>;
     /**
      * A description of the current dashboard version being created/updated.
      *

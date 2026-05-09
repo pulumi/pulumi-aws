@@ -154,11 +154,11 @@ def get_voices(engine: Optional[_builtins.str] = None,
         language_code=pulumi.get(__ret__, 'language_code'),
         region=pulumi.get(__ret__, 'region'),
         voices=pulumi.get(__ret__, 'voices'))
-def get_voices_output(engine: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      include_additional_language_codes: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                      language_code: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      voices: Optional[pulumi.Input[Optional[Sequence[Union['GetVoicesVoiceArgs', 'GetVoicesVoiceArgsDict']]]]] = None,
+def get_voices_output(engine: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      include_additional_language_codes: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                      language_code: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      voices: pulumi.Input[Optional[Optional[Sequence[Union['GetVoicesVoiceArgs', 'GetVoicesVoiceArgsDict']]]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVoicesResult]:
     """
     Data source for managing an AWS Polly Voices.

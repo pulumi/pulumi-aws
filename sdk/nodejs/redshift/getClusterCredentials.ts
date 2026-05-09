@@ -125,7 +125,7 @@ export interface GetClusterCredentialsOutputArgs {
     /**
      * Create a database user with the name specified for the user named in `dbUser` if one does not exist.
      */
-    autoCreate?: pulumi.Input<boolean>;
+    autoCreate?: pulumi.Input<boolean | undefined>;
     /**
      * Unique identifier of the cluster that contains the database for which your are requesting credentials.
      */
@@ -133,11 +133,11 @@ export interface GetClusterCredentialsOutputArgs {
     /**
      * List of the names of existing database groups that the user named in `dbUser` will join for the current session, in addition to any group memberships for an existing user. If not specified, a new user is added only to `PUBLIC`.
      */
-    dbGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    dbGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Name of a database that DbUser is authorized to log on to. If `dbName` is not specified, `dbUser` can log on to any existing database.
      */
-    dbName?: pulumi.Input<string>;
+    dbName?: pulumi.Input<string | undefined>;
     /**
      * Name of a database user. If a user name matching `dbUser` exists in the database, the temporary user credentials have the same permissions as the  existing user. If `dbUser` doesn't exist in the database and `autoCreate` is `True`, a new user is created using the value for `dbUser` with `PUBLIC` permissions.  If a database user matching the value for `dbUser` doesn't exist and `not` is `False`, then the command succeeds but the connection attempt will fail because the user doesn't exist in the database.
      */
@@ -145,9 +145,9 @@ export interface GetClusterCredentialsOutputArgs {
     /**
      * The number of seconds until the returned temporary password expires. Valid values are between `900` and `3600`. Default value is `900`.
      */
-    durationSeconds?: pulumi.Input<number>;
+    durationSeconds?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

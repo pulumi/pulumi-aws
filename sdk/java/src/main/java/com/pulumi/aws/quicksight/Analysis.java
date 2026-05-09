@@ -38,8 +38,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.quicksight.AnalysisArgs;
  * import com.pulumi.aws.quicksight.inputs.AnalysisSourceEntityArgs;
  * import com.pulumi.aws.quicksight.inputs.AnalysisSourceEntitySourceTemplateArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -81,8 +81,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.quicksight.Analysis;
  * import com.pulumi.aws.quicksight.AnalysisArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -98,25 +98,25 @@ import javax.annotation.Nullable;
  *             .analysisId("example-id")
  *             .name("example-name")
  *             .definition(Map.ofEntries(
- *                 Map.entry("dataSetIdentifiersDeclarations", List.of(Map.ofEntries(
+ *                 Map.entry("dataSetIdentifiersDeclarations", Arrays.asList(Map.ofEntries(
  *                     Map.entry("dataSetArn", dataset.arn()),
  *                     Map.entry("identifier", "1")
  *                 ))),
- *                 Map.entry("sheets", List.of(Map.ofEntries(
+ *                 Map.entry("sheets", Arrays.asList(Map.ofEntries(
  *                     Map.entry("title", "Example"),
  *                     Map.entry("sheetId", "Example1"),
- *                     Map.entry("visuals", List.of(Map.of("lineChartVisual", Map.ofEntries(
+ *                     Map.entry("visuals", Arrays.asList(Map.of("lineChartVisual", Map.ofEntries(
  *                         Map.entry("visualId", "LineChart"),
  *                         Map.entry("title", Map.of("formatText", Map.of("plainText", "Line Chart Example"))),
  *                         Map.entry("chartConfiguration", Map.of("fieldWells", Map.of("lineChartAggregatedFieldWells", Map.ofEntries(
- *                             Map.entry("categories", List.of(Map.of("categoricalDimensionField", Map.ofEntries(
+ *                             Map.entry("categories", Arrays.asList(Map.of("categoricalDimensionField", Map.ofEntries(
  *                                 Map.entry("fieldId", "1"),
  *                                 Map.entry("column", Map.ofEntries(
  *                                     Map.entry("dataSetIdentifier", "1"),
  *                                     Map.entry("columnName", "Column1")
  *                                 ))
  *                             )))),
- *                             Map.entry("values", List.of(Map.of("categoricalMeasureField", Map.ofEntries(
+ *                             Map.entry("values", Arrays.asList(Map.of("categoricalMeasureField", Map.ofEntries(
  *                                 Map.entry("fieldId", "2"),
  *                                 Map.entry("column", Map.ofEntries(
  *                                     Map.entry("dataSetIdentifier", "1"),

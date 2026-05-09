@@ -23,13 +23,13 @@ class ApplicationArgs:
     def __init__(__self__, *,
                  application_provider_arn: pulumi.Input[_builtins.str],
                  instance_arn: pulumi.Input[_builtins.str],
-                 client_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 portal_options: Optional[pulumi.Input['ApplicationPortalOptionsArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 client_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 portal_options: pulumi.Input[Optional['ApplicationPortalOptionsArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Application resource.
 
@@ -88,31 +88,31 @@ class ApplicationArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientToken")
-    def client_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
         """
         return pulumi.get(self, "client_token")
 
     @client_token.setter
-    def client_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_token", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the application.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the application.
 
@@ -121,74 +121,74 @@ class ApplicationArgs:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="portalOptions")
-    def portal_options(self) -> Optional[pulumi.Input['ApplicationPortalOptionsArgs']]:
+    def portal_options(self) -> pulumi.Input[Optional['ApplicationPortalOptionsArgs']]:
         """
         Options for the portal associated with an application. See `portal_options` below.
         """
         return pulumi.get(self, "portal_options")
 
     @portal_options.setter
-    def portal_options(self, value: Optional[pulumi.Input['ApplicationPortalOptionsArgs']]):
+    def portal_options(self, value: pulumi.Input[Optional['ApplicationPortalOptionsArgs']]):
         pulumi.set(self, "portal_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Status of the application. Valid values are `ENABLED` and `DISABLED`.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _ApplicationState:
     def __init__(__self__, *,
-                 application_account: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_provider_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 portal_options: Optional[pulumi.Input['ApplicationPortalOptionsArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 application_account: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_provider_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 portal_options: pulumi.Input[Optional['ApplicationPortalOptionsArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Application resources.
 
@@ -240,92 +240,92 @@ class _ApplicationState:
 
     @_builtins.property
     @pulumi.getter(name="applicationAccount")
-    def application_account(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_account(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS account ID.
         """
         return pulumi.get(self, "application_account")
 
     @application_account.setter
-    def application_account(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_account(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_account", value)
 
     @_builtins.property
     @pulumi.getter(name="applicationArn")
     @_utilities.deprecated("""Use 'arn' instead. This attribute will be removed in a future version of the provider.""")
-    def application_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (**Deprecated** Reference `arn` instead) ARN of the application.
         """
         return pulumi.get(self, "application_arn")
 
     @application_arn.setter
-    def application_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="applicationProviderArn")
-    def application_provider_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_provider_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the application provider.
         """
         return pulumi.get(self, "application_provider_arn")
 
     @application_provider_arn.setter
-    def application_provider_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_provider_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_provider_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the application.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="clientToken")
-    def client_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
         """
         return pulumi.get(self, "client_token")
 
     @client_token.setter
-    def client_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_token", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the application.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceArn")
-    def instance_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the instance of IAM Identity Center.
         """
         return pulumi.get(self, "instance_arn")
 
     @instance_arn.setter
-    def instance_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the application.
 
@@ -334,67 +334,67 @@ class _ApplicationState:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="portalOptions")
-    def portal_options(self) -> Optional[pulumi.Input['ApplicationPortalOptionsArgs']]:
+    def portal_options(self) -> pulumi.Input[Optional['ApplicationPortalOptionsArgs']]:
         """
         Options for the portal associated with an application. See `portal_options` below.
         """
         return pulumi.get(self, "portal_options")
 
     @portal_options.setter
-    def portal_options(self, value: Optional[pulumi.Input['ApplicationPortalOptionsArgs']]):
+    def portal_options(self, value: pulumi.Input[Optional['ApplicationPortalOptionsArgs']]):
         pulumi.set(self, "portal_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Status of the application. Valid values are `ENABLED` and `DISABLED`.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
 
@@ -404,15 +404,15 @@ class Application(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_provider_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 portal_options: Optional[pulumi.Input[Union['ApplicationPortalOptionsArgs', 'ApplicationPortalOptionsArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 application_provider_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 portal_options: pulumi.Input[Optional[Union['ApplicationPortalOptionsArgs', 'ApplicationPortalOptionsArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Resource for managing an AWS SSO Admin Application.
@@ -563,15 +563,15 @@ class Application(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_provider_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 portal_options: Optional[pulumi.Input[Union['ApplicationPortalOptionsArgs', 'ApplicationPortalOptionsArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 application_provider_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 portal_options: pulumi.Input[Optional[Union['ApplicationPortalOptionsArgs', 'ApplicationPortalOptionsArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -608,19 +608,19 @@ class Application(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            application_account: Optional[pulumi.Input[_builtins.str]] = None,
-            application_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            application_provider_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            client_token: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            portal_options: Optional[pulumi.Input[Union['ApplicationPortalOptionsArgs', 'ApplicationPortalOptionsArgsDict']]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Application':
+            application_account: pulumi.Input[Optional[_builtins.str]] = None,
+            application_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            application_provider_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            client_token: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            portal_options: pulumi.Input[Optional[Union['ApplicationPortalOptionsArgs', 'ApplicationPortalOptionsArgsDict']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Application':
         """
         Get an existing Application resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

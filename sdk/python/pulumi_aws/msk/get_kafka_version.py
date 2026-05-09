@@ -127,9 +127,9 @@ def get_kafka_version(preferred_versions: Optional[Sequence[_builtins.str]] = No
         region=pulumi.get(__ret__, 'region'),
         status=pulumi.get(__ret__, 'status'),
         version=pulumi.get(__ret__, 'version'))
-def get_kafka_version_output(preferred_versions: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                             region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                             version: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_kafka_version_output(preferred_versions: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                             region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             version: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKafkaVersionResult]:
     """
     Get information on a Amazon MSK Kafka Version

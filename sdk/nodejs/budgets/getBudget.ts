@@ -159,7 +159,7 @@ export interface GetBudgetOutputArgs {
     /**
      * The ID of the target account for budget. Will use current user's accountId by default if omitted.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The name of a budget. Unique within accounts.
      *
@@ -169,9 +169,9 @@ export interface GetBudgetOutputArgs {
     /**
      * The prefix of the name of a budget. Unique within accounts.
      */
-    namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string | undefined>;
     /**
      * Map of tags assigned to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

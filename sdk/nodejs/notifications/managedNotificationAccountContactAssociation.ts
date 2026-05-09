@@ -104,11 +104,11 @@ export interface ManagedNotificationAccountContactAssociationState {
     /**
      * A unique value of an Account Contact Type to associate with the ManagedNotificationConfiguration. Valid values: `ACCOUNT_PRIMARY`, `ACCOUNT_ALTERNATE_BILLING`, `ACCOUNT_ALTERNATE_OPERATIONS`, `ACCOUNT_ALTERNATE_SECURITY`.
      */
-    contactIdentifier?: pulumi.Input<string>;
+    contactIdentifier?: pulumi.Input<string | undefined>;
     /**
      * ARN of the managed notification configuration to associate the account contact with.
      */
-    managedNotificationConfigurationArn?: pulumi.Input<string>;
+    managedNotificationConfigurationArn?: pulumi.Input<string | undefined>;
 }
 
 /**

@@ -20,17 +20,17 @@ __all__ = ['LayerVersionArgs', 'LayerVersion']
 class LayerVersionArgs:
     def __init__(__self__, *,
                  layer_name: pulumi.Input[_builtins.str],
-                 code: Optional[pulumi.Input[pulumi.Archive]] = None,
-                 compatible_architectures: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 compatible_runtimes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 license_info: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_object_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 source_code_hash: Optional[pulumi.Input[_builtins.str]] = None):
+                 code: pulumi.Input[Optional[pulumi.Archive]] = None,
+                 compatible_architectures: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 compatible_runtimes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 license_info: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_object_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 source_code_hash: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a LayerVersion resource.
 
@@ -89,160 +89,160 @@ class LayerVersionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def code(self) -> Optional[pulumi.Input[pulumi.Archive]]:
+    def code(self) -> pulumi.Input[Optional[pulumi.Archive]]:
         """
         Path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
         """
         return pulumi.get(self, "code")
 
     @code.setter
-    def code(self, value: Optional[pulumi.Input[pulumi.Archive]]):
+    def code(self, value: pulumi.Input[Optional[pulumi.Archive]]):
         pulumi.set(self, "code", value)
 
     @_builtins.property
     @pulumi.getter(name="compatibleArchitectures")
-    def compatible_architectures(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def compatible_architectures(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x86_64` and `arm64` can be specified.
         """
         return pulumi.get(self, "compatible_architectures")
 
     @compatible_architectures.setter
-    def compatible_architectures(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def compatible_architectures(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "compatible_architectures", value)
 
     @_builtins.property
     @pulumi.getter(name="compatibleRuntimes")
-    def compatible_runtimes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def compatible_runtimes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 15 runtimes can be specified.
         """
         return pulumi.get(self, "compatible_runtimes")
 
     @compatible_runtimes.setter
-    def compatible_runtimes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def compatible_runtimes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "compatible_runtimes", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of what your Lambda Layer does.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="licenseInfo")
-    def license_info(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def license_info(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         License info for your Lambda Layer. See [License Info](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-LicenseInfo).
         """
         return pulumi.get(self, "license_info")
 
     @license_info.setter
-    def license_info(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def license_info(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "license_info", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="s3Bucket")
-    def s3_bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_bucket(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
         """
         return pulumi.get(self, "s3_bucket")
 
     @s3_bucket.setter
-    def s3_bucket(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_bucket(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_bucket", value)
 
     @_builtins.property
     @pulumi.getter(name="s3Key")
-    def s3_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         S3 key of an object containing the function's deployment package. Conflicts with `filename`.
         """
         return pulumi.get(self, "s3_key")
 
     @s3_key.setter
-    def s3_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_key", value)
 
     @_builtins.property
     @pulumi.getter(name="s3ObjectVersion")
-    def s3_object_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_object_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Object version containing the function's deployment package. Conflicts with `filename`.
         """
         return pulumi.get(self, "s3_object_version")
 
     @s3_object_version.setter
-    def s3_object_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_object_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_object_version", value)
 
     @_builtins.property
     @pulumi.getter(name="skipDestroy")
-    def skip_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_destroy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
         """
         return pulumi.get(self, "skip_destroy")
 
     @skip_destroy.setter
-    def skip_destroy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_destroy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_destroy", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceCodeHash")
-    def source_code_hash(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_code_hash(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `filebase64sha256("file.zip")` or `base64sha256(file("file.zip"))`, where "file.zip" is the local filename of the lambda layer source archive.
         """
         return pulumi.get(self, "source_code_hash")
 
     @source_code_hash.setter
-    def source_code_hash(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_code_hash(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_code_hash", value)
 
 
 @pulumi.input_type
 class _LayerVersionState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 code: Optional[pulumi.Input[pulumi.Archive]] = None,
-                 code_sha256: Optional[pulumi.Input[_builtins.str]] = None,
-                 compatible_architectures: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 compatible_runtimes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 created_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 layer_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 layer_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 license_info: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_object_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 signing_job_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 signing_profile_version_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 source_code_hash: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_code_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 code: pulumi.Input[Optional[pulumi.Archive]] = None,
+                 code_sha256: pulumi.Input[Optional[_builtins.str]] = None,
+                 compatible_architectures: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 compatible_runtimes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 created_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 layer_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 layer_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 license_info: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_object_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 signing_job_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 signing_profile_version_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 source_code_hash: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_code_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LayerVersion resources.
 
@@ -312,103 +312,103 @@ class _LayerVersionState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the Lambda Layer with version.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def code(self) -> Optional[pulumi.Input[pulumi.Archive]]:
+    def code(self) -> pulumi.Input[Optional[pulumi.Archive]]:
         """
         Path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
         """
         return pulumi.get(self, "code")
 
     @code.setter
-    def code(self, value: Optional[pulumi.Input[pulumi.Archive]]):
+    def code(self, value: pulumi.Input[Optional[pulumi.Archive]]):
         pulumi.set(self, "code", value)
 
     @_builtins.property
     @pulumi.getter(name="codeSha256")
-    def code_sha256(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def code_sha256(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Base64-encoded representation of raw SHA-256 sum of the zip file.
         """
         return pulumi.get(self, "code_sha256")
 
     @code_sha256.setter
-    def code_sha256(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def code_sha256(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "code_sha256", value)
 
     @_builtins.property
     @pulumi.getter(name="compatibleArchitectures")
-    def compatible_architectures(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def compatible_architectures(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x86_64` and `arm64` can be specified.
         """
         return pulumi.get(self, "compatible_architectures")
 
     @compatible_architectures.setter
-    def compatible_architectures(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def compatible_architectures(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "compatible_architectures", value)
 
     @_builtins.property
     @pulumi.getter(name="compatibleRuntimes")
-    def compatible_runtimes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def compatible_runtimes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 15 runtimes can be specified.
         """
         return pulumi.get(self, "compatible_runtimes")
 
     @compatible_runtimes.setter
-    def compatible_runtimes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def compatible_runtimes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "compatible_runtimes", value)
 
     @_builtins.property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date this resource was created.
         """
         return pulumi.get(self, "created_date")
 
     @created_date.setter
-    def created_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_date", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of what your Lambda Layer does.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="layerArn")
-    def layer_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def layer_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the Lambda Layer without version.
         """
         return pulumi.get(self, "layer_arn")
 
     @layer_arn.setter
-    def layer_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def layer_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "layer_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="layerName")
-    def layer_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def layer_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique name for your Lambda Layer.
 
@@ -417,139 +417,139 @@ class _LayerVersionState:
         return pulumi.get(self, "layer_name")
 
     @layer_name.setter
-    def layer_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def layer_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "layer_name", value)
 
     @_builtins.property
     @pulumi.getter(name="licenseInfo")
-    def license_info(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def license_info(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         License info for your Lambda Layer. See [License Info](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-LicenseInfo).
         """
         return pulumi.get(self, "license_info")
 
     @license_info.setter
-    def license_info(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def license_info(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "license_info", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="s3Bucket")
-    def s3_bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_bucket(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
         """
         return pulumi.get(self, "s3_bucket")
 
     @s3_bucket.setter
-    def s3_bucket(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_bucket(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_bucket", value)
 
     @_builtins.property
     @pulumi.getter(name="s3Key")
-    def s3_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         S3 key of an object containing the function's deployment package. Conflicts with `filename`.
         """
         return pulumi.get(self, "s3_key")
 
     @s3_key.setter
-    def s3_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_key", value)
 
     @_builtins.property
     @pulumi.getter(name="s3ObjectVersion")
-    def s3_object_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_object_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Object version containing the function's deployment package. Conflicts with `filename`.
         """
         return pulumi.get(self, "s3_object_version")
 
     @s3_object_version.setter
-    def s3_object_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_object_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_object_version", value)
 
     @_builtins.property
     @pulumi.getter(name="signingJobArn")
-    def signing_job_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def signing_job_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of a signing job.
         """
         return pulumi.get(self, "signing_job_arn")
 
     @signing_job_arn.setter
-    def signing_job_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def signing_job_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "signing_job_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="signingProfileVersionArn")
-    def signing_profile_version_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def signing_profile_version_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN for a signing profile version.
         """
         return pulumi.get(self, "signing_profile_version_arn")
 
     @signing_profile_version_arn.setter
-    def signing_profile_version_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def signing_profile_version_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "signing_profile_version_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="skipDestroy")
-    def skip_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_destroy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
         """
         return pulumi.get(self, "skip_destroy")
 
     @skip_destroy.setter
-    def skip_destroy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_destroy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_destroy", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceCodeHash")
-    def source_code_hash(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_code_hash(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `filebase64sha256("file.zip")` or `base64sha256(file("file.zip"))`, where "file.zip" is the local filename of the lambda layer source archive.
         """
         return pulumi.get(self, "source_code_hash")
 
     @source_code_hash.setter
-    def source_code_hash(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_code_hash(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_code_hash", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceCodeSize")
-    def source_code_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def source_code_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Size in bytes of the function .zip file.
         """
         return pulumi.get(self, "source_code_size")
 
     @source_code_size.setter
-    def source_code_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def source_code_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "source_code_size", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Lambda Layer version.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -559,18 +559,18 @@ class LayerVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 code: Optional[pulumi.Input[pulumi.Archive]] = None,
-                 compatible_architectures: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 compatible_runtimes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 layer_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 license_info: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_object_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 source_code_hash: Optional[pulumi.Input[_builtins.str]] = None,
+                 code: pulumi.Input[Optional[pulumi.Archive]] = None,
+                 compatible_architectures: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 compatible_runtimes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 layer_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 license_info: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_object_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 source_code_hash: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an AWS Lambda Layer Version. Use this resource to share code and dependencies across multiple Lambda functions.
@@ -800,18 +800,18 @@ class LayerVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 code: Optional[pulumi.Input[pulumi.Archive]] = None,
-                 compatible_architectures: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 compatible_runtimes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 layer_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 license_info: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_object_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 source_code_hash: Optional[pulumi.Input[_builtins.str]] = None,
+                 code: pulumi.Input[Optional[pulumi.Archive]] = None,
+                 compatible_architectures: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 compatible_runtimes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 layer_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 license_info: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_object_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 source_code_hash: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -853,26 +853,26 @@ class LayerVersion(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            code: Optional[pulumi.Input[pulumi.Archive]] = None,
-            code_sha256: Optional[pulumi.Input[_builtins.str]] = None,
-            compatible_architectures: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            compatible_runtimes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            created_date: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            layer_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            layer_name: Optional[pulumi.Input[_builtins.str]] = None,
-            license_info: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            s3_bucket: Optional[pulumi.Input[_builtins.str]] = None,
-            s3_key: Optional[pulumi.Input[_builtins.str]] = None,
-            s3_object_version: Optional[pulumi.Input[_builtins.str]] = None,
-            signing_job_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            signing_profile_version_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            skip_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-            source_code_hash: Optional[pulumi.Input[_builtins.str]] = None,
-            source_code_size: Optional[pulumi.Input[_builtins.int]] = None,
-            version: Optional[pulumi.Input[_builtins.str]] = None) -> 'LayerVersion':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            code: pulumi.Input[Optional[pulumi.Archive]] = None,
+            code_sha256: pulumi.Input[Optional[_builtins.str]] = None,
+            compatible_architectures: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            compatible_runtimes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            created_date: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            layer_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            layer_name: pulumi.Input[Optional[_builtins.str]] = None,
+            license_info: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            s3_bucket: pulumi.Input[Optional[_builtins.str]] = None,
+            s3_key: pulumi.Input[Optional[_builtins.str]] = None,
+            s3_object_version: pulumi.Input[Optional[_builtins.str]] = None,
+            signing_job_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            signing_profile_version_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+            source_code_hash: pulumi.Input[Optional[_builtins.str]] = None,
+            source_code_size: pulumi.Input[Optional[_builtins.int]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> 'LayerVersion':
         """
         Get an existing LayerVersion resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

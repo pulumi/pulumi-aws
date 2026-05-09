@@ -270,10 +270,10 @@ def get_query_suggestions_block_list(index_id: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_query_suggestions_block_list_output(index_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                            query_suggestions_block_list_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                            region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                            tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_query_suggestions_block_list_output(index_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                            query_suggestions_block_list_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                            region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                            tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQuerySuggestionsBlockListResult]:
     """
     Provides details about a specific Amazon Kendra block list used for query suggestions for an index.

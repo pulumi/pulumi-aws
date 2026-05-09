@@ -181,14 +181,14 @@ def get_user(access_string: Optional[_builtins.str] = None,
         region=pulumi.get(__ret__, 'region'),
         user_id=pulumi.get(__ret__, 'user_id'),
         user_name=pulumi.get(__ret__, 'user_name'))
-def get_user_output(access_string: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                    authentication_modes: Optional[pulumi.Input[Optional[Sequence[Union['GetUserAuthenticationModeArgs', 'GetUserAuthenticationModeArgsDict']]]]] = None,
-                    engine: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                    no_password_required: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                    passwords: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                    region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                    user_id: Optional[pulumi.Input[_builtins.str]] = None,
-                    user_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_user_output(access_string: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                    authentication_modes: pulumi.Input[Optional[Optional[Sequence[Union['GetUserAuthenticationModeArgs', 'GetUserAuthenticationModeArgsDict']]]]] = None,
+                    engine: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                    no_password_required: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                    passwords: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                    region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                    user_id: pulumi.Input[Optional[_builtins.str]] = None,
+                    user_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
     """
     Use this data source to get information about an ElastiCache User.

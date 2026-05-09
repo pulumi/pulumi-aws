@@ -25,7 +25,7 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var accepter = Aws.Index.GetCallerIdentity.Invoke();
+    ///     var accepter = Aws.GetCallerIdentity.Invoke();
     /// 
     ///     // Accepter's side of the VIF.
     ///     var example = new Aws.DirectConnect.Gateway("example", new()

@@ -141,21 +141,21 @@ export interface GetAccessPointsOutputArgs {
     /**
      * AWS account ID for the account that owns the specified access points. If omitted, defaults to the caller's account ID.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * Name of the bucket associated with the access points.
      */
-    bucket?: pulumi.Input<string>;
+    bucket?: pulumi.Input<string | undefined>;
     /**
      * Unique identifier for the access points data source.
      */
-    dataSourceId?: pulumi.Input<string>;
+    dataSourceId?: pulumi.Input<string | undefined>;
     /**
      * Type of the data source that the access points are attached to. To return all access points set this argument to `ALL`.
      */
-    dataSourceType?: pulumi.Input<string>;
+    dataSourceType?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

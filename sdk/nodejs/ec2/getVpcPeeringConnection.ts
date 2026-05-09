@@ -206,35 +206,35 @@ export interface GetVpcPeeringConnectionOutputArgs {
     /**
      * Primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
      */
-    cidrBlock?: pulumi.Input<string>;
+    cidrBlock?: pulumi.Input<string | undefined>;
     /**
      * Custom filter block as described below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpcPeeringConnectionFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpcPeeringConnectionFilterArgs>[] | undefined>;
     /**
      * ID of the specific VPC Peering Connection to retrieve.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * AWS account ID of the owner of the requester VPC of the specific VPC Peering Connection to retrieve.
      */
-    ownerId?: pulumi.Input<string>;
+    ownerId?: pulumi.Input<string | undefined>;
     /**
      * Primary CIDR block of the accepter VPC of the specific VPC Peering Connection to retrieve.
      */
-    peerCidrBlock?: pulumi.Input<string>;
+    peerCidrBlock?: pulumi.Input<string | undefined>;
     /**
      * AWS account ID of the owner of the accepter VPC of the specific VPC Peering Connection to retrieve.
      */
-    peerOwnerId?: pulumi.Input<string>;
+    peerOwnerId?: pulumi.Input<string | undefined>;
     /**
      * ID of the accepter VPC of the specific VPC Peering Connection to retrieve.
      */
-    peerVpcId?: pulumi.Input<string>;
+    peerVpcId?: pulumi.Input<string | undefined>;
     /**
      * Status of the specific VPC Peering Connection to retrieve.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired VPC Peering Connection.
@@ -242,9 +242,9 @@ export interface GetVpcPeeringConnectionOutputArgs {
      * The arguments of this data source act as filters for querying the available VPC peering connection.
      * The given filters must match exactly one VPC peering connection whose data will be exported as attributes.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * ID of the requester VPC of the specific VPC Peering Connection to retrieve.
      */
-    vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string | undefined>;
 }

@@ -21,21 +21,21 @@ __all__ = ['ProvisionedProductArgs', 'ProvisionedProduct']
 @pulumi.input_type
 class ProvisionedProductArgs:
     def __init__(__self__, *,
-                 accept_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_errors: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 path_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 path_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioning_artifact_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioning_artifact_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioning_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ProvisionedProductProvisioningParameterArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 retain_physical_resources: Optional[pulumi.Input[_builtins.bool]] = None,
-                 stack_set_provisioning_preferences: Optional[pulumi.Input['ProvisionedProductStackSetProvisioningPreferencesArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 accept_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_errors: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 path_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 path_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioning_artifact_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioning_artifact_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioning_parameters: pulumi.Input[Optional[Sequence[pulumi.Input['ProvisionedProductProvisioningParameterArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 retain_physical_resources: pulumi.Input[Optional[_builtins.bool]] = None,
+                 stack_set_provisioning_preferences: pulumi.Input[Optional['ProvisionedProductStackSetProvisioningPreferencesArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ProvisionedProduct resource.
 
@@ -90,31 +90,31 @@ class ProvisionedProductArgs:
 
     @_builtins.property
     @pulumi.getter(name="acceptLanguage")
-    def accept_language(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def accept_language(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         """
         return pulumi.get(self, "accept_language")
 
     @accept_language.setter
-    def accept_language(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def accept_language(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "accept_language", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreErrors")
-    def ignore_errors(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_errors(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         _Only applies to deleting._ If set to `true`, AWS Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources. The default value is `false`.
         """
         return pulumi.get(self, "ignore_errors")
 
     @ignore_errors.setter
-    def ignore_errors(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_errors(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_errors", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User-friendly name of the provisioned product.
 
@@ -123,184 +123,184 @@ class ProvisionedProductArgs:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationArns")
-    def notification_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def notification_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
         """
         return pulumi.get(self, "notification_arns")
 
     @notification_arns.setter
-    def notification_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def notification_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "notification_arns", value)
 
     @_builtins.property
     @pulumi.getter(name="pathId")
-    def path_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `servicecatalog_get_launch_paths`. When required, you must provide `path_id` or `path_name`, but not both.
         """
         return pulumi.get(self, "path_id")
 
     @path_id.setter
-    def path_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path_id", value)
 
     @_builtins.property
     @pulumi.getter(name="pathName")
-    def path_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the path. You must provide `path_id` or `path_name`, but not both.
         """
         return pulumi.get(self, "path_name")
 
     @path_name.setter
-    def path_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path_name", value)
 
     @_builtins.property
     @pulumi.getter(name="productId")
-    def product_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def product_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `product_id` or `product_name`, but not both.
         """
         return pulumi.get(self, "product_id")
 
     @product_id.setter
-    def product_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def product_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "product_id", value)
 
     @_builtins.property
     @pulumi.getter(name="productName")
-    def product_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def product_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the product. You must provide `product_id` or `product_name`, but not both.
         """
         return pulumi.get(self, "product_name")
 
     @product_name.setter
-    def product_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def product_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "product_name", value)
 
     @_builtins.property
     @pulumi.getter(name="provisioningArtifactId")
-    def provisioning_artifact_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provisioning_artifact_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
         """
         return pulumi.get(self, "provisioning_artifact_id")
 
     @provisioning_artifact_id.setter
-    def provisioning_artifact_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provisioning_artifact_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provisioning_artifact_id", value)
 
     @_builtins.property
     @pulumi.getter(name="provisioningArtifactName")
-    def provisioning_artifact_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provisioning_artifact_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the provisioning artifact. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
         """
         return pulumi.get(self, "provisioning_artifact_name")
 
     @provisioning_artifact_name.setter
-    def provisioning_artifact_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provisioning_artifact_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provisioning_artifact_name", value)
 
     @_builtins.property
     @pulumi.getter(name="provisioningParameters")
-    def provisioning_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProvisionedProductProvisioningParameterArgs']]]]:
+    def provisioning_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProvisionedProductProvisioningParameterArgs']]]]:
         """
         Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioning_parameters` Block for details.
         """
         return pulumi.get(self, "provisioning_parameters")
 
     @provisioning_parameters.setter
-    def provisioning_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProvisionedProductProvisioningParameterArgs']]]]):
+    def provisioning_parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProvisionedProductProvisioningParameterArgs']]]]):
         pulumi.set(self, "provisioning_parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="retainPhysicalResources")
-    def retain_physical_resources(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def retain_physical_resources(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
         """
         return pulumi.get(self, "retain_physical_resources")
 
     @retain_physical_resources.setter
-    def retain_physical_resources(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def retain_physical_resources(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "retain_physical_resources", value)
 
     @_builtins.property
     @pulumi.getter(name="stackSetProvisioningPreferences")
-    def stack_set_provisioning_preferences(self) -> Optional[pulumi.Input['ProvisionedProductStackSetProvisioningPreferencesArgs']]:
+    def stack_set_provisioning_preferences(self) -> pulumi.Input[Optional['ProvisionedProductStackSetProvisioningPreferencesArgs']]:
         """
         Configuration block with information about the provisioning preferences for a stack set. See `stack_set_provisioning_preferences` Block for details.
         """
         return pulumi.get(self, "stack_set_provisioning_preferences")
 
     @stack_set_provisioning_preferences.setter
-    def stack_set_provisioning_preferences(self, value: Optional[pulumi.Input['ProvisionedProductStackSetProvisioningPreferencesArgs']]):
+    def stack_set_provisioning_preferences(self, value: pulumi.Input[Optional['ProvisionedProductStackSetProvisioningPreferencesArgs']]):
         pulumi.set(self, "stack_set_provisioning_preferences", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Tags to apply to the provisioned product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _ProvisionedProductState:
     def __init__(__self__, *,
-                 accept_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloudwatch_dashboard_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 created_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_errors: Optional[pulumi.Input[_builtins.bool]] = None,
-                 last_provisioning_record_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_record_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_successful_provisioning_record_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 launch_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input['ProvisionedProductOutputArgs']]]] = None,
-                 path_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 path_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioning_artifact_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioning_artifact_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioning_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ProvisionedProductProvisioningParameterArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 retain_physical_resources: Optional[pulumi.Input[_builtins.bool]] = None,
-                 stack_set_provisioning_preferences: Optional[pulumi.Input['ProvisionedProductStackSetProvisioningPreferencesArgs']] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 status_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 accept_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloudwatch_dashboard_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 created_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_errors: pulumi.Input[Optional[_builtins.bool]] = None,
+                 last_provisioning_record_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_record_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_successful_provisioning_record_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 launch_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 outputs: pulumi.Input[Optional[Sequence[pulumi.Input['ProvisionedProductOutputArgs']]]] = None,
+                 path_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 path_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioning_artifact_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioning_artifact_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioning_parameters: pulumi.Input[Optional[Sequence[pulumi.Input['ProvisionedProductProvisioningParameterArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 retain_physical_resources: pulumi.Input[Optional[_builtins.bool]] = None,
+                 stack_set_provisioning_preferences: pulumi.Input[Optional['ProvisionedProductStackSetProvisioningPreferencesArgs']] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 status_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProvisionedProduct resources.
 
@@ -391,115 +391,115 @@ class _ProvisionedProductState:
 
     @_builtins.property
     @pulumi.getter(name="acceptLanguage")
-    def accept_language(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def accept_language(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         """
         return pulumi.get(self, "accept_language")
 
     @accept_language.setter
-    def accept_language(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def accept_language(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "accept_language", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the provisioned product.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="cloudwatchDashboardNames")
-    def cloudwatch_dashboard_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def cloudwatch_dashboard_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of CloudWatch dashboards that were created when provisioning the product.
         """
         return pulumi.get(self, "cloudwatch_dashboard_names")
 
     @cloudwatch_dashboard_names.setter
-    def cloudwatch_dashboard_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def cloudwatch_dashboard_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "cloudwatch_dashboard_names", value)
 
     @_builtins.property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Time when the provisioned product was created.
         """
         return pulumi.get(self, "created_time")
 
     @created_time.setter
-    def created_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_time", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreErrors")
-    def ignore_errors(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_errors(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         _Only applies to deleting._ If set to `true`, AWS Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources. The default value is `false`.
         """
         return pulumi.get(self, "ignore_errors")
 
     @ignore_errors.setter
-    def ignore_errors(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_errors(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_errors", value)
 
     @_builtins.property
     @pulumi.getter(name="lastProvisioningRecordId")
-    def last_provisioning_record_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_provisioning_record_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Record identifier of the last request performed on this provisioned product of the following types: `ProvisionedProduct`, `UpdateProvisionedProduct`, `ExecuteProvisionedProductPlan`, `TerminateProvisionedProduct`.
         """
         return pulumi.get(self, "last_provisioning_record_id")
 
     @last_provisioning_record_id.setter
-    def last_provisioning_record_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_provisioning_record_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_provisioning_record_id", value)
 
     @_builtins.property
     @pulumi.getter(name="lastRecordId")
-    def last_record_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_record_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Record identifier of the last request performed on this provisioned product.
         """
         return pulumi.get(self, "last_record_id")
 
     @last_record_id.setter
-    def last_record_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_record_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_record_id", value)
 
     @_builtins.property
     @pulumi.getter(name="lastSuccessfulProvisioningRecordId")
-    def last_successful_provisioning_record_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_successful_provisioning_record_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Record identifier of the last successful request performed on this provisioned product of the following types: `ProvisionedProduct`, `UpdateProvisionedProduct`, `ExecuteProvisionedProductPlan`, `TerminateProvisionedProduct`.
         """
         return pulumi.get(self, "last_successful_provisioning_record_id")
 
     @last_successful_provisioning_record_id.setter
-    def last_successful_provisioning_record_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_successful_provisioning_record_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_successful_provisioning_record_id", value)
 
     @_builtins.property
     @pulumi.getter(name="launchRoleArn")
-    def launch_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def launch_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the launch role associated with the provisioned product.
         """
         return pulumi.get(self, "launch_role_arn")
 
     @launch_role_arn.setter
-    def launch_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def launch_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "launch_role_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User-friendly name of the provisioned product.
 
@@ -508,211 +508,211 @@ class _ProvisionedProductState:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationArns")
-    def notification_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def notification_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
         """
         return pulumi.get(self, "notification_arns")
 
     @notification_arns.setter
-    def notification_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def notification_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "notification_arns", value)
 
     @_builtins.property
     @pulumi.getter
-    def outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProvisionedProductOutputArgs']]]]:
+    def outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProvisionedProductOutputArgs']]]]:
         """
         The set of outputs for the product created.
         """
         return pulumi.get(self, "outputs")
 
     @outputs.setter
-    def outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProvisionedProductOutputArgs']]]]):
+    def outputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProvisionedProductOutputArgs']]]]):
         pulumi.set(self, "outputs", value)
 
     @_builtins.property
     @pulumi.getter(name="pathId")
-    def path_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `servicecatalog_get_launch_paths`. When required, you must provide `path_id` or `path_name`, but not both.
         """
         return pulumi.get(self, "path_id")
 
     @path_id.setter
-    def path_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path_id", value)
 
     @_builtins.property
     @pulumi.getter(name="pathName")
-    def path_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the path. You must provide `path_id` or `path_name`, but not both.
         """
         return pulumi.get(self, "path_name")
 
     @path_name.setter
-    def path_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path_name", value)
 
     @_builtins.property
     @pulumi.getter(name="productId")
-    def product_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def product_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `product_id` or `product_name`, but not both.
         """
         return pulumi.get(self, "product_id")
 
     @product_id.setter
-    def product_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def product_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "product_id", value)
 
     @_builtins.property
     @pulumi.getter(name="productName")
-    def product_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def product_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the product. You must provide `product_id` or `product_name`, but not both.
         """
         return pulumi.get(self, "product_name")
 
     @product_name.setter
-    def product_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def product_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "product_name", value)
 
     @_builtins.property
     @pulumi.getter(name="provisioningArtifactId")
-    def provisioning_artifact_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provisioning_artifact_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
         """
         return pulumi.get(self, "provisioning_artifact_id")
 
     @provisioning_artifact_id.setter
-    def provisioning_artifact_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provisioning_artifact_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provisioning_artifact_id", value)
 
     @_builtins.property
     @pulumi.getter(name="provisioningArtifactName")
-    def provisioning_artifact_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provisioning_artifact_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the provisioning artifact. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
         """
         return pulumi.get(self, "provisioning_artifact_name")
 
     @provisioning_artifact_name.setter
-    def provisioning_artifact_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provisioning_artifact_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provisioning_artifact_name", value)
 
     @_builtins.property
     @pulumi.getter(name="provisioningParameters")
-    def provisioning_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProvisionedProductProvisioningParameterArgs']]]]:
+    def provisioning_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProvisionedProductProvisioningParameterArgs']]]]:
         """
         Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioning_parameters` Block for details.
         """
         return pulumi.get(self, "provisioning_parameters")
 
     @provisioning_parameters.setter
-    def provisioning_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProvisionedProductProvisioningParameterArgs']]]]):
+    def provisioning_parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProvisionedProductProvisioningParameterArgs']]]]):
         pulumi.set(self, "provisioning_parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="retainPhysicalResources")
-    def retain_physical_resources(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def retain_physical_resources(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
         """
         return pulumi.get(self, "retain_physical_resources")
 
     @retain_physical_resources.setter
-    def retain_physical_resources(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def retain_physical_resources(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "retain_physical_resources", value)
 
     @_builtins.property
     @pulumi.getter(name="stackSetProvisioningPreferences")
-    def stack_set_provisioning_preferences(self) -> Optional[pulumi.Input['ProvisionedProductStackSetProvisioningPreferencesArgs']]:
+    def stack_set_provisioning_preferences(self) -> pulumi.Input[Optional['ProvisionedProductStackSetProvisioningPreferencesArgs']]:
         """
         Configuration block with information about the provisioning preferences for a stack set. See `stack_set_provisioning_preferences` Block for details.
         """
         return pulumi.get(self, "stack_set_provisioning_preferences")
 
     @stack_set_provisioning_preferences.setter
-    def stack_set_provisioning_preferences(self, value: Optional[pulumi.Input['ProvisionedProductStackSetProvisioningPreferencesArgs']]):
+    def stack_set_provisioning_preferences(self, value: pulumi.Input[Optional['ProvisionedProductStackSetProvisioningPreferencesArgs']]):
         pulumi.set(self, "stack_set_provisioning_preferences", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Current status of the provisioned product. See meanings below.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="statusMessage")
-    def status_message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Current status message of the provisioned product.
         """
         return pulumi.get(self, "status_message")
 
     @status_message.setter
-    def status_message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status_message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status_message", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Tags to apply to the provisioned product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of provisioned product. Valid values are `CFN_STACK` and `CFN_STACKSET`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -722,21 +722,21 @@ class ProvisionedProduct(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accept_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_errors: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 path_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 path_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioning_artifact_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioning_artifact_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioning_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProvisionedProductProvisioningParameterArgs', 'ProvisionedProductProvisioningParameterArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 retain_physical_resources: Optional[pulumi.Input[_builtins.bool]] = None,
-                 stack_set_provisioning_preferences: Optional[pulumi.Input[Union['ProvisionedProductStackSetProvisioningPreferencesArgs', 'ProvisionedProductStackSetProvisioningPreferencesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 accept_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_errors: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 path_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 path_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioning_artifact_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioning_artifact_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioning_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProvisionedProductProvisioningParameterArgs', 'ProvisionedProductProvisioningParameterArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 retain_physical_resources: pulumi.Input[Optional[_builtins.bool]] = None,
+                 stack_set_provisioning_preferences: pulumi.Input[Optional[Union['ProvisionedProductStackSetProvisioningPreferencesArgs', 'ProvisionedProductStackSetProvisioningPreferencesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         This resource provisions and manages a Service Catalog provisioned product.
@@ -861,21 +861,21 @@ class ProvisionedProduct(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accept_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_errors: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 path_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 path_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioning_artifact_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioning_artifact_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioning_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProvisionedProductProvisioningParameterArgs', 'ProvisionedProductProvisioningParameterArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 retain_physical_resources: Optional[pulumi.Input[_builtins.bool]] = None,
-                 stack_set_provisioning_preferences: Optional[pulumi.Input[Union['ProvisionedProductStackSetProvisioningPreferencesArgs', 'ProvisionedProductStackSetProvisioningPreferencesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 accept_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_errors: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 path_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 path_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioning_artifact_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioning_artifact_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioning_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProvisionedProductProvisioningParameterArgs', 'ProvisionedProductProvisioningParameterArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 retain_physical_resources: pulumi.Input[Optional[_builtins.bool]] = None,
+                 stack_set_provisioning_preferences: pulumi.Input[Optional[Union['ProvisionedProductStackSetProvisioningPreferencesArgs', 'ProvisionedProductStackSetProvisioningPreferencesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -922,33 +922,33 @@ class ProvisionedProduct(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            accept_language: Optional[pulumi.Input[_builtins.str]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            cloudwatch_dashboard_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            created_time: Optional[pulumi.Input[_builtins.str]] = None,
-            ignore_errors: Optional[pulumi.Input[_builtins.bool]] = None,
-            last_provisioning_record_id: Optional[pulumi.Input[_builtins.str]] = None,
-            last_record_id: Optional[pulumi.Input[_builtins.str]] = None,
-            last_successful_provisioning_record_id: Optional[pulumi.Input[_builtins.str]] = None,
-            launch_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            notification_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProvisionedProductOutputArgs', 'ProvisionedProductOutputArgsDict']]]]] = None,
-            path_id: Optional[pulumi.Input[_builtins.str]] = None,
-            path_name: Optional[pulumi.Input[_builtins.str]] = None,
-            product_id: Optional[pulumi.Input[_builtins.str]] = None,
-            product_name: Optional[pulumi.Input[_builtins.str]] = None,
-            provisioning_artifact_id: Optional[pulumi.Input[_builtins.str]] = None,
-            provisioning_artifact_name: Optional[pulumi.Input[_builtins.str]] = None,
-            provisioning_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProvisionedProductProvisioningParameterArgs', 'ProvisionedProductProvisioningParameterArgsDict']]]]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            retain_physical_resources: Optional[pulumi.Input[_builtins.bool]] = None,
-            stack_set_provisioning_preferences: Optional[pulumi.Input[Union['ProvisionedProductStackSetProvisioningPreferencesArgs', 'ProvisionedProductStackSetProvisioningPreferencesArgsDict']]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            status_message: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None) -> 'ProvisionedProduct':
+            accept_language: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            cloudwatch_dashboard_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            created_time: pulumi.Input[Optional[_builtins.str]] = None,
+            ignore_errors: pulumi.Input[Optional[_builtins.bool]] = None,
+            last_provisioning_record_id: pulumi.Input[Optional[_builtins.str]] = None,
+            last_record_id: pulumi.Input[Optional[_builtins.str]] = None,
+            last_successful_provisioning_record_id: pulumi.Input[Optional[_builtins.str]] = None,
+            launch_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            notification_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProvisionedProductOutputArgs', 'ProvisionedProductOutputArgsDict']]]]] = None,
+            path_id: pulumi.Input[Optional[_builtins.str]] = None,
+            path_name: pulumi.Input[Optional[_builtins.str]] = None,
+            product_id: pulumi.Input[Optional[_builtins.str]] = None,
+            product_name: pulumi.Input[Optional[_builtins.str]] = None,
+            provisioning_artifact_id: pulumi.Input[Optional[_builtins.str]] = None,
+            provisioning_artifact_name: pulumi.Input[Optional[_builtins.str]] = None,
+            provisioning_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProvisionedProductProvisioningParameterArgs', 'ProvisionedProductProvisioningParameterArgsDict']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            retain_physical_resources: pulumi.Input[Optional[_builtins.bool]] = None,
+            stack_set_provisioning_preferences: pulumi.Input[Optional[Union['ProvisionedProductStackSetProvisioningPreferencesArgs', 'ProvisionedProductStackSetProvisioningPreferencesArgsDict']]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            status_message: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> 'ProvisionedProduct':
         """
         Get an existing ProvisionedProduct resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

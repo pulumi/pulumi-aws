@@ -58,8 +58,8 @@ class ChannelAssociationArgs:
 @pulumi.input_type
 class _ChannelAssociationState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_configuration_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_configuration_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ChannelAssociation resources.
 
@@ -73,26 +73,26 @@ class _ChannelAssociationState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the channel to associate with the notification configuration. Must match pattern `^arn:aws:(chatbot|consoleapp|notifications-contacts):[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-_.@]+/[a-zA-Z0-9/_.@:-]+$`.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationConfigurationArn")
-    def notification_configuration_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notification_configuration_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the notification configuration to associate the channel with.
         """
         return pulumi.get(self, "notification_configuration_arn")
 
     @notification_configuration_arn.setter
-    def notification_configuration_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notification_configuration_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notification_configuration_arn", value)
 
 
@@ -102,8 +102,8 @@ class ChannelAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_configuration_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_configuration_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing an AWS User Notifications Channel Association. This resource associates a channel (such as an email contact) with a notification configuration.
@@ -193,8 +193,8 @@ class ChannelAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_configuration_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_configuration_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -220,8 +220,8 @@ class ChannelAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            notification_configuration_arn: Optional[pulumi.Input[_builtins.str]] = None) -> 'ChannelAssociation':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            notification_configuration_arn: pulumi.Input[Optional[_builtins.str]] = None) -> 'ChannelAssociation':
         """
         Get an existing ChannelAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

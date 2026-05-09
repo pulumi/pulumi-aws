@@ -275,55 +275,55 @@ export interface FlowState {
     /**
      * Flow's ARN.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Description of the flow you want to create.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
      */
-    destinationFlowConfigs?: pulumi.Input<pulumi.Input<inputs.appflow.FlowDestinationFlowConfig>[]>;
+    destinationFlowConfigs?: pulumi.Input<pulumi.Input<inputs.appflow.FlowDestinationFlowConfig>[] | undefined>;
     /**
      * The current status of the flow.
      */
-    flowStatus?: pulumi.Input<string>;
+    flowStatus?: pulumi.Input<string | undefined>;
     /**
      * ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
      */
-    kmsArn?: pulumi.Input<string>;
+    kmsArn?: pulumi.Input<string | undefined>;
     /**
      * A Catalog that determines the configuration that Amazon AppFlow uses when it catalogs the data that’s transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it stores metadata in a data catalog.
      */
-    metadataCatalogConfig?: pulumi.Input<inputs.appflow.FlowMetadataCatalogConfig>;
+    metadataCatalogConfig?: pulumi.Input<inputs.appflow.FlowMetadataCatalogConfig | undefined>;
     /**
      * Name of the flow.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
      */
-    sourceFlowConfig?: pulumi.Input<inputs.appflow.FlowSourceFlowConfig>;
+    sourceFlowConfig?: pulumi.Input<inputs.appflow.FlowSourceFlowConfig | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A Task that Amazon AppFlow performs while transferring the data in the flow run.
      */
-    tasks?: pulumi.Input<pulumi.Input<inputs.appflow.FlowTask>[]>;
+    tasks?: pulumi.Input<pulumi.Input<inputs.appflow.FlowTask>[] | undefined>;
     /**
      * A Trigger that determine how and when the flow runs.
      */
-    triggerConfig?: pulumi.Input<inputs.appflow.FlowTriggerConfig>;
+    triggerConfig?: pulumi.Input<inputs.appflow.FlowTriggerConfig | undefined>;
 }
 
 /**
@@ -333,7 +333,7 @@ export interface FlowArgs {
     /**
      * Description of the flow you want to create.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
      */
@@ -341,19 +341,19 @@ export interface FlowArgs {
     /**
      * ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
      */
-    kmsArn?: pulumi.Input<string>;
+    kmsArn?: pulumi.Input<string | undefined>;
     /**
      * A Catalog that determines the configuration that Amazon AppFlow uses when it catalogs the data that’s transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it stores metadata in a data catalog.
      */
-    metadataCatalogConfig?: pulumi.Input<inputs.appflow.FlowMetadataCatalogConfig>;
+    metadataCatalogConfig?: pulumi.Input<inputs.appflow.FlowMetadataCatalogConfig | undefined>;
     /**
      * Name of the flow.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
      */
@@ -361,7 +361,7 @@ export interface FlowArgs {
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A Task that Amazon AppFlow performs while transferring the data in the flow run.
      */

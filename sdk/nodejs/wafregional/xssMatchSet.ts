@@ -118,15 +118,15 @@ export interface XssMatchSetState {
     /**
      * The name of the set
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The parts of web requests that you want to inspect for cross-site scripting attacks.
      */
-    xssMatchTuples?: pulumi.Input<pulumi.Input<inputs.wafregional.XssMatchSetXssMatchTuple>[]>;
+    xssMatchTuples?: pulumi.Input<pulumi.Input<inputs.wafregional.XssMatchSetXssMatchTuple>[] | undefined>;
 }
 
 /**
@@ -136,13 +136,13 @@ export interface XssMatchSetArgs {
     /**
      * The name of the set
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The parts of web requests that you want to inspect for cross-site scripting attacks.
      */
-    xssMatchTuples?: pulumi.Input<pulumi.Input<inputs.wafregional.XssMatchSetXssMatchTuple>[]>;
+    xssMatchTuples?: pulumi.Input<pulumi.Input<inputs.wafregional.XssMatchSetXssMatchTuple>[] | undefined>;
 }

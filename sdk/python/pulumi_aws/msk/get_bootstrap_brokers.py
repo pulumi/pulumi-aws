@@ -226,8 +226,8 @@ def get_bootstrap_brokers(cluster_arn: Optional[_builtins.str] = None,
         cluster_arn=pulumi.get(__ret__, 'cluster_arn'),
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'))
-def get_bootstrap_brokers_output(cluster_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                                 region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_bootstrap_brokers_output(cluster_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                                 region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBootstrapBrokersResult]:
     """
     Get a list of brokers that a client application can use to bootstrap.

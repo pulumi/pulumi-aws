@@ -105,9 +105,9 @@ export interface GetVpcAttachmentsOutputArgs {
     /**
      * One or more configuration blocks containing name-values filters. Detailed below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2transitgateway.GetVpcAttachmentsFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.ec2transitgateway.GetVpcAttachmentsFilterArgs>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

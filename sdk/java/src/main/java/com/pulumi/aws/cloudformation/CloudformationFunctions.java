@@ -35,8 +35,8 @@ public final class CloudformationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudformation.CloudformationFunctions;
      * import com.pulumi.aws.cloudformation.inputs.GetCloudFormationTypeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -76,8 +76,8 @@ public final class CloudformationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudformation.CloudformationFunctions;
      * import com.pulumi.aws.cloudformation.inputs.GetCloudFormationTypeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -117,8 +117,8 @@ public final class CloudformationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudformation.CloudformationFunctions;
      * import com.pulumi.aws.cloudformation.inputs.GetCloudFormationTypeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -158,8 +158,8 @@ public final class CloudformationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudformation.CloudformationFunctions;
      * import com.pulumi.aws.cloudformation.inputs.GetCloudFormationTypeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -199,8 +199,8 @@ public final class CloudformationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudformation.CloudformationFunctions;
      * import com.pulumi.aws.cloudformation.inputs.GetCloudFormationTypeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -240,8 +240,8 @@ public final class CloudformationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudformation.CloudformationFunctions;
      * import com.pulumi.aws.cloudformation.inputs.GetCloudFormationTypeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -281,8 +281,8 @@ public final class CloudformationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudformation.CloudformationFunctions;
      * import com.pulumi.aws.cloudformation.inputs.GetCloudFormationTypeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -327,8 +327,8 @@ public final class CloudformationFunctions {
      * import com.pulumi.aws.cloudformation.inputs.GetExportArgs;
      * import com.pulumi.aws.ec2.Instance;
      * import com.pulumi.aws.ec2.InstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -378,8 +378,8 @@ public final class CloudformationFunctions {
      * import com.pulumi.aws.cloudformation.inputs.GetExportArgs;
      * import com.pulumi.aws.ec2.Instance;
      * import com.pulumi.aws.ec2.InstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -429,8 +429,8 @@ public final class CloudformationFunctions {
      * import com.pulumi.aws.cloudformation.inputs.GetExportArgs;
      * import com.pulumi.aws.ec2.Instance;
      * import com.pulumi.aws.ec2.InstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -480,8 +480,8 @@ public final class CloudformationFunctions {
      * import com.pulumi.aws.cloudformation.inputs.GetExportArgs;
      * import com.pulumi.aws.ec2.Instance;
      * import com.pulumi.aws.ec2.InstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -531,8 +531,8 @@ public final class CloudformationFunctions {
      * import com.pulumi.aws.cloudformation.inputs.GetExportArgs;
      * import com.pulumi.aws.ec2.Instance;
      * import com.pulumi.aws.ec2.InstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -580,8 +580,8 @@ public final class CloudformationFunctions {
      * import com.pulumi.aws.cloudformation.inputs.GetStackArgs;
      * import com.pulumi.aws.ec2.Instance;
      * import com.pulumi.aws.ec2.InstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -630,8 +630,8 @@ public final class CloudformationFunctions {
      * import com.pulumi.aws.cloudformation.inputs.GetStackArgs;
      * import com.pulumi.aws.ec2.Instance;
      * import com.pulumi.aws.ec2.InstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -680,8 +680,8 @@ public final class CloudformationFunctions {
      * import com.pulumi.aws.cloudformation.inputs.GetStackArgs;
      * import com.pulumi.aws.ec2.Instance;
      * import com.pulumi.aws.ec2.InstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -730,8 +730,8 @@ public final class CloudformationFunctions {
      * import com.pulumi.aws.cloudformation.inputs.GetStackArgs;
      * import com.pulumi.aws.ec2.Instance;
      * import com.pulumi.aws.ec2.InstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -780,8 +780,8 @@ public final class CloudformationFunctions {
      * import com.pulumi.aws.cloudformation.inputs.GetStackArgs;
      * import com.pulumi.aws.ec2.Instance;
      * import com.pulumi.aws.ec2.InstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

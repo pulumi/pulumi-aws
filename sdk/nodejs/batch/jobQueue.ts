@@ -211,45 +211,45 @@ export interface JobQueueState {
     /**
      * The Amazon Resource Name of the job queue.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
      */
-    computeEnvironmentOrders?: pulumi.Input<pulumi.Input<inputs.batch.JobQueueComputeEnvironmentOrder>[]>;
+    computeEnvironmentOrders?: pulumi.Input<pulumi.Input<inputs.batch.JobQueueComputeEnvironmentOrder>[] | undefined>;
     /**
      * The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
      */
-    jobStateTimeLimitActions?: pulumi.Input<pulumi.Input<inputs.batch.JobQueueJobStateTimeLimitAction>[]>;
+    jobStateTimeLimitActions?: pulumi.Input<pulumi.Input<inputs.batch.JobQueueJobStateTimeLimitAction>[] | undefined>;
     /**
      * Specifies the name of the job queue.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The priority of the job queue. Job queues with a higher priority
      * are evaluated first when associated with the same compute environment.
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
      */
-    schedulingPolicyArn?: pulumi.Input<string>;
+    schedulingPolicyArn?: pulumi.Input<string | undefined>;
     /**
      * The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.batch.JobQueueTimeouts>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.batch.JobQueueTimeouts | undefined>;
 }
 
 /**
@@ -259,15 +259,15 @@ export interface JobQueueArgs {
     /**
      * The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
      */
-    computeEnvironmentOrders?: pulumi.Input<pulumi.Input<inputs.batch.JobQueueComputeEnvironmentOrder>[]>;
+    computeEnvironmentOrders?: pulumi.Input<pulumi.Input<inputs.batch.JobQueueComputeEnvironmentOrder>[] | undefined>;
     /**
      * The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
      */
-    jobStateTimeLimitActions?: pulumi.Input<pulumi.Input<inputs.batch.JobQueueJobStateTimeLimitAction>[]>;
+    jobStateTimeLimitActions?: pulumi.Input<pulumi.Input<inputs.batch.JobQueueJobStateTimeLimitAction>[] | undefined>;
     /**
      * Specifies the name of the job queue.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The priority of the job queue. Job queues with a higher priority
      * are evaluated first when associated with the same compute environment.
@@ -276,11 +276,11 @@ export interface JobQueueArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
      */
-    schedulingPolicyArn?: pulumi.Input<string>;
+    schedulingPolicyArn?: pulumi.Input<string | undefined>;
     /**
      * The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
      */
@@ -288,6 +288,6 @@ export interface JobQueueArgs {
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.batch.JobQueueTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.batch.JobQueueTimeouts | undefined>;
 }

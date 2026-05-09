@@ -91,8 +91,8 @@ public final class PolicyStepScalingPolicyConfigurationArgs extends com.pulumi.r
      * import com.pulumi.aws.appautoscaling.Policy;
      * import com.pulumi.aws.appautoscaling.PolicyArgs;
      * import com.pulumi.aws.appautoscaling.inputs.PolicyStepScalingPolicyConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -142,8 +142,8 @@ public final class PolicyStepScalingPolicyConfigurationArgs extends com.pulumi.r
      * import com.pulumi.aws.appautoscaling.Policy;
      * import com.pulumi.aws.appautoscaling.PolicyArgs;
      * import com.pulumi.aws.appautoscaling.inputs.PolicyStepScalingPolicyConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -306,8 +306,8 @@ public final class PolicyStepScalingPolicyConfigurationArgs extends com.pulumi.r
          * import com.pulumi.aws.appautoscaling.Policy;
          * import com.pulumi.aws.appautoscaling.PolicyArgs;
          * import com.pulumi.aws.appautoscaling.inputs.PolicyStepScalingPolicyConfigurationArgs;
-         * import java.util.List;
          * import java.util.ArrayList;
+         * import java.util.Arrays;
          * import java.util.Map;
          * import java.io.File;
          * import java.nio.file.Files;
@@ -361,8 +361,8 @@ public final class PolicyStepScalingPolicyConfigurationArgs extends com.pulumi.r
          * import com.pulumi.aws.appautoscaling.Policy;
          * import com.pulumi.aws.appautoscaling.PolicyArgs;
          * import com.pulumi.aws.appautoscaling.inputs.PolicyStepScalingPolicyConfigurationArgs;
-         * import java.util.List;
          * import java.util.ArrayList;
+         * import java.util.Arrays;
          * import java.util.Map;
          * import java.io.File;
          * import java.nio.file.Files;
@@ -415,8 +415,8 @@ public final class PolicyStepScalingPolicyConfigurationArgs extends com.pulumi.r
          * import com.pulumi.aws.appautoscaling.Policy;
          * import com.pulumi.aws.appautoscaling.PolicyArgs;
          * import com.pulumi.aws.appautoscaling.inputs.PolicyStepScalingPolicyConfigurationArgs;
-         * import java.util.List;
          * import java.util.ArrayList;
+         * import java.util.Arrays;
          * import java.util.Map;
          * import java.io.File;
          * import java.nio.file.Files;

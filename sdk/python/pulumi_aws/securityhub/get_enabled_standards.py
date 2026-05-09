@@ -110,8 +110,8 @@ def get_enabled_standards(region: Optional[_builtins.str] = None,
         region=pulumi.get(__ret__, 'region'),
         standards_subscription_arns=pulumi.get(__ret__, 'standards_subscription_arns'),
         standards_subscriptions=pulumi.get(__ret__, 'standards_subscriptions'))
-def get_enabled_standards_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                 standards_subscription_arns: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
+def get_enabled_standards_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                 standards_subscription_arns: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnabledStandardsResult]:
     """
     Lists the standards that are currently enabled.

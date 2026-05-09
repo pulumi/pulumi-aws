@@ -44,7 +44,7 @@ namespace Pulumi.Aws.Ec2
         ///     {
         ///         VpcId = selected.Apply(getVpcResult =&gt; getVpcResult.Id),
         ///         AvailabilityZone = "us-west-2a",
-        ///         CidrBlock = Std.Index.Cidrsubnet.Invoke(new()
+        ///         CidrBlock = Std.Cidrsubnet.Invoke(new()
         ///         {
         ///             Input = selected.Apply(getVpcResult =&gt; getVpcResult.CidrBlock),
         ///             Newbits = 4,
@@ -91,7 +91,7 @@ namespace Pulumi.Aws.Ec2
         ///     {
         ///         VpcId = selected.Apply(getVpcResult =&gt; getVpcResult.Id),
         ///         AvailabilityZone = "us-west-2a",
-        ///         CidrBlock = Std.Index.Cidrsubnet.Invoke(new()
+        ///         CidrBlock = Std.Cidrsubnet.Invoke(new()
         ///         {
         ///             Input = selected.Apply(getVpcResult =&gt; getVpcResult.CidrBlock),
         ///             Newbits = 4,
@@ -138,7 +138,7 @@ namespace Pulumi.Aws.Ec2
         ///     {
         ///         VpcId = selected.Apply(getVpcResult =&gt; getVpcResult.Id),
         ///         AvailabilityZone = "us-west-2a",
-        ///         CidrBlock = Std.Index.Cidrsubnet.Invoke(new()
+        ///         CidrBlock = Std.Cidrsubnet.Invoke(new()
         ///         {
         ///             Input = selected.Apply(getVpcResult =&gt; getVpcResult.CidrBlock),
         ///             Newbits = 4,

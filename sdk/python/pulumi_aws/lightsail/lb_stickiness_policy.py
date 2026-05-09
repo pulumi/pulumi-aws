@@ -22,7 +22,7 @@ class LbStickinessPolicyArgs:
                  cookie_duration: pulumi.Input[_builtins.int],
                  enabled: pulumi.Input[_builtins.bool],
                  lb_name: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a LbStickinessPolicy resource.
 
@@ -79,24 +79,24 @@ class LbStickinessPolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _LbStickinessPolicyState:
     def __init__(__self__, *,
-                 cookie_duration: Optional[pulumi.Input[_builtins.int]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 lb_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 cookie_duration: pulumi.Input[Optional[_builtins.int]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 lb_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LbStickinessPolicy resources.
 
@@ -118,31 +118,31 @@ class _LbStickinessPolicyState:
 
     @_builtins.property
     @pulumi.getter(name="cookieDuration")
-    def cookie_duration(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cookie_duration(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Cookie duration in seconds. This determines the length of the session stickiness.
         """
         return pulumi.get(self, "cookie_duration")
 
     @cookie_duration.setter
-    def cookie_duration(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cookie_duration(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cookie_duration", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable session stickiness for the load balancer.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="lbName")
-    def lb_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lb_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the load balancer to which you want to enable session stickiness.
 
@@ -151,19 +151,19 @@ class _LbStickinessPolicyState:
         return pulumi.get(self, "lb_name")
 
     @lb_name.setter
-    def lb_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lb_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lb_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
@@ -173,10 +173,10 @@ class LbStickinessPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cookie_duration: Optional[pulumi.Input[_builtins.int]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 lb_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 cookie_duration: pulumi.Input[Optional[_builtins.int]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 lb_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages session stickiness for a Lightsail Load Balancer.
@@ -274,10 +274,10 @@ class LbStickinessPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cookie_duration: Optional[pulumi.Input[_builtins.int]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 lb_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 cookie_duration: pulumi.Input[Optional[_builtins.int]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 lb_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -307,10 +307,10 @@ class LbStickinessPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cookie_duration: Optional[pulumi.Input[_builtins.int]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            lb_name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None) -> 'LbStickinessPolicy':
+            cookie_duration: pulumi.Input[Optional[_builtins.int]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            lb_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> 'LbStickinessPolicy':
         """
         Get an existing LbStickinessPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

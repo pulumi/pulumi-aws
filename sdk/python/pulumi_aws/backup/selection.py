@@ -23,12 +23,12 @@ class SelectionArgs:
     def __init__(__self__, *,
                  iam_role_arn: pulumi.Input[_builtins.str],
                  plan_id: pulumi.Input[_builtins.str],
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 not_resources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 selection_tags: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionSelectionTagArgs']]]] = None):
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input['SelectionConditionArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 not_resources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 selection_tags: pulumi.Input[Optional[Sequence[pulumi.Input['SelectionSelectionTagArgs']]]] = None):
         """
         The set of arguments for constructing a Selection resource.
 
@@ -82,88 +82,88 @@ class SelectionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionArgs']]]]:
+    def conditions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SelectionConditionArgs']]]]:
         """
         Condition-based filters used to specify sets of resources for a backup plan. See below for details.
         """
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionArgs']]]]):
+    def conditions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SelectionConditionArgs']]]]):
         pulumi.set(self, "conditions", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name of a resource selection document.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="notResources")
-    def not_resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def not_resources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to exclude from a backup plan.
         """
         return pulumi.get(self, "not_resources")
 
     @not_resources.setter
-    def not_resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def not_resources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "not_resources", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def resources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
         """
         return pulumi.get(self, "resources")
 
     @resources.setter
-    def resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def resources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resources", value)
 
     @_builtins.property
     @pulumi.getter(name="selectionTags")
-    def selection_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SelectionSelectionTagArgs']]]]:
+    def selection_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SelectionSelectionTagArgs']]]]:
         """
         Tag-based conditions used to specify a set of resources to assign to a backup plan. See below for details.
         """
         return pulumi.get(self, "selection_tags")
 
     @selection_tags.setter
-    def selection_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionSelectionTagArgs']]]]):
+    def selection_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SelectionSelectionTagArgs']]]]):
         pulumi.set(self, "selection_tags", value)
 
 
 @pulumi.input_type
 class _SelectionState:
     def __init__(__self__, *,
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionArgs']]]] = None,
-                 iam_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 not_resources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 plan_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 selection_tags: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionSelectionTagArgs']]]] = None):
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input['SelectionConditionArgs']]]] = None,
+                 iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 not_resources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 selection_tags: pulumi.Input[Optional[Sequence[pulumi.Input['SelectionSelectionTagArgs']]]] = None):
         """
         Input properties used for looking up and filtering Selection resources.
 
@@ -195,98 +195,98 @@ class _SelectionState:
 
     @_builtins.property
     @pulumi.getter
-    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionArgs']]]]:
+    def conditions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SelectionConditionArgs']]]]:
         """
         Condition-based filters used to specify sets of resources for a backup plan. See below for details.
         """
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionArgs']]]]):
+    def conditions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SelectionConditionArgs']]]]):
         pulumi.set(self, "conditions", value)
 
     @_builtins.property
     @pulumi.getter(name="iamRoleArn")
-    def iam_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def iam_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
         """
         return pulumi.get(self, "iam_role_arn")
 
     @iam_role_arn.setter
-    def iam_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def iam_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "iam_role_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name of a resource selection document.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="notResources")
-    def not_resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def not_resources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to exclude from a backup plan.
         """
         return pulumi.get(self, "not_resources")
 
     @not_resources.setter
-    def not_resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def not_resources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "not_resources", value)
 
     @_builtins.property
     @pulumi.getter(name="planId")
-    def plan_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def plan_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The backup plan ID to be associated with the selection of resources.
         """
         return pulumi.get(self, "plan_id")
 
     @plan_id.setter
-    def plan_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def plan_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "plan_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def resources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
         """
         return pulumi.get(self, "resources")
 
     @resources.setter
-    def resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def resources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resources", value)
 
     @_builtins.property
     @pulumi.getter(name="selectionTags")
-    def selection_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SelectionSelectionTagArgs']]]]:
+    def selection_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SelectionSelectionTagArgs']]]]:
         """
         Tag-based conditions used to specify a set of resources to assign to a backup plan. See below for details.
         """
         return pulumi.get(self, "selection_tags")
 
     @selection_tags.setter
-    def selection_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionSelectionTagArgs']]]]):
+    def selection_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SelectionSelectionTagArgs']]]]):
         pulumi.set(self, "selection_tags", value)
 
 
@@ -296,14 +296,14 @@ class Selection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SelectionConditionArgs', 'SelectionConditionArgsDict']]]]] = None,
-                 iam_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 not_resources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 plan_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 selection_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SelectionSelectionTagArgs', 'SelectionSelectionTagArgsDict']]]]] = None,
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SelectionConditionArgs', 'SelectionConditionArgsDict']]]]] = None,
+                 iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 not_resources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 selection_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SelectionSelectionTagArgs', 'SelectionSelectionTagArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages selection conditions for AWS Backup plan resources.
@@ -583,14 +583,14 @@ class Selection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SelectionConditionArgs', 'SelectionConditionArgsDict']]]]] = None,
-                 iam_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 not_resources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 plan_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 selection_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SelectionSelectionTagArgs', 'SelectionSelectionTagArgsDict']]]]] = None,
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SelectionConditionArgs', 'SelectionConditionArgsDict']]]]] = None,
+                 iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 not_resources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 selection_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SelectionSelectionTagArgs', 'SelectionSelectionTagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -622,14 +622,14 @@ class Selection(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SelectionConditionArgs', 'SelectionConditionArgsDict']]]]] = None,
-            iam_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            not_resources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            plan_id: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            resources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            selection_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SelectionSelectionTagArgs', 'SelectionSelectionTagArgsDict']]]]] = None) -> 'Selection':
+            conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SelectionConditionArgs', 'SelectionConditionArgsDict']]]]] = None,
+            iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            not_resources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            selection_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SelectionSelectionTagArgs', 'SelectionSelectionTagArgsDict']]]]] = None) -> 'Selection':
         """
         Get an existing Selection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

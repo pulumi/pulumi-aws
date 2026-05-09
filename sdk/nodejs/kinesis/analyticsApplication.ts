@@ -290,70 +290,70 @@ export interface AnalyticsApplicationState {
     /**
      * The ARN of the Kinesis Analytics Appliation.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The CloudWatch log stream options to monitor application errors.
      * See CloudWatch Logging Options below for more details.
      */
-    cloudwatchLoggingOptions?: pulumi.Input<inputs.kinesis.AnalyticsApplicationCloudwatchLoggingOptions>;
+    cloudwatchLoggingOptions?: pulumi.Input<inputs.kinesis.AnalyticsApplicationCloudwatchLoggingOptions | undefined>;
     /**
      * SQL Code to transform input data, and generate output.
      */
-    code?: pulumi.Input<string>;
+    code?: pulumi.Input<string | undefined>;
     /**
      * The Timestamp when the application version was created.
      */
-    createTimestamp?: pulumi.Input<string>;
+    createTimestamp?: pulumi.Input<string | undefined>;
     /**
      * Description of the application.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Input configuration of the application. See Inputs below for more details.
      */
-    inputs?: pulumi.Input<inputs.kinesis.AnalyticsApplicationInputs>;
+    inputs?: pulumi.Input<inputs.kinesis.AnalyticsApplicationInputs | undefined>;
     /**
      * The Timestamp when the application was last updated.
      */
-    lastUpdateTimestamp?: pulumi.Input<string>;
+    lastUpdateTimestamp?: pulumi.Input<string | undefined>;
     /**
      * Name of the Kinesis Analytics Application.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Output destination configuration of the application. See Outputs below for more details.
      */
-    outputs?: pulumi.Input<pulumi.Input<inputs.kinesis.AnalyticsApplicationOutput>[]>;
+    outputs?: pulumi.Input<pulumi.Input<inputs.kinesis.AnalyticsApplicationOutput>[] | undefined>;
     /**
      * An S3 Reference Data Source for the application.
      * See Reference Data Sources below for more details.
      */
-    referenceDataSources?: pulumi.Input<inputs.kinesis.AnalyticsApplicationReferenceDataSources>;
+    referenceDataSources?: pulumi.Input<inputs.kinesis.AnalyticsApplicationReferenceDataSources | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `startingPosition` must be configured.
      * To modify an application's starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
      */
-    startApplication?: pulumi.Input<boolean>;
+    startApplication?: pulumi.Input<boolean | undefined>;
     /**
      * The Status of the application.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Version of the application.
      */
-    version?: pulumi.Input<number>;
+    version?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -364,43 +364,43 @@ export interface AnalyticsApplicationArgs {
      * The CloudWatch log stream options to monitor application errors.
      * See CloudWatch Logging Options below for more details.
      */
-    cloudwatchLoggingOptions?: pulumi.Input<inputs.kinesis.AnalyticsApplicationCloudwatchLoggingOptions>;
+    cloudwatchLoggingOptions?: pulumi.Input<inputs.kinesis.AnalyticsApplicationCloudwatchLoggingOptions | undefined>;
     /**
      * SQL Code to transform input data, and generate output.
      */
-    code?: pulumi.Input<string>;
+    code?: pulumi.Input<string | undefined>;
     /**
      * Description of the application.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Input configuration of the application. See Inputs below for more details.
      */
-    inputs?: pulumi.Input<inputs.kinesis.AnalyticsApplicationInputs>;
+    inputs?: pulumi.Input<inputs.kinesis.AnalyticsApplicationInputs | undefined>;
     /**
      * Name of the Kinesis Analytics Application.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Output destination configuration of the application. See Outputs below for more details.
      */
-    outputs?: pulumi.Input<pulumi.Input<inputs.kinesis.AnalyticsApplicationOutput>[]>;
+    outputs?: pulumi.Input<pulumi.Input<inputs.kinesis.AnalyticsApplicationOutput>[] | undefined>;
     /**
      * An S3 Reference Data Source for the application.
      * See Reference Data Sources below for more details.
      */
-    referenceDataSources?: pulumi.Input<inputs.kinesis.AnalyticsApplicationReferenceDataSources>;
+    referenceDataSources?: pulumi.Input<inputs.kinesis.AnalyticsApplicationReferenceDataSources | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `startingPosition` must be configured.
      * To modify an application's starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
      */
-    startApplication?: pulumi.Input<boolean>;
+    startApplication?: pulumi.Input<boolean | undefined>;
     /**
      * Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

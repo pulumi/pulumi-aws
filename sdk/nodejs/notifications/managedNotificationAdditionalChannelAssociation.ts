@@ -108,11 +108,11 @@ export interface ManagedNotificationAdditionalChannelAssociationState {
     /**
      * ARN of the channel to associate with the managed notification.
      */
-    channelArn?: pulumi.Input<string>;
+    channelArn?: pulumi.Input<string | undefined>;
     /**
      * ARN of the managed notification to associate the channel with.
      */
-    managedNotificationArn?: pulumi.Input<string>;
+    managedNotificationArn?: pulumi.Input<string | undefined>;
 }
 
 /**

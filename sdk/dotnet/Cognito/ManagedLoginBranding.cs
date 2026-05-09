@@ -54,7 +54,7 @@ namespace Pulumi.Aws.Cognito
     ///         {
     ///             new Aws.Cognito.Inputs.ManagedLoginBrandingAssetArgs
     ///             {
-    ///                 Bytes = Std.Index.Filebase64.Invoke(new()
+    ///                 Bytes = Std.Filebase64.Invoke(new()
     ///                 {
     ///                     Input = "login_branding_asset.svg",
     ///                 }).Apply(invoke =&gt; invoke.Result),

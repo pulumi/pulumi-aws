@@ -24,8 +24,8 @@ class SigningJobArgs:
                  destination: pulumi.Input['SigningJobDestinationArgs'],
                  profile_name: pulumi.Input[_builtins.str],
                  source: pulumi.Input['SigningJobSourceArgs'],
-                 ignore_signing_job_failure: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 ignore_signing_job_failure: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SigningJob resource.
 
@@ -81,51 +81,51 @@ class SigningJobArgs:
 
     @_builtins.property
     @pulumi.getter(name="ignoreSigningJobFailure")
-    def ignore_signing_job_failure(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_signing_job_failure(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set this argument to `true` to ignore signing job failures and retrieve failed status and reason. Default `false`.
         """
         return pulumi.get(self, "ignore_signing_job_failure")
 
     @ignore_signing_job_failure.setter
-    def ignore_signing_job_failure(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_signing_job_failure(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_signing_job_failure", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _SigningJobState:
     def __init__(__self__, *,
-                 completed_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination: Optional[pulumi.Input['SigningJobDestinationArgs']] = None,
-                 ignore_signing_job_failure: Optional[pulumi.Input[_builtins.bool]] = None,
-                 job_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_invoker: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 platform_display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 platform_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 requested_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 revocation_records: Optional[pulumi.Input[Sequence[pulumi.Input['SigningJobRevocationRecordArgs']]]] = None,
-                 signature_expires_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 signed_objects: Optional[pulumi.Input[Sequence[pulumi.Input['SigningJobSignedObjectArgs']]]] = None,
-                 source: Optional[pulumi.Input['SigningJobSourceArgs']] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 status_reason: Optional[pulumi.Input[_builtins.str]] = None):
+                 completed_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination: pulumi.Input[Optional['SigningJobDestinationArgs']] = None,
+                 ignore_signing_job_failure: pulumi.Input[Optional[_builtins.bool]] = None,
+                 job_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_invoker: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 platform_display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 platform_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 requested_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 revocation_records: pulumi.Input[Optional[Sequence[pulumi.Input['SigningJobRevocationRecordArgs']]]] = None,
+                 signature_expires_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 signed_objects: pulumi.Input[Optional[Sequence[pulumi.Input['SigningJobSignedObjectArgs']]]] = None,
+                 source: pulumi.Input[Optional['SigningJobSourceArgs']] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 status_reason: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SigningJob resources.
 
@@ -190,230 +190,230 @@ class _SigningJobState:
 
     @_builtins.property
     @pulumi.getter(name="completedAt")
-    def completed_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def completed_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the signing job was completed.
         """
         return pulumi.get(self, "completed_at")
 
     @completed_at.setter
-    def completed_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def completed_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "completed_at", value)
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the signing job was created.
         """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
-    def created_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_at", value)
 
     @_builtins.property
     @pulumi.getter
-    def destination(self) -> Optional[pulumi.Input['SigningJobDestinationArgs']]:
+    def destination(self) -> pulumi.Input[Optional['SigningJobDestinationArgs']]:
         """
         The S3 bucket in which to save your signed object. See Destination below for details.
         """
         return pulumi.get(self, "destination")
 
     @destination.setter
-    def destination(self, value: Optional[pulumi.Input['SigningJobDestinationArgs']]):
+    def destination(self, value: pulumi.Input[Optional['SigningJobDestinationArgs']]):
         pulumi.set(self, "destination", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreSigningJobFailure")
-    def ignore_signing_job_failure(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_signing_job_failure(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set this argument to `true` to ignore signing job failures and retrieve failed status and reason. Default `false`.
         """
         return pulumi.get(self, "ignore_signing_job_failure")
 
     @ignore_signing_job_failure.setter
-    def ignore_signing_job_failure(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_signing_job_failure(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_signing_job_failure", value)
 
     @_builtins.property
     @pulumi.getter(name="jobId")
-    def job_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def job_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the signing job on output.
         """
         return pulumi.get(self, "job_id")
 
     @job_id.setter
-    def job_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def job_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "job_id", value)
 
     @_builtins.property
     @pulumi.getter(name="jobInvoker")
-    def job_invoker(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def job_invoker(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IAM entity that initiated the signing job.
         """
         return pulumi.get(self, "job_invoker")
 
     @job_invoker.setter
-    def job_invoker(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def job_invoker(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "job_invoker", value)
 
     @_builtins.property
     @pulumi.getter(name="jobOwner")
-    def job_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def job_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS account ID of the job owner.
         """
         return pulumi.get(self, "job_owner")
 
     @job_owner.setter
-    def job_owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def job_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "job_owner", value)
 
     @_builtins.property
     @pulumi.getter(name="platformDisplayName")
-    def platform_display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def platform_display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A human-readable name for the signing platform associated with the signing job.
         """
         return pulumi.get(self, "platform_display_name")
 
     @platform_display_name.setter
-    def platform_display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def platform_display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "platform_display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="platformId")
-    def platform_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def platform_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The platform to which your signed code image will be distributed.
         """
         return pulumi.get(self, "platform_id")
 
     @platform_id.setter
-    def platform_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def platform_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "platform_id", value)
 
     @_builtins.property
     @pulumi.getter(name="profileName")
-    def profile_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def profile_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the profile to initiate the signing operation.
         """
         return pulumi.get(self, "profile_name")
 
     @profile_name.setter
-    def profile_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def profile_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "profile_name", value)
 
     @_builtins.property
     @pulumi.getter(name="profileVersion")
-    def profile_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def profile_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the signing profile used to initiate the signing job.
         """
         return pulumi.get(self, "profile_version")
 
     @profile_version.setter
-    def profile_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def profile_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "profile_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="requestedBy")
-    def requested_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def requested_by(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IAM principal that requested the signing job.
         """
         return pulumi.get(self, "requested_by")
 
     @requested_by.setter
-    def requested_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def requested_by(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "requested_by", value)
 
     @_builtins.property
     @pulumi.getter(name="revocationRecords")
-    def revocation_records(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SigningJobRevocationRecordArgs']]]]:
+    def revocation_records(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SigningJobRevocationRecordArgs']]]]:
         """
         A revocation record if the signature generated by the signing job has been revoked. Contains a timestamp and the ID of the IAM entity that revoked the signature.
         """
         return pulumi.get(self, "revocation_records")
 
     @revocation_records.setter
-    def revocation_records(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SigningJobRevocationRecordArgs']]]]):
+    def revocation_records(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SigningJobRevocationRecordArgs']]]]):
         pulumi.set(self, "revocation_records", value)
 
     @_builtins.property
     @pulumi.getter(name="signatureExpiresAt")
-    def signature_expires_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def signature_expires_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time when the signature of a signing job expires.
         """
         return pulumi.get(self, "signature_expires_at")
 
     @signature_expires_at.setter
-    def signature_expires_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def signature_expires_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "signature_expires_at", value)
 
     @_builtins.property
     @pulumi.getter(name="signedObjects")
-    def signed_objects(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SigningJobSignedObjectArgs']]]]:
+    def signed_objects(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SigningJobSignedObjectArgs']]]]:
         """
         Name of the S3 bucket where the signed code image is saved by code signing.
         """
         return pulumi.get(self, "signed_objects")
 
     @signed_objects.setter
-    def signed_objects(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SigningJobSignedObjectArgs']]]]):
+    def signed_objects(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SigningJobSignedObjectArgs']]]]):
         pulumi.set(self, "signed_objects", value)
 
     @_builtins.property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input['SigningJobSourceArgs']]:
+    def source(self) -> pulumi.Input[Optional['SigningJobSourceArgs']]:
         """
         The S3 bucket that contains the object to sign. See Source below for details.
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input['SigningJobSourceArgs']]):
+    def source(self, value: pulumi.Input[Optional['SigningJobSourceArgs']]):
         pulumi.set(self, "source", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Status of the signing job.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="statusReason")
-    def status_reason(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status_reason(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         String value that contains the status reason.
         """
         return pulumi.get(self, "status_reason")
 
     @status_reason.setter
-    def status_reason(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status_reason(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status_reason", value)
 
 
@@ -423,11 +423,11 @@ class SigningJob(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination: Optional[pulumi.Input[Union['SigningJobDestinationArgs', 'SigningJobDestinationArgsDict']]] = None,
-                 ignore_signing_job_failure: Optional[pulumi.Input[_builtins.bool]] = None,
-                 profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[Union['SigningJobSourceArgs', 'SigningJobSourceArgsDict']]] = None,
+                 destination: pulumi.Input[Optional[Union['SigningJobDestinationArgs', 'SigningJobDestinationArgsDict']]] = None,
+                 ignore_signing_job_failure: pulumi.Input[Optional[_builtins.bool]] = None,
+                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[Union['SigningJobSourceArgs', 'SigningJobSourceArgsDict']]] = None,
                  __props__=None):
         """
         Creates a Signer Signing Job.
@@ -532,11 +532,11 @@ class SigningJob(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination: Optional[pulumi.Input[Union['SigningJobDestinationArgs', 'SigningJobDestinationArgsDict']]] = None,
-                 ignore_signing_job_failure: Optional[pulumi.Input[_builtins.bool]] = None,
-                 profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[Union['SigningJobSourceArgs', 'SigningJobSourceArgsDict']]] = None,
+                 destination: pulumi.Input[Optional[Union['SigningJobDestinationArgs', 'SigningJobDestinationArgsDict']]] = None,
+                 ignore_signing_job_failure: pulumi.Input[Optional[_builtins.bool]] = None,
+                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[Union['SigningJobSourceArgs', 'SigningJobSourceArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -581,25 +581,25 @@ class SigningJob(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            completed_at: Optional[pulumi.Input[_builtins.str]] = None,
-            created_at: Optional[pulumi.Input[_builtins.str]] = None,
-            destination: Optional[pulumi.Input[Union['SigningJobDestinationArgs', 'SigningJobDestinationArgsDict']]] = None,
-            ignore_signing_job_failure: Optional[pulumi.Input[_builtins.bool]] = None,
-            job_id: Optional[pulumi.Input[_builtins.str]] = None,
-            job_invoker: Optional[pulumi.Input[_builtins.str]] = None,
-            job_owner: Optional[pulumi.Input[_builtins.str]] = None,
-            platform_display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            platform_id: Optional[pulumi.Input[_builtins.str]] = None,
-            profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-            profile_version: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            requested_by: Optional[pulumi.Input[_builtins.str]] = None,
-            revocation_records: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SigningJobRevocationRecordArgs', 'SigningJobRevocationRecordArgsDict']]]]] = None,
-            signature_expires_at: Optional[pulumi.Input[_builtins.str]] = None,
-            signed_objects: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SigningJobSignedObjectArgs', 'SigningJobSignedObjectArgsDict']]]]] = None,
-            source: Optional[pulumi.Input[Union['SigningJobSourceArgs', 'SigningJobSourceArgsDict']]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            status_reason: Optional[pulumi.Input[_builtins.str]] = None) -> 'SigningJob':
+            completed_at: pulumi.Input[Optional[_builtins.str]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            destination: pulumi.Input[Optional[Union['SigningJobDestinationArgs', 'SigningJobDestinationArgsDict']]] = None,
+            ignore_signing_job_failure: pulumi.Input[Optional[_builtins.bool]] = None,
+            job_id: pulumi.Input[Optional[_builtins.str]] = None,
+            job_invoker: pulumi.Input[Optional[_builtins.str]] = None,
+            job_owner: pulumi.Input[Optional[_builtins.str]] = None,
+            platform_display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            platform_id: pulumi.Input[Optional[_builtins.str]] = None,
+            profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+            profile_version: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            requested_by: pulumi.Input[Optional[_builtins.str]] = None,
+            revocation_records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SigningJobRevocationRecordArgs', 'SigningJobRevocationRecordArgsDict']]]]] = None,
+            signature_expires_at: pulumi.Input[Optional[_builtins.str]] = None,
+            signed_objects: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SigningJobSignedObjectArgs', 'SigningJobSignedObjectArgsDict']]]]] = None,
+            source: pulumi.Input[Optional[Union['SigningJobSourceArgs', 'SigningJobSourceArgsDict']]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            status_reason: pulumi.Input[Optional[_builtins.str]] = None) -> 'SigningJob':
         """
         Get an existing SigningJob resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -151,7 +151,7 @@ export interface DefaultPatchBaselineState {
      * Can be an ID or an ARN.
      * When specifying an AWS-provided patch baseline, must be the ARN.
      */
-    baselineId?: pulumi.Input<string>;
+    baselineId?: pulumi.Input<string | undefined>;
     /**
      * The operating system the patch baseline applies to.
      * Valid values are
@@ -170,11 +170,11 @@ export interface DefaultPatchBaselineState {
      * `UBUNTU`, and
      * `WINDOWS`.
      */
-    operatingSystem?: pulumi.Input<string>;
+    operatingSystem?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -209,5 +209,5 @@ export interface DefaultPatchBaselineArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

@@ -144,39 +144,39 @@ export interface ListenerRuleState {
     /**
      * An Action block. Action blocks are documented below.
      */
-    actions?: pulumi.Input<pulumi.Input<inputs.alb.ListenerRuleAction>[]>;
+    actions?: pulumi.Input<pulumi.Input<inputs.alb.ListenerRuleAction>[] | undefined>;
     /**
      * The ARN of the rule (matches `id`)
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
      */
-    conditions?: pulumi.Input<pulumi.Input<inputs.alb.ListenerRuleCondition>[]>;
+    conditions?: pulumi.Input<pulumi.Input<inputs.alb.ListenerRuleCondition>[] | undefined>;
     /**
      * The ARN of the listener to which to attach the rule.
      */
-    listenerArn?: pulumi.Input<string>;
+    listenerArn?: pulumi.Input<string | undefined>;
     /**
      * The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `transform` block from the configuration.
      */
-    transforms?: pulumi.Input<pulumi.Input<inputs.alb.ListenerRuleTransform>[]>;
+    transforms?: pulumi.Input<pulumi.Input<inputs.alb.ListenerRuleTransform>[] | undefined>;
 }
 
 /**
@@ -198,17 +198,17 @@ export interface ListenerRuleArgs {
     /**
      * The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `transform` block from the configuration.
      */
-    transforms?: pulumi.Input<pulumi.Input<inputs.alb.ListenerRuleTransform>[]>;
+    transforms?: pulumi.Input<pulumi.Input<inputs.alb.ListenerRuleTransform>[] | undefined>;
 }

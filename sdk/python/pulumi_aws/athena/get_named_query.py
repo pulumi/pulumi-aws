@@ -145,9 +145,9 @@ def get_named_query(name: Optional[_builtins.str] = None,
         querystring=pulumi.get(__ret__, 'querystring'),
         region=pulumi.get(__ret__, 'region'),
         workgroup=pulumi.get(__ret__, 'workgroup'))
-def get_named_query_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                           region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                           workgroup: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_named_query_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                           region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           workgroup: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNamedQueryResult]:
     """
     Provides an Athena Named Query data source.

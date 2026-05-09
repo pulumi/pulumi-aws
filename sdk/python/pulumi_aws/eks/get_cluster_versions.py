@@ -192,12 +192,12 @@ def get_cluster_versions(cluster_type: Optional[_builtins.str] = None,
         include_all=pulumi.get(__ret__, 'include_all'),
         region=pulumi.get(__ret__, 'region'),
         version_status=pulumi.get(__ret__, 'version_status'))
-def get_cluster_versions_output(cluster_type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                cluster_versions_onlies: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                                default_only: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                                include_all: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                                region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                version_status: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_cluster_versions_output(cluster_type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                cluster_versions_onlies: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                                default_only: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                                include_all: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                                region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                version_status: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterVersionsResult]:
     """
     Data source for managing AWS EKS (Elastic Kubernetes) Cluster Versions.

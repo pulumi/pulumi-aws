@@ -189,49 +189,49 @@ export interface SafetyRuleState {
     /**
      * ARN of the safety rule.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed.
      */
-    assertedControls?: pulumi.Input<pulumi.Input<string>[]>;
+    assertedControls?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * ARN of the control panel in which this safety rule will reside.
      */
-    controlPanelArn?: pulumi.Input<string>;
+    controlPanelArn?: pulumi.Input<string | undefined>;
     /**
      * Gating controls for the new gating rule. That is, routing controls that are evaluated by the rule configuration that you specify.
      */
-    gatingControls?: pulumi.Input<pulumi.Input<string>[]>;
+    gatingControls?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Name describing the safety rule.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for safety rule criteria. See below.
      */
-    ruleConfig?: pulumi.Input<inputs.route53recoverycontrol.SafetyRuleRuleConfig>;
+    ruleConfig?: pulumi.Input<inputs.route53recoverycontrol.SafetyRuleRuleConfig | undefined>;
     /**
      * Status of the safety rule. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Routing controls that can only be set or unset if the specified `ruleConfig` evaluates to true for the specified `gatingControls`.
      */
-    targetControls?: pulumi.Input<pulumi.Input<string>[]>;
+    targetControls?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
      *
      * The following arguments are optional:
      */
-    waitPeriodMs?: pulumi.Input<number>;
+    waitPeriodMs?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -241,7 +241,7 @@ export interface SafetyRuleArgs {
     /**
      * Routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed.
      */
-    assertedControls?: pulumi.Input<pulumi.Input<string>[]>;
+    assertedControls?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * ARN of the control panel in which this safety rule will reside.
      */
@@ -249,11 +249,11 @@ export interface SafetyRuleArgs {
     /**
      * Gating controls for the new gating rule. That is, routing controls that are evaluated by the rule configuration that you specify.
      */
-    gatingControls?: pulumi.Input<pulumi.Input<string>[]>;
+    gatingControls?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Name describing the safety rule.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for safety rule criteria. See below.
      */
@@ -261,11 +261,11 @@ export interface SafetyRuleArgs {
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Routing controls that can only be set or unset if the specified `ruleConfig` evaluates to true for the specified `gatingControls`.
      */
-    targetControls?: pulumi.Input<pulumi.Input<string>[]>;
+    targetControls?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
      *

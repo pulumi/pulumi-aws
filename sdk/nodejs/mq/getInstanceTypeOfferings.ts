@@ -146,17 +146,17 @@ export interface GetInstanceTypeOfferingsOutputArgs {
     /**
      * Filter response by engine type.
      */
-    engineType?: pulumi.Input<string>;
+    engineType?: pulumi.Input<string | undefined>;
     /**
      * Filter response by host instance type.
      */
-    hostInstanceType?: pulumi.Input<string>;
+    hostInstanceType?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Filter response by storage type.
      */
-    storageType?: pulumi.Input<string>;
+    storageType?: pulumi.Input<string | undefined>;
 }

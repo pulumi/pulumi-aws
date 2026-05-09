@@ -182,65 +182,65 @@ export interface TransitGatewayRouteTableAttachmentState {
     /**
      * Attachment ARN.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Policy rule number associated with the attachment.
      */
-    attachmentPolicyRuleNumber?: pulumi.Input<number>;
+    attachmentPolicyRuleNumber?: pulumi.Input<number | undefined>;
     /**
      * Type of attachment.
      */
-    attachmentType?: pulumi.Input<string>;
+    attachmentType?: pulumi.Input<string | undefined>;
     /**
      * ARN of the core network.
      */
-    coreNetworkArn?: pulumi.Input<string>;
+    coreNetworkArn?: pulumi.Input<string | undefined>;
     /**
      * ID of the core network.
      */
-    coreNetworkId?: pulumi.Input<string>;
+    coreNetworkId?: pulumi.Input<string | undefined>;
     /**
      * Edge location for the peer.
      */
-    edgeLocation?: pulumi.Input<string>;
+    edgeLocation?: pulumi.Input<string | undefined>;
     /**
      * ID of the attachment account owner.
      */
-    ownerAccountId?: pulumi.Input<string>;
+    ownerAccountId?: pulumi.Input<string | undefined>;
     /**
      * ID of the peer for the attachment.
      */
-    peeringId?: pulumi.Input<string>;
+    peeringId?: pulumi.Input<string | undefined>;
     /**
      * Attachment resource ARN.
      */
-    resourceArn?: pulumi.Input<string>;
+    resourceArn?: pulumi.Input<string | undefined>;
     /**
      * The routing policy label to apply to the Transit Gateway route table attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
      */
-    routingPolicyLabel?: pulumi.Input<string>;
+    routingPolicyLabel?: pulumi.Input<string | undefined>;
     /**
      * Name of the segment attachment.
      */
-    segmentName?: pulumi.Input<string>;
+    segmentName?: pulumi.Input<string | undefined>;
     /**
      * State of the attachment.
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
     /**
      * Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * ARN of the transit gateway route table for the attachment.
      *
      * The following arguments are optional:
      */
-    transitGatewayRouteTableArn?: pulumi.Input<string>;
+    transitGatewayRouteTableArn?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -254,11 +254,11 @@ export interface TransitGatewayRouteTableAttachmentArgs {
     /**
      * The routing policy label to apply to the Transit Gateway route table attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
      */
-    routingPolicyLabel?: pulumi.Input<string>;
+    routingPolicyLabel?: pulumi.Input<string | undefined>;
     /**
      * Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * ARN of the transit gateway route table for the attachment.
      *

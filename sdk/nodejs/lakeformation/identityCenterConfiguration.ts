@@ -121,26 +121,26 @@ export interface IdentityCenterConfigurationState {
     /**
      * ARN of the Lake Formation applicated integrated with IAM Identity Center.
      */
-    applicationArn?: pulumi.Input<string>;
+    applicationArn?: pulumi.Input<string | undefined>;
     /**
      * Identifier for the Data Catalog.
      * By default, the account ID.
      */
-    catalogId?: pulumi.Input<string>;
+    catalogId?: pulumi.Input<string | undefined>;
     /**
      * ARN of the IAM Identity Center Instance to associate.
      *
      * The following arguments are optional:
      */
-    instanceArn?: pulumi.Input<string>;
+    instanceArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN of the Resource Access Manager (RAM) resource share.
      */
-    resourceShare?: pulumi.Input<string>;
+    resourceShare?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -151,7 +151,7 @@ export interface IdentityCenterConfigurationArgs {
      * Identifier for the Data Catalog.
      * By default, the account ID.
      */
-    catalogId?: pulumi.Input<string>;
+    catalogId?: pulumi.Input<string | undefined>;
     /**
      * ARN of the IAM Identity Center Instance to associate.
      *
@@ -161,5 +161,5 @@ export interface IdentityCenterConfigurationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

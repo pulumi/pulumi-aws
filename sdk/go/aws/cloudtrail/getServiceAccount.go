@@ -31,76 +31,77 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// main, err := cloudtrail.GetServiceAccount(ctx, &cloudtrail.GetServiceAccountArgs{
-// }, nil);
-// if err != nil {
-// return err
-// }
-// bucket, err := s3.NewBucket(ctx, "bucket", &s3.BucketArgs{
-// Bucket: pulumi.String("tf-cloudtrail-logging-test-bucket"),
-// ForceDestroy: pulumi.Bool(true),
-// })
-// if err != nil {
-// return err
-// }
-// allowCloudtrailLogging := pulumi.All(bucket.Arn,bucket.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
-// bucketArn := _args[0].(string)
-// bucketArn1 := _args[1].(string)
-// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement([]iam.GetPolicyDocumentStatement{
-// {
-// Sid: pulumi.StringRef(pulumi.String(pulumi.StringRef("Put bucket policy needed for trails"))),
-// Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Type: "AWS",
-// Identifiers: interface{}{
-// main.Arn,
-// },
-// },
-// },
-// Actions: []string{
-// "s3:PutObject",
-// },
-// Resources: []string{
-// fmt.Sprintf("%v/*", bucketArn),
-// },
-// },
-// {
-// Sid: pulumi.StringRef(pulumi.String(pulumi.StringRef("Get bucket policy needed for trails"))),
-// Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Type: "AWS",
-// Identifiers: interface{}{
-// main.Arn,
-// },
-// },
-// },
-// Actions: []string{
-// "s3:GetBucketAcl",
-// },
-// Resources: []string{
-// bucketArn1,
-// },
-// },
-// }),
-// }, nil))), nil
-// }).(iam.GetPolicyDocumentResultOutput)
-// _, err = s3.NewBucketPolicy(ctx, "allow_cloudtrail_logging", &s3.BucketPolicyArgs{
-// Bucket: bucket.ID(),
-// Policy: pulumi.String(allowCloudtrailLogging.ApplyT(func(allowCloudtrailLogging iam.GetPolicyDocumentResult) (*string, error) {
-// return &allowCloudtrailLogging.Json, nil
-// }).(pulumi.StringPtrOutput)),
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			main, err := cloudtrail.GetServiceAccount(ctx, &cloudtrail.GetServiceAccountArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			bucket, err := s3.NewBucket(ctx, "bucket", &s3.BucketArgs{
+//				Bucket:       pulumi.String("tf-cloudtrail-logging-test-bucket"),
+//				ForceDestroy: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			allowCloudtrailLogging := pulumi.All(bucket.Arn, bucket.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
+//				bucketArn := _args[0].(string)
+//				bucketArn1 := _args[1].(string)
+//				return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//					Statements: []iam.GetPolicyDocumentStatement([]iam.GetPolicyDocumentStatement{
+//						{
+//							Sid:    pulumi.StringRef(pulumi.String(pulumi.StringRef("Put bucket policy needed for trails"))),
+//							Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
+//							Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//								{
+//									Type: "AWS",
+//									Identifiers: pulumi.StringArray{
+//										main.Arn,
+//									},
+//								},
+//							},
+//							Actions: []string{
+//								"s3:PutObject",
+//							},
+//							Resources: []string{
+//								fmt.Sprintf("%v/*", bucketArn),
+//							},
+//						},
+//						{
+//							Sid:    pulumi.StringRef(pulumi.String(pulumi.StringRef("Get bucket policy needed for trails"))),
+//							Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
+//							Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//								{
+//									Type: "AWS",
+//									Identifiers: pulumi.StringArray{
+//										main.Arn,
+//									},
+//								},
+//							},
+//							Actions: []string{
+//								"s3:GetBucketAcl",
+//							},
+//							Resources: []string{
+//								bucketArn1,
+//							},
+//						},
+//					}),
+//				}, nil))), nil
+//			}).(iam.GetPolicyDocumentResultOutput)
+//			_, err = s3.NewBucketPolicy(ctx, "allow_cloudtrail_logging", &s3.BucketPolicyArgs{
+//				Bucket: bucket.ID(),
+//				Policy: pulumi.String(allowCloudtrailLogging.ApplyT(func(allowCloudtrailLogging iam.GetPolicyDocumentResult) (*string, error) {
+//					return &allowCloudtrailLogging.Json, nil
+//				}).(pulumi.StringPtrOutput)),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetServiceAccount(ctx *pulumi.Context, args *GetServiceAccountArgs, opts ...pulumi.InvokeOption) (*GetServiceAccountResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)

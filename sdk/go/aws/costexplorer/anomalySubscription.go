@@ -195,114 +195,116 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// costAnomalyUpdates, err := sns.NewTopic(ctx, "cost_anomaly_updates", &sns.TopicArgs{
-// Name: pulumi.String("CostAnomalyUpdates"),
-// })
-// if err != nil {
-// return err
-// }
-// snsTopicPolicy := pulumi.All(costAnomalyUpdates.Arn,costAnomalyUpdates.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
-// costAnomalyUpdatesArn := _args[0].(string)
-// costAnomalyUpdatesArn1 := _args[1].(string)
-// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// PolicyId: pulumi.StringRef(pulumi.StringRef("__default_policy_ID")),
-// Statements: []iam.GetPolicyDocumentStatement([]iam.GetPolicyDocumentStatement{
-// {
-// Sid: pulumi.StringRef(pulumi.String(pulumi.StringRef("AWSAnomalyDetectionSNSPublishingPermissions"))),
-// Actions: []string{
-// "SNS:Publish",
-// },
-// Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Type: "Service",
-// Identifiers: []string{
-// "costalerts.amazonaws.com",
-// },
-// },
-// },
-// Resources: []string{
-// costAnomalyUpdatesArn,
-// },
-// },
-// {
-// Sid: pulumi.StringRef(pulumi.String(pulumi.StringRef("__default_statement_ID"))),
-// Actions: []string{
-// "SNS:Subscribe",
-// "SNS:SetTopicAttributes",
-// "SNS:RemovePermission",
-// "SNS:Receive",
-// "SNS:Publish",
-// "SNS:ListSubscriptionsByTopic",
-// "SNS:GetTopicAttributes",
-// "SNS:DeleteTopic",
-// "SNS:AddPermission",
-// },
-// Conditions: []iam.GetPolicyDocumentStatementCondition{
-// {
-// Test: "StringEquals",
-// Variable: "AWS:SourceOwner",
-// Values: interface{}{
-// accountId,
-// },
-// },
-// },
-// Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Type: "AWS",
-// Identifiers: []string{
-// "*",
-// },
-// },
-// },
-// Resources: []string{
-// costAnomalyUpdatesArn1,
-// },
-// },
-// }),
-// }, nil))), nil
-// }).(iam.GetPolicyDocumentResultOutput)
-// _default, err := sns.NewTopicPolicy(ctx, "default", &sns.TopicPolicyArgs{
-// Arn: costAnomalyUpdates.Arn,
-// Policy: pulumi.String(snsTopicPolicy.ApplyT(func(snsTopicPolicy iam.GetPolicyDocumentResult) (*string, error) {
-// return &snsTopicPolicy.Json, nil
-// }).(pulumi.StringPtrOutput)),
-// })
-// if err != nil {
-// return err
-// }
-// anomalyMonitor, err := costexplorer.NewAnomalyMonitor(ctx, "anomaly_monitor", &costexplorer.AnomalyMonitorArgs{
-// Name: pulumi.String("AWSServiceMonitor"),
-// MonitorType: pulumi.String("DIMENSIONAL"),
-// MonitorDimension: pulumi.String("SERVICE"),
-// })
-// if err != nil {
-// return err
-// }
-// _, err = costexplorer.NewAnomalySubscription(ctx, "realtime_subscription", &costexplorer.AnomalySubscriptionArgs{
-// Name: pulumi.String("RealtimeAnomalySubscription"),
-// Frequency: pulumi.String("IMMEDIATE"),
-// MonitorArnLists: pulumi.StringArray{
-// anomalyMonitor.Arn,
-// },
-// Subscribers: costexplorer.AnomalySubscriptionSubscriberArray{
-// &costexplorer.AnomalySubscriptionSubscriberArgs{
-// Type: pulumi.String("SNS"),
-// Address: costAnomalyUpdates.Arn,
-// },
-// },
-// }, pulumi.DependsOn([]pulumi.Resource{
-// _default,
-// }))
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			costAnomalyUpdates, err := sns.NewTopic(ctx, "cost_anomaly_updates", &sns.TopicArgs{
+//				Name: pulumi.String("CostAnomalyUpdates"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			snsTopicPolicy := pulumi.All(costAnomalyUpdates.Arn, costAnomalyUpdates.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
+//				costAnomalyUpdatesArn := _args[0].(string)
+//				costAnomalyUpdatesArn1 := _args[1].(string)
+//				return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//					PolicyId: pulumi.StringRef(pulumi.StringRef("__default_policy_ID")),
+//					Statements: []iam.GetPolicyDocumentStatement([]iam.GetPolicyDocumentStatement{
+//						{
+//							Sid: pulumi.StringRef(pulumi.String(pulumi.StringRef("AWSAnomalyDetectionSNSPublishingPermissions"))),
+//							Actions: []string{
+//								"SNS:Publish",
+//							},
+//							Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
+//							Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//								{
+//									Type: "Service",
+//									Identifiers: []string{
+//										"costalerts.amazonaws.com",
+//									},
+//								},
+//							},
+//							Resources: []string{
+//								costAnomalyUpdatesArn,
+//							},
+//						},
+//						{
+//							Sid: pulumi.StringRef(pulumi.String(pulumi.StringRef("__default_statement_ID"))),
+//							Actions: []string{
+//								"SNS:Subscribe",
+//								"SNS:SetTopicAttributes",
+//								"SNS:RemovePermission",
+//								"SNS:Receive",
+//								"SNS:Publish",
+//								"SNS:ListSubscriptionsByTopic",
+//								"SNS:GetTopicAttributes",
+//								"SNS:DeleteTopic",
+//								"SNS:AddPermission",
+//							},
+//							Conditions: []iam.GetPolicyDocumentStatementCondition{
+//								{
+//									Test:     "StringEquals",
+//									Variable: "AWS:SourceOwner",
+//									Values: pulumi.StringArray{
+//										accountId,
+//									},
+//								},
+//							},
+//							Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
+//							Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//								{
+//									Type: "AWS",
+//									Identifiers: []string{
+//										"*",
+//									},
+//								},
+//							},
+//							Resources: []string{
+//								costAnomalyUpdatesArn1,
+//							},
+//						},
+//					}),
+//				}, nil))), nil
+//			}).(iam.GetPolicyDocumentResultOutput)
+//			_default, err := sns.NewTopicPolicy(ctx, "default", &sns.TopicPolicyArgs{
+//				Arn: costAnomalyUpdates.Arn,
+//				Policy: pulumi.String(snsTopicPolicy.ApplyT(func(snsTopicPolicy iam.GetPolicyDocumentResult) (*string, error) {
+//					return &snsTopicPolicy.Json, nil
+//				}).(pulumi.StringPtrOutput)),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			anomalyMonitor, err := costexplorer.NewAnomalyMonitor(ctx, "anomaly_monitor", &costexplorer.AnomalyMonitorArgs{
+//				Name:             pulumi.String("AWSServiceMonitor"),
+//				MonitorType:      pulumi.String("DIMENSIONAL"),
+//				MonitorDimension: pulumi.String("SERVICE"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = costexplorer.NewAnomalySubscription(ctx, "realtime_subscription", &costexplorer.AnomalySubscriptionArgs{
+//				Name:      pulumi.String("RealtimeAnomalySubscription"),
+//				Frequency: pulumi.String("IMMEDIATE"),
+//				MonitorArnLists: pulumi.StringArray{
+//					anomalyMonitor.Arn,
+//				},
+//				Subscribers: costexplorer.AnomalySubscriptionSubscriberArray{
+//					&costexplorer.AnomalySubscriptionSubscriberArgs{
+//						Type:    pulumi.String("SNS"),
+//						Address: costAnomalyUpdates.Arn,
+//					},
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				_default,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import

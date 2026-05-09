@@ -112,13 +112,13 @@ export interface GetOutpostInstanceTypeOutputArgs {
     /**
      * Desired instance type. Conflicts with `preferredInstanceTypes`.
      */
-    instanceType?: pulumi.Input<string>;
+    instanceType?: pulumi.Input<string | undefined>;
     /**
      * Ordered list of preferred instance types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. Conflicts with `instanceType`.
      */
-    preferredInstanceTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    preferredInstanceTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

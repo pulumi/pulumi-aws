@@ -119,5 +119,5 @@ export interface GetOriginAccessIdentitiesOutputArgs {
     /**
      * Filter origin access identities by comment.
      */
-    comments?: pulumi.Input<pulumi.Input<string>[]>;
+    comments?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

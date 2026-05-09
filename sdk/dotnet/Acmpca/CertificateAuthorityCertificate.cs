@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Acmpca
     ///         },
     ///     });
     /// 
-    ///     var current = Aws.Index.GetPartition.Invoke();
+    ///     var current = Aws.GetPartition.Invoke();
     /// 
     ///     var exampleCertificate = new Aws.Acmpca.Certificate("example", new()
     ///     {
@@ -91,7 +91,7 @@ namespace Pulumi.Aws.Acmpca
     /// 
     ///     var root = new Aws.Acmpca.CertificateAuthority("root");
     /// 
-    ///     var current = Aws.Index.GetPartition.Invoke();
+    ///     var current = Aws.GetPartition.Invoke();
     /// 
     ///     var subordinateCertificate = new Aws.Acmpca.Certificate("subordinate", new()
     ///     {

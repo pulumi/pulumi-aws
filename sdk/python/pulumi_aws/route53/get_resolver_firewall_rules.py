@@ -147,10 +147,10 @@ def get_resolver_firewall_rules(action: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         priority=pulumi.get(__ret__, 'priority'),
         region=pulumi.get(__ret__, 'region'))
-def get_resolver_firewall_rules_output(action: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                       firewall_rule_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                       priority: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
-                                       region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_resolver_firewall_rules_output(action: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                       firewall_rule_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                       priority: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
+                                       region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResolverFirewallRulesResult]:
     """
     `route53_get_resolver_firewall_rules` Provides details about rules in a specific Route53 Resolver Firewall rule group.

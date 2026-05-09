@@ -133,15 +133,15 @@ export interface PrincipalAssociationState {
     /**
      * The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
      */
-    principal?: pulumi.Input<string>;
+    principal?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the resource share.
      */
-    resourceShareArn?: pulumi.Input<string>;
+    resourceShareArn?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -155,7 +155,7 @@ export interface PrincipalAssociationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the resource share.
      */

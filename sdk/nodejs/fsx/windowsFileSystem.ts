@@ -340,125 +340,125 @@ export interface WindowsFileSystemState {
     /**
      * The ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `selfManagedActiveDirectory`.
      */
-    activeDirectoryId?: pulumi.Input<string>;
+    activeDirectoryId?: pulumi.Input<string | undefined>;
     /**
      * An array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
      */
-    aliases?: pulumi.Input<pulumi.Input<string>[]>;
+    aliases?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Amazon Resource Name of the file system.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `auditLogConfiguration` Block for details.
      */
-    auditLogConfiguration?: pulumi.Input<inputs.fsx.WindowsFileSystemAuditLogConfiguration>;
+    auditLogConfiguration?: pulumi.Input<inputs.fsx.WindowsFileSystemAuditLogConfiguration | undefined>;
     /**
      * The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
      */
-    automaticBackupRetentionDays?: pulumi.Input<number>;
+    automaticBackupRetentionDays?: pulumi.Input<number | undefined>;
     /**
      * The ID of the source backup to create the filesystem from.
      */
-    backupId?: pulumi.Input<string>;
+    backupId?: pulumi.Input<string | undefined>;
     /**
      * A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
      */
-    copyTagsToBackups?: pulumi.Input<boolean>;
+    copyTagsToBackups?: pulumi.Input<boolean | undefined>;
     /**
      * The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
      */
-    dailyAutomaticBackupStartTime?: pulumi.Input<string>;
+    dailyAutomaticBackupStartTime?: pulumi.Input<string | undefined>;
     /**
      * Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
      */
-    deploymentType?: pulumi.Input<string>;
+    deploymentType?: pulumi.Input<string | undefined>;
     /**
      * The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `diskIopsConfiguration` Block for details.
      */
-    diskIopsConfiguration?: pulumi.Input<inputs.fsx.WindowsFileSystemDiskIopsConfiguration>;
+    diskIopsConfiguration?: pulumi.Input<inputs.fsx.WindowsFileSystemDiskIopsConfiguration | undefined>;
     /**
      * DNS name for the file system, e.g., `fs-12345678.corp.example.com` (domain name matching the Active Directory domain name)
      */
-    dnsName?: pulumi.Input<string>;
+    dnsName?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to apply to the file system's final backup.
      */
-    finalBackupTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    finalBackupTags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * Set of Elastic Network Interface identifiers from which the file system is accessible.
      */
-    networkInterfaceIds?: pulumi.Input<pulumi.Input<string>[]>;
+    networkInterfaceIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * AWS account identifier that created the file system.
      */
-    ownerId?: pulumi.Input<string>;
+    ownerId?: pulumi.Input<string | undefined>;
     /**
      * The IP address of the primary, or preferred, file server.
      */
-    preferredFileServerIp?: pulumi.Input<string>;
+    preferredFileServerIp?: pulumi.Input<string | undefined>;
     /**
      * Specifies the subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
      */
-    preferredSubnetId?: pulumi.Input<string>;
+    preferredSubnetId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * For `MULTI_AZ_1` deployment types, use this endpoint when performing administrative tasks on the file system using Amazon FSx Remote PowerShell. For `SINGLE_AZ_1` deployment types, this is the DNS name of the file system.
      */
-    remoteAdministrationEndpoint?: pulumi.Input<string>;
+    remoteAdministrationEndpoint?: pulumi.Input<string | undefined>;
     /**
      * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      */
-    securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `activeDirectoryId`. See `selfManagedActiveDirectory` Block for details.
      */
-    selfManagedActiveDirectory?: pulumi.Input<inputs.fsx.WindowsFileSystemSelfManagedActiveDirectory>;
+    selfManagedActiveDirectory?: pulumi.Input<inputs.fsx.WindowsFileSystemSelfManagedActiveDirectory | undefined>;
     /**
      * When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
      */
-    skipFinalBackup?: pulumi.Input<boolean>;
+    skipFinalBackup?: pulumi.Input<boolean | undefined>;
     /**
      * Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000. Required when not creating filesystem for a backup.
      */
-    storageCapacity?: pulumi.Input<number>;
+    storageCapacity?: pulumi.Input<number | undefined>;
     /**
      * Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
      */
-    storageType?: pulumi.Input<string>;
+    storageType?: pulumi.Input<string | undefined>;
     /**
      * A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deploymentType` to `MULTI_AZ_1`.
      */
-    subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    subnetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Throughput (megabytes per second) of the file system. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/performance.html).
      *
      * The following arguments are optional:
      */
-    throughputCapacity?: pulumi.Input<number>;
+    throughputCapacity?: pulumi.Input<number | undefined>;
     /**
      * Identifier of the Virtual Private Cloud for the file system.
      */
-    vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string | undefined>;
     /**
      * The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      */
-    weeklyMaintenanceStartTime?: pulumi.Input<string>;
+    weeklyMaintenanceStartTime?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -468,75 +468,75 @@ export interface WindowsFileSystemArgs {
     /**
      * The ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `selfManagedActiveDirectory`.
      */
-    activeDirectoryId?: pulumi.Input<string>;
+    activeDirectoryId?: pulumi.Input<string | undefined>;
     /**
      * An array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
      */
-    aliases?: pulumi.Input<pulumi.Input<string>[]>;
+    aliases?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `auditLogConfiguration` Block for details.
      */
-    auditLogConfiguration?: pulumi.Input<inputs.fsx.WindowsFileSystemAuditLogConfiguration>;
+    auditLogConfiguration?: pulumi.Input<inputs.fsx.WindowsFileSystemAuditLogConfiguration | undefined>;
     /**
      * The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
      */
-    automaticBackupRetentionDays?: pulumi.Input<number>;
+    automaticBackupRetentionDays?: pulumi.Input<number | undefined>;
     /**
      * The ID of the source backup to create the filesystem from.
      */
-    backupId?: pulumi.Input<string>;
+    backupId?: pulumi.Input<string | undefined>;
     /**
      * A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
      */
-    copyTagsToBackups?: pulumi.Input<boolean>;
+    copyTagsToBackups?: pulumi.Input<boolean | undefined>;
     /**
      * The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
      */
-    dailyAutomaticBackupStartTime?: pulumi.Input<string>;
+    dailyAutomaticBackupStartTime?: pulumi.Input<string | undefined>;
     /**
      * Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
      */
-    deploymentType?: pulumi.Input<string>;
+    deploymentType?: pulumi.Input<string | undefined>;
     /**
      * The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `diskIopsConfiguration` Block for details.
      */
-    diskIopsConfiguration?: pulumi.Input<inputs.fsx.WindowsFileSystemDiskIopsConfiguration>;
+    diskIopsConfiguration?: pulumi.Input<inputs.fsx.WindowsFileSystemDiskIopsConfiguration | undefined>;
     /**
      * A map of tags to apply to the file system's final backup.
      */
-    finalBackupTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    finalBackupTags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
      */
-    preferredSubnetId?: pulumi.Input<string>;
+    preferredSubnetId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      */
-    securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `activeDirectoryId`. See `selfManagedActiveDirectory` Block for details.
      */
-    selfManagedActiveDirectory?: pulumi.Input<inputs.fsx.WindowsFileSystemSelfManagedActiveDirectory>;
+    selfManagedActiveDirectory?: pulumi.Input<inputs.fsx.WindowsFileSystemSelfManagedActiveDirectory | undefined>;
     /**
      * When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
      */
-    skipFinalBackup?: pulumi.Input<boolean>;
+    skipFinalBackup?: pulumi.Input<boolean | undefined>;
     /**
      * Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000. Required when not creating filesystem for a backup.
      */
-    storageCapacity?: pulumi.Input<number>;
+    storageCapacity?: pulumi.Input<number | undefined>;
     /**
      * Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
      */
-    storageType?: pulumi.Input<string>;
+    storageType?: pulumi.Input<string | undefined>;
     /**
      * A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deploymentType` to `MULTI_AZ_1`.
      */
@@ -544,7 +544,7 @@ export interface WindowsFileSystemArgs {
     /**
      * A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Throughput (megabytes per second) of the file system. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/performance.html).
      *
@@ -554,5 +554,5 @@ export interface WindowsFileSystemArgs {
     /**
      * The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      */
-    weeklyMaintenanceStartTime?: pulumi.Input<string>;
+    weeklyMaintenanceStartTime?: pulumi.Input<string | undefined>;
 }

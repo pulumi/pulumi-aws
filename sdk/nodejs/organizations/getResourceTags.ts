@@ -87,5 +87,5 @@ export interface GetResourceTagsOutputArgs {
     /**
      * Map of key=value pairs for each tag set on the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

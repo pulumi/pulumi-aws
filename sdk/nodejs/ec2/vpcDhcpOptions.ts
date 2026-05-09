@@ -182,47 +182,47 @@ export interface VpcDhcpOptionsState {
     /**
      * The ARN of the DHCP Options Set.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
      */
-    domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string | undefined>;
     /**
      * List of name servers to configure in `/etc/resolv.conf`. If you want to use the default AWS nameservers you should set this to `AmazonProvidedDNS`.
      */
-    domainNameServers?: pulumi.Input<pulumi.Input<string>[]>;
+    domainNameServers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * How frequently, in seconds, a running instance with an IPv6 assigned to it goes through DHCPv6 lease renewal. Acceptable values are between 140 and 2147483647 (approximately 68 years). If no value is entered, the default lease time is 140 seconds. If you use long-term addressing for EC2 instances, you can increase the lease time and avoid frequent lease renewal requests. Lease renewal typically occurs when half of the lease time has elapsed.
      */
-    ipv6AddressPreferredLeaseTime?: pulumi.Input<string>;
+    ipv6AddressPreferredLeaseTime?: pulumi.Input<string | undefined>;
     /**
      * List of NETBIOS name servers.
      */
-    netbiosNameServers?: pulumi.Input<pulumi.Input<string>[]>;
+    netbiosNameServers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
      */
-    netbiosNodeType?: pulumi.Input<string>;
+    netbiosNodeType?: pulumi.Input<string | undefined>;
     /**
      * List of NTP servers to configure.
      */
-    ntpServers?: pulumi.Input<pulumi.Input<string>[]>;
+    ntpServers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of the AWS account that owns the DHCP options set.
      */
-    ownerId?: pulumi.Input<string>;
+    ownerId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -232,33 +232,33 @@ export interface VpcDhcpOptionsArgs {
     /**
      * the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
      */
-    domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string | undefined>;
     /**
      * List of name servers to configure in `/etc/resolv.conf`. If you want to use the default AWS nameservers you should set this to `AmazonProvidedDNS`.
      */
-    domainNameServers?: pulumi.Input<pulumi.Input<string>[]>;
+    domainNameServers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * How frequently, in seconds, a running instance with an IPv6 assigned to it goes through DHCPv6 lease renewal. Acceptable values are between 140 and 2147483647 (approximately 68 years). If no value is entered, the default lease time is 140 seconds. If you use long-term addressing for EC2 instances, you can increase the lease time and avoid frequent lease renewal requests. Lease renewal typically occurs when half of the lease time has elapsed.
      */
-    ipv6AddressPreferredLeaseTime?: pulumi.Input<string>;
+    ipv6AddressPreferredLeaseTime?: pulumi.Input<string | undefined>;
     /**
      * List of NETBIOS name servers.
      */
-    netbiosNameServers?: pulumi.Input<pulumi.Input<string>[]>;
+    netbiosNameServers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
      */
-    netbiosNodeType?: pulumi.Input<string>;
+    netbiosNodeType?: pulumi.Input<string | undefined>;
     /**
      * List of NTP servers to configure.
      */
-    ntpServers?: pulumi.Input<pulumi.Input<string>[]>;
+    ntpServers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

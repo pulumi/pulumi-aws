@@ -168,19 +168,19 @@ export interface LoggingConfigurationState {
     /**
      * Whether to enable the detailed firewall monitoring dashboard on the firewall. Defaults to `false`.
      */
-    enableMonitoringDashboard?: pulumi.Input<boolean>;
+    enableMonitoringDashboard?: pulumi.Input<boolean | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Network Firewall firewall.
      */
-    firewallArn?: pulumi.Input<string>;
+    firewallArn?: pulumi.Input<string | undefined>;
     /**
      * A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
      */
-    loggingConfiguration?: pulumi.Input<inputs.networkfirewall.LoggingConfigurationLoggingConfiguration>;
+    loggingConfiguration?: pulumi.Input<inputs.networkfirewall.LoggingConfigurationLoggingConfiguration | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -190,7 +190,7 @@ export interface LoggingConfigurationArgs {
     /**
      * Whether to enable the detailed firewall monitoring dashboard on the firewall. Defaults to `false`.
      */
-    enableMonitoringDashboard?: pulumi.Input<boolean>;
+    enableMonitoringDashboard?: pulumi.Input<boolean | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Network Firewall firewall.
      */
@@ -202,5 +202,5 @@ export interface LoggingConfigurationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

@@ -117,8 +117,8 @@ def get_vpc_attachments(filters: Optional[Sequence[Union['GetVpcAttachmentsFilte
         id=pulumi.get(__ret__, 'id'),
         ids=pulumi.get(__ret__, 'ids'),
         region=pulumi.get(__ret__, 'region'))
-def get_vpc_attachments_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetVpcAttachmentsFilterArgs', 'GetVpcAttachmentsFilterArgsDict']]]]] = None,
-                               region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_vpc_attachments_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetVpcAttachmentsFilterArgs', 'GetVpcAttachmentsFilterArgsDict']]]]] = None,
+                               region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcAttachmentsResult]:
     """
     Get information on EC2 Transit Gateway VPC Attachments.

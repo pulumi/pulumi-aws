@@ -22,13 +22,13 @@ __all__ = ['AgentcoreBrowserArgs', 'AgentcoreBrowser']
 class AgentcoreBrowserArgs:
     def __init__(__self__, *,
                  network_configuration: pulumi.Input['AgentcoreBrowserNetworkConfigurationArgs'],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recording: Optional[pulumi.Input['AgentcoreBrowserRecordingArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['AgentcoreBrowserTimeoutsArgs']] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 recording: pulumi.Input[Optional['AgentcoreBrowserRecordingArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['AgentcoreBrowserTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AgentcoreBrowser resource.
 
@@ -74,100 +74,100 @@ class AgentcoreBrowserArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the browser.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="executionRoleArn")
-    def execution_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def execution_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the IAM role that the browser assumes for execution.
         """
         return pulumi.get(self, "execution_role_arn")
 
     @execution_role_arn.setter
-    def execution_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def execution_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "execution_role_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the browser.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def recording(self) -> Optional[pulumi.Input['AgentcoreBrowserRecordingArgs']]:
+    def recording(self) -> pulumi.Input[Optional['AgentcoreBrowserRecordingArgs']]:
         """
         Recording configuration for browser sessions. See `recording` below.
         """
         return pulumi.get(self, "recording")
 
     @recording.setter
-    def recording(self, value: Optional[pulumi.Input['AgentcoreBrowserRecordingArgs']]):
+    def recording(self, value: pulumi.Input[Optional['AgentcoreBrowserRecordingArgs']]):
         pulumi.set(self, "recording", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['AgentcoreBrowserTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['AgentcoreBrowserTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['AgentcoreBrowserTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['AgentcoreBrowserTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _AgentcoreBrowserState:
     def __init__(__self__, *,
-                 browser_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 browser_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_configuration: Optional[pulumi.Input['AgentcoreBrowserNetworkConfigurationArgs']] = None,
-                 recording: Optional[pulumi.Input['AgentcoreBrowserRecordingArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['AgentcoreBrowserTimeoutsArgs']] = None):
+                 browser_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 browser_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_configuration: pulumi.Input[Optional['AgentcoreBrowserNetworkConfigurationArgs']] = None,
+                 recording: pulumi.Input[Optional['AgentcoreBrowserRecordingArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['AgentcoreBrowserTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering AgentcoreBrowser resources.
 
@@ -209,67 +209,67 @@ class _AgentcoreBrowserState:
 
     @_builtins.property
     @pulumi.getter(name="browserArn")
-    def browser_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def browser_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the Browser.
         """
         return pulumi.get(self, "browser_arn")
 
     @browser_arn.setter
-    def browser_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def browser_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "browser_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="browserId")
-    def browser_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def browser_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique identifier of the Browser.
         """
         return pulumi.get(self, "browser_id")
 
     @browser_id.setter
-    def browser_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def browser_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "browser_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the browser.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="executionRoleArn")
-    def execution_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def execution_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the IAM role that the browser assumes for execution.
         """
         return pulumi.get(self, "execution_role_arn")
 
     @execution_role_arn.setter
-    def execution_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def execution_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "execution_role_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the browser.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkConfiguration")
-    def network_configuration(self) -> Optional[pulumi.Input['AgentcoreBrowserNetworkConfigurationArgs']]:
+    def network_configuration(self) -> pulumi.Input[Optional['AgentcoreBrowserNetworkConfigurationArgs']]:
         """
         Network configuration for the browser. See `network_configuration` below.
 
@@ -278,64 +278,64 @@ class _AgentcoreBrowserState:
         return pulumi.get(self, "network_configuration")
 
     @network_configuration.setter
-    def network_configuration(self, value: Optional[pulumi.Input['AgentcoreBrowserNetworkConfigurationArgs']]):
+    def network_configuration(self, value: pulumi.Input[Optional['AgentcoreBrowserNetworkConfigurationArgs']]):
         pulumi.set(self, "network_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def recording(self) -> Optional[pulumi.Input['AgentcoreBrowserRecordingArgs']]:
+    def recording(self) -> pulumi.Input[Optional['AgentcoreBrowserRecordingArgs']]:
         """
         Recording configuration for browser sessions. See `recording` below.
         """
         return pulumi.get(self, "recording")
 
     @recording.setter
-    def recording(self, value: Optional[pulumi.Input['AgentcoreBrowserRecordingArgs']]):
+    def recording(self, value: pulumi.Input[Optional['AgentcoreBrowserRecordingArgs']]):
         pulumi.set(self, "recording", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['AgentcoreBrowserTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['AgentcoreBrowserTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['AgentcoreBrowserTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['AgentcoreBrowserTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
@@ -345,14 +345,14 @@ class AgentcoreBrowser(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_configuration: Optional[pulumi.Input[Union['AgentcoreBrowserNetworkConfigurationArgs', 'AgentcoreBrowserNetworkConfigurationArgsDict']]] = None,
-                 recording: Optional[pulumi.Input[Union['AgentcoreBrowserRecordingArgs', 'AgentcoreBrowserRecordingArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['AgentcoreBrowserTimeoutsArgs', 'AgentcoreBrowserTimeoutsArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_configuration: pulumi.Input[Optional[Union['AgentcoreBrowserNetworkConfigurationArgs', 'AgentcoreBrowserNetworkConfigurationArgsDict']]] = None,
+                 recording: pulumi.Input[Optional[Union['AgentcoreBrowserRecordingArgs', 'AgentcoreBrowserRecordingArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentcoreBrowserTimeoutsArgs', 'AgentcoreBrowserTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Manages an AWS Bedrock AgentCore Browser. Browser provides AI agents with web browsing capabilities, allowing them to navigate websites, extract information, and interact with web content in a controlled environment.
@@ -553,14 +553,14 @@ class AgentcoreBrowser(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_configuration: Optional[pulumi.Input[Union['AgentcoreBrowserNetworkConfigurationArgs', 'AgentcoreBrowserNetworkConfigurationArgsDict']]] = None,
-                 recording: Optional[pulumi.Input[Union['AgentcoreBrowserRecordingArgs', 'AgentcoreBrowserRecordingArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['AgentcoreBrowserTimeoutsArgs', 'AgentcoreBrowserTimeoutsArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_configuration: pulumi.Input[Optional[Union['AgentcoreBrowserNetworkConfigurationArgs', 'AgentcoreBrowserNetworkConfigurationArgsDict']]] = None,
+                 recording: pulumi.Input[Optional[Union['AgentcoreBrowserRecordingArgs', 'AgentcoreBrowserRecordingArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentcoreBrowserTimeoutsArgs', 'AgentcoreBrowserTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -593,17 +593,17 @@ class AgentcoreBrowser(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            browser_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            browser_id: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            network_configuration: Optional[pulumi.Input[Union['AgentcoreBrowserNetworkConfigurationArgs', 'AgentcoreBrowserNetworkConfigurationArgsDict']]] = None,
-            recording: Optional[pulumi.Input[Union['AgentcoreBrowserRecordingArgs', 'AgentcoreBrowserRecordingArgsDict']]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: Optional[pulumi.Input[Union['AgentcoreBrowserTimeoutsArgs', 'AgentcoreBrowserTimeoutsArgsDict']]] = None) -> 'AgentcoreBrowser':
+            browser_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            browser_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_configuration: pulumi.Input[Optional[Union['AgentcoreBrowserNetworkConfigurationArgs', 'AgentcoreBrowserNetworkConfigurationArgsDict']]] = None,
+            recording: pulumi.Input[Optional[Union['AgentcoreBrowserRecordingArgs', 'AgentcoreBrowserRecordingArgsDict']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['AgentcoreBrowserTimeoutsArgs', 'AgentcoreBrowserTimeoutsArgsDict']]] = None) -> 'AgentcoreBrowser':
         """
         Get an existing AgentcoreBrowser resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

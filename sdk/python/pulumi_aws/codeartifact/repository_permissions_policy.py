@@ -22,9 +22,9 @@ class RepositoryPermissionsPolicyArgs:
                  domain: pulumi.Input[_builtins.str],
                  policy_document: pulumi.Input[_builtins.str],
                  repository: pulumi.Input[_builtins.str],
-                 domain_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_revision: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 domain_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_revision: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a RepositoryPermissionsPolicy resource.
 
@@ -83,51 +83,51 @@ class RepositoryPermissionsPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="domainOwner")
-    def domain_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The account number of the AWS account that owns the domain.
         """
         return pulumi.get(self, "domain_owner")
 
     @domain_owner.setter
-    def domain_owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_owner", value)
 
     @_builtins.property
     @pulumi.getter(name="policyRevision")
-    def policy_revision(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_revision(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
         """
         return pulumi.get(self, "policy_revision")
 
     @policy_revision.setter
-    def policy_revision(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_revision(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_revision", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _RepositoryPermissionsPolicyState:
     def __init__(__self__, *,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_document: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_revision: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_document: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_revision: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RepositoryPermissionsPolicy resources.
 
@@ -156,86 +156,86 @@ class _RepositoryPermissionsPolicyState:
 
     @_builtins.property
     @pulumi.getter
-    def domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the domain on which to set the resource policy.
         """
         return pulumi.get(self, "domain")
 
     @domain.setter
-    def domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain", value)
 
     @_builtins.property
     @pulumi.getter(name="domainOwner")
-    def domain_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The account number of the AWS account that owns the domain.
         """
         return pulumi.get(self, "domain_owner")
 
     @domain_owner.setter
-    def domain_owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_owner", value)
 
     @_builtins.property
     @pulumi.getter(name="policyDocument")
-    def policy_document(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_document(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A JSON policy string to be set as the access control resource policy on the provided domain.
         """
         return pulumi.get(self, "policy_document")
 
     @policy_document.setter
-    def policy_document(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_document(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_document", value)
 
     @_builtins.property
     @pulumi.getter(name="policyRevision")
-    def policy_revision(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_revision(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
         """
         return pulumi.get(self, "policy_revision")
 
     @policy_revision.setter
-    def policy_revision(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_revision(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_revision", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def repository(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the repository to set the resource policy on.
         """
         return pulumi.get(self, "repository")
 
     @repository.setter
-    def repository(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceArn")
-    def resource_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the resource associated with the resource policy.
         """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
-    def resource_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_arn", value)
 
 
@@ -245,12 +245,12 @@ class RepositoryPermissionsPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_document: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_revision: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_document: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_revision: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a CodeArtifact Repostory Permissions Policy Resource.
@@ -374,12 +374,12 @@ class RepositoryPermissionsPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_document: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_revision: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_document: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_revision: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -412,13 +412,13 @@ class RepositoryPermissionsPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            domain: Optional[pulumi.Input[_builtins.str]] = None,
-            domain_owner: Optional[pulumi.Input[_builtins.str]] = None,
-            policy_document: Optional[pulumi.Input[_builtins.str]] = None,
-            policy_revision: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            repository: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_arn: Optional[pulumi.Input[_builtins.str]] = None) -> 'RepositoryPermissionsPolicy':
+            domain: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_owner: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_document: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_revision: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            repository: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_arn: pulumi.Input[Optional[_builtins.str]] = None) -> 'RepositoryPermissionsPolicy':
         """
         Get an existing RepositoryPermissionsPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

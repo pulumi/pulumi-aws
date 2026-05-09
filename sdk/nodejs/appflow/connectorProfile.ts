@@ -209,37 +209,37 @@ export interface ConnectorProfileState {
     /**
      * ARN of the connector profile.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
      */
-    connectionMode?: pulumi.Input<string>;
+    connectionMode?: pulumi.Input<string | undefined>;
     /**
      * The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for `CustomConnector` connector type.
      */
-    connectorLabel?: pulumi.Input<string>;
+    connectorLabel?: pulumi.Input<string | undefined>;
     /**
      * Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
      */
-    connectorProfileConfig?: pulumi.Input<inputs.appflow.ConnectorProfileConnectorProfileConfig>;
+    connectorProfileConfig?: pulumi.Input<inputs.appflow.ConnectorProfileConnectorProfileConfig | undefined>;
     /**
      * The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
      */
-    connectorType?: pulumi.Input<string>;
+    connectorType?: pulumi.Input<string | undefined>;
     /**
      * ARN of the connector profile credentials.
      */
-    credentialsArn?: pulumi.Input<string>;
+    credentialsArn?: pulumi.Input<string | undefined>;
     /**
      * ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
      */
-    kmsArn?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
+    kmsArn?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * * `name ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -253,7 +253,7 @@ export interface ConnectorProfileArgs {
     /**
      * The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for `CustomConnector` connector type.
      */
-    connectorLabel?: pulumi.Input<string>;
+    connectorLabel?: pulumi.Input<string | undefined>;
     /**
      * Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
      */
@@ -265,11 +265,11 @@ export interface ConnectorProfileArgs {
     /**
      * ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
      */
-    kmsArn?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
+    kmsArn?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * * `name ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

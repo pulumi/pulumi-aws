@@ -112,8 +112,8 @@ def get_email_identity(email: Optional[_builtins.str] = None,
         email=pulumi.get(__ret__, 'email'),
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'))
-def get_email_identity_output(email: Optional[pulumi.Input[_builtins.str]] = None,
-                              region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_email_identity_output(email: pulumi.Input[Optional[_builtins.str]] = None,
+                              region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEmailIdentityResult]:
     """
     Retrieve the active SES email identity

@@ -24,14 +24,14 @@ class RemediationConfigurationArgs:
                  config_rule_name: pulumi.Input[_builtins.str],
                  target_id: pulumi.Input[_builtins.str],
                  target_type: pulumi.Input[_builtins.str],
-                 automatic: Optional[pulumi.Input[_builtins.bool]] = None,
-                 execution_controls: Optional[pulumi.Input['RemediationConfigurationExecutionControlsArgs']] = None,
-                 maximum_automatic_attempts: Optional[pulumi.Input[_builtins.int]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['RemediationConfigurationParameterArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 retry_attempt_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 target_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 automatic: pulumi.Input[Optional[_builtins.bool]] = None,
+                 execution_controls: pulumi.Input[Optional['RemediationConfigurationExecutionControlsArgs']] = None,
+                 maximum_automatic_attempts: pulumi.Input[Optional[_builtins.int]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input['RemediationConfigurationParameterArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 retry_attempt_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 target_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a RemediationConfiguration resource.
 
@@ -109,116 +109,116 @@ class RemediationConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def automatic(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def automatic(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Remediation is triggered automatically if `true`.
         """
         return pulumi.get(self, "automatic")
 
     @automatic.setter
-    def automatic(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def automatic(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "automatic", value)
 
     @_builtins.property
     @pulumi.getter(name="executionControls")
-    def execution_controls(self) -> Optional[pulumi.Input['RemediationConfigurationExecutionControlsArgs']]:
+    def execution_controls(self) -> pulumi.Input[Optional['RemediationConfigurationExecutionControlsArgs']]:
         """
         Configuration block for execution controls. See below.
         """
         return pulumi.get(self, "execution_controls")
 
     @execution_controls.setter
-    def execution_controls(self, value: Optional[pulumi.Input['RemediationConfigurationExecutionControlsArgs']]):
+    def execution_controls(self, value: pulumi.Input[Optional['RemediationConfigurationExecutionControlsArgs']]):
         pulumi.set(self, "execution_controls", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumAutomaticAttempts")
-    def maximum_automatic_attempts(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maximum_automatic_attempts(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
         """
         return pulumi.get(self, "maximum_automatic_attempts")
 
     @maximum_automatic_attempts.setter
-    def maximum_automatic_attempts(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maximum_automatic_attempts(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum_automatic_attempts", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RemediationConfigurationParameterArgs']]]]:
+    def parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RemediationConfigurationParameterArgs']]]]:
         """
         Can be specified multiple times for each parameter. Each parameter block supports arguments below.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RemediationConfigurationParameterArgs']]]]):
+    def parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RemediationConfigurationParameterArgs']]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceType")
-    def resource_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of resource.
         """
         return pulumi.get(self, "resource_type")
 
     @resource_type.setter
-    def resource_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_type", value)
 
     @_builtins.property
     @pulumi.getter(name="retryAttemptSeconds")
-    def retry_attempt_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retry_attempt_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
         """
         return pulumi.get(self, "retry_attempt_seconds")
 
     @retry_attempt_seconds.setter
-    def retry_attempt_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retry_attempt_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retry_attempt_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="targetVersion")
-    def target_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version of the target. For example, version of the SSM document
         """
         return pulumi.get(self, "target_version")
 
     @target_version.setter
-    def target_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_version", value)
 
 
 @pulumi.input_type
 class _RemediationConfigurationState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 automatic: Optional[pulumi.Input[_builtins.bool]] = None,
-                 config_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 execution_controls: Optional[pulumi.Input['RemediationConfigurationExecutionControlsArgs']] = None,
-                 maximum_automatic_attempts: Optional[pulumi.Input[_builtins.int]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['RemediationConfigurationParameterArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 retry_attempt_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 target_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 automatic: pulumi.Input[Optional[_builtins.bool]] = None,
+                 config_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 execution_controls: pulumi.Input[Optional['RemediationConfigurationExecutionControlsArgs']] = None,
+                 maximum_automatic_attempts: pulumi.Input[Optional[_builtins.int]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input['RemediationConfigurationParameterArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 retry_attempt_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 target_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RemediationConfiguration resources.
 
@@ -264,127 +264,127 @@ class _RemediationConfigurationState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the Config Remediation Configuration.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def automatic(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def automatic(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Remediation is triggered automatically if `true`.
         """
         return pulumi.get(self, "automatic")
 
     @automatic.setter
-    def automatic(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def automatic(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "automatic", value)
 
     @_builtins.property
     @pulumi.getter(name="configRuleName")
-    def config_rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def config_rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the AWS Config rule.
         """
         return pulumi.get(self, "config_rule_name")
 
     @config_rule_name.setter
-    def config_rule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def config_rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "config_rule_name", value)
 
     @_builtins.property
     @pulumi.getter(name="executionControls")
-    def execution_controls(self) -> Optional[pulumi.Input['RemediationConfigurationExecutionControlsArgs']]:
+    def execution_controls(self) -> pulumi.Input[Optional['RemediationConfigurationExecutionControlsArgs']]:
         """
         Configuration block for execution controls. See below.
         """
         return pulumi.get(self, "execution_controls")
 
     @execution_controls.setter
-    def execution_controls(self, value: Optional[pulumi.Input['RemediationConfigurationExecutionControlsArgs']]):
+    def execution_controls(self, value: pulumi.Input[Optional['RemediationConfigurationExecutionControlsArgs']]):
         pulumi.set(self, "execution_controls", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumAutomaticAttempts")
-    def maximum_automatic_attempts(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maximum_automatic_attempts(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
         """
         return pulumi.get(self, "maximum_automatic_attempts")
 
     @maximum_automatic_attempts.setter
-    def maximum_automatic_attempts(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maximum_automatic_attempts(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum_automatic_attempts", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RemediationConfigurationParameterArgs']]]]:
+    def parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RemediationConfigurationParameterArgs']]]]:
         """
         Can be specified multiple times for each parameter. Each parameter block supports arguments below.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RemediationConfigurationParameterArgs']]]]):
+    def parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RemediationConfigurationParameterArgs']]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceType")
-    def resource_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of resource.
         """
         return pulumi.get(self, "resource_type")
 
     @resource_type.setter
-    def resource_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_type", value)
 
     @_builtins.property
     @pulumi.getter(name="retryAttemptSeconds")
-    def retry_attempt_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retry_attempt_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
         """
         return pulumi.get(self, "retry_attempt_seconds")
 
     @retry_attempt_seconds.setter
-    def retry_attempt_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retry_attempt_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retry_attempt_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="targetId")
-    def target_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Target ID is the name of the public document.
         """
         return pulumi.get(self, "target_id")
 
     @target_id.setter
-    def target_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_id", value)
 
     @_builtins.property
     @pulumi.getter(name="targetType")
-    def target_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the target. Target executes remediation. For example, SSM document.
 
@@ -393,19 +393,19 @@ class _RemediationConfigurationState:
         return pulumi.get(self, "target_type")
 
     @target_type.setter
-    def target_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_type", value)
 
     @_builtins.property
     @pulumi.getter(name="targetVersion")
-    def target_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version of the target. For example, version of the SSM document
         """
         return pulumi.get(self, "target_version")
 
     @target_version.setter
-    def target_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_version", value)
 
 
@@ -415,17 +415,17 @@ class RemediationConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 automatic: Optional[pulumi.Input[_builtins.bool]] = None,
-                 config_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 execution_controls: Optional[pulumi.Input[Union['RemediationConfigurationExecutionControlsArgs', 'RemediationConfigurationExecutionControlsArgsDict']]] = None,
-                 maximum_automatic_attempts: Optional[pulumi.Input[_builtins.int]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RemediationConfigurationParameterArgs', 'RemediationConfigurationParameterArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 retry_attempt_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 target_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 automatic: pulumi.Input[Optional[_builtins.bool]] = None,
+                 config_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 execution_controls: pulumi.Input[Optional[Union['RemediationConfigurationExecutionControlsArgs', 'RemediationConfigurationExecutionControlsArgsDict']]] = None,
+                 maximum_automatic_attempts: pulumi.Input[Optional[_builtins.int]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RemediationConfigurationParameterArgs', 'RemediationConfigurationParameterArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 retry_attempt_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 target_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides an AWS Config Remediation Configuration.
@@ -604,17 +604,17 @@ class RemediationConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 automatic: Optional[pulumi.Input[_builtins.bool]] = None,
-                 config_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 execution_controls: Optional[pulumi.Input[Union['RemediationConfigurationExecutionControlsArgs', 'RemediationConfigurationExecutionControlsArgsDict']]] = None,
-                 maximum_automatic_attempts: Optional[pulumi.Input[_builtins.int]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RemediationConfigurationParameterArgs', 'RemediationConfigurationParameterArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 retry_attempt_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 target_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 automatic: pulumi.Input[Optional[_builtins.bool]] = None,
+                 config_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 execution_controls: pulumi.Input[Optional[Union['RemediationConfigurationExecutionControlsArgs', 'RemediationConfigurationExecutionControlsArgsDict']]] = None,
+                 maximum_automatic_attempts: pulumi.Input[Optional[_builtins.int]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RemediationConfigurationParameterArgs', 'RemediationConfigurationParameterArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 retry_attempt_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 target_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -652,18 +652,18 @@ class RemediationConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            automatic: Optional[pulumi.Input[_builtins.bool]] = None,
-            config_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-            execution_controls: Optional[pulumi.Input[Union['RemediationConfigurationExecutionControlsArgs', 'RemediationConfigurationExecutionControlsArgsDict']]] = None,
-            maximum_automatic_attempts: Optional[pulumi.Input[_builtins.int]] = None,
-            parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RemediationConfigurationParameterArgs', 'RemediationConfigurationParameterArgsDict']]]]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-            retry_attempt_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-            target_id: Optional[pulumi.Input[_builtins.str]] = None,
-            target_type: Optional[pulumi.Input[_builtins.str]] = None,
-            target_version: Optional[pulumi.Input[_builtins.str]] = None) -> 'RemediationConfiguration':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            automatic: pulumi.Input[Optional[_builtins.bool]] = None,
+            config_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+            execution_controls: pulumi.Input[Optional[Union['RemediationConfigurationExecutionControlsArgs', 'RemediationConfigurationExecutionControlsArgsDict']]] = None,
+            maximum_automatic_attempts: pulumi.Input[Optional[_builtins.int]] = None,
+            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RemediationConfigurationParameterArgs', 'RemediationConfigurationParameterArgsDict']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+            retry_attempt_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            target_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_type: pulumi.Input[Optional[_builtins.str]] = None,
+            target_version: pulumi.Input[Optional[_builtins.str]] = None) -> 'RemediationConfiguration':
         """
         Get an existing RemediationConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

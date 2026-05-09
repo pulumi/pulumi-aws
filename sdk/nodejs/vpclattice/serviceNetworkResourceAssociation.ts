@@ -151,38 +151,38 @@ export interface ServiceNetworkResourceAssociationState {
     /**
      * ARN of the Service Network Resource Association.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * DNS entry of the association in the service network.
      */
-    dnsEntries?: pulumi.Input<pulumi.Input<inputs.vpclattice.ServiceNetworkResourceAssociationDnsEntry>[]>;
+    dnsEntries?: pulumi.Input<pulumi.Input<inputs.vpclattice.ServiceNetworkResourceAssociationDnsEntry>[] | undefined>;
     /**
      * Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resourceConfigurationIdentifier` must have a custom domain name or a group domain for private DNS.
      */
-    privateDnsEnabled?: pulumi.Input<boolean>;
+    privateDnsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Identifier of Resource Configuration to associate to the Service Network.
      */
-    resourceConfigurationIdentifier?: pulumi.Input<string>;
+    resourceConfigurationIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the Service Network to associate the Resource to.
      *
      * The following arguments are optional:
      */
-    serviceNetworkIdentifier?: pulumi.Input<string>;
+    serviceNetworkIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.vpclattice.ServiceNetworkResourceAssociationTimeouts>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.vpclattice.ServiceNetworkResourceAssociationTimeouts | undefined>;
 }
 
 /**
@@ -192,11 +192,11 @@ export interface ServiceNetworkResourceAssociationArgs {
     /**
      * Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resourceConfigurationIdentifier` must have a custom domain name or a group domain for private DNS.
      */
-    privateDnsEnabled?: pulumi.Input<boolean>;
+    privateDnsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Identifier of Resource Configuration to associate to the Service Network.
      */
@@ -210,6 +210,6 @@ export interface ServiceNetworkResourceAssociationArgs {
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.vpclattice.ServiceNetworkResourceAssociationTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.vpclattice.ServiceNetworkResourceAssociationTimeouts | undefined>;
 }

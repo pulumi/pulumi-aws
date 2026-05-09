@@ -23,10 +23,10 @@ class MediaInsightsPipelineConfigurationArgs:
     def __init__(__self__, *,
                  elements: pulumi.Input[Sequence[pulumi.Input['MediaInsightsPipelineConfigurationElementArgs']]],
                  resource_access_role_arn: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 real_time_alert_configuration: Optional[pulumi.Input['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 real_time_alert_configuration: pulumi.Input[Optional['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a MediaInsightsPipelineConfiguration resource.
 
@@ -74,64 +74,64 @@ class MediaInsightsPipelineConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Configuration name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="realTimeAlertConfiguration")
-    def real_time_alert_configuration(self) -> Optional[pulumi.Input['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs']]:
+    def real_time_alert_configuration(self) -> pulumi.Input[Optional['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs']]:
         """
         Configuration for real-time alert rules to send EventBridge notifications when certain conditions are met.
         """
         return pulumi.get(self, "real_time_alert_configuration")
 
     @real_time_alert_configuration.setter
-    def real_time_alert_configuration(self, value: Optional[pulumi.Input['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs']]):
+    def real_time_alert_configuration(self, value: pulumi.Input[Optional['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs']]):
         pulumi.set(self, "real_time_alert_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of tags for the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _MediaInsightsPipelineConfigurationState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 elements: Optional[pulumi.Input[Sequence[pulumi.Input['MediaInsightsPipelineConfigurationElementArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 real_time_alert_configuration: Optional[pulumi.Input['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_access_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 elements: pulumi.Input[Optional[Sequence[pulumi.Input['MediaInsightsPipelineConfigurationElementArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 real_time_alert_configuration: pulumi.Input[Optional['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering MediaInsightsPipelineConfiguration resources.
 
@@ -162,95 +162,95 @@ class _MediaInsightsPipelineConfigurationState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the Media Insights Pipeline Configuration.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def elements(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MediaInsightsPipelineConfigurationElementArgs']]]]:
+    def elements(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MediaInsightsPipelineConfigurationElementArgs']]]]:
         """
         Collection of processors and sinks to transform media and deliver data.
         """
         return pulumi.get(self, "elements")
 
     @elements.setter
-    def elements(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MediaInsightsPipelineConfigurationElementArgs']]]]):
+    def elements(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MediaInsightsPipelineConfigurationElementArgs']]]]):
         pulumi.set(self, "elements", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Configuration name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="realTimeAlertConfiguration")
-    def real_time_alert_configuration(self) -> Optional[pulumi.Input['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs']]:
+    def real_time_alert_configuration(self) -> pulumi.Input[Optional['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs']]:
         """
         Configuration for real-time alert rules to send EventBridge notifications when certain conditions are met.
         """
         return pulumi.get(self, "real_time_alert_configuration")
 
     @real_time_alert_configuration.setter
-    def real_time_alert_configuration(self, value: Optional[pulumi.Input['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs']]):
+    def real_time_alert_configuration(self, value: pulumi.Input[Optional['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs']]):
         pulumi.set(self, "real_time_alert_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceAccessRoleArn")
-    def resource_access_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_access_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
         """
         return pulumi.get(self, "resource_access_role_arn")
 
     @resource_access_role_arn.setter
-    def resource_access_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_access_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_access_role_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of tags for the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
 
@@ -260,12 +260,12 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 elements: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MediaInsightsPipelineConfigurationElementArgs', 'MediaInsightsPipelineConfigurationElementArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 real_time_alert_configuration: Optional[pulumi.Input[Union['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs', 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_access_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 elements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MediaInsightsPipelineConfigurationElementArgs', 'MediaInsightsPipelineConfigurationElementArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 real_time_alert_configuration: pulumi.Input[Optional[Union['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs', 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Chime SDK Media Pipelines Media Insights Pipeline Configuration.
@@ -841,12 +841,12 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 elements: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MediaInsightsPipelineConfigurationElementArgs', 'MediaInsightsPipelineConfigurationElementArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 real_time_alert_configuration: Optional[pulumi.Input[Union['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs', 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_access_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 elements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MediaInsightsPipelineConfigurationElementArgs', 'MediaInsightsPipelineConfigurationElementArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 real_time_alert_configuration: pulumi.Input[Optional[Union['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs', 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -878,14 +878,14 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            elements: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MediaInsightsPipelineConfigurationElementArgs', 'MediaInsightsPipelineConfigurationElementArgsDict']]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            real_time_alert_configuration: Optional[pulumi.Input[Union['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs', 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgsDict']]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_access_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'MediaInsightsPipelineConfiguration':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            elements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MediaInsightsPipelineConfigurationElementArgs', 'MediaInsightsPipelineConfigurationElementArgsDict']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            real_time_alert_configuration: pulumi.Input[Optional[Union['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs', 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgsDict']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'MediaInsightsPipelineConfiguration':
         """
         Get an existing MediaInsightsPipelineConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

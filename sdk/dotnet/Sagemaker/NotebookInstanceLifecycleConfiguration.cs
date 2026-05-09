@@ -28,11 +28,11 @@ namespace Pulumi.Aws.Sagemaker
     ///     var lc = new Aws.Sagemaker.NotebookInstanceLifecycleConfiguration("lc", new()
     ///     {
     ///         Name = "foo",
-    ///         OnCreate = Std.Index.Base64encode.Invoke(new()
+    ///         OnCreate = Std.Base64encode.Invoke(new()
     ///         {
     ///             Input = "echo foo",
     ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         OnStart = Std.Index.Base64encode.Invoke(new()
+    ///         OnStart = Std.Base64encode.Invoke(new()
     ///         {
     ///             Input = "echo bar",
     ///         }).Apply(invoke =&gt; invoke.Result),

@@ -140,26 +140,26 @@ export interface AppCookieStickinessPolicyState {
     /**
      * Application cookie whose lifetime the ELB's cookie should follow.
      */
-    cookieName?: pulumi.Input<string>;
+    cookieName?: pulumi.Input<string | undefined>;
     /**
      * Load balancer port to which the policy
      * should be applied. This must be an active listener on the load
      * balancer.
      */
-    lbPort?: pulumi.Input<number>;
+    lbPort?: pulumi.Input<number | undefined>;
     /**
      * Name of load balancer to which the policy
      * should be attached.
      */
-    loadBalancer?: pulumi.Input<string>;
+    loadBalancer?: pulumi.Input<string | undefined>;
     /**
      * Name of the stickiness policy.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -184,9 +184,9 @@ export interface AppCookieStickinessPolicyArgs {
     /**
      * Name of the stickiness policy.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

@@ -134,27 +134,27 @@ export interface PermissionState {
     /**
      * Actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.
      */
-    actions?: pulumi.Input<pulumi.Input<string>[]>;
+    actions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * ARN of the CA that grants the permissions.
      */
-    certificateAuthorityArn?: pulumi.Input<string>;
+    certificateAuthorityArn?: pulumi.Input<string | undefined>;
     /**
      * IAM policy that is associated with the permission.
      */
-    policy?: pulumi.Input<string>;
+    policy?: pulumi.Input<string | undefined>;
     /**
      * AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
      */
-    principal?: pulumi.Input<string>;
+    principal?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ID of the calling account
      */
-    sourceAccount?: pulumi.Input<string>;
+    sourceAccount?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -176,9 +176,9 @@ export interface PermissionArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ID of the calling account
      */
-    sourceAccount?: pulumi.Input<string>;
+    sourceAccount?: pulumi.Input<string | undefined>;
 }

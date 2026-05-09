@@ -99,7 +99,7 @@ def get_serverless_collection_groups(region: Optional[_builtins.str] = None,
         collection_group_summaries=pulumi.get(__ret__, 'collection_group_summaries'),
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'))
-def get_serverless_collection_groups_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_serverless_collection_groups_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerlessCollectionGroupsResult]:
     """
     Data source for listing AWS OpenSearch Serverless Collection Groups.

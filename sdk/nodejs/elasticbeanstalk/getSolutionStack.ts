@@ -101,7 +101,7 @@ export interface GetSolutionStackOutputArgs {
      * If more than one result is returned, use the most
      * recent solution stack.
      */
-    mostRecent?: pulumi.Input<boolean>;
+    mostRecent?: pulumi.Input<boolean | undefined>;
     /**
      * Regex string to apply to the solution stack list returned
      * by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
@@ -115,5 +115,5 @@ export interface GetSolutionStackOutputArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

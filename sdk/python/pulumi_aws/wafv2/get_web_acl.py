@@ -139,10 +139,10 @@ def get_web_acl(name: Optional[_builtins.str] = None,
         region=pulumi.get(__ret__, 'region'),
         resource_arn=pulumi.get(__ret__, 'resource_arn'),
         scope=pulumi.get(__ret__, 'scope'))
-def get_web_acl_output(name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                       region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                       resource_arn: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                       scope: Optional[pulumi.Input[_builtins.str]] = None,
+def get_web_acl_output(name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       resource_arn: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       scope: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAclResult]:
     """
     Retrieves the summary of a WAFv2 Web ACL.

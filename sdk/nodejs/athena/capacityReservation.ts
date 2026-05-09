@@ -147,38 +147,38 @@ export interface CapacityReservationState {
     /**
      * Number of data processing units currently allocated.
      */
-    allocatedDpus?: pulumi.Input<number>;
+    allocatedDpus?: pulumi.Input<number | undefined>;
     /**
      * ARN of the Capacity Reservation.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Name of the capacity reservation.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Status of the capacity reservation.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Number of data processing units requested. Must be at least `24` units.
      *
      * The following arguments are optional:
      */
-    targetDpus?: pulumi.Input<number>;
-    timeouts?: pulumi.Input<inputs.athena.CapacityReservationTimeouts>;
+    targetDpus?: pulumi.Input<number | undefined>;
+    timeouts?: pulumi.Input<inputs.athena.CapacityReservationTimeouts | undefined>;
 }
 
 /**
@@ -188,20 +188,20 @@ export interface CapacityReservationArgs {
     /**
      * Name of the capacity reservation.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Number of data processing units requested. Must be at least `24` units.
      *
      * The following arguments are optional:
      */
     targetDpus: pulumi.Input<number>;
-    timeouts?: pulumi.Input<inputs.athena.CapacityReservationTimeouts>;
+    timeouts?: pulumi.Input<inputs.athena.CapacityReservationTimeouts | undefined>;
 }

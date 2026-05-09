@@ -278,8 +278,8 @@ def get_input(id: Optional[_builtins.str] = None,
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_input_output(id: Optional[pulumi.Input[_builtins.str]] = None,
-                     region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_input_output(id: pulumi.Input[Optional[_builtins.str]] = None,
+                     region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInputResult]:
     """
     Data source for managing an AWS Elemental MediaLive Input.

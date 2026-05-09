@@ -70,8 +70,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -112,8 +112,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -154,8 +154,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -196,8 +196,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -238,8 +238,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -278,8 +278,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetDelegatedAdministratorsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -318,8 +318,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetDelegatedAdministratorsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -358,8 +358,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetDelegatedAdministratorsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -398,8 +398,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetDelegatedAdministratorsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -438,8 +438,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetDelegatedAdministratorsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -478,8 +478,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetDelegatedAdministratorsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -518,8 +518,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetDelegatedAdministratorsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -558,8 +558,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetDelegatedServicesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -598,8 +598,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetDelegatedServicesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -638,8 +638,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetDelegatedServicesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -678,8 +678,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetDelegatedServicesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -718,8 +718,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetDelegatedServicesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -758,8 +758,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetEntityPathArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -798,8 +798,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetEntityPathArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -838,8 +838,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetEntityPathArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -878,8 +878,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetEntityPathArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -918,8 +918,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetEntityPathArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -960,8 +960,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -999,8 +999,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.sns.TopicPolicy;
      * import com.pulumi.aws.sns.TopicPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1068,8 +1068,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1107,8 +1107,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.sns.TopicPolicy;
      * import com.pulumi.aws.sns.TopicPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1176,8 +1176,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1215,8 +1215,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.sns.TopicPolicy;
      * import com.pulumi.aws.sns.TopicPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1284,8 +1284,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1323,8 +1323,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.sns.TopicPolicy;
      * import com.pulumi.aws.sns.TopicPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1392,8 +1392,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1431,8 +1431,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.sns.TopicPolicy;
      * import com.pulumi.aws.sns.TopicPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1500,8 +1500,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1539,8 +1539,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.sns.TopicPolicy;
      * import com.pulumi.aws.sns.TopicPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1608,8 +1608,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1647,8 +1647,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.sns.TopicPolicy;
      * import com.pulumi.aws.sns.TopicPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1717,8 +1717,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1764,8 +1764,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1811,8 +1811,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1858,8 +1858,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1905,8 +1905,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1950,8 +1950,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitChildAccountsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1994,8 +1994,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitChildAccountsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2038,8 +2038,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitChildAccountsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2082,8 +2082,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitChildAccountsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2126,8 +2126,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitChildAccountsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2170,8 +2170,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitDescendantAccountsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2214,8 +2214,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitDescendantAccountsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2258,8 +2258,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitDescendantAccountsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2302,8 +2302,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitDescendantAccountsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2346,8 +2346,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitDescendantAccountsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2390,8 +2390,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitDescendantOrganizationalUnitsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2434,8 +2434,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitDescendantOrganizationalUnitsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2478,8 +2478,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitDescendantOrganizationalUnitsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2522,8 +2522,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitDescendantOrganizationalUnitsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2566,8 +2566,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitDescendantOrganizationalUnitsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2610,8 +2610,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2654,8 +2654,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2698,8 +2698,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2742,8 +2742,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2786,8 +2786,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2984,8 +2984,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetResourceTagsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3024,8 +3024,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetResourceTagsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3064,8 +3064,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetResourceTagsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3104,8 +3104,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetResourceTagsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3144,8 +3144,8 @@ public final class OrganizationsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
      * import com.pulumi.aws.organizations.inputs.GetResourceTagsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

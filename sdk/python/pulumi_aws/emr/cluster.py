@@ -23,37 +23,37 @@ class ClusterArgs:
     def __init__(__self__, *,
                  release_label: pulumi.Input[_builtins.str],
                  service_role: pulumi.Input[_builtins.str],
-                 additional_info: Optional[pulumi.Input[_builtins.str]] = None,
-                 applications: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 auto_termination_policy: Optional[pulumi.Input['ClusterAutoTerminationPolicyArgs']] = None,
-                 autoscaling_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 bootstrap_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterBootstrapActionArgs']]]] = None,
-                 configurations: Optional[pulumi.Input[_builtins.str]] = None,
-                 configurations_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 core_instance_fleet: Optional[pulumi.Input['ClusterCoreInstanceFleetArgs']] = None,
-                 core_instance_group: Optional[pulumi.Input['ClusterCoreInstanceGroupArgs']] = None,
-                 custom_ami_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ebs_root_volume_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 ec2_attributes: Optional[pulumi.Input['ClusterEc2AttributesArgs']] = None,
-                 keep_job_flow_alive_when_no_steps: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kerberos_attributes: Optional[pulumi.Input['ClusterKerberosAttributesArgs']] = None,
-                 list_steps_states: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 log_encryption_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 master_instance_fleet: Optional[pulumi.Input['ClusterMasterInstanceFleetArgs']] = None,
-                 master_instance_group: Optional[pulumi.Input['ClusterMasterInstanceGroupArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_release_label: Optional[pulumi.Input[_builtins.str]] = None,
-                 placement_group_configs: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterPlacementGroupConfigArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 scale_down_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 step_concurrency_level: Optional[pulumi.Input[_builtins.int]] = None,
-                 steps: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterStepArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 termination_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 unhealthy_node_replacement: Optional[pulumi.Input[_builtins.bool]] = None,
-                 visible_to_all_users: Optional[pulumi.Input[_builtins.bool]] = None):
+                 additional_info: pulumi.Input[Optional[_builtins.str]] = None,
+                 applications: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 auto_termination_policy: pulumi.Input[Optional['ClusterAutoTerminationPolicyArgs']] = None,
+                 autoscaling_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 bootstrap_actions: pulumi.Input[Optional[Sequence[pulumi.Input['ClusterBootstrapActionArgs']]]] = None,
+                 configurations: pulumi.Input[Optional[_builtins.str]] = None,
+                 configurations_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 core_instance_fleet: pulumi.Input[Optional['ClusterCoreInstanceFleetArgs']] = None,
+                 core_instance_group: pulumi.Input[Optional['ClusterCoreInstanceGroupArgs']] = None,
+                 custom_ami_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ebs_root_volume_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 ec2_attributes: pulumi.Input[Optional['ClusterEc2AttributesArgs']] = None,
+                 keep_job_flow_alive_when_no_steps: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kerberos_attributes: pulumi.Input[Optional['ClusterKerberosAttributesArgs']] = None,
+                 list_steps_states: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 log_encryption_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 master_instance_fleet: pulumi.Input[Optional['ClusterMasterInstanceFleetArgs']] = None,
+                 master_instance_group: pulumi.Input[Optional['ClusterMasterInstanceGroupArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_release_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 placement_group_configs: pulumi.Input[Optional[Sequence[pulumi.Input['ClusterPlacementGroupConfigArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 scale_down_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 step_concurrency_level: pulumi.Input[Optional[_builtins.int]] = None,
+                 steps: pulumi.Input[Optional[Sequence[pulumi.Input['ClusterStepArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 termination_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 unhealthy_node_replacement: pulumi.Input[Optional[_builtins.bool]] = None,
+                 visible_to_all_users: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Cluster resource.
 
@@ -211,79 +211,79 @@ class ClusterArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalInfo")
-    def additional_info(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def additional_info(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore the provider cannot detect drift from the actual EMR cluster if its value is changed outside the provider.
         """
         return pulumi.get(self, "additional_info")
 
     @additional_info.setter
-    def additional_info(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def additional_info(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "additional_info", value)
 
     @_builtins.property
     @pulumi.getter
-    def applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def applications(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
         """
         return pulumi.get(self, "applications")
 
     @applications.setter
-    def applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def applications(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "applications", value)
 
     @_builtins.property
     @pulumi.getter(name="autoTerminationPolicy")
-    def auto_termination_policy(self) -> Optional[pulumi.Input['ClusterAutoTerminationPolicyArgs']]:
+    def auto_termination_policy(self) -> pulumi.Input[Optional['ClusterAutoTerminationPolicyArgs']]:
         """
         An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
         """
         return pulumi.get(self, "auto_termination_policy")
 
     @auto_termination_policy.setter
-    def auto_termination_policy(self, value: Optional[pulumi.Input['ClusterAutoTerminationPolicyArgs']]):
+    def auto_termination_policy(self, value: pulumi.Input[Optional['ClusterAutoTerminationPolicyArgs']]):
         pulumi.set(self, "auto_termination_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="autoscalingRole")
-    def autoscaling_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def autoscaling_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
         """
         return pulumi.get(self, "autoscaling_role")
 
     @autoscaling_role.setter
-    def autoscaling_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def autoscaling_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "autoscaling_role", value)
 
     @_builtins.property
     @pulumi.getter(name="bootstrapActions")
-    def bootstrap_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterBootstrapActionArgs']]]]:
+    def bootstrap_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ClusterBootstrapActionArgs']]]]:
         """
         Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. See below.
         """
         return pulumi.get(self, "bootstrap_actions")
 
     @bootstrap_actions.setter
-    def bootstrap_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterBootstrapActionArgs']]]]):
+    def bootstrap_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ClusterBootstrapActionArgs']]]]):
         pulumi.set(self, "bootstrap_actions", value)
 
     @_builtins.property
     @pulumi.getter
-    def configurations(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def configurations(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
         """
         return pulumi.get(self, "configurations")
 
     @configurations.setter
-    def configurations(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def configurations(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="configurationsJson")
-    def configurations_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def configurations_json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         JSON string for supplying list of configurations for the EMR cluster.
 
@@ -313,288 +313,288 @@ class ClusterArgs:
         return pulumi.get(self, "configurations_json")
 
     @configurations_json.setter
-    def configurations_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def configurations_json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "configurations_json", value)
 
     @_builtins.property
     @pulumi.getter(name="coreInstanceFleet")
-    def core_instance_fleet(self) -> Optional[pulumi.Input['ClusterCoreInstanceFleetArgs']]:
+    def core_instance_fleet(self) -> pulumi.Input[Optional['ClusterCoreInstanceFleetArgs']]:
         """
         Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `core_instance_group` configuration blocks are set. Detailed below.
         """
         return pulumi.get(self, "core_instance_fleet")
 
     @core_instance_fleet.setter
-    def core_instance_fleet(self, value: Optional[pulumi.Input['ClusterCoreInstanceFleetArgs']]):
+    def core_instance_fleet(self, value: pulumi.Input[Optional['ClusterCoreInstanceFleetArgs']]):
         pulumi.set(self, "core_instance_fleet", value)
 
     @_builtins.property
     @pulumi.getter(name="coreInstanceGroup")
-    def core_instance_group(self) -> Optional[pulumi.Input['ClusterCoreInstanceGroupArgs']]:
+    def core_instance_group(self) -> pulumi.Input[Optional['ClusterCoreInstanceGroupArgs']]:
         """
         Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [core node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-core).
         """
         return pulumi.get(self, "core_instance_group")
 
     @core_instance_group.setter
-    def core_instance_group(self, value: Optional[pulumi.Input['ClusterCoreInstanceGroupArgs']]):
+    def core_instance_group(self, value: pulumi.Input[Optional['ClusterCoreInstanceGroupArgs']]):
         pulumi.set(self, "core_instance_group", value)
 
     @_builtins.property
     @pulumi.getter(name="customAmiId")
-    def custom_ami_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_ami_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Custom Amazon Linux AMI for the cluster (instead of an EMR-owned AMI). Available in Amazon EMR version 5.7.0 and later.
         """
         return pulumi.get(self, "custom_ami_id")
 
     @custom_ami_id.setter
-    def custom_ami_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_ami_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_ami_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ebsRootVolumeSize")
-    def ebs_root_volume_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ebs_root_volume_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Size in GiB of the EBS root device volume of the Linux AMI that is used for each EC2 instance. Available in Amazon EMR version 4.x and later.
         """
         return pulumi.get(self, "ebs_root_volume_size")
 
     @ebs_root_volume_size.setter
-    def ebs_root_volume_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ebs_root_volume_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ebs_root_volume_size", value)
 
     @_builtins.property
     @pulumi.getter(name="ec2Attributes")
-    def ec2_attributes(self) -> Optional[pulumi.Input['ClusterEc2AttributesArgs']]:
+    def ec2_attributes(self) -> pulumi.Input[Optional['ClusterEc2AttributesArgs']]:
         """
         Attributes for the EC2 instances running the job flow. See below.
         """
         return pulumi.get(self, "ec2_attributes")
 
     @ec2_attributes.setter
-    def ec2_attributes(self, value: Optional[pulumi.Input['ClusterEc2AttributesArgs']]):
+    def ec2_attributes(self, value: pulumi.Input[Optional['ClusterEc2AttributesArgs']]):
         pulumi.set(self, "ec2_attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="keepJobFlowAliveWhenNoSteps")
-    def keep_job_flow_alive_when_no_steps(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def keep_job_flow_alive_when_no_steps(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Switch on/off run cluster with no steps or when all steps are complete (default is on)
         """
         return pulumi.get(self, "keep_job_flow_alive_when_no_steps")
 
     @keep_job_flow_alive_when_no_steps.setter
-    def keep_job_flow_alive_when_no_steps(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def keep_job_flow_alive_when_no_steps(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "keep_job_flow_alive_when_no_steps", value)
 
     @_builtins.property
     @pulumi.getter(name="kerberosAttributes")
-    def kerberos_attributes(self) -> Optional[pulumi.Input['ClusterKerberosAttributesArgs']]:
+    def kerberos_attributes(self) -> pulumi.Input[Optional['ClusterKerberosAttributesArgs']]:
         """
         Kerberos configuration for the cluster. See below.
         """
         return pulumi.get(self, "kerberos_attributes")
 
     @kerberos_attributes.setter
-    def kerberos_attributes(self, value: Optional[pulumi.Input['ClusterKerberosAttributesArgs']]):
+    def kerberos_attributes(self, value: pulumi.Input[Optional['ClusterKerberosAttributesArgs']]):
         pulumi.set(self, "kerberos_attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="listStepsStates")
-    def list_steps_states(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def list_steps_states(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of [step states](https://docs.aws.amazon.com/emr/latest/APIReference/API_StepStatus.html) used to filter returned steps
         """
         return pulumi.get(self, "list_steps_states")
 
     @list_steps_states.setter
-    def list_steps_states(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def list_steps_states(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "list_steps_states", value)
 
     @_builtins.property
     @pulumi.getter(name="logEncryptionKmsKeyId")
-    def log_encryption_kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_encryption_kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS KMS customer master key (CMK) key ID or arn used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
         """
         return pulumi.get(self, "log_encryption_kms_key_id")
 
     @log_encryption_kms_key_id.setter
-    def log_encryption_kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_encryption_kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_encryption_kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="logUri")
-    def log_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created.
         """
         return pulumi.get(self, "log_uri")
 
     @log_uri.setter
-    def log_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="masterInstanceFleet")
-    def master_instance_fleet(self) -> Optional[pulumi.Input['ClusterMasterInstanceFleetArgs']]:
+    def master_instance_fleet(self) -> pulumi.Input[Optional['ClusterMasterInstanceFleetArgs']]:
         """
         Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the master node type. Cannot be specified if any `master_instance_group` configuration blocks are set. Detailed below.
         """
         return pulumi.get(self, "master_instance_fleet")
 
     @master_instance_fleet.setter
-    def master_instance_fleet(self, value: Optional[pulumi.Input['ClusterMasterInstanceFleetArgs']]):
+    def master_instance_fleet(self, value: pulumi.Input[Optional['ClusterMasterInstanceFleetArgs']]):
         pulumi.set(self, "master_instance_fleet", value)
 
     @_builtins.property
     @pulumi.getter(name="masterInstanceGroup")
-    def master_instance_group(self) -> Optional[pulumi.Input['ClusterMasterInstanceGroupArgs']]:
+    def master_instance_group(self) -> pulumi.Input[Optional['ClusterMasterInstanceGroupArgs']]:
         """
         Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master).
         """
         return pulumi.get(self, "master_instance_group")
 
     @master_instance_group.setter
-    def master_instance_group(self, value: Optional[pulumi.Input['ClusterMasterInstanceGroupArgs']]):
+    def master_instance_group(self, value: pulumi.Input[Optional['ClusterMasterInstanceGroupArgs']]):
         pulumi.set(self, "master_instance_group", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the job flow.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="osReleaseLabel")
-    def os_release_label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def os_release_label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Linux release for all nodes in a cluster launch RunJobFlow request. If not specified, Amazon EMR uses the latest validated Amazon Linux release for cluster launch.
         """
         return pulumi.get(self, "os_release_label")
 
     @os_release_label.setter
-    def os_release_label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def os_release_label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "os_release_label", value)
 
     @_builtins.property
     @pulumi.getter(name="placementGroupConfigs")
-    def placement_group_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterPlacementGroupConfigArgs']]]]:
+    def placement_group_configs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ClusterPlacementGroupConfigArgs']]]]:
         """
         The specified placement group configuration for an Amazon EMR cluster.
         """
         return pulumi.get(self, "placement_group_configs")
 
     @placement_group_configs.setter
-    def placement_group_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterPlacementGroupConfigArgs']]]]):
+    def placement_group_configs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ClusterPlacementGroupConfigArgs']]]]):
         pulumi.set(self, "placement_group_configs", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="scaleDownBehavior")
-    def scale_down_behavior(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scale_down_behavior(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
         """
         return pulumi.get(self, "scale_down_behavior")
 
     @scale_down_behavior.setter
-    def scale_down_behavior(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scale_down_behavior(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scale_down_behavior", value)
 
     @_builtins.property
     @pulumi.getter(name="securityConfiguration")
-    def security_configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def security_configuration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `release_label` 4.8.0 or greater.
         """
         return pulumi.get(self, "security_configuration")
 
     @security_configuration.setter
-    def security_configuration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def security_configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "security_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="stepConcurrencyLevel")
-    def step_concurrency_level(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def step_concurrency_level(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `release_label` 5.28.0 or greater (default is 1).
         """
         return pulumi.get(self, "step_concurrency_level")
 
     @step_concurrency_level.setter
-    def step_concurrency_level(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def step_concurrency_level(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "step_concurrency_level", value)
 
     @_builtins.property
     @pulumi.getter
-    def steps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterStepArgs']]]]:
+    def steps(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ClusterStepArgs']]]]:
         """
         List of steps to run when creating the cluster. See below. It is highly recommended to utilize the lifecycle resource options block with `ignoreChanges` if other steps are being managed outside of this provider.
         """
         return pulumi.get(self, "steps")
 
     @steps.setter
-    def steps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterStepArgs']]]]):
+    def steps(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ClusterStepArgs']]]]):
         pulumi.set(self, "steps", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         list of tags to apply to the EMR Cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="terminationProtection")
-    def termination_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def termination_protection(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
         """
         return pulumi.get(self, "termination_protection")
 
     @termination_protection.setter
-    def termination_protection(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def termination_protection(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "termination_protection", value)
 
     @_builtins.property
     @pulumi.getter(name="unhealthyNodeReplacement")
-    def unhealthy_node_replacement(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def unhealthy_node_replacement(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster. Default value is `false`.
         """
         return pulumi.get(self, "unhealthy_node_replacement")
 
     @unhealthy_node_replacement.setter
-    def unhealthy_node_replacement(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def unhealthy_node_replacement(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "unhealthy_node_replacement", value)
 
     @_builtins.property
     @pulumi.getter(name="visibleToAllUsers")
-    def visible_to_all_users(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def visible_to_all_users(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
 
@@ -603,50 +603,50 @@ class ClusterArgs:
         return pulumi.get(self, "visible_to_all_users")
 
     @visible_to_all_users.setter
-    def visible_to_all_users(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def visible_to_all_users(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "visible_to_all_users", value)
 
 
 @pulumi.input_type
 class _ClusterState:
     def __init__(__self__, *,
-                 additional_info: Optional[pulumi.Input[_builtins.str]] = None,
-                 applications: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_termination_policy: Optional[pulumi.Input['ClusterAutoTerminationPolicyArgs']] = None,
-                 autoscaling_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 bootstrap_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterBootstrapActionArgs']]]] = None,
-                 cluster_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 configurations: Optional[pulumi.Input[_builtins.str]] = None,
-                 configurations_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 core_instance_fleet: Optional[pulumi.Input['ClusterCoreInstanceFleetArgs']] = None,
-                 core_instance_group: Optional[pulumi.Input['ClusterCoreInstanceGroupArgs']] = None,
-                 custom_ami_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ebs_root_volume_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 ec2_attributes: Optional[pulumi.Input['ClusterEc2AttributesArgs']] = None,
-                 keep_job_flow_alive_when_no_steps: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kerberos_attributes: Optional[pulumi.Input['ClusterKerberosAttributesArgs']] = None,
-                 list_steps_states: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 log_encryption_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 master_instance_fleet: Optional[pulumi.Input['ClusterMasterInstanceFleetArgs']] = None,
-                 master_instance_group: Optional[pulumi.Input['ClusterMasterInstanceGroupArgs']] = None,
-                 master_public_dns: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_release_label: Optional[pulumi.Input[_builtins.str]] = None,
-                 placement_group_configs: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterPlacementGroupConfigArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 release_label: Optional[pulumi.Input[_builtins.str]] = None,
-                 scale_down_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 step_concurrency_level: Optional[pulumi.Input[_builtins.int]] = None,
-                 steps: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterStepArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 termination_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 unhealthy_node_replacement: Optional[pulumi.Input[_builtins.bool]] = None,
-                 visible_to_all_users: Optional[pulumi.Input[_builtins.bool]] = None):
+                 additional_info: pulumi.Input[Optional[_builtins.str]] = None,
+                 applications: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_termination_policy: pulumi.Input[Optional['ClusterAutoTerminationPolicyArgs']] = None,
+                 autoscaling_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 bootstrap_actions: pulumi.Input[Optional[Sequence[pulumi.Input['ClusterBootstrapActionArgs']]]] = None,
+                 cluster_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 configurations: pulumi.Input[Optional[_builtins.str]] = None,
+                 configurations_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 core_instance_fleet: pulumi.Input[Optional['ClusterCoreInstanceFleetArgs']] = None,
+                 core_instance_group: pulumi.Input[Optional['ClusterCoreInstanceGroupArgs']] = None,
+                 custom_ami_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ebs_root_volume_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 ec2_attributes: pulumi.Input[Optional['ClusterEc2AttributesArgs']] = None,
+                 keep_job_flow_alive_when_no_steps: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kerberos_attributes: pulumi.Input[Optional['ClusterKerberosAttributesArgs']] = None,
+                 list_steps_states: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 log_encryption_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 master_instance_fleet: pulumi.Input[Optional['ClusterMasterInstanceFleetArgs']] = None,
+                 master_instance_group: pulumi.Input[Optional['ClusterMasterInstanceGroupArgs']] = None,
+                 master_public_dns: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_release_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 placement_group_configs: pulumi.Input[Optional[Sequence[pulumi.Input['ClusterPlacementGroupConfigArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 release_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 scale_down_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 step_concurrency_level: pulumi.Input[Optional[_builtins.int]] = None,
+                 steps: pulumi.Input[Optional[Sequence[pulumi.Input['ClusterStepArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 termination_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 unhealthy_node_replacement: pulumi.Input[Optional[_builtins.bool]] = None,
+                 visible_to_all_users: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Cluster resources.
 
@@ -791,100 +791,100 @@ class _ClusterState:
 
     @_builtins.property
     @pulumi.getter(name="additionalInfo")
-    def additional_info(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def additional_info(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore the provider cannot detect drift from the actual EMR cluster if its value is changed outside the provider.
         """
         return pulumi.get(self, "additional_info")
 
     @additional_info.setter
-    def additional_info(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def additional_info(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "additional_info", value)
 
     @_builtins.property
     @pulumi.getter
-    def applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def applications(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
         """
         return pulumi.get(self, "applications")
 
     @applications.setter
-    def applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def applications(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "applications", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the cluster.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="autoTerminationPolicy")
-    def auto_termination_policy(self) -> Optional[pulumi.Input['ClusterAutoTerminationPolicyArgs']]:
+    def auto_termination_policy(self) -> pulumi.Input[Optional['ClusterAutoTerminationPolicyArgs']]:
         """
         An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
         """
         return pulumi.get(self, "auto_termination_policy")
 
     @auto_termination_policy.setter
-    def auto_termination_policy(self, value: Optional[pulumi.Input['ClusterAutoTerminationPolicyArgs']]):
+    def auto_termination_policy(self, value: pulumi.Input[Optional['ClusterAutoTerminationPolicyArgs']]):
         pulumi.set(self, "auto_termination_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="autoscalingRole")
-    def autoscaling_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def autoscaling_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
         """
         return pulumi.get(self, "autoscaling_role")
 
     @autoscaling_role.setter
-    def autoscaling_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def autoscaling_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "autoscaling_role", value)
 
     @_builtins.property
     @pulumi.getter(name="bootstrapActions")
-    def bootstrap_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterBootstrapActionArgs']]]]:
+    def bootstrap_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ClusterBootstrapActionArgs']]]]:
         """
         Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. See below.
         """
         return pulumi.get(self, "bootstrap_actions")
 
     @bootstrap_actions.setter
-    def bootstrap_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterBootstrapActionArgs']]]]):
+    def bootstrap_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ClusterBootstrapActionArgs']]]]):
         pulumi.set(self, "bootstrap_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterState")
-    def cluster_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_state(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "cluster_state")
 
     @cluster_state.setter
-    def cluster_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_state", value)
 
     @_builtins.property
     @pulumi.getter
-    def configurations(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def configurations(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
         """
         return pulumi.get(self, "configurations")
 
     @configurations.setter
-    def configurations(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def configurations(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="configurationsJson")
-    def configurations_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def configurations_json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         JSON string for supplying list of configurations for the EMR cluster.
 
@@ -914,252 +914,252 @@ class _ClusterState:
         return pulumi.get(self, "configurations_json")
 
     @configurations_json.setter
-    def configurations_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def configurations_json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "configurations_json", value)
 
     @_builtins.property
     @pulumi.getter(name="coreInstanceFleet")
-    def core_instance_fleet(self) -> Optional[pulumi.Input['ClusterCoreInstanceFleetArgs']]:
+    def core_instance_fleet(self) -> pulumi.Input[Optional['ClusterCoreInstanceFleetArgs']]:
         """
         Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `core_instance_group` configuration blocks are set. Detailed below.
         """
         return pulumi.get(self, "core_instance_fleet")
 
     @core_instance_fleet.setter
-    def core_instance_fleet(self, value: Optional[pulumi.Input['ClusterCoreInstanceFleetArgs']]):
+    def core_instance_fleet(self, value: pulumi.Input[Optional['ClusterCoreInstanceFleetArgs']]):
         pulumi.set(self, "core_instance_fleet", value)
 
     @_builtins.property
     @pulumi.getter(name="coreInstanceGroup")
-    def core_instance_group(self) -> Optional[pulumi.Input['ClusterCoreInstanceGroupArgs']]:
+    def core_instance_group(self) -> pulumi.Input[Optional['ClusterCoreInstanceGroupArgs']]:
         """
         Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [core node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-core).
         """
         return pulumi.get(self, "core_instance_group")
 
     @core_instance_group.setter
-    def core_instance_group(self, value: Optional[pulumi.Input['ClusterCoreInstanceGroupArgs']]):
+    def core_instance_group(self, value: pulumi.Input[Optional['ClusterCoreInstanceGroupArgs']]):
         pulumi.set(self, "core_instance_group", value)
 
     @_builtins.property
     @pulumi.getter(name="customAmiId")
-    def custom_ami_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_ami_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Custom Amazon Linux AMI for the cluster (instead of an EMR-owned AMI). Available in Amazon EMR version 5.7.0 and later.
         """
         return pulumi.get(self, "custom_ami_id")
 
     @custom_ami_id.setter
-    def custom_ami_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_ami_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_ami_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ebsRootVolumeSize")
-    def ebs_root_volume_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ebs_root_volume_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Size in GiB of the EBS root device volume of the Linux AMI that is used for each EC2 instance. Available in Amazon EMR version 4.x and later.
         """
         return pulumi.get(self, "ebs_root_volume_size")
 
     @ebs_root_volume_size.setter
-    def ebs_root_volume_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ebs_root_volume_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ebs_root_volume_size", value)
 
     @_builtins.property
     @pulumi.getter(name="ec2Attributes")
-    def ec2_attributes(self) -> Optional[pulumi.Input['ClusterEc2AttributesArgs']]:
+    def ec2_attributes(self) -> pulumi.Input[Optional['ClusterEc2AttributesArgs']]:
         """
         Attributes for the EC2 instances running the job flow. See below.
         """
         return pulumi.get(self, "ec2_attributes")
 
     @ec2_attributes.setter
-    def ec2_attributes(self, value: Optional[pulumi.Input['ClusterEc2AttributesArgs']]):
+    def ec2_attributes(self, value: pulumi.Input[Optional['ClusterEc2AttributesArgs']]):
         pulumi.set(self, "ec2_attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="keepJobFlowAliveWhenNoSteps")
-    def keep_job_flow_alive_when_no_steps(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def keep_job_flow_alive_when_no_steps(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Switch on/off run cluster with no steps or when all steps are complete (default is on)
         """
         return pulumi.get(self, "keep_job_flow_alive_when_no_steps")
 
     @keep_job_flow_alive_when_no_steps.setter
-    def keep_job_flow_alive_when_no_steps(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def keep_job_flow_alive_when_no_steps(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "keep_job_flow_alive_when_no_steps", value)
 
     @_builtins.property
     @pulumi.getter(name="kerberosAttributes")
-    def kerberos_attributes(self) -> Optional[pulumi.Input['ClusterKerberosAttributesArgs']]:
+    def kerberos_attributes(self) -> pulumi.Input[Optional['ClusterKerberosAttributesArgs']]:
         """
         Kerberos configuration for the cluster. See below.
         """
         return pulumi.get(self, "kerberos_attributes")
 
     @kerberos_attributes.setter
-    def kerberos_attributes(self, value: Optional[pulumi.Input['ClusterKerberosAttributesArgs']]):
+    def kerberos_attributes(self, value: pulumi.Input[Optional['ClusterKerberosAttributesArgs']]):
         pulumi.set(self, "kerberos_attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="listStepsStates")
-    def list_steps_states(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def list_steps_states(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of [step states](https://docs.aws.amazon.com/emr/latest/APIReference/API_StepStatus.html) used to filter returned steps
         """
         return pulumi.get(self, "list_steps_states")
 
     @list_steps_states.setter
-    def list_steps_states(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def list_steps_states(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "list_steps_states", value)
 
     @_builtins.property
     @pulumi.getter(name="logEncryptionKmsKeyId")
-    def log_encryption_kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_encryption_kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS KMS customer master key (CMK) key ID or arn used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
         """
         return pulumi.get(self, "log_encryption_kms_key_id")
 
     @log_encryption_kms_key_id.setter
-    def log_encryption_kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_encryption_kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_encryption_kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="logUri")
-    def log_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created.
         """
         return pulumi.get(self, "log_uri")
 
     @log_uri.setter
-    def log_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="masterInstanceFleet")
-    def master_instance_fleet(self) -> Optional[pulumi.Input['ClusterMasterInstanceFleetArgs']]:
+    def master_instance_fleet(self) -> pulumi.Input[Optional['ClusterMasterInstanceFleetArgs']]:
         """
         Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the master node type. Cannot be specified if any `master_instance_group` configuration blocks are set. Detailed below.
         """
         return pulumi.get(self, "master_instance_fleet")
 
     @master_instance_fleet.setter
-    def master_instance_fleet(self, value: Optional[pulumi.Input['ClusterMasterInstanceFleetArgs']]):
+    def master_instance_fleet(self, value: pulumi.Input[Optional['ClusterMasterInstanceFleetArgs']]):
         pulumi.set(self, "master_instance_fleet", value)
 
     @_builtins.property
     @pulumi.getter(name="masterInstanceGroup")
-    def master_instance_group(self) -> Optional[pulumi.Input['ClusterMasterInstanceGroupArgs']]:
+    def master_instance_group(self) -> pulumi.Input[Optional['ClusterMasterInstanceGroupArgs']]:
         """
         Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master).
         """
         return pulumi.get(self, "master_instance_group")
 
     @master_instance_group.setter
-    def master_instance_group(self, value: Optional[pulumi.Input['ClusterMasterInstanceGroupArgs']]):
+    def master_instance_group(self, value: pulumi.Input[Optional['ClusterMasterInstanceGroupArgs']]):
         pulumi.set(self, "master_instance_group", value)
 
     @_builtins.property
     @pulumi.getter(name="masterPublicDns")
-    def master_public_dns(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def master_public_dns(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The DNS name of the master node. If the cluster is on a private subnet, this is the private DNS name. On a public subnet, this is the public DNS name.
         """
         return pulumi.get(self, "master_public_dns")
 
     @master_public_dns.setter
-    def master_public_dns(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def master_public_dns(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "master_public_dns", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the job flow.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="osReleaseLabel")
-    def os_release_label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def os_release_label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Linux release for all nodes in a cluster launch RunJobFlow request. If not specified, Amazon EMR uses the latest validated Amazon Linux release for cluster launch.
         """
         return pulumi.get(self, "os_release_label")
 
     @os_release_label.setter
-    def os_release_label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def os_release_label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "os_release_label", value)
 
     @_builtins.property
     @pulumi.getter(name="placementGroupConfigs")
-    def placement_group_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterPlacementGroupConfigArgs']]]]:
+    def placement_group_configs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ClusterPlacementGroupConfigArgs']]]]:
         """
         The specified placement group configuration for an Amazon EMR cluster.
         """
         return pulumi.get(self, "placement_group_configs")
 
     @placement_group_configs.setter
-    def placement_group_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterPlacementGroupConfigArgs']]]]):
+    def placement_group_configs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ClusterPlacementGroupConfigArgs']]]]):
         pulumi.set(self, "placement_group_configs", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="releaseLabel")
-    def release_label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def release_label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Release label for the Amazon EMR release.
         """
         return pulumi.get(self, "release_label")
 
     @release_label.setter
-    def release_label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def release_label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "release_label", value)
 
     @_builtins.property
     @pulumi.getter(name="scaleDownBehavior")
-    def scale_down_behavior(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scale_down_behavior(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
         """
         return pulumi.get(self, "scale_down_behavior")
 
     @scale_down_behavior.setter
-    def scale_down_behavior(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scale_down_behavior(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scale_down_behavior", value)
 
     @_builtins.property
     @pulumi.getter(name="securityConfiguration")
-    def security_configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def security_configuration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `release_label` 4.8.0 or greater.
         """
         return pulumi.get(self, "security_configuration")
 
     @security_configuration.setter
-    def security_configuration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def security_configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "security_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceRole")
-    def service_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IAM role that will be assumed by the Amazon EMR service to access AWS resources.
 
@@ -1168,84 +1168,84 @@ class _ClusterState:
         return pulumi.get(self, "service_role")
 
     @service_role.setter
-    def service_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_role", value)
 
     @_builtins.property
     @pulumi.getter(name="stepConcurrencyLevel")
-    def step_concurrency_level(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def step_concurrency_level(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `release_label` 5.28.0 or greater (default is 1).
         """
         return pulumi.get(self, "step_concurrency_level")
 
     @step_concurrency_level.setter
-    def step_concurrency_level(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def step_concurrency_level(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "step_concurrency_level", value)
 
     @_builtins.property
     @pulumi.getter
-    def steps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterStepArgs']]]]:
+    def steps(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ClusterStepArgs']]]]:
         """
         List of steps to run when creating the cluster. See below. It is highly recommended to utilize the lifecycle resource options block with `ignoreChanges` if other steps are being managed outside of this provider.
         """
         return pulumi.get(self, "steps")
 
     @steps.setter
-    def steps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterStepArgs']]]]):
+    def steps(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ClusterStepArgs']]]]):
         pulumi.set(self, "steps", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         list of tags to apply to the EMR Cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="terminationProtection")
-    def termination_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def termination_protection(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
         """
         return pulumi.get(self, "termination_protection")
 
     @termination_protection.setter
-    def termination_protection(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def termination_protection(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "termination_protection", value)
 
     @_builtins.property
     @pulumi.getter(name="unhealthyNodeReplacement")
-    def unhealthy_node_replacement(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def unhealthy_node_replacement(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster. Default value is `false`.
         """
         return pulumi.get(self, "unhealthy_node_replacement")
 
     @unhealthy_node_replacement.setter
-    def unhealthy_node_replacement(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def unhealthy_node_replacement(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "unhealthy_node_replacement", value)
 
     @_builtins.property
     @pulumi.getter(name="visibleToAllUsers")
-    def visible_to_all_users(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def visible_to_all_users(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
 
@@ -1254,7 +1254,7 @@ class _ClusterState:
         return pulumi.get(self, "visible_to_all_users")
 
     @visible_to_all_users.setter
-    def visible_to_all_users(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def visible_to_all_users(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "visible_to_all_users", value)
 
 
@@ -1264,39 +1264,39 @@ class Cluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_info: Optional[pulumi.Input[_builtins.str]] = None,
-                 applications: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 auto_termination_policy: Optional[pulumi.Input[Union['ClusterAutoTerminationPolicyArgs', 'ClusterAutoTerminationPolicyArgsDict']]] = None,
-                 autoscaling_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 bootstrap_actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterBootstrapActionArgs', 'ClusterBootstrapActionArgsDict']]]]] = None,
-                 configurations: Optional[pulumi.Input[_builtins.str]] = None,
-                 configurations_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 core_instance_fleet: Optional[pulumi.Input[Union['ClusterCoreInstanceFleetArgs', 'ClusterCoreInstanceFleetArgsDict']]] = None,
-                 core_instance_group: Optional[pulumi.Input[Union['ClusterCoreInstanceGroupArgs', 'ClusterCoreInstanceGroupArgsDict']]] = None,
-                 custom_ami_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ebs_root_volume_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 ec2_attributes: Optional[pulumi.Input[Union['ClusterEc2AttributesArgs', 'ClusterEc2AttributesArgsDict']]] = None,
-                 keep_job_flow_alive_when_no_steps: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kerberos_attributes: Optional[pulumi.Input[Union['ClusterKerberosAttributesArgs', 'ClusterKerberosAttributesArgsDict']]] = None,
-                 list_steps_states: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 log_encryption_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 master_instance_fleet: Optional[pulumi.Input[Union['ClusterMasterInstanceFleetArgs', 'ClusterMasterInstanceFleetArgsDict']]] = None,
-                 master_instance_group: Optional[pulumi.Input[Union['ClusterMasterInstanceGroupArgs', 'ClusterMasterInstanceGroupArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_release_label: Optional[pulumi.Input[_builtins.str]] = None,
-                 placement_group_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterPlacementGroupConfigArgs', 'ClusterPlacementGroupConfigArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 release_label: Optional[pulumi.Input[_builtins.str]] = None,
-                 scale_down_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 step_concurrency_level: Optional[pulumi.Input[_builtins.int]] = None,
-                 steps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterStepArgs', 'ClusterStepArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 termination_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 unhealthy_node_replacement: Optional[pulumi.Input[_builtins.bool]] = None,
-                 visible_to_all_users: Optional[pulumi.Input[_builtins.bool]] = None,
+                 additional_info: pulumi.Input[Optional[_builtins.str]] = None,
+                 applications: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 auto_termination_policy: pulumi.Input[Optional[Union['ClusterAutoTerminationPolicyArgs', 'ClusterAutoTerminationPolicyArgsDict']]] = None,
+                 autoscaling_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 bootstrap_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterBootstrapActionArgs', 'ClusterBootstrapActionArgsDict']]]]] = None,
+                 configurations: pulumi.Input[Optional[_builtins.str]] = None,
+                 configurations_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 core_instance_fleet: pulumi.Input[Optional[Union['ClusterCoreInstanceFleetArgs', 'ClusterCoreInstanceFleetArgsDict']]] = None,
+                 core_instance_group: pulumi.Input[Optional[Union['ClusterCoreInstanceGroupArgs', 'ClusterCoreInstanceGroupArgsDict']]] = None,
+                 custom_ami_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ebs_root_volume_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 ec2_attributes: pulumi.Input[Optional[Union['ClusterEc2AttributesArgs', 'ClusterEc2AttributesArgsDict']]] = None,
+                 keep_job_flow_alive_when_no_steps: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kerberos_attributes: pulumi.Input[Optional[Union['ClusterKerberosAttributesArgs', 'ClusterKerberosAttributesArgsDict']]] = None,
+                 list_steps_states: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 log_encryption_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 master_instance_fleet: pulumi.Input[Optional[Union['ClusterMasterInstanceFleetArgs', 'ClusterMasterInstanceFleetArgsDict']]] = None,
+                 master_instance_group: pulumi.Input[Optional[Union['ClusterMasterInstanceGroupArgs', 'ClusterMasterInstanceGroupArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_release_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 placement_group_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterPlacementGroupConfigArgs', 'ClusterPlacementGroupConfigArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 release_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 scale_down_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 step_concurrency_level: pulumi.Input[Optional[_builtins.int]] = None,
+                 steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterStepArgs', 'ClusterStepArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 termination_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 unhealthy_node_replacement: pulumi.Input[Optional[_builtins.bool]] = None,
+                 visible_to_all_users: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Provides an Elastic MapReduce Cluster, a web service that makes it easy to process large amounts of data efficiently. See [Amazon Elastic MapReduce Documentation](https://aws.amazon.com/documentation/elastic-mapreduce/) for more information.
@@ -1436,7 +1436,7 @@ class Cluster(pulumi.CustomResource):
             core_instance_fleet={
                 "instance_type_configs": [
                     {
-                        "bid_price_as_percentage_of_on_demand_price": 80,
+                        "bid_price_as_percentage_of_on_demand_price": float(80),
                         "ebs_configs": [{
                             "size": 100,
                             "type": "gp2",
@@ -1446,7 +1446,7 @@ class Cluster(pulumi.CustomResource):
                         "weighted_capacity": 1,
                     },
                     {
-                        "bid_price_as_percentage_of_on_demand_price": 100,
+                        "bid_price_as_percentage_of_on_demand_price": float(100),
                         "ebs_configs": [{
                             "size": 100,
                             "type": "gp2",
@@ -1456,7 +1456,7 @@ class Cluster(pulumi.CustomResource):
                         "weighted_capacity": 1,
                     },
                     {
-                        "bid_price_as_percentage_of_on_demand_price": 100,
+                        "bid_price_as_percentage_of_on_demand_price": float(100),
                         "ebs_configs": [{
                             "size": 100,
                             "type": "gp2",
@@ -1482,7 +1482,7 @@ class Cluster(pulumi.CustomResource):
             cluster_id=example.id,
             instance_type_configs=[
                 {
-                    "bid_price_as_percentage_of_on_demand_price": 100,
+                    "bid_price_as_percentage_of_on_demand_price": float(100),
                     "ebs_configs": [{
                         "size": 100,
                         "type": "gp2",
@@ -1492,7 +1492,7 @@ class Cluster(pulumi.CustomResource):
                     "weighted_capacity": 1,
                 },
                 {
-                    "bid_price_as_percentage_of_on_demand_price": 100,
+                    "bid_price_as_percentage_of_on_demand_price": float(100),
                     "ebs_configs": [{
                         "size": 100,
                         "type": "gp2",
@@ -1782,7 +1782,7 @@ class Cluster(pulumi.CustomResource):
             core_instance_fleet={
                 "instance_type_configs": [
                     {
-                        "bid_price_as_percentage_of_on_demand_price": 80,
+                        "bid_price_as_percentage_of_on_demand_price": float(80),
                         "ebs_configs": [{
                             "size": 100,
                             "type": "gp2",
@@ -1792,7 +1792,7 @@ class Cluster(pulumi.CustomResource):
                         "weighted_capacity": 1,
                     },
                     {
-                        "bid_price_as_percentage_of_on_demand_price": 100,
+                        "bid_price_as_percentage_of_on_demand_price": float(100),
                         "ebs_configs": [{
                             "size": 100,
                             "type": "gp2",
@@ -1802,7 +1802,7 @@ class Cluster(pulumi.CustomResource):
                         "weighted_capacity": 1,
                     },
                     {
-                        "bid_price_as_percentage_of_on_demand_price": 100,
+                        "bid_price_as_percentage_of_on_demand_price": float(100),
                         "ebs_configs": [{
                             "size": 100,
                             "type": "gp2",
@@ -1828,7 +1828,7 @@ class Cluster(pulumi.CustomResource):
             cluster_id=example.id,
             instance_type_configs=[
                 {
-                    "bid_price_as_percentage_of_on_demand_price": 100,
+                    "bid_price_as_percentage_of_on_demand_price": float(100),
                     "ebs_configs": [{
                         "size": 100,
                         "type": "gp2",
@@ -1838,7 +1838,7 @@ class Cluster(pulumi.CustomResource):
                     "weighted_capacity": 1,
                 },
                 {
-                    "bid_price_as_percentage_of_on_demand_price": 100,
+                    "bid_price_as_percentage_of_on_demand_price": float(100),
                     "ebs_configs": [{
                         "size": 100,
                         "type": "gp2",
@@ -1936,39 +1936,39 @@ class Cluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_info: Optional[pulumi.Input[_builtins.str]] = None,
-                 applications: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 auto_termination_policy: Optional[pulumi.Input[Union['ClusterAutoTerminationPolicyArgs', 'ClusterAutoTerminationPolicyArgsDict']]] = None,
-                 autoscaling_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 bootstrap_actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterBootstrapActionArgs', 'ClusterBootstrapActionArgsDict']]]]] = None,
-                 configurations: Optional[pulumi.Input[_builtins.str]] = None,
-                 configurations_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 core_instance_fleet: Optional[pulumi.Input[Union['ClusterCoreInstanceFleetArgs', 'ClusterCoreInstanceFleetArgsDict']]] = None,
-                 core_instance_group: Optional[pulumi.Input[Union['ClusterCoreInstanceGroupArgs', 'ClusterCoreInstanceGroupArgsDict']]] = None,
-                 custom_ami_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ebs_root_volume_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 ec2_attributes: Optional[pulumi.Input[Union['ClusterEc2AttributesArgs', 'ClusterEc2AttributesArgsDict']]] = None,
-                 keep_job_flow_alive_when_no_steps: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kerberos_attributes: Optional[pulumi.Input[Union['ClusterKerberosAttributesArgs', 'ClusterKerberosAttributesArgsDict']]] = None,
-                 list_steps_states: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 log_encryption_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 master_instance_fleet: Optional[pulumi.Input[Union['ClusterMasterInstanceFleetArgs', 'ClusterMasterInstanceFleetArgsDict']]] = None,
-                 master_instance_group: Optional[pulumi.Input[Union['ClusterMasterInstanceGroupArgs', 'ClusterMasterInstanceGroupArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_release_label: Optional[pulumi.Input[_builtins.str]] = None,
-                 placement_group_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterPlacementGroupConfigArgs', 'ClusterPlacementGroupConfigArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 release_label: Optional[pulumi.Input[_builtins.str]] = None,
-                 scale_down_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 step_concurrency_level: Optional[pulumi.Input[_builtins.int]] = None,
-                 steps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterStepArgs', 'ClusterStepArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 termination_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 unhealthy_node_replacement: Optional[pulumi.Input[_builtins.bool]] = None,
-                 visible_to_all_users: Optional[pulumi.Input[_builtins.bool]] = None,
+                 additional_info: pulumi.Input[Optional[_builtins.str]] = None,
+                 applications: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 auto_termination_policy: pulumi.Input[Optional[Union['ClusterAutoTerminationPolicyArgs', 'ClusterAutoTerminationPolicyArgsDict']]] = None,
+                 autoscaling_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 bootstrap_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterBootstrapActionArgs', 'ClusterBootstrapActionArgsDict']]]]] = None,
+                 configurations: pulumi.Input[Optional[_builtins.str]] = None,
+                 configurations_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 core_instance_fleet: pulumi.Input[Optional[Union['ClusterCoreInstanceFleetArgs', 'ClusterCoreInstanceFleetArgsDict']]] = None,
+                 core_instance_group: pulumi.Input[Optional[Union['ClusterCoreInstanceGroupArgs', 'ClusterCoreInstanceGroupArgsDict']]] = None,
+                 custom_ami_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ebs_root_volume_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 ec2_attributes: pulumi.Input[Optional[Union['ClusterEc2AttributesArgs', 'ClusterEc2AttributesArgsDict']]] = None,
+                 keep_job_flow_alive_when_no_steps: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kerberos_attributes: pulumi.Input[Optional[Union['ClusterKerberosAttributesArgs', 'ClusterKerberosAttributesArgsDict']]] = None,
+                 list_steps_states: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 log_encryption_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 master_instance_fleet: pulumi.Input[Optional[Union['ClusterMasterInstanceFleetArgs', 'ClusterMasterInstanceFleetArgsDict']]] = None,
+                 master_instance_group: pulumi.Input[Optional[Union['ClusterMasterInstanceGroupArgs', 'ClusterMasterInstanceGroupArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_release_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 placement_group_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterPlacementGroupConfigArgs', 'ClusterPlacementGroupConfigArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 release_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 scale_down_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 step_concurrency_level: pulumi.Input[Optional[_builtins.int]] = None,
+                 steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterStepArgs', 'ClusterStepArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 termination_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 unhealthy_node_replacement: pulumi.Input[Optional[_builtins.bool]] = None,
+                 visible_to_all_users: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -2029,43 +2029,43 @@ class Cluster(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            additional_info: Optional[pulumi.Input[_builtins.str]] = None,
-            applications: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            auto_termination_policy: Optional[pulumi.Input[Union['ClusterAutoTerminationPolicyArgs', 'ClusterAutoTerminationPolicyArgsDict']]] = None,
-            autoscaling_role: Optional[pulumi.Input[_builtins.str]] = None,
-            bootstrap_actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterBootstrapActionArgs', 'ClusterBootstrapActionArgsDict']]]]] = None,
-            cluster_state: Optional[pulumi.Input[_builtins.str]] = None,
-            configurations: Optional[pulumi.Input[_builtins.str]] = None,
-            configurations_json: Optional[pulumi.Input[_builtins.str]] = None,
-            core_instance_fleet: Optional[pulumi.Input[Union['ClusterCoreInstanceFleetArgs', 'ClusterCoreInstanceFleetArgsDict']]] = None,
-            core_instance_group: Optional[pulumi.Input[Union['ClusterCoreInstanceGroupArgs', 'ClusterCoreInstanceGroupArgsDict']]] = None,
-            custom_ami_id: Optional[pulumi.Input[_builtins.str]] = None,
-            ebs_root_volume_size: Optional[pulumi.Input[_builtins.int]] = None,
-            ec2_attributes: Optional[pulumi.Input[Union['ClusterEc2AttributesArgs', 'ClusterEc2AttributesArgsDict']]] = None,
-            keep_job_flow_alive_when_no_steps: Optional[pulumi.Input[_builtins.bool]] = None,
-            kerberos_attributes: Optional[pulumi.Input[Union['ClusterKerberosAttributesArgs', 'ClusterKerberosAttributesArgsDict']]] = None,
-            list_steps_states: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            log_encryption_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-            log_uri: Optional[pulumi.Input[_builtins.str]] = None,
-            master_instance_fleet: Optional[pulumi.Input[Union['ClusterMasterInstanceFleetArgs', 'ClusterMasterInstanceFleetArgsDict']]] = None,
-            master_instance_group: Optional[pulumi.Input[Union['ClusterMasterInstanceGroupArgs', 'ClusterMasterInstanceGroupArgsDict']]] = None,
-            master_public_dns: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            os_release_label: Optional[pulumi.Input[_builtins.str]] = None,
-            placement_group_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterPlacementGroupConfigArgs', 'ClusterPlacementGroupConfigArgsDict']]]]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            release_label: Optional[pulumi.Input[_builtins.str]] = None,
-            scale_down_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-            security_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-            service_role: Optional[pulumi.Input[_builtins.str]] = None,
-            step_concurrency_level: Optional[pulumi.Input[_builtins.int]] = None,
-            steps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterStepArgs', 'ClusterStepArgsDict']]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            termination_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-            unhealthy_node_replacement: Optional[pulumi.Input[_builtins.bool]] = None,
-            visible_to_all_users: Optional[pulumi.Input[_builtins.bool]] = None) -> 'Cluster':
+            additional_info: pulumi.Input[Optional[_builtins.str]] = None,
+            applications: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_termination_policy: pulumi.Input[Optional[Union['ClusterAutoTerminationPolicyArgs', 'ClusterAutoTerminationPolicyArgsDict']]] = None,
+            autoscaling_role: pulumi.Input[Optional[_builtins.str]] = None,
+            bootstrap_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterBootstrapActionArgs', 'ClusterBootstrapActionArgsDict']]]]] = None,
+            cluster_state: pulumi.Input[Optional[_builtins.str]] = None,
+            configurations: pulumi.Input[Optional[_builtins.str]] = None,
+            configurations_json: pulumi.Input[Optional[_builtins.str]] = None,
+            core_instance_fleet: pulumi.Input[Optional[Union['ClusterCoreInstanceFleetArgs', 'ClusterCoreInstanceFleetArgsDict']]] = None,
+            core_instance_group: pulumi.Input[Optional[Union['ClusterCoreInstanceGroupArgs', 'ClusterCoreInstanceGroupArgsDict']]] = None,
+            custom_ami_id: pulumi.Input[Optional[_builtins.str]] = None,
+            ebs_root_volume_size: pulumi.Input[Optional[_builtins.int]] = None,
+            ec2_attributes: pulumi.Input[Optional[Union['ClusterEc2AttributesArgs', 'ClusterEc2AttributesArgsDict']]] = None,
+            keep_job_flow_alive_when_no_steps: pulumi.Input[Optional[_builtins.bool]] = None,
+            kerberos_attributes: pulumi.Input[Optional[Union['ClusterKerberosAttributesArgs', 'ClusterKerberosAttributesArgsDict']]] = None,
+            list_steps_states: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            log_encryption_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            log_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            master_instance_fleet: pulumi.Input[Optional[Union['ClusterMasterInstanceFleetArgs', 'ClusterMasterInstanceFleetArgsDict']]] = None,
+            master_instance_group: pulumi.Input[Optional[Union['ClusterMasterInstanceGroupArgs', 'ClusterMasterInstanceGroupArgsDict']]] = None,
+            master_public_dns: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            os_release_label: pulumi.Input[Optional[_builtins.str]] = None,
+            placement_group_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterPlacementGroupConfigArgs', 'ClusterPlacementGroupConfigArgsDict']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            release_label: pulumi.Input[Optional[_builtins.str]] = None,
+            scale_down_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+            security_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+            service_role: pulumi.Input[Optional[_builtins.str]] = None,
+            step_concurrency_level: pulumi.Input[Optional[_builtins.int]] = None,
+            steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterStepArgs', 'ClusterStepArgsDict']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            termination_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+            unhealthy_node_replacement: pulumi.Input[Optional[_builtins.bool]] = None,
+            visible_to_all_users: pulumi.Input[Optional[_builtins.bool]] = None) -> 'Cluster':
         """
         Get an existing Cluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

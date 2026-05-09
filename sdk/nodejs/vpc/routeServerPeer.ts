@@ -231,58 +231,58 @@ export interface RouteServerPeerState {
     /**
      * The ARN of the route server peer.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
      */
-    bgpOptions?: pulumi.Input<inputs.vpc.RouteServerPeerBgpOptions>;
+    bgpOptions?: pulumi.Input<inputs.vpc.RouteServerPeerBgpOptions | undefined>;
     /**
      * The IP address of the Elastic network interface for the route server endpoint.
      */
-    endpointEniAddress?: pulumi.Input<string>;
+    endpointEniAddress?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Elastic network interface for the route server endpoint.
      */
-    endpointEniId?: pulumi.Input<string>;
+    endpointEniId?: pulumi.Input<string | undefined>;
     /**
      * The IPv4 address of the peer device.
      */
-    peerAddress?: pulumi.Input<string>;
+    peerAddress?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ID of the route server endpoint for which to create a peer.
      *
      * The following arguments are optional:
      */
-    routeServerEndpointId?: pulumi.Input<string>;
+    routeServerEndpointId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the route server associated with this peer.
      */
-    routeServerId?: pulumi.Input<string>;
+    routeServerId?: pulumi.Input<string | undefined>;
     /**
      * The unique identifier of the route server peer.
      */
-    routeServerPeerId?: pulumi.Input<string>;
+    routeServerPeerId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the subnet containing the route server peer.
      */
-    subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.vpc.RouteServerPeerTimeouts>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.vpc.RouteServerPeerTimeouts | undefined>;
     /**
      * The ID of the VPC containing the route server peer.
      */
-    vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -300,7 +300,7 @@ export interface RouteServerPeerArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ID of the route server endpoint for which to create a peer.
      *
@@ -310,6 +310,6 @@ export interface RouteServerPeerArgs {
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.vpc.RouteServerPeerTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.vpc.RouteServerPeerTimeouts | undefined>;
 }

@@ -161,8 +161,8 @@ def get_resource(arn: Optional[_builtins.str] = None,
         role_arn=pulumi.get(__ret__, 'role_arn'),
         with_federation=pulumi.get(__ret__, 'with_federation'),
         with_privileged_access=pulumi.get(__ret__, 'with_privileged_access'))
-def get_resource_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
-                        region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_resource_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
+                        region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceResult]:
     """
     Provides details about a Lake Formation resource.

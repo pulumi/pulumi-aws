@@ -748,29 +748,29 @@ export interface GetPolicyDocumentOutputArgs {
     /**
      * @deprecated override_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source.
      */
-    overrideJson?: pulumi.Input<string>;
+    overrideJson?: pulumi.Input<string | undefined>;
     /**
      * List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `sid`s will override statements with the same `sid` from earlier documents in the list. Statements with non-blank `sid`s will also override statements with the same `sid` from `sourcePolicyDocuments`.  Non-overriding statements will be added to the exported document.
      */
-    overridePolicyDocuments?: pulumi.Input<pulumi.Input<string>[]>;
+    overridePolicyDocuments?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * ID for the policy document.
      */
-    policyId?: pulumi.Input<string>;
+    policyId?: pulumi.Input<string | undefined>;
     /**
      * @deprecated source_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source.
      */
-    sourceJson?: pulumi.Input<string>;
+    sourceJson?: pulumi.Input<string | undefined>;
     /**
      * List of IAM policy documents that are merged together into the exported document. Statements defined in `sourcePolicyDocuments` must have unique `sid`s. Statements with the same `sid` from `overridePolicyDocuments` will override source statements.
      */
-    sourcePolicyDocuments?: pulumi.Input<pulumi.Input<string>[]>;
+    sourcePolicyDocuments?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Configuration block for a policy statement. Detailed below.
      */
-    statements?: pulumi.Input<pulumi.Input<inputs.iam.GetPolicyDocumentStatementArgs>[]>;
+    statements?: pulumi.Input<pulumi.Input<inputs.iam.GetPolicyDocumentStatementArgs>[] | undefined>;
     /**
      * IAM policy document version. Valid values are `2008-10-17` and `2012-10-17`. Defaults to `2012-10-17`. For more information, see the [AWS IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_version.html).
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }

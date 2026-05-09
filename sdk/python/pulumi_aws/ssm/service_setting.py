@@ -21,7 +21,7 @@ class ServiceSettingArgs:
     def __init__(__self__, *,
                  setting_id: pulumi.Input[_builtins.str],
                  setting_value: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceSetting resource.
 
@@ -60,25 +60,25 @@ class ServiceSettingArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _ServiceSettingState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 setting_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 setting_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 setting_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 setting_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceSetting resources.
 
@@ -101,62 +101,62 @@ class _ServiceSettingState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the service setting.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="settingId")
-    def setting_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def setting_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the service setting. Valid values are shown in the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetServiceSetting.html#API_GetServiceSetting_RequestSyntax).
         """
         return pulumi.get(self, "setting_id")
 
     @setting_id.setter
-    def setting_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def setting_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "setting_id", value)
 
     @_builtins.property
     @pulumi.getter(name="settingValue")
-    def setting_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def setting_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Value of the service setting.
         """
         return pulumi.get(self, "setting_value")
 
     @setting_value.setter
-    def setting_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def setting_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "setting_value", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Status of the service setting. Value can be `Default`, `Customized` or `PendingUpdate`.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
@@ -166,9 +166,9 @@ class ServiceSetting(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 setting_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 setting_value: Optional[pulumi.Input[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 setting_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 setting_value: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         This setting defines how a user interacts with or uses a service or a feature of a service.
@@ -243,9 +243,9 @@ class ServiceSetting(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 setting_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 setting_value: Optional[pulumi.Input[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 setting_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 setting_value: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -274,11 +274,11 @@ class ServiceSetting(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            setting_id: Optional[pulumi.Input[_builtins.str]] = None,
-            setting_value: Optional[pulumi.Input[_builtins.str]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None) -> 'ServiceSetting':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            setting_id: pulumi.Input[Optional[_builtins.str]] = None,
+            setting_value: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None) -> 'ServiceSetting':
         """
         Get an existing ServiceSetting resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

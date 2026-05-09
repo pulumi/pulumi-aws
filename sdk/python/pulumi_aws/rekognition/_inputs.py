@@ -50,7 +50,7 @@ __all__ = [
 ]
 
 class CollectionTimeoutsArgsDict(TypedDict):
-    create: NotRequired[pulumi.Input[_builtins.str]]
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
@@ -58,7 +58,7 @@ class CollectionTimeoutsArgsDict(TypedDict):
 @pulumi.input_type
 class CollectionTimeoutsArgs:
     def __init__(__self__, *,
-                 create: Optional[pulumi.Input[_builtins.str]] = None):
+                 create: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
@@ -67,23 +67,23 @@ class CollectionTimeoutsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "create")
 
     @create.setter
-    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create", value)
 
 
 class ProjectTimeoutsArgsDict(TypedDict):
-    create: NotRequired[pulumi.Input[_builtins.str]]
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
-    delete: NotRequired[pulumi.Input[_builtins.str]]
+    delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     """
@@ -91,8 +91,8 @@ class ProjectTimeoutsArgsDict(TypedDict):
 @pulumi.input_type
 class ProjectTimeoutsArgs:
     def __init__(__self__, *,
-                 create: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete: Optional[pulumi.Input[_builtins.str]] = None):
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
@@ -104,26 +104,26 @@ class ProjectTimeoutsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "create")
 
     @create.setter
-    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create", value)
 
     @_builtins.property
     @pulumi.getter
-    def delete(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delete(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
         """
         return pulumi.get(self, "delete")
 
     @delete.setter
-    def delete(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delete", value)
 
 
@@ -212,7 +212,7 @@ class StreamProcessorInputKinesisVideoStreamArgs:
 
 
 class StreamProcessorNotificationChannelArgsDict(TypedDict):
-    sns_topic_arn: NotRequired[pulumi.Input[_builtins.str]]
+    sns_topic_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Number (ARN) of the Amazon Amazon Simple Notification Service topic to which Amazon Rekognition posts the completion status.
     """
@@ -220,7 +220,7 @@ class StreamProcessorNotificationChannelArgsDict(TypedDict):
 @pulumi.input_type
 class StreamProcessorNotificationChannelArgs:
     def __init__(__self__, *,
-                 sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] sns_topic_arn: The Amazon Resource Number (ARN) of the Amazon Amazon Simple Notification Service topic to which Amazon Rekognition posts the completion status.
         """
@@ -229,23 +229,23 @@ class StreamProcessorNotificationChannelArgs:
 
     @_builtins.property
     @pulumi.getter(name="snsTopicArn")
-    def sns_topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sns_topic_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Number (ARN) of the Amazon Amazon Simple Notification Service topic to which Amazon Rekognition posts the completion status.
         """
         return pulumi.get(self, "sns_topic_arn")
 
     @sns_topic_arn.setter
-    def sns_topic_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sns_topic_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sns_topic_arn", value)
 
 
 class StreamProcessorOutputArgsDict(TypedDict):
-    kinesis_data_stream: NotRequired[pulumi.Input['StreamProcessorOutputKinesisDataStreamArgsDict']]
+    kinesis_data_stream: NotRequired[pulumi.Input[Optional['StreamProcessorOutputKinesisDataStreamArgs']]]
     """
     The Amazon Kinesis Data Streams stream to which the Amazon Rekognition stream processor streams the analysis results. See `kinesis_data_stream`.
     """
-    s3_destination: NotRequired[pulumi.Input['StreamProcessorOutputS3DestinationArgsDict']]
+    s3_destination: NotRequired[pulumi.Input[Optional['StreamProcessorOutputS3DestinationArgs']]]
     """
     The Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation. See `s3_destination`.
     """
@@ -253,8 +253,8 @@ class StreamProcessorOutputArgsDict(TypedDict):
 @pulumi.input_type
 class StreamProcessorOutputArgs:
     def __init__(__self__, *,
-                 kinesis_data_stream: Optional[pulumi.Input['StreamProcessorOutputKinesisDataStreamArgs']] = None,
-                 s3_destination: Optional[pulumi.Input['StreamProcessorOutputS3DestinationArgs']] = None):
+                 kinesis_data_stream: pulumi.Input[Optional['StreamProcessorOutputKinesisDataStreamArgs']] = None,
+                 s3_destination: pulumi.Input[Optional['StreamProcessorOutputS3DestinationArgs']] = None):
         """
         :param pulumi.Input['StreamProcessorOutputKinesisDataStreamArgs'] kinesis_data_stream: The Amazon Kinesis Data Streams stream to which the Amazon Rekognition stream processor streams the analysis results. See `kinesis_data_stream`.
         :param pulumi.Input['StreamProcessorOutputS3DestinationArgs'] s3_destination: The Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation. See `s3_destination`.
@@ -266,31 +266,31 @@ class StreamProcessorOutputArgs:
 
     @_builtins.property
     @pulumi.getter(name="kinesisDataStream")
-    def kinesis_data_stream(self) -> Optional[pulumi.Input['StreamProcessorOutputKinesisDataStreamArgs']]:
+    def kinesis_data_stream(self) -> pulumi.Input[Optional['StreamProcessorOutputKinesisDataStreamArgs']]:
         """
         The Amazon Kinesis Data Streams stream to which the Amazon Rekognition stream processor streams the analysis results. See `kinesis_data_stream`.
         """
         return pulumi.get(self, "kinesis_data_stream")
 
     @kinesis_data_stream.setter
-    def kinesis_data_stream(self, value: Optional[pulumi.Input['StreamProcessorOutputKinesisDataStreamArgs']]):
+    def kinesis_data_stream(self, value: pulumi.Input[Optional['StreamProcessorOutputKinesisDataStreamArgs']]):
         pulumi.set(self, "kinesis_data_stream", value)
 
     @_builtins.property
     @pulumi.getter(name="s3Destination")
-    def s3_destination(self) -> Optional[pulumi.Input['StreamProcessorOutputS3DestinationArgs']]:
+    def s3_destination(self) -> pulumi.Input[Optional['StreamProcessorOutputS3DestinationArgs']]:
         """
         The Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation. See `s3_destination`.
         """
         return pulumi.get(self, "s3_destination")
 
     @s3_destination.setter
-    def s3_destination(self, value: Optional[pulumi.Input['StreamProcessorOutputS3DestinationArgs']]):
+    def s3_destination(self, value: pulumi.Input[Optional['StreamProcessorOutputS3DestinationArgs']]):
         pulumi.set(self, "s3_destination", value)
 
 
 class StreamProcessorOutputKinesisDataStreamArgsDict(TypedDict):
-    arn: NotRequired[pulumi.Input[_builtins.str]]
+    arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ARN of the output Amazon Kinesis Data Streams stream.
     """
@@ -298,7 +298,7 @@ class StreamProcessorOutputKinesisDataStreamArgsDict(TypedDict):
 @pulumi.input_type
 class StreamProcessorOutputKinesisDataStreamArgs:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] arn: ARN of the output Amazon Kinesis Data Streams stream.
         """
@@ -307,23 +307,23 @@ class StreamProcessorOutputKinesisDataStreamArgs:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the output Amazon Kinesis Data Streams stream.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
 
 class StreamProcessorOutputS3DestinationArgsDict(TypedDict):
-    bucket: NotRequired[pulumi.Input[_builtins.str]]
+    bucket: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the Amazon S3 bucket you want to associate with the streaming video project.
     """
-    key_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    key_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The prefix value of the location within the bucket that you want the information to be published to.
     """
@@ -331,8 +331,8 @@ class StreamProcessorOutputS3DestinationArgsDict(TypedDict):
 @pulumi.input_type
 class StreamProcessorOutputS3DestinationArgs:
     def __init__(__self__, *,
-                 bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] bucket: Name of the Amazon S3 bucket you want to associate with the streaming video project.
         :param pulumi.Input[_builtins.str] key_prefix: The prefix value of the location within the bucket that you want the information to be published to.
@@ -344,35 +344,35 @@ class StreamProcessorOutputS3DestinationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Amazon S3 bucket you want to associate with the streaming video project.
         """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
-    def bucket(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket", value)
 
     @_builtins.property
     @pulumi.getter(name="keyPrefix")
-    def key_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The prefix value of the location within the bucket that you want the information to be published to.
         """
         return pulumi.get(self, "key_prefix")
 
     @key_prefix.setter
-    def key_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_prefix", value)
 
 
 class StreamProcessorRegionsOfInterestArgsDict(TypedDict):
-    bounding_box: NotRequired[pulumi.Input['StreamProcessorRegionsOfInterestBoundingBoxArgsDict']]
+    bounding_box: NotRequired[pulumi.Input[Optional['StreamProcessorRegionsOfInterestBoundingBoxArgs']]]
     """
     Box representing a region of interest on screen. Only 1 per region is allowed. See `bounding_box`.
     """
-    polygons: NotRequired[pulumi.Input[Sequence[pulumi.Input['StreamProcessorRegionsOfInterestPolygonArgsDict']]]]
+    polygons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StreamProcessorRegionsOfInterestPolygonArgs']]]]]
     """
     Shape made up of up to 10 Point objects to define a region of interest. See `polygon`.
     """
@@ -380,8 +380,8 @@ class StreamProcessorRegionsOfInterestArgsDict(TypedDict):
 @pulumi.input_type
 class StreamProcessorRegionsOfInterestArgs:
     def __init__(__self__, *,
-                 bounding_box: Optional[pulumi.Input['StreamProcessorRegionsOfInterestBoundingBoxArgs']] = None,
-                 polygons: Optional[pulumi.Input[Sequence[pulumi.Input['StreamProcessorRegionsOfInterestPolygonArgs']]]] = None):
+                 bounding_box: pulumi.Input[Optional['StreamProcessorRegionsOfInterestBoundingBoxArgs']] = None,
+                 polygons: pulumi.Input[Optional[Sequence[pulumi.Input['StreamProcessorRegionsOfInterestPolygonArgs']]]] = None):
         """
         :param pulumi.Input['StreamProcessorRegionsOfInterestBoundingBoxArgs'] bounding_box: Box representing a region of interest on screen. Only 1 per region is allowed. See `bounding_box`.
         :param pulumi.Input[Sequence[pulumi.Input['StreamProcessorRegionsOfInterestPolygonArgs']]] polygons: Shape made up of up to 10 Point objects to define a region of interest. See `polygon`.
@@ -393,43 +393,43 @@ class StreamProcessorRegionsOfInterestArgs:
 
     @_builtins.property
     @pulumi.getter(name="boundingBox")
-    def bounding_box(self) -> Optional[pulumi.Input['StreamProcessorRegionsOfInterestBoundingBoxArgs']]:
+    def bounding_box(self) -> pulumi.Input[Optional['StreamProcessorRegionsOfInterestBoundingBoxArgs']]:
         """
         Box representing a region of interest on screen. Only 1 per region is allowed. See `bounding_box`.
         """
         return pulumi.get(self, "bounding_box")
 
     @bounding_box.setter
-    def bounding_box(self, value: Optional[pulumi.Input['StreamProcessorRegionsOfInterestBoundingBoxArgs']]):
+    def bounding_box(self, value: pulumi.Input[Optional['StreamProcessorRegionsOfInterestBoundingBoxArgs']]):
         pulumi.set(self, "bounding_box", value)
 
     @_builtins.property
     @pulumi.getter
-    def polygons(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StreamProcessorRegionsOfInterestPolygonArgs']]]]:
+    def polygons(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StreamProcessorRegionsOfInterestPolygonArgs']]]]:
         """
         Shape made up of up to 10 Point objects to define a region of interest. See `polygon`.
         """
         return pulumi.get(self, "polygons")
 
     @polygons.setter
-    def polygons(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StreamProcessorRegionsOfInterestPolygonArgs']]]]):
+    def polygons(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['StreamProcessorRegionsOfInterestPolygonArgs']]]]):
         pulumi.set(self, "polygons", value)
 
 
 class StreamProcessorRegionsOfInterestBoundingBoxArgsDict(TypedDict):
-    height: NotRequired[pulumi.Input[_builtins.float]]
+    height: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Height of the bounding box as a ratio of the overall image height.
     """
-    left: NotRequired[pulumi.Input[_builtins.float]]
+    left: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Left coordinate of the bounding box as a ratio of overall image width.
     """
-    top: NotRequired[pulumi.Input[_builtins.float]]
+    top: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Top coordinate of the bounding box as a ratio of overall image height.
     """
-    width: NotRequired[pulumi.Input[_builtins.float]]
+    width: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Width of the bounding box as a ratio of the overall image width.
     """
@@ -437,10 +437,10 @@ class StreamProcessorRegionsOfInterestBoundingBoxArgsDict(TypedDict):
 @pulumi.input_type
 class StreamProcessorRegionsOfInterestBoundingBoxArgs:
     def __init__(__self__, *,
-                 height: Optional[pulumi.Input[_builtins.float]] = None,
-                 left: Optional[pulumi.Input[_builtins.float]] = None,
-                 top: Optional[pulumi.Input[_builtins.float]] = None,
-                 width: Optional[pulumi.Input[_builtins.float]] = None):
+                 height: pulumi.Input[Optional[_builtins.float]] = None,
+                 left: pulumi.Input[Optional[_builtins.float]] = None,
+                 top: pulumi.Input[Optional[_builtins.float]] = None,
+                 width: pulumi.Input[Optional[_builtins.float]] = None):
         """
         :param pulumi.Input[_builtins.float] height: Height of the bounding box as a ratio of the overall image height.
         :param pulumi.Input[_builtins.float] left: Left coordinate of the bounding box as a ratio of overall image width.
@@ -458,59 +458,59 @@ class StreamProcessorRegionsOfInterestBoundingBoxArgs:
 
     @_builtins.property
     @pulumi.getter
-    def height(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def height(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Height of the bounding box as a ratio of the overall image height.
         """
         return pulumi.get(self, "height")
 
     @height.setter
-    def height(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def height(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "height", value)
 
     @_builtins.property
     @pulumi.getter
-    def left(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def left(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Left coordinate of the bounding box as a ratio of overall image width.
         """
         return pulumi.get(self, "left")
 
     @left.setter
-    def left(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def left(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "left", value)
 
     @_builtins.property
     @pulumi.getter
-    def top(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def top(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Top coordinate of the bounding box as a ratio of overall image height.
         """
         return pulumi.get(self, "top")
 
     @top.setter
-    def top(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def top(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "top", value)
 
     @_builtins.property
     @pulumi.getter
-    def width(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def width(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Width of the bounding box as a ratio of the overall image width.
         """
         return pulumi.get(self, "width")
 
     @width.setter
-    def width(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def width(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "width", value)
 
 
 class StreamProcessorRegionsOfInterestPolygonArgsDict(TypedDict):
-    x: NotRequired[pulumi.Input[_builtins.float]]
+    x: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The value of the X coordinate for a point on a Polygon.
     """
-    y: NotRequired[pulumi.Input[_builtins.float]]
+    y: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The value of the Y coordinate for a point on a Polygon.
     """
@@ -518,8 +518,8 @@ class StreamProcessorRegionsOfInterestPolygonArgsDict(TypedDict):
 @pulumi.input_type
 class StreamProcessorRegionsOfInterestPolygonArgs:
     def __init__(__self__, *,
-                 x: Optional[pulumi.Input[_builtins.float]] = None,
-                 y: Optional[pulumi.Input[_builtins.float]] = None):
+                 x: pulumi.Input[Optional[_builtins.float]] = None,
+                 y: pulumi.Input[Optional[_builtins.float]] = None):
         """
         :param pulumi.Input[_builtins.float] x: The value of the X coordinate for a point on a Polygon.
         :param pulumi.Input[_builtins.float] y: The value of the Y coordinate for a point on a Polygon.
@@ -531,35 +531,35 @@ class StreamProcessorRegionsOfInterestPolygonArgs:
 
     @_builtins.property
     @pulumi.getter
-    def x(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def x(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The value of the X coordinate for a point on a Polygon.
         """
         return pulumi.get(self, "x")
 
     @x.setter
-    def x(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def x(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "x", value)
 
     @_builtins.property
     @pulumi.getter
-    def y(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def y(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The value of the Y coordinate for a point on a Polygon.
         """
         return pulumi.get(self, "y")
 
     @y.setter
-    def y(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def y(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "y", value)
 
 
 class StreamProcessorSettingsArgsDict(TypedDict):
-    connected_home: NotRequired[pulumi.Input['StreamProcessorSettingsConnectedHomeArgsDict']]
+    connected_home: NotRequired[pulumi.Input[Optional['StreamProcessorSettingsConnectedHomeArgs']]]
     """
     Label detection settings to use on a streaming video. See `connected_home`.
     """
-    face_search: NotRequired[pulumi.Input['StreamProcessorSettingsFaceSearchArgsDict']]
+    face_search: NotRequired[pulumi.Input[Optional['StreamProcessorSettingsFaceSearchArgs']]]
     """
     Input face recognition parameters for an Amazon Rekognition stream processor. See `face_search`.
     """
@@ -567,8 +567,8 @@ class StreamProcessorSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class StreamProcessorSettingsArgs:
     def __init__(__self__, *,
-                 connected_home: Optional[pulumi.Input['StreamProcessorSettingsConnectedHomeArgs']] = None,
-                 face_search: Optional[pulumi.Input['StreamProcessorSettingsFaceSearchArgs']] = None):
+                 connected_home: pulumi.Input[Optional['StreamProcessorSettingsConnectedHomeArgs']] = None,
+                 face_search: pulumi.Input[Optional['StreamProcessorSettingsFaceSearchArgs']] = None):
         """
         :param pulumi.Input['StreamProcessorSettingsConnectedHomeArgs'] connected_home: Label detection settings to use on a streaming video. See `connected_home`.
         :param pulumi.Input['StreamProcessorSettingsFaceSearchArgs'] face_search: Input face recognition parameters for an Amazon Rekognition stream processor. See `face_search`.
@@ -580,35 +580,35 @@ class StreamProcessorSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectedHome")
-    def connected_home(self) -> Optional[pulumi.Input['StreamProcessorSettingsConnectedHomeArgs']]:
+    def connected_home(self) -> pulumi.Input[Optional['StreamProcessorSettingsConnectedHomeArgs']]:
         """
         Label detection settings to use on a streaming video. See `connected_home`.
         """
         return pulumi.get(self, "connected_home")
 
     @connected_home.setter
-    def connected_home(self, value: Optional[pulumi.Input['StreamProcessorSettingsConnectedHomeArgs']]):
+    def connected_home(self, value: pulumi.Input[Optional['StreamProcessorSettingsConnectedHomeArgs']]):
         pulumi.set(self, "connected_home", value)
 
     @_builtins.property
     @pulumi.getter(name="faceSearch")
-    def face_search(self) -> Optional[pulumi.Input['StreamProcessorSettingsFaceSearchArgs']]:
+    def face_search(self) -> pulumi.Input[Optional['StreamProcessorSettingsFaceSearchArgs']]:
         """
         Input face recognition parameters for an Amazon Rekognition stream processor. See `face_search`.
         """
         return pulumi.get(self, "face_search")
 
     @face_search.setter
-    def face_search(self, value: Optional[pulumi.Input['StreamProcessorSettingsFaceSearchArgs']]):
+    def face_search(self, value: pulumi.Input[Optional['StreamProcessorSettingsFaceSearchArgs']]):
         pulumi.set(self, "face_search", value)
 
 
 class StreamProcessorSettingsConnectedHomeArgsDict(TypedDict):
-    labels: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    labels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: `PERSON`, `PET`, `PACKAGE`, and `ALL`.
     """
-    min_confidence: NotRequired[pulumi.Input[_builtins.float]]
+    min_confidence: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Minimum confidence required to label an object in the video.
     """
@@ -616,8 +616,8 @@ class StreamProcessorSettingsConnectedHomeArgsDict(TypedDict):
 @pulumi.input_type
 class StreamProcessorSettingsConnectedHomeArgs:
     def __init__(__self__, *,
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 min_confidence: Optional[pulumi.Input[_builtins.float]] = None):
+                 labels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 min_confidence: pulumi.Input[Optional[_builtins.float]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] labels: Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: `PERSON`, `PET`, `PACKAGE`, and `ALL`.
         :param pulumi.Input[_builtins.float] min_confidence: Minimum confidence required to label an object in the video.
@@ -629,26 +629,26 @@ class StreamProcessorSettingsConnectedHomeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def labels(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: `PERSON`, `PET`, `PACKAGE`, and `ALL`.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def labels(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "labels", value)
 
     @_builtins.property
     @pulumi.getter(name="minConfidence")
-    def min_confidence(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def min_confidence(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Minimum confidence required to label an object in the video.
         """
         return pulumi.get(self, "min_confidence")
 
     @min_confidence.setter
-    def min_confidence(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def min_confidence(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "min_confidence", value)
 
 
@@ -657,7 +657,7 @@ class StreamProcessorSettingsFaceSearchArgsDict(TypedDict):
     """
     ID of a collection that contains faces that you want to search for.
     """
-    face_match_threshold: NotRequired[pulumi.Input[_builtins.float]]
+    face_match_threshold: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Minimum face match confidence score that must be met to return a result for a recognized face.
     """
@@ -666,7 +666,7 @@ class StreamProcessorSettingsFaceSearchArgsDict(TypedDict):
 class StreamProcessorSettingsFaceSearchArgs:
     def __init__(__self__, *,
                  collection_id: pulumi.Input[_builtins.str],
-                 face_match_threshold: Optional[pulumi.Input[_builtins.float]] = None):
+                 face_match_threshold: pulumi.Input[Optional[_builtins.float]] = None):
         """
         :param pulumi.Input[_builtins.str] collection_id: ID of a collection that contains faces that you want to search for.
         :param pulumi.Input[_builtins.float] face_match_threshold: Minimum face match confidence score that must be met to return a result for a recognized face.
@@ -689,27 +689,27 @@ class StreamProcessorSettingsFaceSearchArgs:
 
     @_builtins.property
     @pulumi.getter(name="faceMatchThreshold")
-    def face_match_threshold(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def face_match_threshold(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Minimum face match confidence score that must be met to return a result for a recognized face.
         """
         return pulumi.get(self, "face_match_threshold")
 
     @face_match_threshold.setter
-    def face_match_threshold(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def face_match_threshold(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "face_match_threshold", value)
 
 
 class StreamProcessorTimeoutsArgsDict(TypedDict):
-    create: NotRequired[pulumi.Input[_builtins.str]]
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
-    delete: NotRequired[pulumi.Input[_builtins.str]]
+    delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     """
-    update: NotRequired[pulumi.Input[_builtins.str]]
+    update: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
@@ -717,9 +717,9 @@ class StreamProcessorTimeoutsArgsDict(TypedDict):
 @pulumi.input_type
 class StreamProcessorTimeoutsArgs:
     def __init__(__self__, *,
-                 create: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete: Optional[pulumi.Input[_builtins.str]] = None,
-                 update: Optional[pulumi.Input[_builtins.str]] = None):
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete: pulumi.Input[Optional[_builtins.str]] = None,
+                 update: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
@@ -734,38 +734,38 @@ class StreamProcessorTimeoutsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "create")
 
     @create.setter
-    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create", value)
 
     @_builtins.property
     @pulumi.getter
-    def delete(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delete(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
         """
         return pulumi.get(self, "delete")
 
     @delete.setter
-    def delete(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delete", value)
 
     @_builtins.property
     @pulumi.getter
-    def update(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def update(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "update")
 
     @update.setter
-    def update(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def update(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "update", value)
 
 

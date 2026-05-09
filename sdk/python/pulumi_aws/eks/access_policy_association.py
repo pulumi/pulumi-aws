@@ -25,7 +25,7 @@ class AccessPolicyAssociationArgs:
                  cluster_name: pulumi.Input[_builtins.str],
                  policy_arn: pulumi.Input[_builtins.str],
                  principal_arn: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AccessPolicyAssociation resource.
 
@@ -92,27 +92,27 @@ class AccessPolicyAssociationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _AccessPolicyAssociationState:
     def __init__(__self__, *,
-                 access_scope: Optional[pulumi.Input['AccessPolicyAssociationAccessScopeArgs']] = None,
-                 associated_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 modified_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_scope: pulumi.Input[Optional['AccessPolicyAssociationAccessScopeArgs']] = None,
+                 associated_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 modified_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AccessPolicyAssociation resources.
 
@@ -141,86 +141,86 @@ class _AccessPolicyAssociationState:
 
     @_builtins.property
     @pulumi.getter(name="accessScope")
-    def access_scope(self) -> Optional[pulumi.Input['AccessPolicyAssociationAccessScopeArgs']]:
+    def access_scope(self) -> pulumi.Input[Optional['AccessPolicyAssociationAccessScopeArgs']]:
         """
         The configuration block to determine the scope of the access. See `access_scope` Block below.
         """
         return pulumi.get(self, "access_scope")
 
     @access_scope.setter
-    def access_scope(self, value: Optional[pulumi.Input['AccessPolicyAssociationAccessScopeArgs']]):
+    def access_scope(self, value: pulumi.Input[Optional['AccessPolicyAssociationAccessScopeArgs']]):
         pulumi.set(self, "access_scope", value)
 
     @_builtins.property
     @pulumi.getter(name="associatedAt")
-    def associated_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def associated_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was associated.
         """
         return pulumi.get(self, "associated_at")
 
     @associated_at.setter
-    def associated_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def associated_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "associated_at", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the EKS Cluster.
         """
         return pulumi.get(self, "cluster_name")
 
     @cluster_name.setter
-    def cluster_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_name", value)
 
     @_builtins.property
     @pulumi.getter(name="modifiedAt")
-    def modified_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def modified_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was updated.
         """
         return pulumi.get(self, "modified_at")
 
     @modified_at.setter
-    def modified_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def modified_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "modified_at", value)
 
     @_builtins.property
     @pulumi.getter(name="policyArn")
-    def policy_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the access policy that you're associating.
         """
         return pulumi.get(self, "policy_arn")
 
     @policy_arn.setter
-    def policy_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="principalArn")
-    def principal_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IAM Principal ARN which requires Authentication access to the EKS cluster.
         """
         return pulumi.get(self, "principal_arn")
 
     @principal_arn.setter
-    def principal_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
@@ -230,11 +230,11 @@ class AccessPolicyAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_scope: Optional[pulumi.Input[Union['AccessPolicyAssociationAccessScopeArgs', 'AccessPolicyAssociationAccessScopeArgsDict']]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_scope: pulumi.Input[Optional[Union['AccessPolicyAssociationAccessScopeArgs', 'AccessPolicyAssociationAccessScopeArgsDict']]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Access Entry Policy Association for an EKS Cluster.
@@ -347,11 +347,11 @@ class AccessPolicyAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_scope: Optional[pulumi.Input[Union['AccessPolicyAssociationAccessScopeArgs', 'AccessPolicyAssociationAccessScopeArgsDict']]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_scope: pulumi.Input[Optional[Union['AccessPolicyAssociationAccessScopeArgs', 'AccessPolicyAssociationAccessScopeArgsDict']]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -386,13 +386,13 @@ class AccessPolicyAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            access_scope: Optional[pulumi.Input[Union['AccessPolicyAssociationAccessScopeArgs', 'AccessPolicyAssociationAccessScopeArgsDict']]] = None,
-            associated_at: Optional[pulumi.Input[_builtins.str]] = None,
-            cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-            modified_at: Optional[pulumi.Input[_builtins.str]] = None,
-            policy_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            principal_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None) -> 'AccessPolicyAssociation':
+            access_scope: pulumi.Input[Optional[Union['AccessPolicyAssociationAccessScopeArgs', 'AccessPolicyAssociationAccessScopeArgsDict']]] = None,
+            associated_at: pulumi.Input[Optional[_builtins.str]] = None,
+            cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+            modified_at: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            principal_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> 'AccessPolicyAssociation':
         """
         Get an existing AccessPolicyAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

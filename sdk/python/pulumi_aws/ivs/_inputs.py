@@ -86,11 +86,11 @@ class RecordingConfigurationDestinationConfigurationS3Args:
 
 
 class RecordingConfigurationThumbnailConfigurationArgsDict(TypedDict):
-    recording_mode: NotRequired[pulumi.Input[_builtins.str]]
+    recording_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Thumbnail recording mode. Valid values: `DISABLED`, `INTERVAL`.
     """
-    target_interval_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    target_interval_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The targeted thumbnail-generation interval in seconds.
     """
@@ -98,8 +98,8 @@ class RecordingConfigurationThumbnailConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class RecordingConfigurationThumbnailConfigurationArgs:
     def __init__(__self__, *,
-                 recording_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_interval_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 recording_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_interval_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] recording_mode: Thumbnail recording mode. Valid values: `DISABLED`, `INTERVAL`.
         :param pulumi.Input[_builtins.int] target_interval_seconds: The targeted thumbnail-generation interval in seconds.
@@ -111,26 +111,26 @@ class RecordingConfigurationThumbnailConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="recordingMode")
-    def recording_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def recording_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Thumbnail recording mode. Valid values: `DISABLED`, `INTERVAL`.
         """
         return pulumi.get(self, "recording_mode")
 
     @recording_mode.setter
-    def recording_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def recording_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "recording_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="targetIntervalSeconds")
-    def target_interval_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def target_interval_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The targeted thumbnail-generation interval in seconds.
         """
         return pulumi.get(self, "target_interval_seconds")
 
     @target_interval_seconds.setter
-    def target_interval_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def target_interval_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "target_interval_seconds", value)
 
 

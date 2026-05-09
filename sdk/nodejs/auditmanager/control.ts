@@ -159,47 +159,47 @@ export interface ControlState {
     /**
      * Recommended actions to carry out if the control isn't fulfilled.
      */
-    actionPlanInstructions?: pulumi.Input<string>;
+    actionPlanInstructions?: pulumi.Input<string | undefined>;
     /**
      * Title of the action plan for remediating the control.
      */
-    actionPlanTitle?: pulumi.Input<string>;
+    actionPlanTitle?: pulumi.Input<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the control.
      * * `control_mapping_sources.*.source_id` - Unique identifier for the source.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Data mapping sources. See `controlMappingSources` below.
      *
      * The following arguments are optional:
      */
-    controlMappingSources?: pulumi.Input<pulumi.Input<inputs.auditmanager.ControlControlMappingSource>[]>;
+    controlMappingSources?: pulumi.Input<pulumi.Input<inputs.auditmanager.ControlControlMappingSource>[] | undefined>;
     /**
      * Description of the control.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of the control.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the control. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Steps to follow to determine if the control is satisfied.
      */
-    testingInformation?: pulumi.Input<string>;
+    testingInformation?: pulumi.Input<string | undefined>;
     /**
      * Type of control, such as a custom control or a standard control.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -209,35 +209,35 @@ export interface ControlArgs {
     /**
      * Recommended actions to carry out if the control isn't fulfilled.
      */
-    actionPlanInstructions?: pulumi.Input<string>;
+    actionPlanInstructions?: pulumi.Input<string | undefined>;
     /**
      * Title of the action plan for remediating the control.
      */
-    actionPlanTitle?: pulumi.Input<string>;
+    actionPlanTitle?: pulumi.Input<string | undefined>;
     /**
      * Data mapping sources. See `controlMappingSources` below.
      *
      * The following arguments are optional:
      */
-    controlMappingSources?: pulumi.Input<pulumi.Input<inputs.auditmanager.ControlControlMappingSource>[]>;
+    controlMappingSources?: pulumi.Input<pulumi.Input<inputs.auditmanager.ControlControlMappingSource>[] | undefined>;
     /**
      * Description of the control.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of the control.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the control. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Steps to follow to determine if the control is satisfied.
      */
-    testingInformation?: pulumi.Input<string>;
+    testingInformation?: pulumi.Input<string | undefined>;
 }

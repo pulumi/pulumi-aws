@@ -166,53 +166,53 @@ export interface DeviceState {
     /**
      * ARN of the device.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * AWS location of the device. Documented below.
      */
-    awsLocation?: pulumi.Input<inputs.networkmanager.DeviceAwsLocation>;
+    awsLocation?: pulumi.Input<inputs.networkmanager.DeviceAwsLocation | undefined>;
     /**
      * Description of the device.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * ID of the global network.
      *
      * The following arguments are optional:
      */
-    globalNetworkId?: pulumi.Input<string>;
+    globalNetworkId?: pulumi.Input<string | undefined>;
     /**
      * Location of the device. Documented below.
      */
-    location?: pulumi.Input<inputs.networkmanager.DeviceLocation>;
+    location?: pulumi.Input<inputs.networkmanager.DeviceLocation | undefined>;
     /**
      * Model of device.
      */
-    model?: pulumi.Input<string>;
+    model?: pulumi.Input<string | undefined>;
     /**
      * Serial number of the device.
      */
-    serialNumber?: pulumi.Input<string>;
+    serialNumber?: pulumi.Input<string | undefined>;
     /**
      * ID of the site.
      */
-    siteId?: pulumi.Input<string>;
+    siteId?: pulumi.Input<string | undefined>;
     /**
      * Key-value tags for the device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Type of device.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * Vendor of the device.
      */
-    vendor?: pulumi.Input<string>;
+    vendor?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -222,11 +222,11 @@ export interface DeviceArgs {
     /**
      * AWS location of the device. Documented below.
      */
-    awsLocation?: pulumi.Input<inputs.networkmanager.DeviceAwsLocation>;
+    awsLocation?: pulumi.Input<inputs.networkmanager.DeviceAwsLocation | undefined>;
     /**
      * Description of the device.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * ID of the global network.
      *
@@ -236,29 +236,29 @@ export interface DeviceArgs {
     /**
      * Location of the device. Documented below.
      */
-    location?: pulumi.Input<inputs.networkmanager.DeviceLocation>;
+    location?: pulumi.Input<inputs.networkmanager.DeviceLocation | undefined>;
     /**
      * Model of device.
      */
-    model?: pulumi.Input<string>;
+    model?: pulumi.Input<string | undefined>;
     /**
      * Serial number of the device.
      */
-    serialNumber?: pulumi.Input<string>;
+    serialNumber?: pulumi.Input<string | undefined>;
     /**
      * ID of the site.
      */
-    siteId?: pulumi.Input<string>;
+    siteId?: pulumi.Input<string | undefined>;
     /**
      * Key-value tags for the device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Type of device.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * Vendor of the device.
      */
-    vendor?: pulumi.Input<string>;
+    vendor?: pulumi.Input<string | undefined>;
 }

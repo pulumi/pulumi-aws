@@ -152,9 +152,9 @@ def get_vpc_ipams(filters: Optional[Sequence[Union['GetVpcIpamsFilterArgs', 'Get
         ipam_ids=pulumi.get(__ret__, 'ipam_ids'),
         ipams=pulumi.get(__ret__, 'ipams'),
         region=pulumi.get(__ret__, 'region'))
-def get_vpc_ipams_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetVpcIpamsFilterArgs', 'GetVpcIpamsFilterArgsDict']]]]] = None,
-                         ipam_ids: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                         region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_vpc_ipams_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetVpcIpamsFilterArgs', 'GetVpcIpamsFilterArgsDict']]]]] = None,
+                         ipam_ids: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                         region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcIpamsResult]:
     """
     Data source for managing VPC IPAMs.

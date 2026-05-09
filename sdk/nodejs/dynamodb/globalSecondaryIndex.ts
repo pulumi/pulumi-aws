@@ -253,11 +253,11 @@ export interface GlobalSecondaryIndexState {
     /**
      * ARN of the GSI.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Name of the index.
      */
-    indexName?: pulumi.Input<string>;
+    indexName?: pulumi.Input<string | undefined>;
     /**
      * Set of nested attribute definitions.
      * At least 1 element defining a `HASH` is required.
@@ -265,40 +265,40 @@ export interface GlobalSecondaryIndexState {
      * Changing any values in `keySchema` will re-create the resource.
      * See `keySchema` below.
      */
-    keySchemas?: pulumi.Input<pulumi.Input<inputs.dynamodb.GlobalSecondaryIndexKeySchema>[]>;
+    keySchemas?: pulumi.Input<pulumi.Input<inputs.dynamodb.GlobalSecondaryIndexKeySchema>[] | undefined>;
     /**
      * Sets the maximum number of read and write units for the index.
      * See `onDemandThroughput` below.
      * Only valid if the table's `billingMode` is `PAY_PER_REQUEST`.
      */
-    onDemandThroughput?: pulumi.Input<inputs.dynamodb.GlobalSecondaryIndexOnDemandThroughput>;
+    onDemandThroughput?: pulumi.Input<inputs.dynamodb.GlobalSecondaryIndexOnDemandThroughput | undefined>;
     /**
      * Describes which attributes from the table are represented in the index.
      * See `projection` below.
      */
-    projection?: pulumi.Input<inputs.dynamodb.GlobalSecondaryIndexProjection>;
+    projection?: pulumi.Input<inputs.dynamodb.GlobalSecondaryIndexProjection | undefined>;
     /**
      * Provisioned throughput for the index.
      * See `provisionedThroughput` below.
      * Required if the table's `billingMode` is `PROVISIONED`.
      */
-    provisionedThroughput?: pulumi.Input<inputs.dynamodb.GlobalSecondaryIndexProvisionedThroughput>;
+    provisionedThroughput?: pulumi.Input<inputs.dynamodb.GlobalSecondaryIndexProvisionedThroughput | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Name of the table this index belongs to.
      *
      * The following arguments are optional:
      */
-    tableName?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.dynamodb.GlobalSecondaryIndexTimeouts>;
+    tableName?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.dynamodb.GlobalSecondaryIndexTimeouts | undefined>;
     /**
      * Sets the number of warm read and write units for this index.
      * See `warmThroughput` below.
      */
-    warmThroughput?: pulumi.Input<inputs.dynamodb.GlobalSecondaryIndexWarmThroughput>;
+    warmThroughput?: pulumi.Input<inputs.dynamodb.GlobalSecondaryIndexWarmThroughput | undefined>;
 }
 
 /**
@@ -322,32 +322,32 @@ export interface GlobalSecondaryIndexArgs {
      * See `onDemandThroughput` below.
      * Only valid if the table's `billingMode` is `PAY_PER_REQUEST`.
      */
-    onDemandThroughput?: pulumi.Input<inputs.dynamodb.GlobalSecondaryIndexOnDemandThroughput>;
+    onDemandThroughput?: pulumi.Input<inputs.dynamodb.GlobalSecondaryIndexOnDemandThroughput | undefined>;
     /**
      * Describes which attributes from the table are represented in the index.
      * See `projection` below.
      */
-    projection?: pulumi.Input<inputs.dynamodb.GlobalSecondaryIndexProjection>;
+    projection?: pulumi.Input<inputs.dynamodb.GlobalSecondaryIndexProjection | undefined>;
     /**
      * Provisioned throughput for the index.
      * See `provisionedThroughput` below.
      * Required if the table's `billingMode` is `PROVISIONED`.
      */
-    provisionedThroughput?: pulumi.Input<inputs.dynamodb.GlobalSecondaryIndexProvisionedThroughput>;
+    provisionedThroughput?: pulumi.Input<inputs.dynamodb.GlobalSecondaryIndexProvisionedThroughput | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Name of the table this index belongs to.
      *
      * The following arguments are optional:
      */
     tableName: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.dynamodb.GlobalSecondaryIndexTimeouts>;
+    timeouts?: pulumi.Input<inputs.dynamodb.GlobalSecondaryIndexTimeouts | undefined>;
     /**
      * Sets the number of warm read and write units for this index.
      * See `warmThroughput` below.
      */
-    warmThroughput?: pulumi.Input<inputs.dynamodb.GlobalSecondaryIndexWarmThroughput>;
+    warmThroughput?: pulumi.Input<inputs.dynamodb.GlobalSecondaryIndexWarmThroughput | undefined>;
 }

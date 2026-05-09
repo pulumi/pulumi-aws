@@ -170,51 +170,51 @@ export interface InferenceProfileState {
     /**
      * The Amazon Resource Name (ARN) of the inference profile.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The time at which the inference profile was created.
      */
-    createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string | undefined>;
     /**
      * The description of the inference profile.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The source of the model this inference profile will track metrics and cost for. See `modelSource`.
      *
      * The following arguments are optional:
      */
-    modelSource?: pulumi.Input<inputs.bedrock.InferenceProfileModelSource>;
+    modelSource?: pulumi.Input<inputs.bedrock.InferenceProfileModelSource | undefined>;
     /**
      * A list of information about each model in the inference profile. See `models`.
      */
-    models?: pulumi.Input<pulumi.Input<inputs.bedrock.InferenceProfileModel>[]>;
+    models?: pulumi.Input<pulumi.Input<inputs.bedrock.InferenceProfileModel>[] | undefined>;
     /**
      * The name of the inference profile.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Key-value mapping of resource tags for the inference profile.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.bedrock.InferenceProfileTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.bedrock.InferenceProfileTimeouts | undefined>;
     /**
      * The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * The time at which the inference profile was last updated.
      */
-    updatedAt?: pulumi.Input<string>;
+    updatedAt?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -224,24 +224,24 @@ export interface InferenceProfileArgs {
     /**
      * The description of the inference profile.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The source of the model this inference profile will track metrics and cost for. See `modelSource`.
      *
      * The following arguments are optional:
      */
-    modelSource?: pulumi.Input<inputs.bedrock.InferenceProfileModelSource>;
+    modelSource?: pulumi.Input<inputs.bedrock.InferenceProfileModelSource | undefined>;
     /**
      * The name of the inference profile.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value mapping of resource tags for the inference profile.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.bedrock.InferenceProfileTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.bedrock.InferenceProfileTimeouts | undefined>;
 }

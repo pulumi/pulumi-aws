@@ -117,23 +117,23 @@ export interface OrganizationDelegatedAdminAccountState {
     /**
      * An organization member account ID that you want to designate as a delegated administrator.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the delegated administrator's account.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The email address that is associated with the delegated administrator's AWS account.
      */
-    email?: pulumi.Input<string>;
+    email?: pulumi.Input<string | undefined>;
     /**
      * The friendly name of the delegated administrator's account.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The AWS CloudTrail service principal name.
      */
-    servicePrincipal?: pulumi.Input<string>;
+    servicePrincipal?: pulumi.Input<string | undefined>;
 }
 
 /**

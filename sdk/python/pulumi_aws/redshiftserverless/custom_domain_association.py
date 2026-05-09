@@ -22,7 +22,7 @@ class CustomDomainAssociationArgs:
                  custom_domain_certificate_arn: pulumi.Input[_builtins.str],
                  custom_domain_name: pulumi.Input[_builtins.str],
                  workgroup_name: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CustomDomainAssociation resource.
 
@@ -75,25 +75,25 @@ class CustomDomainAssociationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _CustomDomainAssociationState:
     def __init__(__self__, *,
-                 custom_domain_certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_domain_certificate_expiry_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 workgroup_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 custom_domain_certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_domain_certificate_expiry_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 workgroup_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CustomDomainAssociation resources.
 
@@ -116,62 +116,62 @@ class _CustomDomainAssociationState:
 
     @_builtins.property
     @pulumi.getter(name="customDomainCertificateArn")
-    def custom_domain_certificate_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_domain_certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the certificate for the custom domain association.
         """
         return pulumi.get(self, "custom_domain_certificate_arn")
 
     @custom_domain_certificate_arn.setter
-    def custom_domain_certificate_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_domain_certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_domain_certificate_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="customDomainCertificateExpiryTime")
-    def custom_domain_certificate_expiry_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_domain_certificate_expiry_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Expiration time for the certificate.
         """
         return pulumi.get(self, "custom_domain_certificate_expiry_time")
 
     @custom_domain_certificate_expiry_time.setter
-    def custom_domain_certificate_expiry_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_domain_certificate_expiry_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_domain_certificate_expiry_time", value)
 
     @_builtins.property
     @pulumi.getter(name="customDomainName")
-    def custom_domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Custom domain to associate with the workgroup.
         """
         return pulumi.get(self, "custom_domain_name")
 
     @custom_domain_name.setter
-    def custom_domain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_domain_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="workgroupName")
-    def workgroup_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workgroup_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the workgroup.
         """
         return pulumi.get(self, "workgroup_name")
 
     @workgroup_name.setter
-    def workgroup_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workgroup_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workgroup_name", value)
 
 
@@ -181,10 +181,10 @@ class CustomDomainAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_domain_certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 workgroup_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 custom_domain_certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 workgroup_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Redshift Serverless Custom Domain Association.
@@ -272,10 +272,10 @@ class CustomDomainAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_domain_certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 workgroup_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 custom_domain_certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 workgroup_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -306,11 +306,11 @@ class CustomDomainAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            custom_domain_certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            custom_domain_certificate_expiry_time: Optional[pulumi.Input[_builtins.str]] = None,
-            custom_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            workgroup_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'CustomDomainAssociation':
+            custom_domain_certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_domain_certificate_expiry_time: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            workgroup_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'CustomDomainAssociation':
         """
         Get an existing CustomDomainAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

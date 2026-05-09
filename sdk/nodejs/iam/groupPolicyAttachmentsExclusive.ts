@@ -124,11 +124,11 @@ export interface GroupPolicyAttachmentsExclusiveState {
     /**
      * IAM group name.
      */
-    groupName?: pulumi.Input<string>;
+    groupName?: pulumi.Input<string | undefined>;
     /**
      * A list of managed IAM policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
      */
-    policyArns?: pulumi.Input<pulumi.Input<string>[]>;
+    policyArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**

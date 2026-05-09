@@ -22,12 +22,12 @@ __all__ = ['InstanceFleetArgs', 'InstanceFleet']
 class InstanceFleetArgs:
     def __init__(__self__, *,
                  cluster_id: pulumi.Input[_builtins.str],
-                 instance_type_configs: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigArgs']]]] = None,
-                 launch_specifications: Optional[pulumi.Input['InstanceFleetLaunchSpecificationsArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_on_demand_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 target_spot_capacity: Optional[pulumi.Input[_builtins.int]] = None):
+                 instance_type_configs: pulumi.Input[Optional[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigArgs']]]] = None,
+                 launch_specifications: pulumi.Input[Optional['InstanceFleetLaunchSpecificationsArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_on_demand_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 target_spot_capacity: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a InstanceFleet resource.
 
@@ -67,89 +67,89 @@ class InstanceFleetArgs:
 
     @_builtins.property
     @pulumi.getter(name="instanceTypeConfigs")
-    def instance_type_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigArgs']]]]:
+    def instance_type_configs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigArgs']]]]:
         """
         Configuration block for instance fleet
         """
         return pulumi.get(self, "instance_type_configs")
 
     @instance_type_configs.setter
-    def instance_type_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigArgs']]]]):
+    def instance_type_configs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigArgs']]]]):
         pulumi.set(self, "instance_type_configs", value)
 
     @_builtins.property
     @pulumi.getter(name="launchSpecifications")
-    def launch_specifications(self) -> Optional[pulumi.Input['InstanceFleetLaunchSpecificationsArgs']]:
+    def launch_specifications(self) -> pulumi.Input[Optional['InstanceFleetLaunchSpecificationsArgs']]:
         """
         Configuration block for launch specification
         """
         return pulumi.get(self, "launch_specifications")
 
     @launch_specifications.setter
-    def launch_specifications(self, value: Optional[pulumi.Input['InstanceFleetLaunchSpecificationsArgs']]):
+    def launch_specifications(self, value: pulumi.Input[Optional['InstanceFleetLaunchSpecificationsArgs']]):
         pulumi.set(self, "launch_specifications", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Friendly name given to the instance fleet.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="targetOnDemandCapacity")
-    def target_on_demand_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def target_on_demand_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
         """
         return pulumi.get(self, "target_on_demand_capacity")
 
     @target_on_demand_capacity.setter
-    def target_on_demand_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def target_on_demand_capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "target_on_demand_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="targetSpotCapacity")
-    def target_spot_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def target_spot_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
         """
         return pulumi.get(self, "target_spot_capacity")
 
     @target_spot_capacity.setter
-    def target_spot_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def target_spot_capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "target_spot_capacity", value)
 
 
 @pulumi.input_type
 class _InstanceFleetState:
     def __init__(__self__, *,
-                 cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_type_configs: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigArgs']]]] = None,
-                 launch_specifications: Optional[pulumi.Input['InstanceFleetLaunchSpecificationsArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioned_on_demand_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 provisioned_spot_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_on_demand_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 target_spot_capacity: Optional[pulumi.Input[_builtins.int]] = None):
+                 cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_type_configs: pulumi.Input[Optional[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigArgs']]]] = None,
+                 launch_specifications: pulumi.Input[Optional['InstanceFleetLaunchSpecificationsArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioned_on_demand_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 provisioned_spot_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_on_demand_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 target_spot_capacity: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering InstanceFleet resources.
 
@@ -186,55 +186,55 @@ class _InstanceFleetState:
 
     @_builtins.property
     @pulumi.getter(name="clusterId")
-    def cluster_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "cluster_id")
 
     @cluster_id.setter
-    def cluster_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_id", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceTypeConfigs")
-    def instance_type_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigArgs']]]]:
+    def instance_type_configs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigArgs']]]]:
         """
         Configuration block for instance fleet
         """
         return pulumi.get(self, "instance_type_configs")
 
     @instance_type_configs.setter
-    def instance_type_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigArgs']]]]):
+    def instance_type_configs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigArgs']]]]):
         pulumi.set(self, "instance_type_configs", value)
 
     @_builtins.property
     @pulumi.getter(name="launchSpecifications")
-    def launch_specifications(self) -> Optional[pulumi.Input['InstanceFleetLaunchSpecificationsArgs']]:
+    def launch_specifications(self) -> pulumi.Input[Optional['InstanceFleetLaunchSpecificationsArgs']]:
         """
         Configuration block for launch specification
         """
         return pulumi.get(self, "launch_specifications")
 
     @launch_specifications.setter
-    def launch_specifications(self, value: Optional[pulumi.Input['InstanceFleetLaunchSpecificationsArgs']]):
+    def launch_specifications(self, value: pulumi.Input[Optional['InstanceFleetLaunchSpecificationsArgs']]):
         pulumi.set(self, "launch_specifications", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Friendly name given to the instance fleet.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="provisionedOnDemandCapacity")
-    def provisioned_on_demand_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def provisioned_on_demand_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of On-Demand units that have been provisioned for the instance
         fleet to fulfill TargetOnDemandCapacity. This provisioned capacity might be less than or greater than TargetOnDemandCapacity.
@@ -242,12 +242,12 @@ class _InstanceFleetState:
         return pulumi.get(self, "provisioned_on_demand_capacity")
 
     @provisioned_on_demand_capacity.setter
-    def provisioned_on_demand_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def provisioned_on_demand_capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "provisioned_on_demand_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="provisionedSpotCapacity")
-    def provisioned_spot_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def provisioned_spot_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of Spot units that have been provisioned for this instance fleet
         to fulfill TargetSpotCapacity. This provisioned capacity might be less than or greater than TargetSpotCapacity.
@@ -255,43 +255,43 @@ class _InstanceFleetState:
         return pulumi.get(self, "provisioned_spot_capacity")
 
     @provisioned_spot_capacity.setter
-    def provisioned_spot_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def provisioned_spot_capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "provisioned_spot_capacity", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="targetOnDemandCapacity")
-    def target_on_demand_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def target_on_demand_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
         """
         return pulumi.get(self, "target_on_demand_capacity")
 
     @target_on_demand_capacity.setter
-    def target_on_demand_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def target_on_demand_capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "target_on_demand_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="targetSpotCapacity")
-    def target_spot_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def target_spot_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
         """
         return pulumi.get(self, "target_spot_capacity")
 
     @target_spot_capacity.setter
-    def target_spot_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def target_spot_capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "target_spot_capacity", value)
 
 
@@ -301,13 +301,13 @@ class InstanceFleet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_type_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceFleetInstanceTypeConfigArgs', 'InstanceFleetInstanceTypeConfigArgsDict']]]]] = None,
-                 launch_specifications: Optional[pulumi.Input[Union['InstanceFleetLaunchSpecificationsArgs', 'InstanceFleetLaunchSpecificationsArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_on_demand_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 target_spot_capacity: Optional[pulumi.Input[_builtins.int]] = None,
+                 cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_type_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceFleetInstanceTypeConfigArgs', 'InstanceFleetInstanceTypeConfigArgsDict']]]]] = None,
+                 launch_specifications: pulumi.Input[Optional[Union['InstanceFleetLaunchSpecificationsArgs', 'InstanceFleetLaunchSpecificationsArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_on_demand_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 target_spot_capacity: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Provides an Elastic MapReduce Cluster Instance Fleet configuration.
@@ -327,7 +327,7 @@ class InstanceFleet(pulumi.CustomResource):
             cluster_id=cluster["id"],
             instance_type_configs=[
                 {
-                    "bid_price_as_percentage_of_on_demand_price": 100,
+                    "bid_price_as_percentage_of_on_demand_price": float(100),
                     "ebs_configs": [{
                         "size": 100,
                         "type": "gp2",
@@ -337,7 +337,7 @@ class InstanceFleet(pulumi.CustomResource):
                     "weighted_capacity": 1,
                 },
                 {
-                    "bid_price_as_percentage_of_on_demand_price": 100,
+                    "bid_price_as_percentage_of_on_demand_price": float(100),
                     "ebs_configs": [{
                         "size": 100,
                         "type": "gp2",
@@ -403,7 +403,7 @@ class InstanceFleet(pulumi.CustomResource):
             cluster_id=cluster["id"],
             instance_type_configs=[
                 {
-                    "bid_price_as_percentage_of_on_demand_price": 100,
+                    "bid_price_as_percentage_of_on_demand_price": float(100),
                     "ebs_configs": [{
                         "size": 100,
                         "type": "gp2",
@@ -413,7 +413,7 @@ class InstanceFleet(pulumi.CustomResource):
                     "weighted_capacity": 1,
                 },
                 {
-                    "bid_price_as_percentage_of_on_demand_price": 100,
+                    "bid_price_as_percentage_of_on_demand_price": float(100),
                     "ebs_configs": [{
                         "size": 100,
                         "type": "gp2",
@@ -460,13 +460,13 @@ class InstanceFleet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_type_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceFleetInstanceTypeConfigArgs', 'InstanceFleetInstanceTypeConfigArgsDict']]]]] = None,
-                 launch_specifications: Optional[pulumi.Input[Union['InstanceFleetLaunchSpecificationsArgs', 'InstanceFleetLaunchSpecificationsArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_on_demand_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 target_spot_capacity: Optional[pulumi.Input[_builtins.int]] = None,
+                 cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_type_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceFleetInstanceTypeConfigArgs', 'InstanceFleetInstanceTypeConfigArgsDict']]]]] = None,
+                 launch_specifications: pulumi.Input[Optional[Union['InstanceFleetLaunchSpecificationsArgs', 'InstanceFleetLaunchSpecificationsArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_on_demand_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 target_spot_capacity: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -497,15 +497,15 @@ class InstanceFleet(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-            instance_type_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceFleetInstanceTypeConfigArgs', 'InstanceFleetInstanceTypeConfigArgsDict']]]]] = None,
-            launch_specifications: Optional[pulumi.Input[Union['InstanceFleetLaunchSpecificationsArgs', 'InstanceFleetLaunchSpecificationsArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            provisioned_on_demand_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-            provisioned_spot_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            target_on_demand_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-            target_spot_capacity: Optional[pulumi.Input[_builtins.int]] = None) -> 'InstanceFleet':
+            cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+            instance_type_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceFleetInstanceTypeConfigArgs', 'InstanceFleetInstanceTypeConfigArgsDict']]]]] = None,
+            launch_specifications: pulumi.Input[Optional[Union['InstanceFleetLaunchSpecificationsArgs', 'InstanceFleetLaunchSpecificationsArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            provisioned_on_demand_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            provisioned_spot_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            target_on_demand_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            target_spot_capacity: pulumi.Input[Optional[_builtins.int]] = None) -> 'InstanceFleet':
         """
         Get an existing InstanceFleet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

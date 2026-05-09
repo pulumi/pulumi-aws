@@ -138,36 +138,36 @@ export interface AccessPointState {
     /**
      * ARN of the access point.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * ARN of the file system.
      */
-    fileSystemArn?: pulumi.Input<string>;
+    fileSystemArn?: pulumi.Input<string | undefined>;
     /**
      * ID of the file system for which the access point is intended.
      */
-    fileSystemId?: pulumi.Input<string>;
-    ownerId?: pulumi.Input<string>;
+    fileSystemId?: pulumi.Input<string | undefined>;
+    ownerId?: pulumi.Input<string | undefined>;
     /**
      * Operating system user and group applied to all file system requests made using the access point. Detailed below.
      */
-    posixUser?: pulumi.Input<inputs.efs.AccessPointPosixUser>;
+    posixUser?: pulumi.Input<inputs.efs.AccessPointPosixUser | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
      */
-    rootDirectory?: pulumi.Input<inputs.efs.AccessPointRootDirectory>;
+    rootDirectory?: pulumi.Input<inputs.efs.AccessPointRootDirectory | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -181,17 +181,17 @@ export interface AccessPointArgs {
     /**
      * Operating system user and group applied to all file system requests made using the access point. Detailed below.
      */
-    posixUser?: pulumi.Input<inputs.efs.AccessPointPosixUser>;
+    posixUser?: pulumi.Input<inputs.efs.AccessPointPosixUser | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
      */
-    rootDirectory?: pulumi.Input<inputs.efs.AccessPointRootDirectory>;
+    rootDirectory?: pulumi.Input<inputs.efs.AccessPointRootDirectory | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

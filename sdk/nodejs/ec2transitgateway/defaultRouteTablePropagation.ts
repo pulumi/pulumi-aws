@@ -108,20 +108,20 @@ export class DefaultRouteTablePropagation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DefaultRouteTablePropagation resources.
  */
 export interface DefaultRouteTablePropagationState {
-    originalDefaultRouteTableId?: pulumi.Input<string>;
+    originalDefaultRouteTableId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.ec2transitgateway.DefaultRouteTablePropagationTimeouts>;
+    region?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.ec2transitgateway.DefaultRouteTablePropagationTimeouts | undefined>;
     /**
      * ID of the Transit Gateway to change the default association route table on.
      */
-    transitGatewayId?: pulumi.Input<string>;
+    transitGatewayId?: pulumi.Input<string | undefined>;
     /**
      * ID of the Transit Gateway Route Table to be made the default association route table.
      */
-    transitGatewayRouteTableId?: pulumi.Input<string>;
+    transitGatewayRouteTableId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -131,8 +131,8 @@ export interface DefaultRouteTablePropagationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.ec2transitgateway.DefaultRouteTablePropagationTimeouts>;
+    region?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.ec2transitgateway.DefaultRouteTablePropagationTimeouts | undefined>;
     /**
      * ID of the Transit Gateway to change the default association route table on.
      */

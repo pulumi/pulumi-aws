@@ -166,48 +166,48 @@ export interface EndpointGroupState {
     /**
      * The Amazon Resource Name (ARN) of the endpoint group.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The list of endpoint objects. Fields documented below.
      */
-    endpointConfigurations?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.EndpointGroupEndpointConfiguration>[]>;
+    endpointConfigurations?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.EndpointGroupEndpointConfiguration>[] | undefined>;
     /**
      * The name of the AWS Region where the endpoint group is located.
      */
-    endpointGroupRegion?: pulumi.Input<string>;
+    endpointGroupRegion?: pulumi.Input<string | undefined>;
     /**
      * The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
      */
-    healthCheckIntervalSeconds?: pulumi.Input<number>;
+    healthCheckIntervalSeconds?: pulumi.Input<number | undefined>;
     /**
      * If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The default value is slash (`/`). the provider will only perform drift detection of its value when present in a configuration.
      */
-    healthCheckPath?: pulumi.Input<string>;
+    healthCheckPath?: pulumi.Input<string | undefined>;
     /**
      * The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list.
      * the provider will only perform drift detection of its value when present in a configuration.
      */
-    healthCheckPort?: pulumi.Input<number>;
+    healthCheckPort?: pulumi.Input<number | undefined>;
     /**
      * The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
      */
-    healthCheckProtocol?: pulumi.Input<string>;
+    healthCheckProtocol?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the listener.
      */
-    listenerArn?: pulumi.Input<string>;
+    listenerArn?: pulumi.Input<string | undefined>;
     /**
      * Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
      */
-    portOverrides?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.EndpointGroupPortOverride>[]>;
+    portOverrides?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.EndpointGroupPortOverride>[] | undefined>;
     /**
      * The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
      */
-    thresholdCount?: pulumi.Input<number>;
+    thresholdCount?: pulumi.Input<number | undefined>;
     /**
      * The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. The default value is 100.
      */
-    trafficDialPercentage?: pulumi.Input<number>;
+    trafficDialPercentage?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -217,28 +217,28 @@ export interface EndpointGroupArgs {
     /**
      * The list of endpoint objects. Fields documented below.
      */
-    endpointConfigurations?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.EndpointGroupEndpointConfiguration>[]>;
+    endpointConfigurations?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.EndpointGroupEndpointConfiguration>[] | undefined>;
     /**
      * The name of the AWS Region where the endpoint group is located.
      */
-    endpointGroupRegion?: pulumi.Input<string>;
+    endpointGroupRegion?: pulumi.Input<string | undefined>;
     /**
      * The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
      */
-    healthCheckIntervalSeconds?: pulumi.Input<number>;
+    healthCheckIntervalSeconds?: pulumi.Input<number | undefined>;
     /**
      * If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The default value is slash (`/`). the provider will only perform drift detection of its value when present in a configuration.
      */
-    healthCheckPath?: pulumi.Input<string>;
+    healthCheckPath?: pulumi.Input<string | undefined>;
     /**
      * The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list.
      * the provider will only perform drift detection of its value when present in a configuration.
      */
-    healthCheckPort?: pulumi.Input<number>;
+    healthCheckPort?: pulumi.Input<number | undefined>;
     /**
      * The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
      */
-    healthCheckProtocol?: pulumi.Input<string>;
+    healthCheckProtocol?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the listener.
      */
@@ -246,13 +246,13 @@ export interface EndpointGroupArgs {
     /**
      * Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
      */
-    portOverrides?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.EndpointGroupPortOverride>[]>;
+    portOverrides?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.EndpointGroupPortOverride>[] | undefined>;
     /**
      * The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
      */
-    thresholdCount?: pulumi.Input<number>;
+    thresholdCount?: pulumi.Input<number | undefined>;
     /**
      * The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. The default value is 100.
      */
-    trafficDialPercentage?: pulumi.Input<number>;
+    trafficDialPercentage?: pulumi.Input<number | undefined>;
 }

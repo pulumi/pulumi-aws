@@ -21,17 +21,17 @@ __all__ = ['EventDataStoreArgs', 'EventDataStore']
 @pulumi.input_type
 class EventDataStoreArgs:
     def __init__(__self__, *,
-                 advanced_event_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['EventDataStoreAdvancedEventSelectorArgs']]]] = None,
-                 billing_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 multi_region_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_period: Optional[pulumi.Input[_builtins.int]] = None,
-                 suspend: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 termination_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 advanced_event_selectors: pulumi.Input[Optional[Sequence[pulumi.Input['EventDataStoreAdvancedEventSelectorArgs']]]] = None,
+                 billing_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 multi_region_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 suspend: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 termination_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a EventDataStore resource.
 
@@ -72,153 +72,153 @@ class EventDataStoreArgs:
 
     @_builtins.property
     @pulumi.getter(name="advancedEventSelectors")
-    def advanced_event_selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventDataStoreAdvancedEventSelectorArgs']]]]:
+    def advanced_event_selectors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EventDataStoreAdvancedEventSelectorArgs']]]]:
         """
         The advanced event selectors to use to select the events for the data store. For more information about how to use advanced event selectors, see [Log events by using advanced event selectors](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced) in the CloudTrail User Guide.
         """
         return pulumi.get(self, "advanced_event_selectors")
 
     @advanced_event_selectors.setter
-    def advanced_event_selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventDataStoreAdvancedEventSelectorArgs']]]]):
+    def advanced_event_selectors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EventDataStoreAdvancedEventSelectorArgs']]]]):
         pulumi.set(self, "advanced_event_selectors", value)
 
     @_builtins.property
     @pulumi.getter(name="billingMode")
-    def billing_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def billing_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The billing mode for the event data store. The valid values are `EXTENDABLE_RETENTION_PRICING` and `FIXED_RETENTION_PRICING`. Defaults to `EXTENDABLE_RETENTION_PRICING`.
         """
         return pulumi.get(self, "billing_mode")
 
     @billing_mode.setter
-    def billing_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def billing_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "billing_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="multiRegionEnabled")
-    def multi_region_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def multi_region_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created. Default: `true`.
         """
         return pulumi.get(self, "multi_region_enabled")
 
     @multi_region_enabled.setter
-    def multi_region_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def multi_region_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "multi_region_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the event data store.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="organizationEnabled")
-    def organization_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def organization_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether an event data store collects events logged for an organization in AWS Organizations. Default: `false`.
         """
         return pulumi.get(self, "organization_enabled")
 
     @organization_enabled.setter
-    def organization_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def organization_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "organization_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionPeriod")
-    def retention_period(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_period(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.
         """
         return pulumi.get(self, "retention_period")
 
     @retention_period.setter
-    def retention_period(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_period(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_period", value)
 
     @_builtins.property
     @pulumi.getter
-    def suspend(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def suspend(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether to stop ingesting new events into the event data store. If set to `true`, ingestion is suspended while maintaining the ability to query existing events. If set to `false`, ingestion is active.
         """
         return pulumi.get(self, "suspend")
 
     @suspend.setter
-    def suspend(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def suspend(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "suspend", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="terminationProtectionEnabled")
-    def termination_protection_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def termination_protection_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether termination protection is enabled for the event data store. If termination protection is enabled, you cannot delete the event data store until termination protection is disabled. Default: `true`.
         """
         return pulumi.get(self, "termination_protection_enabled")
 
     @termination_protection_enabled.setter
-    def termination_protection_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def termination_protection_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "termination_protection_enabled", value)
 
 
 @pulumi.input_type
 class _EventDataStoreState:
     def __init__(__self__, *,
-                 advanced_event_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['EventDataStoreAdvancedEventSelectorArgs']]]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 billing_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 multi_region_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_period: Optional[pulumi.Input[_builtins.int]] = None,
-                 suspend: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 termination_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 advanced_event_selectors: pulumi.Input[Optional[Sequence[pulumi.Input['EventDataStoreAdvancedEventSelectorArgs']]]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 billing_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 multi_region_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 suspend: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 termination_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering EventDataStore resources.
 
@@ -265,158 +265,158 @@ class _EventDataStoreState:
 
     @_builtins.property
     @pulumi.getter(name="advancedEventSelectors")
-    def advanced_event_selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventDataStoreAdvancedEventSelectorArgs']]]]:
+    def advanced_event_selectors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EventDataStoreAdvancedEventSelectorArgs']]]]:
         """
         The advanced event selectors to use to select the events for the data store. For more information about how to use advanced event selectors, see [Log events by using advanced event selectors](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced) in the CloudTrail User Guide.
         """
         return pulumi.get(self, "advanced_event_selectors")
 
     @advanced_event_selectors.setter
-    def advanced_event_selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventDataStoreAdvancedEventSelectorArgs']]]]):
+    def advanced_event_selectors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EventDataStoreAdvancedEventSelectorArgs']]]]):
         pulumi.set(self, "advanced_event_selectors", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the event data store.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="billingMode")
-    def billing_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def billing_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The billing mode for the event data store. The valid values are `EXTENDABLE_RETENTION_PRICING` and `FIXED_RETENTION_PRICING`. Defaults to `EXTENDABLE_RETENTION_PRICING`.
         """
         return pulumi.get(self, "billing_mode")
 
     @billing_mode.setter
-    def billing_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def billing_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "billing_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="multiRegionEnabled")
-    def multi_region_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def multi_region_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created. Default: `true`.
         """
         return pulumi.get(self, "multi_region_enabled")
 
     @multi_region_enabled.setter
-    def multi_region_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def multi_region_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "multi_region_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the event data store.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="organizationEnabled")
-    def organization_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def organization_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether an event data store collects events logged for an organization in AWS Organizations. Default: `false`.
         """
         return pulumi.get(self, "organization_enabled")
 
     @organization_enabled.setter
-    def organization_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def organization_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "organization_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionPeriod")
-    def retention_period(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_period(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.
         """
         return pulumi.get(self, "retention_period")
 
     @retention_period.setter
-    def retention_period(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_period(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_period", value)
 
     @_builtins.property
     @pulumi.getter
-    def suspend(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def suspend(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether to stop ingesting new events into the event data store. If set to `true`, ingestion is suspended while maintaining the ability to query existing events. If set to `false`, ingestion is active.
         """
         return pulumi.get(self, "suspend")
 
     @suspend.setter
-    def suspend(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def suspend(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "suspend", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="terminationProtectionEnabled")
-    def termination_protection_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def termination_protection_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether termination protection is enabled for the event data store. If termination protection is enabled, you cannot delete the event data store until termination protection is disabled. Default: `true`.
         """
         return pulumi.get(self, "termination_protection_enabled")
 
     @termination_protection_enabled.setter
-    def termination_protection_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def termination_protection_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "termination_protection_enabled", value)
 
 
@@ -426,17 +426,17 @@ class EventDataStore(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 advanced_event_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventDataStoreAdvancedEventSelectorArgs', 'EventDataStoreAdvancedEventSelectorArgsDict']]]]] = None,
-                 billing_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 multi_region_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_period: Optional[pulumi.Input[_builtins.int]] = None,
-                 suspend: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 termination_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 advanced_event_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventDataStoreAdvancedEventSelectorArgs', 'EventDataStoreAdvancedEventSelectorArgsDict']]]]] = None,
+                 billing_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 multi_region_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 suspend: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 termination_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Provides a CloudTrail Event Data Store.
@@ -615,17 +615,17 @@ class EventDataStore(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 advanced_event_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventDataStoreAdvancedEventSelectorArgs', 'EventDataStoreAdvancedEventSelectorArgsDict']]]]] = None,
-                 billing_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 multi_region_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_period: Optional[pulumi.Input[_builtins.int]] = None,
-                 suspend: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 termination_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 advanced_event_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventDataStoreAdvancedEventSelectorArgs', 'EventDataStoreAdvancedEventSelectorArgsDict']]]]] = None,
+                 billing_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 multi_region_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 suspend: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 termination_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -658,19 +658,19 @@ class EventDataStore(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            advanced_event_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventDataStoreAdvancedEventSelectorArgs', 'EventDataStoreAdvancedEventSelectorArgsDict']]]]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            billing_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-            multi_region_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            organization_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            retention_period: Optional[pulumi.Input[_builtins.int]] = None,
-            suspend: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            termination_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None) -> 'EventDataStore':
+            advanced_event_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventDataStoreAdvancedEventSelectorArgs', 'EventDataStoreAdvancedEventSelectorArgsDict']]]]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            billing_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            multi_region_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            organization_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            retention_period: pulumi.Input[Optional[_builtins.int]] = None,
+            suspend: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            termination_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> 'EventDataStore':
         """
         Get an existing EventDataStore resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -134,27 +134,27 @@ export interface SshKeyState {
     /**
      * Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
      */
-    encoding?: pulumi.Input<string>;
+    encoding?: pulumi.Input<string | undefined>;
     /**
      * The MD5 message digest of the SSH public key.
      */
-    fingerprint?: pulumi.Input<string>;
+    fingerprint?: pulumi.Input<string | undefined>;
     /**
      * The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.
      */
-    publicKey?: pulumi.Input<string>;
+    publicKey?: pulumi.Input<string | undefined>;
     /**
      * The unique identifier for the SSH public key.
      */
-    sshPublicKeyId?: pulumi.Input<string>;
+    sshPublicKeyId?: pulumi.Input<string | undefined>;
     /**
      * The status to assign to the SSH public key. Active means the key can be used for authentication with an AWS CodeCommit repository. Inactive means the key cannot be used. Default is `active`.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * The name of the IAM user to associate the SSH public key with.
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -172,7 +172,7 @@ export interface SshKeyArgs {
     /**
      * The status to assign to the SSH public key. Active means the key can be used for authentication with an AWS CodeCommit repository. Inactive means the key cannot be used. Default is `active`.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * The name of the IAM user to associate the SSH public key with.
      */

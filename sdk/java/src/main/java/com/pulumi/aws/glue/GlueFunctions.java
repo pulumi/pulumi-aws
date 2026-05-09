@@ -44,8 +44,8 @@ public final class GlueFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.glue.GlueFunctions;
      * import com.pulumi.aws.glue.inputs.GetCatalogArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -84,8 +84,8 @@ public final class GlueFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.glue.GlueFunctions;
      * import com.pulumi.aws.glue.inputs.GetCatalogArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -124,8 +124,8 @@ public final class GlueFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.glue.GlueFunctions;
      * import com.pulumi.aws.glue.inputs.GetCatalogArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -164,8 +164,8 @@ public final class GlueFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.glue.GlueFunctions;
      * import com.pulumi.aws.glue.inputs.GetCatalogArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -204,8 +204,8 @@ public final class GlueFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.glue.GlueFunctions;
      * import com.pulumi.aws.glue.inputs.GetCatalogArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -244,8 +244,8 @@ public final class GlueFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.glue.GlueFunctions;
      * import com.pulumi.aws.glue.inputs.GetCatalogTableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -285,8 +285,8 @@ public final class GlueFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.glue.GlueFunctions;
      * import com.pulumi.aws.glue.inputs.GetCatalogTableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -326,8 +326,8 @@ public final class GlueFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.glue.GlueFunctions;
      * import com.pulumi.aws.glue.inputs.GetCatalogTableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -367,8 +367,8 @@ public final class GlueFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.glue.GlueFunctions;
      * import com.pulumi.aws.glue.inputs.GetCatalogTableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -408,8 +408,8 @@ public final class GlueFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.glue.GlueFunctions;
      * import com.pulumi.aws.glue.inputs.GetCatalogTableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -449,8 +449,8 @@ public final class GlueFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.glue.GlueFunctions;
      * import com.pulumi.aws.glue.inputs.GetConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -489,8 +489,8 @@ public final class GlueFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.glue.GlueFunctions;
      * import com.pulumi.aws.glue.inputs.GetConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -529,8 +529,8 @@ public final class GlueFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.glue.GlueFunctions;
      * import com.pulumi.aws.glue.inputs.GetConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -569,8 +569,8 @@ public final class GlueFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.glue.GlueFunctions;
      * import com.pulumi.aws.glue.inputs.GetConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -609,8 +609,8 @@ public final class GlueFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.glue.GlueFunctions;
      * import com.pulumi.aws.glue.inputs.GetConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -696,8 +696,8 @@ public final class GlueFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.glue.GlueFunctions;
      * import com.pulumi.aws.glue.inputs.GetRegistryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -738,8 +738,8 @@ public final class GlueFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.glue.GlueFunctions;
      * import com.pulumi.aws.glue.inputs.GetRegistryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -780,8 +780,8 @@ public final class GlueFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.glue.GlueFunctions;
      * import com.pulumi.aws.glue.inputs.GetRegistryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -822,8 +822,8 @@ public final class GlueFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.glue.GlueFunctions;
      * import com.pulumi.aws.glue.inputs.GetRegistryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -864,8 +864,8 @@ public final class GlueFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.glue.GlueFunctions;
      * import com.pulumi.aws.glue.inputs.GetRegistryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -906,8 +906,8 @@ public final class GlueFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.glue.GlueFunctions;
      * import com.pulumi.aws.glue.inputs.GetScriptArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1017,8 +1017,8 @@ public final class GlueFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.glue.GlueFunctions;
      * import com.pulumi.aws.glue.inputs.GetScriptArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1137,8 +1137,8 @@ public final class GlueFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.glue.GlueFunctions;
      * import com.pulumi.aws.glue.inputs.GetScriptArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1248,8 +1248,8 @@ public final class GlueFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.glue.GlueFunctions;
      * import com.pulumi.aws.glue.inputs.GetScriptArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1368,8 +1368,8 @@ public final class GlueFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.glue.GlueFunctions;
      * import com.pulumi.aws.glue.inputs.GetScriptArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1479,8 +1479,8 @@ public final class GlueFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.glue.GlueFunctions;
      * import com.pulumi.aws.glue.inputs.GetScriptArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1599,8 +1599,8 @@ public final class GlueFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.glue.GlueFunctions;
      * import com.pulumi.aws.glue.inputs.GetScriptArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1710,8 +1710,8 @@ public final class GlueFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.glue.GlueFunctions;
      * import com.pulumi.aws.glue.inputs.GetScriptArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1830,8 +1830,8 @@ public final class GlueFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.glue.GlueFunctions;
      * import com.pulumi.aws.glue.inputs.GetScriptArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1941,8 +1941,8 @@ public final class GlueFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.glue.GlueFunctions;
      * import com.pulumi.aws.glue.inputs.GetScriptArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

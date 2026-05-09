@@ -94,5 +94,5 @@ export interface GetSitesOutputArgs {
     /**
      * Restricts the list to the sites with these tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -127,23 +127,23 @@ export interface ApiMappingState {
     /**
      * API identifier.
      */
-    apiId?: pulumi.Input<string>;
+    apiId?: pulumi.Input<string | undefined>;
     /**
      * The API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
      */
-    apiMappingKey?: pulumi.Input<string>;
+    apiMappingKey?: pulumi.Input<string | undefined>;
     /**
      * Domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
      */
-    domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
      */
-    stage?: pulumi.Input<string>;
+    stage?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -157,7 +157,7 @@ export interface ApiMappingArgs {
     /**
      * The API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
      */
-    apiMappingKey?: pulumi.Input<string>;
+    apiMappingKey?: pulumi.Input<string | undefined>;
     /**
      * Domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
      */
@@ -165,7 +165,7 @@ export interface ApiMappingArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
      */

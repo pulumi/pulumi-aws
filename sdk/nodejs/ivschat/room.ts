@@ -147,44 +147,44 @@ export interface RoomState {
     /**
      * ARN of the Room.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * List of Logging Configuration
      * ARNs to attach to the room.
      */
-    loggingConfigurationIdentifiers?: pulumi.Input<pulumi.Input<string>[]>;
+    loggingConfigurationIdentifiers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Maximum number of characters in a single
      * message. Messages are expected to be UTF-8 encoded and this limit applies
      * specifically to rune/code-point count, not number of bytes.
      */
-    maximumMessageLength?: pulumi.Input<number>;
+    maximumMessageLength?: pulumi.Input<number | undefined>;
     /**
      * Maximum number of messages per
      * second that can be sent to the room (by all clients).
      */
-    maximumMessageRatePerSecond?: pulumi.Input<number>;
+    maximumMessageRatePerSecond?: pulumi.Input<number | undefined>;
     /**
      * Configuration information for optional
      * review of messages.
      */
-    messageReviewHandler?: pulumi.Input<inputs.ivschat.RoomMessageReviewHandler>;
+    messageReviewHandler?: pulumi.Input<inputs.ivschat.RoomMessageReviewHandler | undefined>;
     /**
      * Room name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -195,33 +195,33 @@ export interface RoomArgs {
      * List of Logging Configuration
      * ARNs to attach to the room.
      */
-    loggingConfigurationIdentifiers?: pulumi.Input<pulumi.Input<string>[]>;
+    loggingConfigurationIdentifiers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Maximum number of characters in a single
      * message. Messages are expected to be UTF-8 encoded and this limit applies
      * specifically to rune/code-point count, not number of bytes.
      */
-    maximumMessageLength?: pulumi.Input<number>;
+    maximumMessageLength?: pulumi.Input<number | undefined>;
     /**
      * Maximum number of messages per
      * second that can be sent to the room (by all clients).
      */
-    maximumMessageRatePerSecond?: pulumi.Input<number>;
+    maximumMessageRatePerSecond?: pulumi.Input<number | undefined>;
     /**
      * Configuration information for optional
      * review of messages.
      */
-    messageReviewHandler?: pulumi.Input<inputs.ivschat.RoomMessageReviewHandler>;
+    messageReviewHandler?: pulumi.Input<inputs.ivschat.RoomMessageReviewHandler | undefined>;
     /**
      * Room name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

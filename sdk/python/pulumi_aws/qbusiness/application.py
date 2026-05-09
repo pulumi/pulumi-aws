@@ -25,11 +25,11 @@ class ApplicationArgs:
                  display_name: pulumi.Input[_builtins.str],
                  iam_service_role_arn: pulumi.Input[_builtins.str],
                  identity_center_instance_arn: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_configuration: Optional[pulumi.Input['ApplicationEncryptionConfigurationArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['ApplicationTimeoutsArgs']] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_configuration: pulumi.Input[Optional['ApplicationEncryptionConfigurationArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['ApplicationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Application resource.
 
@@ -110,74 +110,74 @@ class ApplicationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the Amazon Q application.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionConfiguration")
-    def encryption_configuration(self) -> Optional[pulumi.Input['ApplicationEncryptionConfigurationArgs']]:
+    def encryption_configuration(self) -> pulumi.Input[Optional['ApplicationEncryptionConfigurationArgs']]:
         """
         Information about encryption configuration. See `encryption_configuration` below.
         """
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
-    def encryption_configuration(self, value: Optional[pulumi.Input['ApplicationEncryptionConfigurationArgs']]):
+    def encryption_configuration(self, value: pulumi.Input[Optional['ApplicationEncryptionConfigurationArgs']]):
         pulumi.set(self, "encryption_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['ApplicationTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['ApplicationTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['ApplicationTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['ApplicationTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _ApplicationState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 attachments_configuration: Optional[pulumi.Input['ApplicationAttachmentsConfigurationArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_configuration: Optional[pulumi.Input['ApplicationEncryptionConfigurationArgs']] = None,
-                 iam_service_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_center_application_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_center_instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['ApplicationTimeoutsArgs']] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 attachments_configuration: pulumi.Input[Optional['ApplicationAttachmentsConfigurationArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_configuration: pulumi.Input[Optional['ApplicationEncryptionConfigurationArgs']] = None,
+                 iam_service_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_center_application_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_center_instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['ApplicationTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering Application resources.
 
@@ -221,91 +221,91 @@ class _ApplicationState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the Q Business application.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="attachmentsConfiguration")
-    def attachments_configuration(self) -> Optional[pulumi.Input['ApplicationAttachmentsConfigurationArgs']]:
+    def attachments_configuration(self) -> pulumi.Input[Optional['ApplicationAttachmentsConfigurationArgs']]:
         """
         Information about whether file upload functionality is activated or deactivated for your end user. See `attachments_configuration` below.
         """
         return pulumi.get(self, "attachments_configuration")
 
     @attachments_configuration.setter
-    def attachments_configuration(self, value: Optional[pulumi.Input['ApplicationAttachmentsConfigurationArgs']]):
+    def attachments_configuration(self, value: pulumi.Input[Optional['ApplicationAttachmentsConfigurationArgs']]):
         pulumi.set(self, "attachments_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the Amazon Q application.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Amazon Q application.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionConfiguration")
-    def encryption_configuration(self) -> Optional[pulumi.Input['ApplicationEncryptionConfigurationArgs']]:
+    def encryption_configuration(self) -> pulumi.Input[Optional['ApplicationEncryptionConfigurationArgs']]:
         """
         Information about encryption configuration. See `encryption_configuration` below.
         """
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
-    def encryption_configuration(self, value: Optional[pulumi.Input['ApplicationEncryptionConfigurationArgs']]):
+    def encryption_configuration(self, value: pulumi.Input[Optional['ApplicationEncryptionConfigurationArgs']]):
         pulumi.set(self, "encryption_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="iamServiceRoleArn")
-    def iam_service_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def iam_service_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
         """
         return pulumi.get(self, "iam_service_role_arn")
 
     @iam_service_role_arn.setter
-    def iam_service_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def iam_service_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "iam_service_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="identityCenterApplicationArn")
-    def identity_center_application_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identity_center_application_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the AWS IAM Identity Center application attached to your Amazon Q Business application.
         """
         return pulumi.get(self, "identity_center_application_arn")
 
     @identity_center_application_arn.setter
-    def identity_center_application_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identity_center_application_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identity_center_application_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="identityCenterInstanceArn")
-    def identity_center_instance_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identity_center_instance_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the IAM Identity Center instance you are either creating for — or connecting to — your Amazon Q Business application.
 
@@ -314,49 +314,49 @@ class _ApplicationState:
         return pulumi.get(self, "identity_center_instance_arn")
 
     @identity_center_instance_arn.setter
-    def identity_center_instance_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identity_center_instance_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identity_center_instance_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['ApplicationTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['ApplicationTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['ApplicationTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['ApplicationTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
@@ -366,15 +366,15 @@ class Application(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attachments_configuration: Optional[pulumi.Input[Union['ApplicationAttachmentsConfigurationArgs', 'ApplicationAttachmentsConfigurationArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_configuration: Optional[pulumi.Input[Union['ApplicationEncryptionConfigurationArgs', 'ApplicationEncryptionConfigurationArgsDict']]] = None,
-                 iam_service_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_center_instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['ApplicationTimeoutsArgs', 'ApplicationTimeoutsArgsDict']]] = None,
+                 attachments_configuration: pulumi.Input[Optional[Union['ApplicationAttachmentsConfigurationArgs', 'ApplicationAttachmentsConfigurationArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['ApplicationEncryptionConfigurationArgs', 'ApplicationEncryptionConfigurationArgsDict']]] = None,
+                 iam_service_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_center_instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ApplicationTimeoutsArgs', 'ApplicationTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Provides a Q Business Application resource.
@@ -463,15 +463,15 @@ class Application(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attachments_configuration: Optional[pulumi.Input[Union['ApplicationAttachmentsConfigurationArgs', 'ApplicationAttachmentsConfigurationArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_configuration: Optional[pulumi.Input[Union['ApplicationEncryptionConfigurationArgs', 'ApplicationEncryptionConfigurationArgsDict']]] = None,
-                 iam_service_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_center_instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['ApplicationTimeoutsArgs', 'ApplicationTimeoutsArgsDict']]] = None,
+                 attachments_configuration: pulumi.Input[Optional[Union['ApplicationAttachmentsConfigurationArgs', 'ApplicationAttachmentsConfigurationArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['ApplicationEncryptionConfigurationArgs', 'ApplicationEncryptionConfigurationArgsDict']]] = None,
+                 iam_service_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_center_instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ApplicationTimeoutsArgs', 'ApplicationTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -511,18 +511,18 @@ class Application(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            attachments_configuration: Optional[pulumi.Input[Union['ApplicationAttachmentsConfigurationArgs', 'ApplicationAttachmentsConfigurationArgsDict']]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            encryption_configuration: Optional[pulumi.Input[Union['ApplicationEncryptionConfigurationArgs', 'ApplicationEncryptionConfigurationArgsDict']]] = None,
-            iam_service_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            identity_center_application_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            identity_center_instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: Optional[pulumi.Input[Union['ApplicationTimeoutsArgs', 'ApplicationTimeoutsArgsDict']]] = None) -> 'Application':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            attachments_configuration: pulumi.Input[Optional[Union['ApplicationAttachmentsConfigurationArgs', 'ApplicationAttachmentsConfigurationArgsDict']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            encryption_configuration: pulumi.Input[Optional[Union['ApplicationEncryptionConfigurationArgs', 'ApplicationEncryptionConfigurationArgsDict']]] = None,
+            iam_service_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            identity_center_application_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            identity_center_instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['ApplicationTimeoutsArgs', 'ApplicationTimeoutsArgsDict']]] = None) -> 'Application':
         """
         Get an existing Application resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

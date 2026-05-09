@@ -115,15 +115,15 @@ export interface ResourcePolicyState {
     /**
      * Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
      */
-    enableHybrid?: pulumi.Input<string>;
+    enableHybrid?: pulumi.Input<string | undefined>;
     /**
      * The policy to be applied to the aws glue data catalog.
      */
-    policy?: pulumi.Input<string>;
+    policy?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -133,7 +133,7 @@ export interface ResourcePolicyArgs {
     /**
      * Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
      */
-    enableHybrid?: pulumi.Input<string>;
+    enableHybrid?: pulumi.Input<string | undefined>;
     /**
      * The policy to be applied to the aws glue data catalog.
      */
@@ -141,5 +141,5 @@ export interface ResourcePolicyArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

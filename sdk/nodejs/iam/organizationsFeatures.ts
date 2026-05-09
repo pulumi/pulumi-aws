@@ -99,7 +99,7 @@ export interface OrganizationsFeaturesState {
     /**
      * List of IAM features to enable. Valid values are `RootCredentialsManagement` and `RootSessions`.
      */
-    enabledFeatures?: pulumi.Input<pulumi.Input<string>[]>;
+    enabledFeatures?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**

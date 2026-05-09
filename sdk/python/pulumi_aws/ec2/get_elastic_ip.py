@@ -363,11 +363,11 @@ def get_elastic_ip(filters: Optional[Sequence[Union['GetElasticIpFilterArgs', 'G
         public_ipv4_pool=pulumi.get(__ret__, 'public_ipv4_pool'),
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_elastic_ip_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetElasticIpFilterArgs', 'GetElasticIpFilterArgsDict']]]]] = None,
-                          id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                          public_ip: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                          region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                          tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_elastic_ip_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetElasticIpFilterArgs', 'GetElasticIpFilterArgsDict']]]]] = None,
+                          id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          public_ip: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetElasticIpResult]:
     """
     `ec2.Eip` provides details about a specific Elastic IP.

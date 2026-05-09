@@ -129,27 +129,27 @@ export interface BackendEnvironmentState {
     /**
      * Unique ID for an Amplify app.
      */
-    appId?: pulumi.Input<string>;
+    appId?: pulumi.Input<string | undefined>;
     /**
      * ARN for a backend environment that is part of an Amplify app.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Name of deployment artifacts.
      */
-    deploymentArtifacts?: pulumi.Input<string>;
+    deploymentArtifacts?: pulumi.Input<string | undefined>;
     /**
      * Name for the backend environment.
      */
-    environmentName?: pulumi.Input<string>;
+    environmentName?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * AWS CloudFormation stack name of a backend environment.
      */
-    stackName?: pulumi.Input<string>;
+    stackName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -163,7 +163,7 @@ export interface BackendEnvironmentArgs {
     /**
      * Name of deployment artifacts.
      */
-    deploymentArtifacts?: pulumi.Input<string>;
+    deploymentArtifacts?: pulumi.Input<string | undefined>;
     /**
      * Name for the backend environment.
      */
@@ -171,9 +171,9 @@ export interface BackendEnvironmentArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * AWS CloudFormation stack name of a backend environment.
      */
-    stackName?: pulumi.Input<string>;
+    stackName?: pulumi.Input<string | undefined>;
 }

@@ -185,41 +185,41 @@ export interface KxScalingGroupState {
     /**
      * Amazon Resource Name (ARN) identifier of the KX Scaling Group.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The availability zone identifiers for the requested regions.
      */
-    availabilityZoneId?: pulumi.Input<string>;
+    availabilityZoneId?: pulumi.Input<string | undefined>;
     /**
      * The list of Managed kdb clusters that are currently active in the given scaling group.
      */
-    clusters?: pulumi.Input<pulumi.Input<string>[]>;
+    clusters?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The timestamp at which the scaling group was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
      */
-    createdTimestamp?: pulumi.Input<string>;
+    createdTimestamp?: pulumi.Input<string | undefined>;
     /**
      * A unique identifier for the kdb environment, where you want to create the scaling group.
      */
-    environmentId?: pulumi.Input<string>;
+    environmentId?: pulumi.Input<string | undefined>;
     /**
      * The memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.
      *
      * The following arguments are optional:
      */
-    hostType?: pulumi.Input<string>;
+    hostType?: pulumi.Input<string | undefined>;
     /**
      * Last timestamp at which the scaling group was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
      */
-    lastModifiedTimestamp?: pulumi.Input<string>;
+    lastModifiedTimestamp?: pulumi.Input<string | undefined>;
     /**
      * Unique name for the scaling group that you want to create.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The status of scaling group.
      * * `CREATING` - The scaling group creation is in progress.
@@ -231,19 +231,19 @@ export interface KxScalingGroupState {
      * * `DELETE_FAILED` - The system failed to delete the scaling group.
      * * `DELETED` - The scaling group is successfully deleted.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * The error message when a failed state occurs.
      */
-    statusReason?: pulumi.Input<string>;
+    statusReason?: pulumi.Input<string | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. You can add up to 50 tags to a scaling group.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -267,13 +267,13 @@ export interface KxScalingGroupArgs {
     /**
      * Unique name for the scaling group that you want to create.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. You can add up to 50 tags to a scaling group.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

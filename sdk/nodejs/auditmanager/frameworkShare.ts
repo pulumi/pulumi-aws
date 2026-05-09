@@ -134,29 +134,29 @@ export interface FrameworkShareState {
     /**
      * Comment from the sender about the share request.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Amazon Web Services account of the recipient.
      */
-    destinationAccount?: pulumi.Input<string>;
+    destinationAccount?: pulumi.Input<string | undefined>;
     /**
      * Amazon Web Services region of the recipient.
      */
-    destinationRegion?: pulumi.Input<string>;
+    destinationRegion?: pulumi.Input<string | undefined>;
     /**
      * Unique identifier for the shared custom framework.
      *
      * The following arguments are optional:
      */
-    frameworkId?: pulumi.Input<string>;
+    frameworkId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Status of the share request.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -166,7 +166,7 @@ export interface FrameworkShareArgs {
     /**
      * Comment from the sender about the share request.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Amazon Web Services account of the recipient.
      */
@@ -184,5 +184,5 @@ export interface FrameworkShareArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

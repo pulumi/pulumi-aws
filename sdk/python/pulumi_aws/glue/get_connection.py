@@ -232,9 +232,9 @@ def get_connection(id: Optional[_builtins.str] = None,
         physical_connection_requirements=pulumi.get(__ret__, 'physical_connection_requirements'),
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_connection_output(id: Optional[pulumi.Input[_builtins.str]] = None,
-                          region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                          tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_connection_output(id: pulumi.Input[Optional[_builtins.str]] = None,
+                          region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionResult]:
     """
     Provides details about an AWS Glue Connection.

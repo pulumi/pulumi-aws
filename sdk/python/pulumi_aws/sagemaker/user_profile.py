@@ -23,11 +23,11 @@ class UserProfileArgs:
     def __init__(__self__, *,
                  domain_id: pulumi.Input[_builtins.str],
                  user_profile_name: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 single_sign_on_user_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 single_sign_on_user_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 user_settings: Optional[pulumi.Input['UserProfileUserSettingsArgs']] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 single_sign_on_user_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 single_sign_on_user_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 user_settings: pulumi.Input[Optional['UserProfileUserSettingsArgs']] = None):
         """
         The set of arguments for constructing a UserProfile resource.
 
@@ -78,78 +78,78 @@ class UserProfileArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="singleSignOnUserIdentifier")
-    def single_sign_on_user_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def single_sign_on_user_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A specifier for the type of value specified in `single_sign_on_user_value`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
         """
         return pulumi.get(self, "single_sign_on_user_identifier")
 
     @single_sign_on_user_identifier.setter
-    def single_sign_on_user_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def single_sign_on_user_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "single_sign_on_user_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="singleSignOnUserValue")
-    def single_sign_on_user_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def single_sign_on_user_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The username of the associated AWS Single Sign-On User for this User Profile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
         """
         return pulumi.get(self, "single_sign_on_user_value")
 
     @single_sign_on_user_value.setter
-    def single_sign_on_user_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def single_sign_on_user_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "single_sign_on_user_value", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="userSettings")
-    def user_settings(self) -> Optional[pulumi.Input['UserProfileUserSettingsArgs']]:
+    def user_settings(self) -> pulumi.Input[Optional['UserProfileUserSettingsArgs']]:
         """
         The user settings. See User Settings below.
         """
         return pulumi.get(self, "user_settings")
 
     @user_settings.setter
-    def user_settings(self, value: Optional[pulumi.Input['UserProfileUserSettingsArgs']]):
+    def user_settings(self, value: pulumi.Input[Optional['UserProfileUserSettingsArgs']]):
         pulumi.set(self, "user_settings", value)
 
 
 @pulumi.input_type
 class _UserProfileState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 home_efs_file_system_uid: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 single_sign_on_user_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 single_sign_on_user_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 user_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_settings: Optional[pulumi.Input['UserProfileUserSettingsArgs']] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 home_efs_file_system_uid: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 single_sign_on_user_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 single_sign_on_user_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 user_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_settings: pulumi.Input[Optional['UserProfileUserSettingsArgs']] = None):
         """
         Input properties used for looking up and filtering UserProfile resources.
 
@@ -187,122 +187,122 @@ class _UserProfileState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user profile Amazon Resource Name (ARN).
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="domainId")
-    def domain_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the associated Domain.
         """
         return pulumi.get(self, "domain_id")
 
     @domain_id.setter
-    def domain_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_id", value)
 
     @_builtins.property
     @pulumi.getter(name="homeEfsFileSystemUid")
-    def home_efs_file_system_uid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def home_efs_file_system_uid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the user's profile in the Amazon Elastic File System (EFS) volume.
         """
         return pulumi.get(self, "home_efs_file_system_uid")
 
     @home_efs_file_system_uid.setter
-    def home_efs_file_system_uid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def home_efs_file_system_uid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "home_efs_file_system_uid", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="singleSignOnUserIdentifier")
-    def single_sign_on_user_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def single_sign_on_user_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A specifier for the type of value specified in `single_sign_on_user_value`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
         """
         return pulumi.get(self, "single_sign_on_user_identifier")
 
     @single_sign_on_user_identifier.setter
-    def single_sign_on_user_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def single_sign_on_user_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "single_sign_on_user_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="singleSignOnUserValue")
-    def single_sign_on_user_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def single_sign_on_user_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The username of the associated AWS Single Sign-On User for this User Profile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
         """
         return pulumi.get(self, "single_sign_on_user_value")
 
     @single_sign_on_user_value.setter
-    def single_sign_on_user_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def single_sign_on_user_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "single_sign_on_user_value", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="userProfileName")
-    def user_profile_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_profile_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name for the User Profile.
         """
         return pulumi.get(self, "user_profile_name")
 
     @user_profile_name.setter
-    def user_profile_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_profile_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_profile_name", value)
 
     @_builtins.property
     @pulumi.getter(name="userSettings")
-    def user_settings(self) -> Optional[pulumi.Input['UserProfileUserSettingsArgs']]:
+    def user_settings(self) -> pulumi.Input[Optional['UserProfileUserSettingsArgs']]:
         """
         The user settings. See User Settings below.
         """
         return pulumi.get(self, "user_settings")
 
     @user_settings.setter
-    def user_settings(self, value: Optional[pulumi.Input['UserProfileUserSettingsArgs']]):
+    def user_settings(self, value: pulumi.Input[Optional['UserProfileUserSettingsArgs']]):
         pulumi.set(self, "user_settings", value)
 
 
@@ -312,13 +312,13 @@ class UserProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domain_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 single_sign_on_user_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 single_sign_on_user_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 user_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_settings: Optional[pulumi.Input[Union['UserProfileUserSettingsArgs', 'UserProfileUserSettingsArgsDict']]] = None,
+                 domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 single_sign_on_user_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 single_sign_on_user_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 user_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_settings: pulumi.Input[Optional[Union['UserProfileUserSettingsArgs', 'UserProfileUserSettingsArgsDict']]] = None,
                  __props__=None):
         """
         Provides a SageMaker AI User Profile resource.
@@ -425,13 +425,13 @@ class UserProfile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domain_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 single_sign_on_user_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 single_sign_on_user_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 user_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_settings: Optional[pulumi.Input[Union['UserProfileUserSettingsArgs', 'UserProfileUserSettingsArgsDict']]] = None,
+                 domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 single_sign_on_user_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 single_sign_on_user_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 user_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_settings: pulumi.Input[Optional[Union['UserProfileUserSettingsArgs', 'UserProfileUserSettingsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -465,16 +465,16 @@ class UserProfile(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            domain_id: Optional[pulumi.Input[_builtins.str]] = None,
-            home_efs_file_system_uid: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            single_sign_on_user_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-            single_sign_on_user_value: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            user_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-            user_settings: Optional[pulumi.Input[Union['UserProfileUserSettingsArgs', 'UserProfileUserSettingsArgsDict']]] = None) -> 'UserProfile':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+            home_efs_file_system_uid: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            single_sign_on_user_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            single_sign_on_user_value: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            user_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+            user_settings: pulumi.Input[Optional[Union['UserProfileUserSettingsArgs', 'UserProfileUserSettingsArgsDict']]] = None) -> 'UserProfile':
         """
         Get an existing UserProfile resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

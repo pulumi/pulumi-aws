@@ -25,19 +25,19 @@ class RecordArgs:
                  name: pulumi.Input[_builtins.str],
                  type: pulumi.Input[Union[_builtins.str, 'RecordType']],
                  zone_id: pulumi.Input[_builtins.str],
-                 aliases: Optional[pulumi.Input[Sequence[pulumi.Input['RecordAliasArgs']]]] = None,
-                 allow_overwrite: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cidr_routing_policy: Optional[pulumi.Input['RecordCidrRoutingPolicyArgs']] = None,
-                 failover_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input['RecordFailoverRoutingPolicyArgs']]]] = None,
-                 geolocation_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input['RecordGeolocationRoutingPolicyArgs']]]] = None,
-                 geoproximity_routing_policy: Optional[pulumi.Input['RecordGeoproximityRoutingPolicyArgs']] = None,
-                 health_check_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 latency_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input['RecordLatencyRoutingPolicyArgs']]]] = None,
-                 multivalue_answer_routing_policy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 records: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 set_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 weighted_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input['RecordWeightedRoutingPolicyArgs']]]] = None):
+                 aliases: pulumi.Input[Optional[Sequence[pulumi.Input['RecordAliasArgs']]]] = None,
+                 allow_overwrite: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cidr_routing_policy: pulumi.Input[Optional['RecordCidrRoutingPolicyArgs']] = None,
+                 failover_routing_policies: pulumi.Input[Optional[Sequence[pulumi.Input['RecordFailoverRoutingPolicyArgs']]]] = None,
+                 geolocation_routing_policies: pulumi.Input[Optional[Sequence[pulumi.Input['RecordGeolocationRoutingPolicyArgs']]]] = None,
+                 geoproximity_routing_policy: pulumi.Input[Optional['RecordGeoproximityRoutingPolicyArgs']] = None,
+                 health_check_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 latency_routing_policies: pulumi.Input[Optional[Sequence[pulumi.Input['RecordLatencyRoutingPolicyArgs']]]] = None,
+                 multivalue_answer_routing_policy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 records: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 set_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 weighted_routing_policies: pulumi.Input[Optional[Sequence[pulumi.Input['RecordWeightedRoutingPolicyArgs']]]] = None):
         """
         The set of arguments for constructing a Record resource.
 
@@ -129,7 +129,7 @@ class RecordArgs:
 
     @_builtins.property
     @pulumi.getter
-    def aliases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecordAliasArgs']]]]:
+    def aliases(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RecordAliasArgs']]]]:
         """
         An alias block. Conflicts with `ttl` & `records`.
         Documented below.
@@ -137,12 +137,12 @@ class RecordArgs:
         return pulumi.get(self, "aliases")
 
     @aliases.setter
-    def aliases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RecordAliasArgs']]]]):
+    def aliases(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RecordAliasArgs']]]]):
         pulumi.set(self, "aliases", value)
 
     @_builtins.property
     @pulumi.getter(name="allowOverwrite")
-    def allow_overwrite(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_overwrite(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
 
@@ -151,162 +151,162 @@ class RecordArgs:
         return pulumi.get(self, "allow_overwrite")
 
     @allow_overwrite.setter
-    def allow_overwrite(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_overwrite(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_overwrite", value)
 
     @_builtins.property
     @pulumi.getter(name="cidrRoutingPolicy")
-    def cidr_routing_policy(self) -> Optional[pulumi.Input['RecordCidrRoutingPolicyArgs']]:
+    def cidr_routing_policy(self) -> pulumi.Input[Optional['RecordCidrRoutingPolicyArgs']]:
         """
         A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
         """
         return pulumi.get(self, "cidr_routing_policy")
 
     @cidr_routing_policy.setter
-    def cidr_routing_policy(self, value: Optional[pulumi.Input['RecordCidrRoutingPolicyArgs']]):
+    def cidr_routing_policy(self, value: pulumi.Input[Optional['RecordCidrRoutingPolicyArgs']]):
         pulumi.set(self, "cidr_routing_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="failoverRoutingPolicies")
-    def failover_routing_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecordFailoverRoutingPolicyArgs']]]]:
+    def failover_routing_policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RecordFailoverRoutingPolicyArgs']]]]:
         """
         A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
         """
         return pulumi.get(self, "failover_routing_policies")
 
     @failover_routing_policies.setter
-    def failover_routing_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RecordFailoverRoutingPolicyArgs']]]]):
+    def failover_routing_policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RecordFailoverRoutingPolicyArgs']]]]):
         pulumi.set(self, "failover_routing_policies", value)
 
     @_builtins.property
     @pulumi.getter(name="geolocationRoutingPolicies")
-    def geolocation_routing_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecordGeolocationRoutingPolicyArgs']]]]:
+    def geolocation_routing_policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RecordGeolocationRoutingPolicyArgs']]]]:
         """
         A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
         """
         return pulumi.get(self, "geolocation_routing_policies")
 
     @geolocation_routing_policies.setter
-    def geolocation_routing_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RecordGeolocationRoutingPolicyArgs']]]]):
+    def geolocation_routing_policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RecordGeolocationRoutingPolicyArgs']]]]):
         pulumi.set(self, "geolocation_routing_policies", value)
 
     @_builtins.property
     @pulumi.getter(name="geoproximityRoutingPolicy")
-    def geoproximity_routing_policy(self) -> Optional[pulumi.Input['RecordGeoproximityRoutingPolicyArgs']]:
+    def geoproximity_routing_policy(self) -> pulumi.Input[Optional['RecordGeoproximityRoutingPolicyArgs']]:
         """
         A block indicating a routing policy based on the geoproximity of the requestor. Conflicts with any other routing policy. Documented below.
         """
         return pulumi.get(self, "geoproximity_routing_policy")
 
     @geoproximity_routing_policy.setter
-    def geoproximity_routing_policy(self, value: Optional[pulumi.Input['RecordGeoproximityRoutingPolicyArgs']]):
+    def geoproximity_routing_policy(self, value: pulumi.Input[Optional['RecordGeoproximityRoutingPolicyArgs']]):
         pulumi.set(self, "geoproximity_routing_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="healthCheckId")
-    def health_check_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def health_check_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The health check the record should be associated with.
         """
         return pulumi.get(self, "health_check_id")
 
     @health_check_id.setter
-    def health_check_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def health_check_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "health_check_id", value)
 
     @_builtins.property
     @pulumi.getter(name="latencyRoutingPolicies")
-    def latency_routing_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecordLatencyRoutingPolicyArgs']]]]:
+    def latency_routing_policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RecordLatencyRoutingPolicyArgs']]]]:
         """
         A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
         """
         return pulumi.get(self, "latency_routing_policies")
 
     @latency_routing_policies.setter
-    def latency_routing_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RecordLatencyRoutingPolicyArgs']]]]):
+    def latency_routing_policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RecordLatencyRoutingPolicyArgs']]]]):
         pulumi.set(self, "latency_routing_policies", value)
 
     @_builtins.property
     @pulumi.getter(name="multivalueAnswerRoutingPolicy")
-    def multivalue_answer_routing_policy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def multivalue_answer_routing_policy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
         """
         return pulumi.get(self, "multivalue_answer_routing_policy")
 
     @multivalue_answer_routing_policy.setter
-    def multivalue_answer_routing_policy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def multivalue_answer_routing_policy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "multivalue_answer_routing_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def records(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def records(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\\"\\"` inside the provider configuration string (e.g., `"first255characters\\"\\"morecharacters"`).
         """
         return pulumi.get(self, "records")
 
     @records.setter
-    def records(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def records(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "records", value)
 
     @_builtins.property
     @pulumi.getter(name="setIdentifier")
-    def set_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def set_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique identifier to differentiate records with routing policies from one another. Required if using `cidr_routing_policy`, `failover_routing_policy`, `geolocation_routing_policy`,`geoproximity_routing_policy`, `latency_routing_policy`, `multivalue_answer_routing_policy`, or `weighted_routing_policy`.
         """
         return pulumi.get(self, "set_identifier")
 
     @set_identifier.setter
-    def set_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def set_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "set_identifier", value)
 
     @_builtins.property
     @pulumi.getter
-    def ttl(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ttl(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The TTL of the record.
         """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
-    def ttl(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ttl(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ttl", value)
 
     @_builtins.property
     @pulumi.getter(name="weightedRoutingPolicies")
-    def weighted_routing_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecordWeightedRoutingPolicyArgs']]]]:
+    def weighted_routing_policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RecordWeightedRoutingPolicyArgs']]]]:
         """
         A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
         """
         return pulumi.get(self, "weighted_routing_policies")
 
     @weighted_routing_policies.setter
-    def weighted_routing_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RecordWeightedRoutingPolicyArgs']]]]):
+    def weighted_routing_policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RecordWeightedRoutingPolicyArgs']]]]):
         pulumi.set(self, "weighted_routing_policies", value)
 
 
 @pulumi.input_type
 class _RecordState:
     def __init__(__self__, *,
-                 aliases: Optional[pulumi.Input[Sequence[pulumi.Input['RecordAliasArgs']]]] = None,
-                 allow_overwrite: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cidr_routing_policy: Optional[pulumi.Input['RecordCidrRoutingPolicyArgs']] = None,
-                 failover_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input['RecordFailoverRoutingPolicyArgs']]]] = None,
-                 fqdn: Optional[pulumi.Input[_builtins.str]] = None,
-                 geolocation_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input['RecordGeolocationRoutingPolicyArgs']]]] = None,
-                 geoproximity_routing_policy: Optional[pulumi.Input['RecordGeoproximityRoutingPolicyArgs']] = None,
-                 health_check_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 latency_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input['RecordLatencyRoutingPolicyArgs']]]] = None,
-                 multivalue_answer_routing_policy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 records: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 set_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'RecordType']]] = None,
-                 weighted_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input['RecordWeightedRoutingPolicyArgs']]]] = None,
-                 zone_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 aliases: pulumi.Input[Optional[Sequence[pulumi.Input['RecordAliasArgs']]]] = None,
+                 allow_overwrite: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cidr_routing_policy: pulumi.Input[Optional['RecordCidrRoutingPolicyArgs']] = None,
+                 failover_routing_policies: pulumi.Input[Optional[Sequence[pulumi.Input['RecordFailoverRoutingPolicyArgs']]]] = None,
+                 fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+                 geolocation_routing_policies: pulumi.Input[Optional[Sequence[pulumi.Input['RecordGeolocationRoutingPolicyArgs']]]] = None,
+                 geoproximity_routing_policy: pulumi.Input[Optional['RecordGeoproximityRoutingPolicyArgs']] = None,
+                 health_check_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 latency_routing_policies: pulumi.Input[Optional[Sequence[pulumi.Input['RecordLatencyRoutingPolicyArgs']]]] = None,
+                 multivalue_answer_routing_policy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 records: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 set_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'RecordType']]] = None,
+                 weighted_routing_policies: pulumi.Input[Optional[Sequence[pulumi.Input['RecordWeightedRoutingPolicyArgs']]]] = None,
+                 zone_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Record resources.
 
@@ -368,7 +368,7 @@ class _RecordState:
 
     @_builtins.property
     @pulumi.getter
-    def aliases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecordAliasArgs']]]]:
+    def aliases(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RecordAliasArgs']]]]:
         """
         An alias block. Conflicts with `ttl` & `records`.
         Documented below.
@@ -376,12 +376,12 @@ class _RecordState:
         return pulumi.get(self, "aliases")
 
     @aliases.setter
-    def aliases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RecordAliasArgs']]]]):
+    def aliases(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RecordAliasArgs']]]]):
         pulumi.set(self, "aliases", value)
 
     @_builtins.property
     @pulumi.getter(name="allowOverwrite")
-    def allow_overwrite(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_overwrite(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
 
@@ -390,187 +390,187 @@ class _RecordState:
         return pulumi.get(self, "allow_overwrite")
 
     @allow_overwrite.setter
-    def allow_overwrite(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_overwrite(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_overwrite", value)
 
     @_builtins.property
     @pulumi.getter(name="cidrRoutingPolicy")
-    def cidr_routing_policy(self) -> Optional[pulumi.Input['RecordCidrRoutingPolicyArgs']]:
+    def cidr_routing_policy(self) -> pulumi.Input[Optional['RecordCidrRoutingPolicyArgs']]:
         """
         A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
         """
         return pulumi.get(self, "cidr_routing_policy")
 
     @cidr_routing_policy.setter
-    def cidr_routing_policy(self, value: Optional[pulumi.Input['RecordCidrRoutingPolicyArgs']]):
+    def cidr_routing_policy(self, value: pulumi.Input[Optional['RecordCidrRoutingPolicyArgs']]):
         pulumi.set(self, "cidr_routing_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="failoverRoutingPolicies")
-    def failover_routing_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecordFailoverRoutingPolicyArgs']]]]:
+    def failover_routing_policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RecordFailoverRoutingPolicyArgs']]]]:
         """
         A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
         """
         return pulumi.get(self, "failover_routing_policies")
 
     @failover_routing_policies.setter
-    def failover_routing_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RecordFailoverRoutingPolicyArgs']]]]):
+    def failover_routing_policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RecordFailoverRoutingPolicyArgs']]]]):
         pulumi.set(self, "failover_routing_policies", value)
 
     @_builtins.property
     @pulumi.getter
-    def fqdn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fqdn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
         """
         return pulumi.get(self, "fqdn")
 
     @fqdn.setter
-    def fqdn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fqdn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fqdn", value)
 
     @_builtins.property
     @pulumi.getter(name="geolocationRoutingPolicies")
-    def geolocation_routing_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecordGeolocationRoutingPolicyArgs']]]]:
+    def geolocation_routing_policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RecordGeolocationRoutingPolicyArgs']]]]:
         """
         A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
         """
         return pulumi.get(self, "geolocation_routing_policies")
 
     @geolocation_routing_policies.setter
-    def geolocation_routing_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RecordGeolocationRoutingPolicyArgs']]]]):
+    def geolocation_routing_policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RecordGeolocationRoutingPolicyArgs']]]]):
         pulumi.set(self, "geolocation_routing_policies", value)
 
     @_builtins.property
     @pulumi.getter(name="geoproximityRoutingPolicy")
-    def geoproximity_routing_policy(self) -> Optional[pulumi.Input['RecordGeoproximityRoutingPolicyArgs']]:
+    def geoproximity_routing_policy(self) -> pulumi.Input[Optional['RecordGeoproximityRoutingPolicyArgs']]:
         """
         A block indicating a routing policy based on the geoproximity of the requestor. Conflicts with any other routing policy. Documented below.
         """
         return pulumi.get(self, "geoproximity_routing_policy")
 
     @geoproximity_routing_policy.setter
-    def geoproximity_routing_policy(self, value: Optional[pulumi.Input['RecordGeoproximityRoutingPolicyArgs']]):
+    def geoproximity_routing_policy(self, value: pulumi.Input[Optional['RecordGeoproximityRoutingPolicyArgs']]):
         pulumi.set(self, "geoproximity_routing_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="healthCheckId")
-    def health_check_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def health_check_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The health check the record should be associated with.
         """
         return pulumi.get(self, "health_check_id")
 
     @health_check_id.setter
-    def health_check_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def health_check_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "health_check_id", value)
 
     @_builtins.property
     @pulumi.getter(name="latencyRoutingPolicies")
-    def latency_routing_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecordLatencyRoutingPolicyArgs']]]]:
+    def latency_routing_policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RecordLatencyRoutingPolicyArgs']]]]:
         """
         A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
         """
         return pulumi.get(self, "latency_routing_policies")
 
     @latency_routing_policies.setter
-    def latency_routing_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RecordLatencyRoutingPolicyArgs']]]]):
+    def latency_routing_policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RecordLatencyRoutingPolicyArgs']]]]):
         pulumi.set(self, "latency_routing_policies", value)
 
     @_builtins.property
     @pulumi.getter(name="multivalueAnswerRoutingPolicy")
-    def multivalue_answer_routing_policy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def multivalue_answer_routing_policy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
         """
         return pulumi.get(self, "multivalue_answer_routing_policy")
 
     @multivalue_answer_routing_policy.setter
-    def multivalue_answer_routing_policy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def multivalue_answer_routing_policy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "multivalue_answer_routing_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the record.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def records(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def records(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\\"\\"` inside the provider configuration string (e.g., `"first255characters\\"\\"morecharacters"`).
         """
         return pulumi.get(self, "records")
 
     @records.setter
-    def records(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def records(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "records", value)
 
     @_builtins.property
     @pulumi.getter(name="setIdentifier")
-    def set_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def set_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique identifier to differentiate records with routing policies from one another. Required if using `cidr_routing_policy`, `failover_routing_policy`, `geolocation_routing_policy`,`geoproximity_routing_policy`, `latency_routing_policy`, `multivalue_answer_routing_policy`, or `weighted_routing_policy`.
         """
         return pulumi.get(self, "set_identifier")
 
     @set_identifier.setter
-    def set_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def set_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "set_identifier", value)
 
     @_builtins.property
     @pulumi.getter
-    def ttl(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ttl(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The TTL of the record.
         """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
-    def ttl(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ttl(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ttl", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'RecordType']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'RecordType']]]:
         """
         The record type. Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `HTTPS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV`, `SSHFP`, `SVCB`, `TLSA`, and `TXT`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'RecordType']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'RecordType']]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="weightedRoutingPolicies")
-    def weighted_routing_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecordWeightedRoutingPolicyArgs']]]]:
+    def weighted_routing_policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RecordWeightedRoutingPolicyArgs']]]]:
         """
         A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
         """
         return pulumi.get(self, "weighted_routing_policies")
 
     @weighted_routing_policies.setter
-    def weighted_routing_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RecordWeightedRoutingPolicyArgs']]]]):
+    def weighted_routing_policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RecordWeightedRoutingPolicyArgs']]]]):
         pulumi.set(self, "weighted_routing_policies", value)
 
     @_builtins.property
     @pulumi.getter(name="zoneId")
-    def zone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def zone_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the hosted zone to contain this record.
         """
         return pulumi.get(self, "zone_id")
 
     @zone_id.setter
-    def zone_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def zone_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "zone_id", value)
 
 
@@ -580,22 +580,22 @@ class Record(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aliases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecordAliasArgs', 'RecordAliasArgsDict']]]]] = None,
-                 allow_overwrite: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cidr_routing_policy: Optional[pulumi.Input[Union['RecordCidrRoutingPolicyArgs', 'RecordCidrRoutingPolicyArgsDict']]] = None,
-                 failover_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecordFailoverRoutingPolicyArgs', 'RecordFailoverRoutingPolicyArgsDict']]]]] = None,
-                 geolocation_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecordGeolocationRoutingPolicyArgs', 'RecordGeolocationRoutingPolicyArgsDict']]]]] = None,
-                 geoproximity_routing_policy: Optional[pulumi.Input[Union['RecordGeoproximityRoutingPolicyArgs', 'RecordGeoproximityRoutingPolicyArgsDict']]] = None,
-                 health_check_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 latency_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecordLatencyRoutingPolicyArgs', 'RecordLatencyRoutingPolicyArgsDict']]]]] = None,
-                 multivalue_answer_routing_policy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 records: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 set_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'RecordType']]] = None,
-                 weighted_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecordWeightedRoutingPolicyArgs', 'RecordWeightedRoutingPolicyArgsDict']]]]] = None,
-                 zone_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 aliases: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordAliasArgs', 'RecordAliasArgsDict']]]]] = None,
+                 allow_overwrite: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cidr_routing_policy: pulumi.Input[Optional[Union['RecordCidrRoutingPolicyArgs', 'RecordCidrRoutingPolicyArgsDict']]] = None,
+                 failover_routing_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordFailoverRoutingPolicyArgs', 'RecordFailoverRoutingPolicyArgsDict']]]]] = None,
+                 geolocation_routing_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordGeolocationRoutingPolicyArgs', 'RecordGeolocationRoutingPolicyArgsDict']]]]] = None,
+                 geoproximity_routing_policy: pulumi.Input[Optional[Union['RecordGeoproximityRoutingPolicyArgs', 'RecordGeoproximityRoutingPolicyArgsDict']]] = None,
+                 health_check_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 latency_routing_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordLatencyRoutingPolicyArgs', 'RecordLatencyRoutingPolicyArgsDict']]]]] = None,
+                 multivalue_answer_routing_policy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 records: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 set_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'RecordType']]] = None,
+                 weighted_routing_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordWeightedRoutingPolicyArgs', 'RecordWeightedRoutingPolicyArgsDict']]]]] = None,
+                 zone_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a Route53 record resource.
@@ -1000,22 +1000,22 @@ class Record(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aliases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecordAliasArgs', 'RecordAliasArgsDict']]]]] = None,
-                 allow_overwrite: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cidr_routing_policy: Optional[pulumi.Input[Union['RecordCidrRoutingPolicyArgs', 'RecordCidrRoutingPolicyArgsDict']]] = None,
-                 failover_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecordFailoverRoutingPolicyArgs', 'RecordFailoverRoutingPolicyArgsDict']]]]] = None,
-                 geolocation_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecordGeolocationRoutingPolicyArgs', 'RecordGeolocationRoutingPolicyArgsDict']]]]] = None,
-                 geoproximity_routing_policy: Optional[pulumi.Input[Union['RecordGeoproximityRoutingPolicyArgs', 'RecordGeoproximityRoutingPolicyArgsDict']]] = None,
-                 health_check_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 latency_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecordLatencyRoutingPolicyArgs', 'RecordLatencyRoutingPolicyArgsDict']]]]] = None,
-                 multivalue_answer_routing_policy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 records: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 set_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'RecordType']]] = None,
-                 weighted_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecordWeightedRoutingPolicyArgs', 'RecordWeightedRoutingPolicyArgsDict']]]]] = None,
-                 zone_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 aliases: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordAliasArgs', 'RecordAliasArgsDict']]]]] = None,
+                 allow_overwrite: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cidr_routing_policy: pulumi.Input[Optional[Union['RecordCidrRoutingPolicyArgs', 'RecordCidrRoutingPolicyArgsDict']]] = None,
+                 failover_routing_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordFailoverRoutingPolicyArgs', 'RecordFailoverRoutingPolicyArgsDict']]]]] = None,
+                 geolocation_routing_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordGeolocationRoutingPolicyArgs', 'RecordGeolocationRoutingPolicyArgsDict']]]]] = None,
+                 geoproximity_routing_policy: pulumi.Input[Optional[Union['RecordGeoproximityRoutingPolicyArgs', 'RecordGeoproximityRoutingPolicyArgsDict']]] = None,
+                 health_check_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 latency_routing_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordLatencyRoutingPolicyArgs', 'RecordLatencyRoutingPolicyArgsDict']]]]] = None,
+                 multivalue_answer_routing_policy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 records: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 set_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'RecordType']]] = None,
+                 weighted_routing_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordWeightedRoutingPolicyArgs', 'RecordWeightedRoutingPolicyArgsDict']]]]] = None,
+                 zone_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1058,23 +1058,23 @@ class Record(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            aliases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecordAliasArgs', 'RecordAliasArgsDict']]]]] = None,
-            allow_overwrite: Optional[pulumi.Input[_builtins.bool]] = None,
-            cidr_routing_policy: Optional[pulumi.Input[Union['RecordCidrRoutingPolicyArgs', 'RecordCidrRoutingPolicyArgsDict']]] = None,
-            failover_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecordFailoverRoutingPolicyArgs', 'RecordFailoverRoutingPolicyArgsDict']]]]] = None,
-            fqdn: Optional[pulumi.Input[_builtins.str]] = None,
-            geolocation_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecordGeolocationRoutingPolicyArgs', 'RecordGeolocationRoutingPolicyArgsDict']]]]] = None,
-            geoproximity_routing_policy: Optional[pulumi.Input[Union['RecordGeoproximityRoutingPolicyArgs', 'RecordGeoproximityRoutingPolicyArgsDict']]] = None,
-            health_check_id: Optional[pulumi.Input[_builtins.str]] = None,
-            latency_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecordLatencyRoutingPolicyArgs', 'RecordLatencyRoutingPolicyArgsDict']]]]] = None,
-            multivalue_answer_routing_policy: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            records: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            set_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-            ttl: Optional[pulumi.Input[_builtins.int]] = None,
-            type: Optional[pulumi.Input[Union[_builtins.str, 'RecordType']]] = None,
-            weighted_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecordWeightedRoutingPolicyArgs', 'RecordWeightedRoutingPolicyArgsDict']]]]] = None,
-            zone_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'Record':
+            aliases: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordAliasArgs', 'RecordAliasArgsDict']]]]] = None,
+            allow_overwrite: pulumi.Input[Optional[_builtins.bool]] = None,
+            cidr_routing_policy: pulumi.Input[Optional[Union['RecordCidrRoutingPolicyArgs', 'RecordCidrRoutingPolicyArgsDict']]] = None,
+            failover_routing_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordFailoverRoutingPolicyArgs', 'RecordFailoverRoutingPolicyArgsDict']]]]] = None,
+            fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+            geolocation_routing_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordGeolocationRoutingPolicyArgs', 'RecordGeolocationRoutingPolicyArgsDict']]]]] = None,
+            geoproximity_routing_policy: pulumi.Input[Optional[Union['RecordGeoproximityRoutingPolicyArgs', 'RecordGeoproximityRoutingPolicyArgsDict']]] = None,
+            health_check_id: pulumi.Input[Optional[_builtins.str]] = None,
+            latency_routing_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordLatencyRoutingPolicyArgs', 'RecordLatencyRoutingPolicyArgsDict']]]]] = None,
+            multivalue_answer_routing_policy: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            records: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            set_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            ttl: pulumi.Input[Optional[_builtins.int]] = None,
+            type: pulumi.Input[Optional[Union[_builtins.str, 'RecordType']]] = None,
+            weighted_routing_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecordWeightedRoutingPolicyArgs', 'RecordWeightedRoutingPolicyArgsDict']]]]] = None,
+            zone_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'Record':
         """
         Get an existing Record resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

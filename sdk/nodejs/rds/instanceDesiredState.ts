@@ -118,16 +118,16 @@ export interface InstanceDesiredStateState {
     /**
      * DB Instance Identifier
      */
-    identifier?: pulumi.Input<string>;
+    identifier?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Configured state of the DB Instance. Valid values are `available` and `stopped`.
      */
-    state?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.rds.InstanceDesiredStateTimeouts>;
+    state?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.rds.InstanceDesiredStateTimeouts | undefined>;
 }
 
 /**
@@ -141,10 +141,10 @@ export interface InstanceDesiredStateArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Configured state of the DB Instance. Valid values are `available` and `stopped`.
      */
     state: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.rds.InstanceDesiredStateTimeouts>;
+    timeouts?: pulumi.Input<inputs.rds.InstanceDesiredStateTimeouts | undefined>;
 }

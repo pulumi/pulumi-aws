@@ -280,71 +280,71 @@ export interface CertificateAuthorityState {
     /**
      * ARN of the certificate authority.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.
      */
-    certificate?: pulumi.Input<string>;
+    certificate?: pulumi.Input<string | undefined>;
     /**
      * Nested argument containing algorithms and certificate subject information. Defined below.
      */
-    certificateAuthorityConfiguration?: pulumi.Input<inputs.acmpca.CertificateAuthorityCertificateAuthorityConfiguration>;
+    certificateAuthorityConfiguration?: pulumi.Input<inputs.acmpca.CertificateAuthorityCertificateAuthorityConfiguration | undefined>;
     /**
      * Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.
      */
-    certificateChain?: pulumi.Input<string>;
+    certificateChain?: pulumi.Input<string | undefined>;
     /**
      * The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
      */
-    certificateSigningRequest?: pulumi.Input<string>;
+    certificateSigningRequest?: pulumi.Input<string | undefined>;
     /**
      * Whether the certificate authority is enabled or disabled. Defaults to `true`. Can only be disabled if the CA is in an `ACTIVE` state.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Cryptographic key management compliance standard used for handling CA keys. Defaults to `FIPS_140_2_LEVEL_3_OR_HIGHER`. Valid values: `FIPS_140_2_LEVEL_3_OR_HIGHER` and `FIPS_140_2_LEVEL_2_OR_HIGHER`. Supported standard for each region can be found in the [Storage and security compliance of AWS Private CA private keys Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys).
      */
-    keyStorageSecurityStandard?: pulumi.Input<string>;
+    keyStorageSecurityStandard?: pulumi.Input<string | undefined>;
     /**
      * Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
      */
-    notAfter?: pulumi.Input<string>;
+    notAfter?: pulumi.Input<string | undefined>;
     /**
      * Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
      */
-    notBefore?: pulumi.Input<string>;
+    notBefore?: pulumi.Input<string | undefined>;
     /**
      * Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
      */
-    permanentDeletionTimeInDays?: pulumi.Input<number>;
+    permanentDeletionTimeInDays?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Nested argument containing revocation configuration. Defined below.
      */
-    revocationConfiguration?: pulumi.Input<inputs.acmpca.CertificateAuthorityRevocationConfiguration>;
+    revocationConfiguration?: pulumi.Input<inputs.acmpca.CertificateAuthorityRevocationConfiguration | undefined>;
     /**
      * Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
      */
-    serial?: pulumi.Input<string>;
+    serial?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
      */
-    usageMode?: pulumi.Input<string>;
+    usageMode?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -358,33 +358,33 @@ export interface CertificateAuthorityArgs {
     /**
      * Whether the certificate authority is enabled or disabled. Defaults to `true`. Can only be disabled if the CA is in an `ACTIVE` state.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Cryptographic key management compliance standard used for handling CA keys. Defaults to `FIPS_140_2_LEVEL_3_OR_HIGHER`. Valid values: `FIPS_140_2_LEVEL_3_OR_HIGHER` and `FIPS_140_2_LEVEL_2_OR_HIGHER`. Supported standard for each region can be found in the [Storage and security compliance of AWS Private CA private keys Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys).
      */
-    keyStorageSecurityStandard?: pulumi.Input<string>;
+    keyStorageSecurityStandard?: pulumi.Input<string | undefined>;
     /**
      * Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
      */
-    permanentDeletionTimeInDays?: pulumi.Input<number>;
+    permanentDeletionTimeInDays?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Nested argument containing revocation configuration. Defined below.
      */
-    revocationConfiguration?: pulumi.Input<inputs.acmpca.CertificateAuthorityRevocationConfiguration>;
+    revocationConfiguration?: pulumi.Input<inputs.acmpca.CertificateAuthorityRevocationConfiguration | undefined>;
     /**
      * Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
      */
-    usageMode?: pulumi.Input<string>;
+    usageMode?: pulumi.Input<string | undefined>;
 }

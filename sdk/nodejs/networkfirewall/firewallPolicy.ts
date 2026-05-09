@@ -267,39 +267,39 @@ export interface FirewallPolicyState {
     /**
      * The Amazon Resource Name (ARN) that identifies the firewall policy.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * A friendly description of the firewall policy.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * KMS encryption configuration settings. See Encryption Configuration below for details.
      */
-    encryptionConfiguration?: pulumi.Input<inputs.networkfirewall.FirewallPolicyEncryptionConfiguration>;
+    encryptionConfiguration?: pulumi.Input<inputs.networkfirewall.FirewallPolicyEncryptionConfiguration | undefined>;
     /**
      * A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
      */
-    firewallPolicy?: pulumi.Input<inputs.networkfirewall.FirewallPolicyFirewallPolicy>;
+    firewallPolicy?: pulumi.Input<inputs.networkfirewall.FirewallPolicyFirewallPolicy | undefined>;
     /**
      * A friendly name of the firewall policy.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A string token used when updating a firewall policy.
      */
-    updateToken?: pulumi.Input<string>;
+    updateToken?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -309,11 +309,11 @@ export interface FirewallPolicyArgs {
     /**
      * A friendly description of the firewall policy.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * KMS encryption configuration settings. See Encryption Configuration below for details.
      */
-    encryptionConfiguration?: pulumi.Input<inputs.networkfirewall.FirewallPolicyEncryptionConfiguration>;
+    encryptionConfiguration?: pulumi.Input<inputs.networkfirewall.FirewallPolicyEncryptionConfiguration | undefined>;
     /**
      * A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
      */
@@ -321,13 +321,13 @@ export interface FirewallPolicyArgs {
     /**
      * A friendly name of the firewall policy.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

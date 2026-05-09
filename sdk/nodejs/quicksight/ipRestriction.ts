@@ -130,27 +130,27 @@ export interface IpRestrictionState {
     /**
      * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
      */
-    awsAccountId?: pulumi.Input<string>;
+    awsAccountId?: pulumi.Input<string | undefined>;
     /**
      * Whether IP rules are turned on.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Map of allowed IPv4 CIDR ranges and descriptions.
      */
-    ipRestrictionRuleMap?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    ipRestrictionRuleMap?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of allowed VPC endpoint IDs and descriptions.
      */
-    vpcEndpointIdRestrictionRuleMap?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    vpcEndpointIdRestrictionRuleMap?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of VPC IDs and descriptions. Traffic from all VPC endpoints that are present in the specified VPC is allowed.
      */
-    vpcIdRestrictionRuleMap?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    vpcIdRestrictionRuleMap?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -160,7 +160,7 @@ export interface IpRestrictionArgs {
     /**
      * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
      */
-    awsAccountId?: pulumi.Input<string>;
+    awsAccountId?: pulumi.Input<string | undefined>;
     /**
      * Whether IP rules are turned on.
      */
@@ -168,17 +168,17 @@ export interface IpRestrictionArgs {
     /**
      * Map of allowed IPv4 CIDR ranges and descriptions.
      */
-    ipRestrictionRuleMap?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    ipRestrictionRuleMap?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of allowed VPC endpoint IDs and descriptions.
      */
-    vpcEndpointIdRestrictionRuleMap?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    vpcEndpointIdRestrictionRuleMap?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of VPC IDs and descriptions. Traffic from all VPC endpoints that are present in the specified VPC is allowed.
      */
-    vpcIdRestrictionRuleMap?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    vpcIdRestrictionRuleMap?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

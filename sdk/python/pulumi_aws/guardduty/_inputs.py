@@ -64,17 +64,17 @@ __all__ = [
 ]
 
 class DetectorDatasourcesArgsDict(TypedDict):
-    kubernetes: NotRequired[pulumi.Input['DetectorDatasourcesKubernetesArgsDict']]
+    kubernetes: NotRequired[pulumi.Input[Optional['DetectorDatasourcesKubernetesArgs']]]
     """
     Configures [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
     See Kubernetes and Kubernetes Audit Logs below for more details.
     """
-    malware_protection: NotRequired[pulumi.Input['DetectorDatasourcesMalwareProtectionArgsDict']]
+    malware_protection: NotRequired[pulumi.Input[Optional['DetectorDatasourcesMalwareProtectionArgs']]]
     """
     Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
     See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
     """
-    s3_logs: NotRequired[pulumi.Input['DetectorDatasourcesS3LogsArgsDict']]
+    s3_logs: NotRequired[pulumi.Input[Optional['DetectorDatasourcesS3LogsArgs']]]
     """
     Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
     See S3 Logs below for more details.
@@ -83,9 +83,9 @@ class DetectorDatasourcesArgsDict(TypedDict):
 @pulumi.input_type
 class DetectorDatasourcesArgs:
     def __init__(__self__, *,
-                 kubernetes: Optional[pulumi.Input['DetectorDatasourcesKubernetesArgs']] = None,
-                 malware_protection: Optional[pulumi.Input['DetectorDatasourcesMalwareProtectionArgs']] = None,
-                 s3_logs: Optional[pulumi.Input['DetectorDatasourcesS3LogsArgs']] = None):
+                 kubernetes: pulumi.Input[Optional['DetectorDatasourcesKubernetesArgs']] = None,
+                 malware_protection: pulumi.Input[Optional['DetectorDatasourcesMalwareProtectionArgs']] = None,
+                 s3_logs: pulumi.Input[Optional['DetectorDatasourcesS3LogsArgs']] = None):
         """
         :param pulumi.Input['DetectorDatasourcesKubernetesArgs'] kubernetes: Configures [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
                See Kubernetes and Kubernetes Audit Logs below for more details.
@@ -103,7 +103,7 @@ class DetectorDatasourcesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def kubernetes(self) -> Optional[pulumi.Input['DetectorDatasourcesKubernetesArgs']]:
+    def kubernetes(self) -> pulumi.Input[Optional['DetectorDatasourcesKubernetesArgs']]:
         """
         Configures [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
         See Kubernetes and Kubernetes Audit Logs below for more details.
@@ -111,12 +111,12 @@ class DetectorDatasourcesArgs:
         return pulumi.get(self, "kubernetes")
 
     @kubernetes.setter
-    def kubernetes(self, value: Optional[pulumi.Input['DetectorDatasourcesKubernetesArgs']]):
+    def kubernetes(self, value: pulumi.Input[Optional['DetectorDatasourcesKubernetesArgs']]):
         pulumi.set(self, "kubernetes", value)
 
     @_builtins.property
     @pulumi.getter(name="malwareProtection")
-    def malware_protection(self) -> Optional[pulumi.Input['DetectorDatasourcesMalwareProtectionArgs']]:
+    def malware_protection(self) -> pulumi.Input[Optional['DetectorDatasourcesMalwareProtectionArgs']]:
         """
         Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
         See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
@@ -124,12 +124,12 @@ class DetectorDatasourcesArgs:
         return pulumi.get(self, "malware_protection")
 
     @malware_protection.setter
-    def malware_protection(self, value: Optional[pulumi.Input['DetectorDatasourcesMalwareProtectionArgs']]):
+    def malware_protection(self, value: pulumi.Input[Optional['DetectorDatasourcesMalwareProtectionArgs']]):
         pulumi.set(self, "malware_protection", value)
 
     @_builtins.property
     @pulumi.getter(name="s3Logs")
-    def s3_logs(self) -> Optional[pulumi.Input['DetectorDatasourcesS3LogsArgs']]:
+    def s3_logs(self) -> pulumi.Input[Optional['DetectorDatasourcesS3LogsArgs']]:
         """
         Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
         See S3 Logs below for more details.
@@ -137,7 +137,7 @@ class DetectorDatasourcesArgs:
         return pulumi.get(self, "s3_logs")
 
     @s3_logs.setter
-    def s3_logs(self, value: Optional[pulumi.Input['DetectorDatasourcesS3LogsArgs']]):
+    def s3_logs(self, value: pulumi.Input[Optional['DetectorDatasourcesS3LogsArgs']]):
         pulumi.set(self, "s3_logs", value)
 
 
@@ -398,35 +398,35 @@ class FilterFindingCriteriaCriterionArgsDict(TypedDict):
     """
     The name of the field to be evaluated. The full list of field names can be found in [AWS documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_filter-findings.html#filter_criteria).
     """
-    equals: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    equals: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of string values to be evaluated.
     """
-    greater_than: NotRequired[pulumi.Input[_builtins.str]]
+    greater_than: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
     """
-    greater_than_or_equal: NotRequired[pulumi.Input[_builtins.str]]
+    greater_than_or_equal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
     """
-    less_than: NotRequired[pulumi.Input[_builtins.str]]
+    less_than: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
     """
-    less_than_or_equal: NotRequired[pulumi.Input[_builtins.str]]
+    less_than_or_equal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
     """
-    matches: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    matches: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of string values to be evaluated as matching conditions.
     """
-    not_equals: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    not_equals: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of string values to be evaluated.
     """
-    not_matches: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    not_matches: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of string values to be evaluated as non-matching conditions.
     """
@@ -435,14 +435,14 @@ class FilterFindingCriteriaCriterionArgsDict(TypedDict):
 class FilterFindingCriteriaCriterionArgs:
     def __init__(__self__, *,
                  field: pulumi.Input[_builtins.str],
-                 equals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 greater_than: Optional[pulumi.Input[_builtins.str]] = None,
-                 greater_than_or_equal: Optional[pulumi.Input[_builtins.str]] = None,
-                 less_than: Optional[pulumi.Input[_builtins.str]] = None,
-                 less_than_or_equal: Optional[pulumi.Input[_builtins.str]] = None,
-                 matches: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 not_equals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 not_matches: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 equals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 greater_than: pulumi.Input[Optional[_builtins.str]] = None,
+                 greater_than_or_equal: pulumi.Input[Optional[_builtins.str]] = None,
+                 less_than: pulumi.Input[Optional[_builtins.str]] = None,
+                 less_than_or_equal: pulumi.Input[Optional[_builtins.str]] = None,
+                 matches: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 not_equals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 not_matches: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] field: The name of the field to be evaluated. The full list of field names can be found in [AWS documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_filter-findings.html#filter_criteria).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] equals: List of string values to be evaluated.
@@ -486,98 +486,98 @@ class FilterFindingCriteriaCriterionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def equals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def equals(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of string values to be evaluated.
         """
         return pulumi.get(self, "equals")
 
     @equals.setter
-    def equals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def equals(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "equals", value)
 
     @_builtins.property
     @pulumi.getter(name="greaterThan")
-    def greater_than(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def greater_than(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         """
         return pulumi.get(self, "greater_than")
 
     @greater_than.setter
-    def greater_than(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def greater_than(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "greater_than", value)
 
     @_builtins.property
     @pulumi.getter(name="greaterThanOrEqual")
-    def greater_than_or_equal(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def greater_than_or_equal(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         """
         return pulumi.get(self, "greater_than_or_equal")
 
     @greater_than_or_equal.setter
-    def greater_than_or_equal(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def greater_than_or_equal(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "greater_than_or_equal", value)
 
     @_builtins.property
     @pulumi.getter(name="lessThan")
-    def less_than(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def less_than(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         """
         return pulumi.get(self, "less_than")
 
     @less_than.setter
-    def less_than(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def less_than(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "less_than", value)
 
     @_builtins.property
     @pulumi.getter(name="lessThanOrEqual")
-    def less_than_or_equal(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def less_than_or_equal(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         """
         return pulumi.get(self, "less_than_or_equal")
 
     @less_than_or_equal.setter
-    def less_than_or_equal(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def less_than_or_equal(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "less_than_or_equal", value)
 
     @_builtins.property
     @pulumi.getter
-    def matches(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def matches(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of string values to be evaluated as matching conditions.
         """
         return pulumi.get(self, "matches")
 
     @matches.setter
-    def matches(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def matches(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "matches", value)
 
     @_builtins.property
     @pulumi.getter(name="notEquals")
-    def not_equals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def not_equals(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of string values to be evaluated.
         """
         return pulumi.get(self, "not_equals")
 
     @not_equals.setter
-    def not_equals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def not_equals(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "not_equals", value)
 
     @_builtins.property
     @pulumi.getter(name="notMatches")
-    def not_matches(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def not_matches(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of string values to be evaluated as non-matching conditions.
         """
         return pulumi.get(self, "not_matches")
 
     @not_matches.setter
-    def not_matches(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def not_matches(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "not_matches", value)
 
 
@@ -670,7 +670,7 @@ class MalwareProtectionPlanProtectedResourceS3BucketArgsDict(TypedDict):
     """
     Name of the S3 bucket.
     """
-    object_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    object_prefixes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of object prefixes that specify the S3 objects that will be scanned.
     """
@@ -679,7 +679,7 @@ class MalwareProtectionPlanProtectedResourceS3BucketArgsDict(TypedDict):
 class MalwareProtectionPlanProtectedResourceS3BucketArgs:
     def __init__(__self__, *,
                  bucket_name: pulumi.Input[_builtins.str],
-                 object_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 object_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] bucket_name: Name of the S3 bucket.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] object_prefixes: The list of object prefixes that specify the S3 objects that will be scanned.
@@ -702,14 +702,14 @@ class MalwareProtectionPlanProtectedResourceS3BucketArgs:
 
     @_builtins.property
     @pulumi.getter(name="objectPrefixes")
-    def object_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def object_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of object prefixes that specify the S3 objects that will be scanned.
         """
         return pulumi.get(self, "object_prefixes")
 
     @object_prefixes.setter
-    def object_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def object_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "object_prefixes", value)
 
 
@@ -761,15 +761,15 @@ class MemberDetectorFeatureAdditionalConfigurationArgs:
 
 
 class OrganizationConfigurationDatasourcesArgsDict(TypedDict):
-    kubernetes: NotRequired[pulumi.Input['OrganizationConfigurationDatasourcesKubernetesArgsDict']]
+    kubernetes: NotRequired[pulumi.Input[Optional['OrganizationConfigurationDatasourcesKubernetesArgs']]]
     """
     Enable Kubernetes Audit Logs Monitoring automatically for new member accounts.
     """
-    malware_protection: NotRequired[pulumi.Input['OrganizationConfigurationDatasourcesMalwareProtectionArgsDict']]
+    malware_protection: NotRequired[pulumi.Input[Optional['OrganizationConfigurationDatasourcesMalwareProtectionArgs']]]
     """
     Enable Malware Protection automatically for new member accounts.
     """
-    s3_logs: NotRequired[pulumi.Input['OrganizationConfigurationDatasourcesS3LogsArgsDict']]
+    s3_logs: NotRequired[pulumi.Input[Optional['OrganizationConfigurationDatasourcesS3LogsArgs']]]
     """
     Enable S3 Protection automatically for new member accounts.
     """
@@ -777,9 +777,9 @@ class OrganizationConfigurationDatasourcesArgsDict(TypedDict):
 @pulumi.input_type
 class OrganizationConfigurationDatasourcesArgs:
     def __init__(__self__, *,
-                 kubernetes: Optional[pulumi.Input['OrganizationConfigurationDatasourcesKubernetesArgs']] = None,
-                 malware_protection: Optional[pulumi.Input['OrganizationConfigurationDatasourcesMalwareProtectionArgs']] = None,
-                 s3_logs: Optional[pulumi.Input['OrganizationConfigurationDatasourcesS3LogsArgs']] = None):
+                 kubernetes: pulumi.Input[Optional['OrganizationConfigurationDatasourcesKubernetesArgs']] = None,
+                 malware_protection: pulumi.Input[Optional['OrganizationConfigurationDatasourcesMalwareProtectionArgs']] = None,
+                 s3_logs: pulumi.Input[Optional['OrganizationConfigurationDatasourcesS3LogsArgs']] = None):
         """
         :param pulumi.Input['OrganizationConfigurationDatasourcesKubernetesArgs'] kubernetes: Enable Kubernetes Audit Logs Monitoring automatically for new member accounts.
         :param pulumi.Input['OrganizationConfigurationDatasourcesMalwareProtectionArgs'] malware_protection: Enable Malware Protection automatically for new member accounts.
@@ -794,38 +794,38 @@ class OrganizationConfigurationDatasourcesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def kubernetes(self) -> Optional[pulumi.Input['OrganizationConfigurationDatasourcesKubernetesArgs']]:
+    def kubernetes(self) -> pulumi.Input[Optional['OrganizationConfigurationDatasourcesKubernetesArgs']]:
         """
         Enable Kubernetes Audit Logs Monitoring automatically for new member accounts.
         """
         return pulumi.get(self, "kubernetes")
 
     @kubernetes.setter
-    def kubernetes(self, value: Optional[pulumi.Input['OrganizationConfigurationDatasourcesKubernetesArgs']]):
+    def kubernetes(self, value: pulumi.Input[Optional['OrganizationConfigurationDatasourcesKubernetesArgs']]):
         pulumi.set(self, "kubernetes", value)
 
     @_builtins.property
     @pulumi.getter(name="malwareProtection")
-    def malware_protection(self) -> Optional[pulumi.Input['OrganizationConfigurationDatasourcesMalwareProtectionArgs']]:
+    def malware_protection(self) -> pulumi.Input[Optional['OrganizationConfigurationDatasourcesMalwareProtectionArgs']]:
         """
         Enable Malware Protection automatically for new member accounts.
         """
         return pulumi.get(self, "malware_protection")
 
     @malware_protection.setter
-    def malware_protection(self, value: Optional[pulumi.Input['OrganizationConfigurationDatasourcesMalwareProtectionArgs']]):
+    def malware_protection(self, value: pulumi.Input[Optional['OrganizationConfigurationDatasourcesMalwareProtectionArgs']]):
         pulumi.set(self, "malware_protection", value)
 
     @_builtins.property
     @pulumi.getter(name="s3Logs")
-    def s3_logs(self) -> Optional[pulumi.Input['OrganizationConfigurationDatasourcesS3LogsArgs']]:
+    def s3_logs(self) -> pulumi.Input[Optional['OrganizationConfigurationDatasourcesS3LogsArgs']]:
         """
         Enable S3 Protection automatically for new member accounts.
         """
         return pulumi.get(self, "s3_logs")
 
     @s3_logs.setter
-    def s3_logs(self, value: Optional[pulumi.Input['OrganizationConfigurationDatasourcesS3LogsArgs']]):
+    def s3_logs(self, value: pulumi.Input[Optional['OrganizationConfigurationDatasourcesS3LogsArgs']]):
         pulumi.set(self, "s3_logs", value)
 
 

@@ -24,8 +24,8 @@ class LoadBalancerPolicyArgs:
                  load_balancer_name: pulumi.Input[_builtins.str],
                  policy_name: pulumi.Input[_builtins.str],
                  policy_type_name: pulumi.Input[_builtins.str],
-                 policy_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerPolicyPolicyAttributeArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 policy_attributes: pulumi.Input[Optional[Sequence[pulumi.Input['LoadBalancerPolicyPolicyAttributeArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a LoadBalancerPolicy resource.
 
@@ -81,37 +81,37 @@ class LoadBalancerPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="policyAttributes")
-    def policy_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerPolicyPolicyAttributeArgs']]]]:
+    def policy_attributes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LoadBalancerPolicyPolicyAttributeArgs']]]]:
         """
         Policy attribute to apply to the policy.
         """
         return pulumi.get(self, "policy_attributes")
 
     @policy_attributes.setter
-    def policy_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerPolicyPolicyAttributeArgs']]]]):
+    def policy_attributes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LoadBalancerPolicyPolicyAttributeArgs']]]]):
         pulumi.set(self, "policy_attributes", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _LoadBalancerPolicyState:
     def __init__(__self__, *,
-                 load_balancer_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerPolicyPolicyAttributeArgs']]]] = None,
-                 policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_type_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 load_balancer_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_attributes: pulumi.Input[Optional[Sequence[pulumi.Input['LoadBalancerPolicyPolicyAttributeArgs']]]] = None,
+                 policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_type_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LoadBalancerPolicy resources.
 
@@ -134,62 +134,62 @@ class _LoadBalancerPolicyState:
 
     @_builtins.property
     @pulumi.getter(name="loadBalancerName")
-    def load_balancer_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def load_balancer_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The load balancer on which the policy is defined.
         """
         return pulumi.get(self, "load_balancer_name")
 
     @load_balancer_name.setter
-    def load_balancer_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def load_balancer_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "load_balancer_name", value)
 
     @_builtins.property
     @pulumi.getter(name="policyAttributes")
-    def policy_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerPolicyPolicyAttributeArgs']]]]:
+    def policy_attributes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LoadBalancerPolicyPolicyAttributeArgs']]]]:
         """
         Policy attribute to apply to the policy.
         """
         return pulumi.get(self, "policy_attributes")
 
     @policy_attributes.setter
-    def policy_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerPolicyPolicyAttributeArgs']]]]):
+    def policy_attributes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LoadBalancerPolicyPolicyAttributeArgs']]]]):
         pulumi.set(self, "policy_attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="policyName")
-    def policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the load balancer policy.
         """
         return pulumi.get(self, "policy_name")
 
     @policy_name.setter
-    def policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="policyTypeName")
-    def policy_type_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_type_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The policy type.
         """
         return pulumi.get(self, "policy_type_name")
 
     @policy_type_name.setter
-    def policy_type_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_type_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_type_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
@@ -199,11 +199,11 @@ class LoadBalancerPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 load_balancer_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerPolicyPolicyAttributeArgs', 'LoadBalancerPolicyPolicyAttributeArgsDict']]]]] = None,
-                 policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_type_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 load_balancer_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancerPolicyPolicyAttributeArgs', 'LoadBalancerPolicyPolicyAttributeArgsDict']]]]] = None,
+                 policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_type_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a load balancer policy, which can be attached to an ELB listener or backend server.
@@ -378,11 +378,11 @@ class LoadBalancerPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 load_balancer_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerPolicyPolicyAttributeArgs', 'LoadBalancerPolicyPolicyAttributeArgsDict']]]]] = None,
-                 policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_type_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 load_balancer_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancerPolicyPolicyAttributeArgs', 'LoadBalancerPolicyPolicyAttributeArgsDict']]]]] = None,
+                 policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_type_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -415,11 +415,11 @@ class LoadBalancerPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            load_balancer_name: Optional[pulumi.Input[_builtins.str]] = None,
-            policy_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerPolicyPolicyAttributeArgs', 'LoadBalancerPolicyPolicyAttributeArgsDict']]]]] = None,
-            policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-            policy_type_name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None) -> 'LoadBalancerPolicy':
+            load_balancer_name: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancerPolicyPolicyAttributeArgs', 'LoadBalancerPolicyPolicyAttributeArgsDict']]]]] = None,
+            policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_type_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> 'LoadBalancerPolicy':
         """
         Get an existing LoadBalancerPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

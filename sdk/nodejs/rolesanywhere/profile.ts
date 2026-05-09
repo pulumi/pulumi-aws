@@ -169,47 +169,47 @@ export interface ProfileState {
     /**
      * Whether or not a custom role session name is accepted.
      */
-    acceptRoleSessionName?: pulumi.Input<boolean>;
+    acceptRoleSessionName?: pulumi.Input<boolean | undefined>;
     /**
      * Amazon Resource Name (ARN) of the Profile
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The number of seconds the vended session credentials are valid for. Defaults to 3600.
      */
-    durationSeconds?: pulumi.Input<number>;
+    durationSeconds?: pulumi.Input<number | undefined>;
     /**
      * Whether or not the Profile is enabled.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * A list of managed policy ARNs that apply to the vended session credentials.
      */
-    managedPolicyArns?: pulumi.Input<pulumi.Input<string>[]>;
+    managedPolicyArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the Profile.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether instance properties are required in [CreateSession](https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html) requests with this profile.
      */
-    requireInstanceProperties?: pulumi.Input<boolean>;
+    requireInstanceProperties?: pulumi.Input<boolean | undefined>;
     /**
      * A list of IAM roles that this profile can assume
      */
-    roleArns?: pulumi.Input<pulumi.Input<string>[]>;
+    roleArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A session policy that applies to the trust boundary of the vended session credentials.
      */
-    sessionPolicy?: pulumi.Input<string>;
+    sessionPolicy?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -219,37 +219,37 @@ export interface ProfileArgs {
     /**
      * Whether or not a custom role session name is accepted.
      */
-    acceptRoleSessionName?: pulumi.Input<boolean>;
+    acceptRoleSessionName?: pulumi.Input<boolean | undefined>;
     /**
      * The number of seconds the vended session credentials are valid for. Defaults to 3600.
      */
-    durationSeconds?: pulumi.Input<number>;
+    durationSeconds?: pulumi.Input<number | undefined>;
     /**
      * Whether or not the Profile is enabled.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * A list of managed policy ARNs that apply to the vended session credentials.
      */
-    managedPolicyArns?: pulumi.Input<pulumi.Input<string>[]>;
+    managedPolicyArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the Profile.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether instance properties are required in [CreateSession](https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html) requests with this profile.
      */
-    requireInstanceProperties?: pulumi.Input<boolean>;
+    requireInstanceProperties?: pulumi.Input<boolean | undefined>;
     /**
      * A list of IAM roles that this profile can assume
      */
-    roleArns?: pulumi.Input<pulumi.Input<string>[]>;
+    roleArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A session policy that applies to the trust boundary of the vended session credentials.
      */
-    sessionPolicy?: pulumi.Input<string>;
+    sessionPolicy?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

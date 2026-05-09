@@ -201,9 +201,9 @@ def get_slot_type(name: Optional[_builtins.str] = None,
         region=pulumi.get(__ret__, 'region'),
         value_selection_strategy=pulumi.get(__ret__, 'value_selection_strategy'),
         version=pulumi.get(__ret__, 'version'))
-def get_slot_type_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                         region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                         version: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_slot_type_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                         region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                         version: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSlotTypeResult]:
     """
     Provides details about a specific Amazon Lex Slot Type.

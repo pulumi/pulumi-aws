@@ -44,11 +44,11 @@ __all__ = [
 ]
 
 class FeatureEvaluationRuleArgsDict(TypedDict):
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name for the new feature. Minimum length of `1`. Maximum length of `127`.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     This value is `aws.evidently.splits` if this is an evaluation rule for a launch, and it is `aws.evidently.onlineab` if this is an evaluation rule for an experiment.
     """
@@ -56,8 +56,8 @@ class FeatureEvaluationRuleArgsDict(TypedDict):
 @pulumi.input_type
 class FeatureEvaluationRuleArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name for the new feature. Minimum length of `1`. Maximum length of `127`.
         :param pulumi.Input[_builtins.str] type: This value is `aws.evidently.splits` if this is an evaluation rule for a launch, and it is `aws.evidently.onlineab` if this is an evaluation rule for an experiment.
@@ -69,26 +69,26 @@ class FeatureEvaluationRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name for the new feature. Minimum length of `1`. Maximum length of `127`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This value is `aws.evidently.splits` if this is an evaluation rule for a launch, and it is `aws.evidently.onlineab` if this is an evaluation rule for an experiment.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -140,19 +140,19 @@ class FeatureVariationArgs:
 
 
 class FeatureVariationValueArgsDict(TypedDict):
-    bool_value: NotRequired[pulumi.Input[_builtins.str]]
+    bool_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     If this feature uses the Boolean variation type, this field contains the Boolean value of this variation.
     """
-    double_value: NotRequired[pulumi.Input[_builtins.str]]
+    double_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     If this feature uses the double integer variation type, this field contains the double integer value of this variation.
     """
-    long_value: NotRequired[pulumi.Input[_builtins.str]]
+    long_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     If this feature uses the long variation type, this field contains the long value of this variation. Minimum value of `-9007199254740991`. Maximum value of `9007199254740991`.
     """
-    string_value: NotRequired[pulumi.Input[_builtins.str]]
+    string_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     If this feature uses the string variation type, this field contains the string value of this variation. Minimum length of `0`. Maximum length of `512`.
     """
@@ -160,10 +160,10 @@ class FeatureVariationValueArgsDict(TypedDict):
 @pulumi.input_type
 class FeatureVariationValueArgs:
     def __init__(__self__, *,
-                 bool_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 double_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 long_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 string_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 bool_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 double_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 long_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 string_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] bool_value: If this feature uses the Boolean variation type, this field contains the Boolean value of this variation.
         :param pulumi.Input[_builtins.str] double_value: If this feature uses the double integer variation type, this field contains the double integer value of this variation.
@@ -181,59 +181,59 @@ class FeatureVariationValueArgs:
 
     @_builtins.property
     @pulumi.getter(name="boolValue")
-    def bool_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bool_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If this feature uses the Boolean variation type, this field contains the Boolean value of this variation.
         """
         return pulumi.get(self, "bool_value")
 
     @bool_value.setter
-    def bool_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bool_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bool_value", value)
 
     @_builtins.property
     @pulumi.getter(name="doubleValue")
-    def double_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def double_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If this feature uses the double integer variation type, this field contains the double integer value of this variation.
         """
         return pulumi.get(self, "double_value")
 
     @double_value.setter
-    def double_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def double_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "double_value", value)
 
     @_builtins.property
     @pulumi.getter(name="longValue")
-    def long_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def long_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If this feature uses the long variation type, this field contains the long value of this variation. Minimum value of `-9007199254740991`. Maximum value of `9007199254740991`.
         """
         return pulumi.get(self, "long_value")
 
     @long_value.setter
-    def long_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def long_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "long_value", value)
 
     @_builtins.property
     @pulumi.getter(name="stringValue")
-    def string_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def string_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If this feature uses the string variation type, this field contains the string value of this variation. Minimum length of `0`. Maximum length of `512`.
         """
         return pulumi.get(self, "string_value")
 
     @string_value.setter
-    def string_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def string_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "string_value", value)
 
 
 class LaunchExecutionArgsDict(TypedDict):
-    ended_time: NotRequired[pulumi.Input[_builtins.str]]
+    ended_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The date and time that the launch ended.
     """
-    started_time: NotRequired[pulumi.Input[_builtins.str]]
+    started_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The date and time that the launch started.
     """
@@ -241,8 +241,8 @@ class LaunchExecutionArgsDict(TypedDict):
 @pulumi.input_type
 class LaunchExecutionArgs:
     def __init__(__self__, *,
-                 ended_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 started_time: Optional[pulumi.Input[_builtins.str]] = None):
+                 ended_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 started_time: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] ended_time: The date and time that the launch ended.
         :param pulumi.Input[_builtins.str] started_time: The date and time that the launch started.
@@ -254,26 +254,26 @@ class LaunchExecutionArgs:
 
     @_builtins.property
     @pulumi.getter(name="endedTime")
-    def ended_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ended_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date and time that the launch ended.
         """
         return pulumi.get(self, "ended_time")
 
     @ended_time.setter
-    def ended_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ended_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ended_time", value)
 
     @_builtins.property
     @pulumi.getter(name="startedTime")
-    def started_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def started_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date and time that the launch started.
         """
         return pulumi.get(self, "started_time")
 
     @started_time.setter
-    def started_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def started_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "started_time", value)
 
 
@@ -290,7 +290,7 @@ class LaunchGroupArgsDict(TypedDict):
     """
     Specifies the feature variation to use for this launch group.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the description of the launch group.
     """
@@ -301,7 +301,7 @@ class LaunchGroupArgs:
                  feature: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
                  variation: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] feature: Specifies the name of the feature that the launch is using.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the lahnch group.
@@ -352,14 +352,14 @@ class LaunchGroupArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the description of the launch group.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
@@ -404,11 +404,11 @@ class LaunchMetricMonitorMetricDefinitionArgsDict(TypedDict):
     """
     Specifies the value that is tracked to produce the metric.
     """
-    event_pattern: NotRequired[pulumi.Input[_builtins.str]]
+    event_pattern: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies The EventBridge event pattern that defines how the metric is recorded.
     """
-    unit_label: NotRequired[pulumi.Input[_builtins.str]]
+    unit_label: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies a label for the units that the metric is measuring.
     """
@@ -419,8 +419,8 @@ class LaunchMetricMonitorMetricDefinitionArgs:
                  entity_id_key: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
                  value_key: pulumi.Input[_builtins.str],
-                 event_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 unit_label: Optional[pulumi.Input[_builtins.str]] = None):
+                 event_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 unit_label: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] entity_id_key: Specifies the entity, such as a user or session, that does an action that causes a metric value to be recorded. An example is `userDetails.userID`.
         :param pulumi.Input[_builtins.str] name: Specifies the name for the metric.
@@ -474,26 +474,26 @@ class LaunchMetricMonitorMetricDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="eventPattern")
-    def event_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies The EventBridge event pattern that defines how the metric is recorded.
         """
         return pulumi.get(self, "event_pattern")
 
     @event_pattern.setter
-    def event_pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_pattern", value)
 
     @_builtins.property
     @pulumi.getter(name="unitLabel")
-    def unit_label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def unit_label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a label for the units that the metric is measuring.
         """
         return pulumi.get(self, "unit_label")
 
     @unit_label.setter
-    def unit_label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def unit_label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "unit_label", value)
 
 
@@ -534,7 +534,7 @@ class LaunchScheduledSplitsConfigStepArgsDict(TypedDict):
     """
     Specifies the date and time that this step of the launch starts.
     """
-    segment_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['LaunchScheduledSplitsConfigStepSegmentOverrideArgsDict']]]]
+    segment_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LaunchScheduledSplitsConfigStepSegmentOverrideArgs']]]]]
     """
     One or up to six blocks that specify different traffic splits for one or more audience segments. A segment is a portion of your audience that share one or more characteristics. Examples could be Chrome browser users, users in Europe, or Firefox browser users in Europe who also fit other criteria that your application collects, such as age. Detailed below.
     """
@@ -544,7 +544,7 @@ class LaunchScheduledSplitsConfigStepArgs:
     def __init__(__self__, *,
                  group_weights: pulumi.Input[Mapping[str, pulumi.Input[_builtins.int]]],
                  start_time: pulumi.Input[_builtins.str],
-                 segment_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchScheduledSplitsConfigStepSegmentOverrideArgs']]]] = None):
+                 segment_overrides: pulumi.Input[Optional[Sequence[pulumi.Input['LaunchScheduledSplitsConfigStepSegmentOverrideArgs']]]] = None):
         """
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.int]]] group_weights: The traffic allocation percentages among the feature variations during one step of a launch. This is a set of key-value pairs. The keys are variation names. The values represent the percentage of traffic to allocate to that variation during this step. For more information, refer to the [AWS documentation for ScheduledSplitConfig groupWeights](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ScheduledSplitConfig.html).
         :param pulumi.Input[_builtins.str] start_time: Specifies the date and time that this step of the launch starts.
@@ -581,14 +581,14 @@ class LaunchScheduledSplitsConfigStepArgs:
 
     @_builtins.property
     @pulumi.getter(name="segmentOverrides")
-    def segment_overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchScheduledSplitsConfigStepSegmentOverrideArgs']]]]:
+    def segment_overrides(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LaunchScheduledSplitsConfigStepSegmentOverrideArgs']]]]:
         """
         One or up to six blocks that specify different traffic splits for one or more audience segments. A segment is a portion of your audience that share one or more characteristics. Examples could be Chrome browser users, users in Europe, or Firefox browser users in Europe who also fit other criteria that your application collects, such as age. Detailed below.
         """
         return pulumi.get(self, "segment_overrides")
 
     @segment_overrides.setter
-    def segment_overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchScheduledSplitsConfigStepSegmentOverrideArgs']]]]):
+    def segment_overrides(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LaunchScheduledSplitsConfigStepSegmentOverrideArgs']]]]):
         pulumi.set(self, "segment_overrides", value)
 
 
@@ -659,11 +659,11 @@ class LaunchScheduledSplitsConfigStepSegmentOverrideArgs:
 
 
 class ProjectDataDeliveryArgsDict(TypedDict):
-    cloudwatch_logs: NotRequired[pulumi.Input['ProjectDataDeliveryCloudwatchLogsArgsDict']]
+    cloudwatch_logs: NotRequired[pulumi.Input[Optional['ProjectDataDeliveryCloudwatchLogsArgs']]]
     """
     A block that defines the CloudWatch Log Group that stores the evaluation events. See below.
     """
-    s3_destination: NotRequired[pulumi.Input['ProjectDataDeliveryS3DestinationArgsDict']]
+    s3_destination: NotRequired[pulumi.Input[Optional['ProjectDataDeliveryS3DestinationArgs']]]
     """
     A block that defines the S3 bucket and prefix that stores the evaluation events. See below.
     """
@@ -671,8 +671,8 @@ class ProjectDataDeliveryArgsDict(TypedDict):
 @pulumi.input_type
 class ProjectDataDeliveryArgs:
     def __init__(__self__, *,
-                 cloudwatch_logs: Optional[pulumi.Input['ProjectDataDeliveryCloudwatchLogsArgs']] = None,
-                 s3_destination: Optional[pulumi.Input['ProjectDataDeliveryS3DestinationArgs']] = None):
+                 cloudwatch_logs: pulumi.Input[Optional['ProjectDataDeliveryCloudwatchLogsArgs']] = None,
+                 s3_destination: pulumi.Input[Optional['ProjectDataDeliveryS3DestinationArgs']] = None):
         """
         :param pulumi.Input['ProjectDataDeliveryCloudwatchLogsArgs'] cloudwatch_logs: A block that defines the CloudWatch Log Group that stores the evaluation events. See below.
         :param pulumi.Input['ProjectDataDeliveryS3DestinationArgs'] s3_destination: A block that defines the S3 bucket and prefix that stores the evaluation events. See below.
@@ -684,31 +684,31 @@ class ProjectDataDeliveryArgs:
 
     @_builtins.property
     @pulumi.getter(name="cloudwatchLogs")
-    def cloudwatch_logs(self) -> Optional[pulumi.Input['ProjectDataDeliveryCloudwatchLogsArgs']]:
+    def cloudwatch_logs(self) -> pulumi.Input[Optional['ProjectDataDeliveryCloudwatchLogsArgs']]:
         """
         A block that defines the CloudWatch Log Group that stores the evaluation events. See below.
         """
         return pulumi.get(self, "cloudwatch_logs")
 
     @cloudwatch_logs.setter
-    def cloudwatch_logs(self, value: Optional[pulumi.Input['ProjectDataDeliveryCloudwatchLogsArgs']]):
+    def cloudwatch_logs(self, value: pulumi.Input[Optional['ProjectDataDeliveryCloudwatchLogsArgs']]):
         pulumi.set(self, "cloudwatch_logs", value)
 
     @_builtins.property
     @pulumi.getter(name="s3Destination")
-    def s3_destination(self) -> Optional[pulumi.Input['ProjectDataDeliveryS3DestinationArgs']]:
+    def s3_destination(self) -> pulumi.Input[Optional['ProjectDataDeliveryS3DestinationArgs']]:
         """
         A block that defines the S3 bucket and prefix that stores the evaluation events. See below.
         """
         return pulumi.get(self, "s3_destination")
 
     @s3_destination.setter
-    def s3_destination(self, value: Optional[pulumi.Input['ProjectDataDeliveryS3DestinationArgs']]):
+    def s3_destination(self, value: pulumi.Input[Optional['ProjectDataDeliveryS3DestinationArgs']]):
         pulumi.set(self, "s3_destination", value)
 
 
 class ProjectDataDeliveryCloudwatchLogsArgsDict(TypedDict):
-    log_group: NotRequired[pulumi.Input[_builtins.str]]
+    log_group: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the log group where the project stores evaluation events.
     """
@@ -716,7 +716,7 @@ class ProjectDataDeliveryCloudwatchLogsArgsDict(TypedDict):
 @pulumi.input_type
 class ProjectDataDeliveryCloudwatchLogsArgs:
     def __init__(__self__, *,
-                 log_group: Optional[pulumi.Input[_builtins.str]] = None):
+                 log_group: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] log_group: The name of the log group where the project stores evaluation events.
         """
@@ -725,23 +725,23 @@ class ProjectDataDeliveryCloudwatchLogsArgs:
 
     @_builtins.property
     @pulumi.getter(name="logGroup")
-    def log_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the log group where the project stores evaluation events.
         """
         return pulumi.get(self, "log_group")
 
     @log_group.setter
-    def log_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_group", value)
 
 
 class ProjectDataDeliveryS3DestinationArgsDict(TypedDict):
-    bucket: NotRequired[pulumi.Input[_builtins.str]]
+    bucket: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the bucket in which Evidently stores evaluation events.
     """
-    prefix: NotRequired[pulumi.Input[_builtins.str]]
+    prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The bucket prefix in which Evidently stores evaluation events.
     """
@@ -749,8 +749,8 @@ class ProjectDataDeliveryS3DestinationArgsDict(TypedDict):
 @pulumi.input_type
 class ProjectDataDeliveryS3DestinationArgs:
     def __init__(__self__, *,
-                 bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] bucket: The name of the bucket in which Evidently stores evaluation events.
         :param pulumi.Input[_builtins.str] prefix: The bucket prefix in which Evidently stores evaluation events.
@@ -762,26 +762,26 @@ class ProjectDataDeliveryS3DestinationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the bucket in which Evidently stores evaluation events.
         """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
-    def bucket(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket", value)
 
     @_builtins.property
     @pulumi.getter
-    def prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The bucket prefix in which Evidently stores evaluation events.
         """
         return pulumi.get(self, "prefix")
 
     @prefix.setter
-    def prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "prefix", value)
 
 

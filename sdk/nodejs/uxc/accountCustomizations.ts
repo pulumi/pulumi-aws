@@ -128,15 +128,15 @@ export interface AccountCustomizationsState {
     /**
      * Color used to identify the account in the AWS Management Console. Valid values are `none`, `red`, `darkBlue`, `lightBlue`, `green`, `yellow`, `orange`, `pink`, `purple`, and `teal`. Defaults to `none`.
      */
-    accountColor?: pulumi.Input<string>;
+    accountColor?: pulumi.Input<string | undefined>;
     /**
      * Set of AWS region codes to display in the console. When omitted or empty, all regions are visible.
      */
-    visibleRegions?: pulumi.Input<pulumi.Input<string>[]>;
+    visibleRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Set of AWS service identifiers to display in the console. When omitted or empty, all services are visible.
      */
-    visibleServices?: pulumi.Input<pulumi.Input<string>[]>;
+    visibleServices?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -146,13 +146,13 @@ export interface AccountCustomizationsArgs {
     /**
      * Color used to identify the account in the AWS Management Console. Valid values are `none`, `red`, `darkBlue`, `lightBlue`, `green`, `yellow`, `orange`, `pink`, `purple`, and `teal`. Defaults to `none`.
      */
-    accountColor?: pulumi.Input<string>;
+    accountColor?: pulumi.Input<string | undefined>;
     /**
      * Set of AWS region codes to display in the console. When omitted or empty, all regions are visible.
      */
-    visibleRegions?: pulumi.Input<pulumi.Input<string>[]>;
+    visibleRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Set of AWS service identifiers to display in the console. When omitted or empty, all services are visible.
      */
-    visibleServices?: pulumi.Input<pulumi.Input<string>[]>;
+    visibleServices?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

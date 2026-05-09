@@ -267,85 +267,85 @@ export interface InstanceState {
     /**
      * Add-on configuration for the instance. See below.
      */
-    addOn?: pulumi.Input<inputs.lightsail.InstanceAddOn>;
+    addOn?: pulumi.Input<inputs.lightsail.InstanceAddOn | undefined>;
     /**
      * ARN of the Lightsail instance (matches `id`).
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Availability Zone in which to create your instance. A list of available zones can be obtained using the AWS CLI command: [`aws lightsail get-regions --include-availability-zones`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-regions.html).
      */
-    availabilityZone?: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string | undefined>;
     /**
      * ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: [`aws lightsail get-blueprints`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-blueprints.html).
      */
-    blueprintId?: pulumi.Input<string>;
+    blueprintId?: pulumi.Input<string | undefined>;
     /**
      * Bundle of specification information. A list of available bundle IDs can be obtained using the AWS CLI command: [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
      */
-    bundleId?: pulumi.Input<string>;
+    bundleId?: pulumi.Input<string | undefined>;
     /**
      * Number of vCPUs the instance has.
      */
-    cpuCount?: pulumi.Input<number>;
+    cpuCount?: pulumi.Input<number | undefined>;
     /**
      * Timestamp when the instance was created.
      */
-    createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string | undefined>;
     /**
      * IP address type of the Lightsail Instance. Valid values: `dualstack`, `ipv4`, `ipv6`. Default: `dualstack`.
      */
-    ipAddressType?: pulumi.Input<string>;
+    ipAddressType?: pulumi.Input<string | undefined>;
     /**
      * List of IPv6 addresses for the Lightsail instance.
      */
-    ipv6Addresses?: pulumi.Input<pulumi.Input<string>[]>;
+    ipv6Addresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Whether this instance has a static IP assigned to it.
      */
-    isStaticIp?: pulumi.Input<boolean>;
+    isStaticIp?: pulumi.Input<boolean | undefined>;
     /**
      * Name of your key pair. Created in the Lightsail console (cannot use `aws.ec2.KeyPair` at this time).
      */
-    keyPairName?: pulumi.Input<string>;
+    keyPairName?: pulumi.Input<string | undefined>;
     /**
      * Name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Private IP address of the instance.
      */
-    privateIpAddress?: pulumi.Input<string>;
+    privateIpAddress?: pulumi.Input<string | undefined>;
     /**
      * Public IP address of the instance.
      */
-    publicIpAddress?: pulumi.Input<string>;
+    publicIpAddress?: pulumi.Input<string | undefined>;
     /**
      * Amount of RAM in GB on the instance (e.g., 1.0).
      */
-    ramSize?: pulumi.Input<number>;
+    ramSize?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Single lined launch script as a string to configure server with additional user data.
      */
-    userData?: pulumi.Input<string>;
+    userData?: pulumi.Input<string | undefined>;
     /**
      * User name for connecting to the instance (e.g., ec2-user).
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -355,7 +355,7 @@ export interface InstanceArgs {
     /**
      * Add-on configuration for the instance. See below.
      */
-    addOn?: pulumi.Input<inputs.lightsail.InstanceAddOn>;
+    addOn?: pulumi.Input<inputs.lightsail.InstanceAddOn | undefined>;
     /**
      * Availability Zone in which to create your instance. A list of available zones can be obtained using the AWS CLI command: [`aws lightsail get-regions --include-availability-zones`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-regions.html).
      */
@@ -371,27 +371,27 @@ export interface InstanceArgs {
     /**
      * IP address type of the Lightsail Instance. Valid values: `dualstack`, `ipv4`, `ipv6`. Default: `dualstack`.
      */
-    ipAddressType?: pulumi.Input<string>;
+    ipAddressType?: pulumi.Input<string | undefined>;
     /**
      * Name of your key pair. Created in the Lightsail console (cannot use `aws.ec2.KeyPair` at this time).
      */
-    keyPairName?: pulumi.Input<string>;
+    keyPairName?: pulumi.Input<string | undefined>;
     /**
      * Name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Single lined launch script as a string to configure server with additional user data.
      */
-    userData?: pulumi.Input<string>;
+    userData?: pulumi.Input<string | undefined>;
 }

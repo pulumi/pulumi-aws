@@ -152,11 +152,11 @@ def get_orderable_cluster(cluster_type: Optional[_builtins.str] = None,
         node_type=pulumi.get(__ret__, 'node_type'),
         preferred_node_types=pulumi.get(__ret__, 'preferred_node_types'),
         region=pulumi.get(__ret__, 'region'))
-def get_orderable_cluster_output(cluster_type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                 cluster_version: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                 node_type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                 preferred_node_types: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                                 region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_orderable_cluster_output(cluster_type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                 cluster_version: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                 node_type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                 preferred_node_types: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                                 region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrderableClusterResult]:
     """
     Information about Redshift Orderable Clusters and valid parameter combinations.

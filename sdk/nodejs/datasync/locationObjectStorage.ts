@@ -185,59 +185,59 @@ export interface LocationObjectStorageState {
     /**
      * The access key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `accessKey` and `secretKey` to provide the user name and password, respectively.
      */
-    accessKey?: pulumi.Input<string>;
+    accessKey?: pulumi.Input<string | undefined>;
     /**
      * A list of DataSync Agent ARNs with which this location will be associated. For agentless cross-cloud transfers, this parameter does not need to be specified.
      */
-    agentArns?: pulumi.Input<pulumi.Input<string>[]>;
+    agentArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Amazon Resource Name (ARN) of the DataSync Location.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The bucket on the self-managed object storage server that is used to read data from.
      */
-    bucketName?: pulumi.Input<string>;
+    bucketName?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `accessKey` and `secretKey` to provide the user name and password, respectively.
      */
-    secretKey?: pulumi.Input<string>;
+    secretKey?: pulumi.Input<string | undefined>;
     /**
      * Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem string. The certificate can be up to 32768 bytes (before Base64 encoding).
      */
-    serverCertificate?: pulumi.Input<string>;
+    serverCertificate?: pulumi.Input<string | undefined>;
     /**
      * The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server. An agent uses this host name to mount the object storage server in a network.
      */
-    serverHostname?: pulumi.Input<string>;
+    serverHostname?: pulumi.Input<string | undefined>;
     /**
      * The port that your self-managed object storage server accepts inbound network traffic on. The server port is set by default to TCP 80 (`HTTP`) or TCP 443 (`HTTPS`). You can specify a custom port if your self-managed object storage server requires one.
      */
-    serverPort?: pulumi.Input<number>;
+    serverPort?: pulumi.Input<number | undefined>;
     /**
      * The protocol that the object storage server uses to communicate. Valid values are `HTTP` or `HTTPS`.
      */
-    serverProtocol?: pulumi.Input<string>;
+    serverProtocol?: pulumi.Input<string | undefined>;
     /**
      * A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to /.
      */
-    subdirectory?: pulumi.Input<string>;
+    subdirectory?: pulumi.Input<string | undefined>;
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The URL of the Object Storage location that was described.
      */
-    uri?: pulumi.Input<string>;
+    uri?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -247,11 +247,11 @@ export interface LocationObjectStorageArgs {
     /**
      * The access key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `accessKey` and `secretKey` to provide the user name and password, respectively.
      */
-    accessKey?: pulumi.Input<string>;
+    accessKey?: pulumi.Input<string | undefined>;
     /**
      * A list of DataSync Agent ARNs with which this location will be associated. For agentless cross-cloud transfers, this parameter does not need to be specified.
      */
-    agentArns?: pulumi.Input<pulumi.Input<string>[]>;
+    agentArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The bucket on the self-managed object storage server that is used to read data from.
      */
@@ -259,15 +259,15 @@ export interface LocationObjectStorageArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `accessKey` and `secretKey` to provide the user name and password, respectively.
      */
-    secretKey?: pulumi.Input<string>;
+    secretKey?: pulumi.Input<string | undefined>;
     /**
      * Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem string. The certificate can be up to 32768 bytes (before Base64 encoding).
      */
-    serverCertificate?: pulumi.Input<string>;
+    serverCertificate?: pulumi.Input<string | undefined>;
     /**
      * The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server. An agent uses this host name to mount the object storage server in a network.
      */
@@ -275,17 +275,17 @@ export interface LocationObjectStorageArgs {
     /**
      * The port that your self-managed object storage server accepts inbound network traffic on. The server port is set by default to TCP 80 (`HTTP`) or TCP 443 (`HTTPS`). You can specify a custom port if your self-managed object storage server requires one.
      */
-    serverPort?: pulumi.Input<number>;
+    serverPort?: pulumi.Input<number | undefined>;
     /**
      * The protocol that the object storage server uses to communicate. Valid values are `HTTP` or `HTTPS`.
      */
-    serverProtocol?: pulumi.Input<string>;
+    serverProtocol?: pulumi.Input<string | undefined>;
     /**
      * A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to /.
      */
-    subdirectory?: pulumi.Input<string>;
+    subdirectory?: pulumi.Input<string | undefined>;
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -151,11 +151,11 @@ def get_links(global_network_id: Optional[_builtins.str] = None,
         site_id=pulumi.get(__ret__, 'site_id'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_links_output(global_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                     provider_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                     site_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                     tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
-                     type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_links_output(global_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                     provider_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                     site_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                     tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
+                     type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLinksResult]:
     """
     Provides details about existing Network Manager links.

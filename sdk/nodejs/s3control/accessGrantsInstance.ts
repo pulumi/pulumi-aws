@@ -141,35 +141,35 @@ export interface AccessGrantsInstanceState {
     /**
      * Amazon Resource Name (ARN) of the S3 Access Grants instance.
      */
-    accessGrantsInstanceArn?: pulumi.Input<string>;
+    accessGrantsInstanceArn?: pulumi.Input<string | undefined>;
     /**
      * Unique ID of the S3 Access Grants instance.
      */
-    accessGrantsInstanceId?: pulumi.Input<string>;
+    accessGrantsInstanceId?: pulumi.Input<string | undefined>;
     /**
      * The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the AWS IAM Identity Center instance application; a subresource of the original Identity Center instance.
      */
-    identityCenterApplicationArn?: pulumi.Input<string>;
+    identityCenterApplicationArn?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
      */
-    identityCenterArn?: pulumi.Input<string>;
+    identityCenterArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -179,17 +179,17 @@ export interface AccessGrantsInstanceArgs {
     /**
      * The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
      */
-    identityCenterArn?: pulumi.Input<string>;
+    identityCenterArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

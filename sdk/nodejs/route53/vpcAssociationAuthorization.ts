@@ -128,15 +128,15 @@ export interface VpcAssociationAuthorizationState {
     /**
      * The VPC to authorize for association with the private hosted zone.
      */
-    vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string | undefined>;
     /**
      * The VPC's region. Defaults to the region of the AWS provider.
      */
-    vpcRegion?: pulumi.Input<string>;
+    vpcRegion?: pulumi.Input<string | undefined>;
     /**
      * The ID of the private hosted zone that you want to authorize associating a VPC with.
      */
-    zoneId?: pulumi.Input<string>;
+    zoneId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -150,7 +150,7 @@ export interface VpcAssociationAuthorizationArgs {
     /**
      * The VPC's region. Defaults to the region of the AWS provider.
      */
-    vpcRegion?: pulumi.Input<string>;
+    vpcRegion?: pulumi.Input<string | undefined>;
     /**
      * The ID of the private hosted zone that you want to authorize associating a VPC with.
      */

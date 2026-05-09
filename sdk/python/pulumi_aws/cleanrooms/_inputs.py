@@ -131,7 +131,7 @@ class CollaborationMemberArgsDict(TypedDict):
     """
     List of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
     """
-    status: NotRequired[pulumi.Input[_builtins.str]]
+    status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     For each member included in the collaboration an additional computed attribute of status is added. These values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_MemberSummary.html#API-Type-MemberSummary-status).
     """
@@ -142,7 +142,7 @@ class CollaborationMemberArgs:
                  account_id: pulumi.Input[_builtins.str],
                  display_name: pulumi.Input[_builtins.str],
                  member_abilities: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] account_id: Account ID for the invited member.
         :param pulumi.Input[_builtins.str] display_name: Display name for the invited member.
@@ -193,14 +193,14 @@ class CollaborationMemberArgs:
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         For each member included in the collaboration an additional computed attribute of status is added. These values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_MemberSummary.html#API-Type-MemberSummary-status).
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
@@ -237,7 +237,7 @@ class ConfiguredTableTableReferenceArgs:
 
 class MembershipDefaultResultConfigurationArgsDict(TypedDict):
     output_configuration: pulumi.Input['MembershipDefaultResultConfigurationOutputConfigurationArgsDict']
-    role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the IAM role which will be used to create the membership.
     - `output_configuration.s3.bucket` - (Required) - The name of the S3 bucket where the query results will be stored.
@@ -249,7 +249,7 @@ class MembershipDefaultResultConfigurationArgsDict(TypedDict):
 class MembershipDefaultResultConfigurationArgs:
     def __init__(__self__, *,
                  output_configuration: pulumi.Input['MembershipDefaultResultConfigurationOutputConfigurationArgs'],
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role which will be used to create the membership.
                - `output_configuration.s3.bucket` - (Required) - The name of the S3 bucket where the query results will be stored.
@@ -271,7 +271,7 @@ class MembershipDefaultResultConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the IAM role which will be used to create the membership.
         - `output_configuration.s3.bucket` - (Required) - The name of the S3 bucket where the query results will be stored.
@@ -281,7 +281,7 @@ class MembershipDefaultResultConfigurationArgs:
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
 
@@ -307,14 +307,14 @@ class MembershipDefaultResultConfigurationOutputConfigurationArgs:
 class MembershipDefaultResultConfigurationOutputConfigurationS3ArgsDict(TypedDict):
     bucket: pulumi.Input[_builtins.str]
     result_format: pulumi.Input[_builtins.str]
-    key_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    key_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class MembershipDefaultResultConfigurationOutputConfigurationS3Args:
     def __init__(__self__, *,
                  bucket: pulumi.Input[_builtins.str],
                  result_format: pulumi.Input[_builtins.str],
-                 key_prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 key_prefix: pulumi.Input[Optional[_builtins.str]] = None):
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "result_format", result_format)
         if key_prefix is not None:
@@ -340,11 +340,11 @@ class MembershipDefaultResultConfigurationOutputConfigurationS3Args:
 
     @_builtins.property
     @pulumi.getter(name="keyPrefix")
-    def key_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "key_prefix")
 
     @key_prefix.setter
-    def key_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_prefix", value)
 
 

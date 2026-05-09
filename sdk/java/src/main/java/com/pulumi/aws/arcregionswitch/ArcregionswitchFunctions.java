@@ -34,8 +34,8 @@ public final class ArcregionswitchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.arcregionswitch.ArcregionswitchFunctions;
      * import com.pulumi.aws.arcregionswitch.inputs.GetPlanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -76,8 +76,8 @@ public final class ArcregionswitchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.arcregionswitch.ArcregionswitchFunctions;
      * import com.pulumi.aws.arcregionswitch.inputs.GetPlanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -118,8 +118,8 @@ public final class ArcregionswitchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.arcregionswitch.ArcregionswitchFunctions;
      * import com.pulumi.aws.arcregionswitch.inputs.GetPlanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -160,8 +160,8 @@ public final class ArcregionswitchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.arcregionswitch.ArcregionswitchFunctions;
      * import com.pulumi.aws.arcregionswitch.inputs.GetPlanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -202,8 +202,8 @@ public final class ArcregionswitchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.arcregionswitch.ArcregionswitchFunctions;
      * import com.pulumi.aws.arcregionswitch.inputs.GetPlanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -244,8 +244,8 @@ public final class ArcregionswitchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.arcregionswitch.ArcregionswitchFunctions;
      * import com.pulumi.aws.arcregionswitch.inputs.GetRoute53HealthChecksArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -286,8 +286,8 @@ public final class ArcregionswitchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.arcregionswitch.ArcregionswitchFunctions;
      * import com.pulumi.aws.arcregionswitch.inputs.GetRoute53HealthChecksArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -328,8 +328,8 @@ public final class ArcregionswitchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.arcregionswitch.ArcregionswitchFunctions;
      * import com.pulumi.aws.arcregionswitch.inputs.GetRoute53HealthChecksArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -370,8 +370,8 @@ public final class ArcregionswitchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.arcregionswitch.ArcregionswitchFunctions;
      * import com.pulumi.aws.arcregionswitch.inputs.GetRoute53HealthChecksArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -412,8 +412,8 @@ public final class ArcregionswitchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.arcregionswitch.ArcregionswitchFunctions;
      * import com.pulumi.aws.arcregionswitch.inputs.GetRoute53HealthChecksArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

@@ -112,14 +112,14 @@ class PolicyDocumentArgsDict(TypedDict):
     """
     statement: pulumi.Input[Sequence[pulumi.Input['PolicyStatementArgsDict']]]
     version: pulumi.Input['PolicyDocumentVersion']
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class PolicyDocumentArgs:
     def __init__(__self__, *,
                  statement: pulumi.Input[Sequence[pulumi.Input['PolicyStatementArgs']]],
                  version: pulumi.Input['PolicyDocumentVersion'],
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Represents an AWS IAM policy document that defines permissions for AWS resources and actions.
         """
@@ -148,11 +148,11 @@ class PolicyDocumentArgs:
 
     @_builtins.property
     @pulumi.getter(name="Id")
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
@@ -164,35 +164,35 @@ class PolicyStatementArgsDict(TypedDict):
     """
     Indicate whether the policy allows or denies access.
     """
-    action: NotRequired[pulumi.Input[Union[_builtins.str, Sequence[pulumi.Input[_builtins.str]]]]]
+    action: NotRequired[pulumi.Input[Optional[Union[_builtins.str, Sequence[pulumi.Input[_builtins.str]]]]]]
     """
     Include a list of actions that the policy allows or denies. Required (either Action or NotAction)
     """
-    condition: NotRequired[pulumi.Input[Mapping[str, Any]]]
+    condition: NotRequired[pulumi.Input[Optional[Mapping[str, Any]]]]
     """
     Specify the circumstances under which the policy grants permission.
     """
-    not_action: NotRequired[pulumi.Input[Union[_builtins.str, Sequence[pulumi.Input[_builtins.str]]]]]
+    not_action: NotRequired[pulumi.Input[Optional[Union[_builtins.str, Sequence[pulumi.Input[_builtins.str]]]]]]
     """
     Include a list of actions that are not covered by this policy. Required (either Action or NotAction)
     """
-    not_principal: NotRequired[pulumi.Input[Union[_builtins.str, 'AWSPrincipalArgsDict', 'ServicePrincipalArgsDict', 'FederatedPrincipalArgsDict']]]
+    not_principal: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'AWSPrincipalArgs', 'ServicePrincipalArgs', 'FederatedPrincipalArgs']]]]
     """
     Indicate the account, user, role, or federated user to which this policy does not apply.
     """
-    not_resource: NotRequired[pulumi.Input[Union[_builtins.str, Sequence[pulumi.Input[_builtins.str]]]]]
+    not_resource: NotRequired[pulumi.Input[Optional[Union[_builtins.str, Sequence[pulumi.Input[_builtins.str]]]]]]
     """
     A list of resources that are specifically excluded by this policy.
     """
-    principal: NotRequired[pulumi.Input[Union[_builtins.str, 'AWSPrincipalArgsDict', 'ServicePrincipalArgsDict', 'FederatedPrincipalArgsDict']]]
+    principal: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'AWSPrincipalArgs', 'ServicePrincipalArgs', 'FederatedPrincipalArgs']]]]
     """
     Indicate the account, user, role, or federated user to which you would like to allow or deny access. If you are creating a policy to attach to a user or role, you cannot include this element. The principal is implied as that user or role.
     """
-    resource: NotRequired[pulumi.Input[Union[_builtins.str, Sequence[pulumi.Input[_builtins.str]]]]]
+    resource: NotRequired[pulumi.Input[Optional[Union[_builtins.str, Sequence[pulumi.Input[_builtins.str]]]]]]
     """
     A list of resources to which the actions apply.
     """
-    sid: NotRequired[pulumi.Input[_builtins.str]]
+    sid: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An optional statement ID to differentiate between your statements.
     """
@@ -201,14 +201,14 @@ class PolicyStatementArgsDict(TypedDict):
 class PolicyStatementArgs:
     def __init__(__self__, *,
                  effect: pulumi.Input['PolicyStatementEffect'],
-                 action: Optional[pulumi.Input[Union[_builtins.str, Sequence[pulumi.Input[_builtins.str]]]]] = None,
-                 condition: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 not_action: Optional[pulumi.Input[Union[_builtins.str, Sequence[pulumi.Input[_builtins.str]]]]] = None,
-                 not_principal: Optional[pulumi.Input[Union[_builtins.str, 'AWSPrincipalArgs', 'ServicePrincipalArgs', 'FederatedPrincipalArgs']]] = None,
-                 not_resource: Optional[pulumi.Input[Union[_builtins.str, Sequence[pulumi.Input[_builtins.str]]]]] = None,
-                 principal: Optional[pulumi.Input[Union[_builtins.str, 'AWSPrincipalArgs', 'ServicePrincipalArgs', 'FederatedPrincipalArgs']]] = None,
-                 resource: Optional[pulumi.Input[Union[_builtins.str, Sequence[pulumi.Input[_builtins.str]]]]] = None,
-                 sid: Optional[pulumi.Input[_builtins.str]] = None):
+                 action: pulumi.Input[Optional[Union[_builtins.str, Sequence[pulumi.Input[_builtins.str]]]]] = None,
+                 condition: pulumi.Input[Optional[Mapping[str, Any]]] = None,
+                 not_action: pulumi.Input[Optional[Union[_builtins.str, Sequence[pulumi.Input[_builtins.str]]]]] = None,
+                 not_principal: pulumi.Input[Optional[Union[_builtins.str, 'AWSPrincipalArgs', 'ServicePrincipalArgs', 'FederatedPrincipalArgs']]] = None,
+                 not_resource: pulumi.Input[Optional[Union[_builtins.str, Sequence[pulumi.Input[_builtins.str]]]]] = None,
+                 principal: pulumi.Input[Optional[Union[_builtins.str, 'AWSPrincipalArgs', 'ServicePrincipalArgs', 'FederatedPrincipalArgs']]] = None,
+                 resource: pulumi.Input[Optional[Union[_builtins.str, Sequence[pulumi.Input[_builtins.str]]]]] = None,
+                 sid: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The Statement element is the main element for a policy. This element is required. It can include multiple elements (see the subsequent sections in this page). The Statement element contains an array of individual statements.
 
@@ -254,107 +254,107 @@ class PolicyStatementArgs:
 
     @_builtins.property
     @pulumi.getter(name="Action")
-    def action(self) -> Optional[pulumi.Input[Union[_builtins.str, Sequence[pulumi.Input[_builtins.str]]]]]:
+    def action(self) -> pulumi.Input[Optional[Union[_builtins.str, Sequence[pulumi.Input[_builtins.str]]]]]:
         """
         Include a list of actions that the policy allows or denies. Required (either Action or NotAction)
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input[Union[_builtins.str, Sequence[pulumi.Input[_builtins.str]]]]]):
+    def action(self, value: pulumi.Input[Optional[Union[_builtins.str, Sequence[pulumi.Input[_builtins.str]]]]]):
         pulumi.set(self, "action", value)
 
     @_builtins.property
     @pulumi.getter(name="Condition")
-    def condition(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def condition(self) -> pulumi.Input[Optional[Mapping[str, Any]]]:
         """
         Specify the circumstances under which the policy grants permission.
         """
         return pulumi.get(self, "condition")
 
     @condition.setter
-    def condition(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def condition(self, value: pulumi.Input[Optional[Mapping[str, Any]]]):
         pulumi.set(self, "condition", value)
 
     @_builtins.property
     @pulumi.getter(name="NotAction")
-    def not_action(self) -> Optional[pulumi.Input[Union[_builtins.str, Sequence[pulumi.Input[_builtins.str]]]]]:
+    def not_action(self) -> pulumi.Input[Optional[Union[_builtins.str, Sequence[pulumi.Input[_builtins.str]]]]]:
         """
         Include a list of actions that are not covered by this policy. Required (either Action or NotAction)
         """
         return pulumi.get(self, "not_action")
 
     @not_action.setter
-    def not_action(self, value: Optional[pulumi.Input[Union[_builtins.str, Sequence[pulumi.Input[_builtins.str]]]]]):
+    def not_action(self, value: pulumi.Input[Optional[Union[_builtins.str, Sequence[pulumi.Input[_builtins.str]]]]]):
         pulumi.set(self, "not_action", value)
 
     @_builtins.property
     @pulumi.getter(name="NotPrincipal")
-    def not_principal(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AWSPrincipalArgs', 'ServicePrincipalArgs', 'FederatedPrincipalArgs']]]:
+    def not_principal(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AWSPrincipalArgs', 'ServicePrincipalArgs', 'FederatedPrincipalArgs']]]:
         """
         Indicate the account, user, role, or federated user to which this policy does not apply.
         """
         return pulumi.get(self, "not_principal")
 
     @not_principal.setter
-    def not_principal(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AWSPrincipalArgs', 'ServicePrincipalArgs', 'FederatedPrincipalArgs']]]):
+    def not_principal(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AWSPrincipalArgs', 'ServicePrincipalArgs', 'FederatedPrincipalArgs']]]):
         pulumi.set(self, "not_principal", value)
 
     @_builtins.property
     @pulumi.getter(name="NotResource")
-    def not_resource(self) -> Optional[pulumi.Input[Union[_builtins.str, Sequence[pulumi.Input[_builtins.str]]]]]:
+    def not_resource(self) -> pulumi.Input[Optional[Union[_builtins.str, Sequence[pulumi.Input[_builtins.str]]]]]:
         """
         A list of resources that are specifically excluded by this policy.
         """
         return pulumi.get(self, "not_resource")
 
     @not_resource.setter
-    def not_resource(self, value: Optional[pulumi.Input[Union[_builtins.str, Sequence[pulumi.Input[_builtins.str]]]]]):
+    def not_resource(self, value: pulumi.Input[Optional[Union[_builtins.str, Sequence[pulumi.Input[_builtins.str]]]]]):
         pulumi.set(self, "not_resource", value)
 
     @_builtins.property
     @pulumi.getter(name="Principal")
-    def principal(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AWSPrincipalArgs', 'ServicePrincipalArgs', 'FederatedPrincipalArgs']]]:
+    def principal(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AWSPrincipalArgs', 'ServicePrincipalArgs', 'FederatedPrincipalArgs']]]:
         """
         Indicate the account, user, role, or federated user to which you would like to allow or deny access. If you are creating a policy to attach to a user or role, you cannot include this element. The principal is implied as that user or role.
         """
         return pulumi.get(self, "principal")
 
     @principal.setter
-    def principal(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AWSPrincipalArgs', 'ServicePrincipalArgs', 'FederatedPrincipalArgs']]]):
+    def principal(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AWSPrincipalArgs', 'ServicePrincipalArgs', 'FederatedPrincipalArgs']]]):
         pulumi.set(self, "principal", value)
 
     @_builtins.property
     @pulumi.getter(name="Resource")
-    def resource(self) -> Optional[pulumi.Input[Union[_builtins.str, Sequence[pulumi.Input[_builtins.str]]]]]:
+    def resource(self) -> pulumi.Input[Optional[Union[_builtins.str, Sequence[pulumi.Input[_builtins.str]]]]]:
         """
         A list of resources to which the actions apply.
         """
         return pulumi.get(self, "resource")
 
     @resource.setter
-    def resource(self, value: Optional[pulumi.Input[Union[_builtins.str, Sequence[pulumi.Input[_builtins.str]]]]]):
+    def resource(self, value: pulumi.Input[Optional[Union[_builtins.str, Sequence[pulumi.Input[_builtins.str]]]]]):
         pulumi.set(self, "resource", value)
 
     @_builtins.property
     @pulumi.getter(name="Sid")
-    def sid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An optional statement ID to differentiate between your statements.
         """
         return pulumi.get(self, "sid")
 
     @sid.setter
-    def sid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sid", value)
 
 
 class RoleInlinePolicyArgsDict(TypedDict):
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the role policy.
     """
-    policy: NotRequired[pulumi.Input[_builtins.str]]
+    policy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Policy document as a JSON formatted string.
     """
@@ -362,8 +362,8 @@ class RoleInlinePolicyArgsDict(TypedDict):
 @pulumi.input_type
 class RoleInlinePolicyArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: Name of the role policy.
         :param pulumi.Input[_builtins.str] policy: Policy document as a JSON formatted string.
@@ -375,26 +375,26 @@ class RoleInlinePolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the role policy.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Policy document as a JSON formatted string.
         """
         return pulumi.get(self, "policy")
 
     @policy.setter
-    def policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy", value)
 
 

@@ -22,8 +22,8 @@ __all__ = ['KeyRegistrationArgs', 'KeyRegistration']
 class KeyRegistrationArgs:
     def __init__(__self__, *,
                  key_registrations: pulumi.Input[Sequence[pulumi.Input['KeyRegistrationKeyRegistrationArgs']]],
-                 aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a KeyRegistration resource.
 
@@ -51,35 +51,35 @@ class KeyRegistrationArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
-    def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
-    def aws_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_account_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _KeyRegistrationState:
     def __init__(__self__, *,
-                 aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_registrations: Optional[pulumi.Input[Sequence[pulumi.Input['KeyRegistrationKeyRegistrationArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_registrations: pulumi.Input[Optional[Sequence[pulumi.Input['KeyRegistrationKeyRegistrationArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering KeyRegistration resources.
 
@@ -96,38 +96,38 @@ class _KeyRegistrationState:
 
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
-    def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
-    def aws_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="keyRegistrations")
-    def key_registrations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KeyRegistrationKeyRegistrationArgs']]]]:
+    def key_registrations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['KeyRegistrationKeyRegistrationArgs']]]]:
         """
         Registered keys. See key_registration.
         """
         return pulumi.get(self, "key_registrations")
 
     @key_registrations.setter
-    def key_registrations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KeyRegistrationKeyRegistrationArgs']]]]):
+    def key_registrations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['KeyRegistrationKeyRegistrationArgs']]]]):
         pulumi.set(self, "key_registrations", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
@@ -137,9 +137,9 @@ class KeyRegistration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_registrations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KeyRegistrationKeyRegistrationArgs', 'KeyRegistrationKeyRegistrationArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_registrations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KeyRegistrationKeyRegistrationArgs', 'KeyRegistrationKeyRegistrationArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Registers customer managed keys in a Amazon QuickSight account.
@@ -230,9 +230,9 @@ class KeyRegistration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_registrations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KeyRegistrationKeyRegistrationArgs', 'KeyRegistrationKeyRegistrationArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_registrations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KeyRegistrationKeyRegistrationArgs', 'KeyRegistrationKeyRegistrationArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -257,9 +257,9 @@ class KeyRegistration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            key_registrations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KeyRegistrationKeyRegistrationArgs', 'KeyRegistrationKeyRegistrationArgsDict']]]]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None) -> 'KeyRegistration':
+            aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            key_registrations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KeyRegistrationKeyRegistrationArgs', 'KeyRegistrationKeyRegistrationArgsDict']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> 'KeyRegistration':
         """
         Get an existing KeyRegistration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

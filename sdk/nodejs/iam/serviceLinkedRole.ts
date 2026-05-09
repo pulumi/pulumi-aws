@@ -150,43 +150,43 @@ export interface ServiceLinkedRoleState {
     /**
      * The Amazon Resource Name (ARN) specifying the role.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The AWS service to which this role is attached. You use a string similar to a URL but without the `http://` in front. For example: `elasticbeanstalk.amazonaws.com`. To find the full list of services that support service-linked roles, check [the docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html).
      */
-    awsServiceName?: pulumi.Input<string>;
+    awsServiceName?: pulumi.Input<string | undefined>;
     /**
      * The creation date of the IAM role.
      */
-    createDate?: pulumi.Input<string>;
+    createDate?: pulumi.Input<string | undefined>;
     /**
      * Additional string appended to the role name. Not all AWS services support custom suffixes.
      */
-    customSuffix?: pulumi.Input<string>;
+    customSuffix?: pulumi.Input<string | undefined>;
     /**
      * The description of the role.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the role.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The path of the role.
      */
-    path?: pulumi.Input<string>;
+    path?: pulumi.Input<string | undefined>;
     /**
      * Key-value mapping of tags for the IAM role. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The stable and unique string identifying the role.
      */
-    uniqueId?: pulumi.Input<string>;
+    uniqueId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -200,13 +200,13 @@ export interface ServiceLinkedRoleArgs {
     /**
      * Additional string appended to the role name. Not all AWS services support custom suffixes.
      */
-    customSuffix?: pulumi.Input<string>;
+    customSuffix?: pulumi.Input<string | undefined>;
     /**
      * The description of the role.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Key-value mapping of tags for the IAM role. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

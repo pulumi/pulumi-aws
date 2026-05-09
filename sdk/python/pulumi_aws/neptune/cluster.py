@@ -21,37 +21,37 @@ __all__ = ['ClusterArgs', 'Cluster']
 @pulumi.input_type
 class ClusterArgs:
     def __init__(__self__, *,
-                 allow_major_version_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
-                 apply_immediately: Optional[pulumi.Input[_builtins.bool]] = None,
-                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 backup_retention_period: Optional[pulumi.Input[_builtins.int]] = None,
-                 cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_identifier_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 copy_tags_to_snapshot: Optional[pulumi.Input[_builtins.bool]] = None,
-                 deletion_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 engine: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 final_snapshot_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 iam_database_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 neptune_cluster_parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 neptune_instance_parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 neptune_subnet_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 preferred_backup_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_source_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 serverless_v2_scaling_configuration: Optional[pulumi.Input['ClusterServerlessV2ScalingConfigurationArgs']] = None,
-                 skip_final_snapshot: Optional[pulumi.Input[_builtins.bool]] = None,
-                 snapshot_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 storage_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 allow_major_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
+                 apply_immediately: pulumi.Input[Optional[_builtins.bool]] = None,
+                 availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 backup_retention_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_identifier_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 copy_tags_to_snapshot: pulumi.Input[Optional[_builtins.bool]] = None,
+                 deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_cloudwatch_logs_exports: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 engine: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 final_snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 iam_database_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 iam_roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 neptune_cluster_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 neptune_instance_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 neptune_subnet_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 preferred_backup_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_source_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 serverless_v2_scaling_configuration: pulumi.Input[Optional['ClusterServerlessV2ScalingConfigurationArgs']] = None,
+                 skip_final_snapshot: pulumi.Input[Optional[_builtins.bool]] = None,
+                 snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
 
@@ -152,418 +152,418 @@ class ClusterArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowMajorVersionUpgrade")
-    def allow_major_version_upgrade(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_major_version_upgrade(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engine_version` parameter that uses a different major version than the DB cluster's current version. Default is `false`.
         """
         return pulumi.get(self, "allow_major_version_upgrade")
 
     @allow_major_version_upgrade.setter
-    def allow_major_version_upgrade(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_major_version_upgrade(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_major_version_upgrade", value)
 
     @_builtins.property
     @pulumi.getter(name="applyImmediately")
-    def apply_immediately(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def apply_immediately(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
         """
         return pulumi.get(self, "apply_immediately")
 
     @apply_immediately.setter
-    def apply_immediately(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def apply_immediately(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "apply_immediately", value)
 
     @_builtins.property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def availability_zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of EC2 Availability Zones that instances in the Neptune cluster can be created in.
         """
         return pulumi.get(self, "availability_zones")
 
     @availability_zones.setter
-    def availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def availability_zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "availability_zones", value)
 
     @_builtins.property
     @pulumi.getter(name="backupRetentionPeriod")
-    def backup_retention_period(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def backup_retention_period(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Days to retain backups for. Default `1`
         """
         return pulumi.get(self, "backup_retention_period")
 
     @backup_retention_period.setter
-    def backup_retention_period(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def backup_retention_period(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "backup_retention_period", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
-    def cluster_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Cluster identifier. If omitted, Terraform will assign a random, unique identifier.
         """
         return pulumi.get(self, "cluster_identifier")
 
     @cluster_identifier.setter
-    def cluster_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterIdentifierPrefix")
-    def cluster_identifier_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_identifier_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
         """
         return pulumi.get(self, "cluster_identifier_prefix")
 
     @cluster_identifier_prefix.setter
-    def cluster_identifier_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_identifier_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_identifier_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="copyTagsToSnapshot")
-    def copy_tags_to_snapshot(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def copy_tags_to_snapshot(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set to true, tags are copied to any snapshot of the DB cluster that is created.
         """
         return pulumi.get(self, "copy_tags_to_snapshot")
 
     @copy_tags_to_snapshot.setter
-    def copy_tags_to_snapshot(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def copy_tags_to_snapshot(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "copy_tags_to_snapshot", value)
 
     @_builtins.property
     @pulumi.getter(name="deletionProtection")
-    def deletion_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def deletion_protection(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
         """
         return pulumi.get(self, "deletion_protection")
 
     @deletion_protection.setter
-    def deletion_protection(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def deletion_protection(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "deletion_protection", value)
 
     @_builtins.property
     @pulumi.getter(name="enableCloudwatchLogsExports")
-    def enable_cloudwatch_logs_exports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def enable_cloudwatch_logs_exports(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
         """
         return pulumi.get(self, "enable_cloudwatch_logs_exports")
 
     @enable_cloudwatch_logs_exports.setter
-    def enable_cloudwatch_logs_exports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def enable_cloudwatch_logs_exports(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "enable_cloudwatch_logs_exports", value)
 
     @_builtins.property
     @pulumi.getter
-    def engine(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def engine(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
         """
         return pulumi.get(self, "engine")
 
     @engine.setter
-    def engine(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def engine(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "engine", value)
 
     @_builtins.property
     @pulumi.getter(name="engineVersion")
-    def engine_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def engine_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Database engine version.
         """
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
-    def engine_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def engine_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "engine_version", value)
 
     @_builtins.property
     @pulumi.getter(name="finalSnapshotIdentifier")
-    def final_snapshot_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def final_snapshot_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
         """
         return pulumi.get(self, "final_snapshot_identifier")
 
     @final_snapshot_identifier.setter
-    def final_snapshot_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def final_snapshot_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "final_snapshot_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="globalClusterIdentifier")
-    def global_cluster_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def global_cluster_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Global cluster identifier specified on `neptune.GlobalCluster`.
         """
         return pulumi.get(self, "global_cluster_identifier")
 
     @global_cluster_identifier.setter
-    def global_cluster_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def global_cluster_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "global_cluster_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="iamDatabaseAuthenticationEnabled")
-    def iam_database_authentication_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def iam_database_authentication_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
         """
         return pulumi.get(self, "iam_database_authentication_enabled")
 
     @iam_database_authentication_enabled.setter
-    def iam_database_authentication_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def iam_database_authentication_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "iam_database_authentication_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="iamRoles")
-    def iam_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def iam_roles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of ARNs for the IAM roles to associate to the Neptune Cluster.
         """
         return pulumi.get(self, "iam_roles")
 
     @iam_roles.setter
-    def iam_roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def iam_roles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "iam_roles", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
         """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
-    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="neptuneClusterParameterGroupName")
-    def neptune_cluster_parameter_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def neptune_cluster_parameter_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Cluster parameter group to associate with the cluster.
         """
         return pulumi.get(self, "neptune_cluster_parameter_group_name")
 
     @neptune_cluster_parameter_group_name.setter
-    def neptune_cluster_parameter_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def neptune_cluster_parameter_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "neptune_cluster_parameter_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="neptuneInstanceParameterGroupName")
-    def neptune_instance_parameter_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def neptune_instance_parameter_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of DB parameter group to apply to all instances in the cluster. When upgrading, AWS does not return this value, so do not reference it in other arguments—either leave it unset, configure each instance directly, or ensure it matches the `engine_version`.
         """
         return pulumi.get(self, "neptune_instance_parameter_group_name")
 
     @neptune_instance_parameter_group_name.setter
-    def neptune_instance_parameter_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def neptune_instance_parameter_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "neptune_instance_parameter_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="neptuneSubnetGroupName")
-    def neptune_subnet_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def neptune_subnet_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Neptune subnet group to associate with this Neptune instance.
         """
         return pulumi.get(self, "neptune_subnet_group_name")
 
     @neptune_subnet_group_name.setter
-    def neptune_subnet_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def neptune_subnet_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "neptune_subnet_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Port on which the Neptune accepts connections. Default is `8182`.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter(name="preferredBackupWindow")
-    def preferred_backup_window(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def preferred_backup_window(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
         """
         return pulumi.get(self, "preferred_backup_window")
 
     @preferred_backup_window.setter
-    def preferred_backup_window(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def preferred_backup_window(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "preferred_backup_window", value)
 
     @_builtins.property
     @pulumi.getter(name="preferredMaintenanceWindow")
-    def preferred_maintenance_window(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def preferred_maintenance_window(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
         """
         return pulumi.get(self, "preferred_maintenance_window")
 
     @preferred_maintenance_window.setter
-    def preferred_maintenance_window(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def preferred_maintenance_window(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "preferred_maintenance_window", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="replicationSourceIdentifier")
-    def replication_source_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def replication_source_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
         """
         return pulumi.get(self, "replication_source_identifier")
 
     @replication_source_identifier.setter
-    def replication_source_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def replication_source_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "replication_source_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="serverlessV2ScalingConfiguration")
-    def serverless_v2_scaling_configuration(self) -> Optional[pulumi.Input['ClusterServerlessV2ScalingConfigurationArgs']]:
+    def serverless_v2_scaling_configuration(self) -> pulumi.Input[Optional['ClusterServerlessV2ScalingConfigurationArgs']]:
         """
         If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
         """
         return pulumi.get(self, "serverless_v2_scaling_configuration")
 
     @serverless_v2_scaling_configuration.setter
-    def serverless_v2_scaling_configuration(self, value: Optional[pulumi.Input['ClusterServerlessV2ScalingConfigurationArgs']]):
+    def serverless_v2_scaling_configuration(self, value: pulumi.Input[Optional['ClusterServerlessV2ScalingConfigurationArgs']]):
         pulumi.set(self, "serverless_v2_scaling_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="skipFinalSnapshot")
-    def skip_final_snapshot(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_final_snapshot(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         """
         return pulumi.get(self, "skip_final_snapshot")
 
     @skip_final_snapshot.setter
-    def skip_final_snapshot(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_final_snapshot(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_final_snapshot", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotIdentifier")
-    def snapshot_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def snapshot_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
         """
         return pulumi.get(self, "snapshot_identifier")
 
     @snapshot_identifier.setter
-    def snapshot_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def snapshot_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "snapshot_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="storageEncrypted")
-    def storage_encrypted(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def storage_encrypted(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the Neptune cluster is encrypted. The default is `false` if not specified.
         """
         return pulumi.get(self, "storage_encrypted")
 
     @storage_encrypted.setter
-    def storage_encrypted(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def storage_encrypted(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "storage_encrypted", value)
 
     @_builtins.property
     @pulumi.getter(name="storageType")
-    def storage_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Storage type associated with the cluster `standard/iopt1`. Default: `standard`.
         """
         return pulumi.get(self, "storage_type")
 
     @storage_type.setter
-    def storage_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcSecurityGroupIds")
-    def vpc_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def vpc_security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of VPC security groups to associate with the Cluster
         """
         return pulumi.get(self, "vpc_security_group_ids")
 
     @vpc_security_group_ids.setter
-    def vpc_security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def vpc_security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "vpc_security_group_ids", value)
 
 
 @pulumi.input_type
 class _ClusterState:
     def __init__(__self__, *,
-                 allow_major_version_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
-                 apply_immediately: Optional[pulumi.Input[_builtins.bool]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 backup_retention_period: Optional[pulumi.Input[_builtins.int]] = None,
-                 cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_identifier_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_members: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cluster_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 copy_tags_to_snapshot: Optional[pulumi.Input[_builtins.bool]] = None,
-                 deletion_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 final_snapshot_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 hosted_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 iam_database_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 neptune_cluster_parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 neptune_instance_parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 neptune_subnet_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 preferred_backup_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 reader_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_source_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 serverless_v2_scaling_configuration: Optional[pulumi.Input['ClusterServerlessV2ScalingConfigurationArgs']] = None,
-                 skip_final_snapshot: Optional[pulumi.Input[_builtins.bool]] = None,
-                 snapshot_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 storage_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 allow_major_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
+                 apply_immediately: pulumi.Input[Optional[_builtins.bool]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 backup_retention_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_identifier_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_members: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cluster_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 copy_tags_to_snapshot: pulumi.Input[Optional[_builtins.bool]] = None,
+                 deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_cloudwatch_logs_exports: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 final_snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 hosted_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 iam_database_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 iam_roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 neptune_cluster_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 neptune_instance_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 neptune_subnet_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 preferred_backup_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 reader_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_source_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 serverless_v2_scaling_configuration: pulumi.Input[Optional['ClusterServerlessV2ScalingConfigurationArgs']] = None,
+                 skip_final_snapshot: pulumi.Input[Optional[_builtins.bool]] = None,
+                 snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Cluster resources.
 
@@ -685,458 +685,458 @@ class _ClusterState:
 
     @_builtins.property
     @pulumi.getter(name="allowMajorVersionUpgrade")
-    def allow_major_version_upgrade(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_major_version_upgrade(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engine_version` parameter that uses a different major version than the DB cluster's current version. Default is `false`.
         """
         return pulumi.get(self, "allow_major_version_upgrade")
 
     @allow_major_version_upgrade.setter
-    def allow_major_version_upgrade(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_major_version_upgrade(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_major_version_upgrade", value)
 
     @_builtins.property
     @pulumi.getter(name="applyImmediately")
-    def apply_immediately(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def apply_immediately(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
         """
         return pulumi.get(self, "apply_immediately")
 
     @apply_immediately.setter
-    def apply_immediately(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def apply_immediately(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "apply_immediately", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Neptune Cluster ARN
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def availability_zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of EC2 Availability Zones that instances in the Neptune cluster can be created in.
         """
         return pulumi.get(self, "availability_zones")
 
     @availability_zones.setter
-    def availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def availability_zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "availability_zones", value)
 
     @_builtins.property
     @pulumi.getter(name="backupRetentionPeriod")
-    def backup_retention_period(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def backup_retention_period(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Days to retain backups for. Default `1`
         """
         return pulumi.get(self, "backup_retention_period")
 
     @backup_retention_period.setter
-    def backup_retention_period(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def backup_retention_period(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "backup_retention_period", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
-    def cluster_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Cluster identifier. If omitted, Terraform will assign a random, unique identifier.
         """
         return pulumi.get(self, "cluster_identifier")
 
     @cluster_identifier.setter
-    def cluster_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterIdentifierPrefix")
-    def cluster_identifier_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_identifier_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
         """
         return pulumi.get(self, "cluster_identifier_prefix")
 
     @cluster_identifier_prefix.setter
-    def cluster_identifier_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_identifier_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_identifier_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterMembers")
-    def cluster_members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def cluster_members(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of Neptune Instances that are a part of this cluster
         """
         return pulumi.get(self, "cluster_members")
 
     @cluster_members.setter
-    def cluster_members(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def cluster_members(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "cluster_members", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterResourceId")
-    def cluster_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Neptune Cluster Resource ID
         """
         return pulumi.get(self, "cluster_resource_id")
 
     @cluster_resource_id.setter
-    def cluster_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="copyTagsToSnapshot")
-    def copy_tags_to_snapshot(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def copy_tags_to_snapshot(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set to true, tags are copied to any snapshot of the DB cluster that is created.
         """
         return pulumi.get(self, "copy_tags_to_snapshot")
 
     @copy_tags_to_snapshot.setter
-    def copy_tags_to_snapshot(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def copy_tags_to_snapshot(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "copy_tags_to_snapshot", value)
 
     @_builtins.property
     @pulumi.getter(name="deletionProtection")
-    def deletion_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def deletion_protection(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
         """
         return pulumi.get(self, "deletion_protection")
 
     @deletion_protection.setter
-    def deletion_protection(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def deletion_protection(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "deletion_protection", value)
 
     @_builtins.property
     @pulumi.getter(name="enableCloudwatchLogsExports")
-    def enable_cloudwatch_logs_exports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def enable_cloudwatch_logs_exports(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
         """
         return pulumi.get(self, "enable_cloudwatch_logs_exports")
 
     @enable_cloudwatch_logs_exports.setter
-    def enable_cloudwatch_logs_exports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def enable_cloudwatch_logs_exports(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "enable_cloudwatch_logs_exports", value)
 
     @_builtins.property
     @pulumi.getter
-    def endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         DNS address of the Neptune instance
         """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
-    def endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint", value)
 
     @_builtins.property
     @pulumi.getter
-    def engine(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def engine(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
         """
         return pulumi.get(self, "engine")
 
     @engine.setter
-    def engine(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def engine(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "engine", value)
 
     @_builtins.property
     @pulumi.getter(name="engineVersion")
-    def engine_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def engine_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Database engine version.
         """
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
-    def engine_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def engine_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "engine_version", value)
 
     @_builtins.property
     @pulumi.getter(name="finalSnapshotIdentifier")
-    def final_snapshot_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def final_snapshot_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
         """
         return pulumi.get(self, "final_snapshot_identifier")
 
     @final_snapshot_identifier.setter
-    def final_snapshot_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def final_snapshot_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "final_snapshot_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="globalClusterIdentifier")
-    def global_cluster_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def global_cluster_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Global cluster identifier specified on `neptune.GlobalCluster`.
         """
         return pulumi.get(self, "global_cluster_identifier")
 
     @global_cluster_identifier.setter
-    def global_cluster_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def global_cluster_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "global_cluster_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="hostedZoneId")
-    def hosted_zone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hosted_zone_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Route53 Hosted Zone ID of the endpoint
         """
         return pulumi.get(self, "hosted_zone_id")
 
     @hosted_zone_id.setter
-    def hosted_zone_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hosted_zone_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hosted_zone_id", value)
 
     @_builtins.property
     @pulumi.getter(name="iamDatabaseAuthenticationEnabled")
-    def iam_database_authentication_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def iam_database_authentication_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
         """
         return pulumi.get(self, "iam_database_authentication_enabled")
 
     @iam_database_authentication_enabled.setter
-    def iam_database_authentication_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def iam_database_authentication_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "iam_database_authentication_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="iamRoles")
-    def iam_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def iam_roles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of ARNs for the IAM roles to associate to the Neptune Cluster.
         """
         return pulumi.get(self, "iam_roles")
 
     @iam_roles.setter
-    def iam_roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def iam_roles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "iam_roles", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
         """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
-    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="neptuneClusterParameterGroupName")
-    def neptune_cluster_parameter_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def neptune_cluster_parameter_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Cluster parameter group to associate with the cluster.
         """
         return pulumi.get(self, "neptune_cluster_parameter_group_name")
 
     @neptune_cluster_parameter_group_name.setter
-    def neptune_cluster_parameter_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def neptune_cluster_parameter_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "neptune_cluster_parameter_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="neptuneInstanceParameterGroupName")
-    def neptune_instance_parameter_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def neptune_instance_parameter_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of DB parameter group to apply to all instances in the cluster. When upgrading, AWS does not return this value, so do not reference it in other arguments—either leave it unset, configure each instance directly, or ensure it matches the `engine_version`.
         """
         return pulumi.get(self, "neptune_instance_parameter_group_name")
 
     @neptune_instance_parameter_group_name.setter
-    def neptune_instance_parameter_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def neptune_instance_parameter_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "neptune_instance_parameter_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="neptuneSubnetGroupName")
-    def neptune_subnet_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def neptune_subnet_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Neptune subnet group to associate with this Neptune instance.
         """
         return pulumi.get(self, "neptune_subnet_group_name")
 
     @neptune_subnet_group_name.setter
-    def neptune_subnet_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def neptune_subnet_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "neptune_subnet_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Port on which the Neptune accepts connections. Default is `8182`.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter(name="preferredBackupWindow")
-    def preferred_backup_window(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def preferred_backup_window(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
         """
         return pulumi.get(self, "preferred_backup_window")
 
     @preferred_backup_window.setter
-    def preferred_backup_window(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def preferred_backup_window(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "preferred_backup_window", value)
 
     @_builtins.property
     @pulumi.getter(name="preferredMaintenanceWindow")
-    def preferred_maintenance_window(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def preferred_maintenance_window(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
         """
         return pulumi.get(self, "preferred_maintenance_window")
 
     @preferred_maintenance_window.setter
-    def preferred_maintenance_window(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def preferred_maintenance_window(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "preferred_maintenance_window", value)
 
     @_builtins.property
     @pulumi.getter(name="readerEndpoint")
-    def reader_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reader_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Read-only endpoint for the Neptune cluster, automatically load-balanced across replicas
         """
         return pulumi.get(self, "reader_endpoint")
 
     @reader_endpoint.setter
-    def reader_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reader_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reader_endpoint", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="replicationSourceIdentifier")
-    def replication_source_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def replication_source_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
         """
         return pulumi.get(self, "replication_source_identifier")
 
     @replication_source_identifier.setter
-    def replication_source_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def replication_source_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "replication_source_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="serverlessV2ScalingConfiguration")
-    def serverless_v2_scaling_configuration(self) -> Optional[pulumi.Input['ClusterServerlessV2ScalingConfigurationArgs']]:
+    def serverless_v2_scaling_configuration(self) -> pulumi.Input[Optional['ClusterServerlessV2ScalingConfigurationArgs']]:
         """
         If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
         """
         return pulumi.get(self, "serverless_v2_scaling_configuration")
 
     @serverless_v2_scaling_configuration.setter
-    def serverless_v2_scaling_configuration(self, value: Optional[pulumi.Input['ClusterServerlessV2ScalingConfigurationArgs']]):
+    def serverless_v2_scaling_configuration(self, value: pulumi.Input[Optional['ClusterServerlessV2ScalingConfigurationArgs']]):
         pulumi.set(self, "serverless_v2_scaling_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="skipFinalSnapshot")
-    def skip_final_snapshot(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_final_snapshot(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         """
         return pulumi.get(self, "skip_final_snapshot")
 
     @skip_final_snapshot.setter
-    def skip_final_snapshot(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_final_snapshot(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_final_snapshot", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotIdentifier")
-    def snapshot_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def snapshot_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
         """
         return pulumi.get(self, "snapshot_identifier")
 
     @snapshot_identifier.setter
-    def snapshot_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def snapshot_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "snapshot_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="storageEncrypted")
-    def storage_encrypted(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def storage_encrypted(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the Neptune cluster is encrypted. The default is `false` if not specified.
         """
         return pulumi.get(self, "storage_encrypted")
 
     @storage_encrypted.setter
-    def storage_encrypted(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def storage_encrypted(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "storage_encrypted", value)
 
     @_builtins.property
     @pulumi.getter(name="storageType")
-    def storage_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Storage type associated with the cluster `standard/iopt1`. Default: `standard`.
         """
         return pulumi.get(self, "storage_type")
 
     @storage_type.setter
-    def storage_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcSecurityGroupIds")
-    def vpc_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def vpc_security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of VPC security groups to associate with the Cluster
         """
         return pulumi.get(self, "vpc_security_group_ids")
 
     @vpc_security_group_ids.setter
-    def vpc_security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def vpc_security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "vpc_security_group_ids", value)
 
 
@@ -1146,37 +1146,37 @@ class Cluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_major_version_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
-                 apply_immediately: Optional[pulumi.Input[_builtins.bool]] = None,
-                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 backup_retention_period: Optional[pulumi.Input[_builtins.int]] = None,
-                 cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_identifier_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 copy_tags_to_snapshot: Optional[pulumi.Input[_builtins.bool]] = None,
-                 deletion_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 engine: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 final_snapshot_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 iam_database_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 neptune_cluster_parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 neptune_instance_parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 neptune_subnet_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 preferred_backup_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_source_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 serverless_v2_scaling_configuration: Optional[pulumi.Input[Union['ClusterServerlessV2ScalingConfigurationArgs', 'ClusterServerlessV2ScalingConfigurationArgsDict']]] = None,
-                 skip_final_snapshot: Optional[pulumi.Input[_builtins.bool]] = None,
-                 snapshot_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 storage_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allow_major_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
+                 apply_immediately: pulumi.Input[Optional[_builtins.bool]] = None,
+                 availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 backup_retention_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_identifier_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 copy_tags_to_snapshot: pulumi.Input[Optional[_builtins.bool]] = None,
+                 deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_cloudwatch_logs_exports: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 engine: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 final_snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 iam_database_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 iam_roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 neptune_cluster_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 neptune_instance_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 neptune_subnet_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 preferred_backup_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_source_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 serverless_v2_scaling_configuration: pulumi.Input[Optional[Union['ClusterServerlessV2ScalingConfigurationArgs', 'ClusterServerlessV2ScalingConfigurationArgsDict']]] = None,
+                 skip_final_snapshot: pulumi.Input[Optional[_builtins.bool]] = None,
+                 snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides an Neptune Cluster Resource. A Cluster Resource defines attributes that are
@@ -1311,37 +1311,37 @@ class Cluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_major_version_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
-                 apply_immediately: Optional[pulumi.Input[_builtins.bool]] = None,
-                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 backup_retention_period: Optional[pulumi.Input[_builtins.int]] = None,
-                 cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_identifier_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 copy_tags_to_snapshot: Optional[pulumi.Input[_builtins.bool]] = None,
-                 deletion_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 engine: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 final_snapshot_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 iam_database_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 neptune_cluster_parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 neptune_instance_parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 neptune_subnet_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 preferred_backup_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_source_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 serverless_v2_scaling_configuration: Optional[pulumi.Input[Union['ClusterServerlessV2ScalingConfigurationArgs', 'ClusterServerlessV2ScalingConfigurationArgsDict']]] = None,
-                 skip_final_snapshot: Optional[pulumi.Input[_builtins.bool]] = None,
-                 snapshot_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 storage_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allow_major_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
+                 apply_immediately: pulumi.Input[Optional[_builtins.bool]] = None,
+                 availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 backup_retention_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_identifier_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 copy_tags_to_snapshot: pulumi.Input[Optional[_builtins.bool]] = None,
+                 deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_cloudwatch_logs_exports: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 engine: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 final_snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 iam_database_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 iam_roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 neptune_cluster_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 neptune_instance_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 neptune_subnet_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 preferred_backup_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_source_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 serverless_v2_scaling_configuration: pulumi.Input[Optional[Union['ClusterServerlessV2ScalingConfigurationArgs', 'ClusterServerlessV2ScalingConfigurationArgsDict']]] = None,
+                 skip_final_snapshot: pulumi.Input[Optional[_builtins.bool]] = None,
+                 snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1399,44 +1399,44 @@ class Cluster(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            allow_major_version_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
-            apply_immediately: Optional[pulumi.Input[_builtins.bool]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            backup_retention_period: Optional[pulumi.Input[_builtins.int]] = None,
-            cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-            cluster_identifier_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-            cluster_members: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            cluster_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-            copy_tags_to_snapshot: Optional[pulumi.Input[_builtins.bool]] = None,
-            deletion_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-            enable_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            engine: Optional[pulumi.Input[_builtins.str]] = None,
-            engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-            final_snapshot_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-            global_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-            hosted_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-            iam_database_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            neptune_cluster_parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            neptune_instance_parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            neptune_subnet_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            port: Optional[pulumi.Input[_builtins.int]] = None,
-            preferred_backup_window: Optional[pulumi.Input[_builtins.str]] = None,
-            preferred_maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
-            reader_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            replication_source_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-            serverless_v2_scaling_configuration: Optional[pulumi.Input[Union['ClusterServerlessV2ScalingConfigurationArgs', 'ClusterServerlessV2ScalingConfigurationArgsDict']]] = None,
-            skip_final_snapshot: Optional[pulumi.Input[_builtins.bool]] = None,
-            snapshot_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-            storage_type: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'Cluster':
+            allow_major_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
+            apply_immediately: pulumi.Input[Optional[_builtins.bool]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            backup_retention_period: pulumi.Input[Optional[_builtins.int]] = None,
+            cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            cluster_identifier_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            cluster_members: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            cluster_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            copy_tags_to_snapshot: pulumi.Input[Optional[_builtins.bool]] = None,
+            deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_cloudwatch_logs_exports: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            engine: pulumi.Input[Optional[_builtins.str]] = None,
+            engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+            final_snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            global_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            hosted_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+            iam_database_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            iam_roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            neptune_cluster_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            neptune_instance_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            neptune_subnet_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            port: pulumi.Input[Optional[_builtins.int]] = None,
+            preferred_backup_window: pulumi.Input[Optional[_builtins.str]] = None,
+            preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+            reader_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            replication_source_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            serverless_v2_scaling_configuration: pulumi.Input[Optional[Union['ClusterServerlessV2ScalingConfigurationArgs', 'ClusterServerlessV2ScalingConfigurationArgsDict']]] = None,
+            skip_final_snapshot: pulumi.Input[Optional[_builtins.bool]] = None,
+            snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+            storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'Cluster':
         """
         Get an existing Cluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

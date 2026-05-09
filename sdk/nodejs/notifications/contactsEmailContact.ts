@@ -129,30 +129,30 @@ export interface ContactsEmailContactState {
     /**
      * ARN of the Email Contact.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Email address for the contact. Must be between 6 and 254 characters and match an email
      * pattern.
      */
-    emailAddress?: pulumi.Input<string>;
+    emailAddress?: pulumi.Input<string | undefined>;
     /**
      * Name of the email contact. Must be between 1 and 64 characters and can contain alphanumeric
      * characters, underscores, tildes, periods, and hyphens.
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider 
      * `defaultTags` configuration block
      * present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider 
      * `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -170,11 +170,11 @@ export interface ContactsEmailContactArgs {
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider 
      * `defaultTags` configuration block
      * present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -131,7 +131,7 @@ namespace Pulumi.Aws.Connect
     ///         Name = "Example",
     ///         Description = "Example Contact Flow Module Description",
     ///         Filename = "contact_flow_module.json",
-    ///         ContentHash = Std.Index.Filebase64sha256.Invoke(new()
+    ///         ContentHash = Std.Filebase64sha256.Invoke(new()
     ///         {
     ///             Input = "contact_flow_module.json",
     ///         }).Apply(invoke =&gt; invoke.Result),

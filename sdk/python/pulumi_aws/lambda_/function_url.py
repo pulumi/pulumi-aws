@@ -23,10 +23,10 @@ class FunctionUrlArgs:
     def __init__(__self__, *,
                  authorization_type: pulumi.Input[_builtins.str],
                  function_name: pulumi.Input[_builtins.str],
-                 cors: Optional[pulumi.Input['FunctionUrlCorsArgs']] = None,
-                 invoke_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 qualifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 cors: pulumi.Input[Optional['FunctionUrlCorsArgs']] = None,
+                 invoke_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 qualifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a FunctionUrl resource.
 
@@ -78,65 +78,65 @@ class FunctionUrlArgs:
 
     @_builtins.property
     @pulumi.getter
-    def cors(self) -> Optional[pulumi.Input['FunctionUrlCorsArgs']]:
+    def cors(self) -> pulumi.Input[Optional['FunctionUrlCorsArgs']]:
         """
         Cross-origin resource sharing (CORS) settings for the function URL. See below.
         """
         return pulumi.get(self, "cors")
 
     @cors.setter
-    def cors(self, value: Optional[pulumi.Input['FunctionUrlCorsArgs']]):
+    def cors(self, value: pulumi.Input[Optional['FunctionUrlCorsArgs']]):
         pulumi.set(self, "cors", value)
 
     @_builtins.property
     @pulumi.getter(name="invokeMode")
-    def invoke_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def invoke_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         How the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`.
         """
         return pulumi.get(self, "invoke_mode")
 
     @invoke_mode.setter
-    def invoke_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def invoke_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "invoke_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def qualifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def qualifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Alias name or `$LATEST`.
         """
         return pulumi.get(self, "qualifier")
 
     @qualifier.setter
-    def qualifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def qualifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "qualifier", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _FunctionUrlState:
     def __init__(__self__, *,
-                 authorization_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 cors: Optional[pulumi.Input['FunctionUrlCorsArgs']] = None,
-                 function_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 invoke_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 qualifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 url_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 authorization_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 cors: pulumi.Input[Optional['FunctionUrlCorsArgs']] = None,
+                 function_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 invoke_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 qualifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 url_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FunctionUrl resources.
 
@@ -173,43 +173,43 @@ class _FunctionUrlState:
 
     @_builtins.property
     @pulumi.getter(name="authorizationType")
-    def authorization_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authorization_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of authentication that the function URL uses. Valid values are `AWS_IAM` and `NONE`.
         """
         return pulumi.get(self, "authorization_type")
 
     @authorization_type.setter
-    def authorization_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authorization_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authorization_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def cors(self) -> Optional[pulumi.Input['FunctionUrlCorsArgs']]:
+    def cors(self) -> pulumi.Input[Optional['FunctionUrlCorsArgs']]:
         """
         Cross-origin resource sharing (CORS) settings for the function URL. See below.
         """
         return pulumi.get(self, "cors")
 
     @cors.setter
-    def cors(self, value: Optional[pulumi.Input['FunctionUrlCorsArgs']]):
+    def cors(self, value: pulumi.Input[Optional['FunctionUrlCorsArgs']]):
         pulumi.set(self, "cors", value)
 
     @_builtins.property
     @pulumi.getter(name="functionArn")
-    def function_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def function_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the Lambda function.
         """
         return pulumi.get(self, "function_arn")
 
     @function_arn.setter
-    def function_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def function_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "function_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="functionName")
-    def function_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def function_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name or ARN of the Lambda function.
 
@@ -218,67 +218,67 @@ class _FunctionUrlState:
         return pulumi.get(self, "function_name")
 
     @function_name.setter
-    def function_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def function_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "function_name", value)
 
     @_builtins.property
     @pulumi.getter(name="functionUrl")
-    def function_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def function_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws/`.
         """
         return pulumi.get(self, "function_url")
 
     @function_url.setter
-    def function_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def function_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "function_url", value)
 
     @_builtins.property
     @pulumi.getter(name="invokeMode")
-    def invoke_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def invoke_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         How the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`.
         """
         return pulumi.get(self, "invoke_mode")
 
     @invoke_mode.setter
-    def invoke_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def invoke_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "invoke_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def qualifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def qualifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Alias name or `$LATEST`.
         """
         return pulumi.get(self, "qualifier")
 
     @qualifier.setter
-    def qualifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def qualifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "qualifier", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="urlId")
-    def url_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Generated ID for the endpoint.
         """
         return pulumi.get(self, "url_id")
 
     @url_id.setter
-    def url_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url_id", value)
 
 
@@ -288,12 +288,12 @@ class FunctionUrl(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorization_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 cors: Optional[pulumi.Input[Union['FunctionUrlCorsArgs', 'FunctionUrlCorsArgsDict']]] = None,
-                 function_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 invoke_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 qualifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 authorization_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 cors: pulumi.Input[Optional[Union['FunctionUrlCorsArgs', 'FunctionUrlCorsArgsDict']]] = None,
+                 function_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 invoke_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 qualifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Lambda function URL. Creates a dedicated HTTP(S) endpoint for a Lambda function to enable direct invocation via HTTP requests.
@@ -441,12 +441,12 @@ class FunctionUrl(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorization_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 cors: Optional[pulumi.Input[Union['FunctionUrlCorsArgs', 'FunctionUrlCorsArgsDict']]] = None,
-                 function_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 invoke_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 qualifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 authorization_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 cors: pulumi.Input[Optional[Union['FunctionUrlCorsArgs', 'FunctionUrlCorsArgsDict']]] = None,
+                 function_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 invoke_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 qualifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -479,15 +479,15 @@ class FunctionUrl(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            authorization_type: Optional[pulumi.Input[_builtins.str]] = None,
-            cors: Optional[pulumi.Input[Union['FunctionUrlCorsArgs', 'FunctionUrlCorsArgsDict']]] = None,
-            function_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            function_name: Optional[pulumi.Input[_builtins.str]] = None,
-            function_url: Optional[pulumi.Input[_builtins.str]] = None,
-            invoke_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            qualifier: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            url_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'FunctionUrl':
+            authorization_type: pulumi.Input[Optional[_builtins.str]] = None,
+            cors: pulumi.Input[Optional[Union['FunctionUrlCorsArgs', 'FunctionUrlCorsArgsDict']]] = None,
+            function_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            function_name: pulumi.Input[Optional[_builtins.str]] = None,
+            function_url: pulumi.Input[Optional[_builtins.str]] = None,
+            invoke_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            qualifier: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            url_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'FunctionUrl':
         """
         Get an existing FunctionUrl resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

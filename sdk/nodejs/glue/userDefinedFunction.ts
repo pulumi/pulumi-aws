@@ -168,43 +168,43 @@ export interface UserDefinedFunctionState {
     /**
      * The ARN of the Glue User Defined Function.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * ID of the Glue Catalog to create the function in. If omitted, this defaults to the AWS Account ID.
      */
-    catalogId?: pulumi.Input<string>;
+    catalogId?: pulumi.Input<string | undefined>;
     /**
      * The Java class that contains the function code.
      */
-    className?: pulumi.Input<string>;
+    className?: pulumi.Input<string | undefined>;
     /**
      * The time at which the function was created.
      */
-    createTime?: pulumi.Input<string>;
+    createTime?: pulumi.Input<string | undefined>;
     /**
      * The name of the Database to create the Function.
      */
-    databaseName?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string | undefined>;
     /**
      * The name of the function.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The owner of the function.
      */
-    ownerName?: pulumi.Input<string>;
+    ownerName?: pulumi.Input<string | undefined>;
     /**
      * The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
      */
-    ownerType?: pulumi.Input<string>;
+    ownerType?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The configuration block for Resource URIs. See resource uris below for more details.
      */
-    resourceUris?: pulumi.Input<pulumi.Input<inputs.glue.UserDefinedFunctionResourceUri>[]>;
+    resourceUris?: pulumi.Input<pulumi.Input<inputs.glue.UserDefinedFunctionResourceUri>[] | undefined>;
 }
 
 /**
@@ -214,7 +214,7 @@ export interface UserDefinedFunctionArgs {
     /**
      * ID of the Glue Catalog to create the function in. If omitted, this defaults to the AWS Account ID.
      */
-    catalogId?: pulumi.Input<string>;
+    catalogId?: pulumi.Input<string | undefined>;
     /**
      * The Java class that contains the function code.
      */
@@ -226,7 +226,7 @@ export interface UserDefinedFunctionArgs {
     /**
      * The name of the function.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The owner of the function.
      */
@@ -238,9 +238,9 @@ export interface UserDefinedFunctionArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The configuration block for Resource URIs. See resource uris below for more details.
      */
-    resourceUris?: pulumi.Input<pulumi.Input<inputs.glue.UserDefinedFunctionResourceUri>[]>;
+    resourceUris?: pulumi.Input<pulumi.Input<inputs.glue.UserDefinedFunctionResourceUri>[] | undefined>;
 }

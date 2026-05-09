@@ -25,7 +25,7 @@ class RoutingRuleArgs:
                  conditions: pulumi.Input[Sequence[pulumi.Input['RoutingRuleConditionArgs']]],
                  domain_name: pulumi.Input[_builtins.str],
                  priority: pulumi.Input[_builtins.int],
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a RoutingRule resource.
 
@@ -96,27 +96,27 @@ class RoutingRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _RoutingRuleState:
     def __init__(__self__, *,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingRuleActionArgs']]]] = None,
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingRuleConditionArgs']]]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_rule_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_rule_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input['RoutingRuleActionArgs']]]] = None,
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input['RoutingRuleConditionArgs']]]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_rule_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_rule_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RoutingRule resources.
 
@@ -147,31 +147,31 @@ class _RoutingRuleState:
 
     @_builtins.property
     @pulumi.getter
-    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RoutingRuleActionArgs']]]]:
+    def actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RoutingRuleActionArgs']]]]:
         """
         Configuration of resulting action based on matching routing rules condition. See below.
         """
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingRuleActionArgs']]]]):
+    def actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RoutingRuleActionArgs']]]]):
         pulumi.set(self, "actions", value)
 
     @_builtins.property
     @pulumi.getter
-    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RoutingRuleConditionArgs']]]]:
+    def conditions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RoutingRuleConditionArgs']]]]:
         """
         Conditions configuration. See below.
         """
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingRuleConditionArgs']]]]):
+    def conditions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RoutingRuleConditionArgs']]]]):
         pulumi.set(self, "conditions", value)
 
     @_builtins.property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Domain name. Must be between 1 and 512 characters in length.
 
@@ -180,55 +180,55 @@ class _RoutingRuleState:
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
-    def domain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The order of rule evaluation. Priority is evaluated from the lowest value to the highest value. Rules can't have the same priority. Value must be between 1 and 1,000,000.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="routingRuleArn")
-    def routing_rule_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_rule_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the Routing Rule.
         """
         return pulumi.get(self, "routing_rule_arn")
 
     @routing_rule_arn.setter
-    def routing_rule_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_rule_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_rule_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="routingRuleId")
-    def routing_rule_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_rule_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the Routing Rule.
         """
         return pulumi.get(self, "routing_rule_id")
 
     @routing_rule_id.setter
-    def routing_rule_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_rule_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_rule_id", value)
 
 
@@ -238,11 +238,11 @@ class RoutingRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoutingRuleActionArgs', 'RoutingRuleActionArgsDict']]]]] = None,
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoutingRuleConditionArgs', 'RoutingRuleConditionArgsDict']]]]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoutingRuleActionArgs', 'RoutingRuleActionArgsDict']]]]] = None,
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoutingRuleConditionArgs', 'RoutingRuleConditionArgsDict']]]]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing an AWS API Gateway V2 Routing Rule.
@@ -367,11 +367,11 @@ class RoutingRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoutingRuleActionArgs', 'RoutingRuleActionArgsDict']]]]] = None,
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoutingRuleConditionArgs', 'RoutingRuleConditionArgsDict']]]]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoutingRuleActionArgs', 'RoutingRuleActionArgsDict']]]]] = None,
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoutingRuleConditionArgs', 'RoutingRuleConditionArgsDict']]]]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -406,13 +406,13 @@ class RoutingRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoutingRuleActionArgs', 'RoutingRuleActionArgsDict']]]]] = None,
-            conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoutingRuleConditionArgs', 'RoutingRuleConditionArgsDict']]]]] = None,
-            domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-            priority: Optional[pulumi.Input[_builtins.int]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            routing_rule_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            routing_rule_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'RoutingRule':
+            actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoutingRuleActionArgs', 'RoutingRuleActionArgsDict']]]]] = None,
+            conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoutingRuleConditionArgs', 'RoutingRuleConditionArgsDict']]]]] = None,
+            domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            priority: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_rule_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_rule_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'RoutingRule':
         """
         Get an existing RoutingRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -217,10 +217,10 @@ def get_addon(addon_name: Optional[_builtins.str] = None,
         region=pulumi.get(__ret__, 'region'),
         service_account_role_arn=pulumi.get(__ret__, 'service_account_role_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_addon_output(addon_name: Optional[pulumi.Input[_builtins.str]] = None,
-                     cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                     region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                     tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_addon_output(addon_name: pulumi.Input[Optional[_builtins.str]] = None,
+                     cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                     region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                     tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAddonResult]:
     """
     Retrieve information about an EKS add-on.

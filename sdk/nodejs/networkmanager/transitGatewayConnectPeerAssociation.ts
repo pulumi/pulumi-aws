@@ -120,21 +120,21 @@ export interface TransitGatewayConnectPeerAssociationState {
     /**
      * ID of the device.
      */
-    deviceId?: pulumi.Input<string>;
+    deviceId?: pulumi.Input<string | undefined>;
     /**
      * ID of the global network.
      */
-    globalNetworkId?: pulumi.Input<string>;
+    globalNetworkId?: pulumi.Input<string | undefined>;
     /**
      * ID of the link.
      */
-    linkId?: pulumi.Input<string>;
+    linkId?: pulumi.Input<string | undefined>;
     /**
      * ARN of the Connect peer.
      *
      * The following arguments are optional:
      */
-    transitGatewayConnectPeerArn?: pulumi.Input<string>;
+    transitGatewayConnectPeerArn?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -152,7 +152,7 @@ export interface TransitGatewayConnectPeerAssociationArgs {
     /**
      * ID of the link.
      */
-    linkId?: pulumi.Input<string>;
+    linkId?: pulumi.Input<string | undefined>;
     /**
      * ARN of the Connect peer.
      *

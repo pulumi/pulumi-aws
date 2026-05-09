@@ -111,8 +111,8 @@ def get_controls(region: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'),
         target_identifier=pulumi.get(__ret__, 'target_identifier'))
-def get_controls_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                        target_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+def get_controls_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        target_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetControlsResult]:
     """
     List of Control Tower controls applied to an OU.

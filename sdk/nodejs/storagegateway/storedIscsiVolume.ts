@@ -248,87 +248,87 @@ export interface StoredIscsiVolumeState {
     /**
      * Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Whether mutual CHAP is enabled for the iSCSI target.
      */
-    chapEnabled?: pulumi.Input<boolean>;
+    chapEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The unique identifier for the gateway local disk that is configured as a stored volume.
      */
-    diskId?: pulumi.Input<string>;
+    diskId?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the gateway.
      */
-    gatewayArn?: pulumi.Input<string>;
+    gatewayArn?: pulumi.Input<string | undefined>;
     /**
      * `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Optional.
      */
-    kmsEncrypted?: pulumi.Input<boolean>;
+    kmsEncrypted?: pulumi.Input<boolean | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is `true`.
      */
-    kmsKey?: pulumi.Input<string>;
+    kmsKey?: pulumi.Input<string | undefined>;
     /**
      * Logical disk number.
      */
-    lunNumber?: pulumi.Input<number>;
+    lunNumber?: pulumi.Input<number | undefined>;
     /**
      * The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
      */
-    networkInterfaceId?: pulumi.Input<string>;
+    networkInterfaceId?: pulumi.Input<string | undefined>;
     /**
      * The port used to communicate with iSCSI targets.
      */
-    networkInterfacePort?: pulumi.Input<number>;
+    networkInterfacePort?: pulumi.Input<number | undefined>;
     /**
      * Specify this field as `true` if you want to preserve the data on the local disk. Otherwise, specifying this field as false creates an empty volume.
      */
-    preserveExistingData?: pulumi.Input<boolean>;
+    preserveExistingData?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The snapshot ID of the snapshot to restore as the new stored volumeE.g., `snap-1122aabb`.
      */
-    snapshotId?: pulumi.Input<string>;
+    snapshotId?: pulumi.Input<string | undefined>;
     /**
      * Key-value mapping of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
      */
-    targetArn?: pulumi.Input<string>;
+    targetArn?: pulumi.Input<string | undefined>;
     /**
      * The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
      */
-    targetName?: pulumi.Input<string>;
+    targetName?: pulumi.Input<string | undefined>;
     /**
      * A value that indicates whether a storage volume is attached to, detached from, or is in the process of detaching from a gateway.
      */
-    volumeAttachmentStatus?: pulumi.Input<string>;
+    volumeAttachmentStatus?: pulumi.Input<string | undefined>;
     /**
      * Volume ID, e.g., `vol-12345678`.
      */
-    volumeId?: pulumi.Input<string>;
+    volumeId?: pulumi.Input<string | undefined>;
     /**
      * The size of the data stored on the volume in bytes.
      */
-    volumeSizeInBytes?: pulumi.Input<number>;
+    volumeSizeInBytes?: pulumi.Input<number | undefined>;
     /**
      * indicates the state of the storage volume.
      */
-    volumeStatus?: pulumi.Input<string>;
+    volumeStatus?: pulumi.Input<string | undefined>;
     /**
      * indicates the type of the volume.
      */
-    volumeType?: pulumi.Input<string>;
+    volumeType?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -346,11 +346,11 @@ export interface StoredIscsiVolumeArgs {
     /**
      * `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Optional.
      */
-    kmsEncrypted?: pulumi.Input<boolean>;
+    kmsEncrypted?: pulumi.Input<boolean | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is `true`.
      */
-    kmsKey?: pulumi.Input<string>;
+    kmsKey?: pulumi.Input<string | undefined>;
     /**
      * The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
      */
@@ -362,15 +362,15 @@ export interface StoredIscsiVolumeArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The snapshot ID of the snapshot to restore as the new stored volumeE.g., `snap-1122aabb`.
      */
-    snapshotId?: pulumi.Input<string>;
+    snapshotId?: pulumi.Input<string | undefined>;
     /**
      * Key-value mapping of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
      */

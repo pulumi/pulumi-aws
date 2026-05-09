@@ -188,52 +188,52 @@ export interface FeatureGroupState {
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this feature_group.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * A free-form description of a Feature Group.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the feature that stores the EventTime of a Record in a Feature Group.
      */
-    eventTimeFeatureName?: pulumi.Input<string>;
+    eventTimeFeatureName?: pulumi.Input<string | undefined>;
     /**
      * A list of Feature names and types. See Feature Definition Below.
      */
-    featureDefinitions?: pulumi.Input<pulumi.Input<inputs.sagemaker.FeatureGroupFeatureDefinition>[]>;
+    featureDefinitions?: pulumi.Input<pulumi.Input<inputs.sagemaker.FeatureGroupFeatureDefinition>[] | undefined>;
     /**
      * The name of the Feature Group. The name must be unique within an AWS Region in an AWS account.
      */
-    featureGroupName?: pulumi.Input<string>;
+    featureGroupName?: pulumi.Input<string | undefined>;
     /**
      * The Offline Feature Store Configuration. See Offline Store Config Below.
      */
-    offlineStoreConfig?: pulumi.Input<inputs.sagemaker.FeatureGroupOfflineStoreConfig>;
+    offlineStoreConfig?: pulumi.Input<inputs.sagemaker.FeatureGroupOfflineStoreConfig | undefined>;
     /**
      * The Online Feature Store Configuration. See Online Store Config Below.
      */
-    onlineStoreConfig?: pulumi.Input<inputs.sagemaker.FeatureGroupOnlineStoreConfig>;
+    onlineStoreConfig?: pulumi.Input<inputs.sagemaker.FeatureGroupOnlineStoreConfig | undefined>;
     /**
      * The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.
      */
-    recordIdentifierFeatureName?: pulumi.Input<string>;
+    recordIdentifierFeatureName?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
     /**
      * Map of resource tags for the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    throughputConfig?: pulumi.Input<inputs.sagemaker.FeatureGroupThroughputConfig>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    throughputConfig?: pulumi.Input<inputs.sagemaker.FeatureGroupThroughputConfig | undefined>;
 }
 
 /**
@@ -243,7 +243,7 @@ export interface FeatureGroupArgs {
     /**
      * A free-form description of a Feature Group.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the feature that stores the EventTime of a Record in a Feature Group.
      */
@@ -259,11 +259,11 @@ export interface FeatureGroupArgs {
     /**
      * The Offline Feature Store Configuration. See Offline Store Config Below.
      */
-    offlineStoreConfig?: pulumi.Input<inputs.sagemaker.FeatureGroupOfflineStoreConfig>;
+    offlineStoreConfig?: pulumi.Input<inputs.sagemaker.FeatureGroupOfflineStoreConfig | undefined>;
     /**
      * The Online Feature Store Configuration. See Online Store Config Below.
      */
-    onlineStoreConfig?: pulumi.Input<inputs.sagemaker.FeatureGroupOnlineStoreConfig>;
+    onlineStoreConfig?: pulumi.Input<inputs.sagemaker.FeatureGroupOnlineStoreConfig | undefined>;
     /**
      * The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.
      */
@@ -271,7 +271,7 @@ export interface FeatureGroupArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
      */
@@ -279,6 +279,6 @@ export interface FeatureGroupArgs {
     /**
      * Map of resource tags for the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    throughputConfig?: pulumi.Input<inputs.sagemaker.FeatureGroupThroughputConfig>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    throughputConfig?: pulumi.Input<inputs.sagemaker.FeatureGroupThroughputConfig | undefined>;
 }

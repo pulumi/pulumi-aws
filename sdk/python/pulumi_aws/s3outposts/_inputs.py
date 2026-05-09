@@ -20,7 +20,7 @@ __all__ = [
 ]
 
 class EndpointNetworkInterfaceArgsDict(TypedDict):
-    network_interface_id: NotRequired[pulumi.Input[_builtins.str]]
+    network_interface_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Identifier of the Elastic Network Interface (ENI).
     """
@@ -28,7 +28,7 @@ class EndpointNetworkInterfaceArgsDict(TypedDict):
 @pulumi.input_type
 class EndpointNetworkInterfaceArgs:
     def __init__(__self__, *,
-                 network_interface_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 network_interface_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] network_interface_id: Identifier of the Elastic Network Interface (ENI).
         """
@@ -37,14 +37,14 @@ class EndpointNetworkInterfaceArgs:
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaceId")
-    def network_interface_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_interface_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the Elastic Network Interface (ENI).
         """
         return pulumi.get(self, "network_interface_id")
 
     @network_interface_id.setter
-    def network_interface_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_interface_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_interface_id", value)
 
 

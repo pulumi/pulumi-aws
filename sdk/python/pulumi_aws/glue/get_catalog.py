@@ -268,8 +268,8 @@ def get_catalog(name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         target_redshift_catalogs=pulumi.get(__ret__, 'target_redshift_catalogs'),
         update_time=pulumi.get(__ret__, 'update_time'))
-def get_catalog_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                       region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_catalog_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                       region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCatalogResult]:
     """
     Provides details about an AWS Glue Catalog.

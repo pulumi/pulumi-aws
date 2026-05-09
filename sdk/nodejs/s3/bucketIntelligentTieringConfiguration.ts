@@ -169,27 +169,27 @@ export interface BucketIntelligentTieringConfigurationState {
     /**
      * Name of the bucket this intelligent tiering configuration is associated with.
      */
-    bucket?: pulumi.Input<string>;
+    bucket?: pulumi.Input<string | undefined>;
     /**
      * Bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).
      */
-    filter?: pulumi.Input<inputs.s3.BucketIntelligentTieringConfigurationFilter>;
+    filter?: pulumi.Input<inputs.s3.BucketIntelligentTieringConfigurationFilter | undefined>;
     /**
      * Unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
      */
-    tierings?: pulumi.Input<pulumi.Input<inputs.s3.BucketIntelligentTieringConfigurationTiering>[]>;
+    tierings?: pulumi.Input<pulumi.Input<inputs.s3.BucketIntelligentTieringConfigurationTiering>[] | undefined>;
 }
 
 /**
@@ -203,19 +203,19 @@ export interface BucketIntelligentTieringConfigurationArgs {
     /**
      * Bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).
      */
-    filter?: pulumi.Input<inputs.s3.BucketIntelligentTieringConfigurationFilter>;
+    filter?: pulumi.Input<inputs.s3.BucketIntelligentTieringConfigurationFilter | undefined>;
     /**
      * Unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
      */

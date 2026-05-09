@@ -128,15 +128,15 @@ export interface ResourcePolicyState {
     /**
      * An IAM policy. The policy string in JSON must not contain newlines or blank lines.
      */
-    policy?: pulumi.Input<string>;
+    policy?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
      */
-    resourceArn?: pulumi.Input<string>;
+    resourceArn?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -150,7 +150,7 @@ export interface ResourcePolicyArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
      */

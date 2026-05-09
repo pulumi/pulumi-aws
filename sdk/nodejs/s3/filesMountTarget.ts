@@ -187,58 +187,58 @@ export interface FilesMountTargetState {
     /**
      * Availability Zone ID.
      */
-    availabilityZoneId?: pulumi.Input<string>;
+    availabilityZoneId?: pulumi.Input<string | undefined>;
     /**
      * File system ID. Changing this value forces replacement.
      */
-    fileSystemId?: pulumi.Input<string>;
+    fileSystemId?: pulumi.Input<string | undefined>;
     /**
      * IP address type.
      */
-    ipAddressType?: pulumi.Input<string>;
+    ipAddressType?: pulumi.Input<string | undefined>;
     /**
      * IPv4 address.
      */
-    ipv4Address?: pulumi.Input<string>;
+    ipv4Address?: pulumi.Input<string | undefined>;
     /**
      * IPv6 address.
      */
-    ipv6Address?: pulumi.Input<string>;
+    ipv6Address?: pulumi.Input<string | undefined>;
     /**
      * Network interface ID.
      */
-    networkInterfaceId?: pulumi.Input<string>;
+    networkInterfaceId?: pulumi.Input<string | undefined>;
     /**
      * AWS account ID of the owner.
      */
-    ownerId?: pulumi.Input<string>;
+    ownerId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Security group IDs.
      */
-    securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Mount target status.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Status message.
      */
-    statusMessage?: pulumi.Input<string>;
+    statusMessage?: pulumi.Input<string | undefined>;
     /**
      * Subnet ID. Changing this value forces replacement.
      *
      * The following arguments are optional:
      */
-    subnetId?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.s3.FilesMountTargetTimeouts>;
+    subnetId?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.s3.FilesMountTargetTimeouts | undefined>;
     /**
      * VPC ID.
      */
-    vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -252,28 +252,28 @@ export interface FilesMountTargetArgs {
     /**
      * IP address type.
      */
-    ipAddressType?: pulumi.Input<string>;
+    ipAddressType?: pulumi.Input<string | undefined>;
     /**
      * IPv4 address.
      */
-    ipv4Address?: pulumi.Input<string>;
+    ipv4Address?: pulumi.Input<string | undefined>;
     /**
      * IPv6 address.
      */
-    ipv6Address?: pulumi.Input<string>;
+    ipv6Address?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Security group IDs.
      */
-    securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Subnet ID. Changing this value forces replacement.
      *
      * The following arguments are optional:
      */
     subnetId: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.s3.FilesMountTargetTimeouts>;
+    timeouts?: pulumi.Input<inputs.s3.FilesMountTargetTimeouts | undefined>;
 }

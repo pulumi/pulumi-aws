@@ -248,11 +248,11 @@ def get_user(instance_id: Optional[_builtins.str] = None,
         security_profile_ids=pulumi.get(__ret__, 'security_profile_ids'),
         tags=pulumi.get(__ret__, 'tags'),
         user_id=pulumi.get(__ret__, 'user_id'))
-def get_user_output(instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                    name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                    region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                    tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
-                    user_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_user_output(instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                    name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                    region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                    tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
+                    user_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
     """
     Provides details about a specific Amazon Connect User.

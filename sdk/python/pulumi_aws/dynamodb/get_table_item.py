@@ -161,11 +161,11 @@ def get_table_item(expression_attribute_names: Optional[Mapping[str, _builtins.s
         projection_expression=pulumi.get(__ret__, 'projection_expression'),
         region=pulumi.get(__ret__, 'region'),
         table_name=pulumi.get(__ret__, 'table_name'))
-def get_table_item_output(expression_attribute_names: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
-                          key: Optional[pulumi.Input[_builtins.str]] = None,
-                          projection_expression: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                          region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                          table_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_table_item_output(expression_attribute_names: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
+                          key: pulumi.Input[Optional[_builtins.str]] = None,
+                          projection_expression: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          table_name: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTableItemResult]:
     """
     Data source for retrieving a value from an AWS DynamoDB table.

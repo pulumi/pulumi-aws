@@ -200,10 +200,10 @@ def get_certificate(default_for_new_launches: Optional[_builtins.bool] = None,
         thumbprint=pulumi.get(__ret__, 'thumbprint'),
         valid_from=pulumi.get(__ret__, 'valid_from'),
         valid_till=pulumi.get(__ret__, 'valid_till'))
-def get_certificate_output(default_for_new_launches: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                           id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                           latest_valid_till: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                           region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_certificate_output(default_for_new_launches: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                           id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           latest_valid_till: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                           region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateResult]:
     """
     Information about an RDS Certificate.

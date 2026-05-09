@@ -139,23 +139,23 @@ export interface GroupMembershipState {
     /**
      * The identifier for a group in the Identity Store.
      */
-    groupId?: pulumi.Input<string>;
+    groupId?: pulumi.Input<string | undefined>;
     /**
      * Identity Store ID associated with the Single Sign-On Instance.
      */
-    identityStoreId?: pulumi.Input<string>;
+    identityStoreId?: pulumi.Input<string | undefined>;
     /**
      * The identifier for a user in the Identity Store.
      */
-    memberId?: pulumi.Input<string>;
+    memberId?: pulumi.Input<string | undefined>;
     /**
      * The identifier of the newly created group membership in the Identity Store.
      */
-    membershipId?: pulumi.Input<string>;
+    membershipId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -177,5 +177,5 @@ export interface GroupMembershipArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

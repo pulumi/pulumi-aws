@@ -152,17 +152,17 @@ export interface GetBundleOutputArgs {
     /**
      * ID of the bundle.
      */
-    bundleId?: pulumi.Input<string>;
+    bundleId?: pulumi.Input<string | undefined>;
     /**
      * Name of the bundle. You cannot combine this parameter with `bundleId`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundleId`.
      */
-    owner?: pulumi.Input<string>;
+    owner?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

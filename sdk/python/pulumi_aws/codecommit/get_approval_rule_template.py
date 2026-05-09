@@ -187,8 +187,8 @@ def get_approval_rule_template(name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         region=pulumi.get(__ret__, 'region'),
         rule_content_sha256=pulumi.get(__ret__, 'rule_content_sha256'))
-def get_approval_rule_template_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_approval_rule_template_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApprovalRuleTemplateResult]:
     """
     Provides details about a specific CodeCommit Approval Rule Template.

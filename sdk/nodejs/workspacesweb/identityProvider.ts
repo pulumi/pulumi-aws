@@ -175,38 +175,38 @@ export interface IdentityProviderState {
     /**
      * ARN of the identity provider.
      */
-    identityProviderArn?: pulumi.Input<string>;
+    identityProviderArn?: pulumi.Input<string | undefined>;
     /**
      * Identity provider details. The following list describes the provider detail keys for each identity provider type:
      * * For Google and Login with Amazon:
      */
-    identityProviderDetails?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    identityProviderDetails?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Identity provider name.
      */
-    identityProviderName?: pulumi.Input<string>;
+    identityProviderName?: pulumi.Input<string | undefined>;
     /**
      * Identity provider type. Valid values: `SAML`, `Facebook`, `Google`, `LoginWithAmazon`, `SignInWithApple`, `OIDC`.
      */
-    identityProviderType?: pulumi.Input<string>;
+    identityProviderType?: pulumi.Input<string | undefined>;
     /**
      * ARN of the web portal. Forces replacement if changed.
      *
      * The following arguments are optional:
      */
-    portalArn?: pulumi.Input<string>;
+    portalArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -235,9 +235,9 @@ export interface IdentityProviderArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

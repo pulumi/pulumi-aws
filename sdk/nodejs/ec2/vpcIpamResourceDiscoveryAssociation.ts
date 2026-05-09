@@ -163,47 +163,47 @@ export interface VpcIpamResourceDiscoveryAssociationState {
     /**
      * The Amazon Resource Name (ARN) of IPAM Resource Discovery Association.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IPAM.
      */
-    ipamArn?: pulumi.Input<string>;
+    ipamArn?: pulumi.Input<string | undefined>;
     /**
      * The ID of the IPAM to associate.
      */
-    ipamId?: pulumi.Input<string>;
+    ipamId?: pulumi.Input<string | undefined>;
     /**
      * The home region of the IPAM.
      */
-    ipamRegion?: pulumi.Input<string>;
+    ipamRegion?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Resource Discovery to associate.
      */
-    ipamResourceDiscoveryId?: pulumi.Input<string>;
+    ipamResourceDiscoveryId?: pulumi.Input<string | undefined>;
     /**
      * A boolean to identify if the Resource Discovery is the accounts default resource discovery.
      */
-    isDefault?: pulumi.Input<boolean>;
+    isDefault?: pulumi.Input<boolean | undefined>;
     /**
      * The account ID for the account that manages the Resource Discovery
      */
-    ownerId?: pulumi.Input<string>;
+    ownerId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The lifecycle state of the association when you associate or disassociate a resource discovery.
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to add to the IPAM resource discovery association resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -221,9 +221,9 @@ export interface VpcIpamResourceDiscoveryAssociationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to add to the IPAM resource discovery association resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

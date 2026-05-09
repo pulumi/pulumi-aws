@@ -146,11 +146,11 @@ export interface HostedZoneDnsSecState {
      *
      * The following arguments are optional:
      */
-    hostedZoneId?: pulumi.Input<string>;
+    hostedZoneId?: pulumi.Input<string | undefined>;
     /**
      * Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
      */
-    signingStatus?: pulumi.Input<string>;
+    signingStatus?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -166,5 +166,5 @@ export interface HostedZoneDnsSecArgs {
     /**
      * Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
      */
-    signingStatus?: pulumi.Input<string>;
+    signingStatus?: pulumi.Input<string | undefined>;
 }

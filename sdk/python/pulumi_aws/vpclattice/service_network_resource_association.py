@@ -23,10 +23,10 @@ class ServiceNetworkResourceAssociationArgs:
     def __init__(__self__, *,
                  resource_configuration_identifier: pulumi.Input[_builtins.str],
                  service_network_identifier: pulumi.Input[_builtins.str],
-                 private_dns_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['ServiceNetworkResourceAssociationTimeoutsArgs']] = None):
+                 private_dns_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['ServiceNetworkResourceAssociationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a ServiceNetworkResourceAssociation resource.
 
@@ -77,62 +77,62 @@ class ServiceNetworkResourceAssociationArgs:
 
     @_builtins.property
     @pulumi.getter(name="privateDnsEnabled")
-    def private_dns_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def private_dns_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resource_configuration_identifier` must have a custom domain name or a group domain for private DNS.
         """
         return pulumi.get(self, "private_dns_enabled")
 
     @private_dns_enabled.setter
-    def private_dns_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def private_dns_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "private_dns_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['ServiceNetworkResourceAssociationTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['ServiceNetworkResourceAssociationTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['ServiceNetworkResourceAssociationTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['ServiceNetworkResourceAssociationTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _ServiceNetworkResourceAssociationState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_entries: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceNetworkResourceAssociationDnsEntryArgs']]]] = None,
-                 private_dns_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_configuration_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_network_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['ServiceNetworkResourceAssociationTimeoutsArgs']] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_entries: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceNetworkResourceAssociationDnsEntryArgs']]]] = None,
+                 private_dns_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_configuration_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_network_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['ServiceNetworkResourceAssociationTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering ServiceNetworkResourceAssociation resources.
 
@@ -168,67 +168,67 @@ class _ServiceNetworkResourceAssociationState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the Service Network Resource Association.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsEntries")
-    def dns_entries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceNetworkResourceAssociationDnsEntryArgs']]]]:
+    def dns_entries(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceNetworkResourceAssociationDnsEntryArgs']]]]:
         """
         DNS entry of the association in the service network.
         """
         return pulumi.get(self, "dns_entries")
 
     @dns_entries.setter
-    def dns_entries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceNetworkResourceAssociationDnsEntryArgs']]]]):
+    def dns_entries(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceNetworkResourceAssociationDnsEntryArgs']]]]):
         pulumi.set(self, "dns_entries", value)
 
     @_builtins.property
     @pulumi.getter(name="privateDnsEnabled")
-    def private_dns_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def private_dns_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resource_configuration_identifier` must have a custom domain name or a group domain for private DNS.
         """
         return pulumi.get(self, "private_dns_enabled")
 
     @private_dns_enabled.setter
-    def private_dns_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def private_dns_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "private_dns_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceConfigurationIdentifier")
-    def resource_configuration_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_configuration_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of Resource Configuration to associate to the Service Network.
         """
         return pulumi.get(self, "resource_configuration_identifier")
 
     @resource_configuration_identifier.setter
-    def resource_configuration_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_configuration_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_configuration_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceNetworkIdentifier")
-    def service_network_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_network_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the Service Network to associate the Resource to.
 
@@ -237,40 +237,40 @@ class _ServiceNetworkResourceAssociationState:
         return pulumi.get(self, "service_network_identifier")
 
     @service_network_identifier.setter
-    def service_network_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_network_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_network_identifier", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['ServiceNetworkResourceAssociationTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['ServiceNetworkResourceAssociationTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['ServiceNetworkResourceAssociationTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['ServiceNetworkResourceAssociationTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
@@ -280,12 +280,12 @@ class ServiceNetworkResourceAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 private_dns_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_configuration_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_network_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['ServiceNetworkResourceAssociationTimeoutsArgs', 'ServiceNetworkResourceAssociationTimeoutsArgsDict']]] = None,
+                 private_dns_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_configuration_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_network_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ServiceNetworkResourceAssociationTimeoutsArgs', 'ServiceNetworkResourceAssociationTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS VPC Lattice Service Network Resource Association.
@@ -374,12 +374,12 @@ class ServiceNetworkResourceAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 private_dns_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_configuration_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_network_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['ServiceNetworkResourceAssociationTimeoutsArgs', 'ServiceNetworkResourceAssociationTimeoutsArgsDict']]] = None,
+                 private_dns_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_configuration_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_network_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ServiceNetworkResourceAssociationTimeoutsArgs', 'ServiceNetworkResourceAssociationTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -412,15 +412,15 @@ class ServiceNetworkResourceAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            dns_entries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceNetworkResourceAssociationDnsEntryArgs', 'ServiceNetworkResourceAssociationDnsEntryArgsDict']]]]] = None,
-            private_dns_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_configuration_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-            service_network_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: Optional[pulumi.Input[Union['ServiceNetworkResourceAssociationTimeoutsArgs', 'ServiceNetworkResourceAssociationTimeoutsArgsDict']]] = None) -> 'ServiceNetworkResourceAssociation':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            dns_entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceNetworkResourceAssociationDnsEntryArgs', 'ServiceNetworkResourceAssociationDnsEntryArgsDict']]]]] = None,
+            private_dns_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_configuration_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            service_network_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['ServiceNetworkResourceAssociationTimeoutsArgs', 'ServiceNetworkResourceAssociationTimeoutsArgsDict']]] = None) -> 'ServiceNetworkResourceAssociation':
         """
         Get an existing ServiceNetworkResourceAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

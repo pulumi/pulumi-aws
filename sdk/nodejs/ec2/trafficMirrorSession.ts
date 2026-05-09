@@ -179,51 +179,51 @@ export interface TrafficMirrorSessionState {
     /**
      * The ARN of the traffic mirror session.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * A description of the traffic mirror session.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * ID of the source network interface. Not all network interfaces are eligible as mirror sources. On EC2 instances only nitro based instances support mirroring.
      */
-    networkInterfaceId?: pulumi.Input<string>;
+    networkInterfaceId?: pulumi.Input<string | undefined>;
     /**
      * The AWS account ID of the session owner.
      */
-    ownerId?: pulumi.Input<string>;
+    ownerId?: pulumi.Input<string | undefined>;
     /**
      * The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror.
      */
-    packetLength?: pulumi.Input<number>;
+    packetLength?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
      */
-    sessionNumber?: pulumi.Input<number>;
+    sessionNumber?: pulumi.Input<number | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * ID of the traffic mirror filter to be used
      */
-    trafficMirrorFilterId?: pulumi.Input<string>;
+    trafficMirrorFilterId?: pulumi.Input<string | undefined>;
     /**
      * ID of the traffic mirror target to be used
      */
-    trafficMirrorTargetId?: pulumi.Input<string>;
+    trafficMirrorTargetId?: pulumi.Input<string | undefined>;
     /**
      * The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
      */
-    virtualNetworkId?: pulumi.Input<number>;
+    virtualNetworkId?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -233,7 +233,7 @@ export interface TrafficMirrorSessionArgs {
     /**
      * A description of the traffic mirror session.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * ID of the source network interface. Not all network interfaces are eligible as mirror sources. On EC2 instances only nitro based instances support mirroring.
      */
@@ -241,11 +241,11 @@ export interface TrafficMirrorSessionArgs {
     /**
      * The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror.
      */
-    packetLength?: pulumi.Input<number>;
+    packetLength?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
      */
@@ -253,7 +253,7 @@ export interface TrafficMirrorSessionArgs {
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * ID of the traffic mirror filter to be used
      */
@@ -265,5 +265,5 @@ export interface TrafficMirrorSessionArgs {
     /**
      * The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
      */
-    virtualNetworkId?: pulumi.Input<number>;
+    virtualNetworkId?: pulumi.Input<number | undefined>;
 }

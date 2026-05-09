@@ -166,15 +166,15 @@ export interface ApnsVoipChannelState {
     /**
      * The application ID.
      */
-    applicationId?: pulumi.Input<string>;
+    applicationId?: pulumi.Input<string | undefined>;
     /**
      * The ID assigned to your iOS app. To find this value, choose Certificates, IDs & Profiles, choose App IDs in the Identifiers section, and choose your app.
      */
-    bundleId?: pulumi.Input<string>;
+    bundleId?: pulumi.Input<string | undefined>;
     /**
      * The pem encoded TLS Certificate from Apple.
      */
-    certificate?: pulumi.Input<string>;
+    certificate?: pulumi.Input<string | undefined>;
     /**
      * The default authentication method used for APNs.
      * __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
@@ -185,33 +185,33 @@ export interface ApnsVoipChannelState {
      *
      * If you choose to use __Certificate credentials__ you will have to provide:
      */
-    defaultAuthenticationMethod?: pulumi.Input<string>;
+    defaultAuthenticationMethod?: pulumi.Input<string | undefined>;
     /**
      * Whether the channel is enabled or disabled. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Certificate Private Key file (ie. `.key` file).
      *
      * If you choose to use __Key credentials__ you will have to provide:
      */
-    privateKey?: pulumi.Input<string>;
+    privateKey?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ID assigned to your Apple developer account team. This value is provided on the Membership page.
      */
-    teamId?: pulumi.Input<string>;
+    teamId?: pulumi.Input<string | undefined>;
     /**
      * The `.p8` file that you download from your Apple developer account when you create an authentication key.
      */
-    tokenKey?: pulumi.Input<string>;
+    tokenKey?: pulumi.Input<string | undefined>;
     /**
      * The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
      */
-    tokenKeyId?: pulumi.Input<string>;
+    tokenKeyId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -225,11 +225,11 @@ export interface ApnsVoipChannelArgs {
     /**
      * The ID assigned to your iOS app. To find this value, choose Certificates, IDs & Profiles, choose App IDs in the Identifiers section, and choose your app.
      */
-    bundleId?: pulumi.Input<string>;
+    bundleId?: pulumi.Input<string | undefined>;
     /**
      * The pem encoded TLS Certificate from Apple.
      */
-    certificate?: pulumi.Input<string>;
+    certificate?: pulumi.Input<string | undefined>;
     /**
      * The default authentication method used for APNs.
      * __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
@@ -240,31 +240,31 @@ export interface ApnsVoipChannelArgs {
      *
      * If you choose to use __Certificate credentials__ you will have to provide:
      */
-    defaultAuthenticationMethod?: pulumi.Input<string>;
+    defaultAuthenticationMethod?: pulumi.Input<string | undefined>;
     /**
      * Whether the channel is enabled or disabled. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Certificate Private Key file (ie. `.key` file).
      *
      * If you choose to use __Key credentials__ you will have to provide:
      */
-    privateKey?: pulumi.Input<string>;
+    privateKey?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ID assigned to your Apple developer account team. This value is provided on the Membership page.
      */
-    teamId?: pulumi.Input<string>;
+    teamId?: pulumi.Input<string | undefined>;
     /**
      * The `.p8` file that you download from your Apple developer account when you create an authentication key.
      */
-    tokenKey?: pulumi.Input<string>;
+    tokenKey?: pulumi.Input<string | undefined>;
     /**
      * The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
      */
-    tokenKeyId?: pulumi.Input<string>;
+    tokenKeyId?: pulumi.Input<string | undefined>;
 }

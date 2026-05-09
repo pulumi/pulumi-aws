@@ -142,26 +142,26 @@ export interface ServerlessVpcEndpointState {
     /**
      * Name of the interface endpoint.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * One or more security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint. Up to 5 security groups can be provided.
      */
-    securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * One or more subnet IDs from which you'll access OpenSearch Serverless. Up to 6 subnets can be provided.
      */
-    subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
-    timeouts?: pulumi.Input<inputs.opensearch.ServerlessVpcEndpointTimeouts>;
+    subnetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    timeouts?: pulumi.Input<inputs.opensearch.ServerlessVpcEndpointTimeouts | undefined>;
     /**
      * ID of the VPC from which you'll access OpenSearch Serverless.
      *
      * The following arguments are optional:
      */
-    vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -171,20 +171,20 @@ export interface ServerlessVpcEndpointArgs {
     /**
      * Name of the interface endpoint.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * One or more security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint. Up to 5 security groups can be provided.
      */
-    securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * One or more subnet IDs from which you'll access OpenSearch Serverless. Up to 6 subnets can be provided.
      */
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
-    timeouts?: pulumi.Input<inputs.opensearch.ServerlessVpcEndpointTimeouts>;
+    timeouts?: pulumi.Input<inputs.opensearch.ServerlessVpcEndpointTimeouts | undefined>;
     /**
      * ID of the VPC from which you'll access OpenSearch Serverless.
      *

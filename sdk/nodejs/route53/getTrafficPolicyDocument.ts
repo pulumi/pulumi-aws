@@ -335,25 +335,25 @@ export interface GetTrafficPolicyDocumentOutputArgs {
     /**
      * Configuration block for the definitions of the endpoints that you want to use in this traffic policy. See below
      */
-    endpoints?: pulumi.Input<pulumi.Input<inputs.route53.GetTrafficPolicyDocumentEndpointArgs>[]>;
+    endpoints?: pulumi.Input<pulumi.Input<inputs.route53.GetTrafficPolicyDocumentEndpointArgs>[] | undefined>;
     /**
      * DNS type of all of the resource record sets that Amazon Route 53 will create based on this traffic policy.
      */
-    recordType?: pulumi.Input<string>;
+    recordType?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for definitions of the rules that you want to use in this traffic policy. See below
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.route53.GetTrafficPolicyDocumentRuleArgs>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.route53.GetTrafficPolicyDocumentRuleArgs>[] | undefined>;
     /**
      * An endpoint to be as the starting point for the traffic policy.
      */
-    startEndpoint?: pulumi.Input<string>;
+    startEndpoint?: pulumi.Input<string | undefined>;
     /**
      * A rule to be as the starting point for the traffic policy.
      */
-    startRule?: pulumi.Input<string>;
+    startRule?: pulumi.Input<string | undefined>;
     /**
      * Version of the traffic policy format.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }

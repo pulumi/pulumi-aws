@@ -462,141 +462,141 @@ export interface BucketObjectv2State {
     /**
      * [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`.
      */
-    acl?: pulumi.Input<string>;
+    acl?: pulumi.Input<string | undefined>;
     /**
      * ARN of the object.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
      */
-    bucket?: pulumi.Input<string | Bucket>;
+    bucket?: pulumi.Input<string | Bucket | undefined>;
     /**
      * Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
      */
-    bucketKeyEnabled?: pulumi.Input<boolean>;
+    bucketKeyEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
      */
-    cacheControl?: pulumi.Input<string>;
+    cacheControl?: pulumi.Input<string | undefined>;
     /**
      * Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
      */
-    checksumAlgorithm?: pulumi.Input<string>;
+    checksumAlgorithm?: pulumi.Input<string | undefined>;
     /**
      * The base64-encoded, 32-bit CRC32 checksum of the object.
      */
-    checksumCrc32?: pulumi.Input<string>;
+    checksumCrc32?: pulumi.Input<string | undefined>;
     /**
      * The base64-encoded, 32-bit CRC32C checksum of the object.
      */
-    checksumCrc32c?: pulumi.Input<string>;
+    checksumCrc32c?: pulumi.Input<string | undefined>;
     /**
      * The base64-encoded, 64-bit CRC64NVME checksum of the object.
      */
-    checksumCrc64nvme?: pulumi.Input<string>;
+    checksumCrc64nvme?: pulumi.Input<string | undefined>;
     /**
      * The base64-encoded, 160-bit SHA-1 digest of the object.
      */
-    checksumSha1?: pulumi.Input<string>;
+    checksumSha1?: pulumi.Input<string | undefined>;
     /**
      * The base64-encoded, 256-bit SHA-256 digest of the object.
      */
-    checksumSha256?: pulumi.Input<string>;
+    checksumSha256?: pulumi.Input<string | undefined>;
     /**
      * Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text.
      */
-    content?: pulumi.Input<string>;
+    content?: pulumi.Input<string | undefined>;
     /**
      * Base64-encoded data that will be decoded and uploaded as raw bytes for the object content. This allows safely uploading non-UTF8 binary data, but is recommended only for small content such as the result of the `gzipbase64` function with small text strings. For larger objects, use `source` to stream the content from a disk file.
      */
-    contentBase64?: pulumi.Input<string>;
+    contentBase64?: pulumi.Input<string | undefined>;
     /**
      * Presentational information for the object. Read [w3c contentDisposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
      */
-    contentDisposition?: pulumi.Input<string>;
+    contentDisposition?: pulumi.Input<string | undefined>;
     /**
      * Content encodings that have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
      */
-    contentEncoding?: pulumi.Input<string>;
+    contentEncoding?: pulumi.Input<string | undefined>;
     /**
      * Language the content is in e.g., en-US or en-GB.
      */
-    contentLanguage?: pulumi.Input<string>;
+    contentLanguage?: pulumi.Input<string | undefined>;
     /**
      * Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.
      */
-    contentType?: pulumi.Input<string>;
+    contentType?: pulumi.Input<string | undefined>;
     /**
      * Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kmsKeyId` or `serverSideEncryption = "aws:kms"`, also if an object is larger than 16 MB, the AWS Management Console will upload or copy that object as a Multipart Upload, and therefore the ETag will not be an MD5 digest (see `sourceHash` instead).
      */
-    etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
      */
-    forceDestroy?: pulumi.Input<boolean>;
+    forceDestroy?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the object once it is in the bucket.
      *
      * The following arguments are optional:
      */
-    key?: pulumi.Input<string>;
+    key?: pulumi.Input<string | undefined>;
     /**
      * ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `targetKeyArn` attribute. The provider will only perform drift detection if a configuration value is provided.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
      */
-    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * [Legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
      */
-    objectLockLegalHoldStatus?: pulumi.Input<string>;
+    objectLockLegalHoldStatus?: pulumi.Input<string | undefined>;
     /**
      * Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
      */
-    objectLockMode?: pulumi.Input<string>;
+    objectLockMode?: pulumi.Input<string | undefined>;
     /**
      * Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
      */
-    objectLockRetainUntilDate?: pulumi.Input<string>;
+    objectLockRetainUntilDate?: pulumi.Input<string | undefined>;
     /**
      * Override provider-level configuration options. See Override Provider below for more details.
      */
-    overrideProvider?: pulumi.Input<inputs.s3.BucketObjectv2OverrideProvider>;
+    overrideProvider?: pulumi.Input<inputs.s3.BucketObjectv2OverrideProvider | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Server-side encryption of the object in S3. Valid values are `"AES256"`, `"aws:kms"`, `"aws:kms:dsse"`, and `"aws:fsx"`.
      */
-    serverSideEncryption?: pulumi.Input<string>;
+    serverSideEncryption?: pulumi.Input<string | undefined>;
     /**
      * Path to a file that will be read and uploaded as raw bytes for the object content.
      */
-    source?: pulumi.Input<pulumi.asset.Asset | pulumi.asset.Archive>;
+    source?: pulumi.Input<pulumi.asset.Asset | pulumi.asset.Archive | undefined>;
     /**
      * Triggers updates like `etag` but useful to address `etag` encryption limitations. (The value is only stored in state and not saved by AWS.)
      */
-    sourceHash?: pulumi.Input<string>;
+    sourceHash?: pulumi.Input<string | undefined>;
     /**
      * [Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to "`STANDARD`".
      */
-    storageClass?: pulumi.Input<string>;
+    storageClass?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Unique version ID value for the object, if bucket versioning is enabled.
      */
-    versionId?: pulumi.Input<string>;
+    versionId?: pulumi.Input<string | undefined>;
     /**
      * Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
      *
@@ -606,7 +606,7 @@ export interface BucketObjectv2State {
      *
      * > **Note:** The provider ignores all leading `/`s in the object's `key` and treats multiple `/`s in the rest of the object's `key` as a single `/`, so values of `/index.html` and `index.html` correspond to the same S3 object as do `first//second///third//` and `first/second/third/`.
      */
-    websiteRedirect?: pulumi.Input<string>;
+    websiteRedirect?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -616,7 +616,7 @@ export interface BucketObjectv2Args {
     /**
      * [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`.
      */
-    acl?: pulumi.Input<string>;
+    acl?: pulumi.Input<string | undefined>;
     /**
      * Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
      */
@@ -624,101 +624,101 @@ export interface BucketObjectv2Args {
     /**
      * Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
      */
-    bucketKeyEnabled?: pulumi.Input<boolean>;
+    bucketKeyEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
      */
-    cacheControl?: pulumi.Input<string>;
+    cacheControl?: pulumi.Input<string | undefined>;
     /**
      * Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
      */
-    checksumAlgorithm?: pulumi.Input<string>;
+    checksumAlgorithm?: pulumi.Input<string | undefined>;
     /**
      * Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text.
      */
-    content?: pulumi.Input<string>;
+    content?: pulumi.Input<string | undefined>;
     /**
      * Base64-encoded data that will be decoded and uploaded as raw bytes for the object content. This allows safely uploading non-UTF8 binary data, but is recommended only for small content such as the result of the `gzipbase64` function with small text strings. For larger objects, use `source` to stream the content from a disk file.
      */
-    contentBase64?: pulumi.Input<string>;
+    contentBase64?: pulumi.Input<string | undefined>;
     /**
      * Presentational information for the object. Read [w3c contentDisposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
      */
-    contentDisposition?: pulumi.Input<string>;
+    contentDisposition?: pulumi.Input<string | undefined>;
     /**
      * Content encodings that have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
      */
-    contentEncoding?: pulumi.Input<string>;
+    contentEncoding?: pulumi.Input<string | undefined>;
     /**
      * Language the content is in e.g., en-US or en-GB.
      */
-    contentLanguage?: pulumi.Input<string>;
+    contentLanguage?: pulumi.Input<string | undefined>;
     /**
      * Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.
      */
-    contentType?: pulumi.Input<string>;
+    contentType?: pulumi.Input<string | undefined>;
     /**
      * Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kmsKeyId` or `serverSideEncryption = "aws:kms"`, also if an object is larger than 16 MB, the AWS Management Console will upload or copy that object as a Multipart Upload, and therefore the ETag will not be an MD5 digest (see `sourceHash` instead).
      */
-    etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
      */
-    forceDestroy?: pulumi.Input<boolean>;
+    forceDestroy?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the object once it is in the bucket.
      *
      * The following arguments are optional:
      */
-    key?: pulumi.Input<string>;
+    key?: pulumi.Input<string | undefined>;
     /**
      * ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `targetKeyArn` attribute. The provider will only perform drift detection if a configuration value is provided.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
      */
-    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * [Legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
      */
-    objectLockLegalHoldStatus?: pulumi.Input<string>;
+    objectLockLegalHoldStatus?: pulumi.Input<string | undefined>;
     /**
      * Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
      */
-    objectLockMode?: pulumi.Input<string>;
+    objectLockMode?: pulumi.Input<string | undefined>;
     /**
      * Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
      */
-    objectLockRetainUntilDate?: pulumi.Input<string>;
+    objectLockRetainUntilDate?: pulumi.Input<string | undefined>;
     /**
      * Override provider-level configuration options. See Override Provider below for more details.
      */
-    overrideProvider?: pulumi.Input<inputs.s3.BucketObjectv2OverrideProvider>;
+    overrideProvider?: pulumi.Input<inputs.s3.BucketObjectv2OverrideProvider | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Server-side encryption of the object in S3. Valid values are `"AES256"`, `"aws:kms"`, `"aws:kms:dsse"`, and `"aws:fsx"`.
      */
-    serverSideEncryption?: pulumi.Input<string>;
+    serverSideEncryption?: pulumi.Input<string | undefined>;
     /**
      * Path to a file that will be read and uploaded as raw bytes for the object content.
      */
-    source?: pulumi.Input<pulumi.asset.Asset | pulumi.asset.Archive>;
+    source?: pulumi.Input<pulumi.asset.Asset | pulumi.asset.Archive | undefined>;
     /**
      * Triggers updates like `etag` but useful to address `etag` encryption limitations. (The value is only stored in state and not saved by AWS.)
      */
-    sourceHash?: pulumi.Input<string>;
+    sourceHash?: pulumi.Input<string | undefined>;
     /**
      * [Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to "`STANDARD`".
      */
-    storageClass?: pulumi.Input<string>;
+    storageClass?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
      *
@@ -728,5 +728,5 @@ export interface BucketObjectv2Args {
      *
      * > **Note:** The provider ignores all leading `/`s in the object's `key` and treats multiple `/`s in the rest of the object's `key` as a single `/`, so values of `/index.html` and `index.html` correspond to the same S3 object as do `first//second///third//` and `first/second/third/`.
      */
-    websiteRedirect?: pulumi.Input<string>;
+    websiteRedirect?: pulumi.Input<string | undefined>;
 }

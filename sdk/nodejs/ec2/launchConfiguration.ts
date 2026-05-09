@@ -239,85 +239,85 @@ export interface LaunchConfigurationState {
     /**
      * The Amazon Resource Name of the launch configuration.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Associate a public ip address with an instance in a VPC.
      */
-    associatePublicIpAddress?: pulumi.Input<boolean>;
+    associatePublicIpAddress?: pulumi.Input<boolean | undefined>;
     /**
      * Additional EBS block devices to attach to the instance. See Block Devices below for details.
      */
-    ebsBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchConfigurationEbsBlockDevice>[]>;
+    ebsBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchConfigurationEbsBlockDevice>[] | undefined>;
     /**
      * If true, the launched EC2 instance will be EBS-optimized.
      */
-    ebsOptimized?: pulumi.Input<boolean>;
+    ebsOptimized?: pulumi.Input<boolean | undefined>;
     /**
      * Enables/disables detailed monitoring. This is enabled by default.
      */
-    enableMonitoring?: pulumi.Input<boolean>;
+    enableMonitoring?: pulumi.Input<boolean | undefined>;
     /**
      * Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
      */
-    ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchConfigurationEphemeralBlockDevice>[]>;
+    ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchConfigurationEphemeralBlockDevice>[] | undefined>;
     /**
      * The name attribute of the IAM instance profile to associate with launched instances.
      */
-    iamInstanceProfile?: pulumi.Input<string | InstanceProfile>;
+    iamInstanceProfile?: pulumi.Input<string | InstanceProfile | undefined>;
     /**
      * The EC2 image ID to launch.
      */
-    imageId?: pulumi.Input<string>;
+    imageId?: pulumi.Input<string | undefined>;
     /**
      * The size of instance to launch.
      *
      * The following arguments are optional:
      */
-    instanceType?: pulumi.Input<string>;
+    instanceType?: pulumi.Input<string | undefined>;
     /**
      * The key name that should be used for the instance.
      */
-    keyName?: pulumi.Input<string>;
+    keyName?: pulumi.Input<string | undefined>;
     /**
      * The metadata options for the instance.
      */
-    metadataOptions?: pulumi.Input<inputs.ec2.LaunchConfigurationMetadataOptions>;
+    metadataOptions?: pulumi.Input<inputs.ec2.LaunchConfigurationMetadataOptions | undefined>;
     /**
      * The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `namePrefix`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string | undefined>;
     /**
      * The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
      */
-    placementTenancy?: pulumi.Input<string>;
+    placementTenancy?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Customize details about the root block device of the instance. See Block Devices below for details.
      */
-    rootBlockDevice?: pulumi.Input<inputs.ec2.LaunchConfigurationRootBlockDevice>;
+    rootBlockDevice?: pulumi.Input<inputs.ec2.LaunchConfigurationRootBlockDevice | undefined>;
     /**
      * A list of associated security group IDS.
      */
-    securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The maximum price to use for reserving spot instances.
      */
-    spotPrice?: pulumi.Input<string>;
+    spotPrice?: pulumi.Input<string | undefined>;
     /**
      * The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead.
      */
-    userData?: pulumi.Input<string>;
+    userData?: pulumi.Input<string | undefined>;
     /**
      * Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
      */
-    userDataBase64?: pulumi.Input<string>;
+    userDataBase64?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -327,27 +327,27 @@ export interface LaunchConfigurationArgs {
     /**
      * Associate a public ip address with an instance in a VPC.
      */
-    associatePublicIpAddress?: pulumi.Input<boolean>;
+    associatePublicIpAddress?: pulumi.Input<boolean | undefined>;
     /**
      * Additional EBS block devices to attach to the instance. See Block Devices below for details.
      */
-    ebsBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchConfigurationEbsBlockDevice>[]>;
+    ebsBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchConfigurationEbsBlockDevice>[] | undefined>;
     /**
      * If true, the launched EC2 instance will be EBS-optimized.
      */
-    ebsOptimized?: pulumi.Input<boolean>;
+    ebsOptimized?: pulumi.Input<boolean | undefined>;
     /**
      * Enables/disables detailed monitoring. This is enabled by default.
      */
-    enableMonitoring?: pulumi.Input<boolean>;
+    enableMonitoring?: pulumi.Input<boolean | undefined>;
     /**
      * Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
      */
-    ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchConfigurationEphemeralBlockDevice>[]>;
+    ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchConfigurationEphemeralBlockDevice>[] | undefined>;
     /**
      * The name attribute of the IAM instance profile to associate with launched instances.
      */
-    iamInstanceProfile?: pulumi.Input<string | InstanceProfile>;
+    iamInstanceProfile?: pulumi.Input<string | InstanceProfile | undefined>;
     /**
      * The EC2 image ID to launch.
      */
@@ -361,45 +361,45 @@ export interface LaunchConfigurationArgs {
     /**
      * The key name that should be used for the instance.
      */
-    keyName?: pulumi.Input<string>;
+    keyName?: pulumi.Input<string | undefined>;
     /**
      * The metadata options for the instance.
      */
-    metadataOptions?: pulumi.Input<inputs.ec2.LaunchConfigurationMetadataOptions>;
+    metadataOptions?: pulumi.Input<inputs.ec2.LaunchConfigurationMetadataOptions | undefined>;
     /**
      * The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `namePrefix`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string | undefined>;
     /**
      * The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
      */
-    placementTenancy?: pulumi.Input<string>;
+    placementTenancy?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Customize details about the root block device of the instance. See Block Devices below for details.
      */
-    rootBlockDevice?: pulumi.Input<inputs.ec2.LaunchConfigurationRootBlockDevice>;
+    rootBlockDevice?: pulumi.Input<inputs.ec2.LaunchConfigurationRootBlockDevice | undefined>;
     /**
      * A list of associated security group IDS.
      */
-    securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The maximum price to use for reserving spot instances.
      */
-    spotPrice?: pulumi.Input<string>;
+    spotPrice?: pulumi.Input<string | undefined>;
     /**
      * The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead.
      */
-    userData?: pulumi.Input<string>;
+    userData?: pulumi.Input<string | undefined>;
     /**
      * Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
      */
-    userDataBase64?: pulumi.Input<string>;
+    userDataBase64?: pulumi.Input<string | undefined>;
 }

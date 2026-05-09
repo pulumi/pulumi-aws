@@ -62,8 +62,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -103,8 +103,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -144,8 +144,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -185,8 +185,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -226,8 +226,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -267,8 +267,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetConnectionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -308,8 +308,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetConnectionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -349,8 +349,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetConnectionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -390,8 +390,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetConnectionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -431,8 +431,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetConnectionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -474,8 +474,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -516,8 +516,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -558,8 +558,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -600,8 +600,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -642,8 +642,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -686,8 +686,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -790,8 +790,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -894,8 +894,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -998,8 +998,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1102,8 +1102,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1202,8 +1202,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetDeviceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1243,8 +1243,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetDeviceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1284,8 +1284,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetDeviceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1325,8 +1325,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetDeviceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1366,8 +1366,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetDeviceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1407,8 +1407,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetDevicesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1448,8 +1448,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetDevicesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1489,8 +1489,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetDevicesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1530,8 +1530,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetDevicesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1571,8 +1571,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetDevicesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1612,8 +1612,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetGlobalNetworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1652,8 +1652,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetGlobalNetworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1692,8 +1692,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetGlobalNetworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1732,8 +1732,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetGlobalNetworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1772,8 +1772,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetGlobalNetworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1812,8 +1812,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetGlobalNetworksArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1852,8 +1852,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetGlobalNetworksArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1892,8 +1892,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetGlobalNetworksArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1932,8 +1932,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetGlobalNetworksArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1972,8 +1972,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetGlobalNetworksArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2012,8 +2012,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetGlobalNetworksArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2052,8 +2052,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetGlobalNetworksArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2092,8 +2092,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetLinkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2133,8 +2133,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetLinkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2174,8 +2174,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetLinkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2215,8 +2215,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetLinkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2256,8 +2256,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetLinkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2297,8 +2297,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetLinksArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2338,8 +2338,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetLinksArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2379,8 +2379,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetLinksArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2420,8 +2420,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetLinksArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2461,8 +2461,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetLinksArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2502,8 +2502,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetSiteArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2543,8 +2543,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetSiteArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2584,8 +2584,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetSiteArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2625,8 +2625,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetSiteArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2666,8 +2666,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetSiteArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2707,8 +2707,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetSitesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2748,8 +2748,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetSitesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2789,8 +2789,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetSitesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2830,8 +2830,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetSitesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2871,8 +2871,8 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetSitesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

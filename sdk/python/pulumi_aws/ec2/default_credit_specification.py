@@ -23,8 +23,8 @@ class DefaultCreditSpecificationArgs:
     def __init__(__self__, *,
                  cpu_credits: pulumi.Input[_builtins.str],
                  instance_family: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input['DefaultCreditSpecificationTimeoutsArgs']] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional['DefaultCreditSpecificationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a DefaultCreditSpecification resource.
 
@@ -65,33 +65,33 @@ class DefaultCreditSpecificationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['DefaultCreditSpecificationTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['DefaultCreditSpecificationTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['DefaultCreditSpecificationTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['DefaultCreditSpecificationTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _DefaultCreditSpecificationState:
     def __init__(__self__, *,
-                 cpu_credits: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_family: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input['DefaultCreditSpecificationTimeoutsArgs']] = None):
+                 cpu_credits: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_family: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional['DefaultCreditSpecificationTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering DefaultCreditSpecification resources.
 
@@ -110,47 +110,47 @@ class _DefaultCreditSpecificationState:
 
     @_builtins.property
     @pulumi.getter(name="cpuCredits")
-    def cpu_credits(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cpu_credits(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Credit option for CPU usage of the instance family. Valid values: `standard`, `unlimited`.
         """
         return pulumi.get(self, "cpu_credits")
 
     @cpu_credits.setter
-    def cpu_credits(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cpu_credits(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cpu_credits", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceFamily")
-    def instance_family(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_family(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Instance family. Valid values are `t2`, `t3`, `t3a`, `t4g`.
         """
         return pulumi.get(self, "instance_family")
 
     @instance_family.setter
-    def instance_family(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_family(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_family", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['DefaultCreditSpecificationTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['DefaultCreditSpecificationTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['DefaultCreditSpecificationTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['DefaultCreditSpecificationTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
@@ -160,10 +160,10 @@ class DefaultCreditSpecification(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cpu_credits: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_family: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input[Union['DefaultCreditSpecificationTimeoutsArgs', 'DefaultCreditSpecificationTimeoutsArgsDict']]] = None,
+                 cpu_credits: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_family: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional[Union['DefaultCreditSpecificationTimeoutsArgs', 'DefaultCreditSpecificationTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS EC2 (Elastic Compute Cloud) Default Credit Specification.
@@ -234,10 +234,10 @@ class DefaultCreditSpecification(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cpu_credits: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_family: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input[Union['DefaultCreditSpecificationTimeoutsArgs', 'DefaultCreditSpecificationTimeoutsArgsDict']]] = None,
+                 cpu_credits: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_family: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional[Union['DefaultCreditSpecificationTimeoutsArgs', 'DefaultCreditSpecificationTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -265,10 +265,10 @@ class DefaultCreditSpecification(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cpu_credits: Optional[pulumi.Input[_builtins.str]] = None,
-            instance_family: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            timeouts: Optional[pulumi.Input[Union['DefaultCreditSpecificationTimeoutsArgs', 'DefaultCreditSpecificationTimeoutsArgsDict']]] = None) -> 'DefaultCreditSpecification':
+            cpu_credits: pulumi.Input[Optional[_builtins.str]] = None,
+            instance_family: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['DefaultCreditSpecificationTimeoutsArgs', 'DefaultCreditSpecificationTimeoutsArgsDict']]] = None) -> 'DefaultCreditSpecification':
         """
         Get an existing DefaultCreditSpecification resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -153,9 +153,9 @@ def get_instances(filters: Optional[Sequence[Union['GetInstancesFilterArgs', 'Ge
         instance_identifiers=pulumi.get(__ret__, 'instance_identifiers'),
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_instances_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetInstancesFilterArgs', 'GetInstancesFilterArgsDict']]]]] = None,
-                         region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                         tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_instances_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetInstancesFilterArgs', 'GetInstancesFilterArgsDict']]]]] = None,
+                         region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                         tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstancesResult]:
     """
     Data source for listing RDS Database Instances.

@@ -129,13 +129,13 @@ export interface GetGroupOutputArgs {
     /**
      * A unique identifier for the group that is not the primary identifier. Conflicts with `groupId` and `filter`. Detailed below.
      */
-    alternateIdentifier?: pulumi.Input<inputs.identitystore.GetGroupAlternateIdentifierArgs>;
+    alternateIdentifier?: pulumi.Input<inputs.identitystore.GetGroupAlternateIdentifierArgs | undefined>;
     /**
      * The identifier for a group in the Identity Store.
      *
      * > Exactly one of the above arguments must be provided. Passing both `filter` and `groupId` is allowed for backwards compatibility.
      */
-    groupId?: pulumi.Input<string>;
+    groupId?: pulumi.Input<string | undefined>;
     /**
      * Identity Store ID associated with the Single Sign-On Instance.
      *
@@ -145,5 +145,5 @@ export interface GetGroupOutputArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

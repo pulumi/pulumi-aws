@@ -183,19 +183,19 @@ export interface PeeringConnectionOptionsState {
     /**
      * An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts the peering connection (a maximum of one).
      */
-    accepter?: pulumi.Input<inputs.ec2.PeeringConnectionOptionsAccepter>;
+    accepter?: pulumi.Input<inputs.ec2.PeeringConnectionOptionsAccepter | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests the peering connection (a maximum of one).
      */
-    requester?: pulumi.Input<inputs.ec2.PeeringConnectionOptionsRequester>;
+    requester?: pulumi.Input<inputs.ec2.PeeringConnectionOptionsRequester | undefined>;
     /**
      * The ID of the requester VPC peering connection.
      */
-    vpcPeeringConnectionId?: pulumi.Input<string>;
+    vpcPeeringConnectionId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -205,15 +205,15 @@ export interface PeeringConnectionOptionsArgs {
     /**
      * An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts the peering connection (a maximum of one).
      */
-    accepter?: pulumi.Input<inputs.ec2.PeeringConnectionOptionsAccepter>;
+    accepter?: pulumi.Input<inputs.ec2.PeeringConnectionOptionsAccepter | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests the peering connection (a maximum of one).
      */
-    requester?: pulumi.Input<inputs.ec2.PeeringConnectionOptionsRequester>;
+    requester?: pulumi.Input<inputs.ec2.PeeringConnectionOptionsRequester | undefined>;
     /**
      * The ID of the requester VPC peering connection.
      */

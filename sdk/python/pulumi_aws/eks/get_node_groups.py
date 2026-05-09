@@ -92,7 +92,7 @@ def get_node_groups(cluster_name: Optional[_builtins.str] = None,
     import pulumi_aws as aws
 
     example = aws.eks.get_node_groups(cluster_name="example")
-    example_get_node_group = {__key: aws.eks.get_node_group(cluster_name="example",
+    example_get_node_group = {str(__key): aws.eks.get_node_group(cluster_name="example",
         node_group_name=__value) for __key, __value in enumerate(example.names)}
     ```
 
@@ -111,8 +111,8 @@ def get_node_groups(cluster_name: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         names=pulumi.get(__ret__, 'names'),
         region=pulumi.get(__ret__, 'region'))
-def get_node_groups_output(cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                           region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_node_groups_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                           region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNodeGroupsResult]:
     """
     Retrieve the EKS Node Groups associated with a named EKS cluster. This will allow you to pass a list of Node Group names to other resources.
@@ -124,7 +124,7 @@ def get_node_groups_output(cluster_name: Optional[pulumi.Input[_builtins.str]] =
     import pulumi_aws as aws
 
     example = aws.eks.get_node_groups(cluster_name="example")
-    example_get_node_group = {__key: aws.eks.get_node_group(cluster_name="example",
+    example_get_node_group = {str(__key): aws.eks.get_node_group(cluster_name="example",
         node_group_name=__value) for __key, __value in enumerate(example.names)}
     ```
 

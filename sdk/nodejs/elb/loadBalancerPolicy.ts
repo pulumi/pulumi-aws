@@ -185,23 +185,23 @@ export interface LoadBalancerPolicyState {
     /**
      * The load balancer on which the policy is defined.
      */
-    loadBalancerName?: pulumi.Input<string>;
+    loadBalancerName?: pulumi.Input<string | undefined>;
     /**
      * Policy attribute to apply to the policy.
      */
-    policyAttributes?: pulumi.Input<pulumi.Input<inputs.elb.LoadBalancerPolicyPolicyAttribute>[]>;
+    policyAttributes?: pulumi.Input<pulumi.Input<inputs.elb.LoadBalancerPolicyPolicyAttribute>[] | undefined>;
     /**
      * The name of the load balancer policy.
      */
-    policyName?: pulumi.Input<string>;
+    policyName?: pulumi.Input<string | undefined>;
     /**
      * The policy type.
      */
-    policyTypeName?: pulumi.Input<string>;
+    policyTypeName?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -215,7 +215,7 @@ export interface LoadBalancerPolicyArgs {
     /**
      * Policy attribute to apply to the policy.
      */
-    policyAttributes?: pulumi.Input<pulumi.Input<inputs.elb.LoadBalancerPolicyPolicyAttribute>[]>;
+    policyAttributes?: pulumi.Input<pulumi.Input<inputs.elb.LoadBalancerPolicyPolicyAttribute>[] | undefined>;
     /**
      * The name of the load balancer policy.
      */
@@ -227,5 +227,5 @@ export interface LoadBalancerPolicyArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

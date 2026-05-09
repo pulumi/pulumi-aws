@@ -25,12 +25,12 @@ class FlowArgs:
                  source_flow_config: pulumi.Input['FlowSourceFlowConfigArgs'],
                  tasks: pulumi.Input[Sequence[pulumi.Input['FlowTaskArgs']]],
                  trigger_config: pulumi.Input['FlowTriggerConfigArgs'],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata_catalog_config: Optional[pulumi.Input['FlowMetadataCatalogConfigArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata_catalog_config: pulumi.Input[Optional['FlowMetadataCatalogConfigArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Flow resource.
 
@@ -112,93 +112,93 @@ class FlowArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the flow you want to create.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsArn")
-    def kms_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
         """
         return pulumi.get(self, "kms_arn")
 
     @kms_arn.setter
-    def kms_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="metadataCatalogConfig")
-    def metadata_catalog_config(self) -> Optional[pulumi.Input['FlowMetadataCatalogConfigArgs']]:
+    def metadata_catalog_config(self) -> pulumi.Input[Optional['FlowMetadataCatalogConfigArgs']]:
         """
         A Catalog that determines the configuration that Amazon AppFlow uses when it catalogs the data that’s transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it stores metadata in a data catalog.
         """
         return pulumi.get(self, "metadata_catalog_config")
 
     @metadata_catalog_config.setter
-    def metadata_catalog_config(self, value: Optional[pulumi.Input['FlowMetadataCatalogConfigArgs']]):
+    def metadata_catalog_config(self, value: pulumi.Input[Optional['FlowMetadataCatalogConfigArgs']]):
         pulumi.set(self, "metadata_catalog_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the flow.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _FlowState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_flow_configs: Optional[pulumi.Input[Sequence[pulumi.Input['FlowDestinationFlowConfigArgs']]]] = None,
-                 flow_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata_catalog_config: Optional[pulumi.Input['FlowMetadataCatalogConfigArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_flow_config: Optional[pulumi.Input['FlowSourceFlowConfigArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tasks: Optional[pulumi.Input[Sequence[pulumi.Input['FlowTaskArgs']]]] = None,
-                 trigger_config: Optional[pulumi.Input['FlowTriggerConfigArgs']] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_flow_configs: pulumi.Input[Optional[Sequence[pulumi.Input['FlowDestinationFlowConfigArgs']]]] = None,
+                 flow_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata_catalog_config: pulumi.Input[Optional['FlowMetadataCatalogConfigArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_flow_config: pulumi.Input[Optional['FlowSourceFlowConfigArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tasks: pulumi.Input[Optional[Sequence[pulumi.Input['FlowTaskArgs']]]] = None,
+                 trigger_config: pulumi.Input[Optional['FlowTriggerConfigArgs']] = None):
         """
         Input properties used for looking up and filtering Flow resources.
 
@@ -245,158 +245,158 @@ class _FlowState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Flow's ARN.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the flow you want to create.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationFlowConfigs")
-    def destination_flow_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlowDestinationFlowConfigArgs']]]]:
+    def destination_flow_configs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FlowDestinationFlowConfigArgs']]]]:
         """
         A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
         """
         return pulumi.get(self, "destination_flow_configs")
 
     @destination_flow_configs.setter
-    def destination_flow_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowDestinationFlowConfigArgs']]]]):
+    def destination_flow_configs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FlowDestinationFlowConfigArgs']]]]):
         pulumi.set(self, "destination_flow_configs", value)
 
     @_builtins.property
     @pulumi.getter(name="flowStatus")
-    def flow_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def flow_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The current status of the flow.
         """
         return pulumi.get(self, "flow_status")
 
     @flow_status.setter
-    def flow_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def flow_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "flow_status", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsArn")
-    def kms_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
         """
         return pulumi.get(self, "kms_arn")
 
     @kms_arn.setter
-    def kms_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="metadataCatalogConfig")
-    def metadata_catalog_config(self) -> Optional[pulumi.Input['FlowMetadataCatalogConfigArgs']]:
+    def metadata_catalog_config(self) -> pulumi.Input[Optional['FlowMetadataCatalogConfigArgs']]:
         """
         A Catalog that determines the configuration that Amazon AppFlow uses when it catalogs the data that’s transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it stores metadata in a data catalog.
         """
         return pulumi.get(self, "metadata_catalog_config")
 
     @metadata_catalog_config.setter
-    def metadata_catalog_config(self, value: Optional[pulumi.Input['FlowMetadataCatalogConfigArgs']]):
+    def metadata_catalog_config(self, value: pulumi.Input[Optional['FlowMetadataCatalogConfigArgs']]):
         pulumi.set(self, "metadata_catalog_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the flow.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceFlowConfig")
-    def source_flow_config(self) -> Optional[pulumi.Input['FlowSourceFlowConfigArgs']]:
+    def source_flow_config(self) -> pulumi.Input[Optional['FlowSourceFlowConfigArgs']]:
         """
         The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
         """
         return pulumi.get(self, "source_flow_config")
 
     @source_flow_config.setter
-    def source_flow_config(self, value: Optional[pulumi.Input['FlowSourceFlowConfigArgs']]):
+    def source_flow_config(self, value: pulumi.Input[Optional['FlowSourceFlowConfigArgs']]):
         pulumi.set(self, "source_flow_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def tasks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlowTaskArgs']]]]:
+    def tasks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FlowTaskArgs']]]]:
         """
         A Task that Amazon AppFlow performs while transferring the data in the flow run.
         """
         return pulumi.get(self, "tasks")
 
     @tasks.setter
-    def tasks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowTaskArgs']]]]):
+    def tasks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FlowTaskArgs']]]]):
         pulumi.set(self, "tasks", value)
 
     @_builtins.property
     @pulumi.getter(name="triggerConfig")
-    def trigger_config(self) -> Optional[pulumi.Input['FlowTriggerConfigArgs']]:
+    def trigger_config(self) -> pulumi.Input[Optional['FlowTriggerConfigArgs']]:
         """
         A Trigger that determine how and when the flow runs.
         """
         return pulumi.get(self, "trigger_config")
 
     @trigger_config.setter
-    def trigger_config(self, value: Optional[pulumi.Input['FlowTriggerConfigArgs']]):
+    def trigger_config(self, value: pulumi.Input[Optional['FlowTriggerConfigArgs']]):
         pulumi.set(self, "trigger_config", value)
 
 
@@ -406,16 +406,16 @@ class Flow(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_flow_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FlowDestinationFlowConfigArgs', 'FlowDestinationFlowConfigArgsDict']]]]] = None,
-                 kms_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata_catalog_config: Optional[pulumi.Input[Union['FlowMetadataCatalogConfigArgs', 'FlowMetadataCatalogConfigArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_flow_config: Optional[pulumi.Input[Union['FlowSourceFlowConfigArgs', 'FlowSourceFlowConfigArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tasks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FlowTaskArgs', 'FlowTaskArgsDict']]]]] = None,
-                 trigger_config: Optional[pulumi.Input[Union['FlowTriggerConfigArgs', 'FlowTriggerConfigArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_flow_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowDestinationFlowConfigArgs', 'FlowDestinationFlowConfigArgsDict']]]]] = None,
+                 kms_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata_catalog_config: pulumi.Input[Optional[Union['FlowMetadataCatalogConfigArgs', 'FlowMetadataCatalogConfigArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_flow_config: pulumi.Input[Optional[Union['FlowSourceFlowConfigArgs', 'FlowSourceFlowConfigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tasks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowTaskArgs', 'FlowTaskArgsDict']]]]] = None,
+                 trigger_config: pulumi.Input[Optional[Union['FlowTriggerConfigArgs', 'FlowTriggerConfigArgsDict']]] = None,
                  __props__=None):
         """
         Provides an AppFlow flow resource.
@@ -679,16 +679,16 @@ class Flow(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_flow_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FlowDestinationFlowConfigArgs', 'FlowDestinationFlowConfigArgsDict']]]]] = None,
-                 kms_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata_catalog_config: Optional[pulumi.Input[Union['FlowMetadataCatalogConfigArgs', 'FlowMetadataCatalogConfigArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_flow_config: Optional[pulumi.Input[Union['FlowSourceFlowConfigArgs', 'FlowSourceFlowConfigArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tasks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FlowTaskArgs', 'FlowTaskArgsDict']]]]] = None,
-                 trigger_config: Optional[pulumi.Input[Union['FlowTriggerConfigArgs', 'FlowTriggerConfigArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_flow_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowDestinationFlowConfigArgs', 'FlowDestinationFlowConfigArgsDict']]]]] = None,
+                 kms_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata_catalog_config: pulumi.Input[Optional[Union['FlowMetadataCatalogConfigArgs', 'FlowMetadataCatalogConfigArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_flow_config: pulumi.Input[Optional[Union['FlowSourceFlowConfigArgs', 'FlowSourceFlowConfigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tasks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowTaskArgs', 'FlowTaskArgsDict']]]]] = None,
+                 trigger_config: pulumi.Input[Optional[Union['FlowTriggerConfigArgs', 'FlowTriggerConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -729,19 +729,19 @@ class Flow(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            destination_flow_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FlowDestinationFlowConfigArgs', 'FlowDestinationFlowConfigArgsDict']]]]] = None,
-            flow_status: Optional[pulumi.Input[_builtins.str]] = None,
-            kms_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            metadata_catalog_config: Optional[pulumi.Input[Union['FlowMetadataCatalogConfigArgs', 'FlowMetadataCatalogConfigArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            source_flow_config: Optional[pulumi.Input[Union['FlowSourceFlowConfigArgs', 'FlowSourceFlowConfigArgsDict']]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tasks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FlowTaskArgs', 'FlowTaskArgsDict']]]]] = None,
-            trigger_config: Optional[pulumi.Input[Union['FlowTriggerConfigArgs', 'FlowTriggerConfigArgsDict']]] = None) -> 'Flow':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            destination_flow_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowDestinationFlowConfigArgs', 'FlowDestinationFlowConfigArgsDict']]]]] = None,
+            flow_status: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            metadata_catalog_config: pulumi.Input[Optional[Union['FlowMetadataCatalogConfigArgs', 'FlowMetadataCatalogConfigArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            source_flow_config: pulumi.Input[Optional[Union['FlowSourceFlowConfigArgs', 'FlowSourceFlowConfigArgsDict']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tasks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowTaskArgs', 'FlowTaskArgsDict']]]]] = None,
+            trigger_config: pulumi.Input[Optional[Union['FlowTriggerConfigArgs', 'FlowTriggerConfigArgsDict']]] = None) -> 'Flow':
         """
         Get an existing Flow resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

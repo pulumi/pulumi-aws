@@ -22,8 +22,8 @@ __all__ = ['BlockPublicAccessConfigurationArgs', 'BlockPublicAccessConfiguration
 class BlockPublicAccessConfigurationArgs:
     def __init__(__self__, *,
                  block_public_security_group_rules: pulumi.Input[_builtins.bool],
-                 permitted_public_security_group_rule_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 permitted_public_security_group_rule_ranges: pulumi.Input[Optional[Sequence[pulumi.Input['BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a BlockPublicAccessConfiguration resource.
 
@@ -55,35 +55,35 @@ class BlockPublicAccessConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="permittedPublicSecurityGroupRuleRanges")
-    def permitted_public_security_group_rule_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs']]]]:
+    def permitted_public_security_group_rule_ranges(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs']]]]:
         """
         Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `block_public_security_group_rules` is set to `true`.
         """
         return pulumi.get(self, "permitted_public_security_group_rule_ranges")
 
     @permitted_public_security_group_rule_ranges.setter
-    def permitted_public_security_group_rule_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs']]]]):
+    def permitted_public_security_group_rule_ranges(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs']]]]):
         pulumi.set(self, "permitted_public_security_group_rule_ranges", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _BlockPublicAccessConfigurationState:
     def __init__(__self__, *,
-                 block_public_security_group_rules: Optional[pulumi.Input[_builtins.bool]] = None,
-                 permitted_public_security_group_rule_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 block_public_security_group_rules: pulumi.Input[Optional[_builtins.bool]] = None,
+                 permitted_public_security_group_rule_ranges: pulumi.Input[Optional[Sequence[pulumi.Input['BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BlockPublicAccessConfiguration resources.
 
@@ -102,7 +102,7 @@ class _BlockPublicAccessConfigurationState:
 
     @_builtins.property
     @pulumi.getter(name="blockPublicSecurityGroupRules")
-    def block_public_security_group_rules(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def block_public_security_group_rules(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable or disable EMR Block Public Access.
 
@@ -111,31 +111,31 @@ class _BlockPublicAccessConfigurationState:
         return pulumi.get(self, "block_public_security_group_rules")
 
     @block_public_security_group_rules.setter
-    def block_public_security_group_rules(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def block_public_security_group_rules(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "block_public_security_group_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="permittedPublicSecurityGroupRuleRanges")
-    def permitted_public_security_group_rule_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs']]]]:
+    def permitted_public_security_group_rule_ranges(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs']]]]:
         """
         Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `block_public_security_group_rules` is set to `true`.
         """
         return pulumi.get(self, "permitted_public_security_group_rule_ranges")
 
     @permitted_public_security_group_rule_ranges.setter
-    def permitted_public_security_group_rule_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs']]]]):
+    def permitted_public_security_group_rule_ranges(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs']]]]):
         pulumi.set(self, "permitted_public_security_group_rule_ranges", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
@@ -145,9 +145,9 @@ class BlockPublicAccessConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 block_public_security_group_rules: Optional[pulumi.Input[_builtins.bool]] = None,
-                 permitted_public_security_group_rule_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs', 'BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 block_public_security_group_rules: pulumi.Input[Optional[_builtins.bool]] = None,
+                 permitted_public_security_group_rule_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs', 'BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing an AWS EMR block public access configuration. This region level security configuration restricts the launch of EMR clusters that have associated security groups permitting public access on unspecified ports. See the [EMR Block Public Access Configuration](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-block-public-access.html) documentation for further information.
@@ -326,9 +326,9 @@ class BlockPublicAccessConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 block_public_security_group_rules: Optional[pulumi.Input[_builtins.bool]] = None,
-                 permitted_public_security_group_rule_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs', 'BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 block_public_security_group_rules: pulumi.Input[Optional[_builtins.bool]] = None,
+                 permitted_public_security_group_rule_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs', 'BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -353,9 +353,9 @@ class BlockPublicAccessConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            block_public_security_group_rules: Optional[pulumi.Input[_builtins.bool]] = None,
-            permitted_public_security_group_rule_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs', 'BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgsDict']]]]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None) -> 'BlockPublicAccessConfiguration':
+            block_public_security_group_rules: pulumi.Input[Optional[_builtins.bool]] = None,
+            permitted_public_security_group_rule_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs', 'BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgsDict']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> 'BlockPublicAccessConfiguration':
         """
         Get an existing BlockPublicAccessConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

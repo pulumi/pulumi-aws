@@ -310,116 +310,116 @@ export interface EnvironmentState {
      * are a combination of default settings and their overrides from `setting` in
      * the configuration.
      */
-    allSettings?: pulumi.Input<pulumi.Input<inputs.elasticbeanstalk.EnvironmentAllSetting>[]>;
+    allSettings?: pulumi.Input<pulumi.Input<inputs.elasticbeanstalk.EnvironmentAllSetting>[] | undefined>;
     /**
      * Name of the application that contains the version
      * to be deployed
      */
-    application?: pulumi.Input<string | Application>;
-    arn?: pulumi.Input<string>;
+    application?: pulumi.Input<string | Application | undefined>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The autoscaling groups used by this Environment.
      */
-    autoscalingGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    autoscalingGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Fully qualified DNS name for this Environment.
      */
-    cname?: pulumi.Input<string>;
+    cname?: pulumi.Input<string | undefined>;
     /**
      * Prefix to use for the fully qualified DNS name of
      * the Environment.
      */
-    cnamePrefix?: pulumi.Input<string>;
+    cnamePrefix?: pulumi.Input<string | undefined>;
     /**
      * Short description of the Environment
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The URL to the Load Balancer for this Environment
      */
-    endpointUrl?: pulumi.Input<string>;
+    endpointUrl?: pulumi.Input<string | undefined>;
     /**
      * Instances used by this Environment.
      */
-    instances?: pulumi.Input<pulumi.Input<string>[]>;
+    instances?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Launch configurations in use by this Environment.
      */
-    launchConfigurations?: pulumi.Input<pulumi.Input<string>[]>;
+    launchConfigurations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Elastic load balancers in use by this Environment.
      */
-    loadBalancers?: pulumi.Input<pulumi.Input<string>[]>;
+    loadBalancers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A unique name for this Environment. This name is used
      * in the application URL
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the Elastic Beanstalk [Platform](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-platformarn)
      * to use in deployment
      */
-    platformArn?: pulumi.Input<string>;
+    platformArn?: pulumi.Input<string | undefined>;
     /**
      * The time between polling the AWS API to
      * check if changes have been applied. Use this to adjust the rate of API calls
      * for any `create` or `update` action. Minimum `10s`, maximum `180s`. Omit this to
      * use the default behavior, which is an exponential backoff
      */
-    pollInterval?: pulumi.Input<string>;
+    pollInterval?: pulumi.Input<string | undefined>;
     /**
      * SQS queues in use by this Environment.
      */
-    queues?: pulumi.Input<pulumi.Input<string>[]>;
+    queues?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Option settings to configure the new Environment. These
      * override specific values that are set as defaults. The format is detailed
      * below in Option Settings
      */
-    settings?: pulumi.Input<pulumi.Input<inputs.elasticbeanstalk.EnvironmentSetting>[]>;
+    settings?: pulumi.Input<pulumi.Input<inputs.elasticbeanstalk.EnvironmentSetting>[] | undefined>;
     /**
      * A solution stack to base your environment
      * off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
      */
-    solutionStackName?: pulumi.Input<string>;
+    solutionStackName?: pulumi.Input<string | undefined>;
     /**
      * A set of tags to apply to the Environment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of the Elastic Beanstalk Configuration
      * template to use in deployment
      */
-    templateName?: pulumi.Input<string>;
+    templateName?: pulumi.Input<string | undefined>;
     /**
      * Elastic Beanstalk Environment tier. Valid values are `Worker`
      * or `WebServer`. If tier is left blank `WebServer` will be used.
      */
-    tier?: pulumi.Input<string>;
+    tier?: pulumi.Input<string | undefined>;
     /**
      * Autoscaling triggers in use by this Environment.
      */
-    triggers?: pulumi.Input<pulumi.Input<string>[]>;
+    triggers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the Elastic Beanstalk Application Version
      * to use in deployment.
      */
-    version?: pulumi.Input<string | ApplicationVersion>;
+    version?: pulumi.Input<string | ApplicationVersion | undefined>;
     /**
      * The maximum
      * [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
      * wait for an Elastic Beanstalk Environment to be in a ready state before timing
      * out.
      */
-    waitForReadyTimeout?: pulumi.Input<string>;
+    waitForReadyTimeout?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -435,67 +435,67 @@ export interface EnvironmentArgs {
      * Prefix to use for the fully qualified DNS name of
      * the Environment.
      */
-    cnamePrefix?: pulumi.Input<string>;
+    cnamePrefix?: pulumi.Input<string | undefined>;
     /**
      * Short description of the Environment
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A unique name for this Environment. This name is used
      * in the application URL
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the Elastic Beanstalk [Platform](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-platformarn)
      * to use in deployment
      */
-    platformArn?: pulumi.Input<string>;
+    platformArn?: pulumi.Input<string | undefined>;
     /**
      * The time between polling the AWS API to
      * check if changes have been applied. Use this to adjust the rate of API calls
      * for any `create` or `update` action. Minimum `10s`, maximum `180s`. Omit this to
      * use the default behavior, which is an exponential backoff
      */
-    pollInterval?: pulumi.Input<string>;
+    pollInterval?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Option settings to configure the new Environment. These
      * override specific values that are set as defaults. The format is detailed
      * below in Option Settings
      */
-    settings?: pulumi.Input<pulumi.Input<inputs.elasticbeanstalk.EnvironmentSetting>[]>;
+    settings?: pulumi.Input<pulumi.Input<inputs.elasticbeanstalk.EnvironmentSetting>[] | undefined>;
     /**
      * A solution stack to base your environment
      * off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
      */
-    solutionStackName?: pulumi.Input<string>;
+    solutionStackName?: pulumi.Input<string | undefined>;
     /**
      * A set of tags to apply to the Environment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of the Elastic Beanstalk Configuration
      * template to use in deployment
      */
-    templateName?: pulumi.Input<string>;
+    templateName?: pulumi.Input<string | undefined>;
     /**
      * Elastic Beanstalk Environment tier. Valid values are `Worker`
      * or `WebServer`. If tier is left blank `WebServer` will be used.
      */
-    tier?: pulumi.Input<string>;
+    tier?: pulumi.Input<string | undefined>;
     /**
      * The name of the Elastic Beanstalk Application Version
      * to use in deployment.
      */
-    version?: pulumi.Input<string | ApplicationVersion>;
+    version?: pulumi.Input<string | ApplicationVersion | undefined>;
     /**
      * The maximum
      * [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
      * wait for an Elastic Beanstalk Environment to be in a ready state before timing
      * out.
      */
-    waitForReadyTimeout?: pulumi.Input<string>;
+    waitForReadyTimeout?: pulumi.Input<string | undefined>;
 }

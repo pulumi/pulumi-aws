@@ -323,10 +323,10 @@ def get_volume(filters: Optional[Sequence[Union['GetVolumeFilterArgs', 'GetVolum
         volume_id=pulumi.get(__ret__, 'volume_id'),
         volume_initialization_rate=pulumi.get(__ret__, 'volume_initialization_rate'),
         volume_type=pulumi.get(__ret__, 'volume_type'))
-def get_volume_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetVolumeFilterArgs', 'GetVolumeFilterArgsDict']]]]] = None,
-                      most_recent: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                      region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_volume_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetVolumeFilterArgs', 'GetVolumeFilterArgsDict']]]]] = None,
+                      most_recent: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                      region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVolumeResult]:
     """
     Use this data source to get information about an EBS volume for use in other

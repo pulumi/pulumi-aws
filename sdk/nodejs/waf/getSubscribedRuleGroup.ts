@@ -116,9 +116,9 @@ export interface GetSubscribedRuleGroupOutputArgs {
      *
      * At least one of `name` or `metricName` must be configured.
      */
-    metricName?: pulumi.Input<string>;
+    metricName?: pulumi.Input<string | undefined>;
     /**
      * Name of the WAF rule group.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

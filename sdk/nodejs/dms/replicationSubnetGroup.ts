@@ -191,32 +191,32 @@ export interface ReplicationSubnetGroupState {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    replicationSubnetGroupArn?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
+    replicationSubnetGroupArn?: pulumi.Input<string | undefined>;
     /**
      * Description for the subnet group.
      */
-    replicationSubnetGroupDescription?: pulumi.Input<string>;
+    replicationSubnetGroupDescription?: pulumi.Input<string | undefined>;
     /**
      * Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
      */
-    replicationSubnetGroupId?: pulumi.Input<string>;
+    replicationSubnetGroupId?: pulumi.Input<string | undefined>;
     /**
      * List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
      */
-    subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    subnetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ID of the VPC the subnet group is in.
      */
-    vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -226,7 +226,7 @@ export interface ReplicationSubnetGroupArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Description for the subnet group.
      */
@@ -242,5 +242,5 @@ export interface ReplicationSubnetGroupArgs {
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

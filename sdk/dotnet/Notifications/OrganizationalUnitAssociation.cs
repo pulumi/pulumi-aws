@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Notifications
     ///     });
     /// 
     ///     // Allow time for organizational unit creation to propagate
-    ///     var wait = new Time.Index.Sleep("wait", new()
+    ///     var wait = new Time.Sleep("wait", new()
     ///     {
     ///         CreateDuration = "5s",
     ///     }, new CustomResourceOptions

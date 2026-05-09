@@ -267,58 +267,58 @@ export interface AgentFlowState {
     /**
      * The Amazon Resource Name (ARN) of the flow.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The time at which the flow was created.
      */
-    createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the KMS key to encrypt the flow.
      */
-    customerEncryptionKeyArn?: pulumi.Input<string>;
+    customerEncryptionKeyArn?: pulumi.Input<string | undefined>;
     /**
      * A definition of the nodes and connections between nodes in the flow. See Definition for more information.
      */
-    definition?: pulumi.Input<inputs.bedrock.AgentFlowDefinition>;
+    definition?: pulumi.Input<inputs.bedrock.AgentFlowDefinition | undefined>;
     /**
      * A description for the flow.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the service role with permissions to create and manage a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
      *
      * The following arguments are optional:
      */
-    executionRoleArn?: pulumi.Input<string>;
+    executionRoleArn?: pulumi.Input<string | undefined>;
     /**
      * A name for the flow.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The status of the flow.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.bedrock.AgentFlowTimeouts>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.bedrock.AgentFlowTimeouts | undefined>;
     /**
      * The time at which the flow was last updated.
      */
-    updatedAt?: pulumi.Input<string>;
+    updatedAt?: pulumi.Input<string | undefined>;
     /**
      * The version of the flow.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -328,15 +328,15 @@ export interface AgentFlowArgs {
     /**
      * The Amazon Resource Name (ARN) of the KMS key to encrypt the flow.
      */
-    customerEncryptionKeyArn?: pulumi.Input<string>;
+    customerEncryptionKeyArn?: pulumi.Input<string | undefined>;
     /**
      * A definition of the nodes and connections between nodes in the flow. See Definition for more information.
      */
-    definition?: pulumi.Input<inputs.bedrock.AgentFlowDefinition>;
+    definition?: pulumi.Input<inputs.bedrock.AgentFlowDefinition | undefined>;
     /**
      * A description for the flow.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the service role with permissions to create and manage a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
      *
@@ -346,14 +346,14 @@ export interface AgentFlowArgs {
     /**
      * A name for the flow.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.bedrock.AgentFlowTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.bedrock.AgentFlowTimeouts | undefined>;
 }

@@ -126,23 +126,23 @@ export interface WorkspaceServiceAccountState {
     /**
      * The permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
      */
-    grafanaRole?: pulumi.Input<string>;
+    grafanaRole?: pulumi.Input<string | undefined>;
     /**
      * A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the service account in the given Grafana workspace
      */
-    serviceAccountId?: pulumi.Input<string>;
+    serviceAccountId?: pulumi.Input<string | undefined>;
     /**
      * The Grafana workspace with which the service account is associated.
      */
-    workspaceId?: pulumi.Input<string>;
+    workspaceId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -156,11 +156,11 @@ export interface WorkspaceServiceAccountArgs {
     /**
      * A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The Grafana workspace with which the service account is associated.
      */

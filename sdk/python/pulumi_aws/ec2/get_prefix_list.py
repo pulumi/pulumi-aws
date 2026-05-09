@@ -177,10 +177,10 @@ def get_prefix_list(filters: Optional[Sequence[Union['GetPrefixListFilterArgs', 
         name=pulumi.get(__ret__, 'name'),
         prefix_list_id=pulumi.get(__ret__, 'prefix_list_id'),
         region=pulumi.get(__ret__, 'region'))
-def get_prefix_list_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetPrefixListFilterArgs', 'GetPrefixListFilterArgsDict']]]]] = None,
-                           name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                           prefix_list_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                           region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_prefix_list_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetPrefixListFilterArgs', 'GetPrefixListFilterArgsDict']]]]] = None,
+                           name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           prefix_list_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrefixListResult]:
     """
     `ec2_get_prefix_list` provides details about a specific AWS prefix list (PL)

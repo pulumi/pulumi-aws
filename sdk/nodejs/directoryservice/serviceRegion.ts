@@ -37,11 +37,11 @@ import * as utilities from "../utilities";
  *     exampleSubnet.push(new aws.ec2.Subnet(`example-${range.value}`, {
  *         vpcId: exampleVpc.id,
  *         availabilityZone: available.then(available => available.names[range.value]),
- *         cidrBlock: exampleVpc.cidrBlock.apply(cidrBlock => std.cidrsubnetOutput({
- *             input: cidrBlock,
+ *         cidrBlock: std.cidrsubnetOutput({
+ *             input: exampleVpc.cidrBlock,
  *             newbits: 8,
  *             netnum: range.value,
- *         })).apply(invoke => invoke.result),
+ *         }).apply(invoke => invoke.result),
  *         tags: {
  *             Name: "Primary",
  *         },
@@ -74,11 +74,11 @@ import * as utilities from "../utilities";
  *     example_secondarySubnet.push(new aws.ec2.Subnet(`example-secondary-${range.value}`, {
  *         vpcId: example_secondary.id,
  *         availabilityZone: available_secondary.then(available_secondary => available_secondary.names[range.value]),
- *         cidrBlock: example_secondary.cidrBlock.apply(cidrBlock => std.cidrsubnetOutput({
- *             input: cidrBlock,
+ *         cidrBlock: std.cidrsubnetOutput({
+ *             input: example_secondary.cidrBlock,
  *             newbits: 8,
  *             netnum: range.value,
- *         })).apply(invoke => invoke.result),
+ *         }).apply(invoke => invoke.result),
  *         tags: {
  *             Name: "Secondary",
  *         },
@@ -213,31 +213,31 @@ export interface ServiceRegionState {
     /**
      * The number of domain controllers desired in the replicated directory. Minimum value of `2`.
      */
-    desiredNumberOfDomainControllers?: pulumi.Input<number>;
+    desiredNumberOfDomainControllers?: pulumi.Input<number | undefined>;
     /**
      * The identifier of the directory to which you want to add Region replication.
      */
-    directoryId?: pulumi.Input<string>;
+    directoryId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The name of the Region where you want to add domain controllers for replication.
      */
-    regionName?: pulumi.Input<string>;
+    regionName?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * VPC information in the replicated Region. Detailed below.
      */
-    vpcSettings?: pulumi.Input<inputs.directoryservice.ServiceRegionVpcSettings>;
+    vpcSettings?: pulumi.Input<inputs.directoryservice.ServiceRegionVpcSettings | undefined>;
 }
 
 /**
@@ -247,7 +247,7 @@ export interface ServiceRegionArgs {
     /**
      * The number of domain controllers desired in the replicated directory. Minimum value of `2`.
      */
-    desiredNumberOfDomainControllers?: pulumi.Input<number>;
+    desiredNumberOfDomainControllers?: pulumi.Input<number | undefined>;
     /**
      * The identifier of the directory to which you want to add Region replication.
      */
@@ -255,7 +255,7 @@ export interface ServiceRegionArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The name of the Region where you want to add domain controllers for replication.
      */
@@ -263,7 +263,7 @@ export interface ServiceRegionArgs {
     /**
      * Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * VPC information in the replicated Region. Detailed below.
      */

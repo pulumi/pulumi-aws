@@ -24,12 +24,12 @@ class AgentcoreMemoryStrategyArgs:
                  memory_id: pulumi.Input[_builtins.str],
                  namespaces: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  type: pulumi.Input[_builtins.str],
-                 configuration: Optional[pulumi.Input['AgentcoreMemoryStrategyConfigurationArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 memory_execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input['AgentcoreMemoryStrategyTimeoutsArgs']] = None):
+                 configuration: pulumi.Input[Optional['AgentcoreMemoryStrategyConfigurationArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 memory_execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional['AgentcoreMemoryStrategyTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AgentcoreMemoryStrategy resource.
 
@@ -99,84 +99,84 @@ class AgentcoreMemoryStrategyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input['AgentcoreMemoryStrategyConfigurationArgs']]:
+    def configuration(self) -> pulumi.Input[Optional['AgentcoreMemoryStrategyConfigurationArgs']]:
         """
         Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` below.
         """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input['AgentcoreMemoryStrategyConfigurationArgs']]):
+    def configuration(self, value: pulumi.Input[Optional['AgentcoreMemoryStrategyConfigurationArgs']]):
         pulumi.set(self, "configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the memory strategy.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="memoryExecutionRoleArn")
-    def memory_execution_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def memory_execution_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "memory_execution_role_arn")
 
     @memory_execution_role_arn.setter
-    def memory_execution_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def memory_execution_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "memory_execution_role_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the memory strategy.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['AgentcoreMemoryStrategyTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['AgentcoreMemoryStrategyTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['AgentcoreMemoryStrategyTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['AgentcoreMemoryStrategyTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _AgentcoreMemoryStrategyState:
     def __init__(__self__, *,
-                 configuration: Optional[pulumi.Input['AgentcoreMemoryStrategyConfigurationArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 memory_execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 memory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 memory_strategy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input['AgentcoreMemoryStrategyTimeoutsArgs']] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 configuration: pulumi.Input[Optional['AgentcoreMemoryStrategyConfigurationArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 memory_execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 memory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 memory_strategy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional['AgentcoreMemoryStrategyTimeoutsArgs']] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AgentcoreMemoryStrategy resources.
 
@@ -214,76 +214,76 @@ class _AgentcoreMemoryStrategyState:
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input['AgentcoreMemoryStrategyConfigurationArgs']]:
+    def configuration(self) -> pulumi.Input[Optional['AgentcoreMemoryStrategyConfigurationArgs']]:
         """
         Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` below.
         """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input['AgentcoreMemoryStrategyConfigurationArgs']]):
+    def configuration(self, value: pulumi.Input[Optional['AgentcoreMemoryStrategyConfigurationArgs']]):
         pulumi.set(self, "configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the memory strategy.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="memoryExecutionRoleArn")
-    def memory_execution_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def memory_execution_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "memory_execution_role_arn")
 
     @memory_execution_role_arn.setter
-    def memory_execution_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def memory_execution_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "memory_execution_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="memoryId")
-    def memory_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def memory_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the memory to associate with this strategy. Changing this forces a new resource.
         """
         return pulumi.get(self, "memory_id")
 
     @memory_id.setter
-    def memory_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def memory_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "memory_id", value)
 
     @_builtins.property
     @pulumi.getter(name="memoryStrategyId")
-    def memory_strategy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def memory_strategy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique identifier of the Memory Strategy. This corresponds to the service `strategyId` identifier (AWS API / CloudFormation terminology).
         """
         return pulumi.get(self, "memory_strategy_id")
 
     @memory_strategy_id.setter
-    def memory_strategy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def memory_strategy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "memory_strategy_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the memory strategy.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def namespaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def namespaces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of namespace identifiers where this strategy applies. Namespaces help organize and scope memory content.
 
@@ -292,40 +292,40 @@ class _AgentcoreMemoryStrategyState:
         return pulumi.get(self, "namespaces")
 
     @namespaces.setter
-    def namespaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def namespaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "namespaces", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['AgentcoreMemoryStrategyTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['AgentcoreMemoryStrategyTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['AgentcoreMemoryStrategyTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['AgentcoreMemoryStrategyTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -335,15 +335,15 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[Union['AgentcoreMemoryStrategyConfigurationArgs', 'AgentcoreMemoryStrategyConfigurationArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 memory_execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 memory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input[Union['AgentcoreMemoryStrategyTimeoutsArgs', 'AgentcoreMemoryStrategyTimeoutsArgsDict']]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 configuration: pulumi.Input[Optional[Union['AgentcoreMemoryStrategyConfigurationArgs', 'AgentcoreMemoryStrategyConfigurationArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 memory_execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 memory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentcoreMemoryStrategyTimeoutsArgs', 'AgentcoreMemoryStrategyTimeoutsArgsDict']]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an AWS Bedrock AgentCore Memory Strategy. Memory strategies define how the agent processes and organizes information within a memory, such as semantic understanding, summarization, or custom processing logic.
@@ -726,15 +726,15 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[Union['AgentcoreMemoryStrategyConfigurationArgs', 'AgentcoreMemoryStrategyConfigurationArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 memory_execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 memory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input[Union['AgentcoreMemoryStrategyTimeoutsArgs', 'AgentcoreMemoryStrategyTimeoutsArgsDict']]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 configuration: pulumi.Input[Optional[Union['AgentcoreMemoryStrategyConfigurationArgs', 'AgentcoreMemoryStrategyConfigurationArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 memory_execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 memory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentcoreMemoryStrategyTimeoutsArgs', 'AgentcoreMemoryStrategyTimeoutsArgsDict']]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -770,16 +770,16 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            configuration: Optional[pulumi.Input[Union['AgentcoreMemoryStrategyConfigurationArgs', 'AgentcoreMemoryStrategyConfigurationArgsDict']]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            memory_execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            memory_id: Optional[pulumi.Input[_builtins.str]] = None,
-            memory_strategy_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            timeouts: Optional[pulumi.Input[Union['AgentcoreMemoryStrategyTimeoutsArgs', 'AgentcoreMemoryStrategyTimeoutsArgsDict']]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None) -> 'AgentcoreMemoryStrategy':
+            configuration: pulumi.Input[Optional[Union['AgentcoreMemoryStrategyConfigurationArgs', 'AgentcoreMemoryStrategyConfigurationArgsDict']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            memory_execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            memory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            memory_strategy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            namespaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['AgentcoreMemoryStrategyTimeoutsArgs', 'AgentcoreMemoryStrategyTimeoutsArgsDict']]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> 'AgentcoreMemoryStrategy':
         """
         Get an existing AgentcoreMemoryStrategy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

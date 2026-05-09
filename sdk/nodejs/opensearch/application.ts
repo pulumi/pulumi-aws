@@ -302,44 +302,44 @@ export interface ApplicationState {
     /**
      * Configuration block(s) for OpenSearch application settings. See App Config below.
      */
-    appConfigs?: pulumi.Input<pulumi.Input<inputs.opensearch.ApplicationAppConfig>[]>;
+    appConfigs?: pulumi.Input<pulumi.Input<inputs.opensearch.ApplicationAppConfig>[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the OpenSearch application.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Configuration block(s) for data sources to link to the OpenSearch application. See Data Source below.
      */
-    dataSources?: pulumi.Input<pulumi.Input<inputs.opensearch.ApplicationDataSource>[]>;
+    dataSources?: pulumi.Input<pulumi.Input<inputs.opensearch.ApplicationDataSource>[] | undefined>;
     /**
      * Endpoint URL of the OpenSearch application.
      */
-    endpoint?: pulumi.Input<string>;
+    endpoint?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for integrating AWS IAM Identity Center with the OpenSearch application. See IAM Identity Center Options below.
      */
-    iamIdentityCenterOptions?: pulumi.Input<inputs.opensearch.ApplicationIamIdentityCenterOptions>;
+    iamIdentityCenterOptions?: pulumi.Input<inputs.opensearch.ApplicationIamIdentityCenterOptions | undefined>;
     /**
      * ARN of the KMS key used to encrypt the application's data at rest.
      */
-    kmsKeyArn?: pulumi.Input<string>;
+    kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
      * The unique name of the OpenSearch application. Names must be unique within an AWS Region for each account. Must be between 3 and 30 characters, start with a lowercase letter, and contain only lowercase letters, numbers, and hyphens.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.opensearch.ApplicationTimeouts>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.opensearch.ApplicationTimeouts | undefined>;
 }
 
 /**
@@ -349,30 +349,30 @@ export interface ApplicationArgs {
     /**
      * Configuration block(s) for OpenSearch application settings. See App Config below.
      */
-    appConfigs?: pulumi.Input<pulumi.Input<inputs.opensearch.ApplicationAppConfig>[]>;
+    appConfigs?: pulumi.Input<pulumi.Input<inputs.opensearch.ApplicationAppConfig>[] | undefined>;
     /**
      * Configuration block(s) for data sources to link to the OpenSearch application. See Data Source below.
      */
-    dataSources?: pulumi.Input<pulumi.Input<inputs.opensearch.ApplicationDataSource>[]>;
+    dataSources?: pulumi.Input<pulumi.Input<inputs.opensearch.ApplicationDataSource>[] | undefined>;
     /**
      * Configuration block for integrating AWS IAM Identity Center with the OpenSearch application. See IAM Identity Center Options below.
      */
-    iamIdentityCenterOptions?: pulumi.Input<inputs.opensearch.ApplicationIamIdentityCenterOptions>;
+    iamIdentityCenterOptions?: pulumi.Input<inputs.opensearch.ApplicationIamIdentityCenterOptions | undefined>;
     /**
      * ARN of the KMS key used to encrypt the application's data at rest.
      */
-    kmsKeyArn?: pulumi.Input<string>;
+    kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
      * The unique name of the OpenSearch application. Names must be unique within an AWS Region for each account. Must be between 3 and 30 characters, start with a lowercase letter, and contain only lowercase letters, numbers, and hyphens.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.opensearch.ApplicationTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.opensearch.ApplicationTimeouts | undefined>;
 }

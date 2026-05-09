@@ -261,100 +261,100 @@ export interface PortalState {
     /**
      * Additional encryption context for the customer managed key. Forces replacement if changed.
      */
-    additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Authentication type for the portal. Valid values: `Standard`, `IAM_Identity_Center`.
      */
-    authenticationType?: pulumi.Input<string>;
+    authenticationType?: pulumi.Input<string | undefined>;
     /**
      * ARN of the browser settings to use for the portal.
      */
-    browserSettingsArn?: pulumi.Input<string>;
+    browserSettingsArn?: pulumi.Input<string | undefined>;
     /**
      * Browser type of the portal.
      */
-    browserType?: pulumi.Input<string>;
+    browserType?: pulumi.Input<string | undefined>;
     /**
      * Creation date of the portal.
      */
-    creationDate?: pulumi.Input<string>;
+    creationDate?: pulumi.Input<string | undefined>;
     /**
      * ARN of the customer managed key. Forces replacement if changed.
      */
-    customerManagedKey?: pulumi.Input<string>;
+    customerManagedKey?: pulumi.Input<string | undefined>;
     /**
      * ARN of the data protection settings associated with the portal.
      */
-    dataProtectionSettingsArn?: pulumi.Input<string>;
+    dataProtectionSettingsArn?: pulumi.Input<string | undefined>;
     /**
      * Display name of the portal.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Instance type for the portal. Valid values: `standard.regular`, `standard.large`.
      */
-    instanceType?: pulumi.Input<string>;
+    instanceType?: pulumi.Input<string | undefined>;
     /**
      * ARN of the IP access settings associated with the portal.
      */
-    ipAccessSettingsArn?: pulumi.Input<string>;
+    ipAccessSettingsArn?: pulumi.Input<string | undefined>;
     /**
      * Maximum number of concurrent sessions for the portal.
      */
-    maxConcurrentSessions?: pulumi.Input<number>;
+    maxConcurrentSessions?: pulumi.Input<number | undefined>;
     /**
      * ARN of the network settings associated with the portal.
      */
-    networkSettingsArn?: pulumi.Input<string>;
+    networkSettingsArn?: pulumi.Input<string | undefined>;
     /**
      * ARN of the portal.
      */
-    portalArn?: pulumi.Input<string>;
+    portalArn?: pulumi.Input<string | undefined>;
     /**
      * Endpoint URL of the portal.
      */
-    portalEndpoint?: pulumi.Input<string>;
+    portalEndpoint?: pulumi.Input<string | undefined>;
     /**
      * Status of the portal.
      */
-    portalStatus?: pulumi.Input<string>;
+    portalStatus?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Renderer type of the portal.
      */
-    rendererType?: pulumi.Input<string>;
+    rendererType?: pulumi.Input<string | undefined>;
     /**
      * ARN of the session logger associated with the portal.
      */
-    sessionLoggerArn?: pulumi.Input<string>;
+    sessionLoggerArn?: pulumi.Input<string | undefined>;
     /**
      * Reason for the current status of the portal.
      */
-    statusReason?: pulumi.Input<string>;
+    statusReason?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.workspacesweb.PortalTimeouts>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.workspacesweb.PortalTimeouts | undefined>;
     /**
      * ARN of the trust store associated with the portal.
      */
-    trustStoreArn?: pulumi.Input<string>;
+    trustStoreArn?: pulumi.Input<string | undefined>;
     /**
      * ARN of the user access logging settings associated with the portal.
      */
-    userAccessLoggingSettingsArn?: pulumi.Input<string>;
+    userAccessLoggingSettingsArn?: pulumi.Input<string | undefined>;
     /**
      * ARN of the user settings associated with the portal.
      */
-    userSettingsArn?: pulumi.Input<string>;
+    userSettingsArn?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -364,38 +364,38 @@ export interface PortalArgs {
     /**
      * Additional encryption context for the customer managed key. Forces replacement if changed.
      */
-    additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Authentication type for the portal. Valid values: `Standard`, `IAM_Identity_Center`.
      */
-    authenticationType?: pulumi.Input<string>;
+    authenticationType?: pulumi.Input<string | undefined>;
     /**
      * ARN of the browser settings to use for the portal.
      */
-    browserSettingsArn?: pulumi.Input<string>;
+    browserSettingsArn?: pulumi.Input<string | undefined>;
     /**
      * ARN of the customer managed key. Forces replacement if changed.
      */
-    customerManagedKey?: pulumi.Input<string>;
+    customerManagedKey?: pulumi.Input<string | undefined>;
     /**
      * Display name of the portal.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Instance type for the portal. Valid values: `standard.regular`, `standard.large`.
      */
-    instanceType?: pulumi.Input<string>;
+    instanceType?: pulumi.Input<string | undefined>;
     /**
      * Maximum number of concurrent sessions for the portal.
      */
-    maxConcurrentSessions?: pulumi.Input<number>;
+    maxConcurrentSessions?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.workspacesweb.PortalTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.workspacesweb.PortalTimeouts | undefined>;
 }

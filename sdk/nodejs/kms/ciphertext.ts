@@ -135,32 +135,32 @@ export interface CiphertextState {
     /**
      * Base64 encoded ciphertext
      */
-    ciphertextBlob?: pulumi.Input<string>;
+    ciphertextBlob?: pulumi.Input<string | undefined>;
     /**
      * An optional mapping that makes up the encryption context.
      */
-    context?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    context?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Globally unique key ID for the customer master key.
      */
-    keyId?: pulumi.Input<string>;
+    keyId?: pulumi.Input<string | undefined>;
     /**
      * Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
      */
-    plaintext?: pulumi.Input<string>;
+    plaintext?: pulumi.Input<string | undefined>;
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
      * Data to be encrypted. Note that this may show up in logs. It will not be stored in the state file.
      */
-    plaintextWo?: pulumi.Input<string>;
+    plaintextWo?: pulumi.Input<string | undefined>;
     /**
      * Used together with `plaintextWo` to trigger a replacement. Modify this value when a replacement is required.
      */
-    plaintextWoVersion?: pulumi.Input<string>;
+    plaintextWoVersion?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -170,7 +170,7 @@ export interface CiphertextArgs {
     /**
      * An optional mapping that makes up the encryption context.
      */
-    context?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    context?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Globally unique key ID for the customer master key.
      */
@@ -178,18 +178,18 @@ export interface CiphertextArgs {
     /**
      * Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
      */
-    plaintext?: pulumi.Input<string>;
+    plaintext?: pulumi.Input<string | undefined>;
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
      * Data to be encrypted. Note that this may show up in logs. It will not be stored in the state file.
      */
-    plaintextWo?: pulumi.Input<string>;
+    plaintextWo?: pulumi.Input<string | undefined>;
     /**
      * Used together with `plaintextWo` to trigger a replacement. Modify this value when a replacement is required.
      */
-    plaintextWoVersion?: pulumi.Input<string>;
+    plaintextWoVersion?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

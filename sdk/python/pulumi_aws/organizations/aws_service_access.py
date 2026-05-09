@@ -43,8 +43,8 @@ class AwsServiceAccessArgs:
 @pulumi.input_type
 class _AwsServiceAccessState:
     def __init__(__self__, *,
-                 date_enabled: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_principal: Optional[pulumi.Input[_builtins.str]] = None):
+                 date_enabled: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_principal: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AwsServiceAccess resources.
 
@@ -58,26 +58,26 @@ class _AwsServiceAccessState:
 
     @_builtins.property
     @pulumi.getter(name="dateEnabled")
-    def date_enabled(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def date_enabled(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date and time that the service was enabled, in RFC 3339 format.
         """
         return pulumi.get(self, "date_enabled")
 
     @date_enabled.setter
-    def date_enabled(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def date_enabled(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "date_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="servicePrincipal")
-    def service_principal(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_principal(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Service principal of the AWS service to enable. For example, `tagpolicies.tag.amazonaws.com`. Changing this value will force a new resource.
         """
         return pulumi.get(self, "service_principal")
 
     @service_principal.setter
-    def service_principal(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_principal(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_principal", value)
 
 
@@ -87,7 +87,7 @@ class AwsServiceAccess(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 service_principal: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_principal: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages trusted access between an AWS service and AWS Organizations.
@@ -168,7 +168,7 @@ class AwsServiceAccess(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 service_principal: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_principal: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -192,8 +192,8 @@ class AwsServiceAccess(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            date_enabled: Optional[pulumi.Input[_builtins.str]] = None,
-            service_principal: Optional[pulumi.Input[_builtins.str]] = None) -> 'AwsServiceAccess':
+            date_enabled: pulumi.Input[Optional[_builtins.str]] = None,
+            service_principal: pulumi.Input[Optional[_builtins.str]] = None) -> 'AwsServiceAccess':
         """
         Get an existing AwsServiceAccess resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

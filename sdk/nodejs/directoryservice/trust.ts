@@ -247,68 +247,68 @@ export interface TrustState {
      * Set of IPv4 addresses for the DNS server associated with the remote Directory.
      * Can contain between 1 and 4 values.
      */
-    conditionalForwarderIpAddrs?: pulumi.Input<pulumi.Input<string>[]>;
+    conditionalForwarderIpAddrs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Date and time when the Trust was created.
      */
-    createdDateTime?: pulumi.Input<string>;
+    createdDateTime?: pulumi.Input<string | undefined>;
     /**
      * Whether to delete the conditional forwarder when deleting the Trust relationship.
      */
-    deleteAssociatedConditionalForwarder?: pulumi.Input<boolean>;
+    deleteAssociatedConditionalForwarder?: pulumi.Input<boolean | undefined>;
     /**
      * ID of the Directory.
      */
-    directoryId?: pulumi.Input<string>;
+    directoryId?: pulumi.Input<string | undefined>;
     /**
      * Date and time when the Trust was last updated.
      */
-    lastUpdatedDateTime?: pulumi.Input<string>;
+    lastUpdatedDateTime?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Fully qualified domain name of the remote Directory.
      */
-    remoteDomainName?: pulumi.Input<string>;
+    remoteDomainName?: pulumi.Input<string | undefined>;
     /**
      * Whether to enable selective authentication.
      * Valid values are `Enabled` and `Disabled`.
      * Default value is `Disabled`.
      */
-    selectiveAuth?: pulumi.Input<string>;
+    selectiveAuth?: pulumi.Input<string | undefined>;
     /**
      * Date and time when the Trust state in `trustState` was last updated.
      */
-    stateLastUpdatedDateTime?: pulumi.Input<string>;
+    stateLastUpdatedDateTime?: pulumi.Input<string | undefined>;
     /**
      * The direction of the Trust relationship.
      * Valid values are `One-Way: Outgoing`, `One-Way: Incoming`, and `Two-Way`.
      */
-    trustDirection?: pulumi.Input<string>;
+    trustDirection?: pulumi.Input<string | undefined>;
     /**
      * Password for the Trust.
      * Does not need to match the passwords for either Directory.
      * Can contain upper- and lower-case letters, numbers, and punctuation characters.
      * May be up to 128 characters long.
      */
-    trustPassword?: pulumi.Input<string>;
+    trustPassword?: pulumi.Input<string | undefined>;
     /**
      * State of the Trust relationship.
      * One of `Created`, `VerifyFailed`,`Verified`, `UpdateFailed`,`Updated`,`Deleted`, or `Failed`.
      */
-    trustState?: pulumi.Input<string>;
+    trustState?: pulumi.Input<string | undefined>;
     /**
      * Reason for the Trust state set in `trustState`.
      */
-    trustStateReason?: pulumi.Input<string>;
+    trustStateReason?: pulumi.Input<string | undefined>;
     /**
      * Type of the Trust relationship.
      * Valid values are `Forest` and `External`.
      * Default value is `Forest`.
      */
-    trustType?: pulumi.Input<string>;
+    trustType?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -319,11 +319,11 @@ export interface TrustArgs {
      * Set of IPv4 addresses for the DNS server associated with the remote Directory.
      * Can contain between 1 and 4 values.
      */
-    conditionalForwarderIpAddrs?: pulumi.Input<pulumi.Input<string>[]>;
+    conditionalForwarderIpAddrs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Whether to delete the conditional forwarder when deleting the Trust relationship.
      */
-    deleteAssociatedConditionalForwarder?: pulumi.Input<boolean>;
+    deleteAssociatedConditionalForwarder?: pulumi.Input<boolean | undefined>;
     /**
      * ID of the Directory.
      */
@@ -331,7 +331,7 @@ export interface TrustArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Fully qualified domain name of the remote Directory.
      */
@@ -341,7 +341,7 @@ export interface TrustArgs {
      * Valid values are `Enabled` and `Disabled`.
      * Default value is `Disabled`.
      */
-    selectiveAuth?: pulumi.Input<string>;
+    selectiveAuth?: pulumi.Input<string | undefined>;
     /**
      * The direction of the Trust relationship.
      * Valid values are `One-Way: Outgoing`, `One-Way: Incoming`, and `Two-Way`.
@@ -359,5 +359,5 @@ export interface TrustArgs {
      * Valid values are `Forest` and `External`.
      * Default value is `Forest`.
      */
-    trustType?: pulumi.Input<string>;
+    trustType?: pulumi.Input<string | undefined>;
 }

@@ -167,10 +167,10 @@ def get_quicksight_group(aws_account_id: Optional[_builtins.str] = None,
         namespace=pulumi.get(__ret__, 'namespace'),
         principal_id=pulumi.get(__ret__, 'principal_id'),
         region=pulumi.get(__ret__, 'region'))
-def get_quicksight_group_output(aws_account_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                namespace: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_quicksight_group_output(aws_account_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                namespace: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQuicksightGroupResult]:
     """
     This data source can be used to fetch information about a specific

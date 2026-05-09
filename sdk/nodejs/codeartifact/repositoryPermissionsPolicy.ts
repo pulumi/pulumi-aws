@@ -162,31 +162,31 @@ export interface RepositoryPermissionsPolicyState {
     /**
      * The name of the domain on which to set the resource policy.
      */
-    domain?: pulumi.Input<string>;
+    domain?: pulumi.Input<string | undefined>;
     /**
      * The account number of the AWS account that owns the domain.
      */
-    domainOwner?: pulumi.Input<string>;
+    domainOwner?: pulumi.Input<string | undefined>;
     /**
      * A JSON policy string to be set as the access control resource policy on the provided domain.
      */
-    policyDocument?: pulumi.Input<string>;
+    policyDocument?: pulumi.Input<string | undefined>;
     /**
      * The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
      */
-    policyRevision?: pulumi.Input<string>;
+    policyRevision?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The name of the repository to set the resource policy on.
      */
-    repository?: pulumi.Input<string>;
+    repository?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the resource associated with the resource policy.
      */
-    resourceArn?: pulumi.Input<string>;
+    resourceArn?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -200,7 +200,7 @@ export interface RepositoryPermissionsPolicyArgs {
     /**
      * The account number of the AWS account that owns the domain.
      */
-    domainOwner?: pulumi.Input<string>;
+    domainOwner?: pulumi.Input<string | undefined>;
     /**
      * A JSON policy string to be set as the access control resource policy on the provided domain.
      */
@@ -208,11 +208,11 @@ export interface RepositoryPermissionsPolicyArgs {
     /**
      * The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
      */
-    policyRevision?: pulumi.Input<string>;
+    policyRevision?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The name of the repository to set the resource policy on.
      */

@@ -43,8 +43,8 @@ public final class QuicksightFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.quicksight.QuicksightFunctions;
      * import com.pulumi.aws.quicksight.inputs.GetDataSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -85,8 +85,8 @@ public final class QuicksightFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.quicksight.QuicksightFunctions;
      * import com.pulumi.aws.quicksight.inputs.GetDataSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -127,8 +127,8 @@ public final class QuicksightFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.quicksight.QuicksightFunctions;
      * import com.pulumi.aws.quicksight.inputs.GetDataSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -169,8 +169,8 @@ public final class QuicksightFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.quicksight.QuicksightFunctions;
      * import com.pulumi.aws.quicksight.inputs.GetDataSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -211,8 +211,8 @@ public final class QuicksightFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.quicksight.QuicksightFunctions;
      * import com.pulumi.aws.quicksight.inputs.GetDataSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -253,8 +253,8 @@ public final class QuicksightFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.quicksight.QuicksightFunctions;
      * import com.pulumi.aws.quicksight.inputs.GetQuicksightAnalysisArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -295,8 +295,8 @@ public final class QuicksightFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.quicksight.QuicksightFunctions;
      * import com.pulumi.aws.quicksight.inputs.GetQuicksightAnalysisArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -337,8 +337,8 @@ public final class QuicksightFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.quicksight.QuicksightFunctions;
      * import com.pulumi.aws.quicksight.inputs.GetQuicksightAnalysisArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -379,8 +379,8 @@ public final class QuicksightFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.quicksight.QuicksightFunctions;
      * import com.pulumi.aws.quicksight.inputs.GetQuicksightAnalysisArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -421,8 +421,8 @@ public final class QuicksightFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.quicksight.QuicksightFunctions;
      * import com.pulumi.aws.quicksight.inputs.GetQuicksightAnalysisArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -465,8 +465,8 @@ public final class QuicksightFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.quicksight.QuicksightFunctions;
      * import com.pulumi.aws.quicksight.inputs.GetQuicksightGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -509,8 +509,8 @@ public final class QuicksightFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.quicksight.QuicksightFunctions;
      * import com.pulumi.aws.quicksight.inputs.GetQuicksightGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -553,8 +553,8 @@ public final class QuicksightFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.quicksight.QuicksightFunctions;
      * import com.pulumi.aws.quicksight.inputs.GetQuicksightGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -597,8 +597,8 @@ public final class QuicksightFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.quicksight.QuicksightFunctions;
      * import com.pulumi.aws.quicksight.inputs.GetQuicksightGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -641,8 +641,8 @@ public final class QuicksightFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.quicksight.QuicksightFunctions;
      * import com.pulumi.aws.quicksight.inputs.GetQuicksightGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -685,8 +685,8 @@ public final class QuicksightFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.quicksight.QuicksightFunctions;
      * import com.pulumi.aws.quicksight.inputs.GetQuicksightUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -729,8 +729,8 @@ public final class QuicksightFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.quicksight.QuicksightFunctions;
      * import com.pulumi.aws.quicksight.inputs.GetQuicksightUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -773,8 +773,8 @@ public final class QuicksightFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.quicksight.QuicksightFunctions;
      * import com.pulumi.aws.quicksight.inputs.GetQuicksightUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -817,8 +817,8 @@ public final class QuicksightFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.quicksight.QuicksightFunctions;
      * import com.pulumi.aws.quicksight.inputs.GetQuicksightUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -861,8 +861,8 @@ public final class QuicksightFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.quicksight.QuicksightFunctions;
      * import com.pulumi.aws.quicksight.inputs.GetQuicksightUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -903,8 +903,8 @@ public final class QuicksightFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.quicksight.QuicksightFunctions;
      * import com.pulumi.aws.quicksight.inputs.GetThemeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -945,8 +945,8 @@ public final class QuicksightFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.quicksight.QuicksightFunctions;
      * import com.pulumi.aws.quicksight.inputs.GetThemeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -987,8 +987,8 @@ public final class QuicksightFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.quicksight.QuicksightFunctions;
      * import com.pulumi.aws.quicksight.inputs.GetThemeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1029,8 +1029,8 @@ public final class QuicksightFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.quicksight.QuicksightFunctions;
      * import com.pulumi.aws.quicksight.inputs.GetThemeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1071,8 +1071,8 @@ public final class QuicksightFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.quicksight.QuicksightFunctions;
      * import com.pulumi.aws.quicksight.inputs.GetThemeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

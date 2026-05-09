@@ -150,39 +150,39 @@ export interface ApprovalRuleTemplateState {
     /**
      * The ID of the approval rule template
      */
-    approvalRuleTemplateId?: pulumi.Input<string>;
+    approvalRuleTemplateId?: pulumi.Input<string | undefined>;
     /**
      * The content of the approval rule template. Maximum of 3000 characters.
      */
-    content?: pulumi.Input<string>;
+    content?: pulumi.Input<string | undefined>;
     /**
      * The date the approval rule template was created, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      */
-    creationDate?: pulumi.Input<string>;
+    creationDate?: pulumi.Input<string | undefined>;
     /**
      * The description of the approval rule template. Maximum of 1000 characters.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      */
-    lastModifiedDate?: pulumi.Input<string>;
+    lastModifiedDate?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
      */
-    lastModifiedUser?: pulumi.Input<string>;
+    lastModifiedUser?: pulumi.Input<string | undefined>;
     /**
      * The name for the approval rule template. Maximum of 100 characters.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The SHA-256 hash signature for the content of the approval rule template.
      */
-    ruleContentSha256?: pulumi.Input<string>;
+    ruleContentSha256?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -196,13 +196,13 @@ export interface ApprovalRuleTemplateArgs {
     /**
      * The description of the approval rule template. Maximum of 1000 characters.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name for the approval rule template. Maximum of 100 characters.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

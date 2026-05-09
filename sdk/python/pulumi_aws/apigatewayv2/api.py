@@ -22,21 +22,21 @@ __all__ = ['ApiArgs', 'Api']
 class ApiArgs:
     def __init__(__self__, *,
                  protocol_type: pulumi.Input[_builtins.str],
-                 api_key_selection_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 body: Optional[pulumi.Input[_builtins.str]] = None,
-                 cors_configuration: Optional[pulumi.Input['ApiCorsConfigurationArgs']] = None,
-                 credentials_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_execute_api_endpoint: Optional[pulumi.Input[_builtins.bool]] = None,
-                 fail_on_warnings: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_selection_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_key_selection_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 body: pulumi.Input[Optional[_builtins.str]] = None,
+                 cors_configuration: pulumi.Input[Optional['ApiCorsConfigurationArgs']] = None,
+                 credentials_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_execute_api_endpoint: pulumi.Input[Optional[_builtins.bool]] = None,
+                 fail_on_warnings: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_selection_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Api resource.
 
@@ -110,7 +110,7 @@ class ApiArgs:
 
     @_builtins.property
     @pulumi.getter(name="apiKeySelectionExpression")
-    def api_key_selection_expression(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_key_selection_expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions).
         Valid values: `$context.authorizer.usageIdentifierKey`, `$request.header.x-api-key`. Defaults to `$request.header.x-api-key`.
@@ -119,60 +119,60 @@ class ApiArgs:
         return pulumi.get(self, "api_key_selection_expression")
 
     @api_key_selection_expression.setter
-    def api_key_selection_expression(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_key_selection_expression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_key_selection_expression", value)
 
     @_builtins.property
     @pulumi.getter
-    def body(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def body(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs.
         """
         return pulumi.get(self, "body")
 
     @body.setter
-    def body(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def body(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "body", value)
 
     @_builtins.property
     @pulumi.getter(name="corsConfiguration")
-    def cors_configuration(self) -> Optional[pulumi.Input['ApiCorsConfigurationArgs']]:
+    def cors_configuration(self) -> pulumi.Input[Optional['ApiCorsConfigurationArgs']]:
         """
         Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
         """
         return pulumi.get(self, "cors_configuration")
 
     @cors_configuration.setter
-    def cors_configuration(self, value: Optional[pulumi.Input['ApiCorsConfigurationArgs']]):
+    def cors_configuration(self, value: pulumi.Input[Optional['ApiCorsConfigurationArgs']]):
         pulumi.set(self, "cors_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="credentialsArn")
-    def credentials_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def credentials_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Part of _quick create_. Specifies any credentials required for the integration. Applicable for HTTP APIs.
         """
         return pulumi.get(self, "credentials_arn")
 
     @credentials_arn.setter
-    def credentials_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def credentials_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "credentials_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the API. Must be less than or equal to 1024 characters in length.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="disableExecuteApiEndpoint")
-    def disable_execute_api_endpoint(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_execute_api_endpoint(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether clients can invoke the API by using the default `execute-api` endpoint.
         By default, clients can invoke the API with the default `{api_id}.execute-api.{region}.amazonaws.com endpoint`.
@@ -181,72 +181,72 @@ class ApiArgs:
         return pulumi.get(self, "disable_execute_api_endpoint")
 
     @disable_execute_api_endpoint.setter
-    def disable_execute_api_endpoint(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_execute_api_endpoint(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_execute_api_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="failOnWarnings")
-    def fail_on_warnings(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fail_on_warnings(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether warnings should return an error while API Gateway is creating or updating the resource using an OpenAPI specification. Defaults to `false`. Applicable for HTTP APIs.
         """
         return pulumi.get(self, "fail_on_warnings")
 
     @fail_on_warnings.setter
-    def fail_on_warnings(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fail_on_warnings(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fail_on_warnings", value)
 
     @_builtins.property
     @pulumi.getter(name="ipAddressType")
-    def ip_address_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_address_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IP address types that can invoke the API. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API. Defaults to `ipv4`.
         """
         return pulumi.get(self, "ip_address_type")
 
     @ip_address_type.setter
-    def ip_address_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_address_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_address_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the API. Must be less than or equal to 128 characters in length.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="routeKey")
-    def route_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def route_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Part of _quick create_. Specifies any [route key](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-routes.html). Applicable for HTTP APIs.
         """
         return pulumi.get(self, "route_key")
 
     @route_key.setter
-    def route_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def route_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "route_key", value)
 
     @_builtins.property
     @pulumi.getter(name="routeSelectionExpression")
-    def route_selection_expression(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def route_selection_expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The [route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
         Defaults to `$request.method $request.path`.
@@ -254,24 +254,24 @@ class ApiArgs:
         return pulumi.get(self, "route_selection_expression")
 
     @route_selection_expression.setter
-    def route_selection_expression(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def route_selection_expression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "route_selection_expression", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the API. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def target(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Part of _quick create_. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes.
         For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN.
@@ -280,45 +280,45 @@ class ApiArgs:
         return pulumi.get(self, "target")
 
     @target.setter
-    def target(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version identifier for the API. Must be between 1 and 64 characters in length.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
 @pulumi.input_type
 class _ApiState:
     def __init__(__self__, *,
-                 api_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_key_selection_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 body: Optional[pulumi.Input[_builtins.str]] = None,
-                 cors_configuration: Optional[pulumi.Input['ApiCorsConfigurationArgs']] = None,
-                 credentials_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_execute_api_endpoint: Optional[pulumi.Input[_builtins.bool]] = None,
-                 execution_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 fail_on_warnings: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_selection_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_key_selection_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 body: pulumi.Input[Optional[_builtins.str]] = None,
+                 cors_configuration: pulumi.Input[Optional['ApiCorsConfigurationArgs']] = None,
+                 credentials_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_execute_api_endpoint: pulumi.Input[Optional[_builtins.bool]] = None,
+                 execution_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 fail_on_warnings: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_selection_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Api resources.
 
@@ -395,19 +395,19 @@ class _ApiState:
 
     @_builtins.property
     @pulumi.getter(name="apiEndpoint")
-    def api_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
         """
         return pulumi.get(self, "api_endpoint")
 
     @api_endpoint.setter
-    def api_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="apiKeySelectionExpression")
-    def api_key_selection_expression(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_key_selection_expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions).
         Valid values: `$context.authorizer.usageIdentifierKey`, `$request.header.x-api-key`. Defaults to `$request.header.x-api-key`.
@@ -416,72 +416,72 @@ class _ApiState:
         return pulumi.get(self, "api_key_selection_expression")
 
     @api_key_selection_expression.setter
-    def api_key_selection_expression(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_key_selection_expression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_key_selection_expression", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the API.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def body(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def body(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs.
         """
         return pulumi.get(self, "body")
 
     @body.setter
-    def body(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def body(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "body", value)
 
     @_builtins.property
     @pulumi.getter(name="corsConfiguration")
-    def cors_configuration(self) -> Optional[pulumi.Input['ApiCorsConfigurationArgs']]:
+    def cors_configuration(self) -> pulumi.Input[Optional['ApiCorsConfigurationArgs']]:
         """
         Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
         """
         return pulumi.get(self, "cors_configuration")
 
     @cors_configuration.setter
-    def cors_configuration(self, value: Optional[pulumi.Input['ApiCorsConfigurationArgs']]):
+    def cors_configuration(self, value: pulumi.Input[Optional['ApiCorsConfigurationArgs']]):
         pulumi.set(self, "cors_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="credentialsArn")
-    def credentials_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def credentials_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Part of _quick create_. Specifies any credentials required for the integration. Applicable for HTTP APIs.
         """
         return pulumi.get(self, "credentials_arn")
 
     @credentials_arn.setter
-    def credentials_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def credentials_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "credentials_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the API. Must be less than or equal to 1024 characters in length.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="disableExecuteApiEndpoint")
-    def disable_execute_api_endpoint(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_execute_api_endpoint(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether clients can invoke the API by using the default `execute-api` endpoint.
         By default, clients can invoke the API with the default `{api_id}.execute-api.{region}.amazonaws.com endpoint`.
@@ -490,12 +490,12 @@ class _ApiState:
         return pulumi.get(self, "disable_execute_api_endpoint")
 
     @disable_execute_api_endpoint.setter
-    def disable_execute_api_endpoint(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_execute_api_endpoint(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_execute_api_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="executionArn")
-    def execution_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def execution_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN prefix to be used in an `lambda.Permission`'s `source_arn` attribute
         or in an `iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
@@ -504,84 +504,84 @@ class _ApiState:
         return pulumi.get(self, "execution_arn")
 
     @execution_arn.setter
-    def execution_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def execution_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "execution_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="failOnWarnings")
-    def fail_on_warnings(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fail_on_warnings(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether warnings should return an error while API Gateway is creating or updating the resource using an OpenAPI specification. Defaults to `false`. Applicable for HTTP APIs.
         """
         return pulumi.get(self, "fail_on_warnings")
 
     @fail_on_warnings.setter
-    def fail_on_warnings(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fail_on_warnings(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fail_on_warnings", value)
 
     @_builtins.property
     @pulumi.getter(name="ipAddressType")
-    def ip_address_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_address_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IP address types that can invoke the API. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API. Defaults to `ipv4`.
         """
         return pulumi.get(self, "ip_address_type")
 
     @ip_address_type.setter
-    def ip_address_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_address_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_address_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the API. Must be less than or equal to 128 characters in length.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="protocolType")
-    def protocol_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def protocol_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         API protocol. Valid values: `HTTP`, `WEBSOCKET`.
         """
         return pulumi.get(self, "protocol_type")
 
     @protocol_type.setter
-    def protocol_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def protocol_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "protocol_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="routeKey")
-    def route_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def route_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Part of _quick create_. Specifies any [route key](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-routes.html). Applicable for HTTP APIs.
         """
         return pulumi.get(self, "route_key")
 
     @route_key.setter
-    def route_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def route_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "route_key", value)
 
     @_builtins.property
     @pulumi.getter(name="routeSelectionExpression")
-    def route_selection_expression(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def route_selection_expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The [route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
         Defaults to `$request.method $request.path`.
@@ -589,36 +589,36 @@ class _ApiState:
         return pulumi.get(self, "route_selection_expression")
 
     @route_selection_expression.setter
-    def route_selection_expression(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def route_selection_expression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "route_selection_expression", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the API. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def target(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Part of _quick create_. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes.
         For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN.
@@ -627,19 +627,19 @@ class _ApiState:
         return pulumi.get(self, "target")
 
     @target.setter
-    def target(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version identifier for the API. Must be between 1 and 64 characters in length.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -649,22 +649,22 @@ class Api(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_key_selection_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 body: Optional[pulumi.Input[_builtins.str]] = None,
-                 cors_configuration: Optional[pulumi.Input[Union['ApiCorsConfigurationArgs', 'ApiCorsConfigurationArgsDict']]] = None,
-                 credentials_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_execute_api_endpoint: Optional[pulumi.Input[_builtins.bool]] = None,
-                 fail_on_warnings: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_selection_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_key_selection_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 body: pulumi.Input[Optional[_builtins.str]] = None,
+                 cors_configuration: pulumi.Input[Optional[Union['ApiCorsConfigurationArgs', 'ApiCorsConfigurationArgsDict']]] = None,
+                 credentials_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_execute_api_endpoint: pulumi.Input[Optional[_builtins.bool]] = None,
+                 fail_on_warnings: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_selection_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an Amazon API Gateway Version 2 API.
@@ -813,22 +813,22 @@ class Api(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_key_selection_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 body: Optional[pulumi.Input[_builtins.str]] = None,
-                 cors_configuration: Optional[pulumi.Input[Union['ApiCorsConfigurationArgs', 'ApiCorsConfigurationArgsDict']]] = None,
-                 credentials_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_execute_api_endpoint: Optional[pulumi.Input[_builtins.bool]] = None,
-                 fail_on_warnings: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_selection_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_key_selection_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 body: pulumi.Input[Optional[_builtins.str]] = None,
+                 cors_configuration: pulumi.Input[Optional[Union['ApiCorsConfigurationArgs', 'ApiCorsConfigurationArgsDict']]] = None,
+                 credentials_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_execute_api_endpoint: pulumi.Input[Optional[_builtins.bool]] = None,
+                 fail_on_warnings: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_selection_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -870,26 +870,26 @@ class Api(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            api_key_selection_expression: Optional[pulumi.Input[_builtins.str]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            body: Optional[pulumi.Input[_builtins.str]] = None,
-            cors_configuration: Optional[pulumi.Input[Union['ApiCorsConfigurationArgs', 'ApiCorsConfigurationArgsDict']]] = None,
-            credentials_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            disable_execute_api_endpoint: Optional[pulumi.Input[_builtins.bool]] = None,
-            execution_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            fail_on_warnings: Optional[pulumi.Input[_builtins.bool]] = None,
-            ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            protocol_type: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            route_key: Optional[pulumi.Input[_builtins.str]] = None,
-            route_selection_expression: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            target: Optional[pulumi.Input[_builtins.str]] = None,
-            version: Optional[pulumi.Input[_builtins.str]] = None) -> 'Api':
+            api_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            api_key_selection_expression: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            body: pulumi.Input[Optional[_builtins.str]] = None,
+            cors_configuration: pulumi.Input[Optional[Union['ApiCorsConfigurationArgs', 'ApiCorsConfigurationArgsDict']]] = None,
+            credentials_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            disable_execute_api_endpoint: pulumi.Input[Optional[_builtins.bool]] = None,
+            execution_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            fail_on_warnings: pulumi.Input[Optional[_builtins.bool]] = None,
+            ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            protocol_type: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            route_key: pulumi.Input[Optional[_builtins.str]] = None,
+            route_selection_expression: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            target: pulumi.Input[Optional[_builtins.str]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> 'Api':
         """
         Get an existing Api resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

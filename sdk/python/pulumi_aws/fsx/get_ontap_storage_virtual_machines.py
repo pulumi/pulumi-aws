@@ -116,8 +116,8 @@ def get_ontap_storage_virtual_machines(filters: Optional[Sequence[Union['GetOnta
         id=pulumi.get(__ret__, 'id'),
         ids=pulumi.get(__ret__, 'ids'),
         region=pulumi.get(__ret__, 'region'))
-def get_ontap_storage_virtual_machines_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetOntapStorageVirtualMachinesFilterArgs', 'GetOntapStorageVirtualMachinesFilterArgsDict']]]]] = None,
-                                              region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_ontap_storage_virtual_machines_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetOntapStorageVirtualMachinesFilterArgs', 'GetOntapStorageVirtualMachinesFilterArgsDict']]]]] = None,
+                                              region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOntapStorageVirtualMachinesResult]:
     """
     This resource can be useful for getting back a set of FSx ONTAP Storage Virtual Machine (SVM) IDs.

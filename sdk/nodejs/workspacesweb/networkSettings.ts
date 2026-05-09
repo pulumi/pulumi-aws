@@ -21,11 +21,11 @@ import * as utilities from "../utilities";
  * for (const range = {value: 0}; range.value < 2; range.value++) {
  *     exampleSubnet.push(new aws.ec2.Subnet(`example-${range.value}`, {
  *         vpcId: example.id,
- *         cidrBlock: example.cidrBlock.apply(cidrBlock => std.cidrsubnetOutput({
- *             input: cidrBlock,
+ *         cidrBlock: std.cidrsubnetOutput({
+ *             input: example.cidrBlock,
  *             newbits: 8,
  *             netnum: range.value,
- *         })).apply(invoke => invoke.result),
+ *         }).apply(invoke => invoke.result),
  *         availabilityZone: available.names[range.value],
  *     }));
  * }
@@ -175,37 +175,37 @@ export interface NetworkSettingsState {
     /**
      * List of web portal ARNs associated with the network settings.
      */
-    associatedPortalArns?: pulumi.Input<pulumi.Input<string>[]>;
+    associatedPortalArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * ARN of the network settings resource.
      */
-    networkSettingsArn?: pulumi.Input<string>;
+    networkSettingsArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * One or more security groups used to control access from streaming instances to your VPC.
      */
-    securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet ids must be specified.
      */
-    subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    subnetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The VPC that streaming instances will connect to.
      *
      * The following arguments are optional:
      */
-    vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -215,7 +215,7 @@ export interface NetworkSettingsArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * One or more security groups used to control access from streaming instances to your VPC.
      */
@@ -227,7 +227,7 @@ export interface NetworkSettingsArgs {
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The VPC that streaming instances will connect to.
      *

@@ -23,11 +23,11 @@ class AgentAgentAliasArgs:
     def __init__(__self__, *,
                  agent_alias_name: pulumi.Input[_builtins.str],
                  agent_id: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentAliasRoutingConfigurationArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['AgentAgentAliasTimeoutsArgs']] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['AgentAgentAliasRoutingConfigurationArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['AgentAgentAliasTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AgentAgentAlias resource.
 
@@ -81,75 +81,75 @@ class AgentAgentAliasArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the alias.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="routingConfigurations")
-    def routing_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentAliasRoutingConfigurationArgs']]]]:
+    def routing_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentAgentAliasRoutingConfigurationArgs']]]]:
         """
         Details about the routing configuration of the alias. See `routing_configuration` Block for details.
         """
         return pulumi.get(self, "routing_configurations")
 
     @routing_configurations.setter
-    def routing_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentAliasRoutingConfigurationArgs']]]]):
+    def routing_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AgentAgentAliasRoutingConfigurationArgs']]]]):
         pulumi.set(self, "routing_configurations", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['AgentAgentAliasTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['AgentAgentAliasTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['AgentAgentAliasTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['AgentAgentAliasTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _AgentAgentAliasState:
     def __init__(__self__, *,
-                 agent_alias_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 agent_alias_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 agent_alias_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 agent_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentAliasRoutingConfigurationArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['AgentAgentAliasTimeoutsArgs']] = None):
+                 agent_alias_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 agent_alias_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 agent_alias_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 agent_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['AgentAgentAliasRoutingConfigurationArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['AgentAgentAliasTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering AgentAgentAlias resources.
 
@@ -188,43 +188,43 @@ class _AgentAgentAliasState:
 
     @_builtins.property
     @pulumi.getter(name="agentAliasArn")
-    def agent_alias_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def agent_alias_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the alias.
         """
         return pulumi.get(self, "agent_alias_arn")
 
     @agent_alias_arn.setter
-    def agent_alias_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def agent_alias_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "agent_alias_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="agentAliasId")
-    def agent_alias_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def agent_alias_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique identifier of the alias.
         """
         return pulumi.get(self, "agent_alias_id")
 
     @agent_alias_id.setter
-    def agent_alias_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def agent_alias_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "agent_alias_id", value)
 
     @_builtins.property
     @pulumi.getter(name="agentAliasName")
-    def agent_alias_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def agent_alias_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the alias.
         """
         return pulumi.get(self, "agent_alias_name")
 
     @agent_alias_name.setter
-    def agent_alias_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def agent_alias_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "agent_alias_name", value)
 
     @_builtins.property
     @pulumi.getter(name="agentId")
-    def agent_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def agent_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the agent to create an alias for.
 
@@ -233,76 +233,76 @@ class _AgentAgentAliasState:
         return pulumi.get(self, "agent_id")
 
     @agent_id.setter
-    def agent_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def agent_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "agent_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the alias.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="routingConfigurations")
-    def routing_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentAliasRoutingConfigurationArgs']]]]:
+    def routing_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentAgentAliasRoutingConfigurationArgs']]]]:
         """
         Details about the routing configuration of the alias. See `routing_configuration` Block for details.
         """
         return pulumi.get(self, "routing_configurations")
 
     @routing_configurations.setter
-    def routing_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentAliasRoutingConfigurationArgs']]]]):
+    def routing_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AgentAgentAliasRoutingConfigurationArgs']]]]):
         pulumi.set(self, "routing_configurations", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['AgentAgentAliasTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['AgentAgentAliasTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['AgentAgentAliasTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['AgentAgentAliasTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
@@ -312,13 +312,13 @@ class AgentAgentAlias(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_alias_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 agent_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentAliasRoutingConfigurationArgs', 'AgentAgentAliasRoutingConfigurationArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['AgentAgentAliasTimeoutsArgs', 'AgentAgentAliasTimeoutsArgsDict']]] = None,
+                 agent_alias_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 agent_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentAgentAliasRoutingConfigurationArgs', 'AgentAgentAliasRoutingConfigurationArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentAgentAliasTimeoutsArgs', 'AgentAgentAliasTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Agents for Amazon Bedrock Agent Alias.
@@ -478,13 +478,13 @@ class AgentAgentAlias(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_alias_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 agent_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentAliasRoutingConfigurationArgs', 'AgentAgentAliasRoutingConfigurationArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['AgentAgentAliasTimeoutsArgs', 'AgentAgentAliasTimeoutsArgsDict']]] = None,
+                 agent_alias_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 agent_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentAgentAliasRoutingConfigurationArgs', 'AgentAgentAliasRoutingConfigurationArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentAgentAliasTimeoutsArgs', 'AgentAgentAliasTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -518,16 +518,16 @@ class AgentAgentAlias(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            agent_alias_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            agent_alias_id: Optional[pulumi.Input[_builtins.str]] = None,
-            agent_alias_name: Optional[pulumi.Input[_builtins.str]] = None,
-            agent_id: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            routing_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentAliasRoutingConfigurationArgs', 'AgentAgentAliasRoutingConfigurationArgsDict']]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: Optional[pulumi.Input[Union['AgentAgentAliasTimeoutsArgs', 'AgentAgentAliasTimeoutsArgsDict']]] = None) -> 'AgentAgentAlias':
+            agent_alias_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            agent_alias_id: pulumi.Input[Optional[_builtins.str]] = None,
+            agent_alias_name: pulumi.Input[Optional[_builtins.str]] = None,
+            agent_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentAgentAliasRoutingConfigurationArgs', 'AgentAgentAliasRoutingConfigurationArgsDict']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['AgentAgentAliasTimeoutsArgs', 'AgentAgentAliasTimeoutsArgsDict']]] = None) -> 'AgentAgentAlias':
         """
         Get an existing AgentAgentAlias resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

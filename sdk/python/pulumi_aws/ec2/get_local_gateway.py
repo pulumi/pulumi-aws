@@ -163,11 +163,11 @@ def get_local_gateway(filters: Optional[Sequence[Union['GetLocalGatewayFilterArg
         region=pulumi.get(__ret__, 'region'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_local_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetLocalGatewayFilterArgs', 'GetLocalGatewayFilterArgsDict']]]]] = None,
-                             id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                             region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                             state: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                             tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_local_gateway_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetLocalGatewayFilterArgs', 'GetLocalGatewayFilterArgsDict']]]]] = None,
+                             id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             state: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocalGatewayResult]:
     """
     Provides details about an EC2 Local Gateway.

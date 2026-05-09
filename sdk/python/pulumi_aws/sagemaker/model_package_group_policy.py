@@ -21,7 +21,7 @@ class ModelPackageGroupPolicyArgs:
     def __init__(__self__, *,
                  model_package_group_name: pulumi.Input[_builtins.str],
                  resource_policy: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ModelPackageGroupPolicy resource.
 
@@ -56,23 +56,23 @@ class ModelPackageGroupPolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _ModelPackageGroupPolicyState:
     def __init__(__self__, *,
-                 model_package_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_policy: Optional[pulumi.Input[_builtins.str]] = None):
+                 model_package_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_policy: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ModelPackageGroupPolicy resources.
 
@@ -88,35 +88,35 @@ class _ModelPackageGroupPolicyState:
 
     @_builtins.property
     @pulumi.getter(name="modelPackageGroupName")
-    def model_package_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def model_package_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the model package group.
         """
         return pulumi.get(self, "model_package_group_name")
 
     @model_package_group_name.setter
-    def model_package_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def model_package_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "model_package_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="resourcePolicy")
-    def resource_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "resource_policy")
 
     @resource_policy.setter
-    def resource_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_policy", value)
 
 
@@ -126,9 +126,9 @@ class ModelPackageGroupPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 model_package_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_policy: Optional[pulumi.Input[_builtins.str]] = None,
+                 model_package_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a SageMaker AI Model Package Group Policy resource.
@@ -238,9 +238,9 @@ class ModelPackageGroupPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 model_package_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_policy: Optional[pulumi.Input[_builtins.str]] = None,
+                 model_package_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -267,9 +267,9 @@ class ModelPackageGroupPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            model_package_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_policy: Optional[pulumi.Input[_builtins.str]] = None) -> 'ModelPackageGroupPolicy':
+            model_package_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_policy: pulumi.Input[Optional[_builtins.str]] = None) -> 'ModelPackageGroupPolicy':
         """
         Get an existing ModelPackageGroupPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

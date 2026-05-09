@@ -96,7 +96,7 @@ def get_entity_path(entity_id: Optional[_builtins.str] = None,
         entity_id=pulumi.get(__ret__, 'entity_id'),
         entity_path=pulumi.get(__ret__, 'entity_path'),
         id=pulumi.get(__ret__, 'id'))
-def get_entity_path_output(entity_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_entity_path_output(entity_id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEntityPathResult]:
     """
     Get the [entity path](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_last-accessed-view-data-orgs.html#access_policies_last-accessed-viewing-orgs-entity-path) for an entity. An entity's path is the text representation of the structure of that AWS Organizations entity.

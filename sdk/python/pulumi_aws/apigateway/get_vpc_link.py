@@ -178,9 +178,9 @@ def get_vpc_link(name: Optional[_builtins.str] = None,
         status_message=pulumi.get(__ret__, 'status_message'),
         tags=pulumi.get(__ret__, 'tags'),
         target_arns=pulumi.get(__ret__, 'target_arns'))
-def get_vpc_link_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                        region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                        tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_vpc_link_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                        region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcLinkResult]:
     """
     Use this data source to get the id of a VPC Link in

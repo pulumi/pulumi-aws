@@ -21,13 +21,13 @@ __all__ = ['ClusterArgs', 'Cluster']
 @pulumi.input_type
 class ClusterArgs:
     def __init__(__self__, *,
-                 deletion_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 force_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kms_encryption_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 multi_region_properties: Optional[pulumi.Input['ClusterMultiRegionPropertiesArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['ClusterTimeoutsArgs']] = None):
+                 deletion_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kms_encryption_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 multi_region_properties: pulumi.Input[Optional['ClusterMultiRegionPropertiesArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['ClusterTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Cluster resource.
 
@@ -57,7 +57,7 @@ class ClusterArgs:
 
     @_builtins.property
     @pulumi.getter(name="deletionProtectionEnabled")
-    def deletion_protection_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def deletion_protection_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether deletion protection is enabled in this cluster.
         Default value is `false`.
@@ -65,12 +65,12 @@ class ClusterArgs:
         return pulumi.get(self, "deletion_protection_enabled")
 
     @deletion_protection_enabled.setter
-    def deletion_protection_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def deletion_protection_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "deletion_protection_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="forceDestroy")
-    def force_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def force_destroy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Destroys cluster even if `deletion_protection_enabled` is set to `true`.
         Default value is `false`.
@@ -78,82 +78,82 @@ class ClusterArgs:
         return pulumi.get(self, "force_destroy")
 
     @force_destroy.setter
-    def force_destroy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def force_destroy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "force_destroy", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsEncryptionKey")
-    def kms_encryption_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_encryption_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the AWS KMS key that encrypts data in the DSQL Cluster, or `"AWS_OWNED_KMS_KEY"`.
         """
         return pulumi.get(self, "kms_encryption_key")
 
     @kms_encryption_key.setter
-    def kms_encryption_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_encryption_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_encryption_key", value)
 
     @_builtins.property
     @pulumi.getter(name="multiRegionProperties")
-    def multi_region_properties(self) -> Optional[pulumi.Input['ClusterMultiRegionPropertiesArgs']]:
+    def multi_region_properties(self) -> pulumi.Input[Optional['ClusterMultiRegionPropertiesArgs']]:
         """
         Multi-region properties of the DSQL Cluster.
         """
         return pulumi.get(self, "multi_region_properties")
 
     @multi_region_properties.setter
-    def multi_region_properties(self, value: Optional[pulumi.Input['ClusterMultiRegionPropertiesArgs']]):
+    def multi_region_properties(self, value: pulumi.Input[Optional['ClusterMultiRegionPropertiesArgs']]):
         pulumi.set(self, "multi_region_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Set of tags to be associated with the AWS DSQL Cluster resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['ClusterTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['ClusterTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['ClusterTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['ClusterTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _ClusterState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 deletion_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption_details: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterEncryptionDetailArgs']]]] = None,
-                 force_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_encryption_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 multi_region_properties: Optional[pulumi.Input['ClusterMultiRegionPropertiesArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['ClusterTimeoutsArgs']] = None,
-                 vpc_endpoint_service_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 deletion_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption_details: pulumi.Input[Optional[Sequence[pulumi.Input['ClusterEncryptionDetailArgs']]]] = None,
+                 force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_encryption_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 multi_region_properties: pulumi.Input[Optional['ClusterMultiRegionPropertiesArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['ClusterTimeoutsArgs']] = None,
+                 vpc_endpoint_service_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Cluster resources.
 
@@ -198,19 +198,19 @@ class _ClusterState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the Cluster.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="deletionProtectionEnabled")
-    def deletion_protection_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def deletion_protection_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether deletion protection is enabled in this cluster.
         Default value is `false`.
@@ -218,24 +218,24 @@ class _ClusterState:
         return pulumi.get(self, "deletion_protection_enabled")
 
     @deletion_protection_enabled.setter
-    def deletion_protection_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def deletion_protection_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "deletion_protection_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionDetails")
-    def encryption_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterEncryptionDetailArgs']]]]:
+    def encryption_details(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ClusterEncryptionDetailArgs']]]]:
         """
         Encryption configuration details for the DSQL Cluster.
         """
         return pulumi.get(self, "encryption_details")
 
     @encryption_details.setter
-    def encryption_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterEncryptionDetailArgs']]]]):
+    def encryption_details(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ClusterEncryptionDetailArgs']]]]):
         pulumi.set(self, "encryption_details", value)
 
     @_builtins.property
     @pulumi.getter(name="forceDestroy")
-    def force_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def force_destroy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Destroys cluster even if `deletion_protection_enabled` is set to `true`.
         Default value is `false`.
@@ -243,100 +243,100 @@ class _ClusterState:
         return pulumi.get(self, "force_destroy")
 
     @force_destroy.setter
-    def force_destroy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def force_destroy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "force_destroy", value)
 
     @_builtins.property
     @pulumi.getter
-    def identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Cluster Identifier.
         """
         return pulumi.get(self, "identifier")
 
     @identifier.setter
-    def identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsEncryptionKey")
-    def kms_encryption_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_encryption_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the AWS KMS key that encrypts data in the DSQL Cluster, or `"AWS_OWNED_KMS_KEY"`.
         """
         return pulumi.get(self, "kms_encryption_key")
 
     @kms_encryption_key.setter
-    def kms_encryption_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_encryption_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_encryption_key", value)
 
     @_builtins.property
     @pulumi.getter(name="multiRegionProperties")
-    def multi_region_properties(self) -> Optional[pulumi.Input['ClusterMultiRegionPropertiesArgs']]:
+    def multi_region_properties(self) -> pulumi.Input[Optional['ClusterMultiRegionPropertiesArgs']]:
         """
         Multi-region properties of the DSQL Cluster.
         """
         return pulumi.get(self, "multi_region_properties")
 
     @multi_region_properties.setter
-    def multi_region_properties(self, value: Optional[pulumi.Input['ClusterMultiRegionPropertiesArgs']]):
+    def multi_region_properties(self, value: pulumi.Input[Optional['ClusterMultiRegionPropertiesArgs']]):
         pulumi.set(self, "multi_region_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Set of tags to be associated with the AWS DSQL Cluster resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['ClusterTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['ClusterTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['ClusterTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['ClusterTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcEndpointServiceName")
-    def vpc_endpoint_service_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_endpoint_service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The DSQL Cluster's VPC endpoint service name.
         """
         return pulumi.get(self, "vpc_endpoint_service_name")
 
     @vpc_endpoint_service_name.setter
-    def vpc_endpoint_service_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_endpoint_service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_endpoint_service_name", value)
 
 
@@ -346,13 +346,13 @@ class Cluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deletion_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 force_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kms_encryption_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 multi_region_properties: Optional[pulumi.Input[Union['ClusterMultiRegionPropertiesArgs', 'ClusterMultiRegionPropertiesArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['ClusterTimeoutsArgs', 'ClusterTimeoutsArgsDict']]] = None,
+                 deletion_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kms_encryption_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 multi_region_properties: pulumi.Input[Optional[Union['ClusterMultiRegionPropertiesArgs', 'ClusterMultiRegionPropertiesArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ClusterTimeoutsArgs', 'ClusterTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an Amazon Aurora DSQL Cluster.
@@ -440,13 +440,13 @@ class Cluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deletion_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 force_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kms_encryption_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 multi_region_properties: Optional[pulumi.Input[Union['ClusterMultiRegionPropertiesArgs', 'ClusterMultiRegionPropertiesArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['ClusterTimeoutsArgs', 'ClusterTimeoutsArgsDict']]] = None,
+                 deletion_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kms_encryption_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 multi_region_properties: pulumi.Input[Optional[Union['ClusterMultiRegionPropertiesArgs', 'ClusterMultiRegionPropertiesArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ClusterTimeoutsArgs', 'ClusterTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -478,18 +478,18 @@ class Cluster(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            deletion_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            encryption_details: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterEncryptionDetailArgs', 'ClusterEncryptionDetailArgsDict']]]]] = None,
-            force_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-            identifier: Optional[pulumi.Input[_builtins.str]] = None,
-            kms_encryption_key: Optional[pulumi.Input[_builtins.str]] = None,
-            multi_region_properties: Optional[pulumi.Input[Union['ClusterMultiRegionPropertiesArgs', 'ClusterMultiRegionPropertiesArgsDict']]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: Optional[pulumi.Input[Union['ClusterTimeoutsArgs', 'ClusterTimeoutsArgsDict']]] = None,
-            vpc_endpoint_service_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'Cluster':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            deletion_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            encryption_details: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterEncryptionDetailArgs', 'ClusterEncryptionDetailArgsDict']]]]] = None,
+            force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+            identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_encryption_key: pulumi.Input[Optional[_builtins.str]] = None,
+            multi_region_properties: pulumi.Input[Optional[Union['ClusterMultiRegionPropertiesArgs', 'ClusterMultiRegionPropertiesArgsDict']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['ClusterTimeoutsArgs', 'ClusterTimeoutsArgsDict']]] = None,
+            vpc_endpoint_service_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'Cluster':
         """
         Get an existing Cluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

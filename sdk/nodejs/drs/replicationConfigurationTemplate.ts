@@ -269,78 +269,78 @@ export interface ReplicationConfigurationTemplateState {
     /**
      * Replication configuration template ARN.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Whether to associate the default Elastic Disaster Recovery Security group with the Replication Configuration Template.
      */
-    associateDefaultSecurityGroup?: pulumi.Input<boolean>;
+    associateDefaultSecurityGroup?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to allow the AWS replication agent to automatically replicate newly added disks.
      */
-    autoReplicateNewDisks?: pulumi.Input<boolean>;
+    autoReplicateNewDisks?: pulumi.Input<boolean | undefined>;
     /**
      * Configure bandwidth throttling for the outbound data transfer rate of the Source Server in Mbps.
      */
-    bandwidthThrottling?: pulumi.Input<number>;
+    bandwidthThrottling?: pulumi.Input<number | undefined>;
     /**
      * Whether to create a Public IP for the Recovery Instance by default.
      */
-    createPublicIp?: pulumi.Input<boolean>;
+    createPublicIp?: pulumi.Input<boolean | undefined>;
     /**
      * Data plane routing mechanism that will be used for replication. Valid values are `PUBLIC_IP` and `PRIVATE_IP`.
      */
-    dataPlaneRouting?: pulumi.Input<string>;
+    dataPlaneRouting?: pulumi.Input<string | undefined>;
     /**
      * Staging Disk EBS volume type to be used during replication. Valid values are `GP2`, `GP3`, `ST1`, or `AUTO`.
      */
-    defaultLargeStagingDiskType?: pulumi.Input<string>;
+    defaultLargeStagingDiskType?: pulumi.Input<string | undefined>;
     /**
      * Type of EBS encryption to be used during replication. Valid values are `DEFAULT` and `CUSTOM`.
      */
-    ebsEncryption?: pulumi.Input<string>;
+    ebsEncryption?: pulumi.Input<string | undefined>;
     /**
      * ARN of the EBS encryption key to be used during replication.
      */
-    ebsEncryptionKeyArn?: pulumi.Input<string>;
+    ebsEncryptionKeyArn?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for Point in time (PIT) policy to manage snapshots taken during replication. See below.
      */
-    pitPolicies?: pulumi.Input<pulumi.Input<inputs.drs.ReplicationConfigurationTemplatePitPolicy>[]>;
+    pitPolicies?: pulumi.Input<pulumi.Input<inputs.drs.ReplicationConfigurationTemplatePitPolicy>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Instance type to be used for the replication server.
      */
-    replicationServerInstanceType?: pulumi.Input<string>;
+    replicationServerInstanceType?: pulumi.Input<string | undefined>;
     /**
      * Security group IDs that will be used by the replication server.
      */
-    replicationServersSecurityGroupsIds?: pulumi.Input<pulumi.Input<string>[]>;
+    replicationServersSecurityGroupsIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Subnet to be used by the replication staging area.
      */
-    stagingAreaSubnetId?: pulumi.Input<string>;
+    stagingAreaSubnetId?: pulumi.Input<string | undefined>;
     /**
      * Set of tags to be associated with all resources created in the replication staging area: EC2 replication server, EBS volumes, EBS snapshots, etc.
      */
-    stagingAreaTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    stagingAreaTags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Set of tags to be associated with the Replication Configuration Template resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.drs.ReplicationConfigurationTemplateTimeouts>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.drs.ReplicationConfigurationTemplateTimeouts | undefined>;
     /**
      * Whether to use a dedicated Replication Server in the replication staging area.
      *
      * The following arguments are optional:
      */
-    useDedicatedReplicationServer?: pulumi.Input<boolean>;
+    useDedicatedReplicationServer?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -354,7 +354,7 @@ export interface ReplicationConfigurationTemplateArgs {
     /**
      * Whether to allow the AWS replication agent to automatically replicate newly added disks.
      */
-    autoReplicateNewDisks?: pulumi.Input<boolean>;
+    autoReplicateNewDisks?: pulumi.Input<boolean | undefined>;
     /**
      * Configure bandwidth throttling for the outbound data transfer rate of the Source Server in Mbps.
      */
@@ -378,15 +378,15 @@ export interface ReplicationConfigurationTemplateArgs {
     /**
      * ARN of the EBS encryption key to be used during replication.
      */
-    ebsEncryptionKeyArn?: pulumi.Input<string>;
+    ebsEncryptionKeyArn?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for Point in time (PIT) policy to manage snapshots taken during replication. See below.
      */
-    pitPolicies?: pulumi.Input<pulumi.Input<inputs.drs.ReplicationConfigurationTemplatePitPolicy>[]>;
+    pitPolicies?: pulumi.Input<pulumi.Input<inputs.drs.ReplicationConfigurationTemplatePitPolicy>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Instance type to be used for the replication server.
      */
@@ -406,8 +406,8 @@ export interface ReplicationConfigurationTemplateArgs {
     /**
      * Set of tags to be associated with the Replication Configuration Template resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.drs.ReplicationConfigurationTemplateTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.drs.ReplicationConfigurationTemplateTimeouts | undefined>;
     /**
      * Whether to use a dedicated Replication Server in the replication staging area.
      *

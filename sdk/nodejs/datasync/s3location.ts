@@ -181,40 +181,40 @@ export interface S3LocationState {
     /**
      * (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
      */
-    agentArns?: pulumi.Input<pulumi.Input<string>[]>;
+    agentArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Amazon Resource Name (ARN) of the DataSync Location.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
      */
-    s3BucketArn?: pulumi.Input<string>;
+    s3BucketArn?: pulumi.Input<string | undefined>;
     /**
      * Configuration block containing information for connecting to S3.
      */
-    s3Config?: pulumi.Input<inputs.datasync.S3LocationS3Config>;
+    s3Config?: pulumi.Input<inputs.datasync.S3LocationS3Config | undefined>;
     /**
      * Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
      */
-    s3StorageClass?: pulumi.Input<string>;
+    s3StorageClass?: pulumi.Input<string | undefined>;
     /**
      * Prefix to perform actions as source or destination.
      */
-    subdirectory?: pulumi.Input<string>;
+    subdirectory?: pulumi.Input<string | undefined>;
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    uri?: pulumi.Input<string>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    uri?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -224,11 +224,11 @@ export interface S3LocationArgs {
     /**
      * (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
      */
-    agentArns?: pulumi.Input<pulumi.Input<string>[]>;
+    agentArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
      */
@@ -240,7 +240,7 @@ export interface S3LocationArgs {
     /**
      * Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
      */
-    s3StorageClass?: pulumi.Input<string>;
+    s3StorageClass?: pulumi.Input<string | undefined>;
     /**
      * Prefix to perform actions as source or destination.
      */
@@ -248,5 +248,5 @@ export interface S3LocationArgs {
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

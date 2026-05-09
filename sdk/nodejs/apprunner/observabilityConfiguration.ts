@@ -155,39 +155,39 @@ export interface ObservabilityConfigurationState {
     /**
      * ARN of this observability configuration.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Whether the observability configuration has the highest `observabilityConfigurationRevision` among all configurations that share the same `observabilityConfigurationName`.
      */
-    latest?: pulumi.Input<boolean>;
+    latest?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the observability configuration.
      */
-    observabilityConfigurationName?: pulumi.Input<string>;
+    observabilityConfigurationName?: pulumi.Input<string | undefined>;
     /**
      * The revision of this observability configuration.
      */
-    observabilityConfigurationRevision?: pulumi.Input<number>;
+    observabilityConfigurationRevision?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Current state of the observability configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
      */
-    traceConfiguration?: pulumi.Input<inputs.apprunner.ObservabilityConfigurationTraceConfiguration>;
+    traceConfiguration?: pulumi.Input<inputs.apprunner.ObservabilityConfigurationTraceConfiguration | undefined>;
 }
 
 /**
@@ -201,13 +201,13 @@ export interface ObservabilityConfigurationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
      */
-    traceConfiguration?: pulumi.Input<inputs.apprunner.ObservabilityConfigurationTraceConfiguration>;
+    traceConfiguration?: pulumi.Input<inputs.apprunner.ObservabilityConfigurationTraceConfiguration | undefined>;
 }

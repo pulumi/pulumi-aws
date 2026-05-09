@@ -20,10 +20,10 @@ __all__ = ['SmsChannelArgs', 'SmsChannel']
 class SmsChannelArgs:
     def __init__(__self__, *,
                  application_id: pulumi.Input[_builtins.str],
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 sender_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 short_code: Optional[pulumi.Input[_builtins.str]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 sender_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 short_code: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SmsChannel resource.
 
@@ -57,63 +57,63 @@ class SmsChannelArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the channel is enabled or disabled. By default, it is set to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="senderId")
-    def sender_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sender_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the sender for your messages.
         """
         return pulumi.get(self, "sender_id")
 
     @sender_id.setter
-    def sender_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sender_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sender_id", value)
 
     @_builtins.property
     @pulumi.getter(name="shortCode")
-    def short_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def short_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Short Code registered with the phone provider.
         """
         return pulumi.get(self, "short_code")
 
     @short_code.setter
-    def short_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def short_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "short_code", value)
 
 
 @pulumi.input_type
 class _SmsChannelState:
     def __init__(__self__, *,
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 promotional_messages_per_second: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 sender_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 short_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 transactional_messages_per_second: Optional[pulumi.Input[_builtins.int]] = None):
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 promotional_messages_per_second: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 sender_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 short_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 transactional_messages_per_second: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering SmsChannel resources.
 
@@ -142,86 +142,86 @@ class _SmsChannelState:
 
     @_builtins.property
     @pulumi.getter(name="applicationId")
-    def application_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the application.
         """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
-    def application_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the channel is enabled or disabled. By default, it is set to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="promotionalMessagesPerSecond")
-    def promotional_messages_per_second(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def promotional_messages_per_second(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum number of promotional messages that can be sent per second.
         """
         return pulumi.get(self, "promotional_messages_per_second")
 
     @promotional_messages_per_second.setter
-    def promotional_messages_per_second(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def promotional_messages_per_second(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "promotional_messages_per_second", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="senderId")
-    def sender_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sender_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the sender for your messages.
         """
         return pulumi.get(self, "sender_id")
 
     @sender_id.setter
-    def sender_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sender_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sender_id", value)
 
     @_builtins.property
     @pulumi.getter(name="shortCode")
-    def short_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def short_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Short Code registered with the phone provider.
         """
         return pulumi.get(self, "short_code")
 
     @short_code.setter
-    def short_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def short_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "short_code", value)
 
     @_builtins.property
     @pulumi.getter(name="transactionalMessagesPerSecond")
-    def transactional_messages_per_second(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def transactional_messages_per_second(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum number of transactional messages per second that can be sent.
         """
         return pulumi.get(self, "transactional_messages_per_second")
 
     @transactional_messages_per_second.setter
-    def transactional_messages_per_second(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def transactional_messages_per_second(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "transactional_messages_per_second", value)
 
 
@@ -231,11 +231,11 @@ class SmsChannel(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 sender_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 short_code: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 sender_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 short_code: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Use the `pinpoint.SmsChannel` resource to manage Pinpoint SMS Channels.
@@ -310,11 +310,11 @@ class SmsChannel(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 sender_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 short_code: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 sender_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 short_code: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -343,13 +343,13 @@ class SmsChannel(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            application_id: Optional[pulumi.Input[_builtins.str]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            promotional_messages_per_second: Optional[pulumi.Input[_builtins.int]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            sender_id: Optional[pulumi.Input[_builtins.str]] = None,
-            short_code: Optional[pulumi.Input[_builtins.str]] = None,
-            transactional_messages_per_second: Optional[pulumi.Input[_builtins.int]] = None) -> 'SmsChannel':
+            application_id: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            promotional_messages_per_second: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            sender_id: pulumi.Input[Optional[_builtins.str]] = None,
+            short_code: pulumi.Input[Optional[_builtins.str]] = None,
+            transactional_messages_per_second: pulumi.Input[Optional[_builtins.int]] = None) -> 'SmsChannel':
         """
         Get an existing SmsChannel resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

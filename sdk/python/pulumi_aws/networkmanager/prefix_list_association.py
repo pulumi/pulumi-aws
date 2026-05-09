@@ -73,9 +73,9 @@ class PrefixListAssociationArgs:
 @pulumi.input_type
 class _PrefixListAssociationState:
     def __init__(__self__, *,
-                 core_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 prefix_list_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 prefix_list_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 core_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix_list_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix_list_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PrefixListAssociation resources.
 
@@ -92,38 +92,38 @@ class _PrefixListAssociationState:
 
     @_builtins.property
     @pulumi.getter(name="coreNetworkId")
-    def core_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def core_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the core network to associate the prefix list with.
         """
         return pulumi.get(self, "core_network_id")
 
     @core_network_id.setter
-    def core_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def core_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "core_network_id", value)
 
     @_builtins.property
     @pulumi.getter(name="prefixListAlias")
-    def prefix_list_alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def prefix_list_alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An alias for the prefix list association. This alias can be used to reference the prefix list in the core network policy document. Must start with a letter, be less than 64 characters long, and may only include letters and numbers.
         """
         return pulumi.get(self, "prefix_list_alias")
 
     @prefix_list_alias.setter
-    def prefix_list_alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def prefix_list_alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "prefix_list_alias", value)
 
     @_builtins.property
     @pulumi.getter(name="prefixListArn")
-    def prefix_list_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def prefix_list_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the EC2 managed prefix list to associate with the core network.
         """
         return pulumi.get(self, "prefix_list_arn")
 
     @prefix_list_arn.setter
-    def prefix_list_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def prefix_list_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "prefix_list_arn", value)
 
 
@@ -133,9 +133,9 @@ class PrefixListAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 core_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 prefix_list_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 prefix_list_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 core_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix_list_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix_list_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Associates an EC2 managed prefix list with a Network Manager Cloud WAN core network. Once associated, the prefix list can be referenced in the core network policy document.
@@ -254,9 +254,9 @@ class PrefixListAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 core_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 prefix_list_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 prefix_list_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 core_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix_list_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix_list_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -285,9 +285,9 @@ class PrefixListAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            core_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-            prefix_list_alias: Optional[pulumi.Input[_builtins.str]] = None,
-            prefix_list_arn: Optional[pulumi.Input[_builtins.str]] = None) -> 'PrefixListAssociation':
+            core_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+            prefix_list_alias: pulumi.Input[Optional[_builtins.str]] = None,
+            prefix_list_arn: pulumi.Input[Optional[_builtins.str]] = None) -> 'PrefixListAssociation':
         """
         Get an existing PrefixListAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

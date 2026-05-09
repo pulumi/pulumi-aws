@@ -85,7 +85,7 @@ def get_policies(filter: Optional[_builtins.str] = None,
     import pulumi_std as std
 
     example = aws.organizations.get_policies(filter="SERVICE_CONTROL_POLICY")
-    example_get_policy = {__key: aws.organizations.get_policy(policy_id=__value) for __key, __value in enumerate(std.toset(input=example.ids).result)}
+    example_get_policy = {str(__key): aws.organizations.get_policy(policy_id=__value) for __key, __value in enumerate(std.toset(input=example.ids).result)}
     ```
 
 
@@ -100,7 +100,7 @@ def get_policies(filter: Optional[_builtins.str] = None,
         filter=pulumi.get(__ret__, 'filter'),
         id=pulumi.get(__ret__, 'id'),
         ids=pulumi.get(__ret__, 'ids'))
-def get_policies_output(filter: Optional[pulumi.Input[_builtins.str]] = None,
+def get_policies_output(filter: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPoliciesResult]:
     """
     Data source for managing an AWS Organizations Policies.
@@ -115,7 +115,7 @@ def get_policies_output(filter: Optional[pulumi.Input[_builtins.str]] = None,
     import pulumi_std as std
 
     example = aws.organizations.get_policies(filter="SERVICE_CONTROL_POLICY")
-    example_get_policy = {__key: aws.organizations.get_policy(policy_id=__value) for __key, __value in enumerate(std.toset(input=example.ids).result)}
+    example_get_policy = {str(__key): aws.organizations.get_policy(policy_id=__value) for __key, __value in enumerate(std.toset(input=example.ids).result)}
     ```
 
 

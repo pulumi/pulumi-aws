@@ -167,39 +167,39 @@ export interface AssessmentTemplateState {
     /**
      * The template assessment ARN.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The duration of the inspector run.
      */
-    duration?: pulumi.Input<number>;
+    duration?: pulumi.Input<number | undefined>;
     /**
      * A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
      */
-    eventSubscriptions?: pulumi.Input<pulumi.Input<inputs.inspector.AssessmentTemplateEventSubscription>[]>;
+    eventSubscriptions?: pulumi.Input<pulumi.Input<inputs.inspector.AssessmentTemplateEventSubscription>[] | undefined>;
     /**
      * The name of the assessment template.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The rules to be used during the run.
      */
-    rulesPackageArns?: pulumi.Input<pulumi.Input<string>[]>;
+    rulesPackageArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Key-value map of tags for the Inspector assessment template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The assessment target ARN to attach the template to.
      */
-    targetArn?: pulumi.Input<string>;
+    targetArn?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -213,15 +213,15 @@ export interface AssessmentTemplateArgs {
     /**
      * A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
      */
-    eventSubscriptions?: pulumi.Input<pulumi.Input<inputs.inspector.AssessmentTemplateEventSubscription>[]>;
+    eventSubscriptions?: pulumi.Input<pulumi.Input<inputs.inspector.AssessmentTemplateEventSubscription>[] | undefined>;
     /**
      * The name of the assessment template.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The rules to be used during the run.
      */
@@ -229,7 +229,7 @@ export interface AssessmentTemplateArgs {
     /**
      * Key-value map of tags for the Inspector assessment template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The assessment target ARN to attach the template to.
      */

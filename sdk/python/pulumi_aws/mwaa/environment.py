@@ -25,29 +25,29 @@ class EnvironmentArgs:
                  execution_role_arn: pulumi.Input[_builtins.str],
                  network_configuration: pulumi.Input['EnvironmentNetworkConfigurationArgs'],
                  source_bucket_arn: pulumi.Input[_builtins.str],
-                 airflow_configuration_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 airflow_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_management: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_class: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 logging_configuration: Optional[pulumi.Input['EnvironmentLoggingConfigurationArgs']] = None,
-                 max_webservers: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_workers: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_webservers: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_workers: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 plugins_s3_object_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 plugins_s3_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 requirements_s3_object_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 requirements_s3_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedulers: Optional[pulumi.Input[_builtins.int]] = None,
-                 startup_script_s3_object_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 startup_script_s3_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 webserver_access_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 weekly_maintenance_window_start: Optional[pulumi.Input[_builtins.str]] = None,
-                 worker_replacement_strategy: Optional[pulumi.Input[_builtins.str]] = None):
+                 airflow_configuration_options: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 airflow_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_management: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_class: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 logging_configuration: pulumi.Input[Optional['EnvironmentLoggingConfigurationArgs']] = None,
+                 max_webservers: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_workers: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_webservers: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_workers: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 plugins_s3_object_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 plugins_s3_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 requirements_s3_object_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 requirements_s3_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedulers: pulumi.Input[Optional[_builtins.int]] = None,
+                 startup_script_s3_object_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 startup_script_s3_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 webserver_access_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 weekly_maintenance_window_start: pulumi.Input[Optional[_builtins.str]] = None,
+                 worker_replacement_strategy: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Environment resource.
 
@@ -180,320 +180,320 @@ class EnvironmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="airflowConfigurationOptions")
-    def airflow_configuration_options(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def airflow_configuration_options(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The `airflow_configuration_options` parameter specifies airflow override options. Check the [Official documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html#configuring-env-variables-reference) for all possible configuration options.
         """
         return pulumi.get(self, "airflow_configuration_options")
 
     @airflow_configuration_options.setter
-    def airflow_configuration_options(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def airflow_configuration_options(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "airflow_configuration_options", value)
 
     @_builtins.property
     @pulumi.getter(name="airflowVersion")
-    def airflow_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def airflow_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Airflow version of your environment, will be set by default to the latest version that MWAA supports.
         """
         return pulumi.get(self, "airflow_version")
 
     @airflow_version.setter
-    def airflow_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def airflow_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "airflow_version", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointManagement")
-    def endpoint_management(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint_management(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Defines whether the VPC endpoints configured for the environment are created and managed by the customer or by AWS. If set to `SERVICE`, Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER`, you must create, and manage, the VPC endpoints for your VPC. Defaults to `SERVICE` if not set.
         """
         return pulumi.get(self, "endpoint_management")
 
     @endpoint_management.setter
-    def endpoint_management(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint_management(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint_management", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentClass")
-    def environment_class(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def environment_class(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Environment class for the cluster. Possible options are `mw1.micro`, `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
         """
         return pulumi.get(self, "environment_class")
 
     @environment_class.setter
-    def environment_class(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def environment_class(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "environment_class", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKey")
-    def kms_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
         """
         return pulumi.get(self, "kms_key")
 
     @kms_key.setter
-    def kms_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key", value)
 
     @_builtins.property
     @pulumi.getter(name="loggingConfiguration")
-    def logging_configuration(self) -> Optional[pulumi.Input['EnvironmentLoggingConfigurationArgs']]:
+    def logging_configuration(self) -> pulumi.Input[Optional['EnvironmentLoggingConfigurationArgs']]:
         """
         The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `logging_configuration` Block for details.
         """
         return pulumi.get(self, "logging_configuration")
 
     @logging_configuration.setter
-    def logging_configuration(self, value: Optional[pulumi.Input['EnvironmentLoggingConfigurationArgs']]):
+    def logging_configuration(self, value: pulumi.Input[Optional['EnvironmentLoggingConfigurationArgs']]):
         pulumi.set(self, "logging_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="maxWebservers")
-    def max_webservers(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_webservers(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environment_class` is not `mw1.micro`, `1` otherwise.
         """
         return pulumi.get(self, "max_webservers")
 
     @max_webservers.setter
-    def max_webservers(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_webservers(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_webservers", value)
 
     @_builtins.property
     @pulumi.getter(name="maxWorkers")
-    def max_workers(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_workers(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
         """
         return pulumi.get(self, "max_workers")
 
     @max_workers.setter
-    def max_workers(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_workers(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_workers", value)
 
     @_builtins.property
     @pulumi.getter(name="minWebservers")
-    def min_webservers(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_webservers(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environment_class` is not `mw1.micro`, `1` otherwise.
         """
         return pulumi.get(self, "min_webservers")
 
     @min_webservers.setter
-    def min_webservers(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_webservers(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_webservers", value)
 
     @_builtins.property
     @pulumi.getter(name="minWorkers")
-    def min_workers(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_workers(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minimum number of workers that you want to run in your environment. Will be `1` by default.
         """
         return pulumi.get(self, "min_workers")
 
     @min_workers.setter
-    def min_workers(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_workers(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_workers", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Apache Airflow Environment
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="pluginsS3ObjectVersion")
-    def plugins_s3_object_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def plugins_s3_object_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The plugins.zip file version you want to use.
         """
         return pulumi.get(self, "plugins_s3_object_version")
 
     @plugins_s3_object_version.setter
-    def plugins_s3_object_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def plugins_s3_object_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "plugins_s3_object_version", value)
 
     @_builtins.property
     @pulumi.getter(name="pluginsS3Path")
-    def plugins_s3_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def plugins_s3_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The relative path to the plugins.zip file on your Amazon S3 storage bucket. For example, plugins.zip. If a relative path is provided in the request, then plugins_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
         """
         return pulumi.get(self, "plugins_s3_path")
 
     @plugins_s3_path.setter
-    def plugins_s3_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def plugins_s3_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "plugins_s3_path", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="requirementsS3ObjectVersion")
-    def requirements_s3_object_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def requirements_s3_object_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The requirements.txt file version you want to use.
         """
         return pulumi.get(self, "requirements_s3_object_version")
 
     @requirements_s3_object_version.setter
-    def requirements_s3_object_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def requirements_s3_object_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "requirements_s3_object_version", value)
 
     @_builtins.property
     @pulumi.getter(name="requirementsS3Path")
-    def requirements_s3_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def requirements_s3_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirements_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
         """
         return pulumi.get(self, "requirements_s3_path")
 
     @requirements_s3_path.setter
-    def requirements_s3_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def requirements_s3_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "requirements_s3_path", value)
 
     @_builtins.property
     @pulumi.getter
-    def schedulers(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def schedulers(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of schedulers that you want to run in your environment. v2.0.2 and above accepts `2` - `5`, default `2`. v1.10.12 accepts `1`.
         """
         return pulumi.get(self, "schedulers")
 
     @schedulers.setter
-    def schedulers(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def schedulers(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "schedulers", value)
 
     @_builtins.property
     @pulumi.getter(name="startupScriptS3ObjectVersion")
-    def startup_script_s3_object_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def startup_script_s3_object_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the startup shell script you want to use. You must specify the version ID that Amazon S3 assigns to the file every time you update the script.
         """
         return pulumi.get(self, "startup_script_s3_object_version")
 
     @startup_script_s3_object_version.setter
-    def startup_script_s3_object_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def startup_script_s3_object_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "startup_script_s3_object_version", value)
 
     @_builtins.property
     @pulumi.getter(name="startupScriptS3Path")
-    def startup_script_s3_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def startup_script_s3_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The relative path to the script hosted in your bucket. The script runs as your environment starts before starting the Apache Airflow process. Use this script to install dependencies, modify configuration options, and set environment variables. See [Using a startup script](https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html). Supported for environment versions 2.x and later.
         """
         return pulumi.get(self, "startup_script_s3_path")
 
     @startup_script_s3_path.setter
-    def startup_script_s3_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def startup_script_s3_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "startup_script_s3_path", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="webserverAccessMode")
-    def webserver_access_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def webserver_access_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
         """
         return pulumi.get(self, "webserver_access_mode")
 
     @webserver_access_mode.setter
-    def webserver_access_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def webserver_access_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "webserver_access_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="weeklyMaintenanceWindowStart")
-    def weekly_maintenance_window_start(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def weekly_maintenance_window_start(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the start date for the weekly maintenance window.
         """
         return pulumi.get(self, "weekly_maintenance_window_start")
 
     @weekly_maintenance_window_start.setter
-    def weekly_maintenance_window_start(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def weekly_maintenance_window_start(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "weekly_maintenance_window_start", value)
 
     @_builtins.property
     @pulumi.getter(name="workerReplacementStrategy")
-    def worker_replacement_strategy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def worker_replacement_strategy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Worker replacement strategy. Valid values: `FORCED`, `GRACEFUL`.
         """
         return pulumi.get(self, "worker_replacement_strategy")
 
     @worker_replacement_strategy.setter
-    def worker_replacement_strategy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def worker_replacement_strategy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "worker_replacement_strategy", value)
 
 
 @pulumi.input_type
 class _EnvironmentState:
     def __init__(__self__, *,
-                 airflow_configuration_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 airflow_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 dag_s3_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_vpc_endpoint_service: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_management: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_class: Optional[pulumi.Input[_builtins.str]] = None,
-                 execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_updateds: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentLastUpdatedArgs']]]] = None,
-                 logging_configuration: Optional[pulumi.Input['EnvironmentLoggingConfigurationArgs']] = None,
-                 max_webservers: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_workers: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_webservers: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_workers: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_configuration: Optional[pulumi.Input['EnvironmentNetworkConfigurationArgs']] = None,
-                 plugins_s3_object_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 plugins_s3_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 requirements_s3_object_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 requirements_s3_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedulers: Optional[pulumi.Input[_builtins.int]] = None,
-                 service_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_bucket_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 startup_script_s3_object_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 startup_script_s3_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 webserver_access_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 webserver_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 webserver_vpc_endpoint_service: Optional[pulumi.Input[_builtins.str]] = None,
-                 weekly_maintenance_window_start: Optional[pulumi.Input[_builtins.str]] = None,
-                 worker_replacement_strategy: Optional[pulumi.Input[_builtins.str]] = None):
+                 airflow_configuration_options: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 airflow_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 dag_s3_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_vpc_endpoint_service: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_management: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_class: pulumi.Input[Optional[_builtins.str]] = None,
+                 execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_updateds: pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentLastUpdatedArgs']]]] = None,
+                 logging_configuration: pulumi.Input[Optional['EnvironmentLoggingConfigurationArgs']] = None,
+                 max_webservers: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_workers: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_webservers: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_workers: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_configuration: pulumi.Input[Optional['EnvironmentNetworkConfigurationArgs']] = None,
+                 plugins_s3_object_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 plugins_s3_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 requirements_s3_object_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 requirements_s3_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedulers: pulumi.Input[Optional[_builtins.int]] = None,
+                 service_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_bucket_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 startup_script_s3_object_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 startup_script_s3_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 webserver_access_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 webserver_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 webserver_vpc_endpoint_service: pulumi.Input[Optional[_builtins.str]] = None,
+                 weekly_maintenance_window_start: pulumi.Input[Optional[_builtins.str]] = None,
+                 worker_replacement_strategy: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Environment resources.
 
@@ -609,67 +609,67 @@ class _EnvironmentState:
 
     @_builtins.property
     @pulumi.getter(name="airflowConfigurationOptions")
-    def airflow_configuration_options(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def airflow_configuration_options(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The `airflow_configuration_options` parameter specifies airflow override options. Check the [Official documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html#configuring-env-variables-reference) for all possible configuration options.
         """
         return pulumi.get(self, "airflow_configuration_options")
 
     @airflow_configuration_options.setter
-    def airflow_configuration_options(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def airflow_configuration_options(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "airflow_configuration_options", value)
 
     @_builtins.property
     @pulumi.getter(name="airflowVersion")
-    def airflow_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def airflow_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Airflow version of your environment, will be set by default to the latest version that MWAA supports.
         """
         return pulumi.get(self, "airflow_version")
 
     @airflow_version.setter
-    def airflow_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def airflow_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "airflow_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the MWAA Environment
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Created At date of the MWAA Environment
         """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
-    def created_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_at", value)
 
     @_builtins.property
     @pulumi.getter(name="dagS3Path")
-    def dag_s3_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dag_s3_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
         """
         return pulumi.get(self, "dag_s3_path")
 
     @dag_s3_path.setter
-    def dag_s3_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dag_s3_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dag_s3_path", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseVpcEndpointService")
-    def database_vpc_endpoint_service(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database_vpc_endpoint_service(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The VPC endpoint for the environment's Amazon RDS database
         * `logging_configuration[0].<LOG_CONFIGURATION_TYPE>[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
@@ -677,364 +677,364 @@ class _EnvironmentState:
         return pulumi.get(self, "database_vpc_endpoint_service")
 
     @database_vpc_endpoint_service.setter
-    def database_vpc_endpoint_service(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database_vpc_endpoint_service(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database_vpc_endpoint_service", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointManagement")
-    def endpoint_management(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint_management(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Defines whether the VPC endpoints configured for the environment are created and managed by the customer or by AWS. If set to `SERVICE`, Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER`, you must create, and manage, the VPC endpoints for your VPC. Defaults to `SERVICE` if not set.
         """
         return pulumi.get(self, "endpoint_management")
 
     @endpoint_management.setter
-    def endpoint_management(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint_management(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint_management", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentClass")
-    def environment_class(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def environment_class(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Environment class for the cluster. Possible options are `mw1.micro`, `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
         """
         return pulumi.get(self, "environment_class")
 
     @environment_class.setter
-    def environment_class(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def environment_class(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "environment_class", value)
 
     @_builtins.property
     @pulumi.getter(name="executionRoleArn")
-    def execution_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def execution_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
         """
         return pulumi.get(self, "execution_role_arn")
 
     @execution_role_arn.setter
-    def execution_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def execution_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "execution_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKey")
-    def kms_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
         """
         return pulumi.get(self, "kms_key")
 
     @kms_key.setter
-    def kms_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key", value)
 
     @_builtins.property
     @pulumi.getter(name="lastUpdateds")
-    def last_updateds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentLastUpdatedArgs']]]]:
+    def last_updateds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentLastUpdatedArgs']]]]:
         return pulumi.get(self, "last_updateds")
 
     @last_updateds.setter
-    def last_updateds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentLastUpdatedArgs']]]]):
+    def last_updateds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentLastUpdatedArgs']]]]):
         pulumi.set(self, "last_updateds", value)
 
     @_builtins.property
     @pulumi.getter(name="loggingConfiguration")
-    def logging_configuration(self) -> Optional[pulumi.Input['EnvironmentLoggingConfigurationArgs']]:
+    def logging_configuration(self) -> pulumi.Input[Optional['EnvironmentLoggingConfigurationArgs']]:
         """
         The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `logging_configuration` Block for details.
         """
         return pulumi.get(self, "logging_configuration")
 
     @logging_configuration.setter
-    def logging_configuration(self, value: Optional[pulumi.Input['EnvironmentLoggingConfigurationArgs']]):
+    def logging_configuration(self, value: pulumi.Input[Optional['EnvironmentLoggingConfigurationArgs']]):
         pulumi.set(self, "logging_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="maxWebservers")
-    def max_webservers(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_webservers(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environment_class` is not `mw1.micro`, `1` otherwise.
         """
         return pulumi.get(self, "max_webservers")
 
     @max_webservers.setter
-    def max_webservers(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_webservers(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_webservers", value)
 
     @_builtins.property
     @pulumi.getter(name="maxWorkers")
-    def max_workers(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_workers(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
         """
         return pulumi.get(self, "max_workers")
 
     @max_workers.setter
-    def max_workers(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_workers(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_workers", value)
 
     @_builtins.property
     @pulumi.getter(name="minWebservers")
-    def min_webservers(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_webservers(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environment_class` is not `mw1.micro`, `1` otherwise.
         """
         return pulumi.get(self, "min_webservers")
 
     @min_webservers.setter
-    def min_webservers(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_webservers(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_webservers", value)
 
     @_builtins.property
     @pulumi.getter(name="minWorkers")
-    def min_workers(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_workers(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minimum number of workers that you want to run in your environment. Will be `1` by default.
         """
         return pulumi.get(self, "min_workers")
 
     @min_workers.setter
-    def min_workers(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_workers(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_workers", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Apache Airflow Environment
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkConfiguration")
-    def network_configuration(self) -> Optional[pulumi.Input['EnvironmentNetworkConfigurationArgs']]:
+    def network_configuration(self) -> pulumi.Input[Optional['EnvironmentNetworkConfigurationArgs']]:
         """
         Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `network_configuration` Block for details.
         """
         return pulumi.get(self, "network_configuration")
 
     @network_configuration.setter
-    def network_configuration(self, value: Optional[pulumi.Input['EnvironmentNetworkConfigurationArgs']]):
+    def network_configuration(self, value: pulumi.Input[Optional['EnvironmentNetworkConfigurationArgs']]):
         pulumi.set(self, "network_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="pluginsS3ObjectVersion")
-    def plugins_s3_object_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def plugins_s3_object_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The plugins.zip file version you want to use.
         """
         return pulumi.get(self, "plugins_s3_object_version")
 
     @plugins_s3_object_version.setter
-    def plugins_s3_object_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def plugins_s3_object_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "plugins_s3_object_version", value)
 
     @_builtins.property
     @pulumi.getter(name="pluginsS3Path")
-    def plugins_s3_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def plugins_s3_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The relative path to the plugins.zip file on your Amazon S3 storage bucket. For example, plugins.zip. If a relative path is provided in the request, then plugins_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
         """
         return pulumi.get(self, "plugins_s3_path")
 
     @plugins_s3_path.setter
-    def plugins_s3_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def plugins_s3_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "plugins_s3_path", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="requirementsS3ObjectVersion")
-    def requirements_s3_object_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def requirements_s3_object_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The requirements.txt file version you want to use.
         """
         return pulumi.get(self, "requirements_s3_object_version")
 
     @requirements_s3_object_version.setter
-    def requirements_s3_object_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def requirements_s3_object_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "requirements_s3_object_version", value)
 
     @_builtins.property
     @pulumi.getter(name="requirementsS3Path")
-    def requirements_s3_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def requirements_s3_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirements_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
         """
         return pulumi.get(self, "requirements_s3_path")
 
     @requirements_s3_path.setter
-    def requirements_s3_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def requirements_s3_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "requirements_s3_path", value)
 
     @_builtins.property
     @pulumi.getter
-    def schedulers(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def schedulers(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of schedulers that you want to run in your environment. v2.0.2 and above accepts `2` - `5`, default `2`. v1.10.12 accepts `1`.
         """
         return pulumi.get(self, "schedulers")
 
     @schedulers.setter
-    def schedulers(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def schedulers(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "schedulers", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceRoleArn")
-    def service_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Service Role ARN of the Amazon MWAA Environment
         """
         return pulumi.get(self, "service_role_arn")
 
     @service_role_arn.setter
-    def service_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceBucketArn")
-    def source_bucket_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_bucket_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
         """
         return pulumi.get(self, "source_bucket_arn")
 
     @source_bucket_arn.setter
-    def source_bucket_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_bucket_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_bucket_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="startupScriptS3ObjectVersion")
-    def startup_script_s3_object_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def startup_script_s3_object_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the startup shell script you want to use. You must specify the version ID that Amazon S3 assigns to the file every time you update the script.
         """
         return pulumi.get(self, "startup_script_s3_object_version")
 
     @startup_script_s3_object_version.setter
-    def startup_script_s3_object_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def startup_script_s3_object_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "startup_script_s3_object_version", value)
 
     @_builtins.property
     @pulumi.getter(name="startupScriptS3Path")
-    def startup_script_s3_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def startup_script_s3_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The relative path to the script hosted in your bucket. The script runs as your environment starts before starting the Apache Airflow process. Use this script to install dependencies, modify configuration options, and set environment variables. See [Using a startup script](https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html). Supported for environment versions 2.x and later.
         """
         return pulumi.get(self, "startup_script_s3_path")
 
     @startup_script_s3_path.setter
-    def startup_script_s3_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def startup_script_s3_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "startup_script_s3_path", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of the Amazon MWAA Environment
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="webserverAccessMode")
-    def webserver_access_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def webserver_access_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
         """
         return pulumi.get(self, "webserver_access_mode")
 
     @webserver_access_mode.setter
-    def webserver_access_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def webserver_access_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "webserver_access_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="webserverUrl")
-    def webserver_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def webserver_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The webserver URL of the MWAA Environment
         """
         return pulumi.get(self, "webserver_url")
 
     @webserver_url.setter
-    def webserver_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def webserver_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "webserver_url", value)
 
     @_builtins.property
     @pulumi.getter(name="webserverVpcEndpointService")
-    def webserver_vpc_endpoint_service(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def webserver_vpc_endpoint_service(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The VPC endpoint for the environment's web server
         """
         return pulumi.get(self, "webserver_vpc_endpoint_service")
 
     @webserver_vpc_endpoint_service.setter
-    def webserver_vpc_endpoint_service(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def webserver_vpc_endpoint_service(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "webserver_vpc_endpoint_service", value)
 
     @_builtins.property
     @pulumi.getter(name="weeklyMaintenanceWindowStart")
-    def weekly_maintenance_window_start(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def weekly_maintenance_window_start(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the start date for the weekly maintenance window.
         """
         return pulumi.get(self, "weekly_maintenance_window_start")
 
     @weekly_maintenance_window_start.setter
-    def weekly_maintenance_window_start(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def weekly_maintenance_window_start(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "weekly_maintenance_window_start", value)
 
     @_builtins.property
     @pulumi.getter(name="workerReplacementStrategy")
-    def worker_replacement_strategy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def worker_replacement_strategy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Worker replacement strategy. Valid values: `FORCED`, `GRACEFUL`.
         """
         return pulumi.get(self, "worker_replacement_strategy")
 
     @worker_replacement_strategy.setter
-    def worker_replacement_strategy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def worker_replacement_strategy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "worker_replacement_strategy", value)
 
 
@@ -1044,33 +1044,33 @@ class Environment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 airflow_configuration_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 airflow_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 dag_s3_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_management: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_class: Optional[pulumi.Input[_builtins.str]] = None,
-                 execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 logging_configuration: Optional[pulumi.Input[Union['EnvironmentLoggingConfigurationArgs', 'EnvironmentLoggingConfigurationArgsDict']]] = None,
-                 max_webservers: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_workers: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_webservers: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_workers: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_configuration: Optional[pulumi.Input[Union['EnvironmentNetworkConfigurationArgs', 'EnvironmentNetworkConfigurationArgsDict']]] = None,
-                 plugins_s3_object_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 plugins_s3_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 requirements_s3_object_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 requirements_s3_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedulers: Optional[pulumi.Input[_builtins.int]] = None,
-                 source_bucket_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 startup_script_s3_object_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 startup_script_s3_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 webserver_access_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 weekly_maintenance_window_start: Optional[pulumi.Input[_builtins.str]] = None,
-                 worker_replacement_strategy: Optional[pulumi.Input[_builtins.str]] = None,
+                 airflow_configuration_options: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 airflow_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 dag_s3_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_management: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_class: pulumi.Input[Optional[_builtins.str]] = None,
+                 execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 logging_configuration: pulumi.Input[Optional[Union['EnvironmentLoggingConfigurationArgs', 'EnvironmentLoggingConfigurationArgsDict']]] = None,
+                 max_webservers: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_workers: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_webservers: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_workers: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_configuration: pulumi.Input[Optional[Union['EnvironmentNetworkConfigurationArgs', 'EnvironmentNetworkConfigurationArgsDict']]] = None,
+                 plugins_s3_object_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 plugins_s3_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 requirements_s3_object_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 requirements_s3_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedulers: pulumi.Input[Optional[_builtins.int]] = None,
+                 source_bucket_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 startup_script_s3_object_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 startup_script_s3_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 webserver_access_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 weekly_maintenance_window_start: pulumi.Input[Optional[_builtins.str]] = None,
+                 worker_replacement_strategy: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Creates a MWAA Environment resource.
@@ -1355,33 +1355,33 @@ class Environment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 airflow_configuration_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 airflow_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 dag_s3_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_management: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_class: Optional[pulumi.Input[_builtins.str]] = None,
-                 execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 logging_configuration: Optional[pulumi.Input[Union['EnvironmentLoggingConfigurationArgs', 'EnvironmentLoggingConfigurationArgsDict']]] = None,
-                 max_webservers: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_workers: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_webservers: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_workers: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_configuration: Optional[pulumi.Input[Union['EnvironmentNetworkConfigurationArgs', 'EnvironmentNetworkConfigurationArgsDict']]] = None,
-                 plugins_s3_object_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 plugins_s3_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 requirements_s3_object_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 requirements_s3_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedulers: Optional[pulumi.Input[_builtins.int]] = None,
-                 source_bucket_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 startup_script_s3_object_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 startup_script_s3_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 webserver_access_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 weekly_maintenance_window_start: Optional[pulumi.Input[_builtins.str]] = None,
-                 worker_replacement_strategy: Optional[pulumi.Input[_builtins.str]] = None,
+                 airflow_configuration_options: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 airflow_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 dag_s3_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_management: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_class: pulumi.Input[Optional[_builtins.str]] = None,
+                 execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 logging_configuration: pulumi.Input[Optional[Union['EnvironmentLoggingConfigurationArgs', 'EnvironmentLoggingConfigurationArgsDict']]] = None,
+                 max_webservers: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_workers: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_webservers: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_workers: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_configuration: pulumi.Input[Optional[Union['EnvironmentNetworkConfigurationArgs', 'EnvironmentNetworkConfigurationArgsDict']]] = None,
+                 plugins_s3_object_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 plugins_s3_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 requirements_s3_object_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 requirements_s3_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedulers: pulumi.Input[Optional[_builtins.int]] = None,
+                 source_bucket_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 startup_script_s3_object_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 startup_script_s3_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 webserver_access_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 weekly_maintenance_window_start: pulumi.Input[Optional[_builtins.str]] = None,
+                 worker_replacement_strategy: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1447,42 +1447,42 @@ class Environment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            airflow_configuration_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            airflow_version: Optional[pulumi.Input[_builtins.str]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            created_at: Optional[pulumi.Input[_builtins.str]] = None,
-            dag_s3_path: Optional[pulumi.Input[_builtins.str]] = None,
-            database_vpc_endpoint_service: Optional[pulumi.Input[_builtins.str]] = None,
-            endpoint_management: Optional[pulumi.Input[_builtins.str]] = None,
-            environment_class: Optional[pulumi.Input[_builtins.str]] = None,
-            execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            kms_key: Optional[pulumi.Input[_builtins.str]] = None,
-            last_updateds: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentLastUpdatedArgs', 'EnvironmentLastUpdatedArgsDict']]]]] = None,
-            logging_configuration: Optional[pulumi.Input[Union['EnvironmentLoggingConfigurationArgs', 'EnvironmentLoggingConfigurationArgsDict']]] = None,
-            max_webservers: Optional[pulumi.Input[_builtins.int]] = None,
-            max_workers: Optional[pulumi.Input[_builtins.int]] = None,
-            min_webservers: Optional[pulumi.Input[_builtins.int]] = None,
-            min_workers: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            network_configuration: Optional[pulumi.Input[Union['EnvironmentNetworkConfigurationArgs', 'EnvironmentNetworkConfigurationArgsDict']]] = None,
-            plugins_s3_object_version: Optional[pulumi.Input[_builtins.str]] = None,
-            plugins_s3_path: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            requirements_s3_object_version: Optional[pulumi.Input[_builtins.str]] = None,
-            requirements_s3_path: Optional[pulumi.Input[_builtins.str]] = None,
-            schedulers: Optional[pulumi.Input[_builtins.int]] = None,
-            service_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            source_bucket_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            startup_script_s3_object_version: Optional[pulumi.Input[_builtins.str]] = None,
-            startup_script_s3_path: Optional[pulumi.Input[_builtins.str]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            webserver_access_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            webserver_url: Optional[pulumi.Input[_builtins.str]] = None,
-            webserver_vpc_endpoint_service: Optional[pulumi.Input[_builtins.str]] = None,
-            weekly_maintenance_window_start: Optional[pulumi.Input[_builtins.str]] = None,
-            worker_replacement_strategy: Optional[pulumi.Input[_builtins.str]] = None) -> 'Environment':
+            airflow_configuration_options: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            airflow_version: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            dag_s3_path: pulumi.Input[Optional[_builtins.str]] = None,
+            database_vpc_endpoint_service: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint_management: pulumi.Input[Optional[_builtins.str]] = None,
+            environment_class: pulumi.Input[Optional[_builtins.str]] = None,
+            execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_key: pulumi.Input[Optional[_builtins.str]] = None,
+            last_updateds: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentLastUpdatedArgs', 'EnvironmentLastUpdatedArgsDict']]]]] = None,
+            logging_configuration: pulumi.Input[Optional[Union['EnvironmentLoggingConfigurationArgs', 'EnvironmentLoggingConfigurationArgsDict']]] = None,
+            max_webservers: pulumi.Input[Optional[_builtins.int]] = None,
+            max_workers: pulumi.Input[Optional[_builtins.int]] = None,
+            min_webservers: pulumi.Input[Optional[_builtins.int]] = None,
+            min_workers: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_configuration: pulumi.Input[Optional[Union['EnvironmentNetworkConfigurationArgs', 'EnvironmentNetworkConfigurationArgsDict']]] = None,
+            plugins_s3_object_version: pulumi.Input[Optional[_builtins.str]] = None,
+            plugins_s3_path: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            requirements_s3_object_version: pulumi.Input[Optional[_builtins.str]] = None,
+            requirements_s3_path: pulumi.Input[Optional[_builtins.str]] = None,
+            schedulers: pulumi.Input[Optional[_builtins.int]] = None,
+            service_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            source_bucket_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            startup_script_s3_object_version: pulumi.Input[Optional[_builtins.str]] = None,
+            startup_script_s3_path: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            webserver_access_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            webserver_url: pulumi.Input[Optional[_builtins.str]] = None,
+            webserver_vpc_endpoint_service: pulumi.Input[Optional[_builtins.str]] = None,
+            weekly_maintenance_window_start: pulumi.Input[Optional[_builtins.str]] = None,
+            worker_replacement_strategy: pulumi.Input[Optional[_builtins.str]] = None) -> 'Environment':
         """
         Get an existing Environment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

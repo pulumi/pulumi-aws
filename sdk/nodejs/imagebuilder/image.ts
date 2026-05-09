@@ -219,85 +219,85 @@ export interface ImageState {
     /**
      * Amazon Resource Name (ARN) of the image.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the container recipe.
      */
-    containerRecipeArn?: pulumi.Input<string>;
+    containerRecipeArn?: pulumi.Input<string | undefined>;
     /**
      * Date the image was created.
      */
-    dateCreated?: pulumi.Input<string>;
+    dateCreated?: pulumi.Input<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
      */
-    distributionConfigurationArn?: pulumi.Input<string>;
+    distributionConfigurationArn?: pulumi.Input<string | undefined>;
     /**
      * Whether additional information about the image being created is collected. Defaults to `true`.
      */
-    enhancedImageMetadataEnabled?: pulumi.Input<boolean>;
+    enhancedImageMetadataEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
      */
-    executionRole?: pulumi.Input<string>;
+    executionRole?: pulumi.Input<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the image recipe.
      */
-    imageRecipeArn?: pulumi.Input<string>;
+    imageRecipeArn?: pulumi.Input<string | undefined>;
     /**
      * Configuration block with image scanning configuration. Detailed below.
      */
-    imageScanningConfiguration?: pulumi.Input<inputs.imagebuilder.ImageImageScanningConfiguration>;
+    imageScanningConfiguration?: pulumi.Input<inputs.imagebuilder.ImageImageScanningConfiguration | undefined>;
     /**
      * Configuration block with image tests configuration. Detailed below.
      */
-    imageTestsConfiguration?: pulumi.Input<inputs.imagebuilder.ImageImageTestsConfiguration>;
+    imageTestsConfiguration?: pulumi.Input<inputs.imagebuilder.ImageImageTestsConfiguration | undefined>;
     /**
      * Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
      *
      * The following arguments are optional:
      */
-    infrastructureConfigurationArn?: pulumi.Input<string>;
+    infrastructureConfigurationArn?: pulumi.Input<string | undefined>;
     /**
      * Configuration block with logging configuration. Detailed below.
      */
-    loggingConfiguration?: pulumi.Input<inputs.imagebuilder.ImageLoggingConfiguration>;
+    loggingConfiguration?: pulumi.Input<inputs.imagebuilder.ImageLoggingConfiguration | undefined>;
     /**
      * Name of the AMI.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Operating System version of the image.
      */
-    osVersion?: pulumi.Input<string>;
+    osVersion?: pulumi.Input<string | undefined>;
     /**
      * List of objects with resources created by the image.
      */
-    outputResources?: pulumi.Input<pulumi.Input<inputs.imagebuilder.ImageOutputResource>[]>;
+    outputResources?: pulumi.Input<pulumi.Input<inputs.imagebuilder.ImageOutputResource>[] | undefined>;
     /**
      * Platform of the image.
      */
-    platform?: pulumi.Input<string>;
+    platform?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags for the Image Builder Image. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Version of the image.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
     /**
      * Configuration block with the workflow configuration. Detailed below.
      */
-    workflows?: pulumi.Input<pulumi.Input<inputs.imagebuilder.ImageWorkflow>[]>;
+    workflows?: pulumi.Input<pulumi.Input<inputs.imagebuilder.ImageWorkflow>[] | undefined>;
 }
 
 /**
@@ -307,31 +307,31 @@ export interface ImageArgs {
     /**
      * Amazon Resource Name (ARN) of the container recipe.
      */
-    containerRecipeArn?: pulumi.Input<string>;
+    containerRecipeArn?: pulumi.Input<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
      */
-    distributionConfigurationArn?: pulumi.Input<string>;
+    distributionConfigurationArn?: pulumi.Input<string | undefined>;
     /**
      * Whether additional information about the image being created is collected. Defaults to `true`.
      */
-    enhancedImageMetadataEnabled?: pulumi.Input<boolean>;
+    enhancedImageMetadataEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
      */
-    executionRole?: pulumi.Input<string>;
+    executionRole?: pulumi.Input<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the image recipe.
      */
-    imageRecipeArn?: pulumi.Input<string>;
+    imageRecipeArn?: pulumi.Input<string | undefined>;
     /**
      * Configuration block with image scanning configuration. Detailed below.
      */
-    imageScanningConfiguration?: pulumi.Input<inputs.imagebuilder.ImageImageScanningConfiguration>;
+    imageScanningConfiguration?: pulumi.Input<inputs.imagebuilder.ImageImageScanningConfiguration | undefined>;
     /**
      * Configuration block with image tests configuration. Detailed below.
      */
-    imageTestsConfiguration?: pulumi.Input<inputs.imagebuilder.ImageImageTestsConfiguration>;
+    imageTestsConfiguration?: pulumi.Input<inputs.imagebuilder.ImageImageTestsConfiguration | undefined>;
     /**
      * Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
      *
@@ -341,17 +341,17 @@ export interface ImageArgs {
     /**
      * Configuration block with logging configuration. Detailed below.
      */
-    loggingConfiguration?: pulumi.Input<inputs.imagebuilder.ImageLoggingConfiguration>;
+    loggingConfiguration?: pulumi.Input<inputs.imagebuilder.ImageLoggingConfiguration | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags for the Image Builder Image. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Configuration block with the workflow configuration. Detailed below.
      */
-    workflows?: pulumi.Input<pulumi.Input<inputs.imagebuilder.ImageWorkflow>[]>;
+    workflows?: pulumi.Input<pulumi.Input<inputs.imagebuilder.ImageWorkflow>[] | undefined>;
 }

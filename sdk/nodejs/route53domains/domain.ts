@@ -299,106 +299,106 @@ export interface DomainState {
     /**
      * Email address to contact to report incorrect contact information for a domain, to report that the domain is being used to send spam, to report that someone is cybersquatting on a domain name, or report some other type of abuse.
      */
-    abuseContactEmail?: pulumi.Input<string>;
+    abuseContactEmail?: pulumi.Input<string | undefined>;
     /**
      * Phone number for reporting abuse.
      */
-    abuseContactPhone?: pulumi.Input<string>;
+    abuseContactPhone?: pulumi.Input<string | undefined>;
     /**
      * Details about the domain administrative contact. See Contact Blocks for more details.
      */
-    adminContact?: pulumi.Input<inputs.route53domains.DomainAdminContact>;
+    adminContact?: pulumi.Input<inputs.route53domains.DomainAdminContact | undefined>;
     /**
      * Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.
      */
-    adminPrivacy?: pulumi.Input<boolean>;
+    adminPrivacy?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the domain registration is set to renew automatically. Default: `true`.
      */
-    autoRenew?: pulumi.Input<boolean>;
+    autoRenew?: pulumi.Input<boolean | undefined>;
     /**
      * Details about the domain billing contact. See Contact Blocks for more details.
      */
-    billingContacts?: pulumi.Input<pulumi.Input<inputs.route53domains.DomainBillingContact>[]>;
+    billingContacts?: pulumi.Input<pulumi.Input<inputs.route53domains.DomainBillingContact>[] | undefined>;
     /**
      * Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
      */
-    billingPrivacy?: pulumi.Input<boolean>;
+    billingPrivacy?: pulumi.Input<boolean | undefined>;
     /**
      * The date when the domain was created as found in the response to a WHOIS query.
      */
-    creationDate?: pulumi.Input<string>;
+    creationDate?: pulumi.Input<string | undefined>;
     /**
      * The name of the domain.
      */
-    domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string | undefined>;
     /**
      * The number of years that you want to register the domain for. Domains are registered for a minimum of one year. Increasing the duration renews the domain.
      */
-    durationInYears?: pulumi.Input<number>;
+    durationInYears?: pulumi.Input<number | undefined>;
     /**
      * The date when the registration for the domain is set to expire.
      */
-    expirationDate?: pulumi.Input<string>;
+    expirationDate?: pulumi.Input<string | undefined>;
     /**
      * The ID of the public Route 53 hosted zone created for the domain. This hosted zone is deleted when the domain is deregistered.
      */
-    hostedZoneId?: pulumi.Input<string>;
+    hostedZoneId?: pulumi.Input<string | undefined>;
     /**
      * The list of nameservers for the domain. See `nameServer` Blocks for more details.
      */
-    nameServers?: pulumi.Input<pulumi.Input<inputs.route53domains.DomainNameServer>[]>;
+    nameServers?: pulumi.Input<pulumi.Input<inputs.route53domains.DomainNameServer>[] | undefined>;
     /**
      * Details about the domain registrant. See Contact Blocks for more details.
      */
-    registrantContact?: pulumi.Input<inputs.route53domains.DomainRegistrantContact>;
+    registrantContact?: pulumi.Input<inputs.route53domains.DomainRegistrantContact | undefined>;
     /**
      * Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.
      */
-    registrantPrivacy?: pulumi.Input<boolean>;
+    registrantPrivacy?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the registrar of the domain as identified in the registry.
      */
-    registrarName?: pulumi.Input<string>;
+    registrarName?: pulumi.Input<string | undefined>;
     /**
      * Web address of the registrar.
      */
-    registrarUrl?: pulumi.Input<string>;
+    registrarUrl?: pulumi.Input<string | undefined>;
     /**
      * List of [domain name status codes](https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en).
      */
-    statusLists?: pulumi.Input<pulumi.Input<string>[]>;
+    statusLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Details about the domain technical contact. See Contact Blocks for more details.
      */
-    techContact?: pulumi.Input<inputs.route53domains.DomainTechContact>;
+    techContact?: pulumi.Input<inputs.route53domains.DomainTechContact | undefined>;
     /**
      * Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
      */
-    techPrivacy?: pulumi.Input<boolean>;
-    timeouts?: pulumi.Input<inputs.route53domains.DomainTimeouts>;
+    techPrivacy?: pulumi.Input<boolean | undefined>;
+    timeouts?: pulumi.Input<inputs.route53domains.DomainTimeouts | undefined>;
     /**
      * Whether the domain is locked for transfer. Default: `true`.
      *
      * > **NOTE:** You must specify the same privacy setting for `adminPrivacy`, `registrantPrivacy` and `techPrivacy`.
      */
-    transferLock?: pulumi.Input<boolean>;
+    transferLock?: pulumi.Input<boolean | undefined>;
     /**
      * The last updated date of the domain as found in the response to a WHOIS query.
      */
-    updatedDate?: pulumi.Input<string>;
+    updatedDate?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified name of the WHOIS server that can answer the WHOIS query for the domain.
      */
-    whoisServer?: pulumi.Input<string>;
+    whoisServer?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -412,19 +412,19 @@ export interface DomainArgs {
     /**
      * Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.
      */
-    adminPrivacy?: pulumi.Input<boolean>;
+    adminPrivacy?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the domain registration is set to renew automatically. Default: `true`.
      */
-    autoRenew?: pulumi.Input<boolean>;
+    autoRenew?: pulumi.Input<boolean | undefined>;
     /**
      * Details about the domain billing contact. See Contact Blocks for more details.
      */
-    billingContacts?: pulumi.Input<pulumi.Input<inputs.route53domains.DomainBillingContact>[]>;
+    billingContacts?: pulumi.Input<pulumi.Input<inputs.route53domains.DomainBillingContact>[] | undefined>;
     /**
      * Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
      */
-    billingPrivacy?: pulumi.Input<boolean>;
+    billingPrivacy?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the domain.
      */
@@ -432,11 +432,11 @@ export interface DomainArgs {
     /**
      * The number of years that you want to register the domain for. Domains are registered for a minimum of one year. Increasing the duration renews the domain.
      */
-    durationInYears?: pulumi.Input<number>;
+    durationInYears?: pulumi.Input<number | undefined>;
     /**
      * The list of nameservers for the domain. See `nameServer` Blocks for more details.
      */
-    nameServers?: pulumi.Input<pulumi.Input<inputs.route53domains.DomainNameServer>[]>;
+    nameServers?: pulumi.Input<pulumi.Input<inputs.route53domains.DomainNameServer>[] | undefined>;
     /**
      * Details about the domain registrant. See Contact Blocks for more details.
      */
@@ -444,11 +444,11 @@ export interface DomainArgs {
     /**
      * Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.
      */
-    registrantPrivacy?: pulumi.Input<boolean>;
+    registrantPrivacy?: pulumi.Input<boolean | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Details about the domain technical contact. See Contact Blocks for more details.
      */
@@ -456,12 +456,12 @@ export interface DomainArgs {
     /**
      * Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
      */
-    techPrivacy?: pulumi.Input<boolean>;
-    timeouts?: pulumi.Input<inputs.route53domains.DomainTimeouts>;
+    techPrivacy?: pulumi.Input<boolean | undefined>;
+    timeouts?: pulumi.Input<inputs.route53domains.DomainTimeouts | undefined>;
     /**
      * Whether the domain is locked for transfer. Default: `true`.
      *
      * > **NOTE:** You must specify the same privacy setting for `adminPrivacy`, `registrantPrivacy` and `techPrivacy`.
      */
-    transferLock?: pulumi.Input<boolean>;
+    transferLock?: pulumi.Input<boolean | undefined>;
 }

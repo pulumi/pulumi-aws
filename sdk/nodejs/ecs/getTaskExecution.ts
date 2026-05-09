@@ -232,11 +232,11 @@ export interface GetTaskExecutionOutputArgs {
     /**
      * Set of capacity provider strategies to use for the cluster. See below.
      */
-    capacityProviderStrategies?: pulumi.Input<pulumi.Input<inputs.ecs.GetTaskExecutionCapacityProviderStrategyArgs>[]>;
+    capacityProviderStrategies?: pulumi.Input<pulumi.Input<inputs.ecs.GetTaskExecutionCapacityProviderStrategyArgs>[] | undefined>;
     /**
      * An identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
      */
-    clientToken?: pulumi.Input<string>;
+    clientToken?: pulumi.Input<string | undefined>;
     /**
      * Short name or full Amazon Resource Name (ARN) of the cluster to run the task on.
      */
@@ -244,63 +244,63 @@ export interface GetTaskExecutionOutputArgs {
     /**
      * Number of instantiations of the specified task to place on your cluster. You can specify up to 10 tasks for each call.
      */
-    desiredCount?: pulumi.Input<number>;
+    desiredCount?: pulumi.Input<number | undefined>;
     /**
      * Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
      */
-    enableEcsManagedTags?: pulumi.Input<boolean>;
+    enableEcsManagedTags?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether to enable Amazon ECS Exec for the tasks within the service.
      */
-    enableExecuteCommand?: pulumi.Input<boolean>;
+    enableExecuteCommand?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the task group to associate with the task. The default value is the family name of the task definition.
      */
-    group?: pulumi.Input<string>;
+    group?: pulumi.Input<string | undefined>;
     /**
      * Launch type on which to run your service. Valid values are `EC2`, `FARGATE`, and `EXTERNAL`.
      */
-    launchType?: pulumi.Input<string>;
+    launchType?: pulumi.Input<string | undefined>;
     /**
      * Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
      */
-    networkConfiguration?: pulumi.Input<inputs.ecs.GetTaskExecutionNetworkConfigurationArgs>;
+    networkConfiguration?: pulumi.Input<inputs.ecs.GetTaskExecutionNetworkConfigurationArgs | undefined>;
     /**
      * A list of container overrides that specify the name of a container in the specified task definition and the overrides it should receive.
      */
-    overrides?: pulumi.Input<inputs.ecs.GetTaskExecutionOverridesArgs>;
+    overrides?: pulumi.Input<inputs.ecs.GetTaskExecutionOverridesArgs | undefined>;
     /**
      * An array of placement constraint objects to use for the task. You can specify up to 10 constraints for each task. See below.
      */
-    placementConstraints?: pulumi.Input<pulumi.Input<inputs.ecs.GetTaskExecutionPlacementConstraintArgs>[]>;
+    placementConstraints?: pulumi.Input<pulumi.Input<inputs.ecs.GetTaskExecutionPlacementConstraintArgs>[] | undefined>;
     /**
      * The placement strategy objects to use for the task. You can specify a maximum of 5 strategy rules for each task. See below.
      */
-    placementStrategies?: pulumi.Input<pulumi.Input<inputs.ecs.GetTaskExecutionPlacementStrategyArgs>[]>;
+    placementStrategies?: pulumi.Input<pulumi.Input<inputs.ecs.GetTaskExecutionPlacementStrategyArgs>[] | undefined>;
     /**
      * The platform version the task uses. A platform version is only specified for tasks hosted on Fargate. If one isn't specified, the `LATEST` platform version is used.
      */
-    platformVersion?: pulumi.Input<string>;
+    platformVersion?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags aren't propagated. An error will be received if you specify the `SERVICE` option when running a task. Valid values are `TASK_DEFINITION` or `NONE`.
      */
-    propagateTags?: pulumi.Input<string>;
+    propagateTags?: pulumi.Input<string | undefined>;
     /**
      * The reference ID to use for the task.
      */
-    referenceId?: pulumi.Input<string>;
+    referenceId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * An optional tag specified when a task is started.
      */
-    startedBy?: pulumi.Input<string>;
+    startedBy?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The `family` and `revision` (`family:revision`) or full ARN of the task definition to run. If a revision isn't specified, the latest `ACTIVE` revision is used.
      *

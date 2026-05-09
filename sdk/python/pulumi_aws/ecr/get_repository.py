@@ -217,10 +217,10 @@ def get_repository(name: Optional[_builtins.str] = None,
         registry_id=pulumi.get(__ret__, 'registry_id'),
         repository_url=pulumi.get(__ret__, 'repository_url'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_repository_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                          region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                          registry_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                          tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_repository_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                          region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          registry_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoryResult]:
     """
     The ECR Repository data source allows the ARN, Repository URI and Registry ID to be retrieved for an ECR repository.

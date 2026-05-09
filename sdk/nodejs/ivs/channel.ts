@@ -155,47 +155,47 @@ export interface ChannelState {
     /**
      * ARN of the Channel.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * If `true`, channel is private (enabled for playback authorization).
      */
-    authorized?: pulumi.Input<boolean>;
+    authorized?: pulumi.Input<boolean | undefined>;
     /**
      * Channel ingest endpoint, part of the definition of an ingest server, used when setting up streaming software.
      */
-    ingestEndpoint?: pulumi.Input<string>;
+    ingestEndpoint?: pulumi.Input<string | undefined>;
     /**
      * Channel latency mode. Valid values: `NORMAL`, `LOW`.
      */
-    latencyMode?: pulumi.Input<string>;
+    latencyMode?: pulumi.Input<string | undefined>;
     /**
      * Channel name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Channel playback URL.
      */
-    playbackUrl?: pulumi.Input<string>;
+    playbackUrl?: pulumi.Input<string | undefined>;
     /**
      * Recording configuration ARN.
      */
-    recordingConfigurationArn?: pulumi.Input<string>;
+    recordingConfigurationArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -205,29 +205,29 @@ export interface ChannelArgs {
     /**
      * If `true`, channel is private (enabled for playback authorization).
      */
-    authorized?: pulumi.Input<boolean>;
+    authorized?: pulumi.Input<boolean | undefined>;
     /**
      * Channel latency mode. Valid values: `NORMAL`, `LOW`.
      */
-    latencyMode?: pulumi.Input<string>;
+    latencyMode?: pulumi.Input<string | undefined>;
     /**
      * Channel name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Recording configuration ARN.
      */
-    recordingConfigurationArn?: pulumi.Input<string>;
+    recordingConfigurationArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }

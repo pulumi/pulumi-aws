@@ -155,45 +155,45 @@ export interface PlaceIndexState {
     /**
      * The timestamp for when the place index resource was created in ISO 8601 format.
      */
-    createTime?: pulumi.Input<string>;
+    createTime?: pulumi.Input<string | undefined>;
     /**
      * Specifies the geospatial data provider for the new place index.
      */
-    dataSource?: pulumi.Input<string>;
+    dataSource?: pulumi.Input<string | undefined>;
     /**
      * Configuration block with the data storage option chosen for requesting Places. Detailed below.
      */
-    dataSourceConfiguration?: pulumi.Input<inputs.location.PlaceIndexDataSourceConfiguration>;
+    dataSourceConfiguration?: pulumi.Input<inputs.location.PlaceIndexDataSourceConfiguration | undefined>;
     /**
      * The optional description for the place index resource.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
      */
-    indexArn?: pulumi.Input<string>;
+    indexArn?: pulumi.Input<string | undefined>;
     /**
      * The name of the place index resource.
      *
      * The following arguments are optional:
      */
-    indexName?: pulumi.Input<string>;
+    indexName?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The timestamp for when the place index resource was last update in ISO 8601.
      */
-    updateTime?: pulumi.Input<string>;
+    updateTime?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -207,11 +207,11 @@ export interface PlaceIndexArgs {
     /**
      * Configuration block with the data storage option chosen for requesting Places. Detailed below.
      */
-    dataSourceConfiguration?: pulumi.Input<inputs.location.PlaceIndexDataSourceConfiguration>;
+    dataSourceConfiguration?: pulumi.Input<inputs.location.PlaceIndexDataSourceConfiguration | undefined>;
     /**
      * The optional description for the place index resource.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the place index resource.
      *
@@ -221,9 +221,9 @@ export interface PlaceIndexArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

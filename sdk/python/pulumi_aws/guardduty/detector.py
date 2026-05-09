@@ -21,11 +21,11 @@ __all__ = ['DetectorArgs', 'Detector']
 @pulumi.input_type
 class DetectorArgs:
     def __init__(__self__, *,
-                 datasources: Optional[pulumi.Input['DetectorDatasourcesArgs']] = None,
-                 enable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 finding_publishing_frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 datasources: pulumi.Input[Optional['DetectorDatasourcesArgs']] = None,
+                 enable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 finding_publishing_frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Detector resource.
 
@@ -52,76 +52,76 @@ class DetectorArgs:
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""datasources is deprecated. Use guardduty.DetectorFeature resources instead.""")
-    def datasources(self) -> Optional[pulumi.Input['DetectorDatasourcesArgs']]:
+    def datasources(self) -> pulumi.Input[Optional['DetectorDatasourcesArgs']]:
         """
         Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.DetectorFeature` resources.
         """
         return pulumi.get(self, "datasources")
 
     @datasources.setter
-    def datasources(self, value: Optional[pulumi.Input['DetectorDatasourcesArgs']]):
+    def datasources(self, value: pulumi.Input[Optional['DetectorDatasourcesArgs']]):
         pulumi.set(self, "datasources", value)
 
     @_builtins.property
     @pulumi.getter
-    def enable(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
         """
         return pulumi.get(self, "enable")
 
     @enable.setter
-    def enable(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable", value)
 
     @_builtins.property
     @pulumi.getter(name="findingPublishingFrequency")
-    def finding_publishing_frequency(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def finding_publishing_frequency(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the frequency of notifications sent for subsequent finding occurrences. If the detector is a GuardDuty member account, the value is determined by the GuardDuty primary account and cannot be modified, otherwise defaults to `SIX_HOURS`. For standalone and GuardDuty primary accounts, it must be configured in this provider to enable drift detection. Valid values for standalone and primary accounts: `FIFTEEN_MINUTES`, `ONE_HOUR`, `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
         """
         return pulumi.get(self, "finding_publishing_frequency")
 
     @finding_publishing_frequency.setter
-    def finding_publishing_frequency(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def finding_publishing_frequency(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "finding_publishing_frequency", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _DetectorState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 datasources: Optional[pulumi.Input['DetectorDatasourcesArgs']] = None,
-                 enable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 finding_publishing_frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 datasources: pulumi.Input[Optional['DetectorDatasourcesArgs']] = None,
+                 enable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 finding_publishing_frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Detector resources.
 
@@ -156,99 +156,99 @@ class _DetectorState:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS account ID of the GuardDuty detector
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) of the GuardDuty detector
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""datasources is deprecated. Use guardduty.DetectorFeature resources instead.""")
-    def datasources(self) -> Optional[pulumi.Input['DetectorDatasourcesArgs']]:
+    def datasources(self) -> pulumi.Input[Optional['DetectorDatasourcesArgs']]:
         """
         Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.DetectorFeature` resources.
         """
         return pulumi.get(self, "datasources")
 
     @datasources.setter
-    def datasources(self, value: Optional[pulumi.Input['DetectorDatasourcesArgs']]):
+    def datasources(self, value: pulumi.Input[Optional['DetectorDatasourcesArgs']]):
         pulumi.set(self, "datasources", value)
 
     @_builtins.property
     @pulumi.getter
-    def enable(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
         """
         return pulumi.get(self, "enable")
 
     @enable.setter
-    def enable(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable", value)
 
     @_builtins.property
     @pulumi.getter(name="findingPublishingFrequency")
-    def finding_publishing_frequency(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def finding_publishing_frequency(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the frequency of notifications sent for subsequent finding occurrences. If the detector is a GuardDuty member account, the value is determined by the GuardDuty primary account and cannot be modified, otherwise defaults to `SIX_HOURS`. For standalone and GuardDuty primary accounts, it must be configured in this provider to enable drift detection. Valid values for standalone and primary accounts: `FIFTEEN_MINUTES`, `ONE_HOUR`, `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
         """
         return pulumi.get(self, "finding_publishing_frequency")
 
     @finding_publishing_frequency.setter
-    def finding_publishing_frequency(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def finding_publishing_frequency(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "finding_publishing_frequency", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
 
@@ -258,11 +258,11 @@ class Detector(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 datasources: Optional[pulumi.Input[Union['DetectorDatasourcesArgs', 'DetectorDatasourcesArgsDict']]] = None,
-                 enable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 finding_publishing_frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 datasources: pulumi.Input[Optional[Union['DetectorDatasourcesArgs', 'DetectorDatasourcesArgsDict']]] = None,
+                 enable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 finding_publishing_frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a resource to manage an Amazon GuardDuty detector.
@@ -379,11 +379,11 @@ class Detector(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 datasources: Optional[pulumi.Input[Union['DetectorDatasourcesArgs', 'DetectorDatasourcesArgsDict']]] = None,
-                 enable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 finding_publishing_frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 datasources: pulumi.Input[Optional[Union['DetectorDatasourcesArgs', 'DetectorDatasourcesArgsDict']]] = None,
+                 enable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 finding_publishing_frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -411,14 +411,14 @@ class Detector(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            datasources: Optional[pulumi.Input[Union['DetectorDatasourcesArgs', 'DetectorDatasourcesArgsDict']]] = None,
-            enable: Optional[pulumi.Input[_builtins.bool]] = None,
-            finding_publishing_frequency: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Detector':
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            datasources: pulumi.Input[Optional[Union['DetectorDatasourcesArgs', 'DetectorDatasourcesArgsDict']]] = None,
+            enable: pulumi.Input[Optional[_builtins.bool]] = None,
+            finding_publishing_frequency: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Detector':
         """
         Get an existing Detector resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

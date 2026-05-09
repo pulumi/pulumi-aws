@@ -198,29 +198,29 @@ export interface NamespaceRegistrationState {
     /**
      * Consumer identifier for the registration. Typically in the format `DataCatalog/<account-id>`.
      */
-    consumerIdentifier?: pulumi.Input<string>;
+    consumerIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Type of namespace being registered. Valid values: `serverless`, `provisioned`.
      *
      * The following arguments are optional:
      */
-    namespaceType?: pulumi.Input<string>;
+    namespaceType?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the provisioned cluster. Required when `namespaceType` is `provisioned`.
      */
-    provisionedClusterIdentifier?: pulumi.Input<string>;
+    provisionedClusterIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the serverless namespace. Required when `namespaceType` is `serverless`. Can be either the namespace name or namespace ID (UUID).
      */
-    serverlessNamespaceIdentifier?: pulumi.Input<string>;
+    serverlessNamespaceIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the serverless workgroup. Required when `namespaceType` is `serverless`.
      */
-    serverlessWorkgroupIdentifier?: pulumi.Input<string>;
+    serverlessWorkgroupIdentifier?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -240,17 +240,17 @@ export interface NamespaceRegistrationArgs {
     /**
      * Identifier of the provisioned cluster. Required when `namespaceType` is `provisioned`.
      */
-    provisionedClusterIdentifier?: pulumi.Input<string>;
+    provisionedClusterIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the serverless namespace. Required when `namespaceType` is `serverless`. Can be either the namespace name or namespace ID (UUID).
      */
-    serverlessNamespaceIdentifier?: pulumi.Input<string>;
+    serverlessNamespaceIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the serverless workgroup. Required when `namespaceType` is `serverless`.
      */
-    serverlessWorkgroupIdentifier?: pulumi.Input<string>;
+    serverlessWorkgroupIdentifier?: pulumi.Input<string | undefined>;
 }

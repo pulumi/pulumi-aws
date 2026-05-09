@@ -207,59 +207,59 @@ export interface ReportDefinitionState {
     /**
      * A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and reportVersioning must be `OVERWRITE_REPORT`.
      */
-    additionalArtifacts?: pulumi.Input<pulumi.Input<string>[]>;
+    additionalArtifacts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`, `MANUAL_DISCOUNT_COMPATIBILITY`.
      */
-    additionalSchemaElements?: pulumi.Input<pulumi.Input<string>[]>;
+    additionalSchemaElements?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) specifying the cur report.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Compression format for report. Valid values are: `GZIP`, `ZIP`, `Parquet`. If `Parquet` is used, then format must also be `Parquet`.
      */
-    compression?: pulumi.Input<string>;
+    compression?: pulumi.Input<string | undefined>;
     /**
      * Format for report. Valid values are: `textORcsv`, `Parquet`. If `Parquet` is used, then Compression must also be `Parquet`.
      */
-    format?: pulumi.Input<string>;
+    format?: pulumi.Input<string | undefined>;
     /**
      * Set to true to update your reports after they have been finalized if AWS detects charges related to previous months.
      */
-    refreshClosedReports?: pulumi.Input<boolean>;
+    refreshClosedReports?: pulumi.Input<boolean | undefined>;
     /**
      * Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
      */
-    reportName?: pulumi.Input<string>;
+    reportName?: pulumi.Input<string | undefined>;
     /**
      * Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: `CREATE_NEW_REPORT` and `OVERWRITE_REPORT`.
      */
-    reportVersioning?: pulumi.Input<string>;
+    reportVersioning?: pulumi.Input<string | undefined>;
     /**
      * Name of the existing S3 bucket to hold generated reports.
      */
-    s3Bucket?: pulumi.Input<string>;
+    s3Bucket?: pulumi.Input<string | undefined>;
     /**
      * Report path prefix. Limited to 256 characters. May be empty (`""`) but the resource can then not be modified via the AWS Console.
      */
-    s3Prefix?: pulumi.Input<string>;
+    s3Prefix?: pulumi.Input<string | undefined>;
     /**
      * Region of the existing S3 bucket to hold generated reports.
      */
-    s3Region?: pulumi.Input<string>;
+    s3Region?: pulumi.Input<string | undefined>;
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The frequency on which report data are measured and displayed.  Valid values are: `DAILY`, `HOURLY`, `MONTHLY`.
      */
-    timeUnit?: pulumi.Input<string>;
+    timeUnit?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -269,7 +269,7 @@ export interface ReportDefinitionArgs {
     /**
      * A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and reportVersioning must be `OVERWRITE_REPORT`.
      */
-    additionalArtifacts?: pulumi.Input<pulumi.Input<string>[]>;
+    additionalArtifacts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`, `MANUAL_DISCOUNT_COMPATIBILITY`.
      */
@@ -285,7 +285,7 @@ export interface ReportDefinitionArgs {
     /**
      * Set to true to update your reports after they have been finalized if AWS detects charges related to previous months.
      */
-    refreshClosedReports?: pulumi.Input<boolean>;
+    refreshClosedReports?: pulumi.Input<boolean | undefined>;
     /**
      * Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
      */
@@ -293,7 +293,7 @@ export interface ReportDefinitionArgs {
     /**
      * Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: `CREATE_NEW_REPORT` and `OVERWRITE_REPORT`.
      */
-    reportVersioning?: pulumi.Input<string>;
+    reportVersioning?: pulumi.Input<string | undefined>;
     /**
      * Name of the existing S3 bucket to hold generated reports.
      */
@@ -309,7 +309,7 @@ export interface ReportDefinitionArgs {
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The frequency on which report data are measured and displayed.  Valid values are: `DAILY`, `HOURLY`, `MONTHLY`.
      */

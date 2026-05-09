@@ -144,7 +144,7 @@ def get_code_signing_config(arn: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.lambda.get_code_signing_config(arn="arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-0f6c334abcdea4d8b")
+    example = aws.lambda_.get_code_signing_config(arn="arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-0f6c334abcdea4d8b")
     pulumi.export("configDetails", {
         "configId": example.config_id,
         "description": example.description,
@@ -159,7 +159,7 @@ def get_code_signing_config(arn: Optional[_builtins.str] = None,
     import pulumi_aws as aws
 
     # Get existing code signing configuration
-    security_config = aws.lambda.get_code_signing_config(arn=code_signing_config_arn)
+    security_config = aws.lambda_.get_code_signing_config(arn=code_signing_config_arn)
     # Create Lambda function with code signing
     example = aws.lambda_.Function("example",
         code=pulumi.FileArchive("function.zip"),
@@ -178,16 +178,17 @@ def get_code_signing_config(arn: Optional[_builtins.str] = None,
 
     ```python
     import pulumi
+    from typing import Any
     import pulumi_aws as aws
     import pulumi_std as std
 
-    example = aws.lambda.get_code_signing_config(arn=code_signing_config_arn)
+    example = aws.lambda_.get_code_signing_config(arn=code_signing_config_arn)
     allowed_profiles = example.allowed_publishers[0].signing_profile_version_arns
     required_profile = "arn:aws:signer:us-west-2:123456789012:/signing-profiles/MyProfile"
     profile_allowed = std.contains(input=allowed_profiles,
         element=required_profile).result
     # Conditional resource creation based on signing profile validation
-    conditional = []
+    conditional: list[Any] = []
     for range in [{"value": i} for i in range(0, 1 if profile_allowed else 0)]:
         conditional.append(aws.lambda_.Function(f"conditional-{range['value']}",
             code=pulumi.FileArchive("function.zip"),
@@ -210,9 +211,9 @@ def get_code_signing_config(arn: Optional[_builtins.str] = None,
     import pulumi_aws as aws
 
     # Production code signing config
-    prod = aws.lambda.get_code_signing_config(arn="arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-prod-123")
+    prod = aws.lambda_.get_code_signing_config(arn="arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-prod-123")
     # Development code signing config
-    dev = aws.lambda.get_code_signing_config(arn="arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-dev-456")
+    dev = aws.lambda_.get_code_signing_config(arn="arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-dev-456")
     prod_policy = prod.policies[0].untrusted_artifact_on_deployment
     dev_policy = dev.policies[0].untrusted_artifact_on_deployment
     config_comparison = {
@@ -244,8 +245,8 @@ def get_code_signing_config(arn: Optional[_builtins.str] = None,
         last_modified=pulumi.get(__ret__, 'last_modified'),
         policies=pulumi.get(__ret__, 'policies'),
         region=pulumi.get(__ret__, 'region'))
-def get_code_signing_config_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
-                                   region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_code_signing_config_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
+                                   region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCodeSigningConfigResult]:
     """
     Provides details about an AWS Lambda Code Signing Config. Use this data source to retrieve information about an existing code signing configuration for Lambda functions to ensure code integrity and authenticity.
@@ -260,7 +261,7 @@ def get_code_signing_config_output(arn: Optional[pulumi.Input[_builtins.str]] = 
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.lambda.get_code_signing_config(arn="arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-0f6c334abcdea4d8b")
+    example = aws.lambda_.get_code_signing_config(arn="arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-0f6c334abcdea4d8b")
     pulumi.export("configDetails", {
         "configId": example.config_id,
         "description": example.description,
@@ -275,7 +276,7 @@ def get_code_signing_config_output(arn: Optional[pulumi.Input[_builtins.str]] = 
     import pulumi_aws as aws
 
     # Get existing code signing configuration
-    security_config = aws.lambda.get_code_signing_config(arn=code_signing_config_arn)
+    security_config = aws.lambda_.get_code_signing_config(arn=code_signing_config_arn)
     # Create Lambda function with code signing
     example = aws.lambda_.Function("example",
         code=pulumi.FileArchive("function.zip"),
@@ -294,16 +295,17 @@ def get_code_signing_config_output(arn: Optional[pulumi.Input[_builtins.str]] = 
 
     ```python
     import pulumi
+    from typing import Any
     import pulumi_aws as aws
     import pulumi_std as std
 
-    example = aws.lambda.get_code_signing_config(arn=code_signing_config_arn)
+    example = aws.lambda_.get_code_signing_config(arn=code_signing_config_arn)
     allowed_profiles = example.allowed_publishers[0].signing_profile_version_arns
     required_profile = "arn:aws:signer:us-west-2:123456789012:/signing-profiles/MyProfile"
     profile_allowed = std.contains(input=allowed_profiles,
         element=required_profile).result
     # Conditional resource creation based on signing profile validation
-    conditional = []
+    conditional: list[Any] = []
     for range in [{"value": i} for i in range(0, 1 if profile_allowed else 0)]:
         conditional.append(aws.lambda_.Function(f"conditional-{range['value']}",
             code=pulumi.FileArchive("function.zip"),
@@ -326,9 +328,9 @@ def get_code_signing_config_output(arn: Optional[pulumi.Input[_builtins.str]] = 
     import pulumi_aws as aws
 
     # Production code signing config
-    prod = aws.lambda.get_code_signing_config(arn="arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-prod-123")
+    prod = aws.lambda_.get_code_signing_config(arn="arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-prod-123")
     # Development code signing config
-    dev = aws.lambda.get_code_signing_config(arn="arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-dev-456")
+    dev = aws.lambda_.get_code_signing_config(arn="arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-dev-456")
     prod_policy = prod.policies[0].untrusted_artifact_on_deployment
     dev_policy = dev.policies[0].untrusted_artifact_on_deployment
     config_comparison = {

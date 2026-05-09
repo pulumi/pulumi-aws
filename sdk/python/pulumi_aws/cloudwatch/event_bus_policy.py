@@ -20,8 +20,8 @@ __all__ = ['EventBusPolicyArgs', 'EventBusPolicy']
 class EventBusPolicyArgs:
     def __init__(__self__, *,
                  policy: pulumi.Input[_builtins.str],
-                 event_bus_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 event_bus_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a EventBusPolicy resource.
 
@@ -50,7 +50,7 @@ class EventBusPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="eventBusName")
-    def event_bus_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_bus_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the event bus to set the permissions on.
         If you omit this, the permissions are set on the `default` event bus.
@@ -58,28 +58,28 @@ class EventBusPolicyArgs:
         return pulumi.get(self, "event_bus_name")
 
     @event_bus_name.setter
-    def event_bus_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_bus_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_bus_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _EventBusPolicyState:
     def __init__(__self__, *,
-                 event_bus_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 event_bus_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EventBusPolicy resources.
 
@@ -97,7 +97,7 @@ class _EventBusPolicyState:
 
     @_builtins.property
     @pulumi.getter(name="eventBusName")
-    def event_bus_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_bus_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the event bus to set the permissions on.
         If you omit this, the permissions are set on the `default` event bus.
@@ -105,31 +105,31 @@ class _EventBusPolicyState:
         return pulumi.get(self, "event_bus_name")
 
     @event_bus_name.setter
-    def event_bus_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_bus_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_bus_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The text of the policy.
         """
         return pulumi.get(self, "policy")
 
     @policy.setter
-    def policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
@@ -139,9 +139,9 @@ class EventBusPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 event_bus_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 event_bus_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a resource to create an EventBridge resource policy to support cross-account events.
@@ -409,9 +409,9 @@ class EventBusPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 event_bus_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 event_bus_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -436,9 +436,9 @@ class EventBusPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            event_bus_name: Optional[pulumi.Input[_builtins.str]] = None,
-            policy: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None) -> 'EventBusPolicy':
+            event_bus_name: pulumi.Input[Optional[_builtins.str]] = None,
+            policy: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> 'EventBusPolicy':
         """
         Get an existing EventBusPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

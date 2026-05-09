@@ -105,12 +105,12 @@ export interface GetCustomRoutingAcceleratorOutputArgs {
     /**
      * Full ARN of the custom routing accelerator.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Unique name of the custom routing accelerator.
      *
      * > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
      */
-    name?: pulumi.Input<string>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    name?: pulumi.Input<string | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

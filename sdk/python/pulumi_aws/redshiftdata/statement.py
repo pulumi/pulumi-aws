@@ -23,14 +23,14 @@ class StatementArgs:
     def __init__(__self__, *,
                  database: pulumi.Input[_builtins.str],
                  sql: pulumi.Input[_builtins.str],
-                 cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_user: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['StatementParameterArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 statement_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 with_event: Optional[pulumi.Input[_builtins.bool]] = None,
-                 workgroup_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_user: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input['StatementParameterArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 statement_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 with_event: pulumi.Input[Optional[_builtins.bool]] = None,
+                 workgroup_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Statement resource.
 
@@ -93,111 +93,111 @@ class StatementArgs:
 
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
-    def cluster_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
         """
         return pulumi.get(self, "cluster_identifier")
 
     @cluster_identifier.setter
-    def cluster_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="dbUser")
-    def db_user(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def db_user(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The database user name.
         """
         return pulumi.get(self, "db_user")
 
     @db_user.setter
-    def db_user(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def db_user(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "db_user", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StatementParameterArgs']]]]:
+    def parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StatementParameterArgs']]]]:
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StatementParameterArgs']]]]):
+    def parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['StatementParameterArgs']]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="secretArn")
-    def secret_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secret_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name or ARN of the secret that enables access to the database.
         """
         return pulumi.get(self, "secret_arn")
 
     @secret_arn.setter
-    def secret_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secret_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secret_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="statementName")
-    def statement_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def statement_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
         """
         return pulumi.get(self, "statement_name")
 
     @statement_name.setter
-    def statement_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def statement_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "statement_name", value)
 
     @_builtins.property
     @pulumi.getter(name="withEvent")
-    def with_event(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def with_event(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
         """
         return pulumi.get(self, "with_event")
 
     @with_event.setter
-    def with_event(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def with_event(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "with_event", value)
 
     @_builtins.property
     @pulumi.getter(name="workgroupName")
-    def workgroup_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workgroup_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
         """
         return pulumi.get(self, "workgroup_name")
 
     @workgroup_name.setter
-    def workgroup_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workgroup_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workgroup_name", value)
 
 
 @pulumi.input_type
 class _StatementState:
     def __init__(__self__, *,
-                 cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_user: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['StatementParameterArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 sql: Optional[pulumi.Input[_builtins.str]] = None,
-                 statement_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 with_event: Optional[pulumi.Input[_builtins.bool]] = None,
-                 workgroup_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_user: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input['StatementParameterArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 sql: pulumi.Input[Optional[_builtins.str]] = None,
+                 statement_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 with_event: pulumi.Input[Optional[_builtins.bool]] = None,
+                 workgroup_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Statement resources.
 
@@ -236,76 +236,76 @@ class _StatementState:
 
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
-    def cluster_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
         """
         return pulumi.get(self, "cluster_identifier")
 
     @cluster_identifier.setter
-    def cluster_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_identifier", value)
 
     @_builtins.property
     @pulumi.getter
-    def database(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the database.
         """
         return pulumi.get(self, "database")
 
     @database.setter
-    def database(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database", value)
 
     @_builtins.property
     @pulumi.getter(name="dbUser")
-    def db_user(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def db_user(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The database user name.
         """
         return pulumi.get(self, "db_user")
 
     @db_user.setter
-    def db_user(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def db_user(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "db_user", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StatementParameterArgs']]]]:
+    def parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StatementParameterArgs']]]]:
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StatementParameterArgs']]]]):
+    def parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['StatementParameterArgs']]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="secretArn")
-    def secret_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secret_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name or ARN of the secret that enables access to the database.
         """
         return pulumi.get(self, "secret_arn")
 
     @secret_arn.setter
-    def secret_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secret_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secret_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def sql(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sql(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SQL statement text to run.
 
@@ -314,43 +314,43 @@ class _StatementState:
         return pulumi.get(self, "sql")
 
     @sql.setter
-    def sql(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sql(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sql", value)
 
     @_builtins.property
     @pulumi.getter(name="statementName")
-    def statement_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def statement_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
         """
         return pulumi.get(self, "statement_name")
 
     @statement_name.setter
-    def statement_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def statement_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "statement_name", value)
 
     @_builtins.property
     @pulumi.getter(name="withEvent")
-    def with_event(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def with_event(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
         """
         return pulumi.get(self, "with_event")
 
     @with_event.setter
-    def with_event(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def with_event(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "with_event", value)
 
     @_builtins.property
     @pulumi.getter(name="workgroupName")
-    def workgroup_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workgroup_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
         """
         return pulumi.get(self, "workgroup_name")
 
     @workgroup_name.setter
-    def workgroup_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workgroup_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workgroup_name", value)
 
 
@@ -360,16 +360,16 @@ class Statement(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_user: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StatementParameterArgs', 'StatementParameterArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 sql: Optional[pulumi.Input[_builtins.str]] = None,
-                 statement_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 with_event: Optional[pulumi.Input[_builtins.bool]] = None,
-                 workgroup_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_user: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StatementParameterArgs', 'StatementParameterArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 sql: pulumi.Input[Optional[_builtins.str]] = None,
+                 statement_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 with_event: pulumi.Input[Optional[_builtins.bool]] = None,
+                 workgroup_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Executes a Redshift Data Statement.
@@ -484,16 +484,16 @@ class Statement(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_user: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StatementParameterArgs', 'StatementParameterArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 sql: Optional[pulumi.Input[_builtins.str]] = None,
-                 statement_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 with_event: Optional[pulumi.Input[_builtins.bool]] = None,
-                 workgroup_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_user: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StatementParameterArgs', 'StatementParameterArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 sql: pulumi.Input[Optional[_builtins.str]] = None,
+                 statement_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 with_event: pulumi.Input[Optional[_builtins.bool]] = None,
+                 workgroup_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -527,16 +527,16 @@ class Statement(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-            database: Optional[pulumi.Input[_builtins.str]] = None,
-            db_user: Optional[pulumi.Input[_builtins.str]] = None,
-            parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StatementParameterArgs', 'StatementParameterArgsDict']]]]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            secret_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            sql: Optional[pulumi.Input[_builtins.str]] = None,
-            statement_name: Optional[pulumi.Input[_builtins.str]] = None,
-            with_event: Optional[pulumi.Input[_builtins.bool]] = None,
-            workgroup_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'Statement':
+            cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            db_user: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StatementParameterArgs', 'StatementParameterArgsDict']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            secret_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            sql: pulumi.Input[Optional[_builtins.str]] = None,
+            statement_name: pulumi.Input[Optional[_builtins.str]] = None,
+            with_event: pulumi.Input[Optional[_builtins.bool]] = None,
+            workgroup_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'Statement':
         """
         Get an existing Statement resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

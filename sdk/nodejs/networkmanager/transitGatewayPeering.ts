@@ -163,49 +163,49 @@ export interface TransitGatewayPeeringState {
     /**
      * Peering ARN.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * ARN of the core network.
      */
-    coreNetworkArn?: pulumi.Input<string>;
+    coreNetworkArn?: pulumi.Input<string | undefined>;
     /**
      * ID of a core network.
      */
-    coreNetworkId?: pulumi.Input<string>;
+    coreNetworkId?: pulumi.Input<string | undefined>;
     /**
      * Edge location for the peer.
      */
-    edgeLocation?: pulumi.Input<string>;
+    edgeLocation?: pulumi.Input<string | undefined>;
     /**
      * ID of the account owner.
      */
-    ownerAccountId?: pulumi.Input<string>;
+    ownerAccountId?: pulumi.Input<string | undefined>;
     /**
      * Type of peering. This will be `TRANSIT_GATEWAY`.
      */
-    peeringType?: pulumi.Input<string>;
+    peeringType?: pulumi.Input<string | undefined>;
     /**
      * Resource ARN of the peer.
      */
-    resourceArn?: pulumi.Input<string>;
+    resourceArn?: pulumi.Input<string | undefined>;
     /**
      * Key-value tags for the peering. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * ARN of the transit gateway for the peering request.
      *
      * The following arguments are optional:
      */
-    transitGatewayArn?: pulumi.Input<string>;
+    transitGatewayArn?: pulumi.Input<string | undefined>;
     /**
      * ID of the transit gateway peering attachment.
      */
-    transitGatewayPeeringAttachmentId?: pulumi.Input<string>;
+    transitGatewayPeeringAttachmentId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -219,7 +219,7 @@ export interface TransitGatewayPeeringArgs {
     /**
      * Key-value tags for the peering. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * ARN of the transit gateway for the peering request.
      *

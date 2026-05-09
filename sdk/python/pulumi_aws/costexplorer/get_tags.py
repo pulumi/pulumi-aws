@@ -153,11 +153,11 @@ def get_tags(filter: Optional[Union['GetTagsFilterArgs', 'GetTagsFilterArgsDict'
         tag_key=pulumi.get(__ret__, 'tag_key'),
         tags=pulumi.get(__ret__, 'tags'),
         time_period=pulumi.get(__ret__, 'time_period'))
-def get_tags_output(filter: Optional[pulumi.Input[Optional[Union['GetTagsFilterArgs', 'GetTagsFilterArgsDict']]]] = None,
-                    search_string: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                    sort_bies: Optional[pulumi.Input[Optional[Sequence[Union['GetTagsSortByArgs', 'GetTagsSortByArgsDict']]]]] = None,
-                    tag_key: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                    time_period: Optional[pulumi.Input[Union['GetTagsTimePeriodArgs', 'GetTagsTimePeriodArgsDict']]] = None,
+def get_tags_output(filter: pulumi.Input[Optional[Optional[Union['GetTagsFilterArgs', 'GetTagsFilterArgsDict']]]] = None,
+                    search_string: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                    sort_bies: pulumi.Input[Optional[Optional[Sequence[Union['GetTagsSortByArgs', 'GetTagsSortByArgsDict']]]]] = None,
+                    tag_key: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                    time_period: pulumi.Input[Optional[Union['GetTagsTimePeriodArgs', 'GetTagsTimePeriodArgsDict']]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTagsResult]:
     """
     Provides the available cost allocation tag keys and tag values for a specified period.

@@ -21,9 +21,9 @@ class AutoManagementArgs:
     def __init__(__self__, *,
                  opt_in_level: pulumi.Input[_builtins.str],
                  opt_in_type: pulumi.Input[_builtins.str],
-                 exclusion_list: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
-                 notification_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 exclusion_list: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
+                 notification_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AutoManagement resource.
 
@@ -72,49 +72,49 @@ class AutoManagementArgs:
 
     @_builtins.property
     @pulumi.getter(name="exclusionList")
-    def exclusion_list(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]:
+    def exclusion_list(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]:
         """
         Map of AWS services excluded from Automatic Management. You will need to include the AWS service code and one or more Service Quotas codes.
         """
         return pulumi.get(self, "exclusion_list")
 
     @exclusion_list.setter
-    def exclusion_list(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]):
+    def exclusion_list(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]):
         pulumi.set(self, "exclusion_list", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationArn")
-    def notification_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notification_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS User Notifications ARN for Automatic Management notifications.
         """
         return pulumi.get(self, "notification_arn")
 
     @notification_arn.setter
-    def notification_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notification_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notification_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _AutoManagementState:
     def __init__(__self__, *,
-                 exclusion_list: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
-                 notification_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 opt_in_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 opt_in_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 exclusion_list: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
+                 notification_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 opt_in_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 opt_in_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AutoManagement resources.
 
@@ -139,43 +139,43 @@ class _AutoManagementState:
 
     @_builtins.property
     @pulumi.getter(name="exclusionList")
-    def exclusion_list(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]:
+    def exclusion_list(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]:
         """
         Map of AWS services excluded from Automatic Management. You will need to include the AWS service code and one or more Service Quotas codes.
         """
         return pulumi.get(self, "exclusion_list")
 
     @exclusion_list.setter
-    def exclusion_list(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]):
+    def exclusion_list(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]):
         pulumi.set(self, "exclusion_list", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationArn")
-    def notification_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notification_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS User Notifications ARN for Automatic Management notifications.
         """
         return pulumi.get(self, "notification_arn")
 
     @notification_arn.setter
-    def notification_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notification_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notification_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="optInLevel")
-    def opt_in_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def opt_in_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The opt-in level for Automatic Management. Valid values: `ACCOUNT`.
         """
         return pulumi.get(self, "opt_in_level")
 
     @opt_in_level.setter
-    def opt_in_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def opt_in_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "opt_in_level", value)
 
     @_builtins.property
     @pulumi.getter(name="optInType")
-    def opt_in_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def opt_in_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The opt-in type for Automatic Management. Valid values: `NotifyOnly`, `NotifyAndAdjust`.
 
@@ -184,19 +184,19 @@ class _AutoManagementState:
         return pulumi.get(self, "opt_in_type")
 
     @opt_in_type.setter
-    def opt_in_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def opt_in_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "opt_in_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
@@ -206,11 +206,11 @@ class AutoManagement(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 exclusion_list: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
-                 notification_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 opt_in_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 opt_in_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 exclusion_list: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
+                 notification_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 opt_in_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 opt_in_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages AWS Service Quotas Automatic Management.
@@ -321,11 +321,11 @@ class AutoManagement(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 exclusion_list: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
-                 notification_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 opt_in_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 opt_in_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 exclusion_list: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
+                 notification_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 opt_in_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 opt_in_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -354,11 +354,11 @@ class AutoManagement(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            exclusion_list: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
-            notification_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            opt_in_level: Optional[pulumi.Input[_builtins.str]] = None,
-            opt_in_type: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None) -> 'AutoManagement':
+            exclusion_list: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
+            notification_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            opt_in_level: pulumi.Input[Optional[_builtins.str]] = None,
+            opt_in_type: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> 'AutoManagement':
         """
         Get an existing AutoManagement resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -89,7 +89,7 @@ export interface OutboundWebIdentityFederationState {
     /**
      * A unique issuer URL for your AWS account that hosts the OpenID Connect (OIDC) discovery endpoints.
      */
-    issuerIdentifier?: pulumi.Input<string>;
+    issuerIdentifier?: pulumi.Input<string | undefined>;
 }
 
 /**

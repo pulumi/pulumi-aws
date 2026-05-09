@@ -131,9 +131,9 @@ def get_route_table_routes(filters: Optional[Sequence[Union['GetRouteTableRoutes
         region=pulumi.get(__ret__, 'region'),
         routes=pulumi.get(__ret__, 'routes'),
         transit_gateway_route_table_id=pulumi.get(__ret__, 'transit_gateway_route_table_id'))
-def get_route_table_routes_output(filters: Optional[pulumi.Input[Sequence[Union['GetRouteTableRoutesFilterArgs', 'GetRouteTableRoutesFilterArgsDict']]]] = None,
-                                  region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                  transit_gateway_route_table_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_route_table_routes_output(filters: pulumi.Input[Optional[Sequence[Union['GetRouteTableRoutesFilterArgs', 'GetRouteTableRoutesFilterArgsDict']]]] = None,
+                                  region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                  transit_gateway_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRouteTableRoutesResult]:
     """
     Provides informations for routes of a specific transit gateway, such as state, type, cidr

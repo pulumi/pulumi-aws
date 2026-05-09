@@ -143,34 +143,34 @@ export interface ConfigurationTemplateState {
     /**
      * name of the application to associate with this configuration template
      */
-    application?: pulumi.Input<string>;
+    application?: pulumi.Input<string | undefined>;
     /**
      * Short description of the Template
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of the environment used with this configuration template
      */
-    environmentId?: pulumi.Input<string>;
+    environmentId?: pulumi.Input<string | undefined>;
     /**
      * A unique name for this Template.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Option settings to configure the new Environment. These
      * override specific values that are set as defaults. The format is detailed
      * below in Option Settings
      */
-    settings?: pulumi.Input<pulumi.Input<inputs.elasticbeanstalk.ConfigurationTemplateSetting>[]>;
+    settings?: pulumi.Input<pulumi.Input<inputs.elasticbeanstalk.ConfigurationTemplateSetting>[] | undefined>;
     /**
      * A solution stack to base your Template
      * off of. Example stacks can be found in the [Amazon API documentation][1]
      */
-    solutionStackName?: pulumi.Input<string>;
+    solutionStackName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -184,28 +184,28 @@ export interface ConfigurationTemplateArgs {
     /**
      * Short description of the Template
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of the environment used with this configuration template
      */
-    environmentId?: pulumi.Input<string>;
+    environmentId?: pulumi.Input<string | undefined>;
     /**
      * A unique name for this Template.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Option settings to configure the new Environment. These
      * override specific values that are set as defaults. The format is detailed
      * below in Option Settings
      */
-    settings?: pulumi.Input<pulumi.Input<inputs.elasticbeanstalk.ConfigurationTemplateSetting>[]>;
+    settings?: pulumi.Input<pulumi.Input<inputs.elasticbeanstalk.ConfigurationTemplateSetting>[] | undefined>;
     /**
      * A solution stack to base your Template
      * off of. Example stacks can be found in the [Amazon API documentation][1]
      */
-    solutionStackName?: pulumi.Input<string>;
+    solutionStackName?: pulumi.Input<string | undefined>;
 }

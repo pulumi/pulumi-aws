@@ -21,8 +21,8 @@ __all__ = ['SizeConstraintSetArgs', 'SizeConstraintSet']
 @pulumi.input_type
 class SizeConstraintSetArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 size_constraints: Optional[pulumi.Input[Sequence[pulumi.Input['SizeConstraintSetSizeConstraintArgs']]]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 size_constraints: pulumi.Input[Optional[Sequence[pulumi.Input['SizeConstraintSetSizeConstraintArgs']]]] = None):
         """
         The set of arguments for constructing a SizeConstraintSet resource.
 
@@ -36,35 +36,35 @@ class SizeConstraintSetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name or description of the Size Constraint Set.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="sizeConstraints")
-    def size_constraints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SizeConstraintSetSizeConstraintArgs']]]]:
+    def size_constraints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SizeConstraintSetSizeConstraintArgs']]]]:
         """
         Parts of web requests that you want to inspect the size of.
         """
         return pulumi.get(self, "size_constraints")
 
     @size_constraints.setter
-    def size_constraints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SizeConstraintSetSizeConstraintArgs']]]]):
+    def size_constraints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SizeConstraintSetSizeConstraintArgs']]]]):
         pulumi.set(self, "size_constraints", value)
 
 
 @pulumi.input_type
 class _SizeConstraintSetState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 size_constraints: Optional[pulumi.Input[Sequence[pulumi.Input['SizeConstraintSetSizeConstraintArgs']]]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 size_constraints: pulumi.Input[Optional[Sequence[pulumi.Input['SizeConstraintSetSizeConstraintArgs']]]] = None):
         """
         Input properties used for looking up and filtering SizeConstraintSet resources.
 
@@ -81,38 +81,38 @@ class _SizeConstraintSetState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN).
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name or description of the Size Constraint Set.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="sizeConstraints")
-    def size_constraints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SizeConstraintSetSizeConstraintArgs']]]]:
+    def size_constraints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SizeConstraintSetSizeConstraintArgs']]]]:
         """
         Parts of web requests that you want to inspect the size of.
         """
         return pulumi.get(self, "size_constraints")
 
     @size_constraints.setter
-    def size_constraints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SizeConstraintSetSizeConstraintArgs']]]]):
+    def size_constraints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SizeConstraintSetSizeConstraintArgs']]]]):
         pulumi.set(self, "size_constraints", value)
 
 
@@ -122,8 +122,8 @@ class SizeConstraintSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 size_constraints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SizeConstraintSetSizeConstraintArgs', 'SizeConstraintSetSizeConstraintArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 size_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SizeConstraintSetSizeConstraintArgs', 'SizeConstraintSetSizeConstraintArgsDict']]]]] = None,
                  __props__=None):
         """
         Use the `waf.SizeConstraintSet` resource to manage WAF size constraint sets.
@@ -211,8 +211,8 @@ class SizeConstraintSet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 size_constraints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SizeConstraintSetSizeConstraintArgs', 'SizeConstraintSetSizeConstraintArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 size_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SizeConstraintSetSizeConstraintArgs', 'SizeConstraintSetSizeConstraintArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -235,9 +235,9 @@ class SizeConstraintSet(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            size_constraints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SizeConstraintSetSizeConstraintArgs', 'SizeConstraintSetSizeConstraintArgsDict']]]]] = None) -> 'SizeConstraintSet':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            size_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SizeConstraintSetSizeConstraintArgs', 'SizeConstraintSetSizeConstraintArgsDict']]]]] = None) -> 'SizeConstraintSet':
         """
         Get an existing SizeConstraintSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

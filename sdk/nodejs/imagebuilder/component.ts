@@ -208,79 +208,79 @@ export interface ComponentState {
     /**
      * (Required) Amazon Resource Name (ARN) of the component.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Change description of the component.
      */
-    changeDescription?: pulumi.Input<string>;
+    changeDescription?: pulumi.Input<string | undefined>;
     /**
      * Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
      */
-    data?: pulumi.Input<string>;
+    data?: pulumi.Input<string | undefined>;
     /**
      * Date the component was created.
      */
-    dateCreated?: pulumi.Input<string>;
+    dateCreated?: pulumi.Input<string | undefined>;
     /**
      * Description of the component.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Encryption status of the component.
      */
-    encrypted?: pulumi.Input<boolean>;
+    encrypted?: pulumi.Input<boolean | undefined>;
     /**
      * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * Name of the component.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Owner of the component.
      */
-    owner?: pulumi.Input<string>;
+    owner?: pulumi.Input<string | undefined>;
     /**
      * Platform of the component.
      */
-    platform?: pulumi.Input<string>;
+    platform?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
      */
-    skipDestroy?: pulumi.Input<boolean>;
+    skipDestroy?: pulumi.Input<boolean | undefined>;
     /**
      * Set of Operating Systems (OS) supported by the component.
      */
-    supportedOsVersions?: pulumi.Input<pulumi.Input<string>[]>;
+    supportedOsVersions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Key-value map of resource tags for the component. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Type of the component.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
      *
      * > **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skipDestroy` argument can be used to retain the old version.
      */
-    uri?: pulumi.Input<string>;
+    uri?: pulumi.Input<string | undefined>;
     /**
      * Version of the component.
      *
      * The following arguments are optional:
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -290,23 +290,23 @@ export interface ComponentArgs {
     /**
      * Change description of the component.
      */
-    changeDescription?: pulumi.Input<string>;
+    changeDescription?: pulumi.Input<string | undefined>;
     /**
      * Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
      */
-    data?: pulumi.Input<string>;
+    data?: pulumi.Input<string | undefined>;
     /**
      * Description of the component.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * Name of the component.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Platform of the component.
      */
@@ -314,25 +314,25 @@ export interface ComponentArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
      */
-    skipDestroy?: pulumi.Input<boolean>;
+    skipDestroy?: pulumi.Input<boolean | undefined>;
     /**
      * Set of Operating Systems (OS) supported by the component.
      */
-    supportedOsVersions?: pulumi.Input<pulumi.Input<string>[]>;
+    supportedOsVersions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Key-value map of resource tags for the component. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
      *
      * > **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skipDestroy` argument can be used to retain the old version.
      */
-    uri?: pulumi.Input<string>;
+    uri?: pulumi.Input<string | undefined>;
     /**
      * Version of the component.
      *

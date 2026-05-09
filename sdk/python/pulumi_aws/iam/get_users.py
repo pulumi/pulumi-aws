@@ -144,8 +144,8 @@ def get_users(name_regex: Optional[_builtins.str] = None,
         name_regex=pulumi.get(__ret__, 'name_regex'),
         names=pulumi.get(__ret__, 'names'),
         path_prefix=pulumi.get(__ret__, 'path_prefix'))
-def get_users_output(name_regex: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                     path_prefix: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_users_output(name_regex: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                     path_prefix: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUsersResult]:
     """
     Use this data source to get the ARNs and Names of IAM Users.

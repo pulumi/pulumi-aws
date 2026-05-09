@@ -279,8 +279,8 @@ def get_proxy(name: Optional[_builtins.str] = None,
         vpc_id=pulumi.get(__ret__, 'vpc_id'),
         vpc_security_group_ids=pulumi.get(__ret__, 'vpc_security_group_ids'),
         vpc_subnet_ids=pulumi.get(__ret__, 'vpc_subnet_ids'))
-def get_proxy_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                     region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_proxy_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                     region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProxyResult]:
     """
     Use this data source to get information about a DB Proxy.

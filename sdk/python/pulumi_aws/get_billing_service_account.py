@@ -120,7 +120,7 @@ def get_billing_service_account(id: Optional[_builtins.str] = None,
     return AwaitableGetBillingServiceAccountResult(
         arn=pulumi.get(__ret__, 'arn'),
         id=pulumi.get(__ret__, 'id'))
-def get_billing_service_account_output(id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_billing_service_account_output(id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBillingServiceAccountResult]:
     """
     Use this data source to get the Account ID of the [AWS Billing and Cost Management Service Account](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html#step-2) for the purpose of permitting in S3 bucket policy.

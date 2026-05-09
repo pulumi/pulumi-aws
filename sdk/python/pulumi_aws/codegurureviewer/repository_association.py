@@ -22,9 +22,9 @@ __all__ = ['RepositoryAssociationArgs', 'RepositoryAssociation']
 class RepositoryAssociationArgs:
     def __init__(__self__, *,
                  repository: pulumi.Input['RepositoryAssociationRepositoryArgs'],
-                 kms_key_details: Optional[pulumi.Input['RepositoryAssociationKmsKeyDetailsArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 kms_key_details: pulumi.Input[Optional['RepositoryAssociationKmsKeyDetailsArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RepositoryAssociation resource.
 
@@ -58,55 +58,55 @@ class RepositoryAssociationArgs:
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyDetails")
-    def kms_key_details(self) -> Optional[pulumi.Input['RepositoryAssociationKmsKeyDetailsArgs']]:
+    def kms_key_details(self) -> pulumi.Input[Optional['RepositoryAssociationKmsKeyDetailsArgs']]:
         """
         An object describing the KMS key to asssociate. Block is documented below.
         """
         return pulumi.get(self, "kms_key_details")
 
     @kms_key_details.setter
-    def kms_key_details(self, value: Optional[pulumi.Input['RepositoryAssociationKmsKeyDetailsArgs']]):
+    def kms_key_details(self, value: pulumi.Input[Optional['RepositoryAssociationKmsKeyDetailsArgs']]):
         pulumi.set(self, "kms_key_details", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _RepositoryAssociationState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 association_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_details: Optional[pulumi.Input['RepositoryAssociationKmsKeyDetailsArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository: Optional[pulumi.Input['RepositoryAssociationRepositoryArgs']] = None,
-                 s3_repository_details: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryAssociationS3RepositoryDetailArgs']]]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 state_reason: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 association_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_details: pulumi.Input[Optional['RepositoryAssociationKmsKeyDetailsArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository: pulumi.Input[Optional['RepositoryAssociationRepositoryArgs']] = None,
+                 s3_repository_details: pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryAssociationS3RepositoryDetailArgs']]]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 state_reason: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering RepositoryAssociation resources.
 
@@ -155,103 +155,103 @@ class _RepositoryAssociationState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) identifying the repository association.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="associationId")
-    def association_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def association_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the repository association.
         """
         return pulumi.get(self, "association_id")
 
     @association_id.setter
-    def association_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def association_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "association_id", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionArn")
-    def connection_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
         """
         return pulumi.get(self, "connection_arn")
 
     @connection_arn.setter
-    def connection_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyDetails")
-    def kms_key_details(self) -> Optional[pulumi.Input['RepositoryAssociationKmsKeyDetailsArgs']]:
+    def kms_key_details(self) -> pulumi.Input[Optional['RepositoryAssociationKmsKeyDetailsArgs']]:
         """
         An object describing the KMS key to asssociate. Block is documented below.
         """
         return pulumi.get(self, "kms_key_details")
 
     @kms_key_details.setter
-    def kms_key_details(self, value: Optional[pulumi.Input['RepositoryAssociationKmsKeyDetailsArgs']]):
+    def kms_key_details(self, value: pulumi.Input[Optional['RepositoryAssociationKmsKeyDetailsArgs']]):
         pulumi.set(self, "kms_key_details", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the repository.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The owner of the repository.
         """
         return pulumi.get(self, "owner")
 
     @owner.setter
-    def owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner", value)
 
     @_builtins.property
     @pulumi.getter(name="providerType")
-    def provider_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provider_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The provider type of the repository association.
         """
         return pulumi.get(self, "provider_type")
 
     @provider_type.setter
-    def provider_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provider_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provider_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def repository(self) -> Optional[pulumi.Input['RepositoryAssociationRepositoryArgs']]:
+    def repository(self) -> pulumi.Input[Optional['RepositoryAssociationRepositoryArgs']]:
         """
         An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
 
@@ -260,58 +260,58 @@ class _RepositoryAssociationState:
         return pulumi.get(self, "repository")
 
     @repository.setter
-    def repository(self, value: Optional[pulumi.Input['RepositoryAssociationRepositoryArgs']]):
+    def repository(self, value: pulumi.Input[Optional['RepositoryAssociationRepositoryArgs']]):
         pulumi.set(self, "repository", value)
 
     @_builtins.property
     @pulumi.getter(name="s3RepositoryDetails")
-    def s3_repository_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryAssociationS3RepositoryDetailArgs']]]]:
+    def s3_repository_details(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryAssociationS3RepositoryDetailArgs']]]]:
         return pulumi.get(self, "s3_repository_details")
 
     @s3_repository_details.setter
-    def s3_repository_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryAssociationS3RepositoryDetailArgs']]]]):
+    def s3_repository_details(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryAssociationS3RepositoryDetailArgs']]]]):
         pulumi.set(self, "s3_repository_details", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The state of the repository association.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter(name="stateReason")
-    def state_reason(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state_reason(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of why the repository association is in the current state.
         """
         return pulumi.get(self, "state_reason")
 
     @state_reason.setter
-    def state_reason(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state_reason(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state_reason", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
 
@@ -321,10 +321,10 @@ class RepositoryAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 kms_key_details: Optional[pulumi.Input[Union['RepositoryAssociationKmsKeyDetailsArgs', 'RepositoryAssociationKmsKeyDetailsArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository: Optional[pulumi.Input[Union['RepositoryAssociationRepositoryArgs', 'RepositoryAssociationRepositoryArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 kms_key_details: pulumi.Input[Optional[Union['RepositoryAssociationKmsKeyDetailsArgs', 'RepositoryAssociationKmsKeyDetailsArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository: pulumi.Input[Optional[Union['RepositoryAssociationRepositoryArgs', 'RepositoryAssociationRepositoryArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Resource for managing an AWS CodeGuru Reviewer Repository Association.
@@ -403,10 +403,10 @@ class RepositoryAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 kms_key_details: Optional[pulumi.Input[Union['RepositoryAssociationKmsKeyDetailsArgs', 'RepositoryAssociationKmsKeyDetailsArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository: Optional[pulumi.Input[Union['RepositoryAssociationRepositoryArgs', 'RepositoryAssociationRepositoryArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 kms_key_details: pulumi.Input[Optional[Union['RepositoryAssociationKmsKeyDetailsArgs', 'RepositoryAssociationKmsKeyDetailsArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository: pulumi.Input[Optional[Union['RepositoryAssociationRepositoryArgs', 'RepositoryAssociationRepositoryArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -442,20 +442,20 @@ class RepositoryAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            association_id: Optional[pulumi.Input[_builtins.str]] = None,
-            connection_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            kms_key_details: Optional[pulumi.Input[Union['RepositoryAssociationKmsKeyDetailsArgs', 'RepositoryAssociationKmsKeyDetailsArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            owner: Optional[pulumi.Input[_builtins.str]] = None,
-            provider_type: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            repository: Optional[pulumi.Input[Union['RepositoryAssociationRepositoryArgs', 'RepositoryAssociationRepositoryArgsDict']]] = None,
-            s3_repository_details: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RepositoryAssociationS3RepositoryDetailArgs', 'RepositoryAssociationS3RepositoryDetailArgsDict']]]]] = None,
-            state: Optional[pulumi.Input[_builtins.str]] = None,
-            state_reason: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'RepositoryAssociation':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            association_id: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_key_details: pulumi.Input[Optional[Union['RepositoryAssociationKmsKeyDetailsArgs', 'RepositoryAssociationKmsKeyDetailsArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            owner: pulumi.Input[Optional[_builtins.str]] = None,
+            provider_type: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            repository: pulumi.Input[Optional[Union['RepositoryAssociationRepositoryArgs', 'RepositoryAssociationRepositoryArgsDict']]] = None,
+            s3_repository_details: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryAssociationS3RepositoryDetailArgs', 'RepositoryAssociationS3RepositoryDetailArgsDict']]]]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            state_reason: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'RepositoryAssociation':
         """
         Get an existing RepositoryAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -22,9 +22,9 @@ __all__ = ['OrganizationConfigurationArgs', 'OrganizationConfiguration']
 class OrganizationConfigurationArgs:
     def __init__(__self__, *,
                  auto_enable: pulumi.Input[_builtins.bool],
-                 auto_enable_standards: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization_configuration: Optional[pulumi.Input['OrganizationConfigurationOrganizationConfigurationArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 auto_enable_standards: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_configuration: pulumi.Input[Optional['OrganizationConfigurationOrganizationConfigurationArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a OrganizationConfiguration resource.
 
@@ -55,48 +55,48 @@ class OrganizationConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoEnableStandards")
-    def auto_enable_standards(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auto_enable_standards(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
         """
         return pulumi.get(self, "auto_enable_standards")
 
     @auto_enable_standards.setter
-    def auto_enable_standards(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auto_enable_standards(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auto_enable_standards", value)
 
     @_builtins.property
     @pulumi.getter(name="organizationConfiguration")
-    def organization_configuration(self) -> Optional[pulumi.Input['OrganizationConfigurationOrganizationConfigurationArgs']]:
+    def organization_configuration(self) -> pulumi.Input[Optional['OrganizationConfigurationOrganizationConfigurationArgs']]:
         """
         Provides information about the way an organization is configured in Security Hub.
         """
         return pulumi.get(self, "organization_configuration")
 
     @organization_configuration.setter
-    def organization_configuration(self, value: Optional[pulumi.Input['OrganizationConfigurationOrganizationConfigurationArgs']]):
+    def organization_configuration(self, value: pulumi.Input[Optional['OrganizationConfigurationOrganizationConfigurationArgs']]):
         pulumi.set(self, "organization_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _OrganizationConfigurationState:
     def __init__(__self__, *,
-                 auto_enable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_enable_standards: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization_configuration: Optional[pulumi.Input['OrganizationConfigurationOrganizationConfigurationArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 auto_enable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_enable_standards: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_configuration: pulumi.Input[Optional['OrganizationConfigurationOrganizationConfigurationArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OrganizationConfiguration resources.
 
@@ -116,50 +116,50 @@ class _OrganizationConfigurationState:
 
     @_builtins.property
     @pulumi.getter(name="autoEnable")
-    def auto_enable(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_enable(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to automatically enable Security Hub for new accounts in the organization.
         """
         return pulumi.get(self, "auto_enable")
 
     @auto_enable.setter
-    def auto_enable(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_enable(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_enable", value)
 
     @_builtins.property
     @pulumi.getter(name="autoEnableStandards")
-    def auto_enable_standards(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auto_enable_standards(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
         """
         return pulumi.get(self, "auto_enable_standards")
 
     @auto_enable_standards.setter
-    def auto_enable_standards(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auto_enable_standards(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auto_enable_standards", value)
 
     @_builtins.property
     @pulumi.getter(name="organizationConfiguration")
-    def organization_configuration(self) -> Optional[pulumi.Input['OrganizationConfigurationOrganizationConfigurationArgs']]:
+    def organization_configuration(self) -> pulumi.Input[Optional['OrganizationConfigurationOrganizationConfigurationArgs']]:
         """
         Provides information about the way an organization is configured in Security Hub.
         """
         return pulumi.get(self, "organization_configuration")
 
     @organization_configuration.setter
-    def organization_configuration(self, value: Optional[pulumi.Input['OrganizationConfigurationOrganizationConfigurationArgs']]):
+    def organization_configuration(self, value: pulumi.Input[Optional['OrganizationConfigurationOrganizationConfigurationArgs']]):
         pulumi.set(self, "organization_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
@@ -169,10 +169,10 @@ class OrganizationConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_enable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_enable_standards: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization_configuration: Optional[pulumi.Input[Union['OrganizationConfigurationOrganizationConfigurationArgs', 'OrganizationConfigurationOrganizationConfigurationArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 auto_enable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_enable_standards: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_configuration: pulumi.Input[Optional[Union['OrganizationConfigurationOrganizationConfigurationArgs', 'OrganizationConfigurationOrganizationConfigurationArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages the Security Hub Organization Configuration.
@@ -312,10 +312,10 @@ class OrganizationConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_enable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_enable_standards: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization_configuration: Optional[pulumi.Input[Union['OrganizationConfigurationOrganizationConfigurationArgs', 'OrganizationConfigurationOrganizationConfigurationArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 auto_enable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_enable_standards: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_configuration: pulumi.Input[Optional[Union['OrganizationConfigurationOrganizationConfigurationArgs', 'OrganizationConfigurationOrganizationConfigurationArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -341,10 +341,10 @@ class OrganizationConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            auto_enable: Optional[pulumi.Input[_builtins.bool]] = None,
-            auto_enable_standards: Optional[pulumi.Input[_builtins.str]] = None,
-            organization_configuration: Optional[pulumi.Input[Union['OrganizationConfigurationOrganizationConfigurationArgs', 'OrganizationConfigurationOrganizationConfigurationArgsDict']]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None) -> 'OrganizationConfiguration':
+            auto_enable: pulumi.Input[Optional[_builtins.bool]] = None,
+            auto_enable_standards: pulumi.Input[Optional[_builtins.str]] = None,
+            organization_configuration: pulumi.Input[Optional[Union['OrganizationConfigurationOrganizationConfigurationArgs', 'OrganizationConfigurationOrganizationConfigurationArgsDict']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> 'OrganizationConfiguration':
         """
         Get an existing OrganizationConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -358,8 +358,8 @@ def get_network(id: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         status_reason=pulumi.get(__ret__, 'status_reason'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_network_output(id: Optional[pulumi.Input[_builtins.str]] = None,
-                       region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_network_output(id: pulumi.Input[Optional[_builtins.str]] = None,
+                       region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkResult]:
     """
     Data source for to retrieve network resource in AWS for Oracle Database@AWS.

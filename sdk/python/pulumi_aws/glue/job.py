@@ -23,27 +23,27 @@ class JobArgs:
     def __init__(__self__, *,
                  command: pulumi.Input['JobCommandArgs'],
                  role_arn: pulumi.Input[_builtins.str],
-                 connections: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 default_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 execution_class: Optional[pulumi.Input[_builtins.str]] = None,
-                 execution_property: Optional[pulumi.Input['JobExecutionPropertyArgs']] = None,
-                 glue_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_run_queuing_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_capacity: Optional[pulumi.Input[_builtins.float]] = None,
-                 max_retries: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 non_overridable_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 notification_property: Optional[pulumi.Input['JobNotificationPropertyArgs']] = None,
-                 number_of_workers: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_control_details: Optional[pulumi.Input['JobSourceControlDetailsArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 worker_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 connections: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 default_arguments: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 execution_class: pulumi.Input[Optional[_builtins.str]] = None,
+                 execution_property: pulumi.Input[Optional['JobExecutionPropertyArgs']] = None,
+                 glue_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_run_queuing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_capacity: pulumi.Input[Optional[_builtins.float]] = None,
+                 max_retries: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 non_overridable_arguments: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 notification_property: pulumi.Input[Optional['JobNotificationPropertyArgs']] = None,
+                 number_of_workers: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_control_details: pulumi.Input[Optional['JobSourceControlDetailsArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 worker_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Job resource.
 
@@ -142,285 +142,285 @@ class JobArgs:
 
     @_builtins.property
     @pulumi.getter
-    def connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def connections(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of connections used for this job.
         """
         return pulumi.get(self, "connections")
 
     @connections.setter
-    def connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def connections(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "connections", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultArguments")
-    def default_arguments(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def default_arguments(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
         """
         return pulumi.get(self, "default_arguments")
 
     @default_arguments.setter
-    def default_arguments(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def default_arguments(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "default_arguments", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the job.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="executionClass")
-    def execution_class(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def execution_class(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
         """
         return pulumi.get(self, "execution_class")
 
     @execution_class.setter
-    def execution_class(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def execution_class(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "execution_class", value)
 
     @_builtins.property
     @pulumi.getter(name="executionProperty")
-    def execution_property(self) -> Optional[pulumi.Input['JobExecutionPropertyArgs']]:
+    def execution_property(self) -> pulumi.Input[Optional['JobExecutionPropertyArgs']]:
         """
         Execution property of the job. Defined below.
         """
         return pulumi.get(self, "execution_property")
 
     @execution_property.setter
-    def execution_property(self, value: Optional[pulumi.Input['JobExecutionPropertyArgs']]):
+    def execution_property(self, value: pulumi.Input[Optional['JobExecutionPropertyArgs']]):
         pulumi.set(self, "execution_property", value)
 
     @_builtins.property
     @pulumi.getter(name="glueVersion")
-    def glue_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def glue_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
         """
         return pulumi.get(self, "glue_version")
 
     @glue_version.setter
-    def glue_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def glue_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "glue_version", value)
 
     @_builtins.property
     @pulumi.getter(name="jobMode")
-    def job_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def job_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Describes how a job was created. Valid values are `SCRIPT`, `NOTEBOOK` and `VISUAL`.
         """
         return pulumi.get(self, "job_mode")
 
     @job_mode.setter
-    def job_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def job_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "job_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="jobRunQueuingEnabled")
-    def job_run_queuing_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def job_run_queuing_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
         """
         return pulumi.get(self, "job_run_queuing_enabled")
 
     @job_run_queuing_enabled.setter
-    def job_run_queuing_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def job_run_queuing_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "job_run_queuing_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="maintenanceWindow")
-    def maintenance_window(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def maintenance_window(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the day of the week and hour for the maintenance window for streaming jobs.
         """
         return pulumi.get(self, "maintenance_window")
 
     @maintenance_window.setter
-    def maintenance_window(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def maintenance_window(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "maintenance_window", value)
 
     @_builtins.property
     @pulumi.getter(name="maxCapacity")
-    def max_capacity(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def max_capacity(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `number_of_workers` and `worker_type` arguments instead with `glue_version` `2.0` and above.
         """
         return pulumi.get(self, "max_capacity")
 
     @max_capacity.setter
-    def max_capacity(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def max_capacity(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "max_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="maxRetries")
-    def max_retries(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_retries(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of times to retry this job if it fails.
         """
         return pulumi.get(self, "max_retries")
 
     @max_retries.setter
-    def max_retries(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_retries(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_retries", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name you assign to this job. It must be unique in your account.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="nonOverridableArguments")
-    def non_overridable_arguments(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def non_overridable_arguments(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Non-overridable arguments for this job, specified as name-value pairs.
         """
         return pulumi.get(self, "non_overridable_arguments")
 
     @non_overridable_arguments.setter
-    def non_overridable_arguments(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def non_overridable_arguments(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "non_overridable_arguments", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationProperty")
-    def notification_property(self) -> Optional[pulumi.Input['JobNotificationPropertyArgs']]:
+    def notification_property(self) -> pulumi.Input[Optional['JobNotificationPropertyArgs']]:
         """
         Notification property of the job. Defined below.
         """
         return pulumi.get(self, "notification_property")
 
     @notification_property.setter
-    def notification_property(self, value: Optional[pulumi.Input['JobNotificationPropertyArgs']]):
+    def notification_property(self, value: pulumi.Input[Optional['JobNotificationPropertyArgs']]):
         pulumi.set(self, "notification_property", value)
 
     @_builtins.property
     @pulumi.getter(name="numberOfWorkers")
-    def number_of_workers(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def number_of_workers(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of workers of a defined workerType that are allocated when a job runs.
         """
         return pulumi.get(self, "number_of_workers")
 
     @number_of_workers.setter
-    def number_of_workers(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def number_of_workers(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "number_of_workers", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="securityConfiguration")
-    def security_configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def security_configuration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Security Configuration to be associated with the job.
         """
         return pulumi.get(self, "security_configuration")
 
     @security_configuration.setter
-    def security_configuration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def security_configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "security_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceControlDetails")
-    def source_control_details(self) -> Optional[pulumi.Input['JobSourceControlDetailsArgs']]:
+    def source_control_details(self) -> pulumi.Input[Optional['JobSourceControlDetailsArgs']]:
         """
         The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository. Defined below.
         """
         return pulumi.get(self, "source_control_details")
 
     @source_control_details.setter
-    def source_control_details(self, value: Optional[pulumi.Input['JobSourceControlDetailsArgs']]):
+    def source_control_details(self, value: pulumi.Input[Optional['JobSourceControlDetailsArgs']]):
         pulumi.set(self, "source_control_details", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and 0 (unlimited) for `gluestreaming` jobs. Leave this attribute argumnet unconfigured for `glueray` jobs.
         """
         return pulumi.get(self, "timeout")
 
     @timeout.setter
-    def timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="workerType")
-    def worker_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def worker_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of predefined worker that is allocated when a job runs. Valid values: `Standard`, `G.1X`, `G.2X`, `G.025X`, `G.4X`, `G.8X`, `G.12X`, `G.16X`, `R.1X`, `R.2X`, `R.4X`, `R.8X`, `Z.2X` (Ray jobs). See the [AWS documentation](https://docs.aws.amazon.com/glue/latest/dg/worker-types.html) for details.
         """
         return pulumi.get(self, "worker_type")
 
     @worker_type.setter
-    def worker_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def worker_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "worker_type", value)
 
 
 @pulumi.input_type
 class _JobState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 command: Optional[pulumi.Input['JobCommandArgs']] = None,
-                 connections: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 default_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 execution_class: Optional[pulumi.Input[_builtins.str]] = None,
-                 execution_property: Optional[pulumi.Input['JobExecutionPropertyArgs']] = None,
-                 glue_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_run_queuing_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_capacity: Optional[pulumi.Input[_builtins.float]] = None,
-                 max_retries: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 non_overridable_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 notification_property: Optional[pulumi.Input['JobNotificationPropertyArgs']] = None,
-                 number_of_workers: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_control_details: Optional[pulumi.Input['JobSourceControlDetailsArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 worker_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 command: pulumi.Input[Optional['JobCommandArgs']] = None,
+                 connections: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 default_arguments: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 execution_class: pulumi.Input[Optional[_builtins.str]] = None,
+                 execution_property: pulumi.Input[Optional['JobExecutionPropertyArgs']] = None,
+                 glue_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_run_queuing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_capacity: pulumi.Input[Optional[_builtins.float]] = None,
+                 max_retries: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 non_overridable_arguments: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 notification_property: pulumi.Input[Optional['JobNotificationPropertyArgs']] = None,
+                 number_of_workers: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_control_details: pulumi.Input[Optional['JobSourceControlDetailsArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 worker_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Job resources.
 
@@ -503,302 +503,302 @@ class _JobState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) of Glue Job
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def command(self) -> Optional[pulumi.Input['JobCommandArgs']]:
+    def command(self) -> pulumi.Input[Optional['JobCommandArgs']]:
         """
         The command of the job. Defined below.
         """
         return pulumi.get(self, "command")
 
     @command.setter
-    def command(self, value: Optional[pulumi.Input['JobCommandArgs']]):
+    def command(self, value: pulumi.Input[Optional['JobCommandArgs']]):
         pulumi.set(self, "command", value)
 
     @_builtins.property
     @pulumi.getter
-    def connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def connections(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of connections used for this job.
         """
         return pulumi.get(self, "connections")
 
     @connections.setter
-    def connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def connections(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "connections", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultArguments")
-    def default_arguments(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def default_arguments(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
         """
         return pulumi.get(self, "default_arguments")
 
     @default_arguments.setter
-    def default_arguments(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def default_arguments(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "default_arguments", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the job.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="executionClass")
-    def execution_class(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def execution_class(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
         """
         return pulumi.get(self, "execution_class")
 
     @execution_class.setter
-    def execution_class(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def execution_class(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "execution_class", value)
 
     @_builtins.property
     @pulumi.getter(name="executionProperty")
-    def execution_property(self) -> Optional[pulumi.Input['JobExecutionPropertyArgs']]:
+    def execution_property(self) -> pulumi.Input[Optional['JobExecutionPropertyArgs']]:
         """
         Execution property of the job. Defined below.
         """
         return pulumi.get(self, "execution_property")
 
     @execution_property.setter
-    def execution_property(self, value: Optional[pulumi.Input['JobExecutionPropertyArgs']]):
+    def execution_property(self, value: pulumi.Input[Optional['JobExecutionPropertyArgs']]):
         pulumi.set(self, "execution_property", value)
 
     @_builtins.property
     @pulumi.getter(name="glueVersion")
-    def glue_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def glue_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
         """
         return pulumi.get(self, "glue_version")
 
     @glue_version.setter
-    def glue_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def glue_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "glue_version", value)
 
     @_builtins.property
     @pulumi.getter(name="jobMode")
-    def job_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def job_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Describes how a job was created. Valid values are `SCRIPT`, `NOTEBOOK` and `VISUAL`.
         """
         return pulumi.get(self, "job_mode")
 
     @job_mode.setter
-    def job_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def job_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "job_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="jobRunQueuingEnabled")
-    def job_run_queuing_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def job_run_queuing_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
         """
         return pulumi.get(self, "job_run_queuing_enabled")
 
     @job_run_queuing_enabled.setter
-    def job_run_queuing_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def job_run_queuing_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "job_run_queuing_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="maintenanceWindow")
-    def maintenance_window(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def maintenance_window(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the day of the week and hour for the maintenance window for streaming jobs.
         """
         return pulumi.get(self, "maintenance_window")
 
     @maintenance_window.setter
-    def maintenance_window(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def maintenance_window(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "maintenance_window", value)
 
     @_builtins.property
     @pulumi.getter(name="maxCapacity")
-    def max_capacity(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def max_capacity(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `number_of_workers` and `worker_type` arguments instead with `glue_version` `2.0` and above.
         """
         return pulumi.get(self, "max_capacity")
 
     @max_capacity.setter
-    def max_capacity(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def max_capacity(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "max_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="maxRetries")
-    def max_retries(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_retries(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of times to retry this job if it fails.
         """
         return pulumi.get(self, "max_retries")
 
     @max_retries.setter
-    def max_retries(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_retries(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_retries", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name you assign to this job. It must be unique in your account.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="nonOverridableArguments")
-    def non_overridable_arguments(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def non_overridable_arguments(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Non-overridable arguments for this job, specified as name-value pairs.
         """
         return pulumi.get(self, "non_overridable_arguments")
 
     @non_overridable_arguments.setter
-    def non_overridable_arguments(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def non_overridable_arguments(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "non_overridable_arguments", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationProperty")
-    def notification_property(self) -> Optional[pulumi.Input['JobNotificationPropertyArgs']]:
+    def notification_property(self) -> pulumi.Input[Optional['JobNotificationPropertyArgs']]:
         """
         Notification property of the job. Defined below.
         """
         return pulumi.get(self, "notification_property")
 
     @notification_property.setter
-    def notification_property(self, value: Optional[pulumi.Input['JobNotificationPropertyArgs']]):
+    def notification_property(self, value: pulumi.Input[Optional['JobNotificationPropertyArgs']]):
         pulumi.set(self, "notification_property", value)
 
     @_builtins.property
     @pulumi.getter(name="numberOfWorkers")
-    def number_of_workers(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def number_of_workers(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of workers of a defined workerType that are allocated when a job runs.
         """
         return pulumi.get(self, "number_of_workers")
 
     @number_of_workers.setter
-    def number_of_workers(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def number_of_workers(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "number_of_workers", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the IAM role associated with this job.
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="securityConfiguration")
-    def security_configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def security_configuration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Security Configuration to be associated with the job.
         """
         return pulumi.get(self, "security_configuration")
 
     @security_configuration.setter
-    def security_configuration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def security_configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "security_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceControlDetails")
-    def source_control_details(self) -> Optional[pulumi.Input['JobSourceControlDetailsArgs']]:
+    def source_control_details(self) -> pulumi.Input[Optional['JobSourceControlDetailsArgs']]:
         """
         The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository. Defined below.
         """
         return pulumi.get(self, "source_control_details")
 
     @source_control_details.setter
-    def source_control_details(self, value: Optional[pulumi.Input['JobSourceControlDetailsArgs']]):
+    def source_control_details(self, value: pulumi.Input[Optional['JobSourceControlDetailsArgs']]):
         pulumi.set(self, "source_control_details", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and 0 (unlimited) for `gluestreaming` jobs. Leave this attribute argumnet unconfigured for `glueray` jobs.
         """
         return pulumi.get(self, "timeout")
 
     @timeout.setter
-    def timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="workerType")
-    def worker_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def worker_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of predefined worker that is allocated when a job runs. Valid values: `Standard`, `G.1X`, `G.2X`, `G.025X`, `G.4X`, `G.8X`, `G.12X`, `G.16X`, `R.1X`, `R.2X`, `R.4X`, `R.8X`, `Z.2X` (Ray jobs). See the [AWS documentation](https://docs.aws.amazon.com/glue/latest/dg/worker-types.html) for details.
         """
         return pulumi.get(self, "worker_type")
 
     @worker_type.setter
-    def worker_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def worker_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "worker_type", value)
 
 
@@ -808,29 +808,29 @@ class Job(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 command: Optional[pulumi.Input[Union['JobCommandArgs', 'JobCommandArgsDict']]] = None,
-                 connections: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 default_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 execution_class: Optional[pulumi.Input[_builtins.str]] = None,
-                 execution_property: Optional[pulumi.Input[Union['JobExecutionPropertyArgs', 'JobExecutionPropertyArgsDict']]] = None,
-                 glue_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_run_queuing_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_capacity: Optional[pulumi.Input[_builtins.float]] = None,
-                 max_retries: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 non_overridable_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 notification_property: Optional[pulumi.Input[Union['JobNotificationPropertyArgs', 'JobNotificationPropertyArgsDict']]] = None,
-                 number_of_workers: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_control_details: Optional[pulumi.Input[Union['JobSourceControlDetailsArgs', 'JobSourceControlDetailsArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 worker_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 command: pulumi.Input[Optional[Union['JobCommandArgs', 'JobCommandArgsDict']]] = None,
+                 connections: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 default_arguments: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 execution_class: pulumi.Input[Optional[_builtins.str]] = None,
+                 execution_property: pulumi.Input[Optional[Union['JobExecutionPropertyArgs', 'JobExecutionPropertyArgsDict']]] = None,
+                 glue_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_run_queuing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_capacity: pulumi.Input[Optional[_builtins.float]] = None,
+                 max_retries: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 non_overridable_arguments: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 notification_property: pulumi.Input[Optional[Union['JobNotificationPropertyArgs', 'JobNotificationPropertyArgsDict']]] = None,
+                 number_of_workers: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_control_details: pulumi.Input[Optional[Union['JobSourceControlDetailsArgs', 'JobSourceControlDetailsArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 worker_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a Glue Job resource.
@@ -1289,29 +1289,29 @@ class Job(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 command: Optional[pulumi.Input[Union['JobCommandArgs', 'JobCommandArgsDict']]] = None,
-                 connections: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 default_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 execution_class: Optional[pulumi.Input[_builtins.str]] = None,
-                 execution_property: Optional[pulumi.Input[Union['JobExecutionPropertyArgs', 'JobExecutionPropertyArgsDict']]] = None,
-                 glue_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_run_queuing_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_capacity: Optional[pulumi.Input[_builtins.float]] = None,
-                 max_retries: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 non_overridable_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 notification_property: Optional[pulumi.Input[Union['JobNotificationPropertyArgs', 'JobNotificationPropertyArgsDict']]] = None,
-                 number_of_workers: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_control_details: Optional[pulumi.Input[Union['JobSourceControlDetailsArgs', 'JobSourceControlDetailsArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 worker_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 command: pulumi.Input[Optional[Union['JobCommandArgs', 'JobCommandArgsDict']]] = None,
+                 connections: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 default_arguments: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 execution_class: pulumi.Input[Optional[_builtins.str]] = None,
+                 execution_property: pulumi.Input[Optional[Union['JobExecutionPropertyArgs', 'JobExecutionPropertyArgsDict']]] = None,
+                 glue_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_run_queuing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_capacity: pulumi.Input[Optional[_builtins.float]] = None,
+                 max_retries: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 non_overridable_arguments: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 notification_property: pulumi.Input[Optional[Union['JobNotificationPropertyArgs', 'JobNotificationPropertyArgsDict']]] = None,
+                 number_of_workers: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_control_details: pulumi.Input[Optional[Union['JobSourceControlDetailsArgs', 'JobSourceControlDetailsArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 worker_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1360,31 +1360,31 @@ class Job(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            command: Optional[pulumi.Input[Union['JobCommandArgs', 'JobCommandArgsDict']]] = None,
-            connections: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            default_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            execution_class: Optional[pulumi.Input[_builtins.str]] = None,
-            execution_property: Optional[pulumi.Input[Union['JobExecutionPropertyArgs', 'JobExecutionPropertyArgsDict']]] = None,
-            glue_version: Optional[pulumi.Input[_builtins.str]] = None,
-            job_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            job_run_queuing_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
-            max_capacity: Optional[pulumi.Input[_builtins.float]] = None,
-            max_retries: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            non_overridable_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            notification_property: Optional[pulumi.Input[Union['JobNotificationPropertyArgs', 'JobNotificationPropertyArgsDict']]] = None,
-            number_of_workers: Optional[pulumi.Input[_builtins.int]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            security_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-            source_control_details: Optional[pulumi.Input[Union['JobSourceControlDetailsArgs', 'JobSourceControlDetailsArgsDict']]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeout: Optional[pulumi.Input[_builtins.int]] = None,
-            worker_type: Optional[pulumi.Input[_builtins.str]] = None) -> 'Job':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            command: pulumi.Input[Optional[Union['JobCommandArgs', 'JobCommandArgsDict']]] = None,
+            connections: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            default_arguments: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            execution_class: pulumi.Input[Optional[_builtins.str]] = None,
+            execution_property: pulumi.Input[Optional[Union['JobExecutionPropertyArgs', 'JobExecutionPropertyArgsDict']]] = None,
+            glue_version: pulumi.Input[Optional[_builtins.str]] = None,
+            job_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            job_run_queuing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+            max_capacity: pulumi.Input[Optional[_builtins.float]] = None,
+            max_retries: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            non_overridable_arguments: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            notification_property: pulumi.Input[Optional[Union['JobNotificationPropertyArgs', 'JobNotificationPropertyArgsDict']]] = None,
+            number_of_workers: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            security_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+            source_control_details: pulumi.Input[Optional[Union['JobSourceControlDetailsArgs', 'JobSourceControlDetailsArgsDict']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            worker_type: pulumi.Input[Optional[_builtins.str]] = None) -> 'Job':
         """
         Get an existing Job resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

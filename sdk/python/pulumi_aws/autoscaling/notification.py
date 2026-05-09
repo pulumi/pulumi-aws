@@ -23,7 +23,7 @@ class NotificationArgs:
                  group_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  notifications: pulumi.Input[Sequence[pulumi.Input['NotificationType']]],
                  topic_arn: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Notification resource.
 
@@ -78,24 +78,24 @@ class NotificationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _NotificationState:
     def __init__(__self__, *,
-                 group_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationType']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 topic_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 group_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 notifications: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationType']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 topic_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Notification resources.
 
@@ -116,19 +116,19 @@ class _NotificationState:
 
     @_builtins.property
     @pulumi.getter(name="groupNames")
-    def group_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def group_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of AutoScaling Group Names
         """
         return pulumi.get(self, "group_names")
 
     @group_names.setter
-    def group_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def group_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "group_names", value)
 
     @_builtins.property
     @pulumi.getter
-    def notifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationType']]]]:
+    def notifications(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NotificationType']]]]:
         """
         List of Notification Types that trigger
         notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
@@ -136,31 +136,31 @@ class _NotificationState:
         return pulumi.get(self, "notifications")
 
     @notifications.setter
-    def notifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationType']]]]):
+    def notifications(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationType']]]]):
         pulumi.set(self, "notifications", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="topicArn")
-    def topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def topic_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Topic ARN for notifications to be sent through
         """
         return pulumi.get(self, "topic_arn")
 
     @topic_arn.setter
-    def topic_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def topic_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "topic_arn", value)
 
 
@@ -170,10 +170,10 @@ class Notification(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 group_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationType']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 group_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 notifications: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationType']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides an AutoScaling Group with Notification support, via SNS Topics. Each of
@@ -266,10 +266,10 @@ class Notification(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 group_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationType']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 group_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 notifications: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationType']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -299,10 +299,10 @@ class Notification(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            group_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            notifications: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationType']]]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            topic_arn: Optional[pulumi.Input[_builtins.str]] = None) -> 'Notification':
+            group_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            notifications: pulumi.Input[Optional[Sequence[pulumi.Input['NotificationType']]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            topic_arn: pulumi.Input[Optional[_builtins.str]] = None) -> 'Notification':
         """
         Get an existing Notification resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

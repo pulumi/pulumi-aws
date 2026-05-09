@@ -22,8 +22,8 @@ class IngestionArgs:
                  data_set_id: pulumi.Input[_builtins.str],
                  ingestion_id: pulumi.Input[_builtins.str],
                  ingestion_type: pulumi.Input[_builtins.str],
-                 aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Ingestion resource.
 
@@ -83,39 +83,39 @@ class IngestionArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
-    def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
-    def aws_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_account_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _IngestionState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ingestion_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ingestion_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 ingestion_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ingestion_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ingestion_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 ingestion_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Ingestion resources.
 
@@ -146,67 +146,67 @@ class _IngestionState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the Ingestion.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
-    def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
-    def aws_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="dataSetId")
-    def data_set_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_set_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the dataset used in the ingestion.
         """
         return pulumi.get(self, "data_set_id")
 
     @data_set_id.setter
-    def data_set_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_set_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_set_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ingestionId")
-    def ingestion_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ingestion_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID for the ingestion.
         """
         return pulumi.get(self, "ingestion_id")
 
     @ingestion_id.setter
-    def ingestion_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ingestion_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ingestion_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ingestionStatus")
-    def ingestion_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ingestion_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Ingestion status.
         """
         return pulumi.get(self, "ingestion_status")
 
     @ingestion_status.setter
-    def ingestion_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ingestion_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ingestion_status", value)
 
     @_builtins.property
     @pulumi.getter(name="ingestionType")
-    def ingestion_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ingestion_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of ingestion to be created. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
 
@@ -215,19 +215,19 @@ class _IngestionState:
         return pulumi.get(self, "ingestion_type")
 
     @ingestion_type.setter
-    def ingestion_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ingestion_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ingestion_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
@@ -237,11 +237,11 @@ class Ingestion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ingestion_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ingestion_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ingestion_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ingestion_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing an AWS QuickSight Ingestion.
@@ -326,11 +326,11 @@ class Ingestion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ingestion_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ingestion_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ingestion_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ingestion_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -363,13 +363,13 @@ class Ingestion(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            data_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-            ingestion_id: Optional[pulumi.Input[_builtins.str]] = None,
-            ingestion_status: Optional[pulumi.Input[_builtins.str]] = None,
-            ingestion_type: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None) -> 'Ingestion':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            data_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+            ingestion_id: pulumi.Input[Optional[_builtins.str]] = None,
+            ingestion_status: pulumi.Input[Optional[_builtins.str]] = None,
+            ingestion_type: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> 'Ingestion':
         """
         Get an existing Ingestion resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

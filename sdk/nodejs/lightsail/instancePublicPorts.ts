@@ -134,17 +134,17 @@ export interface InstancePublicPortsState {
     /**
      * Name of the instance for which to open ports.
      */
-    instanceName?: pulumi.Input<string>;
+    instanceName?: pulumi.Input<string | undefined>;
     /**
      * Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `portInfo` Block for details.
      *
      * The following arguments are optional:
      */
-    portInfos?: pulumi.Input<pulumi.Input<inputs.lightsail.InstancePublicPortsPortInfo>[]>;
+    portInfos?: pulumi.Input<pulumi.Input<inputs.lightsail.InstancePublicPortsPortInfo>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -164,5 +164,5 @@ export interface InstancePublicPortsArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

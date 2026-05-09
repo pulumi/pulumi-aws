@@ -173,7 +173,7 @@ export interface GetCatalogTableOutputArgs {
     /**
      * ID of the Glue Catalog and database where the table metadata resides. If omitted, this defaults to the current AWS Account ID.
      */
-    catalogId?: pulumi.Input<string>;
+    catalogId?: pulumi.Input<string | undefined>;
     /**
      * Name of the metadata database where the table metadata resides.
      */
@@ -185,13 +185,13 @@ export interface GetCatalogTableOutputArgs {
     /**
      * The time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with `transactionId`. Specified in RFC 3339 format, e.g. `2006-01-02T15:04:05Z07:00`.
      */
-    queryAsOfTime?: pulumi.Input<string>;
+    queryAsOfTime?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The transaction ID at which to read the table contents.
      */
-    transactionId?: pulumi.Input<number>;
+    transactionId?: pulumi.Input<number | undefined>;
 }

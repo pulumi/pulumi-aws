@@ -137,18 +137,18 @@ export interface GetListenerOutputArgs {
     /**
      * ARN of the listener. Required if `loadBalancerArn` and `port` is not set.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * ARN of the load balancer. Required if `arn` is not set.
      */
-    loadBalancerArn?: pulumi.Input<string>;
+    loadBalancerArn?: pulumi.Input<string | undefined>;
     /**
      * Port of the listener. Required if `arn` is not set.
      */
-    port?: pulumi.Input<number>;
+    port?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    region?: pulumi.Input<string | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

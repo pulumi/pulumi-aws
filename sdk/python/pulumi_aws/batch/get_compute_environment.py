@@ -218,9 +218,9 @@ def get_compute_environment(name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         update_policies=pulumi.get(__ret__, 'update_policies'))
-def get_compute_environment_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                   tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_compute_environment_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                   region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                   tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetComputeEnvironmentResult]:
     """
     The Batch Compute Environment data source allows access to details of a specific

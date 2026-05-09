@@ -23,12 +23,12 @@ class ZonalAutoshiftConfigurationArgs:
     def __init__(__self__, *,
                  resource_arn: pulumi.Input[_builtins.str],
                  zonal_autoshift_status: pulumi.Input[_builtins.str],
-                 allowed_windows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 blocked_dates: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 blocked_windows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 blocking_alarms: Optional[pulumi.Input[Sequence[pulumi.Input['ZonalAutoshiftConfigurationBlockingAlarmArgs']]]] = None,
-                 outcome_alarms: Optional[pulumi.Input[Sequence[pulumi.Input['ZonalAutoshiftConfigurationOutcomeAlarmArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 allowed_windows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 blocked_dates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 blocked_windows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 blocking_alarms: pulumi.Input[Optional[Sequence[pulumi.Input['ZonalAutoshiftConfigurationBlockingAlarmArgs']]]] = None,
+                 outcome_alarms: pulumi.Input[Optional[Sequence[pulumi.Input['ZonalAutoshiftConfigurationOutcomeAlarmArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ZonalAutoshiftConfiguration resource.
 
@@ -86,88 +86,88 @@ class ZonalAutoshiftConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedWindows")
-    def allowed_windows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_windows(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of time windows during which practice runs are allowed, in the format `Day:HH:MM-Day:HH:MM` (e.g., `Mon:09:00-Mon:17:00`). Cannot be used together with `blocked_windows`.
         """
         return pulumi.get(self, "allowed_windows")
 
     @allowed_windows.setter
-    def allowed_windows(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_windows(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_windows", value)
 
     @_builtins.property
     @pulumi.getter(name="blockedDates")
-    def blocked_dates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def blocked_dates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of dates when practice runs should not be started, in the format `YYYY-MM-DD`.
         """
         return pulumi.get(self, "blocked_dates")
 
     @blocked_dates.setter
-    def blocked_dates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def blocked_dates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "blocked_dates", value)
 
     @_builtins.property
     @pulumi.getter(name="blockedWindows")
-    def blocked_windows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def blocked_windows(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of time windows during which practice runs should not be started, in the format `Day:HH:MM-Day:HH:MM` (e.g., `Mon:00:00-Mon:08:00`). Cannot be used together with `allowed_windows`.
         """
         return pulumi.get(self, "blocked_windows")
 
     @blocked_windows.setter
-    def blocked_windows(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def blocked_windows(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "blocked_windows", value)
 
     @_builtins.property
     @pulumi.getter(name="blockingAlarms")
-    def blocking_alarms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ZonalAutoshiftConfigurationBlockingAlarmArgs']]]]:
+    def blocking_alarms(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ZonalAutoshiftConfigurationBlockingAlarmArgs']]]]:
         """
         List of CloudWatch alarms that can block practice runs when in alarm state. See `blocking_alarms` below.
         """
         return pulumi.get(self, "blocking_alarms")
 
     @blocking_alarms.setter
-    def blocking_alarms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ZonalAutoshiftConfigurationBlockingAlarmArgs']]]]):
+    def blocking_alarms(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ZonalAutoshiftConfigurationBlockingAlarmArgs']]]]):
         pulumi.set(self, "blocking_alarms", value)
 
     @_builtins.property
     @pulumi.getter(name="outcomeAlarms")
-    def outcome_alarms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ZonalAutoshiftConfigurationOutcomeAlarmArgs']]]]:
+    def outcome_alarms(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ZonalAutoshiftConfigurationOutcomeAlarmArgs']]]]:
         """
         List of CloudWatch alarms monitored during practice runs. See `outcome_alarms` below.
         """
         return pulumi.get(self, "outcome_alarms")
 
     @outcome_alarms.setter
-    def outcome_alarms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ZonalAutoshiftConfigurationOutcomeAlarmArgs']]]]):
+    def outcome_alarms(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ZonalAutoshiftConfigurationOutcomeAlarmArgs']]]]):
         pulumi.set(self, "outcome_alarms", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS region where the resource is deployed.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _ZonalAutoshiftConfigurationState:
     def __init__(__self__, *,
-                 allowed_windows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 blocked_dates: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 blocked_windows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 blocking_alarms: Optional[pulumi.Input[Sequence[pulumi.Input['ZonalAutoshiftConfigurationBlockingAlarmArgs']]]] = None,
-                 outcome_alarms: Optional[pulumi.Input[Sequence[pulumi.Input['ZonalAutoshiftConfigurationOutcomeAlarmArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 zonal_autoshift_status: Optional[pulumi.Input[_builtins.str]] = None):
+                 allowed_windows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 blocked_dates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 blocked_windows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 blocking_alarms: pulumi.Input[Optional[Sequence[pulumi.Input['ZonalAutoshiftConfigurationBlockingAlarmArgs']]]] = None,
+                 outcome_alarms: pulumi.Input[Optional[Sequence[pulumi.Input['ZonalAutoshiftConfigurationOutcomeAlarmArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 zonal_autoshift_status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ZonalAutoshiftConfiguration resources.
 
@@ -201,91 +201,91 @@ class _ZonalAutoshiftConfigurationState:
 
     @_builtins.property
     @pulumi.getter(name="allowedWindows")
-    def allowed_windows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_windows(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of time windows during which practice runs are allowed, in the format `Day:HH:MM-Day:HH:MM` (e.g., `Mon:09:00-Mon:17:00`). Cannot be used together with `blocked_windows`.
         """
         return pulumi.get(self, "allowed_windows")
 
     @allowed_windows.setter
-    def allowed_windows(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_windows(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_windows", value)
 
     @_builtins.property
     @pulumi.getter(name="blockedDates")
-    def blocked_dates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def blocked_dates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of dates when practice runs should not be started, in the format `YYYY-MM-DD`.
         """
         return pulumi.get(self, "blocked_dates")
 
     @blocked_dates.setter
-    def blocked_dates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def blocked_dates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "blocked_dates", value)
 
     @_builtins.property
     @pulumi.getter(name="blockedWindows")
-    def blocked_windows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def blocked_windows(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of time windows during which practice runs should not be started, in the format `Day:HH:MM-Day:HH:MM` (e.g., `Mon:00:00-Mon:08:00`). Cannot be used together with `allowed_windows`.
         """
         return pulumi.get(self, "blocked_windows")
 
     @blocked_windows.setter
-    def blocked_windows(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def blocked_windows(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "blocked_windows", value)
 
     @_builtins.property
     @pulumi.getter(name="blockingAlarms")
-    def blocking_alarms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ZonalAutoshiftConfigurationBlockingAlarmArgs']]]]:
+    def blocking_alarms(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ZonalAutoshiftConfigurationBlockingAlarmArgs']]]]:
         """
         List of CloudWatch alarms that can block practice runs when in alarm state. See `blocking_alarms` below.
         """
         return pulumi.get(self, "blocking_alarms")
 
     @blocking_alarms.setter
-    def blocking_alarms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ZonalAutoshiftConfigurationBlockingAlarmArgs']]]]):
+    def blocking_alarms(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ZonalAutoshiftConfigurationBlockingAlarmArgs']]]]):
         pulumi.set(self, "blocking_alarms", value)
 
     @_builtins.property
     @pulumi.getter(name="outcomeAlarms")
-    def outcome_alarms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ZonalAutoshiftConfigurationOutcomeAlarmArgs']]]]:
+    def outcome_alarms(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ZonalAutoshiftConfigurationOutcomeAlarmArgs']]]]:
         """
         List of CloudWatch alarms monitored during practice runs. See `outcome_alarms` below.
         """
         return pulumi.get(self, "outcome_alarms")
 
     @outcome_alarms.setter
-    def outcome_alarms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ZonalAutoshiftConfigurationOutcomeAlarmArgs']]]]):
+    def outcome_alarms(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ZonalAutoshiftConfigurationOutcomeAlarmArgs']]]]):
         pulumi.set(self, "outcome_alarms", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS region where the resource is deployed.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceArn")
-    def resource_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the managed resource to configure zonal autoshift for (e.g., an Application Load Balancer). Changing this creates a new resource.
         """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
-    def resource_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="zonalAutoshiftStatus")
-    def zonal_autoshift_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def zonal_autoshift_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of zonal autoshift. Valid values: `ENABLED`, `DISABLED`.
 
@@ -294,7 +294,7 @@ class _ZonalAutoshiftConfigurationState:
         return pulumi.get(self, "zonal_autoshift_status")
 
     @zonal_autoshift_status.setter
-    def zonal_autoshift_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def zonal_autoshift_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "zonal_autoshift_status", value)
 
 
@@ -304,14 +304,14 @@ class ZonalAutoshiftConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_windows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 blocked_dates: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 blocked_windows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 blocking_alarms: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ZonalAutoshiftConfigurationBlockingAlarmArgs', 'ZonalAutoshiftConfigurationBlockingAlarmArgsDict']]]]] = None,
-                 outcome_alarms: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ZonalAutoshiftConfigurationOutcomeAlarmArgs', 'ZonalAutoshiftConfigurationOutcomeAlarmArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 zonal_autoshift_status: Optional[pulumi.Input[_builtins.str]] = None,
+                 allowed_windows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 blocked_dates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 blocked_windows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 blocking_alarms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZonalAutoshiftConfigurationBlockingAlarmArgs', 'ZonalAutoshiftConfigurationBlockingAlarmArgsDict']]]]] = None,
+                 outcome_alarms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZonalAutoshiftConfigurationOutcomeAlarmArgs', 'ZonalAutoshiftConfigurationOutcomeAlarmArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 zonal_autoshift_status: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an AWS Application Recovery Controller Zonal Shift Zonal Autoshift Configuration for a managed resource (such as a load balancer).
@@ -340,7 +340,7 @@ class ZonalAutoshiftConfiguration(pulumi.CustomResource):
             namespace="AWS/ApplicationELB",
             period=60,
             statistic="Average",
-            threshold=1,
+            threshold=float(1),
             alarm_description="Outcome alarm for zonal autoshift practice run",
             dimensions={
                 "LoadBalancer": example_load_balancer.arn_suffix,
@@ -450,7 +450,7 @@ class ZonalAutoshiftConfiguration(pulumi.CustomResource):
             namespace="AWS/ApplicationELB",
             period=60,
             statistic="Average",
-            threshold=1,
+            threshold=float(1),
             alarm_description="Outcome alarm for zonal autoshift practice run",
             dimensions={
                 "LoadBalancer": example_load_balancer.arn_suffix,
@@ -529,14 +529,14 @@ class ZonalAutoshiftConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_windows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 blocked_dates: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 blocked_windows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 blocking_alarms: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ZonalAutoshiftConfigurationBlockingAlarmArgs', 'ZonalAutoshiftConfigurationBlockingAlarmArgsDict']]]]] = None,
-                 outcome_alarms: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ZonalAutoshiftConfigurationOutcomeAlarmArgs', 'ZonalAutoshiftConfigurationOutcomeAlarmArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 zonal_autoshift_status: Optional[pulumi.Input[_builtins.str]] = None,
+                 allowed_windows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 blocked_dates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 blocked_windows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 blocking_alarms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZonalAutoshiftConfigurationBlockingAlarmArgs', 'ZonalAutoshiftConfigurationBlockingAlarmArgsDict']]]]] = None,
+                 outcome_alarms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZonalAutoshiftConfigurationOutcomeAlarmArgs', 'ZonalAutoshiftConfigurationOutcomeAlarmArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 zonal_autoshift_status: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -568,14 +568,14 @@ class ZonalAutoshiftConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            allowed_windows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            blocked_dates: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            blocked_windows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            blocking_alarms: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ZonalAutoshiftConfigurationBlockingAlarmArgs', 'ZonalAutoshiftConfigurationBlockingAlarmArgsDict']]]]] = None,
-            outcome_alarms: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ZonalAutoshiftConfigurationOutcomeAlarmArgs', 'ZonalAutoshiftConfigurationOutcomeAlarmArgsDict']]]]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            zonal_autoshift_status: Optional[pulumi.Input[_builtins.str]] = None) -> 'ZonalAutoshiftConfiguration':
+            allowed_windows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            blocked_dates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            blocked_windows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            blocking_alarms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZonalAutoshiftConfigurationBlockingAlarmArgs', 'ZonalAutoshiftConfigurationBlockingAlarmArgsDict']]]]] = None,
+            outcome_alarms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZonalAutoshiftConfigurationOutcomeAlarmArgs', 'ZonalAutoshiftConfigurationOutcomeAlarmArgsDict']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            zonal_autoshift_status: pulumi.Input[Optional[_builtins.str]] = None) -> 'ZonalAutoshiftConfiguration':
         """
         Get an existing ZonalAutoshiftConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

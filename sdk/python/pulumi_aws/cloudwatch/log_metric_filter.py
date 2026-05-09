@@ -24,9 +24,9 @@ class LogMetricFilterArgs:
                  log_group_name: pulumi.Input[_builtins.str],
                  metric_transformation: pulumi.Input['LogMetricFilterMetricTransformationArgs'],
                  pattern: pulumi.Input[_builtins.str],
-                 apply_on_transformed_logs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 apply_on_transformed_logs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a LogMetricFilter resource.
 
@@ -87,50 +87,50 @@ class LogMetricFilterArgs:
 
     @_builtins.property
     @pulumi.getter(name="applyOnTransformedLogs")
-    def apply_on_transformed_logs(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def apply_on_transformed_logs(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
         """
         return pulumi.get(self, "apply_on_transformed_logs")
 
     @apply_on_transformed_logs.setter
-    def apply_on_transformed_logs(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def apply_on_transformed_logs(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "apply_on_transformed_logs", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A name for the metric filter.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _LogMetricFilterState:
     def __init__(__self__, *,
-                 apply_on_transformed_logs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 log_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 metric_transformation: Optional[pulumi.Input['LogMetricFilterMetricTransformationArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 apply_on_transformed_logs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 log_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric_transformation: pulumi.Input[Optional['LogMetricFilterMetricTransformationArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LogMetricFilter resources.
 
@@ -157,55 +157,55 @@ class _LogMetricFilterState:
 
     @_builtins.property
     @pulumi.getter(name="applyOnTransformedLogs")
-    def apply_on_transformed_logs(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def apply_on_transformed_logs(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
         """
         return pulumi.get(self, "apply_on_transformed_logs")
 
     @apply_on_transformed_logs.setter
-    def apply_on_transformed_logs(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def apply_on_transformed_logs(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "apply_on_transformed_logs", value)
 
     @_builtins.property
     @pulumi.getter(name="logGroupName")
-    def log_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the log group to associate the metric filter with.
         """
         return pulumi.get(self, "log_group_name")
 
     @log_group_name.setter
-    def log_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="metricTransformation")
-    def metric_transformation(self) -> Optional[pulumi.Input['LogMetricFilterMetricTransformationArgs']]:
+    def metric_transformation(self) -> pulumi.Input[Optional['LogMetricFilterMetricTransformationArgs']]:
         """
         A block defining collection of information needed to define how metric data gets emitted. See below.
         """
         return pulumi.get(self, "metric_transformation")
 
     @metric_transformation.setter
-    def metric_transformation(self, value: Optional[pulumi.Input['LogMetricFilterMetricTransformationArgs']]):
+    def metric_transformation(self, value: pulumi.Input[Optional['LogMetricFilterMetricTransformationArgs']]):
         pulumi.set(self, "metric_transformation", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A name for the metric filter.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
         for extracting metric data out of ingested log events.
@@ -213,19 +213,19 @@ class _LogMetricFilterState:
         return pulumi.get(self, "pattern")
 
     @pattern.setter
-    def pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pattern", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
@@ -235,12 +235,12 @@ class LogMetricFilter(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 apply_on_transformed_logs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 log_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 metric_transformation: Optional[pulumi.Input[Union['LogMetricFilterMetricTransformationArgs', 'LogMetricFilterMetricTransformationArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 apply_on_transformed_logs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 log_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric_transformation: pulumi.Input[Optional[Union['LogMetricFilterMetricTransformationArgs', 'LogMetricFilterMetricTransformationArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a CloudWatch Log Metric Filter resource.
@@ -357,12 +357,12 @@ class LogMetricFilter(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 apply_on_transformed_logs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 log_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 metric_transformation: Optional[pulumi.Input[Union['LogMetricFilterMetricTransformationArgs', 'LogMetricFilterMetricTransformationArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 apply_on_transformed_logs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 log_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric_transformation: pulumi.Input[Optional[Union['LogMetricFilterMetricTransformationArgs', 'LogMetricFilterMetricTransformationArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -394,12 +394,12 @@ class LogMetricFilter(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            apply_on_transformed_logs: Optional[pulumi.Input[_builtins.bool]] = None,
-            log_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            metric_transformation: Optional[pulumi.Input[Union['LogMetricFilterMetricTransformationArgs', 'LogMetricFilterMetricTransformationArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            pattern: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None) -> 'LogMetricFilter':
+            apply_on_transformed_logs: pulumi.Input[Optional[_builtins.bool]] = None,
+            log_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            metric_transformation: pulumi.Input[Optional[Union['LogMetricFilterMetricTransformationArgs', 'LogMetricFilterMetricTransformationArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            pattern: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> 'LogMetricFilter':
         """
         Get an existing LogMetricFilter resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

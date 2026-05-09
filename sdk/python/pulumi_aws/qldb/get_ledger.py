@@ -148,9 +148,9 @@ def get_ledger(name: Optional[_builtins.str] = None,
         permissions_mode=pulumi.get(__ret__, 'permissions_mode'),
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_ledger_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                      region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_ledger_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                      region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLedgerResult]:
     """
     Use this data source to fetch information about a Quantum Ledger Database.

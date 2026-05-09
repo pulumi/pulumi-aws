@@ -179,9 +179,9 @@ def get_custom_routing_accelerator(arn: Optional[_builtins.str] = None,
         ip_sets=pulumi.get(__ret__, 'ip_sets'),
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_custom_routing_accelerator_output(arn: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                          name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                          tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_custom_routing_accelerator_output(arn: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                          name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                          tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomRoutingAcceleratorResult]:
     """
     Provides information about a Global Accelerator custom routing accelerator.

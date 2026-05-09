@@ -123,21 +123,21 @@ export interface AccountVdmAttributesState {
     /**
      * Specifies additional settings for your VDM configuration as applicable to the Dashboard.
      */
-    dashboardAttributes?: pulumi.Input<inputs.sesv2.AccountVdmAttributesDashboardAttributes>;
+    dashboardAttributes?: pulumi.Input<inputs.sesv2.AccountVdmAttributesDashboardAttributes | undefined>;
     /**
      * Specifies additional settings for your VDM configuration as applicable to the Guardian.
      */
-    guardianAttributes?: pulumi.Input<inputs.sesv2.AccountVdmAttributesGuardianAttributes>;
+    guardianAttributes?: pulumi.Input<inputs.sesv2.AccountVdmAttributesGuardianAttributes | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
      *
      * The following arguments are optional:
      */
-    vdmEnabled?: pulumi.Input<string>;
+    vdmEnabled?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -147,15 +147,15 @@ export interface AccountVdmAttributesArgs {
     /**
      * Specifies additional settings for your VDM configuration as applicable to the Dashboard.
      */
-    dashboardAttributes?: pulumi.Input<inputs.sesv2.AccountVdmAttributesDashboardAttributes>;
+    dashboardAttributes?: pulumi.Input<inputs.sesv2.AccountVdmAttributesDashboardAttributes | undefined>;
     /**
      * Specifies additional settings for your VDM configuration as applicable to the Guardian.
      */
-    guardianAttributes?: pulumi.Input<inputs.sesv2.AccountVdmAttributesGuardianAttributes>;
+    guardianAttributes?: pulumi.Input<inputs.sesv2.AccountVdmAttributesGuardianAttributes | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
      *

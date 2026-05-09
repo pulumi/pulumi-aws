@@ -233,17 +233,17 @@ export interface LogDeliveryConfigurationState {
     /**
      * Configuration block for log delivery. At least one configuration block is required. See Log Configurations below.
      */
-    logConfigurations?: pulumi.Input<pulumi.Input<inputs.cognito.LogDeliveryConfigurationLogConfiguration>[]>;
+    logConfigurations?: pulumi.Input<pulumi.Input<inputs.cognito.LogDeliveryConfigurationLogConfiguration>[] | undefined>;
     /**
      * The AWS region.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ID of the user pool for which to configure log delivery.
      *
      * The following arguments are optional:
      */
-    userPoolId?: pulumi.Input<string>;
+    userPoolId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -257,7 +257,7 @@ export interface LogDeliveryConfigurationArgs {
     /**
      * The AWS region.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ID of the user pool for which to configure log delivery.
      *

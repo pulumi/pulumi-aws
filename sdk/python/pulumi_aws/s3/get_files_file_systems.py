@@ -101,8 +101,8 @@ def get_files_file_systems(file_systems: Optional[Sequence[Union['GetFilesFileSy
         file_systems=pulumi.get(__ret__, 'file_systems'),
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'))
-def get_files_file_systems_output(file_systems: Optional[pulumi.Input[Optional[Sequence[Union['GetFilesFileSystemsFileSystemArgs', 'GetFilesFileSystemsFileSystemArgsDict']]]]] = None,
-                                  region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_files_file_systems_output(file_systems: pulumi.Input[Optional[Optional[Sequence[Union['GetFilesFileSystemsFileSystemArgs', 'GetFilesFileSystemsFileSystemArgsDict']]]]] = None,
+                                  region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFilesFileSystemsResult]:
     """
     Provides details about S3 Files File Systems.

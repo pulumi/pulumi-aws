@@ -36,8 +36,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.std.inputs.Base64encodeArgs;
  * import com.pulumi.aws.workspacesweb.TrustStoreAssociation;
  * import com.pulumi.aws.workspacesweb.TrustStoreAssociationArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleTrustStore = new TrustStore("exampleTrustStore", TrustStoreArgs.builder()
- *             .certificateList(List.of(StdFunctions.base64encode(Base64encodeArgs.builder()
+ *             .certificateList(Arrays.asList(StdFunctions.base64encode(Base64encodeArgs.builder()
  *                 .input(StdFunctions.file(FileArgs.builder()
  *                     .input("certificate.pem")
  *                     .build()).result())

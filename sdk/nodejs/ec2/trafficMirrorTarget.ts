@@ -151,41 +151,41 @@ export interface TrafficMirrorTargetState {
     /**
      * The ARN of the traffic mirror target.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * A description of the traffic mirror session.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The VPC Endpoint Id of the Gateway Load Balancer that is associated with the target.
      */
-    gatewayLoadBalancerEndpointId?: pulumi.Input<string>;
+    gatewayLoadBalancerEndpointId?: pulumi.Input<string | undefined>;
     /**
      * The network interface ID that is associated with the target.
      */
-    networkInterfaceId?: pulumi.Input<string>;
+    networkInterfaceId?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
      */
-    networkLoadBalancerArn?: pulumi.Input<string>;
+    networkLoadBalancerArn?: pulumi.Input<string | undefined>;
     /**
      * The ID of the AWS account that owns the traffic mirror target.
      */
-    ownerId?: pulumi.Input<string>;
+    ownerId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
      * **NOTE:** Either `networkInterfaceId` or `networkLoadBalancerArn` should be specified and both should not be specified together
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -195,27 +195,27 @@ export interface TrafficMirrorTargetArgs {
     /**
      * A description of the traffic mirror session.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The VPC Endpoint Id of the Gateway Load Balancer that is associated with the target.
      */
-    gatewayLoadBalancerEndpointId?: pulumi.Input<string>;
+    gatewayLoadBalancerEndpointId?: pulumi.Input<string | undefined>;
     /**
      * The network interface ID that is associated with the target.
      */
-    networkInterfaceId?: pulumi.Input<string>;
+    networkInterfaceId?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
      */
-    networkLoadBalancerArn?: pulumi.Input<string>;
+    networkLoadBalancerArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
      * **NOTE:** Either `networkInterfaceId` or `networkLoadBalancerArn` should be specified and both should not be specified together
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

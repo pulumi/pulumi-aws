@@ -23,12 +23,12 @@ class SubscriberArgs:
     def __init__(__self__, *,
                  sources: pulumi.Input[Sequence[pulumi.Input['SubscriberSourceArgs']]],
                  subscriber_identity: pulumi.Input['SubscriberSubscriberIdentityArgs'],
-                 access_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscriber_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscriber_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['SubscriberTimeoutsArgs']] = None):
+                 access_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscriber_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscriber_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['SubscriberTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Subscriber resource.
 
@@ -81,93 +81,93 @@ class SubscriberArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessType")
-    def access_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon S3 or Lake Formation access type.
         """
         return pulumi.get(self, "access_type")
 
     @access_type.setter
-    def access_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriberDescription")
-    def subscriber_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subscriber_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description for your subscriber account in Security Lake.
         """
         return pulumi.get(self, "subscriber_description")
 
     @subscriber_description.setter
-    def subscriber_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subscriber_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subscriber_description", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriberName")
-    def subscriber_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subscriber_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of your Security Lake subscriber account.
         """
         return pulumi.get(self, "subscriber_name")
 
     @subscriber_name.setter
-    def subscriber_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subscriber_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subscriber_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['SubscriberTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['SubscriberTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['SubscriberTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['SubscriberTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _SubscriberState:
     def __init__(__self__, *,
-                 access_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_share_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_share_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_bucket_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 sources: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriberSourceArgs']]]] = None,
-                 subscriber_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscriber_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscriber_identity: Optional[pulumi.Input['SubscriberSubscriberIdentityArgs']] = None,
-                 subscriber_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscriber_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['SubscriberTimeoutsArgs']] = None):
+                 access_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_share_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_share_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_bucket_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 sources: pulumi.Input[Optional[Sequence[pulumi.Input['SubscriberSourceArgs']]]] = None,
+                 subscriber_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscriber_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscriber_identity: pulumi.Input[Optional['SubscriberSubscriberIdentityArgs']] = None,
+                 subscriber_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscriber_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['SubscriberTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering Subscriber resources.
 
@@ -222,191 +222,191 @@ class _SubscriberState:
 
     @_builtins.property
     @pulumi.getter(name="accessType")
-    def access_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon S3 or Lake Formation access type.
         """
         return pulumi.get(self, "access_type")
 
     @access_type.setter
-    def access_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the subscriber.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceShareArn")
-    def resource_share_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_share_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
         """
         return pulumi.get(self, "resource_share_arn")
 
     @resource_share_arn.setter
-    def resource_share_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_share_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_share_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceShareName")
-    def resource_share_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_share_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource share.
         """
         return pulumi.get(self, "resource_share_name")
 
     @resource_share_name.setter
-    def resource_share_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_share_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_share_name", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="s3BucketArn")
-    def s3_bucket_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_bucket_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN for the Amazon Security Lake Amazon S3 bucket.
         """
         return pulumi.get(self, "s3_bucket_arn")
 
     @s3_bucket_arn.setter
-    def s3_bucket_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_bucket_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_bucket_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubscriberSourceArgs']]]]:
+    def sources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SubscriberSourceArgs']]]]:
         """
         The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
         """
         return pulumi.get(self, "sources")
 
     @sources.setter
-    def sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriberSourceArgs']]]]):
+    def sources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SubscriberSourceArgs']]]]):
         pulumi.set(self, "sources", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriberDescription")
-    def subscriber_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subscriber_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description for your subscriber account in Security Lake.
         """
         return pulumi.get(self, "subscriber_description")
 
     @subscriber_description.setter
-    def subscriber_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subscriber_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subscriber_description", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriberEndpoint")
-    def subscriber_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subscriber_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subscriber endpoint to which exception messages are posted.
         """
         return pulumi.get(self, "subscriber_endpoint")
 
     @subscriber_endpoint.setter
-    def subscriber_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subscriber_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subscriber_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriberIdentity")
-    def subscriber_identity(self) -> Optional[pulumi.Input['SubscriberSubscriberIdentityArgs']]:
+    def subscriber_identity(self) -> pulumi.Input[Optional['SubscriberSubscriberIdentityArgs']]:
         """
         The AWS identity used to access your data. See `subscriber_identity` Block below.
         """
         return pulumi.get(self, "subscriber_identity")
 
     @subscriber_identity.setter
-    def subscriber_identity(self, value: Optional[pulumi.Input['SubscriberSubscriberIdentityArgs']]):
+    def subscriber_identity(self, value: pulumi.Input[Optional['SubscriberSubscriberIdentityArgs']]):
         pulumi.set(self, "subscriber_identity", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriberName")
-    def subscriber_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subscriber_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of your Security Lake subscriber account.
         """
         return pulumi.get(self, "subscriber_name")
 
     @subscriber_name.setter
-    def subscriber_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subscriber_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subscriber_name", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriberStatus")
-    def subscriber_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subscriber_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subscriber status of the Amazon Security Lake subscriber account.
         """
         return pulumi.get(self, "subscriber_status")
 
     @subscriber_status.setter
-    def subscriber_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subscriber_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subscriber_status", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['SubscriberTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['SubscriberTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['SubscriberTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['SubscriberTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
@@ -416,14 +416,14 @@ class Subscriber(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubscriberSourceArgs', 'SubscriberSourceArgsDict']]]]] = None,
-                 subscriber_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscriber_identity: Optional[pulumi.Input[Union['SubscriberSubscriberIdentityArgs', 'SubscriberSubscriberIdentityArgsDict']]] = None,
-                 subscriber_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['SubscriberTimeoutsArgs', 'SubscriberTimeoutsArgsDict']]] = None,
+                 access_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriberSourceArgs', 'SubscriberSourceArgsDict']]]]] = None,
+                 subscriber_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscriber_identity: pulumi.Input[Optional[Union['SubscriberSubscriberIdentityArgs', 'SubscriberSubscriberIdentityArgsDict']]] = None,
+                 subscriber_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['SubscriberTimeoutsArgs', 'SubscriberTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Security Lake Subscriber.
@@ -592,14 +592,14 @@ class Subscriber(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubscriberSourceArgs', 'SubscriberSourceArgsDict']]]]] = None,
-                 subscriber_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscriber_identity: Optional[pulumi.Input[Union['SubscriberSubscriberIdentityArgs', 'SubscriberSubscriberIdentityArgsDict']]] = None,
-                 subscriber_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['SubscriberTimeoutsArgs', 'SubscriberTimeoutsArgsDict']]] = None,
+                 access_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriberSourceArgs', 'SubscriberSourceArgsDict']]]]] = None,
+                 subscriber_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscriber_identity: pulumi.Input[Optional[Union['SubscriberSubscriberIdentityArgs', 'SubscriberSubscriberIdentityArgsDict']]] = None,
+                 subscriber_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['SubscriberTimeoutsArgs', 'SubscriberTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -639,22 +639,22 @@ class Subscriber(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            access_type: Optional[pulumi.Input[_builtins.str]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_share_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_share_name: Optional[pulumi.Input[_builtins.str]] = None,
-            role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            s3_bucket_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubscriberSourceArgs', 'SubscriberSourceArgsDict']]]]] = None,
-            subscriber_description: Optional[pulumi.Input[_builtins.str]] = None,
-            subscriber_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            subscriber_identity: Optional[pulumi.Input[Union['SubscriberSubscriberIdentityArgs', 'SubscriberSubscriberIdentityArgsDict']]] = None,
-            subscriber_name: Optional[pulumi.Input[_builtins.str]] = None,
-            subscriber_status: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: Optional[pulumi.Input[Union['SubscriberTimeoutsArgs', 'SubscriberTimeoutsArgsDict']]] = None) -> 'Subscriber':
+            access_type: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_share_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_share_name: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            s3_bucket_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriberSourceArgs', 'SubscriberSourceArgsDict']]]]] = None,
+            subscriber_description: pulumi.Input[Optional[_builtins.str]] = None,
+            subscriber_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            subscriber_identity: pulumi.Input[Optional[Union['SubscriberSubscriberIdentityArgs', 'SubscriberSubscriberIdentityArgsDict']]] = None,
+            subscriber_name: pulumi.Input[Optional[_builtins.str]] = None,
+            subscriber_status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['SubscriberTimeoutsArgs', 'SubscriberTimeoutsArgsDict']]] = None) -> 'Subscriber':
         """
         Get an existing Subscriber resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

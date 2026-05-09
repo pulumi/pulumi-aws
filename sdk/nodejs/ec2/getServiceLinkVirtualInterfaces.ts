@@ -102,13 +102,13 @@ export interface GetServiceLinkVirtualInterfacesOutputArgs {
     /**
      * One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeServiceLinkVirtualInterfaces.html) for supported filters. Detailed below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetServiceLinkVirtualInterfacesFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetServiceLinkVirtualInterfacesFilterArgs>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags, each pair of which must exactly match a pair on the desired Service Link Virtual Interfaces.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

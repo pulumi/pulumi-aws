@@ -128,17 +128,17 @@ export interface NotificationChannelState {
     /**
      * Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
      */
-    filters?: pulumi.Input<inputs.devopsguru.NotificationChannelFilters>;
+    filters?: pulumi.Input<inputs.devopsguru.NotificationChannelFilters | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * SNS noficiation channel configurations. See the `sns` argument reference below.
      *
      * The following arguments are optional:
      */
-    sns?: pulumi.Input<inputs.devopsguru.NotificationChannelSns>;
+    sns?: pulumi.Input<inputs.devopsguru.NotificationChannelSns | undefined>;
 }
 
 /**
@@ -148,11 +148,11 @@ export interface NotificationChannelArgs {
     /**
      * Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
      */
-    filters?: pulumi.Input<inputs.devopsguru.NotificationChannelFilters>;
+    filters?: pulumi.Input<inputs.devopsguru.NotificationChannelFilters | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * SNS noficiation channel configurations. See the `sns` argument reference below.
      *

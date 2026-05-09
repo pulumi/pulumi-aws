@@ -59,7 +59,7 @@ import (
 // },
 // Principals: []iam.GetPolicyDocumentStatementPrincipal{
 // {
-// Identifiers: interface{}{
+// Identifiers: pulumi.StringArray{
 // current.AccountId,
 // },
 // Type: "AWS",

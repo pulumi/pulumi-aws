@@ -119,15 +119,15 @@ export interface RegexMatchSetState {
     /**
      * The name or description of the Regex Match Set.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The regular expression pattern that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings. See below.
      */
-    regexMatchTuples?: pulumi.Input<pulumi.Input<inputs.wafregional.RegexMatchSetRegexMatchTuple>[]>;
+    regexMatchTuples?: pulumi.Input<pulumi.Input<inputs.wafregional.RegexMatchSetRegexMatchTuple>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -137,13 +137,13 @@ export interface RegexMatchSetArgs {
     /**
      * The name or description of the Regex Match Set.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The regular expression pattern that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings. See below.
      */
-    regexMatchTuples?: pulumi.Input<pulumi.Input<inputs.wafregional.RegexMatchSetRegexMatchTuple>[]>;
+    regexMatchTuples?: pulumi.Input<pulumi.Input<inputs.wafregional.RegexMatchSetRegexMatchTuple>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

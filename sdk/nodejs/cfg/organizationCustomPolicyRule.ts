@@ -215,65 +215,65 @@ export interface OrganizationCustomPolicyRuleState {
     /**
      * Amazon Resource Name (ARN) of the rule.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * List of accounts that you can enable debug logging for. The list is null when debug logging is enabled for all accounts.
      */
-    debugLogDeliveryAccounts?: pulumi.Input<pulumi.Input<string>[]>;
+    debugLogDeliveryAccounts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Description of the rule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * List of AWS account identifiers to exclude from the rule.
      */
-    excludedAccounts?: pulumi.Input<pulumi.Input<string>[]>;
+    excludedAccounts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A string in JSON format that is passed to the AWS Config Rule Lambda Function.
      */
-    inputParameters?: pulumi.Input<string>;
+    inputParameters?: pulumi.Input<string | undefined>;
     /**
      * Maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
      */
-    maximumExecutionFrequency?: pulumi.Input<string>;
+    maximumExecutionFrequency?: pulumi.Input<string | undefined>;
     /**
      * Name of the rule.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Runtime system for policy rules.
      */
-    policyRuntime?: pulumi.Input<string>;
+    policyRuntime?: pulumi.Input<string | undefined>;
     /**
      * Policy definition containing the rule logic.
      */
-    policyText?: pulumi.Input<string>;
+    policyText?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the AWS resource to evaluate.
      */
-    resourceIdScope?: pulumi.Input<string>;
+    resourceIdScope?: pulumi.Input<string | undefined>;
     /**
      * List of types of AWS resources to evaluate.
      */
-    resourceTypesScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    resourceTypesScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Tag key of AWS resources to evaluate.
      */
-    tagKeyScope?: pulumi.Input<string>;
+    tagKeyScope?: pulumi.Input<string | undefined>;
     /**
      * Tag value of AWS resources to evaluate.
      */
-    tagValueScope?: pulumi.Input<string>;
+    tagValueScope?: pulumi.Input<string | undefined>;
     /**
      * List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`.
      *
      * The following arguments are optional:
      */
-    triggerTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    triggerTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -283,27 +283,27 @@ export interface OrganizationCustomPolicyRuleArgs {
     /**
      * List of accounts that you can enable debug logging for. The list is null when debug logging is enabled for all accounts.
      */
-    debugLogDeliveryAccounts?: pulumi.Input<pulumi.Input<string>[]>;
+    debugLogDeliveryAccounts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Description of the rule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * List of AWS account identifiers to exclude from the rule.
      */
-    excludedAccounts?: pulumi.Input<pulumi.Input<string>[]>;
+    excludedAccounts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A string in JSON format that is passed to the AWS Config Rule Lambda Function.
      */
-    inputParameters?: pulumi.Input<string>;
+    inputParameters?: pulumi.Input<string | undefined>;
     /**
      * Maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
      */
-    maximumExecutionFrequency?: pulumi.Input<string>;
+    maximumExecutionFrequency?: pulumi.Input<string | undefined>;
     /**
      * Name of the rule.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Runtime system for policy rules.
      */
@@ -315,23 +315,23 @@ export interface OrganizationCustomPolicyRuleArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the AWS resource to evaluate.
      */
-    resourceIdScope?: pulumi.Input<string>;
+    resourceIdScope?: pulumi.Input<string | undefined>;
     /**
      * List of types of AWS resources to evaluate.
      */
-    resourceTypesScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    resourceTypesScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Tag key of AWS resources to evaluate.
      */
-    tagKeyScope?: pulumi.Input<string>;
+    tagKeyScope?: pulumi.Input<string | undefined>;
     /**
      * Tag value of AWS resources to evaluate.
      */
-    tagValueScope?: pulumi.Input<string>;
+    tagValueScope?: pulumi.Input<string | undefined>;
     /**
      * List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`.
      *

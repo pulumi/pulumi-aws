@@ -576,14 +576,14 @@ def get_object(bucket: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         version_id=pulumi.get(__ret__, 'version_id'),
         website_redirect_location=pulumi.get(__ret__, 'website_redirect_location'))
-def get_object_output(bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                      checksum_mode: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      download_body: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      key: Optional[pulumi.Input[_builtins.str]] = None,
-                      range: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
-                      version_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_object_output(bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                      checksum_mode: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      download_body: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      key: pulumi.Input[Optional[_builtins.str]] = None,
+                      range: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
+                      version_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetObjectResult]:
     """
     The S3 object data source allows access to the metadata and

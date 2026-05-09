@@ -125,8 +125,8 @@ def get_bucket_replication_configuration(bucket: Optional[_builtins.str] = None,
         region=pulumi.get(__ret__, 'region'),
         role=pulumi.get(__ret__, 'role'),
         rules=pulumi.get(__ret__, 'rules'))
-def get_bucket_replication_configuration_output(bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                                                region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_bucket_replication_configuration_output(bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                                                region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBucketReplicationConfigurationResult]:
     """
     Data source for managing an AWS S3 (Simple Storage) Bucket Replication Configuration.

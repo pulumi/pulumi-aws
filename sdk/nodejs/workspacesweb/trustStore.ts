@@ -153,27 +153,27 @@ export interface TrustStoreState {
     /**
      * List of ARNs of the web portals associated with the trust store.
      */
-    associatedPortalArns?: pulumi.Input<pulumi.Input<string>[]>;
+    associatedPortalArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Set of certificates to include in the trust store. See Certificate below.
      */
-    certificates?: pulumi.Input<pulumi.Input<inputs.workspacesweb.TrustStoreCertificate>[]>;
+    certificates?: pulumi.Input<pulumi.Input<inputs.workspacesweb.TrustStoreCertificate>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * ARN of the trust store.
      */
-    trustStoreArn?: pulumi.Input<string>;
+    trustStoreArn?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -183,13 +183,13 @@ export interface TrustStoreArgs {
     /**
      * Set of certificates to include in the trust store. See Certificate below.
      */
-    certificates?: pulumi.Input<pulumi.Input<inputs.workspacesweb.TrustStoreCertificate>[]>;
+    certificates?: pulumi.Input<pulumi.Input<inputs.workspacesweb.TrustStoreCertificate>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

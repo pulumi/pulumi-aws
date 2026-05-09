@@ -34,8 +34,8 @@ public final class DatazoneFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.datazone.DatazoneFunctions;
      * import com.pulumi.aws.datazone.inputs.GetDomainArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -76,8 +76,8 @@ public final class DatazoneFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.datazone.DatazoneFunctions;
      * import com.pulumi.aws.datazone.inputs.GetDomainArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -118,8 +118,8 @@ public final class DatazoneFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.datazone.DatazoneFunctions;
      * import com.pulumi.aws.datazone.inputs.GetDomainArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -160,8 +160,8 @@ public final class DatazoneFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.datazone.DatazoneFunctions;
      * import com.pulumi.aws.datazone.inputs.GetDomainArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -202,8 +202,8 @@ public final class DatazoneFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.datazone.DatazoneFunctions;
      * import com.pulumi.aws.datazone.inputs.GetDomainArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -244,8 +244,8 @@ public final class DatazoneFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.datazone.DatazoneFunctions;
      * import com.pulumi.aws.datazone.inputs.GetDomainArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -286,8 +286,8 @@ public final class DatazoneFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.datazone.DatazoneFunctions;
      * import com.pulumi.aws.datazone.inputs.GetDomainArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -330,8 +330,8 @@ public final class DatazoneFunctions {
      * import com.pulumi.aws.datazone.DomainArgs;
      * import com.pulumi.aws.datazone.DatazoneFunctions;
      * import com.pulumi.aws.datazone.inputs.GetEnvironmentBlueprintArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -381,8 +381,8 @@ public final class DatazoneFunctions {
      * import com.pulumi.aws.datazone.DomainArgs;
      * import com.pulumi.aws.datazone.DatazoneFunctions;
      * import com.pulumi.aws.datazone.inputs.GetEnvironmentBlueprintArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -432,8 +432,8 @@ public final class DatazoneFunctions {
      * import com.pulumi.aws.datazone.DomainArgs;
      * import com.pulumi.aws.datazone.DatazoneFunctions;
      * import com.pulumi.aws.datazone.inputs.GetEnvironmentBlueprintArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -483,8 +483,8 @@ public final class DatazoneFunctions {
      * import com.pulumi.aws.datazone.DomainArgs;
      * import com.pulumi.aws.datazone.DatazoneFunctions;
      * import com.pulumi.aws.datazone.inputs.GetEnvironmentBlueprintArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -534,8 +534,8 @@ public final class DatazoneFunctions {
      * import com.pulumi.aws.datazone.DomainArgs;
      * import com.pulumi.aws.datazone.DatazoneFunctions;
      * import com.pulumi.aws.datazone.inputs.GetEnvironmentBlueprintArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

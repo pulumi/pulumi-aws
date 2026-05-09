@@ -20,11 +20,11 @@ __all__ = ['AmiLaunchPermissionArgs', 'AmiLaunchPermission']
 class AmiLaunchPermissionArgs:
     def __init__(__self__, *,
                  image_id: pulumi.Input[_builtins.str],
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 group: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 organizational_unit_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 group: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 organizational_unit_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AmiLaunchPermission resource.
 
@@ -61,74 +61,74 @@ class AmiLaunchPermissionArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS account ID for the launch permission.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the group for the launch permission. Valid values: `"all"`.
         """
         return pulumi.get(self, "group")
 
     @group.setter
-    def group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group", value)
 
     @_builtins.property
     @pulumi.getter(name="organizationArn")
-    def organization_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def organization_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of an organization for the launch permission.
         """
         return pulumi.get(self, "organization_arn")
 
     @organization_arn.setter
-    def organization_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def organization_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "organization_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="organizationalUnitArn")
-    def organizational_unit_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def organizational_unit_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of an organizational unit for the launch permission.
         """
         return pulumi.get(self, "organizational_unit_arn")
 
     @organizational_unit_arn.setter
-    def organizational_unit_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def organizational_unit_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "organizational_unit_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _AmiLaunchPermissionState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 group: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 organizational_unit_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 group: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 organizational_unit_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AmiLaunchPermission resources.
 
@@ -154,74 +154,74 @@ class _AmiLaunchPermissionState:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS account ID for the launch permission.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the group for the launch permission. Valid values: `"all"`.
         """
         return pulumi.get(self, "group")
 
     @group.setter
-    def group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group", value)
 
     @_builtins.property
     @pulumi.getter(name="imageId")
-    def image_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def image_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the AMI.
         """
         return pulumi.get(self, "image_id")
 
     @image_id.setter
-    def image_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def image_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "image_id", value)
 
     @_builtins.property
     @pulumi.getter(name="organizationArn")
-    def organization_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def organization_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of an organization for the launch permission.
         """
         return pulumi.get(self, "organization_arn")
 
     @organization_arn.setter
-    def organization_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def organization_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "organization_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="organizationalUnitArn")
-    def organizational_unit_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def organizational_unit_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of an organizational unit for the launch permission.
         """
         return pulumi.get(self, "organizational_unit_arn")
 
     @organizational_unit_arn.setter
-    def organizational_unit_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def organizational_unit_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "organizational_unit_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
@@ -231,12 +231,12 @@ class AmiLaunchPermission(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 group: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 organizational_unit_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 group: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 organizational_unit_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Adds a launch permission to an Amazon Machine Image (AMI).
@@ -364,12 +364,12 @@ class AmiLaunchPermission(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 group: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 organizational_unit_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 group: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 organizational_unit_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -397,12 +397,12 @@ class AmiLaunchPermission(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            group: Optional[pulumi.Input[_builtins.str]] = None,
-            image_id: Optional[pulumi.Input[_builtins.str]] = None,
-            organization_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            organizational_unit_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None) -> 'AmiLaunchPermission':
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            group: pulumi.Input[Optional[_builtins.str]] = None,
+            image_id: pulumi.Input[Optional[_builtins.str]] = None,
+            organization_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            organizational_unit_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> 'AmiLaunchPermission':
         """
         Get an existing AmiLaunchPermission resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -48,8 +48,8 @@ public final class RedshiftFunctions {
      * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
      * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs;
      * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -113,8 +113,8 @@ public final class RedshiftFunctions {
      * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
      * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs;
      * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -178,8 +178,8 @@ public final class RedshiftFunctions {
      * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
      * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs;
      * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -243,8 +243,8 @@ public final class RedshiftFunctions {
      * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
      * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs;
      * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -308,8 +308,8 @@ public final class RedshiftFunctions {
      * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
      * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs;
      * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -369,8 +369,8 @@ public final class RedshiftFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshift.RedshiftFunctions;
      * import com.pulumi.aws.redshift.inputs.GetClusterCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -410,8 +410,8 @@ public final class RedshiftFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshift.RedshiftFunctions;
      * import com.pulumi.aws.redshift.inputs.GetClusterCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -451,8 +451,8 @@ public final class RedshiftFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshift.RedshiftFunctions;
      * import com.pulumi.aws.redshift.inputs.GetClusterCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -492,8 +492,8 @@ public final class RedshiftFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshift.RedshiftFunctions;
      * import com.pulumi.aws.redshift.inputs.GetClusterCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -533,8 +533,8 @@ public final class RedshiftFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshift.RedshiftFunctions;
      * import com.pulumi.aws.redshift.inputs.GetClusterCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -576,8 +576,8 @@ public final class RedshiftFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshift.RedshiftFunctions;
      * import com.pulumi.aws.redshift.inputs.GetDataSharesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -617,8 +617,8 @@ public final class RedshiftFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshift.RedshiftFunctions;
      * import com.pulumi.aws.redshift.inputs.GetDataSharesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -658,8 +658,8 @@ public final class RedshiftFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshift.RedshiftFunctions;
      * import com.pulumi.aws.redshift.inputs.GetDataSharesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -699,8 +699,8 @@ public final class RedshiftFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshift.RedshiftFunctions;
      * import com.pulumi.aws.redshift.inputs.GetDataSharesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -740,8 +740,8 @@ public final class RedshiftFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshift.RedshiftFunctions;
      * import com.pulumi.aws.redshift.inputs.GetDataSharesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -781,8 +781,8 @@ public final class RedshiftFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshift.RedshiftFunctions;
      * import com.pulumi.aws.redshift.inputs.GetDataSharesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -822,8 +822,8 @@ public final class RedshiftFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshift.RedshiftFunctions;
      * import com.pulumi.aws.redshift.inputs.GetDataSharesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -861,8 +861,8 @@ public final class RedshiftFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshift.RedshiftFunctions;
      * import com.pulumi.aws.redshift.inputs.GetOrderableClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -904,8 +904,8 @@ public final class RedshiftFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshift.RedshiftFunctions;
      * import com.pulumi.aws.redshift.inputs.GetOrderableClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -947,8 +947,8 @@ public final class RedshiftFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshift.RedshiftFunctions;
      * import com.pulumi.aws.redshift.inputs.GetOrderableClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -990,8 +990,8 @@ public final class RedshiftFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshift.RedshiftFunctions;
      * import com.pulumi.aws.redshift.inputs.GetOrderableClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1033,8 +1033,8 @@ public final class RedshiftFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshift.RedshiftFunctions;
      * import com.pulumi.aws.redshift.inputs.GetOrderableClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1076,8 +1076,8 @@ public final class RedshiftFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshift.RedshiftFunctions;
      * import com.pulumi.aws.redshift.inputs.GetOrderableClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1119,8 +1119,8 @@ public final class RedshiftFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshift.RedshiftFunctions;
      * import com.pulumi.aws.redshift.inputs.GetOrderableClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1164,8 +1164,8 @@ public final class RedshiftFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshift.RedshiftFunctions;
      * import com.pulumi.aws.redshift.inputs.GetProducerDataSharesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1206,8 +1206,8 @@ public final class RedshiftFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshift.RedshiftFunctions;
      * import com.pulumi.aws.redshift.inputs.GetProducerDataSharesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1248,8 +1248,8 @@ public final class RedshiftFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshift.RedshiftFunctions;
      * import com.pulumi.aws.redshift.inputs.GetProducerDataSharesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1290,8 +1290,8 @@ public final class RedshiftFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshift.RedshiftFunctions;
      * import com.pulumi.aws.redshift.inputs.GetProducerDataSharesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1332,8 +1332,8 @@ public final class RedshiftFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshift.RedshiftFunctions;
      * import com.pulumi.aws.redshift.inputs.GetProducerDataSharesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1372,8 +1372,8 @@ public final class RedshiftFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshift.RedshiftFunctions;
      * import com.pulumi.aws.redshift.inputs.GetSubnetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1412,8 +1412,8 @@ public final class RedshiftFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshift.RedshiftFunctions;
      * import com.pulumi.aws.redshift.inputs.GetSubnetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1452,8 +1452,8 @@ public final class RedshiftFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshift.RedshiftFunctions;
      * import com.pulumi.aws.redshift.inputs.GetSubnetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1492,8 +1492,8 @@ public final class RedshiftFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshift.RedshiftFunctions;
      * import com.pulumi.aws.redshift.inputs.GetSubnetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1532,8 +1532,8 @@ public final class RedshiftFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshift.RedshiftFunctions;
      * import com.pulumi.aws.redshift.inputs.GetSubnetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

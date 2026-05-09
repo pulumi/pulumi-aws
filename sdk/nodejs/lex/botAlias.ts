@@ -156,43 +156,43 @@ export interface BotAliasState {
     /**
      * The ARN of the bot alias.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The name of the bot.
      */
-    botName?: pulumi.Input<string>;
+    botName?: pulumi.Input<string | undefined>;
     /**
      * The version of the bot.
      */
-    botVersion?: pulumi.Input<string>;
+    botVersion?: pulumi.Input<string | undefined>;
     /**
      * Checksum of the bot alias.
      */
-    checksum?: pulumi.Input<string>;
+    checksum?: pulumi.Input<string | undefined>;
     /**
      * The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
      */
-    conversationLogs?: pulumi.Input<inputs.lex.BotAliasConversationLogs>;
+    conversationLogs?: pulumi.Input<inputs.lex.BotAliasConversationLogs | undefined>;
     /**
      * The date that the bot alias was created.
      */
-    createdDate?: pulumi.Input<string>;
+    createdDate?: pulumi.Input<string | undefined>;
     /**
      * A description of the alias. Must be less than or equal to 200 characters in length.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
      */
-    lastUpdatedDate?: pulumi.Input<string>;
+    lastUpdatedDate?: pulumi.Input<string | undefined>;
     /**
      * The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -210,17 +210,17 @@ export interface BotAliasArgs {
     /**
      * The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
      */
-    conversationLogs?: pulumi.Input<inputs.lex.BotAliasConversationLogs>;
+    conversationLogs?: pulumi.Input<inputs.lex.BotAliasConversationLogs | undefined>;
     /**
      * A description of the alias. Must be less than or equal to 200 characters in length.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

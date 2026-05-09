@@ -146,27 +146,27 @@ export interface FieldLevelEncryptionConfigState {
     /**
      * The Field Level Encryption Config ARN.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Internal value used by CloudFront to allow future updates to the Field Level Encryption Config.
      */
-    callerReference?: pulumi.Input<string>;
+    callerReference?: pulumi.Input<string | undefined>;
     /**
      * An optional comment about the Field Level Encryption Config.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Content Type Profile Config specifies when to forward content if a content type isn't recognized and profiles to use as by default in a request if a query argument doesn't specify a profile to use.
      */
-    contentTypeProfileConfig?: pulumi.Input<inputs.cloudfront.FieldLevelEncryptionConfigContentTypeProfileConfig>;
+    contentTypeProfileConfig?: pulumi.Input<inputs.cloudfront.FieldLevelEncryptionConfigContentTypeProfileConfig | undefined>;
     /**
      * The current version of the Field Level Encryption Config. For example: `E2QWRUHAPOMQZL`.
      */
-    etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * Query Arg Profile Config that specifies when to forward content if a profile isn't found and the profile that can be provided as a query argument in a request.
      */
-    queryArgProfileConfig?: pulumi.Input<inputs.cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfig>;
+    queryArgProfileConfig?: pulumi.Input<inputs.cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfig | undefined>;
 }
 
 /**
@@ -176,7 +176,7 @@ export interface FieldLevelEncryptionConfigArgs {
     /**
      * An optional comment about the Field Level Encryption Config.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Content Type Profile Config specifies when to forward content if a content type isn't recognized and profiles to use as by default in a request if a query argument doesn't specify a profile to use.
      */

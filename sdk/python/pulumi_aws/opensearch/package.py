@@ -24,9 +24,9 @@ class PackageArgs:
                  package_name: pulumi.Input[_builtins.str],
                  package_source: pulumi.Input['PackagePackageSourceArgs'],
                  package_type: pulumi.Input[_builtins.str],
-                 engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 package_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 package_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Package resource.
 
@@ -85,52 +85,52 @@ class PackageArgs:
 
     @_builtins.property
     @pulumi.getter(name="engineVersion")
-    def engine_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def engine_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Engine version that the package is compatible with. This argument is required and only valid when `package_type` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
         """
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
-    def engine_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def engine_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "engine_version", value)
 
     @_builtins.property
     @pulumi.getter(name="packageDescription")
-    def package_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def package_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the package.
         """
         return pulumi.get(self, "package_description")
 
     @package_description.setter
-    def package_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def package_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "package_description", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _PackageState:
     def __init__(__self__, *,
-                 available_package_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 package_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 package_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 package_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 package_source: Optional[pulumi.Input['PackagePackageSourceArgs']] = None,
-                 package_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 available_package_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 package_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 package_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 package_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 package_source: pulumi.Input[Optional['PackagePackageSourceArgs']] = None,
+                 package_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Package resources.
 
@@ -161,95 +161,95 @@ class _PackageState:
 
     @_builtins.property
     @pulumi.getter(name="availablePackageVersion")
-    def available_package_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def available_package_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The current version of the package.
         """
         return pulumi.get(self, "available_package_version")
 
     @available_package_version.setter
-    def available_package_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def available_package_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "available_package_version", value)
 
     @_builtins.property
     @pulumi.getter(name="engineVersion")
-    def engine_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def engine_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Engine version that the package is compatible with. This argument is required and only valid when `package_type` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
         """
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
-    def engine_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def engine_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "engine_version", value)
 
     @_builtins.property
     @pulumi.getter(name="packageDescription")
-    def package_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def package_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the package.
         """
         return pulumi.get(self, "package_description")
 
     @package_description.setter
-    def package_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def package_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "package_description", value)
 
     @_builtins.property
     @pulumi.getter(name="packageId")
-    def package_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def package_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "package_id")
 
     @package_id.setter
-    def package_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def package_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "package_id", value)
 
     @_builtins.property
     @pulumi.getter(name="packageName")
-    def package_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def package_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique name for the package.
         """
         return pulumi.get(self, "package_name")
 
     @package_name.setter
-    def package_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def package_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "package_name", value)
 
     @_builtins.property
     @pulumi.getter(name="packageSource")
-    def package_source(self) -> Optional[pulumi.Input['PackagePackageSourceArgs']]:
+    def package_source(self) -> pulumi.Input[Optional['PackagePackageSourceArgs']]:
         """
         Configuration block for the package source options.
         """
         return pulumi.get(self, "package_source")
 
     @package_source.setter
-    def package_source(self, value: Optional[pulumi.Input['PackagePackageSourceArgs']]):
+    def package_source(self, value: pulumi.Input[Optional['PackagePackageSourceArgs']]):
         pulumi.set(self, "package_source", value)
 
     @_builtins.property
     @pulumi.getter(name="packageType")
-    def package_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def package_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of package. Valid values are `TXT-DICTIONARY`, `ZIP-PLUGIN`, `PACKAGE-LICENSE` and `PACKAGE-CONFIG`.
         """
         return pulumi.get(self, "package_type")
 
     @package_type.setter
-    def package_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def package_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "package_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
@@ -259,12 +259,12 @@ class Package(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 package_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 package_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 package_source: Optional[pulumi.Input[Union['PackagePackageSourceArgs', 'PackagePackageSourceArgsDict']]] = None,
-                 package_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 package_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 package_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 package_source: pulumi.Input[Optional[Union['PackagePackageSourceArgs', 'PackagePackageSourceArgsDict']]] = None,
+                 package_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an AWS Opensearch Package.
@@ -368,12 +368,12 @@ class Package(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 package_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 package_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 package_source: Optional[pulumi.Input[Union['PackagePackageSourceArgs', 'PackagePackageSourceArgsDict']]] = None,
-                 package_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 package_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 package_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 package_source: pulumi.Input[Optional[Union['PackagePackageSourceArgs', 'PackagePackageSourceArgsDict']]] = None,
+                 package_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -407,14 +407,14 @@ class Package(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            available_package_version: Optional[pulumi.Input[_builtins.str]] = None,
-            engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-            package_description: Optional[pulumi.Input[_builtins.str]] = None,
-            package_id: Optional[pulumi.Input[_builtins.str]] = None,
-            package_name: Optional[pulumi.Input[_builtins.str]] = None,
-            package_source: Optional[pulumi.Input[Union['PackagePackageSourceArgs', 'PackagePackageSourceArgsDict']]] = None,
-            package_type: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None) -> 'Package':
+            available_package_version: pulumi.Input[Optional[_builtins.str]] = None,
+            engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+            package_description: pulumi.Input[Optional[_builtins.str]] = None,
+            package_id: pulumi.Input[Optional[_builtins.str]] = None,
+            package_name: pulumi.Input[Optional[_builtins.str]] = None,
+            package_source: pulumi.Input[Optional[Union['PackagePackageSourceArgs', 'PackagePackageSourceArgsDict']]] = None,
+            package_type: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> 'Package':
         """
         Get an existing Package resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

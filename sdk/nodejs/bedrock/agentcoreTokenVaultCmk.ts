@@ -110,15 +110,15 @@ export interface AgentcoreTokenVaultCmkState {
     /**
      * KMS configuration for the token vault. See `kmsConfiguration` below.
      */
-    kmsConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreTokenVaultCmkKmsConfiguration>;
+    kmsConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreTokenVaultCmkKmsConfiguration | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Token vault ID. Defaults to `default`.
      */
-    tokenVaultId?: pulumi.Input<string>;
+    tokenVaultId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -132,9 +132,9 @@ export interface AgentcoreTokenVaultCmkArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Token vault ID. Defaults to `default`.
      */
-    tokenVaultId?: pulumi.Input<string>;
+    tokenVaultId?: pulumi.Input<string | undefined>;
 }

@@ -22,16 +22,16 @@ __all__ = ['InputArgs', 'Input']
 class InputArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input['InputDestinationArgs']]]] = None,
-                 input_devices: Optional[pulumi.Input[Sequence[pulumi.Input['InputInputDeviceArgs']]]] = None,
-                 input_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 media_connect_flows: Optional[pulumi.Input[Sequence[pulumi.Input['InputMediaConnectFlowArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 sources: Optional[pulumi.Input[Sequence[pulumi.Input['InputSourceArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc: Optional[pulumi.Input['InputVpcArgs']] = None):
+                 destinations: pulumi.Input[Optional[Sequence[pulumi.Input['InputDestinationArgs']]]] = None,
+                 input_devices: pulumi.Input[Optional[Sequence[pulumi.Input['InputInputDeviceArgs']]]] = None,
+                 input_security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 media_connect_flows: pulumi.Input[Optional[Sequence[pulumi.Input['InputMediaConnectFlowArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 sources: pulumi.Input[Optional[Sequence[pulumi.Input['InputSourceArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vpc: pulumi.Input[Optional['InputVpcArgs']] = None):
         """
         The set of arguments for constructing a Input resource.
 
@@ -87,145 +87,145 @@ class InputArgs:
 
     @_builtins.property
     @pulumi.getter
-    def destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InputDestinationArgs']]]]:
+    def destinations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InputDestinationArgs']]]]:
         """
         Destination settings for PUSH type inputs. See Destinations for more details.
         """
         return pulumi.get(self, "destinations")
 
     @destinations.setter
-    def destinations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InputDestinationArgs']]]]):
+    def destinations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InputDestinationArgs']]]]):
         pulumi.set(self, "destinations", value)
 
     @_builtins.property
     @pulumi.getter(name="inputDevices")
-    def input_devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InputInputDeviceArgs']]]]:
+    def input_devices(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InputInputDeviceArgs']]]]:
         """
         Settings for the devices. See Input Devices for more details.
         """
         return pulumi.get(self, "input_devices")
 
     @input_devices.setter
-    def input_devices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InputInputDeviceArgs']]]]):
+    def input_devices(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InputInputDeviceArgs']]]]):
         pulumi.set(self, "input_devices", value)
 
     @_builtins.property
     @pulumi.getter(name="inputSecurityGroups")
-    def input_security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def input_security_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of input security groups.
         """
         return pulumi.get(self, "input_security_groups")
 
     @input_security_groups.setter
-    def input_security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def input_security_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "input_security_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="mediaConnectFlows")
-    def media_connect_flows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InputMediaConnectFlowArgs']]]]:
+    def media_connect_flows(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InputMediaConnectFlowArgs']]]]:
         """
         A list of the MediaConnect Flows. See Media Connect Flows for more details.
         """
         return pulumi.get(self, "media_connect_flows")
 
     @media_connect_flows.setter
-    def media_connect_flows(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InputMediaConnectFlowArgs']]]]):
+    def media_connect_flows(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InputMediaConnectFlowArgs']]]]):
         pulumi.set(self, "media_connect_flows", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the input.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the role this input assumes during and after creation.
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InputSourceArgs']]]]:
+    def sources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InputSourceArgs']]]]:
         """
         The source URLs for a PULL-type input. See Sources for more details.
         """
         return pulumi.get(self, "sources")
 
     @sources.setter
-    def sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InputSourceArgs']]]]):
+    def sources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InputSourceArgs']]]]):
         pulumi.set(self, "sources", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the Input. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def vpc(self) -> Optional[pulumi.Input['InputVpcArgs']]:
+    def vpc(self) -> pulumi.Input[Optional['InputVpcArgs']]:
         """
         Settings for a private VPC Input. See VPC for more details.
         """
         return pulumi.get(self, "vpc")
 
     @vpc.setter
-    def vpc(self, value: Optional[pulumi.Input['InputVpcArgs']]):
+    def vpc(self, value: pulumi.Input[Optional['InputVpcArgs']]):
         pulumi.set(self, "vpc", value)
 
 
 @pulumi.input_type
 class _InputState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 attached_channels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input['InputDestinationArgs']]]] = None,
-                 input_class: Optional[pulumi.Input[_builtins.str]] = None,
-                 input_devices: Optional[pulumi.Input[Sequence[pulumi.Input['InputInputDeviceArgs']]]] = None,
-                 input_partner_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 input_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 input_source_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 media_connect_flows: Optional[pulumi.Input[Sequence[pulumi.Input['InputMediaConnectFlowArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 sources: Optional[pulumi.Input[Sequence[pulumi.Input['InputSourceArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc: Optional[pulumi.Input['InputVpcArgs']] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 attached_channels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 destinations: pulumi.Input[Optional[Sequence[pulumi.Input['InputDestinationArgs']]]] = None,
+                 input_class: pulumi.Input[Optional[_builtins.str]] = None,
+                 input_devices: pulumi.Input[Optional[Sequence[pulumi.Input['InputInputDeviceArgs']]]] = None,
+                 input_partner_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 input_security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 input_source_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 media_connect_flows: pulumi.Input[Optional[Sequence[pulumi.Input['InputMediaConnectFlowArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 sources: pulumi.Input[Optional[Sequence[pulumi.Input['InputSourceArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc: pulumi.Input[Optional['InputVpcArgs']] = None):
         """
         Input properties used for looking up and filtering Input resources.
 
@@ -285,184 +285,184 @@ class _InputState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the Input.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="attachedChannels")
-    def attached_channels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def attached_channels(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Channels attached to Input.
         """
         return pulumi.get(self, "attached_channels")
 
     @attached_channels.setter
-    def attached_channels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def attached_channels(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "attached_channels", value)
 
     @_builtins.property
     @pulumi.getter
-    def destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InputDestinationArgs']]]]:
+    def destinations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InputDestinationArgs']]]]:
         """
         Destination settings for PUSH type inputs. See Destinations for more details.
         """
         return pulumi.get(self, "destinations")
 
     @destinations.setter
-    def destinations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InputDestinationArgs']]]]):
+    def destinations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InputDestinationArgs']]]]):
         pulumi.set(self, "destinations", value)
 
     @_builtins.property
     @pulumi.getter(name="inputClass")
-    def input_class(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def input_class(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The input class.
         """
         return pulumi.get(self, "input_class")
 
     @input_class.setter
-    def input_class(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def input_class(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "input_class", value)
 
     @_builtins.property
     @pulumi.getter(name="inputDevices")
-    def input_devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InputInputDeviceArgs']]]]:
+    def input_devices(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InputInputDeviceArgs']]]]:
         """
         Settings for the devices. See Input Devices for more details.
         """
         return pulumi.get(self, "input_devices")
 
     @input_devices.setter
-    def input_devices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InputInputDeviceArgs']]]]):
+    def input_devices(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InputInputDeviceArgs']]]]):
         pulumi.set(self, "input_devices", value)
 
     @_builtins.property
     @pulumi.getter(name="inputPartnerIds")
-    def input_partner_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def input_partner_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of IDs for all Inputs which are partners of this one.
         """
         return pulumi.get(self, "input_partner_ids")
 
     @input_partner_ids.setter
-    def input_partner_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def input_partner_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "input_partner_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="inputSecurityGroups")
-    def input_security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def input_security_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of input security groups.
         """
         return pulumi.get(self, "input_security_groups")
 
     @input_security_groups.setter
-    def input_security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def input_security_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "input_security_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="inputSourceType")
-    def input_source_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def input_source_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Source type of the input.
         """
         return pulumi.get(self, "input_source_type")
 
     @input_source_type.setter
-    def input_source_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def input_source_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "input_source_type", value)
 
     @_builtins.property
     @pulumi.getter(name="mediaConnectFlows")
-    def media_connect_flows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InputMediaConnectFlowArgs']]]]:
+    def media_connect_flows(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InputMediaConnectFlowArgs']]]]:
         """
         A list of the MediaConnect Flows. See Media Connect Flows for more details.
         """
         return pulumi.get(self, "media_connect_flows")
 
     @media_connect_flows.setter
-    def media_connect_flows(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InputMediaConnectFlowArgs']]]]):
+    def media_connect_flows(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InputMediaConnectFlowArgs']]]]):
         pulumi.set(self, "media_connect_flows", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the input.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the role this input assumes during and after creation.
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InputSourceArgs']]]]:
+    def sources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InputSourceArgs']]]]:
         """
         The source URLs for a PULL-type input. See Sources for more details.
         """
         return pulumi.get(self, "sources")
 
     @sources.setter
-    def sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InputSourceArgs']]]]):
+    def sources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InputSourceArgs']]]]):
         pulumi.set(self, "sources", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the Input. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The different types of inputs that AWS Elemental MediaLive supports.
 
@@ -471,19 +471,19 @@ class _InputState:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter
-    def vpc(self) -> Optional[pulumi.Input['InputVpcArgs']]:
+    def vpc(self) -> pulumi.Input[Optional['InputVpcArgs']]:
         """
         Settings for a private VPC Input. See VPC for more details.
         """
         return pulumi.get(self, "vpc")
 
     @vpc.setter
-    def vpc(self, value: Optional[pulumi.Input['InputVpcArgs']]):
+    def vpc(self, value: pulumi.Input[Optional['InputVpcArgs']]):
         pulumi.set(self, "vpc", value)
 
 
@@ -493,17 +493,17 @@ class Input(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InputDestinationArgs', 'InputDestinationArgsDict']]]]] = None,
-                 input_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InputInputDeviceArgs', 'InputInputDeviceArgsDict']]]]] = None,
-                 input_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 media_connect_flows: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InputMediaConnectFlowArgs', 'InputMediaConnectFlowArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InputSourceArgs', 'InputSourceArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc: Optional[pulumi.Input[Union['InputVpcArgs', 'InputVpcArgsDict']]] = None,
+                 destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InputDestinationArgs', 'InputDestinationArgsDict']]]]] = None,
+                 input_devices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InputInputDeviceArgs', 'InputInputDeviceArgsDict']]]]] = None,
+                 input_security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 media_connect_flows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InputMediaConnectFlowArgs', 'InputMediaConnectFlowArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InputSourceArgs', 'InputSourceArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc: pulumi.Input[Optional[Union['InputVpcArgs', 'InputVpcArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS MediaLive Input.
@@ -614,17 +614,17 @@ class Input(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InputDestinationArgs', 'InputDestinationArgsDict']]]]] = None,
-                 input_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InputInputDeviceArgs', 'InputInputDeviceArgsDict']]]]] = None,
-                 input_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 media_connect_flows: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InputMediaConnectFlowArgs', 'InputMediaConnectFlowArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InputSourceArgs', 'InputSourceArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc: Optional[pulumi.Input[Union['InputVpcArgs', 'InputVpcArgsDict']]] = None,
+                 destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InputDestinationArgs', 'InputDestinationArgsDict']]]]] = None,
+                 input_devices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InputInputDeviceArgs', 'InputInputDeviceArgsDict']]]]] = None,
+                 input_security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 media_connect_flows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InputMediaConnectFlowArgs', 'InputMediaConnectFlowArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InputSourceArgs', 'InputSourceArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc: pulumi.Input[Optional[Union['InputVpcArgs', 'InputVpcArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -663,23 +663,23 @@ class Input(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            attached_channels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            destinations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InputDestinationArgs', 'InputDestinationArgsDict']]]]] = None,
-            input_class: Optional[pulumi.Input[_builtins.str]] = None,
-            input_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InputInputDeviceArgs', 'InputInputDeviceArgsDict']]]]] = None,
-            input_partner_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            input_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            input_source_type: Optional[pulumi.Input[_builtins.str]] = None,
-            media_connect_flows: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InputMediaConnectFlowArgs', 'InputMediaConnectFlowArgsDict']]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InputSourceArgs', 'InputSourceArgsDict']]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None,
-            vpc: Optional[pulumi.Input[Union['InputVpcArgs', 'InputVpcArgsDict']]] = None) -> 'Input':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            attached_channels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InputDestinationArgs', 'InputDestinationArgsDict']]]]] = None,
+            input_class: pulumi.Input[Optional[_builtins.str]] = None,
+            input_devices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InputInputDeviceArgs', 'InputInputDeviceArgsDict']]]]] = None,
+            input_partner_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            input_security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            input_source_type: pulumi.Input[Optional[_builtins.str]] = None,
+            media_connect_flows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InputMediaConnectFlowArgs', 'InputMediaConnectFlowArgsDict']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InputSourceArgs', 'InputSourceArgsDict']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            vpc: pulumi.Input[Optional[Union['InputVpcArgs', 'InputVpcArgsDict']]] = None) -> 'Input':
         """
         Get an existing Input resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

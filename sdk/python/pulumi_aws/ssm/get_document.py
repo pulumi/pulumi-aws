@@ -175,10 +175,10 @@ def get_document(document_format: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         region=pulumi.get(__ret__, 'region'))
-def get_document_output(document_format: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                        document_version: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                        name: Optional[pulumi.Input[_builtins.str]] = None,
-                        region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_document_output(document_format: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        document_version: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        name: pulumi.Input[Optional[_builtins.str]] = None,
+                        region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDocumentResult]:
     """
     Gets the contents of the specified Systems Manager document.

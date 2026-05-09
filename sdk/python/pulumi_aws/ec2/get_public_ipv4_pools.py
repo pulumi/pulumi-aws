@@ -142,9 +142,9 @@ def get_public_ipv4_pools(filters: Optional[Sequence[Union['GetPublicIpv4PoolsFi
         pool_ids=pulumi.get(__ret__, 'pool_ids'),
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_public_ipv4_pools_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetPublicIpv4PoolsFilterArgs', 'GetPublicIpv4PoolsFilterArgsDict']]]]] = None,
-                                 region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                 tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_public_ipv4_pools_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetPublicIpv4PoolsFilterArgs', 'GetPublicIpv4PoolsFilterArgsDict']]]]] = None,
+                                 region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                 tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPublicIpv4PoolsResult]:
     """
     Data source for getting information about AWS EC2 Public IPv4 Pools.

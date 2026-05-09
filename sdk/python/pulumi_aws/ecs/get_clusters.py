@@ -98,7 +98,7 @@ def get_clusters(region: Optional[_builtins.str] = None,
         cluster_arns=pulumi.get(__ret__, 'cluster_arns'),
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'))
-def get_clusters_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_clusters_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClustersResult]:
     """
     Data source for managing an AWS ECS (Elastic Container) Clusters.

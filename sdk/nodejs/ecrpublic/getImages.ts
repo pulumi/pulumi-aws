@@ -121,15 +121,15 @@ export interface GetImagesOutputArgs {
     /**
      * One or more image ID filters. Each image ID can use either a tag or digest (or both). Each object has the following attributes:
      */
-    imageIds?: pulumi.Input<pulumi.Input<inputs.ecrpublic.GetImagesImageIdArgs>[]>;
+    imageIds?: pulumi.Input<pulumi.Input<inputs.ecrpublic.GetImagesImageIdArgs>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * AWS account ID associated with the public registry that contains the repository. If not specified, the default public registry is assumed.
      */
-    registryId?: pulumi.Input<string>;
+    registryId?: pulumi.Input<string | undefined>;
     /**
      * Name of the public repository.
      */

@@ -160,43 +160,43 @@ export interface DatabaseState {
     /**
      * That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
      */
-    aclConfiguration?: pulumi.Input<inputs.athena.DatabaseAclConfiguration>;
+    aclConfiguration?: pulumi.Input<inputs.athena.DatabaseAclConfiguration | undefined>;
     /**
      * Name of S3 bucket to save the results of the query execution.
      */
-    bucket?: pulumi.Input<string>;
+    bucket?: pulumi.Input<string | undefined>;
     /**
      * Description of the database.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
      */
-    encryptionConfiguration?: pulumi.Input<inputs.athena.DatabaseEncryptionConfiguration>;
+    encryptionConfiguration?: pulumi.Input<inputs.athena.DatabaseEncryptionConfiguration | undefined>;
     /**
      * AWS account ID that you expect to be the owner of the Amazon S3 bucket.
      */
-    expectedBucketOwner?: pulumi.Input<string>;
+    expectedBucketOwner?: pulumi.Input<string | undefined>;
     /**
      * Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
      */
-    forceDestroy?: pulumi.Input<boolean>;
+    forceDestroy?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the database to create.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of custom metadata properties for the database definition.
      */
-    properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    properties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Name of the workgroup.
      */
-    workgroup?: pulumi.Input<string>;
+    workgroup?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -206,41 +206,41 @@ export interface DatabaseArgs {
     /**
      * That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
      */
-    aclConfiguration?: pulumi.Input<inputs.athena.DatabaseAclConfiguration>;
+    aclConfiguration?: pulumi.Input<inputs.athena.DatabaseAclConfiguration | undefined>;
     /**
      * Name of S3 bucket to save the results of the query execution.
      */
-    bucket?: pulumi.Input<string>;
+    bucket?: pulumi.Input<string | undefined>;
     /**
      * Description of the database.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
      */
-    encryptionConfiguration?: pulumi.Input<inputs.athena.DatabaseEncryptionConfiguration>;
+    encryptionConfiguration?: pulumi.Input<inputs.athena.DatabaseEncryptionConfiguration | undefined>;
     /**
      * AWS account ID that you expect to be the owner of the Amazon S3 bucket.
      */
-    expectedBucketOwner?: pulumi.Input<string>;
+    expectedBucketOwner?: pulumi.Input<string | undefined>;
     /**
      * Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
      */
-    forceDestroy?: pulumi.Input<boolean>;
+    forceDestroy?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the database to create.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of custom metadata properties for the database definition.
      */
-    properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    properties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Name of the workgroup.
      */
-    workgroup?: pulumi.Input<string>;
+    workgroup?: pulumi.Input<string | undefined>;
 }

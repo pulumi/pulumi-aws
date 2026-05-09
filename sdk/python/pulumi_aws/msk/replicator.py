@@ -25,9 +25,9 @@ class ReplicatorArgs:
                  replication_info_list: pulumi.Input['ReplicatorReplicationInfoListArgs'],
                  replicator_name: pulumi.Input[_builtins.str],
                  service_execution_role_arn: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Replicator resource.
 
@@ -100,54 +100,54 @@ class ReplicatorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A summary description of the replicator.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _ReplicatorState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 current_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 kafka_clusters: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatorKafkaClusterArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_info_list: Optional[pulumi.Input['ReplicatorReplicationInfoListArgs']] = None,
-                 replicator_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 current_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 kafka_clusters: pulumi.Input[Optional[Sequence[pulumi.Input['ReplicatorKafkaClusterArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_info_list: pulumi.Input[Optional['ReplicatorReplicationInfoListArgs']] = None,
+                 replicator_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Replicator resources.
 
@@ -184,119 +184,119 @@ class _ReplicatorState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the Replicator.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="currentVersion")
-    def current_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def current_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "current_version")
 
     @current_version.setter
-    def current_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def current_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "current_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A summary description of the replicator.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="kafkaClusters")
-    def kafka_clusters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatorKafkaClusterArgs']]]]:
+    def kafka_clusters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ReplicatorKafkaClusterArgs']]]]:
         """
         A list of Kafka clusters which are targets of the replicator.
         """
         return pulumi.get(self, "kafka_clusters")
 
     @kafka_clusters.setter
-    def kafka_clusters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatorKafkaClusterArgs']]]]):
+    def kafka_clusters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ReplicatorKafkaClusterArgs']]]]):
         pulumi.set(self, "kafka_clusters", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="replicationInfoList")
-    def replication_info_list(self) -> Optional[pulumi.Input['ReplicatorReplicationInfoListArgs']]:
+    def replication_info_list(self) -> pulumi.Input[Optional['ReplicatorReplicationInfoListArgs']]:
         """
         A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
         """
         return pulumi.get(self, "replication_info_list")
 
     @replication_info_list.setter
-    def replication_info_list(self, value: Optional[pulumi.Input['ReplicatorReplicationInfoListArgs']]):
+    def replication_info_list(self, value: pulumi.Input[Optional['ReplicatorReplicationInfoListArgs']]):
         pulumi.set(self, "replication_info_list", value)
 
     @_builtins.property
     @pulumi.getter(name="replicatorName")
-    def replicator_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def replicator_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the replicator.
         """
         return pulumi.get(self, "replicator_name")
 
     @replicator_name.setter
-    def replicator_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def replicator_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "replicator_name", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceExecutionRoleArn")
-    def service_execution_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_execution_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
         """
         return pulumi.get(self, "service_execution_role_arn")
 
     @service_execution_role_arn.setter
-    def service_execution_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_execution_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_execution_role_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
 
@@ -306,13 +306,13 @@ class Replicator(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 kafka_clusters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicatorKafkaClusterArgs', 'ReplicatorKafkaClusterArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_info_list: Optional[pulumi.Input[Union['ReplicatorReplicationInfoListArgs', 'ReplicatorReplicationInfoListArgsDict']]] = None,
-                 replicator_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 kafka_clusters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicatorKafkaClusterArgs', 'ReplicatorKafkaClusterArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_info_list: pulumi.Input[Optional[Union['ReplicatorReplicationInfoListArgs', 'ReplicatorReplicationInfoListArgsDict']]] = None,
+                 replicator_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Managed Streaming for Kafka Replicator.
@@ -471,13 +471,13 @@ class Replicator(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 kafka_clusters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicatorKafkaClusterArgs', 'ReplicatorKafkaClusterArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_info_list: Optional[pulumi.Input[Union['ReplicatorReplicationInfoListArgs', 'ReplicatorReplicationInfoListArgsDict']]] = None,
-                 replicator_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 kafka_clusters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicatorKafkaClusterArgs', 'ReplicatorKafkaClusterArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_info_list: pulumi.Input[Optional[Union['ReplicatorReplicationInfoListArgs', 'ReplicatorReplicationInfoListArgsDict']]] = None,
+                 replicator_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -515,16 +515,16 @@ class Replicator(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            current_version: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            kafka_clusters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicatorKafkaClusterArgs', 'ReplicatorKafkaClusterArgsDict']]]]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            replication_info_list: Optional[pulumi.Input[Union['ReplicatorReplicationInfoListArgs', 'ReplicatorReplicationInfoListArgsDict']]] = None,
-            replicator_name: Optional[pulumi.Input[_builtins.str]] = None,
-            service_execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Replicator':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            current_version: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            kafka_clusters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicatorKafkaClusterArgs', 'ReplicatorKafkaClusterArgsDict']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            replication_info_list: pulumi.Input[Optional[Union['ReplicatorReplicationInfoListArgs', 'ReplicatorReplicationInfoListArgsDict']]] = None,
+            replicator_name: pulumi.Input[Optional[_builtins.str]] = None,
+            service_execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Replicator':
         """
         Get an existing Replicator resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

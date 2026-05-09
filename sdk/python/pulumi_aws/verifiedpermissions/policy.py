@@ -23,7 +23,7 @@ class PolicyArgs:
     def __init__(__self__, *,
                  definition: pulumi.Input['PolicyDefinitionArgs'],
                  policy_store_id: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Policy resource.
 
@@ -62,25 +62,25 @@ class PolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _PolicyState:
     def __init__(__self__, *,
-                 created_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 definition: Optional[pulumi.Input['PolicyDefinitionArgs']] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_store_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 created_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 definition: pulumi.Input[Optional['PolicyDefinitionArgs']] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_store_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Policy resources.
 
@@ -103,62 +103,62 @@ class _PolicyState:
 
     @_builtins.property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date the policy was created.
         """
         return pulumi.get(self, "created_date")
 
     @created_date.setter
-    def created_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_date", value)
 
     @_builtins.property
     @pulumi.getter
-    def definition(self) -> Optional[pulumi.Input['PolicyDefinitionArgs']]:
+    def definition(self) -> pulumi.Input[Optional['PolicyDefinitionArgs']]:
         """
         The definition of the policy. See Definition below.
         """
         return pulumi.get(self, "definition")
 
     @definition.setter
-    def definition(self, value: Optional[pulumi.Input['PolicyDefinitionArgs']]):
+    def definition(self, value: pulumi.Input[Optional['PolicyDefinitionArgs']]):
         pulumi.set(self, "definition", value)
 
     @_builtins.property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Policy ID of the policy.
         """
         return pulumi.get(self, "policy_id")
 
     @policy_id.setter
-    def policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_id", value)
 
     @_builtins.property
     @pulumi.getter(name="policyStoreId")
-    def policy_store_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_store_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Policy Store ID of the policy store.
         """
         return pulumi.get(self, "policy_store_id")
 
     @policy_store_id.setter
-    def policy_store_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_store_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_store_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
@@ -168,9 +168,9 @@ class Policy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 definition: Optional[pulumi.Input[Union['PolicyDefinitionArgs', 'PolicyDefinitionArgsDict']]] = None,
-                 policy_store_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 definition: pulumi.Input[Optional[Union['PolicyDefinitionArgs', 'PolicyDefinitionArgsDict']]] = None,
+                 policy_store_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Verified Permissions Policy.
@@ -257,9 +257,9 @@ class Policy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 definition: Optional[pulumi.Input[Union['PolicyDefinitionArgs', 'PolicyDefinitionArgsDict']]] = None,
-                 policy_store_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 definition: pulumi.Input[Optional[Union['PolicyDefinitionArgs', 'PolicyDefinitionArgsDict']]] = None,
+                 policy_store_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -288,11 +288,11 @@ class Policy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            created_date: Optional[pulumi.Input[_builtins.str]] = None,
-            definition: Optional[pulumi.Input[Union['PolicyDefinitionArgs', 'PolicyDefinitionArgsDict']]] = None,
-            policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-            policy_store_id: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None) -> 'Policy':
+            created_date: pulumi.Input[Optional[_builtins.str]] = None,
+            definition: pulumi.Input[Optional[Union['PolicyDefinitionArgs', 'PolicyDefinitionArgsDict']]] = None,
+            policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_store_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> 'Policy':
         """
         Get an existing Policy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

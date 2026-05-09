@@ -19,10 +19,10 @@ __all__ = ['AccountArgs', 'Account']
 @pulumi.input_type
 class AccountArgs:
     def __init__(__self__, *,
-                 auto_enable_controls: Optional[pulumi.Input[_builtins.bool]] = None,
-                 control_finding_generator: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_default_standards: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 auto_enable_controls: pulumi.Input[Optional[_builtins.bool]] = None,
+                 control_finding_generator: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_default_standards: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Account resource.
 
@@ -42,61 +42,61 @@ class AccountArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoEnableControls")
-    def auto_enable_controls(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_enable_controls(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to automatically enable new controls when they are added to standards that are enabled. By default, this is set to true, and new controls are enabled automatically. To not automatically enable new controls, set this to false.
         """
         return pulumi.get(self, "auto_enable_controls")
 
     @auto_enable_controls.setter
-    def auto_enable_controls(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_enable_controls(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_enable_controls", value)
 
     @_builtins.property
     @pulumi.getter(name="controlFindingGenerator")
-    def control_finding_generator(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def control_finding_generator(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Updates whether the calling account has consolidated control findings turned on. If the value for this field is set to `SECURITY_CONTROL`, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards. If the value for this field is set to `STANDARD_CONTROL`, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards. For accounts that are part of an organization, this value can only be updated in the administrator account.
         """
         return pulumi.get(self, "control_finding_generator")
 
     @control_finding_generator.setter
-    def control_finding_generator(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def control_finding_generator(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "control_finding_generator", value)
 
     @_builtins.property
     @pulumi.getter(name="enableDefaultStandards")
-    def enable_default_standards(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_default_standards(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable the security standards that Security Hub has designated as automatically enabled including: ` AWS Foundational Security Best Practices v1.0.0` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
         """
         return pulumi.get(self, "enable_default_standards")
 
     @enable_default_standards.setter
-    def enable_default_standards(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_default_standards(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_default_standards", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _AccountState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_enable_controls: Optional[pulumi.Input[_builtins.bool]] = None,
-                 control_finding_generator: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_default_standards: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_enable_controls: pulumi.Input[Optional[_builtins.bool]] = None,
+                 control_finding_generator: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_default_standards: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Account resources.
 
@@ -119,62 +119,62 @@ class _AccountState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the SecurityHub Hub created in the account.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="autoEnableControls")
-    def auto_enable_controls(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_enable_controls(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to automatically enable new controls when they are added to standards that are enabled. By default, this is set to true, and new controls are enabled automatically. To not automatically enable new controls, set this to false.
         """
         return pulumi.get(self, "auto_enable_controls")
 
     @auto_enable_controls.setter
-    def auto_enable_controls(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_enable_controls(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_enable_controls", value)
 
     @_builtins.property
     @pulumi.getter(name="controlFindingGenerator")
-    def control_finding_generator(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def control_finding_generator(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Updates whether the calling account has consolidated control findings turned on. If the value for this field is set to `SECURITY_CONTROL`, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards. If the value for this field is set to `STANDARD_CONTROL`, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards. For accounts that are part of an organization, this value can only be updated in the administrator account.
         """
         return pulumi.get(self, "control_finding_generator")
 
     @control_finding_generator.setter
-    def control_finding_generator(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def control_finding_generator(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "control_finding_generator", value)
 
     @_builtins.property
     @pulumi.getter(name="enableDefaultStandards")
-    def enable_default_standards(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_default_standards(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable the security standards that Security Hub has designated as automatically enabled including: ` AWS Foundational Security Best Practices v1.0.0` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
         """
         return pulumi.get(self, "enable_default_standards")
 
     @enable_default_standards.setter
-    def enable_default_standards(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_default_standards(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_default_standards", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
@@ -184,10 +184,10 @@ class Account(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_enable_controls: Optional[pulumi.Input[_builtins.bool]] = None,
-                 control_finding_generator: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_default_standards: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 auto_enable_controls: pulumi.Input[Optional[_builtins.bool]] = None,
+                 control_finding_generator: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_default_standards: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Enables Security Hub CSPM for this AWS account.
@@ -267,10 +267,10 @@ class Account(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_enable_controls: Optional[pulumi.Input[_builtins.bool]] = None,
-                 control_finding_generator: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_default_standards: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 auto_enable_controls: pulumi.Input[Optional[_builtins.bool]] = None,
+                 control_finding_generator: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_default_standards: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -295,11 +295,11 @@ class Account(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            auto_enable_controls: Optional[pulumi.Input[_builtins.bool]] = None,
-            control_finding_generator: Optional[pulumi.Input[_builtins.str]] = None,
-            enable_default_standards: Optional[pulumi.Input[_builtins.bool]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None) -> 'Account':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_enable_controls: pulumi.Input[Optional[_builtins.bool]] = None,
+            control_finding_generator: pulumi.Input[Optional[_builtins.str]] = None,
+            enable_default_standards: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> 'Account':
         """
         Get an existing Account resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

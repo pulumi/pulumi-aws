@@ -23,16 +23,16 @@ class AddonArgs:
     def __init__(__self__, *,
                  addon_name: pulumi.Input[_builtins.str],
                  cluster_name: pulumi.Input[_builtins.str],
-                 addon_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration_values: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_config: Optional[pulumi.Input['AddonNamespaceConfigArgs']] = None,
-                 pod_identity_associations: Optional[pulumi.Input[Sequence[pulumi.Input['AddonPodIdentityAssociationArgs']]]] = None,
-                 preserve: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resolve_conflicts_on_create: Optional[pulumi.Input[_builtins.str]] = None,
-                 resolve_conflicts_on_update: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_account_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 addon_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_values: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_config: pulumi.Input[Optional['AddonNamespaceConfigArgs']] = None,
+                 pod_identity_associations: pulumi.Input[Optional[Sequence[pulumi.Input['AddonPodIdentityAssociationArgs']]]] = None,
+                 preserve: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resolve_conflicts_on_create: pulumi.Input[Optional[_builtins.str]] = None,
+                 resolve_conflicts_on_update: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_account_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Addon resource.
 
@@ -115,7 +115,7 @@ class AddonArgs:
 
     @_builtins.property
     @pulumi.getter(name="addonVersion")
-    def addon_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def addon_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the EKS add-on. The version must
         match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
@@ -123,96 +123,96 @@ class AddonArgs:
         return pulumi.get(self, "addon_version")
 
     @addon_version.setter
-    def addon_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def addon_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "addon_version", value)
 
     @_builtins.property
     @pulumi.getter(name="configurationValues")
-    def configuration_values(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def configuration_values(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
         """
         return pulumi.get(self, "configuration_values")
 
     @configuration_values.setter
-    def configuration_values(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def configuration_values(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "configuration_values", value)
 
     @_builtins.property
     @pulumi.getter(name="namespaceConfig")
-    def namespace_config(self) -> Optional[pulumi.Input['AddonNamespaceConfigArgs']]:
+    def namespace_config(self) -> pulumi.Input[Optional['AddonNamespaceConfigArgs']]:
         """
         Namespace configuration for the add-on. See `namespace_config` below for details.
         """
         return pulumi.get(self, "namespace_config")
 
     @namespace_config.setter
-    def namespace_config(self, value: Optional[pulumi.Input['AddonNamespaceConfigArgs']]):
+    def namespace_config(self, value: pulumi.Input[Optional['AddonNamespaceConfigArgs']]):
         pulumi.set(self, "namespace_config", value)
 
     @_builtins.property
     @pulumi.getter(name="podIdentityAssociations")
-    def pod_identity_associations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AddonPodIdentityAssociationArgs']]]]:
+    def pod_identity_associations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AddonPodIdentityAssociationArgs']]]]:
         """
         Configuration block with EKS Pod Identity association settings. See `pod_identity_association` below for details.
         """
         return pulumi.get(self, "pod_identity_associations")
 
     @pod_identity_associations.setter
-    def pod_identity_associations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AddonPodIdentityAssociationArgs']]]]):
+    def pod_identity_associations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AddonPodIdentityAssociationArgs']]]]):
         pulumi.set(self, "pod_identity_associations", value)
 
     @_builtins.property
     @pulumi.getter
-    def preserve(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def preserve(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates if you want to preserve the created resources when deleting the EKS add-on.
         """
         return pulumi.get(self, "preserve")
 
     @preserve.setter
-    def preserve(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def preserve(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "preserve", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="resolveConflictsOnCreate")
-    def resolve_conflicts_on_create(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resolve_conflicts_on_create(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         How to resolve field value conflicts when migrating a self-managed add-on to an Amazon EKS add-on. Valid values are `NONE` and `OVERWRITE`. For more details see the [CreateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateAddon.html) API Documentation.
         """
         return pulumi.get(self, "resolve_conflicts_on_create")
 
     @resolve_conflicts_on_create.setter
-    def resolve_conflicts_on_create(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resolve_conflicts_on_create(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resolve_conflicts_on_create", value)
 
     @_builtins.property
     @pulumi.getter(name="resolveConflictsOnUpdate")
-    def resolve_conflicts_on_update(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resolve_conflicts_on_update(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         How to resolve field value conflicts for an Amazon EKS add-on if you've changed a value from the Amazon EKS default value. Valid values are `NONE`, `OVERWRITE`, and `PRESERVE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Documentation.
         """
         return pulumi.get(self, "resolve_conflicts_on_update")
 
     @resolve_conflicts_on_update.setter
-    def resolve_conflicts_on_update(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resolve_conflicts_on_update(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resolve_conflicts_on_update", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceAccountRoleArn")
-    def service_account_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_account_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of an
         existing IAM role to bind to the add-on's service account. The role must be
@@ -229,41 +229,41 @@ class AddonArgs:
         return pulumi.get(self, "service_account_role_arn")
 
     @service_account_role_arn.setter
-    def service_account_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_account_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_account_role_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _AddonState:
     def __init__(__self__, *,
-                 addon_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 addon_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration_values: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 modified_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_config: Optional[pulumi.Input['AddonNamespaceConfigArgs']] = None,
-                 pod_identity_associations: Optional[pulumi.Input[Sequence[pulumi.Input['AddonPodIdentityAssociationArgs']]]] = None,
-                 preserve: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resolve_conflicts_on_create: Optional[pulumi.Input[_builtins.str]] = None,
-                 resolve_conflicts_on_update: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_account_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 addon_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 addon_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_values: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 modified_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_config: pulumi.Input[Optional['AddonNamespaceConfigArgs']] = None,
+                 pod_identity_associations: pulumi.Input[Optional[Sequence[pulumi.Input['AddonPodIdentityAssociationArgs']]]] = None,
+                 preserve: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resolve_conflicts_on_create: pulumi.Input[Optional[_builtins.str]] = None,
+                 resolve_conflicts_on_update: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_account_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Addon resources.
 
@@ -333,7 +333,7 @@ class _AddonState:
 
     @_builtins.property
     @pulumi.getter(name="addonName")
-    def addon_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def addon_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the EKS add-on. The name must match one of
         the names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
@@ -341,12 +341,12 @@ class _AddonState:
         return pulumi.get(self, "addon_name")
 
     @addon_name.setter
-    def addon_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def addon_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "addon_name", value)
 
     @_builtins.property
     @pulumi.getter(name="addonVersion")
-    def addon_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def addon_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the EKS add-on. The version must
         match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
@@ -354,24 +354,24 @@ class _AddonState:
         return pulumi.get(self, "addon_version")
 
     @addon_version.setter
-    def addon_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def addon_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "addon_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) of the EKS add-on.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the EKS Cluster.
 
@@ -380,120 +380,120 @@ class _AddonState:
         return pulumi.get(self, "cluster_name")
 
     @cluster_name.setter
-    def cluster_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_name", value)
 
     @_builtins.property
     @pulumi.getter(name="configurationValues")
-    def configuration_values(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def configuration_values(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
         """
         return pulumi.get(self, "configuration_values")
 
     @configuration_values.setter
-    def configuration_values(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def configuration_values(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "configuration_values", value)
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
         """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
-    def created_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_at", value)
 
     @_builtins.property
     @pulumi.getter(name="modifiedAt")
-    def modified_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def modified_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
         """
         return pulumi.get(self, "modified_at")
 
     @modified_at.setter
-    def modified_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def modified_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "modified_at", value)
 
     @_builtins.property
     @pulumi.getter(name="namespaceConfig")
-    def namespace_config(self) -> Optional[pulumi.Input['AddonNamespaceConfigArgs']]:
+    def namespace_config(self) -> pulumi.Input[Optional['AddonNamespaceConfigArgs']]:
         """
         Namespace configuration for the add-on. See `namespace_config` below for details.
         """
         return pulumi.get(self, "namespace_config")
 
     @namespace_config.setter
-    def namespace_config(self, value: Optional[pulumi.Input['AddonNamespaceConfigArgs']]):
+    def namespace_config(self, value: pulumi.Input[Optional['AddonNamespaceConfigArgs']]):
         pulumi.set(self, "namespace_config", value)
 
     @_builtins.property
     @pulumi.getter(name="podIdentityAssociations")
-    def pod_identity_associations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AddonPodIdentityAssociationArgs']]]]:
+    def pod_identity_associations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AddonPodIdentityAssociationArgs']]]]:
         """
         Configuration block with EKS Pod Identity association settings. See `pod_identity_association` below for details.
         """
         return pulumi.get(self, "pod_identity_associations")
 
     @pod_identity_associations.setter
-    def pod_identity_associations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AddonPodIdentityAssociationArgs']]]]):
+    def pod_identity_associations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AddonPodIdentityAssociationArgs']]]]):
         pulumi.set(self, "pod_identity_associations", value)
 
     @_builtins.property
     @pulumi.getter
-    def preserve(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def preserve(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates if you want to preserve the created resources when deleting the EKS add-on.
         """
         return pulumi.get(self, "preserve")
 
     @preserve.setter
-    def preserve(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def preserve(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "preserve", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="resolveConflictsOnCreate")
-    def resolve_conflicts_on_create(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resolve_conflicts_on_create(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         How to resolve field value conflicts when migrating a self-managed add-on to an Amazon EKS add-on. Valid values are `NONE` and `OVERWRITE`. For more details see the [CreateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateAddon.html) API Documentation.
         """
         return pulumi.get(self, "resolve_conflicts_on_create")
 
     @resolve_conflicts_on_create.setter
-    def resolve_conflicts_on_create(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resolve_conflicts_on_create(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resolve_conflicts_on_create", value)
 
     @_builtins.property
     @pulumi.getter(name="resolveConflictsOnUpdate")
-    def resolve_conflicts_on_update(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resolve_conflicts_on_update(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         How to resolve field value conflicts for an Amazon EKS add-on if you've changed a value from the Amazon EKS default value. Valid values are `NONE`, `OVERWRITE`, and `PRESERVE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Documentation.
         """
         return pulumi.get(self, "resolve_conflicts_on_update")
 
     @resolve_conflicts_on_update.setter
-    def resolve_conflicts_on_update(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resolve_conflicts_on_update(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resolve_conflicts_on_update", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceAccountRoleArn")
-    def service_account_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_account_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of an
         existing IAM role to bind to the add-on's service account. The role must be
@@ -510,31 +510,31 @@ class _AddonState:
         return pulumi.get(self, "service_account_role_arn")
 
     @service_account_role_arn.setter
-    def service_account_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_account_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_account_role_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
 
@@ -544,18 +544,18 @@ class Addon(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 addon_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 addon_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration_values: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_config: Optional[pulumi.Input[Union['AddonNamespaceConfigArgs', 'AddonNamespaceConfigArgsDict']]] = None,
-                 pod_identity_associations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AddonPodIdentityAssociationArgs', 'AddonPodIdentityAssociationArgsDict']]]]] = None,
-                 preserve: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resolve_conflicts_on_create: Optional[pulumi.Input[_builtins.str]] = None,
-                 resolve_conflicts_on_update: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_account_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 addon_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 addon_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_values: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_config: pulumi.Input[Optional[Union['AddonNamespaceConfigArgs', 'AddonNamespaceConfigArgsDict']]] = None,
+                 pod_identity_associations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AddonPodIdentityAssociationArgs', 'AddonPodIdentityAssociationArgsDict']]]]] = None,
+                 preserve: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resolve_conflicts_on_create: pulumi.Input[Optional[_builtins.str]] = None,
+                 resolve_conflicts_on_update: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_account_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages an EKS add-on.
@@ -761,18 +761,18 @@ class Addon(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 addon_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 addon_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration_values: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_config: Optional[pulumi.Input[Union['AddonNamespaceConfigArgs', 'AddonNamespaceConfigArgsDict']]] = None,
-                 pod_identity_associations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AddonPodIdentityAssociationArgs', 'AddonPodIdentityAssociationArgsDict']]]]] = None,
-                 preserve: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resolve_conflicts_on_create: Optional[pulumi.Input[_builtins.str]] = None,
-                 resolve_conflicts_on_update: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_account_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 addon_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 addon_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_values: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_config: pulumi.Input[Optional[Union['AddonNamespaceConfigArgs', 'AddonNamespaceConfigArgsDict']]] = None,
+                 pod_identity_associations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AddonPodIdentityAssociationArgs', 'AddonPodIdentityAssociationArgsDict']]]]] = None,
+                 preserve: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resolve_conflicts_on_create: pulumi.Input[Optional[_builtins.str]] = None,
+                 resolve_conflicts_on_update: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_account_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -812,22 +812,22 @@ class Addon(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            addon_name: Optional[pulumi.Input[_builtins.str]] = None,
-            addon_version: Optional[pulumi.Input[_builtins.str]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-            configuration_values: Optional[pulumi.Input[_builtins.str]] = None,
-            created_at: Optional[pulumi.Input[_builtins.str]] = None,
-            modified_at: Optional[pulumi.Input[_builtins.str]] = None,
-            namespace_config: Optional[pulumi.Input[Union['AddonNamespaceConfigArgs', 'AddonNamespaceConfigArgsDict']]] = None,
-            pod_identity_associations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AddonPodIdentityAssociationArgs', 'AddonPodIdentityAssociationArgsDict']]]]] = None,
-            preserve: Optional[pulumi.Input[_builtins.bool]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            resolve_conflicts_on_create: Optional[pulumi.Input[_builtins.str]] = None,
-            resolve_conflicts_on_update: Optional[pulumi.Input[_builtins.str]] = None,
-            service_account_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Addon':
+            addon_name: pulumi.Input[Optional[_builtins.str]] = None,
+            addon_version: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+            configuration_values: pulumi.Input[Optional[_builtins.str]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            modified_at: pulumi.Input[Optional[_builtins.str]] = None,
+            namespace_config: pulumi.Input[Optional[Union['AddonNamespaceConfigArgs', 'AddonNamespaceConfigArgsDict']]] = None,
+            pod_identity_associations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AddonPodIdentityAssociationArgs', 'AddonPodIdentityAssociationArgsDict']]]]] = None,
+            preserve: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resolve_conflicts_on_create: pulumi.Input[Optional[_builtins.str]] = None,
+            resolve_conflicts_on_update: pulumi.Input[Optional[_builtins.str]] = None,
+            service_account_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Addon':
         """
         Get an existing Addon resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

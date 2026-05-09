@@ -22,10 +22,10 @@ __all__ = ['ReservedInstanceArgs', 'ReservedInstance']
 class ReservedInstanceArgs:
     def __init__(__self__, *,
                  offering_id: pulumi.Input[_builtins.str],
-                 instance_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 reservation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 reservation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ReservedInstance resource.
 
@@ -63,75 +63,75 @@ class ReservedInstanceArgs:
 
     @_builtins.property
     @pulumi.getter(name="instanceCount")
-    def instance_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def instance_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of instances to reserve. Default value is `1`.
         """
         return pulumi.get(self, "instance_count")
 
     @instance_count.setter
-    def instance_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def instance_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "instance_count", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="reservationId")
-    def reservation_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reservation_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Customer-specified identifier to track this reservation.
         """
         return pulumi.get(self, "reservation_id")
 
     @reservation_id.setter
-    def reservation_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reservation_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reservation_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _ReservedInstanceState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 currency_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_instance_class: Optional[pulumi.Input[_builtins.str]] = None,
-                 duration: Optional[pulumi.Input[_builtins.int]] = None,
-                 fixed_price: Optional[pulumi.Input[_builtins.float]] = None,
-                 instance_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 lease_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 multi_az: Optional[pulumi.Input[_builtins.bool]] = None,
-                 offering_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 offering_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 recurring_charges: Optional[pulumi.Input[Sequence[pulumi.Input['ReservedInstanceRecurringChargeArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 reservation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 usage_price: Optional[pulumi.Input[_builtins.float]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 currency_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_instance_class: pulumi.Input[Optional[_builtins.str]] = None,
+                 duration: pulumi.Input[Optional[_builtins.int]] = None,
+                 fixed_price: pulumi.Input[Optional[_builtins.float]] = None,
+                 instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 lease_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 multi_az: pulumi.Input[Optional[_builtins.bool]] = None,
+                 offering_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 offering_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 recurring_charges: pulumi.Input[Optional[Sequence[pulumi.Input['ReservedInstanceRecurringChargeArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 reservation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 usage_price: pulumi.Input[Optional[_builtins.float]] = None):
         """
         Input properties used for looking up and filtering ReservedInstance resources.
 
@@ -198,103 +198,103 @@ class _ReservedInstanceState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN for the reserved DB instance.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="currencyCode")
-    def currency_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def currency_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Currency code for the reserved DB instance.
         """
         return pulumi.get(self, "currency_code")
 
     @currency_code.setter
-    def currency_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def currency_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "currency_code", value)
 
     @_builtins.property
     @pulumi.getter(name="dbInstanceClass")
-    def db_instance_class(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def db_instance_class(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         DB instance class for the reserved DB instance.
         """
         return pulumi.get(self, "db_instance_class")
 
     @db_instance_class.setter
-    def db_instance_class(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def db_instance_class(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "db_instance_class", value)
 
     @_builtins.property
     @pulumi.getter
-    def duration(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def duration(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Duration of the reservation in seconds.
         """
         return pulumi.get(self, "duration")
 
     @duration.setter
-    def duration(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def duration(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "duration", value)
 
     @_builtins.property
     @pulumi.getter(name="fixedPrice")
-    def fixed_price(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def fixed_price(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Fixed price charged for this reserved DB instance.
         """
         return pulumi.get(self, "fixed_price")
 
     @fixed_price.setter
-    def fixed_price(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def fixed_price(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "fixed_price", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceCount")
-    def instance_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def instance_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of instances to reserve. Default value is `1`.
         """
         return pulumi.get(self, "instance_count")
 
     @instance_count.setter
-    def instance_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def instance_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "instance_count", value)
 
     @_builtins.property
     @pulumi.getter(name="leaseId")
-    def lease_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lease_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique identifier for the lease associated with the reserved DB instance. Amazon Web Services Support might request the lease ID for an issue related to a reserved DB instance.
         """
         return pulumi.get(self, "lease_id")
 
     @lease_id.setter
-    def lease_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lease_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lease_id", value)
 
     @_builtins.property
     @pulumi.getter(name="multiAz")
-    def multi_az(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def multi_az(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the reservation applies to Multi-AZ deployments.
         """
         return pulumi.get(self, "multi_az")
 
     @multi_az.setter
-    def multi_az(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def multi_az(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "multi_az", value)
 
     @_builtins.property
     @pulumi.getter(name="offeringId")
-    def offering_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def offering_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the `rds_get_reserved_instance_offering` data source.
 
@@ -303,127 +303,127 @@ class _ReservedInstanceState:
         return pulumi.get(self, "offering_id")
 
     @offering_id.setter
-    def offering_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def offering_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "offering_id", value)
 
     @_builtins.property
     @pulumi.getter(name="offeringType")
-    def offering_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def offering_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Offering type of this reserved DB instance.
         """
         return pulumi.get(self, "offering_type")
 
     @offering_type.setter
-    def offering_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def offering_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "offering_type", value)
 
     @_builtins.property
     @pulumi.getter(name="productDescription")
-    def product_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def product_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the reserved DB instance.
         """
         return pulumi.get(self, "product_description")
 
     @product_description.setter
-    def product_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def product_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "product_description", value)
 
     @_builtins.property
     @pulumi.getter(name="recurringCharges")
-    def recurring_charges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReservedInstanceRecurringChargeArgs']]]]:
+    def recurring_charges(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ReservedInstanceRecurringChargeArgs']]]]:
         """
         Recurring price charged to run this reserved DB instance.
         """
         return pulumi.get(self, "recurring_charges")
 
     @recurring_charges.setter
-    def recurring_charges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReservedInstanceRecurringChargeArgs']]]]):
+    def recurring_charges(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ReservedInstanceRecurringChargeArgs']]]]):
         pulumi.set(self, "recurring_charges", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="reservationId")
-    def reservation_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reservation_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Customer-specified identifier to track this reservation.
         """
         return pulumi.get(self, "reservation_id")
 
     @reservation_id.setter
-    def reservation_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reservation_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reservation_id", value)
 
     @_builtins.property
     @pulumi.getter(name="startTime")
-    def start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Time the reservation started.
         """
         return pulumi.get(self, "start_time")
 
     @start_time.setter
-    def start_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         State of the reserved DB instance.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="usagePrice")
-    def usage_price(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def usage_price(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Hourly price charged for this reserved DB instance.
         """
         return pulumi.get(self, "usage_price")
 
     @usage_price.setter
-    def usage_price(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def usage_price(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "usage_price", value)
 
 
@@ -433,11 +433,11 @@ class ReservedInstance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 instance_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 offering_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 reservation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 offering_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 reservation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages an RDS DB Reserved Instance.
@@ -536,11 +536,11 @@ class ReservedInstance(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 instance_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 offering_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 reservation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 offering_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 reservation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -581,25 +581,25 @@ class ReservedInstance(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            currency_code: Optional[pulumi.Input[_builtins.str]] = None,
-            db_instance_class: Optional[pulumi.Input[_builtins.str]] = None,
-            duration: Optional[pulumi.Input[_builtins.int]] = None,
-            fixed_price: Optional[pulumi.Input[_builtins.float]] = None,
-            instance_count: Optional[pulumi.Input[_builtins.int]] = None,
-            lease_id: Optional[pulumi.Input[_builtins.str]] = None,
-            multi_az: Optional[pulumi.Input[_builtins.bool]] = None,
-            offering_id: Optional[pulumi.Input[_builtins.str]] = None,
-            offering_type: Optional[pulumi.Input[_builtins.str]] = None,
-            product_description: Optional[pulumi.Input[_builtins.str]] = None,
-            recurring_charges: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReservedInstanceRecurringChargeArgs', 'ReservedInstanceRecurringChargeArgsDict']]]]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            reservation_id: Optional[pulumi.Input[_builtins.str]] = None,
-            start_time: Optional[pulumi.Input[_builtins.str]] = None,
-            state: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            usage_price: Optional[pulumi.Input[_builtins.float]] = None) -> 'ReservedInstance':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            currency_code: pulumi.Input[Optional[_builtins.str]] = None,
+            db_instance_class: pulumi.Input[Optional[_builtins.str]] = None,
+            duration: pulumi.Input[Optional[_builtins.int]] = None,
+            fixed_price: pulumi.Input[Optional[_builtins.float]] = None,
+            instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+            lease_id: pulumi.Input[Optional[_builtins.str]] = None,
+            multi_az: pulumi.Input[Optional[_builtins.bool]] = None,
+            offering_id: pulumi.Input[Optional[_builtins.str]] = None,
+            offering_type: pulumi.Input[Optional[_builtins.str]] = None,
+            product_description: pulumi.Input[Optional[_builtins.str]] = None,
+            recurring_charges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReservedInstanceRecurringChargeArgs', 'ReservedInstanceRecurringChargeArgsDict']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            reservation_id: pulumi.Input[Optional[_builtins.str]] = None,
+            start_time: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            usage_price: pulumi.Input[Optional[_builtins.float]] = None) -> 'ReservedInstance':
         """
         Get an existing ReservedInstance resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

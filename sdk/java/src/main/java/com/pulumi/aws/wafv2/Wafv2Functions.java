@@ -41,8 +41,8 @@ public final class Wafv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafv2.Wafv2Functions;
      * import com.pulumi.aws.wafv2.inputs.GetIpSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -82,8 +82,8 @@ public final class Wafv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafv2.Wafv2Functions;
      * import com.pulumi.aws.wafv2.inputs.GetIpSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -123,8 +123,8 @@ public final class Wafv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafv2.Wafv2Functions;
      * import com.pulumi.aws.wafv2.inputs.GetIpSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -164,8 +164,8 @@ public final class Wafv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafv2.Wafv2Functions;
      * import com.pulumi.aws.wafv2.inputs.GetIpSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -205,8 +205,8 @@ public final class Wafv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafv2.Wafv2Functions;
      * import com.pulumi.aws.wafv2.inputs.GetIpSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -246,8 +246,8 @@ public final class Wafv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafv2.Wafv2Functions;
      * import com.pulumi.aws.wafv2.inputs.GetManagedRuleGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -288,8 +288,8 @@ public final class Wafv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafv2.Wafv2Functions;
      * import com.pulumi.aws.wafv2.inputs.GetManagedRuleGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -330,8 +330,8 @@ public final class Wafv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafv2.Wafv2Functions;
      * import com.pulumi.aws.wafv2.inputs.GetManagedRuleGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -372,8 +372,8 @@ public final class Wafv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafv2.Wafv2Functions;
      * import com.pulumi.aws.wafv2.inputs.GetManagedRuleGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -414,8 +414,8 @@ public final class Wafv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafv2.Wafv2Functions;
      * import com.pulumi.aws.wafv2.inputs.GetManagedRuleGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -456,8 +456,8 @@ public final class Wafv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafv2.Wafv2Functions;
      * import com.pulumi.aws.wafv2.inputs.GetRegexPatternSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -497,8 +497,8 @@ public final class Wafv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafv2.Wafv2Functions;
      * import com.pulumi.aws.wafv2.inputs.GetRegexPatternSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -538,8 +538,8 @@ public final class Wafv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafv2.Wafv2Functions;
      * import com.pulumi.aws.wafv2.inputs.GetRegexPatternSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -579,8 +579,8 @@ public final class Wafv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafv2.Wafv2Functions;
      * import com.pulumi.aws.wafv2.inputs.GetRegexPatternSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -620,8 +620,8 @@ public final class Wafv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafv2.Wafv2Functions;
      * import com.pulumi.aws.wafv2.inputs.GetRegexPatternSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -661,8 +661,8 @@ public final class Wafv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafv2.Wafv2Functions;
      * import com.pulumi.aws.wafv2.inputs.GetRuleGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -702,8 +702,8 @@ public final class Wafv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafv2.Wafv2Functions;
      * import com.pulumi.aws.wafv2.inputs.GetRuleGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -743,8 +743,8 @@ public final class Wafv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafv2.Wafv2Functions;
      * import com.pulumi.aws.wafv2.inputs.GetRuleGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -784,8 +784,8 @@ public final class Wafv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafv2.Wafv2Functions;
      * import com.pulumi.aws.wafv2.inputs.GetRuleGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -825,8 +825,8 @@ public final class Wafv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafv2.Wafv2Functions;
      * import com.pulumi.aws.wafv2.inputs.GetRuleGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

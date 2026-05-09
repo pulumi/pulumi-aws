@@ -165,9 +165,9 @@ def get_detector(id: Optional[_builtins.str] = None,
         service_role_arn=pulumi.get(__ret__, 'service_role_arn'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_detector_output(id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                        region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                        tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_detector_output(id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDetectorResult]:
     """
     Retrieve information about a GuardDuty detector.

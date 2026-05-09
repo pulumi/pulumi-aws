@@ -26,10 +26,10 @@ class DevEnvironmentArgs:
                  persistent_storage: pulumi.Input['DevEnvironmentPersistentStorageArgs'],
                  project_name: pulumi.Input[_builtins.str],
                  space_name: pulumi.Input[_builtins.str],
-                 alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 inactivity_timeout_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 repositories: Optional[pulumi.Input[Sequence[pulumi.Input['DevEnvironmentRepositoryArgs']]]] = None):
+                 alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 inactivity_timeout_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 repositories: pulumi.Input[Optional[Sequence[pulumi.Input['DevEnvironmentRepositoryArgs']]]] = None):
         """
         The set of arguments for constructing a DevEnvironment resource.
 
@@ -122,62 +122,62 @@ class DevEnvironmentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "alias")
 
     @alias.setter
-    def alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alias", value)
 
     @_builtins.property
     @pulumi.getter(name="inactivityTimeoutMinutes")
-    def inactivity_timeout_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def inactivity_timeout_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
         """
         return pulumi.get(self, "inactivity_timeout_minutes")
 
     @inactivity_timeout_minutes.setter
-    def inactivity_timeout_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def inactivity_timeout_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "inactivity_timeout_minutes", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DevEnvironmentRepositoryArgs']]]]:
+    def repositories(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DevEnvironmentRepositoryArgs']]]]:
         """
         The source repository that contains the branch to clone into the Dev Environment.
         """
         return pulumi.get(self, "repositories")
 
     @repositories.setter
-    def repositories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DevEnvironmentRepositoryArgs']]]]):
+    def repositories(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DevEnvironmentRepositoryArgs']]]]):
         pulumi.set(self, "repositories", value)
 
 
 @pulumi.input_type
 class _DevEnvironmentState:
     def __init__(__self__, *,
-                 alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 ides: Optional[pulumi.Input['DevEnvironmentIdesArgs']] = None,
-                 inactivity_timeout_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 persistent_storage: Optional[pulumi.Input['DevEnvironmentPersistentStorageArgs']] = None,
-                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 repositories: Optional[pulumi.Input[Sequence[pulumi.Input['DevEnvironmentRepositoryArgs']]]] = None,
-                 space_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 ides: pulumi.Input[Optional['DevEnvironmentIdesArgs']] = None,
+                 inactivity_timeout_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 persistent_storage: pulumi.Input[Optional['DevEnvironmentPersistentStorageArgs']] = None,
+                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 repositories: pulumi.Input[Optional[Sequence[pulumi.Input['DevEnvironmentRepositoryArgs']]]] = None,
+                 space_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DevEnvironment resources.
 
@@ -213,40 +213,40 @@ class _DevEnvironmentState:
 
     @_builtins.property
     @pulumi.getter
-    def alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "alias")
 
     @alias.setter
-    def alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alias", value)
 
     @_builtins.property
     @pulumi.getter
-    def ides(self) -> Optional[pulumi.Input['DevEnvironmentIdesArgs']]:
+    def ides(self) -> pulumi.Input[Optional['DevEnvironmentIdesArgs']]:
         """
         Information about the integrated development environment (IDE) configured for a Dev Environment.
         """
         return pulumi.get(self, "ides")
 
     @ides.setter
-    def ides(self, value: Optional[pulumi.Input['DevEnvironmentIdesArgs']]):
+    def ides(self, value: pulumi.Input[Optional['DevEnvironmentIdesArgs']]):
         pulumi.set(self, "ides", value)
 
     @_builtins.property
     @pulumi.getter(name="inactivityTimeoutMinutes")
-    def inactivity_timeout_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def inactivity_timeout_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
         """
         return pulumi.get(self, "inactivity_timeout_minutes")
 
     @inactivity_timeout_minutes.setter
-    def inactivity_timeout_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def inactivity_timeout_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "inactivity_timeout_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceType")
-    def instance_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
 
@@ -255,67 +255,67 @@ class _DevEnvironmentState:
         return pulumi.get(self, "instance_type")
 
     @instance_type.setter
-    def instance_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_type", value)
 
     @_builtins.property
     @pulumi.getter(name="persistentStorage")
-    def persistent_storage(self) -> Optional[pulumi.Input['DevEnvironmentPersistentStorageArgs']]:
+    def persistent_storage(self) -> pulumi.Input[Optional['DevEnvironmentPersistentStorageArgs']]:
         """
         Information about the amount of storage allocated to the Dev Environment.
         """
         return pulumi.get(self, "persistent_storage")
 
     @persistent_storage.setter
-    def persistent_storage(self, value: Optional[pulumi.Input['DevEnvironmentPersistentStorageArgs']]):
+    def persistent_storage(self, value: pulumi.Input[Optional['DevEnvironmentPersistentStorageArgs']]):
         pulumi.set(self, "persistent_storage", value)
 
     @_builtins.property
     @pulumi.getter(name="projectName")
-    def project_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the project in the space.
         """
         return pulumi.get(self, "project_name")
 
     @project_name.setter
-    def project_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DevEnvironmentRepositoryArgs']]]]:
+    def repositories(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DevEnvironmentRepositoryArgs']]]]:
         """
         The source repository that contains the branch to clone into the Dev Environment.
         """
         return pulumi.get(self, "repositories")
 
     @repositories.setter
-    def repositories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DevEnvironmentRepositoryArgs']]]]):
+    def repositories(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DevEnvironmentRepositoryArgs']]]]):
         pulumi.set(self, "repositories", value)
 
     @_builtins.property
     @pulumi.getter(name="spaceName")
-    def space_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def space_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the space.
         """
         return pulumi.get(self, "space_name")
 
     @space_name.setter
-    def space_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def space_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "space_name", value)
 
 
@@ -325,15 +325,15 @@ class DevEnvironment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 ides: Optional[pulumi.Input[Union['DevEnvironmentIdesArgs', 'DevEnvironmentIdesArgsDict']]] = None,
-                 inactivity_timeout_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 persistent_storage: Optional[pulumi.Input[Union['DevEnvironmentPersistentStorageArgs', 'DevEnvironmentPersistentStorageArgsDict']]] = None,
-                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 repositories: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DevEnvironmentRepositoryArgs', 'DevEnvironmentRepositoryArgsDict']]]]] = None,
-                 space_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 ides: pulumi.Input[Optional[Union['DevEnvironmentIdesArgs', 'DevEnvironmentIdesArgsDict']]] = None,
+                 inactivity_timeout_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 persistent_storage: pulumi.Input[Optional[Union['DevEnvironmentPersistentStorageArgs', 'DevEnvironmentPersistentStorageArgsDict']]] = None,
+                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 repositories: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DevEnvironmentRepositoryArgs', 'DevEnvironmentRepositoryArgsDict']]]]] = None,
+                 space_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing an AWS CodeCatalyst Dev Environment.
@@ -427,15 +427,15 @@ class DevEnvironment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 ides: Optional[pulumi.Input[Union['DevEnvironmentIdesArgs', 'DevEnvironmentIdesArgsDict']]] = None,
-                 inactivity_timeout_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 persistent_storage: Optional[pulumi.Input[Union['DevEnvironmentPersistentStorageArgs', 'DevEnvironmentPersistentStorageArgsDict']]] = None,
-                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 repositories: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DevEnvironmentRepositoryArgs', 'DevEnvironmentRepositoryArgsDict']]]]] = None,
-                 space_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 ides: pulumi.Input[Optional[Union['DevEnvironmentIdesArgs', 'DevEnvironmentIdesArgsDict']]] = None,
+                 inactivity_timeout_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 persistent_storage: pulumi.Input[Optional[Union['DevEnvironmentPersistentStorageArgs', 'DevEnvironmentPersistentStorageArgsDict']]] = None,
+                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 repositories: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DevEnvironmentRepositoryArgs', 'DevEnvironmentRepositoryArgsDict']]]]] = None,
+                 space_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -474,15 +474,15 @@ class DevEnvironment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            alias: Optional[pulumi.Input[_builtins.str]] = None,
-            ides: Optional[pulumi.Input[Union['DevEnvironmentIdesArgs', 'DevEnvironmentIdesArgsDict']]] = None,
-            inactivity_timeout_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-            instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-            persistent_storage: Optional[pulumi.Input[Union['DevEnvironmentPersistentStorageArgs', 'DevEnvironmentPersistentStorageArgsDict']]] = None,
-            project_name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            repositories: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DevEnvironmentRepositoryArgs', 'DevEnvironmentRepositoryArgsDict']]]]] = None,
-            space_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'DevEnvironment':
+            alias: pulumi.Input[Optional[_builtins.str]] = None,
+            ides: pulumi.Input[Optional[Union['DevEnvironmentIdesArgs', 'DevEnvironmentIdesArgsDict']]] = None,
+            inactivity_timeout_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+            persistent_storage: pulumi.Input[Optional[Union['DevEnvironmentPersistentStorageArgs', 'DevEnvironmentPersistentStorageArgsDict']]] = None,
+            project_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            repositories: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DevEnvironmentRepositoryArgs', 'DevEnvironmentRepositoryArgsDict']]]]] = None,
+            space_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'DevEnvironment':
         """
         Get an existing DevEnvironment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

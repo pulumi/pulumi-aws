@@ -42,7 +42,7 @@ namespace Pulumi.Aws.Ec2
         ///         },
         ///     });
         /// 
-        ///     var exampleGetSubnet = Std.Index.Toset.Invoke(new()
+        ///     var exampleGetSubnet = Std.Toset.Invoke(new()
         ///     {
         ///         Input = example.Apply(getSubnetsResult =&gt; getSubnetsResult.Ids),
         ///     }).Apply(invoke =&gt; );
@@ -137,7 +137,7 @@ namespace Pulumi.Aws.Ec2
         ///         },
         ///     });
         /// 
-        ///     var exampleGetSubnet = Std.Index.Toset.Invoke(new()
+        ///     var exampleGetSubnet = Std.Toset.Invoke(new()
         ///     {
         ///         Input = example.Apply(getSubnetsResult =&gt; getSubnetsResult.Ids),
         ///     }).Apply(invoke =&gt; );
@@ -232,7 +232,7 @@ namespace Pulumi.Aws.Ec2
         ///         },
         ///     });
         /// 
-        ///     var exampleGetSubnet = Std.Index.Toset.Invoke(new()
+        ///     var exampleGetSubnet = Std.Toset.Invoke(new()
         ///     {
         ///         Input = example.Apply(getSubnetsResult =&gt; getSubnetsResult.Ids),
         ///     }).Apply(invoke =&gt; );

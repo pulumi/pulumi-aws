@@ -230,33 +230,33 @@ export interface BucketLoggingV2State {
     /**
      * Name of the bucket.
      */
-    bucket?: pulumi.Input<string>;
+    bucket?: pulumi.Input<string | undefined>;
     /**
      * Account ID of the expected bucket owner.
      *
      * @deprecated expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
      */
-    expectedBucketOwner?: pulumi.Input<string>;
+    expectedBucketOwner?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Name of the bucket where you want Amazon S3 to store server access logs.
      */
-    targetBucket?: pulumi.Input<string>;
+    targetBucket?: pulumi.Input<string | undefined>;
     /**
      * Set of configuration blocks with information for granting permissions. See below.
      */
-    targetGrants?: pulumi.Input<pulumi.Input<inputs.s3.BucketLoggingV2TargetGrant>[]>;
+    targetGrants?: pulumi.Input<pulumi.Input<inputs.s3.BucketLoggingV2TargetGrant>[] | undefined>;
     /**
      * Amazon S3 key format for log objects. See below.
      */
-    targetObjectKeyFormat?: pulumi.Input<inputs.s3.BucketLoggingV2TargetObjectKeyFormat>;
+    targetObjectKeyFormat?: pulumi.Input<inputs.s3.BucketLoggingV2TargetObjectKeyFormat | undefined>;
     /**
      * Prefix for all log object keys.
      */
-    targetPrefix?: pulumi.Input<string>;
+    targetPrefix?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -272,11 +272,11 @@ export interface BucketLoggingV2Args {
      *
      * @deprecated expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
      */
-    expectedBucketOwner?: pulumi.Input<string>;
+    expectedBucketOwner?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Name of the bucket where you want Amazon S3 to store server access logs.
      */
@@ -284,11 +284,11 @@ export interface BucketLoggingV2Args {
     /**
      * Set of configuration blocks with information for granting permissions. See below.
      */
-    targetGrants?: pulumi.Input<pulumi.Input<inputs.s3.BucketLoggingV2TargetGrant>[]>;
+    targetGrants?: pulumi.Input<pulumi.Input<inputs.s3.BucketLoggingV2TargetGrant>[] | undefined>;
     /**
      * Amazon S3 key format for log objects. See below.
      */
-    targetObjectKeyFormat?: pulumi.Input<inputs.s3.BucketLoggingV2TargetObjectKeyFormat>;
+    targetObjectKeyFormat?: pulumi.Input<inputs.s3.BucketLoggingV2TargetObjectKeyFormat | undefined>;
     /**
      * Prefix for all log object keys.
      */

@@ -137,21 +137,21 @@ export interface SecretPolicyState {
     /**
      * Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
      */
-    blockPublicPolicy?: pulumi.Input<boolean>;
+    blockPublicPolicy?: pulumi.Input<boolean | undefined>;
     /**
      * Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `aws.secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
      */
-    policy?: pulumi.Input<string>;
+    policy?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Secret ARN.
      *
      * The following arguments are optional:
      */
-    secretArn?: pulumi.Input<string>;
+    secretArn?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -161,7 +161,7 @@ export interface SecretPolicyArgs {
     /**
      * Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
      */
-    blockPublicPolicy?: pulumi.Input<boolean>;
+    blockPublicPolicy?: pulumi.Input<boolean | undefined>;
     /**
      * Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `aws.secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
      */
@@ -169,7 +169,7 @@ export interface SecretPolicyArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Secret ARN.
      *

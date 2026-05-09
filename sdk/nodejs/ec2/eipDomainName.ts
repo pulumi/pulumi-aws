@@ -127,20 +127,20 @@ export interface EipDomainNameState {
     /**
      * The allocation ID.
      */
-    allocationId?: pulumi.Input<string>;
+    allocationId?: pulumi.Input<string | undefined>;
     /**
      * The domain name to modify for the IP address.
      */
-    domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string | undefined>;
     /**
      * The DNS pointer (PTR) record for the IP address.
      */
-    ptrRecord?: pulumi.Input<string>;
+    ptrRecord?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.ec2.EipDomainNameTimeouts>;
+    region?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.ec2.EipDomainNameTimeouts | undefined>;
 }
 
 /**
@@ -158,6 +158,6 @@ export interface EipDomainNameArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.ec2.EipDomainNameTimeouts>;
+    region?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.ec2.EipDomainNameTimeouts | undefined>;
 }

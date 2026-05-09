@@ -160,41 +160,41 @@ export interface PortfolioShareState {
     /**
      * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
      */
-    acceptLanguage?: pulumi.Input<string>;
+    acceptLanguage?: pulumi.Input<string | undefined>;
     /**
      * Whether the shared portfolio is imported by the recipient account. If the recipient is organizational, the share is automatically imported, and the field is always set to true.
      */
-    accepted?: pulumi.Input<boolean>;
+    accepted?: pulumi.Input<boolean | undefined>;
     /**
      * Portfolio identifier.
      */
-    portfolioId?: pulumi.Input<string>;
+    portfolioId?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
      */
-    principalId?: pulumi.Input<string>;
+    principalId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
      */
-    sharePrincipals?: pulumi.Input<boolean>;
+    sharePrincipals?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to enable sharing of `aws.servicecatalog.TagOption` resources when creating the portfolio share.
      */
-    shareTagOptions?: pulumi.Input<boolean>;
+    shareTagOptions?: pulumi.Input<boolean | undefined>;
     /**
      * Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
      *
      * The following arguments are optional:
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * Whether to wait (up to the timeout) for the share to be accepted. Organizational shares are automatically accepted.
      */
-    waitForAcceptance?: pulumi.Input<boolean>;
+    waitForAcceptance?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -204,7 +204,7 @@ export interface PortfolioShareArgs {
     /**
      * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
      */
-    acceptLanguage?: pulumi.Input<string>;
+    acceptLanguage?: pulumi.Input<string | undefined>;
     /**
      * Portfolio identifier.
      */
@@ -216,15 +216,15 @@ export interface PortfolioShareArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
      */
-    sharePrincipals?: pulumi.Input<boolean>;
+    sharePrincipals?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to enable sharing of `aws.servicecatalog.TagOption` resources when creating the portfolio share.
      */
-    shareTagOptions?: pulumi.Input<boolean>;
+    shareTagOptions?: pulumi.Input<boolean | undefined>;
     /**
      * Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
      *
@@ -234,5 +234,5 @@ export interface PortfolioShareArgs {
     /**
      * Whether to wait (up to the timeout) for the share to be accepted. Organizational shares are automatically accepted.
      */
-    waitForAcceptance?: pulumi.Input<boolean>;
+    waitForAcceptance?: pulumi.Input<boolean | undefined>;
 }

@@ -148,21 +148,21 @@ export interface CustomerGatewayAssociationState {
     /**
      * ARN of the customer gateway.
      */
-    customerGatewayArn?: pulumi.Input<string>;
+    customerGatewayArn?: pulumi.Input<string | undefined>;
     /**
      * ID of the device.
      */
-    deviceId?: pulumi.Input<string>;
+    deviceId?: pulumi.Input<string | undefined>;
     /**
      * ID of the global network.
      *
      * The following arguments are optional:
      */
-    globalNetworkId?: pulumi.Input<string>;
+    globalNetworkId?: pulumi.Input<string | undefined>;
     /**
      * ID of the link.
      */
-    linkId?: pulumi.Input<string>;
+    linkId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -186,5 +186,5 @@ export interface CustomerGatewayAssociationArgs {
     /**
      * ID of the link.
      */
-    linkId?: pulumi.Input<string>;
+    linkId?: pulumi.Input<string | undefined>;
 }

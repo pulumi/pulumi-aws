@@ -156,42 +156,42 @@ export interface AssetTypeState {
     /**
      * The timestamp when the custom asset type was created.
      */
-    createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string | undefined>;
     /**
      * The user who created the custom asset type.
      */
-    createdBy?: pulumi.Input<string>;
+    createdBy?: pulumi.Input<string | undefined>;
     /**
      * The description of the custom asset type.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The unique identifier of the Amazon DataZone domain where the custom asset type is being created.
      */
-    domainIdentifier?: pulumi.Input<string>;
+    domainIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The metadata forms that are to be attached to the custom asset type.
      */
-    formsInputs?: pulumi.Input<pulumi.Input<inputs.datazone.AssetTypeFormsInput>[]>;
+    formsInputs?: pulumi.Input<pulumi.Input<inputs.datazone.AssetTypeFormsInput>[] | undefined>;
     /**
      * The name of the custom asset type.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The unique identifier of the Amazon DataZone project that owns the custom asset type.
      *
      * The following arguments are optional:
      */
-    owningProjectIdentifier?: pulumi.Input<string>;
+    owningProjectIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The revision of the asset type.
      */
-    revision?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.datazone.AssetTypeTimeouts>;
+    revision?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.datazone.AssetTypeTimeouts | undefined>;
 }
 
 /**
@@ -201,7 +201,7 @@ export interface AssetTypeArgs {
     /**
      * The description of the custom asset type.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The unique identifier of the Amazon DataZone domain where the custom asset type is being created.
      */
@@ -209,11 +209,11 @@ export interface AssetTypeArgs {
     /**
      * The metadata forms that are to be attached to the custom asset type.
      */
-    formsInputs?: pulumi.Input<pulumi.Input<inputs.datazone.AssetTypeFormsInput>[]>;
+    formsInputs?: pulumi.Input<pulumi.Input<inputs.datazone.AssetTypeFormsInput>[] | undefined>;
     /**
      * The name of the custom asset type.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The unique identifier of the Amazon DataZone project that owns the custom asset type.
      *
@@ -223,6 +223,6 @@ export interface AssetTypeArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.datazone.AssetTypeTimeouts>;
+    region?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.datazone.AssetTypeTimeouts | undefined>;
 }

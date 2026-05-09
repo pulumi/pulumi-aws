@@ -219,51 +219,51 @@ export interface RepositoryCreationTemplateState {
     /**
      * Which features this template applies to. Must contain one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
      */
-    appliedFors?: pulumi.Input<pulumi.Input<string>[]>;
+    appliedFors?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A custom IAM role to use for repository creation. Required if using repository tags or KMS encryption.
      */
-    customRoleArn?: pulumi.Input<string>;
+    customRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The description for this template.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Encryption configuration for any created repositories. See below for schema.
      */
-    encryptionConfigurations?: pulumi.Input<pulumi.Input<inputs.ecr.RepositoryCreationTemplateEncryptionConfiguration>[]>;
+    encryptionConfigurations?: pulumi.Input<pulumi.Input<inputs.ecr.RepositoryCreationTemplateEncryptionConfiguration>[] | undefined>;
     /**
      * The tag mutability setting for any created repositories. Must be one of: `MUTABLE`, `IMMUTABLE`, `IMMUTABLE_WITH_EXCLUSION`, or `MUTABLE_WITH_EXCLUSION`. Defaults to `MUTABLE`.
      */
-    imageTagMutability?: pulumi.Input<string>;
+    imageTagMutability?: pulumi.Input<string | undefined>;
     /**
      * Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `imageTagMutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
      */
-    imageTagMutabilityExclusionFilters?: pulumi.Input<pulumi.Input<inputs.ecr.RepositoryCreationTemplateImageTagMutabilityExclusionFilter>[]>;
+    imageTagMutabilityExclusionFilters?: pulumi.Input<pulumi.Input<inputs.ecr.RepositoryCreationTemplateImageTagMutabilityExclusionFilter>[] | undefined>;
     /**
      * The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `aws.ecr.getLifecyclePolicyDocument` dataSource to generate/manage the JSON document used for the `lifecyclePolicy` argument.
      */
-    lifecyclePolicy?: pulumi.Input<string>;
+    lifecyclePolicy?: pulumi.Input<string | undefined>;
     /**
      * The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
      */
-    prefix?: pulumi.Input<string>;
+    prefix?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The registry ID the repository creation template applies to.
      */
-    registryId?: pulumi.Input<string>;
+    registryId?: pulumi.Input<string | undefined>;
     /**
      * The registry policy document to apply to any created repositories. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
      */
-    repositoryPolicy?: pulumi.Input<string>;
+    repositoryPolicy?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to any created repositories.
      */
-    resourceTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    resourceTags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -277,27 +277,27 @@ export interface RepositoryCreationTemplateArgs {
     /**
      * A custom IAM role to use for repository creation. Required if using repository tags or KMS encryption.
      */
-    customRoleArn?: pulumi.Input<string>;
+    customRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The description for this template.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Encryption configuration for any created repositories. See below for schema.
      */
-    encryptionConfigurations?: pulumi.Input<pulumi.Input<inputs.ecr.RepositoryCreationTemplateEncryptionConfiguration>[]>;
+    encryptionConfigurations?: pulumi.Input<pulumi.Input<inputs.ecr.RepositoryCreationTemplateEncryptionConfiguration>[] | undefined>;
     /**
      * The tag mutability setting for any created repositories. Must be one of: `MUTABLE`, `IMMUTABLE`, `IMMUTABLE_WITH_EXCLUSION`, or `MUTABLE_WITH_EXCLUSION`. Defaults to `MUTABLE`.
      */
-    imageTagMutability?: pulumi.Input<string>;
+    imageTagMutability?: pulumi.Input<string | undefined>;
     /**
      * Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `imageTagMutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
      */
-    imageTagMutabilityExclusionFilters?: pulumi.Input<pulumi.Input<inputs.ecr.RepositoryCreationTemplateImageTagMutabilityExclusionFilter>[]>;
+    imageTagMutabilityExclusionFilters?: pulumi.Input<pulumi.Input<inputs.ecr.RepositoryCreationTemplateImageTagMutabilityExclusionFilter>[] | undefined>;
     /**
      * The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `aws.ecr.getLifecyclePolicyDocument` dataSource to generate/manage the JSON document used for the `lifecyclePolicy` argument.
      */
-    lifecyclePolicy?: pulumi.Input<string>;
+    lifecyclePolicy?: pulumi.Input<string | undefined>;
     /**
      * The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
      */
@@ -305,13 +305,13 @@ export interface RepositoryCreationTemplateArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The registry policy document to apply to any created repositories. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
      */
-    repositoryPolicy?: pulumi.Input<string>;
+    repositoryPolicy?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to any created repositories.
      */
-    resourceTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    resourceTags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

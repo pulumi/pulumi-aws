@@ -20,19 +20,19 @@ __all__ = ['NetworkProfileArgs', 'NetworkProfile']
 class NetworkProfileArgs:
     def __init__(__self__, *,
                  project_arn: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 downlink_bandwidth_bits: Optional[pulumi.Input[_builtins.int]] = None,
-                 downlink_delay_ms: Optional[pulumi.Input[_builtins.int]] = None,
-                 downlink_jitter_ms: Optional[pulumi.Input[_builtins.int]] = None,
-                 downlink_loss_percent: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 uplink_bandwidth_bits: Optional[pulumi.Input[_builtins.int]] = None,
-                 uplink_delay_ms: Optional[pulumi.Input[_builtins.int]] = None,
-                 uplink_jitter_ms: Optional[pulumi.Input[_builtins.int]] = None,
-                 uplink_loss_percent: Optional[pulumi.Input[_builtins.int]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 downlink_bandwidth_bits: pulumi.Input[Optional[_builtins.int]] = None,
+                 downlink_delay_ms: pulumi.Input[Optional[_builtins.int]] = None,
+                 downlink_jitter_ms: pulumi.Input[Optional[_builtins.int]] = None,
+                 downlink_loss_percent: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 uplink_bandwidth_bits: pulumi.Input[Optional[_builtins.int]] = None,
+                 uplink_delay_ms: pulumi.Input[Optional[_builtins.int]] = None,
+                 uplink_jitter_ms: pulumi.Input[Optional[_builtins.int]] = None,
+                 uplink_loss_percent: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a NetworkProfile resource.
 
@@ -93,180 +93,180 @@ class NetworkProfileArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the network profile.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="downlinkBandwidthBits")
-    def downlink_bandwidth_bits(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def downlink_bandwidth_bits(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
         """
         return pulumi.get(self, "downlink_bandwidth_bits")
 
     @downlink_bandwidth_bits.setter
-    def downlink_bandwidth_bits(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def downlink_bandwidth_bits(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "downlink_bandwidth_bits", value)
 
     @_builtins.property
     @pulumi.getter(name="downlinkDelayMs")
-    def downlink_delay_ms(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def downlink_delay_ms(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
         """
         return pulumi.get(self, "downlink_delay_ms")
 
     @downlink_delay_ms.setter
-    def downlink_delay_ms(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def downlink_delay_ms(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "downlink_delay_ms", value)
 
     @_builtins.property
     @pulumi.getter(name="downlinkJitterMs")
-    def downlink_jitter_ms(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def downlink_jitter_ms(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
         """
         return pulumi.get(self, "downlink_jitter_ms")
 
     @downlink_jitter_ms.setter
-    def downlink_jitter_ms(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def downlink_jitter_ms(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "downlink_jitter_ms", value)
 
     @_builtins.property
     @pulumi.getter(name="downlinkLossPercent")
-    def downlink_loss_percent(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def downlink_loss_percent(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Proportion of received packets that fail to arrive from `0` to `100` percent.
         """
         return pulumi.get(self, "downlink_loss_percent")
 
     @downlink_loss_percent.setter
-    def downlink_loss_percent(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def downlink_loss_percent(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "downlink_loss_percent", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name for the network profile.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of network profile to create. Valid values are listed are `PRIVATE` and `CURATED`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="uplinkBandwidthBits")
-    def uplink_bandwidth_bits(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def uplink_bandwidth_bits(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
         """
         return pulumi.get(self, "uplink_bandwidth_bits")
 
     @uplink_bandwidth_bits.setter
-    def uplink_bandwidth_bits(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def uplink_bandwidth_bits(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "uplink_bandwidth_bits", value)
 
     @_builtins.property
     @pulumi.getter(name="uplinkDelayMs")
-    def uplink_delay_ms(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def uplink_delay_ms(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
         """
         return pulumi.get(self, "uplink_delay_ms")
 
     @uplink_delay_ms.setter
-    def uplink_delay_ms(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def uplink_delay_ms(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "uplink_delay_ms", value)
 
     @_builtins.property
     @pulumi.getter(name="uplinkJitterMs")
-    def uplink_jitter_ms(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def uplink_jitter_ms(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
         """
         return pulumi.get(self, "uplink_jitter_ms")
 
     @uplink_jitter_ms.setter
-    def uplink_jitter_ms(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def uplink_jitter_ms(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "uplink_jitter_ms", value)
 
     @_builtins.property
     @pulumi.getter(name="uplinkLossPercent")
-    def uplink_loss_percent(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def uplink_loss_percent(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Proportion of received packets that fail to arrive from `0` to `100` percent.
         """
         return pulumi.get(self, "uplink_loss_percent")
 
     @uplink_loss_percent.setter
-    def uplink_loss_percent(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def uplink_loss_percent(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "uplink_loss_percent", value)
 
 
 @pulumi.input_type
 class _NetworkProfileState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 downlink_bandwidth_bits: Optional[pulumi.Input[_builtins.int]] = None,
-                 downlink_delay_ms: Optional[pulumi.Input[_builtins.int]] = None,
-                 downlink_jitter_ms: Optional[pulumi.Input[_builtins.int]] = None,
-                 downlink_loss_percent: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 uplink_bandwidth_bits: Optional[pulumi.Input[_builtins.int]] = None,
-                 uplink_delay_ms: Optional[pulumi.Input[_builtins.int]] = None,
-                 uplink_jitter_ms: Optional[pulumi.Input[_builtins.int]] = None,
-                 uplink_loss_percent: Optional[pulumi.Input[_builtins.int]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 downlink_bandwidth_bits: pulumi.Input[Optional[_builtins.int]] = None,
+                 downlink_delay_ms: pulumi.Input[Optional[_builtins.int]] = None,
+                 downlink_jitter_ms: pulumi.Input[Optional[_builtins.int]] = None,
+                 downlink_loss_percent: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 uplink_bandwidth_bits: pulumi.Input[Optional[_builtins.int]] = None,
+                 uplink_delay_ms: pulumi.Input[Optional[_builtins.int]] = None,
+                 uplink_jitter_ms: pulumi.Input[Optional[_builtins.int]] = None,
+                 uplink_loss_percent: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering NetworkProfile resources.
 
@@ -322,194 +322,194 @@ class _NetworkProfileState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name of this network profile.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the network profile.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="downlinkBandwidthBits")
-    def downlink_bandwidth_bits(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def downlink_bandwidth_bits(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
         """
         return pulumi.get(self, "downlink_bandwidth_bits")
 
     @downlink_bandwidth_bits.setter
-    def downlink_bandwidth_bits(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def downlink_bandwidth_bits(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "downlink_bandwidth_bits", value)
 
     @_builtins.property
     @pulumi.getter(name="downlinkDelayMs")
-    def downlink_delay_ms(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def downlink_delay_ms(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
         """
         return pulumi.get(self, "downlink_delay_ms")
 
     @downlink_delay_ms.setter
-    def downlink_delay_ms(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def downlink_delay_ms(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "downlink_delay_ms", value)
 
     @_builtins.property
     @pulumi.getter(name="downlinkJitterMs")
-    def downlink_jitter_ms(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def downlink_jitter_ms(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
         """
         return pulumi.get(self, "downlink_jitter_ms")
 
     @downlink_jitter_ms.setter
-    def downlink_jitter_ms(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def downlink_jitter_ms(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "downlink_jitter_ms", value)
 
     @_builtins.property
     @pulumi.getter(name="downlinkLossPercent")
-    def downlink_loss_percent(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def downlink_loss_percent(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Proportion of received packets that fail to arrive from `0` to `100` percent.
         """
         return pulumi.get(self, "downlink_loss_percent")
 
     @downlink_loss_percent.setter
-    def downlink_loss_percent(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def downlink_loss_percent(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "downlink_loss_percent", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name for the network profile.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="projectArn")
-    def project_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the project for the network profile.
         """
         return pulumi.get(self, "project_arn")
 
     @project_arn.setter
-    def project_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of network profile to create. Valid values are listed are `PRIVATE` and `CURATED`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="uplinkBandwidthBits")
-    def uplink_bandwidth_bits(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def uplink_bandwidth_bits(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
         """
         return pulumi.get(self, "uplink_bandwidth_bits")
 
     @uplink_bandwidth_bits.setter
-    def uplink_bandwidth_bits(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def uplink_bandwidth_bits(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "uplink_bandwidth_bits", value)
 
     @_builtins.property
     @pulumi.getter(name="uplinkDelayMs")
-    def uplink_delay_ms(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def uplink_delay_ms(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
         """
         return pulumi.get(self, "uplink_delay_ms")
 
     @uplink_delay_ms.setter
-    def uplink_delay_ms(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def uplink_delay_ms(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "uplink_delay_ms", value)
 
     @_builtins.property
     @pulumi.getter(name="uplinkJitterMs")
-    def uplink_jitter_ms(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def uplink_jitter_ms(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
         """
         return pulumi.get(self, "uplink_jitter_ms")
 
     @uplink_jitter_ms.setter
-    def uplink_jitter_ms(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def uplink_jitter_ms(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "uplink_jitter_ms", value)
 
     @_builtins.property
     @pulumi.getter(name="uplinkLossPercent")
-    def uplink_loss_percent(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def uplink_loss_percent(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Proportion of received packets that fail to arrive from `0` to `100` percent.
         """
         return pulumi.get(self, "uplink_loss_percent")
 
     @uplink_loss_percent.setter
-    def uplink_loss_percent(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def uplink_loss_percent(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "uplink_loss_percent", value)
 
 
@@ -519,20 +519,20 @@ class NetworkProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 downlink_bandwidth_bits: Optional[pulumi.Input[_builtins.int]] = None,
-                 downlink_delay_ms: Optional[pulumi.Input[_builtins.int]] = None,
-                 downlink_jitter_ms: Optional[pulumi.Input[_builtins.int]] = None,
-                 downlink_loss_percent: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 uplink_bandwidth_bits: Optional[pulumi.Input[_builtins.int]] = None,
-                 uplink_delay_ms: Optional[pulumi.Input[_builtins.int]] = None,
-                 uplink_jitter_ms: Optional[pulumi.Input[_builtins.int]] = None,
-                 uplink_loss_percent: Optional[pulumi.Input[_builtins.int]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 downlink_bandwidth_bits: pulumi.Input[Optional[_builtins.int]] = None,
+                 downlink_delay_ms: pulumi.Input[Optional[_builtins.int]] = None,
+                 downlink_jitter_ms: pulumi.Input[Optional[_builtins.int]] = None,
+                 downlink_loss_percent: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 uplink_bandwidth_bits: pulumi.Input[Optional[_builtins.int]] = None,
+                 uplink_delay_ms: pulumi.Input[Optional[_builtins.int]] = None,
+                 uplink_jitter_ms: pulumi.Input[Optional[_builtins.int]] = None,
+                 uplink_loss_percent: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Provides a resource to manage AWS Device Farm Network Profiles.
@@ -636,20 +636,20 @@ class NetworkProfile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 downlink_bandwidth_bits: Optional[pulumi.Input[_builtins.int]] = None,
-                 downlink_delay_ms: Optional[pulumi.Input[_builtins.int]] = None,
-                 downlink_jitter_ms: Optional[pulumi.Input[_builtins.int]] = None,
-                 downlink_loss_percent: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 uplink_bandwidth_bits: Optional[pulumi.Input[_builtins.int]] = None,
-                 uplink_delay_ms: Optional[pulumi.Input[_builtins.int]] = None,
-                 uplink_jitter_ms: Optional[pulumi.Input[_builtins.int]] = None,
-                 uplink_loss_percent: Optional[pulumi.Input[_builtins.int]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 downlink_bandwidth_bits: pulumi.Input[Optional[_builtins.int]] = None,
+                 downlink_delay_ms: pulumi.Input[Optional[_builtins.int]] = None,
+                 downlink_jitter_ms: pulumi.Input[Optional[_builtins.int]] = None,
+                 downlink_loss_percent: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 uplink_bandwidth_bits: pulumi.Input[Optional[_builtins.int]] = None,
+                 uplink_delay_ms: pulumi.Input[Optional[_builtins.int]] = None,
+                 uplink_jitter_ms: pulumi.Input[Optional[_builtins.int]] = None,
+                 uplink_loss_percent: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -687,22 +687,22 @@ class NetworkProfile(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            downlink_bandwidth_bits: Optional[pulumi.Input[_builtins.int]] = None,
-            downlink_delay_ms: Optional[pulumi.Input[_builtins.int]] = None,
-            downlink_jitter_ms: Optional[pulumi.Input[_builtins.int]] = None,
-            downlink_loss_percent: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            project_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None,
-            uplink_bandwidth_bits: Optional[pulumi.Input[_builtins.int]] = None,
-            uplink_delay_ms: Optional[pulumi.Input[_builtins.int]] = None,
-            uplink_jitter_ms: Optional[pulumi.Input[_builtins.int]] = None,
-            uplink_loss_percent: Optional[pulumi.Input[_builtins.int]] = None) -> 'NetworkProfile':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            downlink_bandwidth_bits: pulumi.Input[Optional[_builtins.int]] = None,
+            downlink_delay_ms: pulumi.Input[Optional[_builtins.int]] = None,
+            downlink_jitter_ms: pulumi.Input[Optional[_builtins.int]] = None,
+            downlink_loss_percent: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            project_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            uplink_bandwidth_bits: pulumi.Input[Optional[_builtins.int]] = None,
+            uplink_delay_ms: pulumi.Input[Optional[_builtins.int]] = None,
+            uplink_jitter_ms: pulumi.Input[Optional[_builtins.int]] = None,
+            uplink_loss_percent: pulumi.Input[Optional[_builtins.int]] = None) -> 'NetworkProfile':
         """
         Get an existing NetworkProfile resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

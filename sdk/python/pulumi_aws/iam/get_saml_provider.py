@@ -166,8 +166,8 @@ def get_saml_provider(arn: Optional[_builtins.str] = None,
         saml_provider_uuid=pulumi.get(__ret__, 'saml_provider_uuid'),
         tags=pulumi.get(__ret__, 'tags'),
         valid_until=pulumi.get(__ret__, 'valid_until'))
-def get_saml_provider_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
-                             tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_saml_provider_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
+                             tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSamlProviderResult]:
     """
     This data source can be used to fetch information about a specific

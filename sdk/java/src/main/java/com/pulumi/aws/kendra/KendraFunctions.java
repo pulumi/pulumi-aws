@@ -41,8 +41,8 @@ public final class KendraFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.kendra.KendraFunctions;
      * import com.pulumi.aws.kendra.inputs.GetExperienceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -82,8 +82,8 @@ public final class KendraFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.kendra.KendraFunctions;
      * import com.pulumi.aws.kendra.inputs.GetExperienceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -123,8 +123,8 @@ public final class KendraFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.kendra.KendraFunctions;
      * import com.pulumi.aws.kendra.inputs.GetExperienceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -164,8 +164,8 @@ public final class KendraFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.kendra.KendraFunctions;
      * import com.pulumi.aws.kendra.inputs.GetExperienceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -205,8 +205,8 @@ public final class KendraFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.kendra.KendraFunctions;
      * import com.pulumi.aws.kendra.inputs.GetExperienceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -246,8 +246,8 @@ public final class KendraFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.kendra.KendraFunctions;
      * import com.pulumi.aws.kendra.inputs.GetFaqArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -287,8 +287,8 @@ public final class KendraFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.kendra.KendraFunctions;
      * import com.pulumi.aws.kendra.inputs.GetFaqArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -328,8 +328,8 @@ public final class KendraFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.kendra.KendraFunctions;
      * import com.pulumi.aws.kendra.inputs.GetFaqArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -369,8 +369,8 @@ public final class KendraFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.kendra.KendraFunctions;
      * import com.pulumi.aws.kendra.inputs.GetFaqArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -410,8 +410,8 @@ public final class KendraFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.kendra.KendraFunctions;
      * import com.pulumi.aws.kendra.inputs.GetFaqArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -451,8 +451,8 @@ public final class KendraFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.kendra.KendraFunctions;
      * import com.pulumi.aws.kendra.inputs.GetIndexArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -491,8 +491,8 @@ public final class KendraFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.kendra.KendraFunctions;
      * import com.pulumi.aws.kendra.inputs.GetIndexArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -531,8 +531,8 @@ public final class KendraFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.kendra.KendraFunctions;
      * import com.pulumi.aws.kendra.inputs.GetIndexArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -571,8 +571,8 @@ public final class KendraFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.kendra.KendraFunctions;
      * import com.pulumi.aws.kendra.inputs.GetIndexArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -611,8 +611,8 @@ public final class KendraFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.kendra.KendraFunctions;
      * import com.pulumi.aws.kendra.inputs.GetIndexArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -651,8 +651,8 @@ public final class KendraFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.kendra.KendraFunctions;
      * import com.pulumi.aws.kendra.inputs.GetQuerySuggestionsBlockListArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -692,8 +692,8 @@ public final class KendraFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.kendra.KendraFunctions;
      * import com.pulumi.aws.kendra.inputs.GetQuerySuggestionsBlockListArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -733,8 +733,8 @@ public final class KendraFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.kendra.KendraFunctions;
      * import com.pulumi.aws.kendra.inputs.GetQuerySuggestionsBlockListArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -774,8 +774,8 @@ public final class KendraFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.kendra.KendraFunctions;
      * import com.pulumi.aws.kendra.inputs.GetQuerySuggestionsBlockListArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -815,8 +815,8 @@ public final class KendraFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.kendra.KendraFunctions;
      * import com.pulumi.aws.kendra.inputs.GetQuerySuggestionsBlockListArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -856,8 +856,8 @@ public final class KendraFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.kendra.KendraFunctions;
      * import com.pulumi.aws.kendra.inputs.GetThesaurusArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -897,8 +897,8 @@ public final class KendraFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.kendra.KendraFunctions;
      * import com.pulumi.aws.kendra.inputs.GetThesaurusArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -938,8 +938,8 @@ public final class KendraFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.kendra.KendraFunctions;
      * import com.pulumi.aws.kendra.inputs.GetThesaurusArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -979,8 +979,8 @@ public final class KendraFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.kendra.KendraFunctions;
      * import com.pulumi.aws.kendra.inputs.GetThesaurusArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1020,8 +1020,8 @@ public final class KendraFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.kendra.KendraFunctions;
      * import com.pulumi.aws.kendra.inputs.GetThesaurusArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

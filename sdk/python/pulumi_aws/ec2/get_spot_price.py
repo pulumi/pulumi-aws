@@ -155,10 +155,10 @@ def get_spot_price(availability_zone: Optional[_builtins.str] = None,
         region=pulumi.get(__ret__, 'region'),
         spot_price=pulumi.get(__ret__, 'spot_price'),
         spot_price_timestamp=pulumi.get(__ret__, 'spot_price_timestamp'))
-def get_spot_price_output(availability_zone: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                          filters: Optional[pulumi.Input[Optional[Sequence[Union['GetSpotPriceFilterArgs', 'GetSpotPriceFilterArgsDict']]]]] = None,
-                          instance_type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                          region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_spot_price_output(availability_zone: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          filters: pulumi.Input[Optional[Optional[Sequence[Union['GetSpotPriceFilterArgs', 'GetSpotPriceFilterArgsDict']]]]] = None,
+                          instance_type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSpotPriceResult]:
     """
     Information about most recent Spot Price for a given EC2 instance.

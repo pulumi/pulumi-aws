@@ -58,8 +58,8 @@ class ManagedNotificationAccountContactAssociationArgs:
 @pulumi.input_type
 class _ManagedNotificationAccountContactAssociationState:
     def __init__(__self__, *,
-                 contact_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_notification_configuration_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 contact_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_notification_configuration_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ManagedNotificationAccountContactAssociation resources.
 
@@ -73,26 +73,26 @@ class _ManagedNotificationAccountContactAssociationState:
 
     @_builtins.property
     @pulumi.getter(name="contactIdentifier")
-    def contact_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def contact_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique value of an Account Contact Type to associate with the ManagedNotificationConfiguration. Valid values: `ACCOUNT_PRIMARY`, `ACCOUNT_ALTERNATE_BILLING`, `ACCOUNT_ALTERNATE_OPERATIONS`, `ACCOUNT_ALTERNATE_SECURITY`.
         """
         return pulumi.get(self, "contact_identifier")
 
     @contact_identifier.setter
-    def contact_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def contact_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "contact_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="managedNotificationConfigurationArn")
-    def managed_notification_configuration_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_notification_configuration_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the managed notification configuration to associate the account contact with.
         """
         return pulumi.get(self, "managed_notification_configuration_arn")
 
     @managed_notification_configuration_arn.setter
-    def managed_notification_configuration_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_notification_configuration_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_notification_configuration_arn", value)
 
 
@@ -102,8 +102,8 @@ class ManagedNotificationAccountContactAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 contact_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_notification_configuration_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 contact_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_notification_configuration_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing an AWS User Notifications Managed Notification Account Contact Association. This resource associates an account contact with a managed notification configuration.
@@ -181,8 +181,8 @@ class ManagedNotificationAccountContactAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 contact_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_notification_configuration_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 contact_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_notification_configuration_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -208,8 +208,8 @@ class ManagedNotificationAccountContactAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            contact_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-            managed_notification_configuration_arn: Optional[pulumi.Input[_builtins.str]] = None) -> 'ManagedNotificationAccountContactAssociation':
+            contact_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_notification_configuration_arn: pulumi.Input[Optional[_builtins.str]] = None) -> 'ManagedNotificationAccountContactAssociation':
         """
         Get an existing ManagedNotificationAccountContactAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -190,51 +190,51 @@ export interface SchemaState {
     /**
      * The Amazon Resource Name (ARN) of the discoverer.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The schema specification. Must be a valid Open API 3.0 spec.
      */
-    content?: pulumi.Input<string>;
+    content?: pulumi.Input<string | undefined>;
     /**
      * The description of the schema. Maximum of 256 characters.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The last modified date of the schema.
      */
-    lastModified?: pulumi.Input<string>;
+    lastModified?: pulumi.Input<string | undefined>;
     /**
      * The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The name of the registry in which this schema belongs.
      */
-    registryName?: pulumi.Input<string>;
+    registryName?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The type of the schema. Valid values: `OpenApi3` or `JSONSchemaDraft4`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * The version of the schema.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
     /**
      * The created date of the version of the schema.
      */
-    versionCreatedDate?: pulumi.Input<string>;
+    versionCreatedDate?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -248,15 +248,15 @@ export interface SchemaArgs {
     /**
      * The description of the schema. Maximum of 256 characters.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The name of the registry in which this schema belongs.
      */
@@ -264,7 +264,7 @@ export interface SchemaArgs {
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The type of the schema. Valid values: `OpenApi3` or `JSONSchemaDraft4`.
      */

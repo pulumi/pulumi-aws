@@ -22,8 +22,8 @@ __all__ = ['ResourceDataSyncArgs', 'ResourceDataSync']
 class ResourceDataSyncArgs:
     def __init__(__self__, *,
                  s3_destination: pulumi.Input['ResourceDataSyncS3DestinationArgs'],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ResourceDataSync resource.
 
@@ -51,35 +51,35 @@ class ResourceDataSyncArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name for the configuration.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _ResourceDataSyncState:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_destination: Optional[pulumi.Input['ResourceDataSyncS3DestinationArgs']] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_destination: pulumi.Input[Optional['ResourceDataSyncS3DestinationArgs']] = None):
         """
         Input properties used for looking up and filtering ResourceDataSync resources.
 
@@ -96,38 +96,38 @@ class _ResourceDataSyncState:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name for the configuration.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="s3Destination")
-    def s3_destination(self) -> Optional[pulumi.Input['ResourceDataSyncS3DestinationArgs']]:
+    def s3_destination(self) -> pulumi.Input[Optional['ResourceDataSyncS3DestinationArgs']]:
         """
         Amazon S3 configuration details for the sync.
         """
         return pulumi.get(self, "s3_destination")
 
     @s3_destination.setter
-    def s3_destination(self, value: Optional[pulumi.Input['ResourceDataSyncS3DestinationArgs']]):
+    def s3_destination(self, value: pulumi.Input[Optional['ResourceDataSyncS3DestinationArgs']]):
         pulumi.set(self, "s3_destination", value)
 
 
@@ -137,9 +137,9 @@ class ResourceDataSync(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_destination: Optional[pulumi.Input[Union['ResourceDataSyncS3DestinationArgs', 'ResourceDataSyncS3DestinationArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_destination: pulumi.Input[Optional[Union['ResourceDataSyncS3DestinationArgs', 'ResourceDataSyncS3DestinationArgsDict']]] = None,
                  __props__=None):
         """
         Provides a SSM resource data sync.
@@ -282,9 +282,9 @@ class ResourceDataSync(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_destination: Optional[pulumi.Input[Union['ResourceDataSyncS3DestinationArgs', 'ResourceDataSyncS3DestinationArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_destination: pulumi.Input[Optional[Union['ResourceDataSyncS3DestinationArgs', 'ResourceDataSyncS3DestinationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -309,9 +309,9 @@ class ResourceDataSync(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            s3_destination: Optional[pulumi.Input[Union['ResourceDataSyncS3DestinationArgs', 'ResourceDataSyncS3DestinationArgsDict']]] = None) -> 'ResourceDataSync':
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            s3_destination: pulumi.Input[Optional[Union['ResourceDataSyncS3DestinationArgs', 'ResourceDataSyncS3DestinationArgsDict']]] = None) -> 'ResourceDataSync':
         """
         Get an existing ResourceDataSync resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

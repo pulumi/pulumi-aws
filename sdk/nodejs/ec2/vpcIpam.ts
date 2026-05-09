@@ -219,64 +219,64 @@ export interface VpcIpamState {
     /**
      * Amazon Resource Name (ARN) of IPAM
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
      */
-    cascade?: pulumi.Input<boolean>;
+    cascade?: pulumi.Input<boolean | undefined>;
     /**
      * The IPAM's default resource discovery association ID.
      */
-    defaultResourceDiscoveryAssociationId?: pulumi.Input<string>;
+    defaultResourceDiscoveryAssociationId?: pulumi.Input<string | undefined>;
     /**
      * The IPAM's default resource discovery ID.
      */
-    defaultResourceDiscoveryId?: pulumi.Input<string>;
+    defaultResourceDiscoveryId?: pulumi.Input<string | undefined>;
     /**
      * A description for the IPAM.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Enable this option to use your own GUA ranges as private IPv6 addresses. Default: `false`.
      */
-    enablePrivateGua?: pulumi.Input<boolean>;
+    enablePrivateGua?: pulumi.Input<boolean | undefined>;
     /**
      * AWS account that is charged for active IP addresses managed in IPAM. Valid values are `ipam-owner` (default) and `resource-owner`.
      */
-    meteredAccount?: pulumi.Input<string>;
+    meteredAccount?: pulumi.Input<string | undefined>;
     /**
      * Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
      */
-    operatingRegions?: pulumi.Input<pulumi.Input<inputs.ec2.VpcIpamOperatingRegion>[]>;
+    operatingRegions?: pulumi.Input<pulumi.Input<inputs.ec2.VpcIpamOperatingRegion>[] | undefined>;
     /**
      * The ID of the IPAM's private scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
      */
-    privateDefaultScopeId?: pulumi.Input<string>;
+    privateDefaultScopeId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the IPAM's public scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private
      * IP space. The public scope is intended for all internet-routable IP space.
      */
-    publicDefaultScopeId?: pulumi.Input<string>;
+    publicDefaultScopeId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The number of scopes in the IPAM.
      */
-    scopeCount?: pulumi.Input<number>;
+    scopeCount?: pulumi.Input<number | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * specifies the IPAM tier. Valid options include `free` and `advanced`. Default is `advanced`.
      */
-    tier?: pulumi.Input<string>;
+    tier?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -286,19 +286,19 @@ export interface VpcIpamArgs {
     /**
      * Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
      */
-    cascade?: pulumi.Input<boolean>;
+    cascade?: pulumi.Input<boolean | undefined>;
     /**
      * A description for the IPAM.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Enable this option to use your own GUA ranges as private IPv6 addresses. Default: `false`.
      */
-    enablePrivateGua?: pulumi.Input<boolean>;
+    enablePrivateGua?: pulumi.Input<boolean | undefined>;
     /**
      * AWS account that is charged for active IP addresses managed in IPAM. Valid values are `ipam-owner` (default) and `resource-owner`.
      */
-    meteredAccount?: pulumi.Input<string>;
+    meteredAccount?: pulumi.Input<string | undefined>;
     /**
      * Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
      */
@@ -306,13 +306,13 @@ export interface VpcIpamArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * specifies the IPAM tier. Valid options include `free` and `advanced`. Default is `advanced`.
      */
-    tier?: pulumi.Input<string>;
+    tier?: pulumi.Input<string | undefined>;
 }

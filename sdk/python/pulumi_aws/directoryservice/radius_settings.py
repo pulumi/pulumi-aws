@@ -27,8 +27,8 @@ class RadiusSettingsArgs:
                  radius_servers: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  radius_timeout: pulumi.Input[_builtins.int],
                  shared_secret: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_same_username: Optional[pulumi.Input[_builtins.bool]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_same_username: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a RadiusSettings resource.
 
@@ -154,42 +154,42 @@ class RadiusSettingsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="useSameUsername")
-    def use_same_username(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_same_username(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Not currently used.
         """
         return pulumi.get(self, "use_same_username")
 
     @use_same_username.setter
-    def use_same_username(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_same_username(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_same_username", value)
 
 
 @pulumi.input_type
 class _RadiusSettingsState:
     def __init__(__self__, *,
-                 authentication_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 directory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_label: Optional[pulumi.Input[_builtins.str]] = None,
-                 radius_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 radius_retries: Optional[pulumi.Input[_builtins.int]] = None,
-                 radius_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 radius_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 shared_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_same_username: Optional[pulumi.Input[_builtins.bool]] = None):
+                 authentication_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 radius_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 radius_retries: pulumi.Input[Optional[_builtins.int]] = None,
+                 radius_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 radius_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_same_username: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering RadiusSettings resources.
 
@@ -227,122 +227,122 @@ class _RadiusSettingsState:
 
     @_builtins.property
     @pulumi.getter(name="authenticationProtocol")
-    def authentication_protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authentication_protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The protocol specified for your RADIUS endpoints. Valid values: `PAP`, `CHAP`, `MS-CHAPv1`, `MS-CHAPv2`.
         """
         return pulumi.get(self, "authentication_protocol")
 
     @authentication_protocol.setter
-    def authentication_protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authentication_protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authentication_protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="directoryId")
-    def directory_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def directory_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the directory for which you want to manager RADIUS settings.
         """
         return pulumi.get(self, "directory_id")
 
     @directory_id.setter
-    def directory_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def directory_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "directory_id", value)
 
     @_builtins.property
     @pulumi.getter(name="displayLabel")
-    def display_label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Display label.
         """
         return pulumi.get(self, "display_label")
 
     @display_label.setter
-    def display_label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_label", value)
 
     @_builtins.property
     @pulumi.getter(name="radiusPort")
-    def radius_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def radius_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The port that your RADIUS server is using for communications. Your self-managed network must allow inbound traffic over this port from the AWS Directory Service servers.
         """
         return pulumi.get(self, "radius_port")
 
     @radius_port.setter
-    def radius_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def radius_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "radius_port", value)
 
     @_builtins.property
     @pulumi.getter(name="radiusRetries")
-    def radius_retries(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def radius_retries(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of times that communication with the RADIUS server is attempted. Minimum value of `0`. Maximum value of `10`.
         """
         return pulumi.get(self, "radius_retries")
 
     @radius_retries.setter
-    def radius_retries(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def radius_retries(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "radius_retries", value)
 
     @_builtins.property
     @pulumi.getter(name="radiusServers")
-    def radius_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def radius_servers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An array of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
         """
         return pulumi.get(self, "radius_servers")
 
     @radius_servers.setter
-    def radius_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def radius_servers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "radius_servers", value)
 
     @_builtins.property
     @pulumi.getter(name="radiusTimeout")
-    def radius_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def radius_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The amount of time, in seconds, to wait for the RADIUS server to respond. Minimum value of `1`. Maximum value of `50`.
         """
         return pulumi.get(self, "radius_timeout")
 
     @radius_timeout.setter
-    def radius_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def radius_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "radius_timeout", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="sharedSecret")
-    def shared_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def shared_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Required for enabling RADIUS on the directory.
         """
         return pulumi.get(self, "shared_secret")
 
     @shared_secret.setter
-    def shared_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def shared_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "shared_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="useSameUsername")
-    def use_same_username(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_same_username(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Not currently used.
         """
         return pulumi.get(self, "use_same_username")
 
     @use_same_username.setter
-    def use_same_username(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_same_username(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_same_username", value)
 
 
@@ -352,16 +352,16 @@ class RadiusSettings(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 directory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_label: Optional[pulumi.Input[_builtins.str]] = None,
-                 radius_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 radius_retries: Optional[pulumi.Input[_builtins.int]] = None,
-                 radius_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 radius_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 shared_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_same_username: Optional[pulumi.Input[_builtins.bool]] = None,
+                 authentication_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 radius_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 radius_retries: pulumi.Input[Optional[_builtins.int]] = None,
+                 radius_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 radius_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_same_username: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manages a directory's multi-factor authentication (MFA) using a Remote Authentication Dial In User Service (RADIUS) server.
@@ -455,16 +455,16 @@ class RadiusSettings(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 directory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_label: Optional[pulumi.Input[_builtins.str]] = None,
-                 radius_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 radius_retries: Optional[pulumi.Input[_builtins.int]] = None,
-                 radius_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 radius_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 shared_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_same_username: Optional[pulumi.Input[_builtins.bool]] = None,
+                 authentication_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 radius_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 radius_retries: pulumi.Input[Optional[_builtins.int]] = None,
+                 radius_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 radius_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_same_username: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -512,16 +512,16 @@ class RadiusSettings(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            authentication_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-            directory_id: Optional[pulumi.Input[_builtins.str]] = None,
-            display_label: Optional[pulumi.Input[_builtins.str]] = None,
-            radius_port: Optional[pulumi.Input[_builtins.int]] = None,
-            radius_retries: Optional[pulumi.Input[_builtins.int]] = None,
-            radius_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            radius_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            shared_secret: Optional[pulumi.Input[_builtins.str]] = None,
-            use_same_username: Optional[pulumi.Input[_builtins.bool]] = None) -> 'RadiusSettings':
+            authentication_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            display_label: pulumi.Input[Optional[_builtins.str]] = None,
+            radius_port: pulumi.Input[Optional[_builtins.int]] = None,
+            radius_retries: pulumi.Input[Optional[_builtins.int]] = None,
+            radius_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            radius_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            shared_secret: pulumi.Input[Optional[_builtins.str]] = None,
+            use_same_username: pulumi.Input[Optional[_builtins.bool]] = None) -> 'RadiusSettings':
         """
         Get an existing RadiusSettings resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

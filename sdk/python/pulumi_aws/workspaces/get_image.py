@@ -158,8 +158,8 @@ def get_image(image_id: Optional[_builtins.str] = None,
         region=pulumi.get(__ret__, 'region'),
         required_tenancy=pulumi.get(__ret__, 'required_tenancy'),
         state=pulumi.get(__ret__, 'state'))
-def get_image_output(image_id: Optional[pulumi.Input[_builtins.str]] = None,
-                     region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_image_output(image_id: pulumi.Input[Optional[_builtins.str]] = None,
+                     region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImageResult]:
     """
     Use this data source to get information about a Workspaces image.

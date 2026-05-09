@@ -23,23 +23,23 @@ class IntegrationArgs:
     def __init__(__self__, *,
                  api_id: pulumi.Input[_builtins.str],
                  integration_type: pulumi.Input[_builtins.str],
-                 connection_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_handling_strategy: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_subtype: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 passthrough_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 payload_format_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 request_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 response_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationResponseParameterArgs']]]] = None,
-                 template_selection_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout_milliseconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 tls_config: Optional[pulumi.Input['IntegrationTlsConfigArgs']] = None):
+                 connection_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_handling_strategy: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_subtype: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 passthrough_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 payload_format_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 request_templates: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 response_parameters: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationResponseParameterArgs']]]] = None,
+                 template_selection_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout_milliseconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 tls_config: pulumi.Input[Optional['IntegrationTlsConfigArgs']] = None):
         """
         The set of arguments for constructing a Integration resource.
 
@@ -135,91 +135,91 @@ class IntegrationArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectionId")
-    def connection_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the VPC link for a private integration. Supported only for HTTP APIs. Must be between 1 and 1024 characters in length.
         """
         return pulumi.get(self, "connection_id")
 
     @connection_id.setter
-    def connection_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_id", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionType")
-    def connection_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the network connection to the integration endpoint. Valid values: `INTERNET`, `VPC_LINK`. Default is `INTERNET`.
         """
         return pulumi.get(self, "connection_type")
 
     @connection_type.setter
-    def connection_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_type", value)
 
     @_builtins.property
     @pulumi.getter(name="contentHandlingStrategy")
-    def content_handling_strategy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_handling_strategy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`. Supported only for WebSocket APIs.
         """
         return pulumi.get(self, "content_handling_strategy")
 
     @content_handling_strategy.setter
-    def content_handling_strategy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_handling_strategy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_handling_strategy", value)
 
     @_builtins.property
     @pulumi.getter(name="credentialsArn")
-    def credentials_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def credentials_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Credentials required for the integration, if any.
         """
         return pulumi.get(self, "credentials_arn")
 
     @credentials_arn.setter
-    def credentials_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def credentials_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "credentials_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the integration.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="integrationMethod")
-    def integration_method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def integration_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Integration's HTTP method. Must be specified if `integration_type` is not `MOCK`.
         """
         return pulumi.get(self, "integration_method")
 
     @integration_method.setter
-    def integration_method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def integration_method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "integration_method", value)
 
     @_builtins.property
     @pulumi.getter(name="integrationSubtype")
-    def integration_subtype(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def integration_subtype(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS service action to invoke. Supported only for HTTP APIs when `integration_type` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
         """
         return pulumi.get(self, "integration_subtype")
 
     @integration_subtype.setter
-    def integration_subtype(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def integration_subtype(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "integration_subtype", value)
 
     @_builtins.property
     @pulumi.getter(name="integrationUri")
-    def integration_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def integration_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URI of the Lambda function for a Lambda proxy integration, when `integration_type` is `AWS_PROXY`.
         For an `HTTP` integration, specify a fully-qualified URL. For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service.
@@ -227,12 +227,12 @@ class IntegrationArgs:
         return pulumi.get(self, "integration_uri")
 
     @integration_uri.setter
-    def integration_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def integration_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "integration_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="passthroughBehavior")
-    def passthrough_behavior(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def passthrough_behavior(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `request_templates` attribute.
         Valid values: `WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`. Default is `WHEN_NO_MATCH`. Supported only for WebSocket APIs.
@@ -240,36 +240,36 @@ class IntegrationArgs:
         return pulumi.get(self, "passthrough_behavior")
 
     @passthrough_behavior.setter
-    def passthrough_behavior(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def passthrough_behavior(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "passthrough_behavior", value)
 
     @_builtins.property
     @pulumi.getter(name="payloadFormatVersion")
-    def payload_format_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def payload_format_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The [format of the payload](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html#http-api-develop-integrations-lambda.proxy-format) sent to an integration. Valid values: `1.0`, `2.0`. Default is `1.0`.
         """
         return pulumi.get(self, "payload_format_version")
 
     @payload_format_version.setter
-    def payload_format_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def payload_format_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "payload_format_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="requestParameters")
-    def request_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def request_parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend.
         For HTTP APIs with a specified `integration_subtype`, a key-value map specifying parameters that are passed to `AWS_PROXY` integrations.
@@ -279,48 +279,48 @@ class IntegrationArgs:
         return pulumi.get(self, "request_parameters")
 
     @request_parameters.setter
-    def request_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def request_parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "request_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="requestTemplates")
-    def request_templates(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def request_templates(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of [Velocity](https://velocity.apache.org/) templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
         """
         return pulumi.get(self, "request_templates")
 
     @request_templates.setter
-    def request_templates(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def request_templates(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "request_templates", value)
 
     @_builtins.property
     @pulumi.getter(name="responseParameters")
-    def response_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationResponseParameterArgs']]]]:
+    def response_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationResponseParameterArgs']]]]:
         """
         Mappings to transform the HTTP response from a backend integration before returning the response to clients. Supported only for HTTP APIs.
         """
         return pulumi.get(self, "response_parameters")
 
     @response_parameters.setter
-    def response_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationResponseParameterArgs']]]]):
+    def response_parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationResponseParameterArgs']]]]):
         pulumi.set(self, "response_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="templateSelectionExpression")
-    def template_selection_expression(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template_selection_expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
         """
         return pulumi.get(self, "template_selection_expression")
 
     @template_selection_expression.setter
-    def template_selection_expression(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template_selection_expression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template_selection_expression", value)
 
     @_builtins.property
     @pulumi.getter(name="timeoutMilliseconds")
-    def timeout_milliseconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def timeout_milliseconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs.
         The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.
@@ -329,45 +329,45 @@ class IntegrationArgs:
         return pulumi.get(self, "timeout_milliseconds")
 
     @timeout_milliseconds.setter
-    def timeout_milliseconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def timeout_milliseconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout_milliseconds", value)
 
     @_builtins.property
     @pulumi.getter(name="tlsConfig")
-    def tls_config(self) -> Optional[pulumi.Input['IntegrationTlsConfigArgs']]:
+    def tls_config(self) -> pulumi.Input[Optional['IntegrationTlsConfigArgs']]:
         """
         TLS configuration for a private integration. Supported only for HTTP APIs.
         """
         return pulumi.get(self, "tls_config")
 
     @tls_config.setter
-    def tls_config(self, value: Optional[pulumi.Input['IntegrationTlsConfigArgs']]):
+    def tls_config(self, value: pulumi.Input[Optional['IntegrationTlsConfigArgs']]):
         pulumi.set(self, "tls_config", value)
 
 
 @pulumi.input_type
 class _IntegrationState:
     def __init__(__self__, *,
-                 api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_handling_strategy: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_response_selection_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_subtype: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 passthrough_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 payload_format_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 request_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 response_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationResponseParameterArgs']]]] = None,
-                 template_selection_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout_milliseconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 tls_config: Optional[pulumi.Input['IntegrationTlsConfigArgs']] = None):
+                 api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_handling_strategy: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_response_selection_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_subtype: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 passthrough_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 payload_format_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 request_templates: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 response_parameters: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationResponseParameterArgs']]]] = None,
+                 template_selection_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout_milliseconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 tls_config: pulumi.Input[Optional['IntegrationTlsConfigArgs']] = None):
         """
         Input properties used for looking up and filtering Integration resources.
 
@@ -443,115 +443,115 @@ class _IntegrationState:
 
     @_builtins.property
     @pulumi.getter(name="apiId")
-    def api_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         API identifier.
         """
         return pulumi.get(self, "api_id")
 
     @api_id.setter
-    def api_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_id", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionId")
-    def connection_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the VPC link for a private integration. Supported only for HTTP APIs. Must be between 1 and 1024 characters in length.
         """
         return pulumi.get(self, "connection_id")
 
     @connection_id.setter
-    def connection_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_id", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionType")
-    def connection_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the network connection to the integration endpoint. Valid values: `INTERNET`, `VPC_LINK`. Default is `INTERNET`.
         """
         return pulumi.get(self, "connection_type")
 
     @connection_type.setter
-    def connection_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_type", value)
 
     @_builtins.property
     @pulumi.getter(name="contentHandlingStrategy")
-    def content_handling_strategy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_handling_strategy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`. Supported only for WebSocket APIs.
         """
         return pulumi.get(self, "content_handling_strategy")
 
     @content_handling_strategy.setter
-    def content_handling_strategy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_handling_strategy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_handling_strategy", value)
 
     @_builtins.property
     @pulumi.getter(name="credentialsArn")
-    def credentials_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def credentials_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Credentials required for the integration, if any.
         """
         return pulumi.get(self, "credentials_arn")
 
     @credentials_arn.setter
-    def credentials_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def credentials_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "credentials_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the integration.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="integrationMethod")
-    def integration_method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def integration_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Integration's HTTP method. Must be specified if `integration_type` is not `MOCK`.
         """
         return pulumi.get(self, "integration_method")
 
     @integration_method.setter
-    def integration_method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def integration_method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "integration_method", value)
 
     @_builtins.property
     @pulumi.getter(name="integrationResponseSelectionExpression")
-    def integration_response_selection_expression(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def integration_response_selection_expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The [integration response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-integration-response-selection-expressions) for the integration.
         """
         return pulumi.get(self, "integration_response_selection_expression")
 
     @integration_response_selection_expression.setter
-    def integration_response_selection_expression(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def integration_response_selection_expression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "integration_response_selection_expression", value)
 
     @_builtins.property
     @pulumi.getter(name="integrationSubtype")
-    def integration_subtype(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def integration_subtype(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS service action to invoke. Supported only for HTTP APIs when `integration_type` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
         """
         return pulumi.get(self, "integration_subtype")
 
     @integration_subtype.setter
-    def integration_subtype(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def integration_subtype(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "integration_subtype", value)
 
     @_builtins.property
     @pulumi.getter(name="integrationType")
-    def integration_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def integration_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Integration type of an integration.
         Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs). For an HTTP API private integration, use `HTTP_PROXY`.
@@ -559,12 +559,12 @@ class _IntegrationState:
         return pulumi.get(self, "integration_type")
 
     @integration_type.setter
-    def integration_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def integration_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "integration_type", value)
 
     @_builtins.property
     @pulumi.getter(name="integrationUri")
-    def integration_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def integration_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URI of the Lambda function for a Lambda proxy integration, when `integration_type` is `AWS_PROXY`.
         For an `HTTP` integration, specify a fully-qualified URL. For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service.
@@ -572,12 +572,12 @@ class _IntegrationState:
         return pulumi.get(self, "integration_uri")
 
     @integration_uri.setter
-    def integration_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def integration_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "integration_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="passthroughBehavior")
-    def passthrough_behavior(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def passthrough_behavior(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `request_templates` attribute.
         Valid values: `WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`. Default is `WHEN_NO_MATCH`. Supported only for WebSocket APIs.
@@ -585,36 +585,36 @@ class _IntegrationState:
         return pulumi.get(self, "passthrough_behavior")
 
     @passthrough_behavior.setter
-    def passthrough_behavior(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def passthrough_behavior(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "passthrough_behavior", value)
 
     @_builtins.property
     @pulumi.getter(name="payloadFormatVersion")
-    def payload_format_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def payload_format_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The [format of the payload](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html#http-api-develop-integrations-lambda.proxy-format) sent to an integration. Valid values: `1.0`, `2.0`. Default is `1.0`.
         """
         return pulumi.get(self, "payload_format_version")
 
     @payload_format_version.setter
-    def payload_format_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def payload_format_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "payload_format_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="requestParameters")
-    def request_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def request_parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend.
         For HTTP APIs with a specified `integration_subtype`, a key-value map specifying parameters that are passed to `AWS_PROXY` integrations.
@@ -624,48 +624,48 @@ class _IntegrationState:
         return pulumi.get(self, "request_parameters")
 
     @request_parameters.setter
-    def request_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def request_parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "request_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="requestTemplates")
-    def request_templates(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def request_templates(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of [Velocity](https://velocity.apache.org/) templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
         """
         return pulumi.get(self, "request_templates")
 
     @request_templates.setter
-    def request_templates(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def request_templates(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "request_templates", value)
 
     @_builtins.property
     @pulumi.getter(name="responseParameters")
-    def response_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationResponseParameterArgs']]]]:
+    def response_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationResponseParameterArgs']]]]:
         """
         Mappings to transform the HTTP response from a backend integration before returning the response to clients. Supported only for HTTP APIs.
         """
         return pulumi.get(self, "response_parameters")
 
     @response_parameters.setter
-    def response_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationResponseParameterArgs']]]]):
+    def response_parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationResponseParameterArgs']]]]):
         pulumi.set(self, "response_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="templateSelectionExpression")
-    def template_selection_expression(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template_selection_expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
         """
         return pulumi.get(self, "template_selection_expression")
 
     @template_selection_expression.setter
-    def template_selection_expression(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template_selection_expression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template_selection_expression", value)
 
     @_builtins.property
     @pulumi.getter(name="timeoutMilliseconds")
-    def timeout_milliseconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def timeout_milliseconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs.
         The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.
@@ -674,19 +674,19 @@ class _IntegrationState:
         return pulumi.get(self, "timeout_milliseconds")
 
     @timeout_milliseconds.setter
-    def timeout_milliseconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def timeout_milliseconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout_milliseconds", value)
 
     @_builtins.property
     @pulumi.getter(name="tlsConfig")
-    def tls_config(self) -> Optional[pulumi.Input['IntegrationTlsConfigArgs']]:
+    def tls_config(self) -> pulumi.Input[Optional['IntegrationTlsConfigArgs']]:
         """
         TLS configuration for a private integration. Supported only for HTTP APIs.
         """
         return pulumi.get(self, "tls_config")
 
     @tls_config.setter
-    def tls_config(self, value: Optional[pulumi.Input['IntegrationTlsConfigArgs']]):
+    def tls_config(self, value: pulumi.Input[Optional['IntegrationTlsConfigArgs']]):
         pulumi.set(self, "tls_config", value)
 
 
@@ -696,25 +696,25 @@ class Integration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_handling_strategy: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_subtype: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 passthrough_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 payload_format_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 request_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 response_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationResponseParameterArgs', 'IntegrationResponseParameterArgsDict']]]]] = None,
-                 template_selection_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout_milliseconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 tls_config: Optional[pulumi.Input[Union['IntegrationTlsConfigArgs', 'IntegrationTlsConfigArgsDict']]] = None,
+                 api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_handling_strategy: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_subtype: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 passthrough_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 payload_format_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 request_templates: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 response_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationResponseParameterArgs', 'IntegrationResponseParameterArgsDict']]]]] = None,
+                 template_selection_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout_milliseconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 tls_config: pulumi.Input[Optional[Union['IntegrationTlsConfigArgs', 'IntegrationTlsConfigArgsDict']]] = None,
                  __props__=None):
         """
         Manages an Amazon API Gateway Version 2 integration.
@@ -981,25 +981,25 @@ class Integration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_handling_strategy: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_subtype: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 passthrough_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 payload_format_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 request_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 response_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationResponseParameterArgs', 'IntegrationResponseParameterArgsDict']]]]] = None,
-                 template_selection_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout_milliseconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 tls_config: Optional[pulumi.Input[Union['IntegrationTlsConfigArgs', 'IntegrationTlsConfigArgsDict']]] = None,
+                 api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_handling_strategy: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_subtype: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 passthrough_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 payload_format_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 request_templates: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 response_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationResponseParameterArgs', 'IntegrationResponseParameterArgsDict']]]]] = None,
+                 template_selection_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout_milliseconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 tls_config: pulumi.Input[Optional[Union['IntegrationTlsConfigArgs', 'IntegrationTlsConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1043,26 +1043,26 @@ class Integration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_id: Optional[pulumi.Input[_builtins.str]] = None,
-            connection_id: Optional[pulumi.Input[_builtins.str]] = None,
-            connection_type: Optional[pulumi.Input[_builtins.str]] = None,
-            content_handling_strategy: Optional[pulumi.Input[_builtins.str]] = None,
-            credentials_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            integration_method: Optional[pulumi.Input[_builtins.str]] = None,
-            integration_response_selection_expression: Optional[pulumi.Input[_builtins.str]] = None,
-            integration_subtype: Optional[pulumi.Input[_builtins.str]] = None,
-            integration_type: Optional[pulumi.Input[_builtins.str]] = None,
-            integration_uri: Optional[pulumi.Input[_builtins.str]] = None,
-            passthrough_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-            payload_format_version: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            request_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            response_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationResponseParameterArgs', 'IntegrationResponseParameterArgsDict']]]]] = None,
-            template_selection_expression: Optional[pulumi.Input[_builtins.str]] = None,
-            timeout_milliseconds: Optional[pulumi.Input[_builtins.int]] = None,
-            tls_config: Optional[pulumi.Input[Union['IntegrationTlsConfigArgs', 'IntegrationTlsConfigArgsDict']]] = None) -> 'Integration':
+            api_id: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_id: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_type: pulumi.Input[Optional[_builtins.str]] = None,
+            content_handling_strategy: pulumi.Input[Optional[_builtins.str]] = None,
+            credentials_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            integration_method: pulumi.Input[Optional[_builtins.str]] = None,
+            integration_response_selection_expression: pulumi.Input[Optional[_builtins.str]] = None,
+            integration_subtype: pulumi.Input[Optional[_builtins.str]] = None,
+            integration_type: pulumi.Input[Optional[_builtins.str]] = None,
+            integration_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            passthrough_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+            payload_format_version: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            request_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            request_templates: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            response_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationResponseParameterArgs', 'IntegrationResponseParameterArgsDict']]]]] = None,
+            template_selection_expression: pulumi.Input[Optional[_builtins.str]] = None,
+            timeout_milliseconds: pulumi.Input[Optional[_builtins.int]] = None,
+            tls_config: pulumi.Input[Optional[Union['IntegrationTlsConfigArgs', 'IntegrationTlsConfigArgsDict']]] = None) -> 'Integration':
         """
         Get an existing Integration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

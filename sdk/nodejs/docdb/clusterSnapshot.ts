@@ -168,53 +168,53 @@ export interface ClusterSnapshotState {
     /**
      * List of EC2 Availability Zones that instances in the DocumentDB cluster snapshot can be restored in.
      */
-    availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
+    availabilityZones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The DocumentDB Cluster Identifier from which to take the snapshot.
      */
-    dbClusterIdentifier?: pulumi.Input<string>;
+    dbClusterIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the DocumentDB Cluster Snapshot.
      */
-    dbClusterSnapshotArn?: pulumi.Input<string>;
+    dbClusterSnapshotArn?: pulumi.Input<string | undefined>;
     /**
      * The Identifier for the snapshot.
      */
-    dbClusterSnapshotIdentifier?: pulumi.Input<string>;
+    dbClusterSnapshotIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the database engine.
      */
-    engine?: pulumi.Input<string>;
+    engine?: pulumi.Input<string | undefined>;
     /**
      * Version of the database engine for this DocumentDB cluster snapshot.
      */
-    engineVersion?: pulumi.Input<string>;
+    engineVersion?: pulumi.Input<string | undefined>;
     /**
      * If storageEncrypted is true, the AWS KMS key identifier for the encrypted DocumentDB cluster snapshot.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * Port that the DocumentDB cluster was listening on at the time of the snapshot.
      */
-    port?: pulumi.Input<number>;
+    port?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    snapshotType?: pulumi.Input<string>;
-    sourceDbClusterSnapshotArn?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
+    snapshotType?: pulumi.Input<string | undefined>;
+    sourceDbClusterSnapshotArn?: pulumi.Input<string | undefined>;
     /**
      * The status of this DocumentDB Cluster Snapshot.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the DocumentDB cluster snapshot is encrypted.
      */
-    storageEncrypted?: pulumi.Input<boolean>;
+    storageEncrypted?: pulumi.Input<boolean | undefined>;
     /**
      * The VPC ID associated with the DocumentDB cluster snapshot.
      */
-    vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -232,5 +232,5 @@ export interface ClusterSnapshotArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

@@ -43,7 +43,7 @@ class OrganizationsFeaturesArgs:
 @pulumi.input_type
 class _OrganizationsFeaturesState:
     def __init__(__self__, *,
-                 enabled_features: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 enabled_features: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering OrganizationsFeatures resources.
 
@@ -54,14 +54,14 @@ class _OrganizationsFeaturesState:
 
     @_builtins.property
     @pulumi.getter(name="enabledFeatures")
-    def enabled_features(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def enabled_features(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of IAM features to enable. Valid values are `RootCredentialsManagement` and `RootSessions`.
         """
         return pulumi.get(self, "enabled_features")
 
     @enabled_features.setter
-    def enabled_features(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def enabled_features(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "enabled_features", value)
 
 
@@ -71,7 +71,7 @@ class OrganizationsFeatures(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enabled_features: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enabled_features: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages centralized root access features across AWS member accounts managed using AWS Organizations. More information about managing root access in IAM can be found in the [Centralize root access for member accounts](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-enable-root-access.html).
@@ -156,7 +156,7 @@ class OrganizationsFeatures(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enabled_features: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enabled_features: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -179,7 +179,7 @@ class OrganizationsFeatures(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            enabled_features: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'OrganizationsFeatures':
+            enabled_features: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'OrganizationsFeatures':
         """
         Get an existing OrganizationsFeatures resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

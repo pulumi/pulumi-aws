@@ -103,11 +103,11 @@ export interface OrganizationAdminAccountState {
     /**
      * AWS account identifier to designate as a delegated administrator for GuardDuty.
      */
-    adminAccountId?: pulumi.Input<string>;
+    adminAccountId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -121,5 +121,5 @@ export interface OrganizationAdminAccountArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

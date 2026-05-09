@@ -191,59 +191,59 @@ export interface DeploymentState {
     /**
      * Application ID. Must be between 4 and 7 characters in length.
      */
-    applicationId?: pulumi.Input<string>;
+    applicationId?: pulumi.Input<string | undefined>;
     /**
      * ARN of the AppConfig Deployment.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Configuration profile ID. Must be between 4 and 7 characters in length.
      */
-    configurationProfileId?: pulumi.Input<string>;
+    configurationProfileId?: pulumi.Input<string | undefined>;
     /**
      * Configuration version to deploy. Can be at most 1024 characters.
      */
-    configurationVersion?: pulumi.Input<string>;
+    configurationVersion?: pulumi.Input<string | undefined>;
     /**
      * Deployment number.
      */
-    deploymentNumber?: pulumi.Input<number>;
+    deploymentNumber?: pulumi.Input<number | undefined>;
     /**
      * Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
      */
-    deploymentStrategyId?: pulumi.Input<string>;
+    deploymentStrategyId?: pulumi.Input<string | undefined>;
     /**
      * Description of the deployment. Can be at most 1024 characters.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Environment ID. Must be between 4 and 7 characters in length.
      */
-    environmentId?: pulumi.Input<string>;
+    environmentId?: pulumi.Input<string | undefined>;
     /**
      * ARN of the KMS key used to encrypt configuration data.
      */
-    kmsKeyArn?: pulumi.Input<string>;
+    kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
      * The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
      */
-    kmsKeyIdentifier?: pulumi.Input<string>;
+    kmsKeyIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * State of the deployment.
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -269,7 +269,7 @@ export interface DeploymentArgs {
     /**
      * Description of the deployment. Can be at most 1024 characters.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Environment ID. Must be between 4 and 7 characters in length.
      */
@@ -277,13 +277,13 @@ export interface DeploymentArgs {
     /**
      * The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
      */
-    kmsKeyIdentifier?: pulumi.Input<string>;
+    kmsKeyIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -200,47 +200,47 @@ export interface AttachmentAccepterState {
     /**
      * ID of the attachment.
      */
-    attachmentId?: pulumi.Input<string>;
+    attachmentId?: pulumi.Input<string | undefined>;
     /**
      * Policy rule number associated with the attachment.
      */
-    attachmentPolicyRuleNumber?: pulumi.Input<number>;
+    attachmentPolicyRuleNumber?: pulumi.Input<number | undefined>;
     /**
      * Type of attachment. Valid values: `CONNECT`, `DIRECT_CONNECT_GATEWAY`, `SITE_TO_SITE_VPN`, `TRANSIT_GATEWAY_ROUTE_TABLE`, `VPC`.
      */
-    attachmentType?: pulumi.Input<string>;
+    attachmentType?: pulumi.Input<string | undefined>;
     /**
      * ARN of the core network.
      */
-    coreNetworkArn?: pulumi.Input<string>;
+    coreNetworkArn?: pulumi.Input<string | undefined>;
     /**
      * ID of the core network.
      */
-    coreNetworkId?: pulumi.Input<string>;
+    coreNetworkId?: pulumi.Input<string | undefined>;
     /**
      * Region where the edge is located. This is returned for all attachment types except Direct Connect gateway attachments, which instead return `edgeLocations`.
      */
-    edgeLocation?: pulumi.Input<string>;
+    edgeLocation?: pulumi.Input<string | undefined>;
     /**
      * Edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edgeLocation`.
      */
-    edgeLocations?: pulumi.Input<pulumi.Input<string>[]>;
+    edgeLocations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * ID of the attachment account owner.
      */
-    ownerAccountId?: pulumi.Input<string>;
+    ownerAccountId?: pulumi.Input<string | undefined>;
     /**
      * Attachment resource ARN.
      */
-    resourceArn?: pulumi.Input<string>;
+    resourceArn?: pulumi.Input<string | undefined>;
     /**
      * Name of the segment attachment.
      */
-    segmentName?: pulumi.Input<string>;
+    segmentName?: pulumi.Input<string | undefined>;
     /**
      * State of the attachment.
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
 }
 
 /**

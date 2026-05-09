@@ -267,70 +267,70 @@ export interface ResourceConfigurationState {
     /**
      * Allow or Deny the association of this resource to a shareable service network.
      */
-    allowAssociationToShareableServiceNetwork?: pulumi.Input<boolean>;
+    allowAssociationToShareableServiceNetwork?: pulumi.Input<boolean | undefined>;
     /**
      * ARN of the resource gateway.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Custom domain name for your resource configuration. Additionally, provide a `domainVerificationId` to prove your ownership of a domain.
      */
-    customDomainName?: pulumi.Input<string>;
+    customDomainName?: pulumi.Input<string | undefined>;
     /**
      * ARN of the domain verification.
      */
-    domainVerificationArn?: pulumi.Input<string>;
+    domainVerificationArn?: pulumi.Input<string | undefined>;
     /**
      * The domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
      */
-    domainVerificationId?: pulumi.Input<string>;
+    domainVerificationId?: pulumi.Input<string | undefined>;
     /**
      * Domain verification status.
      */
-    domainVerificationStatus?: pulumi.Input<string>;
+    domainVerificationStatus?: pulumi.Input<string | undefined>;
     /**
      * Name for the Resource Configuration.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Port ranges to access the Resource either single port `80` or range `80-81` range.
      */
-    portRanges?: pulumi.Input<pulumi.Input<string>[]>;
+    portRanges?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resourceConfigurationGroupId` is not.
      */
-    protocol?: pulumi.Input<string>;
+    protocol?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Details of the Resource Configuration. See `resourceConfigurationDefinition` Block for details.
      *
      * The following arguments are optional:
      */
-    resourceConfigurationDefinition?: pulumi.Input<inputs.vpclattice.ResourceConfigurationResourceConfigurationDefinition>;
+    resourceConfigurationDefinition?: pulumi.Input<inputs.vpclattice.ResourceConfigurationResourceConfigurationDefinition | undefined>;
     /**
      * ID of Resource Configuration where `type` is `CHILD`.
      */
-    resourceConfigurationGroupId?: pulumi.Input<string>;
+    resourceConfigurationGroupId?: pulumi.Input<string | undefined>;
     /**
      * ID of the Resource Gateway used to access the resource. MUST be specified if `resourceConfigurationGroupId` is not.
      */
-    resourceGatewayIdentifier?: pulumi.Input<string>;
+    resourceGatewayIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.vpclattice.ResourceConfigurationTimeouts>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.vpclattice.ResourceConfigurationTimeouts | undefined>;
     /**
      * Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -340,52 +340,52 @@ export interface ResourceConfigurationArgs {
     /**
      * Allow or Deny the association of this resource to a shareable service network.
      */
-    allowAssociationToShareableServiceNetwork?: pulumi.Input<boolean>;
+    allowAssociationToShareableServiceNetwork?: pulumi.Input<boolean | undefined>;
     /**
      * Custom domain name for your resource configuration. Additionally, provide a `domainVerificationId` to prove your ownership of a domain.
      */
-    customDomainName?: pulumi.Input<string>;
+    customDomainName?: pulumi.Input<string | undefined>;
     /**
      * The domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
      */
-    domainVerificationId?: pulumi.Input<string>;
+    domainVerificationId?: pulumi.Input<string | undefined>;
     /**
      * Name for the Resource Configuration.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Port ranges to access the Resource either single port `80` or range `80-81` range.
      */
-    portRanges?: pulumi.Input<pulumi.Input<string>[]>;
+    portRanges?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resourceConfigurationGroupId` is not.
      */
-    protocol?: pulumi.Input<string>;
+    protocol?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Details of the Resource Configuration. See `resourceConfigurationDefinition` Block for details.
      *
      * The following arguments are optional:
      */
-    resourceConfigurationDefinition?: pulumi.Input<inputs.vpclattice.ResourceConfigurationResourceConfigurationDefinition>;
+    resourceConfigurationDefinition?: pulumi.Input<inputs.vpclattice.ResourceConfigurationResourceConfigurationDefinition | undefined>;
     /**
      * ID of Resource Configuration where `type` is `CHILD`.
      */
-    resourceConfigurationGroupId?: pulumi.Input<string>;
+    resourceConfigurationGroupId?: pulumi.Input<string | undefined>;
     /**
      * ID of the Resource Gateway used to access the resource. MUST be specified if `resourceConfigurationGroupId` is not.
      */
-    resourceGatewayIdentifier?: pulumi.Input<string>;
+    resourceGatewayIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.vpclattice.ResourceConfigurationTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.vpclattice.ResourceConfigurationTimeouts | undefined>;
     /**
      * Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }

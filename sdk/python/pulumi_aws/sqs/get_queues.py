@@ -111,8 +111,8 @@ def get_queues(queue_name_prefix: Optional[_builtins.str] = None,
         queue_name_prefix=pulumi.get(__ret__, 'queue_name_prefix'),
         queue_urls=pulumi.get(__ret__, 'queue_urls'),
         region=pulumi.get(__ret__, 'region'))
-def get_queues_output(queue_name_prefix: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_queues_output(queue_name_prefix: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQueuesResult]:
     """
     Data source for managing an AWS SQS (Simple Queue) Queues.

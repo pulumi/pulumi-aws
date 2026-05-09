@@ -129,23 +129,23 @@ export interface PolicyState {
     /**
      * The date the policy was created.
      */
-    createdDate?: pulumi.Input<string>;
+    createdDate?: pulumi.Input<string | undefined>;
     /**
      * The definition of the policy. See Definition below.
      */
-    definition?: pulumi.Input<inputs.verifiedpermissions.PolicyDefinition>;
+    definition?: pulumi.Input<inputs.verifiedpermissions.PolicyDefinition | undefined>;
     /**
      * The Policy ID of the policy.
      */
-    policyId?: pulumi.Input<string>;
+    policyId?: pulumi.Input<string | undefined>;
     /**
      * The Policy Store ID of the policy store.
      */
-    policyStoreId?: pulumi.Input<string>;
+    policyStoreId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -163,5 +163,5 @@ export interface PolicyArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

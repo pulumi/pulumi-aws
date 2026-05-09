@@ -326,39 +326,39 @@ export interface PermissionsState {
     /**
      * Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
      */
-    catalogId?: pulumi.Input<string>;
+    catalogId?: pulumi.Input<string | undefined>;
     /**
      * Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
      */
-    catalogResource?: pulumi.Input<boolean>;
+    catalogResource?: pulumi.Input<boolean | undefined>;
     /**
      * Configuration block for a data cells filter resource. Detailed below.
      */
-    dataCellsFilter?: pulumi.Input<inputs.lakeformation.PermissionsDataCellsFilter>;
+    dataCellsFilter?: pulumi.Input<inputs.lakeformation.PermissionsDataCellsFilter | undefined>;
     /**
      * Configuration block for a data location resource. Detailed below.
      */
-    dataLocation?: pulumi.Input<inputs.lakeformation.PermissionsDataLocation>;
+    dataLocation?: pulumi.Input<inputs.lakeformation.PermissionsDataLocation | undefined>;
     /**
      * Configuration block for a database resource. Detailed below.
      */
-    database?: pulumi.Input<inputs.lakeformation.PermissionsDatabase>;
+    database?: pulumi.Input<inputs.lakeformation.PermissionsDatabase | undefined>;
     /**
      * Configuration block for an LF-tag resource. Detailed below.
      */
-    lfTag?: pulumi.Input<inputs.lakeformation.PermissionsLfTag>;
+    lfTag?: pulumi.Input<inputs.lakeformation.PermissionsLfTag | undefined>;
     /**
      * Configuration block for an LF-tag policy resource. Detailed below.
      */
-    lfTagPolicy?: pulumi.Input<inputs.lakeformation.PermissionsLfTagPolicy>;
+    lfTagPolicy?: pulumi.Input<inputs.lakeformation.PermissionsLfTagPolicy | undefined>;
     /**
      * List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `ASSOCIATE`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
      */
-    permissions?: pulumi.Input<pulumi.Input<string>[]>;
+    permissions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Subset of `permissions` which the principal can pass.
      */
-    permissionsWithGrantOptions?: pulumi.Input<pulumi.Input<string>[]>;
+    permissionsWithGrantOptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Principal to be granted the permissions on the resource. Supported principals include `IAM_ALLOWED_PRINCIPALS` (see Default Behavior and `IAMAllowedPrincipals` above), IAM roles, users, groups, Federated Users, SAML groups and users, QuickSight groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
      *
@@ -366,21 +366,21 @@ export interface PermissionsState {
      *
      * One of the following is required:
      */
-    principal?: pulumi.Input<string>;
+    principal?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for a table resource. Detailed below.
      */
-    table?: pulumi.Input<inputs.lakeformation.PermissionsTable>;
+    table?: pulumi.Input<inputs.lakeformation.PermissionsTable | undefined>;
     /**
      * Configuration block for a table with columns resource. Detailed below.
      *
      * The following arguments are optional:
      */
-    tableWithColumns?: pulumi.Input<inputs.lakeformation.PermissionsTableWithColumns>;
+    tableWithColumns?: pulumi.Input<inputs.lakeformation.PermissionsTableWithColumns | undefined>;
 }
 
 /**
@@ -390,31 +390,31 @@ export interface PermissionsArgs {
     /**
      * Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
      */
-    catalogId?: pulumi.Input<string>;
+    catalogId?: pulumi.Input<string | undefined>;
     /**
      * Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
      */
-    catalogResource?: pulumi.Input<boolean>;
+    catalogResource?: pulumi.Input<boolean | undefined>;
     /**
      * Configuration block for a data cells filter resource. Detailed below.
      */
-    dataCellsFilter?: pulumi.Input<inputs.lakeformation.PermissionsDataCellsFilter>;
+    dataCellsFilter?: pulumi.Input<inputs.lakeformation.PermissionsDataCellsFilter | undefined>;
     /**
      * Configuration block for a data location resource. Detailed below.
      */
-    dataLocation?: pulumi.Input<inputs.lakeformation.PermissionsDataLocation>;
+    dataLocation?: pulumi.Input<inputs.lakeformation.PermissionsDataLocation | undefined>;
     /**
      * Configuration block for a database resource. Detailed below.
      */
-    database?: pulumi.Input<inputs.lakeformation.PermissionsDatabase>;
+    database?: pulumi.Input<inputs.lakeformation.PermissionsDatabase | undefined>;
     /**
      * Configuration block for an LF-tag resource. Detailed below.
      */
-    lfTag?: pulumi.Input<inputs.lakeformation.PermissionsLfTag>;
+    lfTag?: pulumi.Input<inputs.lakeformation.PermissionsLfTag | undefined>;
     /**
      * Configuration block for an LF-tag policy resource. Detailed below.
      */
-    lfTagPolicy?: pulumi.Input<inputs.lakeformation.PermissionsLfTagPolicy>;
+    lfTagPolicy?: pulumi.Input<inputs.lakeformation.PermissionsLfTagPolicy | undefined>;
     /**
      * List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `ASSOCIATE`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
      */
@@ -422,7 +422,7 @@ export interface PermissionsArgs {
     /**
      * Subset of `permissions` which the principal can pass.
      */
-    permissionsWithGrantOptions?: pulumi.Input<pulumi.Input<string>[]>;
+    permissionsWithGrantOptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Principal to be granted the permissions on the resource. Supported principals include `IAM_ALLOWED_PRINCIPALS` (see Default Behavior and `IAMAllowedPrincipals` above), IAM roles, users, groups, Federated Users, SAML groups and users, QuickSight groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
      *
@@ -434,15 +434,15 @@ export interface PermissionsArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for a table resource. Detailed below.
      */
-    table?: pulumi.Input<inputs.lakeformation.PermissionsTable>;
+    table?: pulumi.Input<inputs.lakeformation.PermissionsTable | undefined>;
     /**
      * Configuration block for a table with columns resource. Detailed below.
      *
      * The following arguments are optional:
      */
-    tableWithColumns?: pulumi.Input<inputs.lakeformation.PermissionsTableWithColumns>;
+    tableWithColumns?: pulumi.Input<inputs.lakeformation.PermissionsTableWithColumns | undefined>;
 }

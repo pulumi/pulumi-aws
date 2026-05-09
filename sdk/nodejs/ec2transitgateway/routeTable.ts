@@ -126,31 +126,31 @@ export interface RouteTableState {
     /**
      * EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Boolean whether this is the default association route table for the EC2 Transit Gateway.
      */
-    defaultAssociationRouteTable?: pulumi.Input<boolean>;
+    defaultAssociationRouteTable?: pulumi.Input<boolean | undefined>;
     /**
      * Boolean whether this is the default propagation route table for the EC2 Transit Gateway.
      */
-    defaultPropagationRouteTable?: pulumi.Input<boolean>;
+    defaultPropagationRouteTable?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value tags for the EC2 Transit Gateway Route Table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Identifier of EC2 Transit Gateway.
      */
-    transitGatewayId?: pulumi.Input<string>;
+    transitGatewayId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -160,11 +160,11 @@ export interface RouteTableArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value tags for the EC2 Transit Gateway Route Table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Identifier of EC2 Transit Gateway.
      */

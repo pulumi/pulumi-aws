@@ -24,16 +24,16 @@ class PlanArgs:
                  execution_role: pulumi.Input[_builtins.str],
                  recovery_approach: pulumi.Input[_builtins.str],
                  regions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 associated_alarms: Optional[pulumi.Input[Sequence[pulumi.Input['PlanAssociatedAlarmArgs']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_time_objective_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['PlanTimeoutsArgs']] = None,
-                 triggers: Optional[pulumi.Input[Sequence[pulumi.Input['PlanTriggerArgs']]]] = None,
-                 workflows: Optional[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowArgs']]]] = None):
+                 associated_alarms: pulumi.Input[Optional[Sequence[pulumi.Input['PlanAssociatedAlarmArgs']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_time_objective_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['PlanTimeoutsArgs']] = None,
+                 triggers: pulumi.Input[Optional[Sequence[pulumi.Input['PlanTriggerArgs']]]] = None,
+                 workflows: pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowArgs']]]] = None):
         """
         The set of arguments for constructing a Plan resource.
 
@@ -117,113 +117,113 @@ class PlanArgs:
 
     @_builtins.property
     @pulumi.getter(name="associatedAlarms")
-    def associated_alarms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PlanAssociatedAlarmArgs']]]]:
+    def associated_alarms(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PlanAssociatedAlarmArgs']]]]:
         """
         Set of CloudWatch alarms associated with the plan. See Associated Alarms below.
         """
         return pulumi.get(self, "associated_alarms")
 
     @associated_alarms.setter
-    def associated_alarms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PlanAssociatedAlarmArgs']]]]):
+    def associated_alarms(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PlanAssociatedAlarmArgs']]]]):
         pulumi.set(self, "associated_alarms", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the plan.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the plan. Must be unique within the account.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryRegion")
-    def primary_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Primary region for the plan.
         """
         return pulumi.get(self, "primary_region")
 
     @primary_region.setter
-    def primary_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_region", value)
 
     @_builtins.property
     @pulumi.getter(name="recoveryTimeObjectiveMinutes")
-    def recovery_time_objective_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def recovery_time_objective_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Recovery time objective in minutes.
         """
         return pulumi.get(self, "recovery_time_objective_minutes")
 
     @recovery_time_objective_minutes.setter
-    def recovery_time_objective_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def recovery_time_objective_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "recovery_time_objective_minutes", value)
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""This attribute will be removed in a future version of the provider.""")
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['PlanTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['PlanTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['PlanTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['PlanTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter
-    def triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PlanTriggerArgs']]]]:
+    def triggers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PlanTriggerArgs']]]]:
         """
         Set of triggers that can initiate the plan execution. See Triggers below.
         """
         return pulumi.get(self, "triggers")
 
     @triggers.setter
-    def triggers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PlanTriggerArgs']]]]):
+    def triggers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PlanTriggerArgs']]]]):
         pulumi.set(self, "triggers", value)
 
     @_builtins.property
     @pulumi.getter
-    def workflows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowArgs']]]]:
+    def workflows(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowArgs']]]]:
         """
         List of workflows that define the steps to execute. See Workflow below.
 
@@ -232,28 +232,28 @@ class PlanArgs:
         return pulumi.get(self, "workflows")
 
     @workflows.setter
-    def workflows(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowArgs']]]]):
+    def workflows(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowArgs']]]]):
         pulumi.set(self, "workflows", value)
 
 
 @pulumi.input_type
 class _PlanState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 associated_alarms: Optional[pulumi.Input[Sequence[pulumi.Input['PlanAssociatedAlarmArgs']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 execution_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_approach: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_time_objective_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['PlanTimeoutsArgs']] = None,
-                 triggers: Optional[pulumi.Input[Sequence[pulumi.Input['PlanTriggerArgs']]]] = None,
-                 workflows: Optional[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowArgs']]]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 associated_alarms: pulumi.Input[Optional[Sequence[pulumi.Input['PlanAssociatedAlarmArgs']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 execution_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_approach: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_time_objective_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['PlanTimeoutsArgs']] = None,
+                 triggers: pulumi.Input[Optional[Sequence[pulumi.Input['PlanTriggerArgs']]]] = None,
+                 workflows: pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowArgs']]]] = None):
         """
         Input properties used for looking up and filtering Plan resources.
 
@@ -310,173 +310,173 @@ class _PlanState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the plan.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="associatedAlarms")
-    def associated_alarms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PlanAssociatedAlarmArgs']]]]:
+    def associated_alarms(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PlanAssociatedAlarmArgs']]]]:
         """
         Set of CloudWatch alarms associated with the plan. See Associated Alarms below.
         """
         return pulumi.get(self, "associated_alarms")
 
     @associated_alarms.setter
-    def associated_alarms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PlanAssociatedAlarmArgs']]]]):
+    def associated_alarms(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PlanAssociatedAlarmArgs']]]]):
         pulumi.set(self, "associated_alarms", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the plan.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="executionRole")
-    def execution_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def execution_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the IAM role that ARC Region Switch will assume to execute the plan.
         """
         return pulumi.get(self, "execution_role")
 
     @execution_role.setter
-    def execution_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def execution_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "execution_role", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the plan. Must be unique within the account.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryRegion")
-    def primary_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Primary region for the plan.
         """
         return pulumi.get(self, "primary_region")
 
     @primary_region.setter
-    def primary_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_region", value)
 
     @_builtins.property
     @pulumi.getter(name="recoveryApproach")
-    def recovery_approach(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def recovery_approach(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Recovery approach for the plan. Valid values: `activeActive`, `activePassive`.
         """
         return pulumi.get(self, "recovery_approach")
 
     @recovery_approach.setter
-    def recovery_approach(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def recovery_approach(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "recovery_approach", value)
 
     @_builtins.property
     @pulumi.getter(name="recoveryTimeObjectiveMinutes")
-    def recovery_time_objective_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def recovery_time_objective_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Recovery time objective in minutes.
         """
         return pulumi.get(self, "recovery_time_objective_minutes")
 
     @recovery_time_objective_minutes.setter
-    def recovery_time_objective_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def recovery_time_objective_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "recovery_time_objective_minutes", value)
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""This attribute will be removed in a future version of the provider.""")
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of AWS regions involved in the plan.
         """
         return pulumi.get(self, "regions")
 
     @regions.setter
-    def regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "regions", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['PlanTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['PlanTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['PlanTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['PlanTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter
-    def triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PlanTriggerArgs']]]]:
+    def triggers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PlanTriggerArgs']]]]:
         """
         Set of triggers that can initiate the plan execution. See Triggers below.
         """
         return pulumi.get(self, "triggers")
 
     @triggers.setter
-    def triggers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PlanTriggerArgs']]]]):
+    def triggers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PlanTriggerArgs']]]]):
         pulumi.set(self, "triggers", value)
 
     @_builtins.property
     @pulumi.getter
-    def workflows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowArgs']]]]:
+    def workflows(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowArgs']]]]:
         """
         List of workflows that define the steps to execute. See Workflow below.
 
@@ -485,7 +485,7 @@ class _PlanState:
         return pulumi.get(self, "workflows")
 
     @workflows.setter
-    def workflows(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowArgs']]]]):
+    def workflows(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowArgs']]]]):
         pulumi.set(self, "workflows", value)
 
 
@@ -495,19 +495,19 @@ class Plan(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 associated_alarms: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PlanAssociatedAlarmArgs', 'PlanAssociatedAlarmArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 execution_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_approach: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_time_objective_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['PlanTimeoutsArgs', 'PlanTimeoutsArgsDict']]] = None,
-                 triggers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PlanTriggerArgs', 'PlanTriggerArgsDict']]]]] = None,
-                 workflows: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PlanWorkflowArgs', 'PlanWorkflowArgsDict']]]]] = None,
+                 associated_alarms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlanAssociatedAlarmArgs', 'PlanAssociatedAlarmArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 execution_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_approach: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_time_objective_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['PlanTimeoutsArgs', 'PlanTimeoutsArgsDict']]] = None,
+                 triggers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlanTriggerArgs', 'PlanTriggerArgsDict']]]]] = None,
+                 workflows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlanWorkflowArgs', 'PlanWorkflowArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource for managing an Amazon ARC Region Switch plan.
@@ -601,7 +601,7 @@ class Plan(pulumi.CustomResource):
                             "execution_block_type": "CustomActionLambda",
                             "custom_action_lambda_configs": [{
                                 "region_to_run": "activatingRegion",
-                                "retry_interval_minutes": 5,
+                                "retry_interval_minutes": float(5),
                                 "timeout_minutes": 30,
                                 "lambdas": [{
                                     "arn": example["arn"],
@@ -790,7 +790,7 @@ class Plan(pulumi.CustomResource):
                             "execution_block_type": "CustomActionLambda",
                             "custom_action_lambda_configs": [{
                                 "region_to_run": "activatingRegion",
-                                "retry_interval_minutes": 5,
+                                "retry_interval_minutes": float(5),
                                 "timeout_minutes": 30,
                                 "lambdas": [{
                                     "arn": example["arn"],
@@ -879,19 +879,19 @@ class Plan(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 associated_alarms: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PlanAssociatedAlarmArgs', 'PlanAssociatedAlarmArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 execution_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_approach: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_time_objective_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['PlanTimeoutsArgs', 'PlanTimeoutsArgsDict']]] = None,
-                 triggers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PlanTriggerArgs', 'PlanTriggerArgsDict']]]]] = None,
-                 workflows: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PlanWorkflowArgs', 'PlanWorkflowArgsDict']]]]] = None,
+                 associated_alarms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlanAssociatedAlarmArgs', 'PlanAssociatedAlarmArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 execution_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_approach: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_time_objective_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['PlanTimeoutsArgs', 'PlanTimeoutsArgsDict']]] = None,
+                 triggers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlanTriggerArgs', 'PlanTriggerArgsDict']]]]] = None,
+                 workflows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlanWorkflowArgs', 'PlanWorkflowArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -932,21 +932,21 @@ class Plan(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            associated_alarms: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PlanAssociatedAlarmArgs', 'PlanAssociatedAlarmArgsDict']]]]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            execution_role: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_region: Optional[pulumi.Input[_builtins.str]] = None,
-            recovery_approach: Optional[pulumi.Input[_builtins.str]] = None,
-            recovery_time_objective_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: Optional[pulumi.Input[Union['PlanTimeoutsArgs', 'PlanTimeoutsArgsDict']]] = None,
-            triggers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PlanTriggerArgs', 'PlanTriggerArgsDict']]]]] = None,
-            workflows: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PlanWorkflowArgs', 'PlanWorkflowArgsDict']]]]] = None) -> 'Plan':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            associated_alarms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlanAssociatedAlarmArgs', 'PlanAssociatedAlarmArgsDict']]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            execution_role: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_region: pulumi.Input[Optional[_builtins.str]] = None,
+            recovery_approach: pulumi.Input[Optional[_builtins.str]] = None,
+            recovery_time_objective_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['PlanTimeoutsArgs', 'PlanTimeoutsArgsDict']]] = None,
+            triggers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlanTriggerArgs', 'PlanTriggerArgsDict']]]]] = None,
+            workflows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlanWorkflowArgs', 'PlanWorkflowArgsDict']]]]] = None) -> 'Plan':
         """
         Get an existing Plan resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

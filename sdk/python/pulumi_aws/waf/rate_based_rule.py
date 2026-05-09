@@ -24,9 +24,9 @@ class RateBasedRuleArgs:
                  metric_name: pulumi.Input[_builtins.str],
                  rate_key: pulumi.Input[_builtins.str],
                  rate_limit: pulumi.Input[_builtins.int],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 predicates: Optional[pulumi.Input[Sequence[pulumi.Input['RateBasedRulePredicateArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 predicates: pulumi.Input[Optional[Sequence[pulumi.Input['RateBasedRulePredicateArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RateBasedRule resource.
 
@@ -85,52 +85,52 @@ class RateBasedRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name or description of the rule.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def predicates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RateBasedRulePredicateArgs']]]]:
+    def predicates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RateBasedRulePredicateArgs']]]]:
         """
         The objects to include in a rule (documented below).
         """
         return pulumi.get(self, "predicates")
 
     @predicates.setter
-    def predicates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RateBasedRulePredicateArgs']]]]):
+    def predicates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RateBasedRulePredicateArgs']]]]):
         pulumi.set(self, "predicates", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _RateBasedRuleState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 metric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 predicates: Optional[pulumi.Input[Sequence[pulumi.Input['RateBasedRulePredicateArgs']]]] = None,
-                 rate_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 rate_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 predicates: pulumi.Input[Optional[Sequence[pulumi.Input['RateBasedRulePredicateArgs']]]] = None,
+                 rate_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 rate_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering RateBasedRule resources.
 
@@ -162,98 +162,98 @@ class _RateBasedRuleState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN)
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="metricName")
-    def metric_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metric_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name or description for the Amazon CloudWatch metric of this rule.
         """
         return pulumi.get(self, "metric_name")
 
     @metric_name.setter
-    def metric_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metric_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metric_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name or description of the rule.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def predicates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RateBasedRulePredicateArgs']]]]:
+    def predicates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RateBasedRulePredicateArgs']]]]:
         """
         The objects to include in a rule (documented below).
         """
         return pulumi.get(self, "predicates")
 
     @predicates.setter
-    def predicates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RateBasedRulePredicateArgs']]]]):
+    def predicates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RateBasedRulePredicateArgs']]]]):
         pulumi.set(self, "predicates", value)
 
     @_builtins.property
     @pulumi.getter(name="rateKey")
-    def rate_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rate_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Valid value is IP.
         """
         return pulumi.get(self, "rate_key")
 
     @rate_key.setter
-    def rate_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rate_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rate_key", value)
 
     @_builtins.property
     @pulumi.getter(name="rateLimit")
-    def rate_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def rate_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
         """
         return pulumi.get(self, "rate_limit")
 
     @rate_limit.setter
-    def rate_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def rate_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "rate_limit", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
 
@@ -263,12 +263,12 @@ class RateBasedRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 metric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 predicates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RateBasedRulePredicateArgs', 'RateBasedRulePredicateArgsDict']]]]] = None,
-                 rate_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 rate_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 metric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 predicates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RateBasedRulePredicateArgs', 'RateBasedRulePredicateArgsDict']]]]] = None,
+                 rate_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 rate_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a WAF Rate Based Rule Resource
@@ -374,12 +374,12 @@ class RateBasedRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 metric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 predicates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RateBasedRulePredicateArgs', 'RateBasedRulePredicateArgsDict']]]]] = None,
-                 rate_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 rate_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 metric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 predicates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RateBasedRulePredicateArgs', 'RateBasedRulePredicateArgsDict']]]]] = None,
+                 rate_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 rate_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -413,14 +413,14 @@ class RateBasedRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            metric_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            predicates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RateBasedRulePredicateArgs', 'RateBasedRulePredicateArgsDict']]]]] = None,
-            rate_key: Optional[pulumi.Input[_builtins.str]] = None,
-            rate_limit: Optional[pulumi.Input[_builtins.int]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'RateBasedRule':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            metric_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            predicates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RateBasedRulePredicateArgs', 'RateBasedRulePredicateArgsDict']]]]] = None,
+            rate_key: pulumi.Input[Optional[_builtins.str]] = None,
+            rate_limit: pulumi.Input[Optional[_builtins.int]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'RateBasedRule':
         """
         Get an existing RateBasedRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

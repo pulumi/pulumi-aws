@@ -21,38 +21,38 @@ __all__ = ['LoadBalancerArgs', 'LoadBalancer']
 @pulumi.input_type
 class LoadBalancerArgs:
     def __init__(__self__, *,
-                 access_logs: Optional[pulumi.Input['LoadBalancerAccessLogsArgs']] = None,
-                 client_keep_alive: Optional[pulumi.Input[_builtins.int]] = None,
-                 connection_logs: Optional[pulumi.Input['LoadBalancerConnectionLogsArgs']] = None,
-                 customer_owned_ipv4_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 desync_mitigation_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_record_client_routing_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 drop_invalid_header_fields: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_cross_zone_load_balancing: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_deletion_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_http2: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_tls_version_and_cipher_suite_headers: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_waf_fail_open: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_xff_client_port: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_zonal_shift: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enforce_security_group_inbound_rules_on_private_link_traffic: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_check_logs: Optional[pulumi.Input['LoadBalancerHealthCheckLogsArgs']] = None,
-                 idle_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 internal: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipam_pools: Optional[pulumi.Input['LoadBalancerIpamPoolsArgs']] = None,
-                 load_balancer_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 minimum_load_balancer_capacity: Optional[pulumi.Input['LoadBalancerMinimumLoadBalancerCapacityArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 preserve_host_header: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_ips_auto_assigned_per_subnet: Optional[pulumi.Input[_builtins.int]] = None,
-                 security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerSubnetMappingArgs']]]] = None,
-                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 xff_header_processing_mode: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_logs: pulumi.Input[Optional['LoadBalancerAccessLogsArgs']] = None,
+                 client_keep_alive: pulumi.Input[Optional[_builtins.int]] = None,
+                 connection_logs: pulumi.Input[Optional['LoadBalancerConnectionLogsArgs']] = None,
+                 customer_owned_ipv4_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 desync_mitigation_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_record_client_routing_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 drop_invalid_header_fields: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_cross_zone_load_balancing: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_http2: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_tls_version_and_cipher_suite_headers: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_waf_fail_open: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_xff_client_port: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_zonal_shift: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enforce_security_group_inbound_rules_on_private_link_traffic: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_check_logs: pulumi.Input[Optional['LoadBalancerHealthCheckLogsArgs']] = None,
+                 idle_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 internal: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipam_pools: pulumi.Input[Optional['LoadBalancerIpamPoolsArgs']] = None,
+                 load_balancer_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_load_balancer_capacity: pulumi.Input[Optional['LoadBalancerMinimumLoadBalancerCapacityArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 preserve_host_header: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_ips_auto_assigned_per_subnet: pulumi.Input[Optional[_builtins.int]] = None,
+                 security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['LoadBalancerSubnetMappingArgs']]]] = None,
+                 subnets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 xff_header_processing_mode: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a LoadBalancer resource.
 
@@ -160,379 +160,379 @@ class LoadBalancerArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessLogs")
-    def access_logs(self) -> Optional[pulumi.Input['LoadBalancerAccessLogsArgs']]:
+    def access_logs(self) -> pulumi.Input[Optional['LoadBalancerAccessLogsArgs']]:
         """
         Access Logs block. See below.
         """
         return pulumi.get(self, "access_logs")
 
     @access_logs.setter
-    def access_logs(self, value: Optional[pulumi.Input['LoadBalancerAccessLogsArgs']]):
+    def access_logs(self, value: pulumi.Input[Optional['LoadBalancerAccessLogsArgs']]):
         pulumi.set(self, "access_logs", value)
 
     @_builtins.property
     @pulumi.getter(name="clientKeepAlive")
-    def client_keep_alive(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def client_keep_alive(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Client keep alive value in seconds. The valid range is 60-604800 seconds. The default is 3600 seconds.
         """
         return pulumi.get(self, "client_keep_alive")
 
     @client_keep_alive.setter
-    def client_keep_alive(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def client_keep_alive(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "client_keep_alive", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionLogs")
-    def connection_logs(self) -> Optional[pulumi.Input['LoadBalancerConnectionLogsArgs']]:
+    def connection_logs(self) -> pulumi.Input[Optional['LoadBalancerConnectionLogsArgs']]:
         """
         Connection Logs block. See below. Only valid for Load Balancers of type `application`.
         """
         return pulumi.get(self, "connection_logs")
 
     @connection_logs.setter
-    def connection_logs(self, value: Optional[pulumi.Input['LoadBalancerConnectionLogsArgs']]):
+    def connection_logs(self, value: pulumi.Input[Optional['LoadBalancerConnectionLogsArgs']]):
         pulumi.set(self, "connection_logs", value)
 
     @_builtins.property
     @pulumi.getter(name="customerOwnedIpv4Pool")
-    def customer_owned_ipv4_pool(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customer_owned_ipv4_pool(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the customer owned ipv4 pool to use for this load balancer.
         """
         return pulumi.get(self, "customer_owned_ipv4_pool")
 
     @customer_owned_ipv4_pool.setter
-    def customer_owned_ipv4_pool(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customer_owned_ipv4_pool(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customer_owned_ipv4_pool", value)
 
     @_builtins.property
     @pulumi.getter(name="desyncMitigationMode")
-    def desync_mitigation_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def desync_mitigation_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         How the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
         """
         return pulumi.get(self, "desync_mitigation_mode")
 
     @desync_mitigation_mode.setter
-    def desync_mitigation_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def desync_mitigation_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "desync_mitigation_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsRecordClientRoutingPolicy")
-    def dns_record_client_routing_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_record_client_routing_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         How traffic is distributed among the load balancer Availability Zones. Possible values are `any_availability_zone` (default), `availability_zone_affinity`, or `partial_availability_zone_affinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
         """
         return pulumi.get(self, "dns_record_client_routing_policy")
 
     @dns_record_client_routing_policy.setter
-    def dns_record_client_routing_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_record_client_routing_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_record_client_routing_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="dropInvalidHeaderFields")
-    def drop_invalid_header_fields(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def drop_invalid_header_fields(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
         """
         return pulumi.get(self, "drop_invalid_header_fields")
 
     @drop_invalid_header_fields.setter
-    def drop_invalid_header_fields(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def drop_invalid_header_fields(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "drop_invalid_header_fields", value)
 
     @_builtins.property
     @pulumi.getter(name="enableCrossZoneLoadBalancing")
-    def enable_cross_zone_load_balancing(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_cross_zone_load_balancing(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, cross-zone load balancing of the load balancer will be enabled. For `network` and `gateway` type load balancers, this feature is disabled by default (`false`). For `application` load balancer this feature is always enabled (`true`) and cannot be disabled. Defaults to `false`.
         """
         return pulumi.get(self, "enable_cross_zone_load_balancing")
 
     @enable_cross_zone_load_balancing.setter
-    def enable_cross_zone_load_balancing(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_cross_zone_load_balancing(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_cross_zone_load_balancing", value)
 
     @_builtins.property
     @pulumi.getter(name="enableDeletionProtection")
-    def enable_deletion_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_deletion_protection(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, deletion of the load balancer will be disabled via the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
         """
         return pulumi.get(self, "enable_deletion_protection")
 
     @enable_deletion_protection.setter
-    def enable_deletion_protection(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_deletion_protection(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_deletion_protection", value)
 
     @_builtins.property
     @pulumi.getter(name="enableHttp2")
-    def enable_http2(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_http2(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
         """
         return pulumi.get(self, "enable_http2")
 
     @enable_http2.setter
-    def enable_http2(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_http2(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_http2", value)
 
     @_builtins.property
     @pulumi.getter(name="enableTlsVersionAndCipherSuiteHeaders")
-    def enable_tls_version_and_cipher_suite_headers(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_tls_version_and_cipher_suite_headers(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
         """
         return pulumi.get(self, "enable_tls_version_and_cipher_suite_headers")
 
     @enable_tls_version_and_cipher_suite_headers.setter
-    def enable_tls_version_and_cipher_suite_headers(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_tls_version_and_cipher_suite_headers(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_tls_version_and_cipher_suite_headers", value)
 
     @_builtins.property
     @pulumi.getter(name="enableWafFailOpen")
-    def enable_waf_fail_open(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_waf_fail_open(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
         """
         return pulumi.get(self, "enable_waf_fail_open")
 
     @enable_waf_fail_open.setter
-    def enable_waf_fail_open(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_waf_fail_open(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_waf_fail_open", value)
 
     @_builtins.property
     @pulumi.getter(name="enableXffClientPort")
-    def enable_xff_client_port(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_xff_client_port(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
         """
         return pulumi.get(self, "enable_xff_client_port")
 
     @enable_xff_client_port.setter
-    def enable_xff_client_port(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_xff_client_port(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_xff_client_port", value)
 
     @_builtins.property
     @pulumi.getter(name="enableZonalShift")
-    def enable_zonal_shift(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_zonal_shift(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether zonal shift is enabled. Defaults to `false`.
         """
         return pulumi.get(self, "enable_zonal_shift")
 
     @enable_zonal_shift.setter
-    def enable_zonal_shift(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_zonal_shift(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_zonal_shift", value)
 
     @_builtins.property
     @pulumi.getter(name="enforceSecurityGroupInboundRulesOnPrivateLinkTraffic")
-    def enforce_security_group_inbound_rules_on_private_link_traffic(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def enforce_security_group_inbound_rules_on_private_link_traffic(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
         """
         return pulumi.get(self, "enforce_security_group_inbound_rules_on_private_link_traffic")
 
     @enforce_security_group_inbound_rules_on_private_link_traffic.setter
-    def enforce_security_group_inbound_rules_on_private_link_traffic(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def enforce_security_group_inbound_rules_on_private_link_traffic(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "enforce_security_group_inbound_rules_on_private_link_traffic", value)
 
     @_builtins.property
     @pulumi.getter(name="healthCheckLogs")
-    def health_check_logs(self) -> Optional[pulumi.Input['LoadBalancerHealthCheckLogsArgs']]:
+    def health_check_logs(self) -> pulumi.Input[Optional['LoadBalancerHealthCheckLogsArgs']]:
         """
         Health Check Logs block. See below. Only valid for Load Balancers of type `application`.
         """
         return pulumi.get(self, "health_check_logs")
 
     @health_check_logs.setter
-    def health_check_logs(self, value: Optional[pulumi.Input['LoadBalancerHealthCheckLogsArgs']]):
+    def health_check_logs(self, value: pulumi.Input[Optional['LoadBalancerHealthCheckLogsArgs']]):
         pulumi.set(self, "health_check_logs", value)
 
     @_builtins.property
     @pulumi.getter(name="idleTimeout")
-    def idle_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def idle_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
         """
         return pulumi.get(self, "idle_timeout")
 
     @idle_timeout.setter
-    def idle_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def idle_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "idle_timeout", value)
 
     @_builtins.property
     @pulumi.getter
-    def internal(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def internal(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, the LB will be internal. Defaults to `false`.
         """
         return pulumi.get(self, "internal")
 
     @internal.setter
-    def internal(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def internal(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "internal", value)
 
     @_builtins.property
     @pulumi.getter(name="ipAddressType")
-    def ip_address_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_address_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
         """
         return pulumi.get(self, "ip_address_type")
 
     @ip_address_type.setter
-    def ip_address_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_address_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_address_type", value)
 
     @_builtins.property
     @pulumi.getter(name="ipamPools")
-    def ipam_pools(self) -> Optional[pulumi.Input['LoadBalancerIpamPoolsArgs']]:
+    def ipam_pools(self) -> pulumi.Input[Optional['LoadBalancerIpamPoolsArgs']]:
         """
         . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipam_pools for more information.
         """
         return pulumi.get(self, "ipam_pools")
 
     @ipam_pools.setter
-    def ipam_pools(self, value: Optional[pulumi.Input['LoadBalancerIpamPoolsArgs']]):
+    def ipam_pools(self, value: pulumi.Input[Optional['LoadBalancerIpamPoolsArgs']]):
         pulumi.set(self, "ipam_pools", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancerType")
-    def load_balancer_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def load_balancer_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
         """
         return pulumi.get(self, "load_balancer_type")
 
     @load_balancer_type.setter
-    def load_balancer_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def load_balancer_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "load_balancer_type", value)
 
     @_builtins.property
     @pulumi.getter(name="minimumLoadBalancerCapacity")
-    def minimum_load_balancer_capacity(self) -> Optional[pulumi.Input['LoadBalancerMinimumLoadBalancerCapacityArgs']]:
+    def minimum_load_balancer_capacity(self) -> pulumi.Input[Optional['LoadBalancerMinimumLoadBalancerCapacityArgs']]:
         """
         Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
         """
         return pulumi.get(self, "minimum_load_balancer_capacity")
 
     @minimum_load_balancer_capacity.setter
-    def minimum_load_balancer_capacity(self, value: Optional[pulumi.Input['LoadBalancerMinimumLoadBalancerCapacityArgs']]):
+    def minimum_load_balancer_capacity(self, value: pulumi.Input[Optional['LoadBalancerMinimumLoadBalancerCapacityArgs']]):
         pulumi.set(self, "minimum_load_balancer_capacity", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
-    def name_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="preserveHostHeader")
-    def preserve_host_header(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def preserve_host_header(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
         """
         return pulumi.get(self, "preserve_host_header")
 
     @preserve_host_header.setter
-    def preserve_host_header(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def preserve_host_header(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "preserve_host_header", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryIpsAutoAssignedPerSubnet")
-    def secondary_ips_auto_assigned_per_subnet(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def secondary_ips_auto_assigned_per_subnet(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of secondary IP addresses to configure for your load balancer nodes. Only valid for Load Balancers of type `network`. The valid range is 0-7. When decreased, this will force a recreation of the resource. Default: `0`.
         """
         return pulumi.get(self, "secondary_ips_auto_assigned_per_subnet")
 
     @secondary_ips_auto_assigned_per_subnet.setter
-    def secondary_ips_auto_assigned_per_subnet(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def secondary_ips_auto_assigned_per_subnet(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "secondary_ips_auto_assigned_per_subnet", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroups")
-    def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
         """
         return pulumi.get(self, "security_groups")
 
     @security_groups.setter
-    def security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetMappings")
-    def subnet_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerSubnetMappingArgs']]]]:
+    def subnet_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LoadBalancerSubnetMappingArgs']]]]:
         """
         Subnet mapping block. See below. For Load Balancers of type `network` subnet mappings can only be added.
         """
         return pulumi.get(self, "subnet_mappings")
 
     @subnet_mappings.setter
-    def subnet_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerSubnetMappingArgs']]]]):
+    def subnet_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LoadBalancerSubnetMappingArgs']]]]):
         pulumi.set(self, "subnet_mappings", value)
 
     @_builtins.property
     @pulumi.getter
-    def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subnets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
         """
         return pulumi.get(self, "subnets")
 
     @subnets.setter
-    def subnets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subnets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subnets", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="xffHeaderProcessingMode")
-    def xff_header_processing_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def xff_header_processing_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
 
@@ -543,51 +543,51 @@ class LoadBalancerArgs:
         return pulumi.get(self, "xff_header_processing_mode")
 
     @xff_header_processing_mode.setter
-    def xff_header_processing_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def xff_header_processing_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "xff_header_processing_mode", value)
 
 
 @pulumi.input_type
 class _LoadBalancerState:
     def __init__(__self__, *,
-                 access_logs: Optional[pulumi.Input['LoadBalancerAccessLogsArgs']] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 arn_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_keep_alive: Optional[pulumi.Input[_builtins.int]] = None,
-                 connection_logs: Optional[pulumi.Input['LoadBalancerConnectionLogsArgs']] = None,
-                 customer_owned_ipv4_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 desync_mitigation_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_record_client_routing_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 drop_invalid_header_fields: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_cross_zone_load_balancing: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_deletion_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_http2: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_tls_version_and_cipher_suite_headers: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_waf_fail_open: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_xff_client_port: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_zonal_shift: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enforce_security_group_inbound_rules_on_private_link_traffic: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_check_logs: Optional[pulumi.Input['LoadBalancerHealthCheckLogsArgs']] = None,
-                 idle_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 internal: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipam_pools: Optional[pulumi.Input['LoadBalancerIpamPoolsArgs']] = None,
-                 load_balancer_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 minimum_load_balancer_capacity: Optional[pulumi.Input['LoadBalancerMinimumLoadBalancerCapacityArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 preserve_host_header: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_ips_auto_assigned_per_subnet: Optional[pulumi.Input[_builtins.int]] = None,
-                 security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerSubnetMappingArgs']]]] = None,
-                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 xff_header_processing_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 zone_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_logs: pulumi.Input[Optional['LoadBalancerAccessLogsArgs']] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 arn_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_keep_alive: pulumi.Input[Optional[_builtins.int]] = None,
+                 connection_logs: pulumi.Input[Optional['LoadBalancerConnectionLogsArgs']] = None,
+                 customer_owned_ipv4_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 desync_mitigation_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_record_client_routing_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 drop_invalid_header_fields: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_cross_zone_load_balancing: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_http2: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_tls_version_and_cipher_suite_headers: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_waf_fail_open: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_xff_client_port: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_zonal_shift: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enforce_security_group_inbound_rules_on_private_link_traffic: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_check_logs: pulumi.Input[Optional['LoadBalancerHealthCheckLogsArgs']] = None,
+                 idle_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 internal: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipam_pools: pulumi.Input[Optional['LoadBalancerIpamPoolsArgs']] = None,
+                 load_balancer_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_load_balancer_capacity: pulumi.Input[Optional['LoadBalancerMinimumLoadBalancerCapacityArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 preserve_host_header: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_ips_auto_assigned_per_subnet: pulumi.Input[Optional[_builtins.int]] = None,
+                 security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['LoadBalancerSubnetMappingArgs']]]] = None,
+                 subnets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 xff_header_processing_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 zone_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LoadBalancer resources.
 
@@ -713,91 +713,91 @@ class _LoadBalancerState:
 
     @_builtins.property
     @pulumi.getter(name="accessLogs")
-    def access_logs(self) -> Optional[pulumi.Input['LoadBalancerAccessLogsArgs']]:
+    def access_logs(self) -> pulumi.Input[Optional['LoadBalancerAccessLogsArgs']]:
         """
         Access Logs block. See below.
         """
         return pulumi.get(self, "access_logs")
 
     @access_logs.setter
-    def access_logs(self, value: Optional[pulumi.Input['LoadBalancerAccessLogsArgs']]):
+    def access_logs(self, value: pulumi.Input[Optional['LoadBalancerAccessLogsArgs']]):
         pulumi.set(self, "access_logs", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the load balancer.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="arnSuffix")
-    def arn_suffix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn_suffix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN suffix for use with CloudWatch Metrics.
         """
         return pulumi.get(self, "arn_suffix")
 
     @arn_suffix.setter
-    def arn_suffix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn_suffix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn_suffix", value)
 
     @_builtins.property
     @pulumi.getter(name="clientKeepAlive")
-    def client_keep_alive(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def client_keep_alive(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Client keep alive value in seconds. The valid range is 60-604800 seconds. The default is 3600 seconds.
         """
         return pulumi.get(self, "client_keep_alive")
 
     @client_keep_alive.setter
-    def client_keep_alive(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def client_keep_alive(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "client_keep_alive", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionLogs")
-    def connection_logs(self) -> Optional[pulumi.Input['LoadBalancerConnectionLogsArgs']]:
+    def connection_logs(self) -> pulumi.Input[Optional['LoadBalancerConnectionLogsArgs']]:
         """
         Connection Logs block. See below. Only valid for Load Balancers of type `application`.
         """
         return pulumi.get(self, "connection_logs")
 
     @connection_logs.setter
-    def connection_logs(self, value: Optional[pulumi.Input['LoadBalancerConnectionLogsArgs']]):
+    def connection_logs(self, value: pulumi.Input[Optional['LoadBalancerConnectionLogsArgs']]):
         pulumi.set(self, "connection_logs", value)
 
     @_builtins.property
     @pulumi.getter(name="customerOwnedIpv4Pool")
-    def customer_owned_ipv4_pool(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customer_owned_ipv4_pool(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the customer owned ipv4 pool to use for this load balancer.
         """
         return pulumi.get(self, "customer_owned_ipv4_pool")
 
     @customer_owned_ipv4_pool.setter
-    def customer_owned_ipv4_pool(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customer_owned_ipv4_pool(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customer_owned_ipv4_pool", value)
 
     @_builtins.property
     @pulumi.getter(name="desyncMitigationMode")
-    def desync_mitigation_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def desync_mitigation_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         How the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
         """
         return pulumi.get(self, "desync_mitigation_mode")
 
     @desync_mitigation_mode.setter
-    def desync_mitigation_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def desync_mitigation_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "desync_mitigation_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsName")
-    def dns_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         DNS name of the load balancer.
         * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
@@ -805,345 +805,345 @@ class _LoadBalancerState:
         return pulumi.get(self, "dns_name")
 
     @dns_name.setter
-    def dns_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_name", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsRecordClientRoutingPolicy")
-    def dns_record_client_routing_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_record_client_routing_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         How traffic is distributed among the load balancer Availability Zones. Possible values are `any_availability_zone` (default), `availability_zone_affinity`, or `partial_availability_zone_affinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
         """
         return pulumi.get(self, "dns_record_client_routing_policy")
 
     @dns_record_client_routing_policy.setter
-    def dns_record_client_routing_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_record_client_routing_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_record_client_routing_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="dropInvalidHeaderFields")
-    def drop_invalid_header_fields(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def drop_invalid_header_fields(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
         """
         return pulumi.get(self, "drop_invalid_header_fields")
 
     @drop_invalid_header_fields.setter
-    def drop_invalid_header_fields(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def drop_invalid_header_fields(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "drop_invalid_header_fields", value)
 
     @_builtins.property
     @pulumi.getter(name="enableCrossZoneLoadBalancing")
-    def enable_cross_zone_load_balancing(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_cross_zone_load_balancing(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, cross-zone load balancing of the load balancer will be enabled. For `network` and `gateway` type load balancers, this feature is disabled by default (`false`). For `application` load balancer this feature is always enabled (`true`) and cannot be disabled. Defaults to `false`.
         """
         return pulumi.get(self, "enable_cross_zone_load_balancing")
 
     @enable_cross_zone_load_balancing.setter
-    def enable_cross_zone_load_balancing(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_cross_zone_load_balancing(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_cross_zone_load_balancing", value)
 
     @_builtins.property
     @pulumi.getter(name="enableDeletionProtection")
-    def enable_deletion_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_deletion_protection(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, deletion of the load balancer will be disabled via the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
         """
         return pulumi.get(self, "enable_deletion_protection")
 
     @enable_deletion_protection.setter
-    def enable_deletion_protection(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_deletion_protection(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_deletion_protection", value)
 
     @_builtins.property
     @pulumi.getter(name="enableHttp2")
-    def enable_http2(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_http2(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
         """
         return pulumi.get(self, "enable_http2")
 
     @enable_http2.setter
-    def enable_http2(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_http2(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_http2", value)
 
     @_builtins.property
     @pulumi.getter(name="enableTlsVersionAndCipherSuiteHeaders")
-    def enable_tls_version_and_cipher_suite_headers(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_tls_version_and_cipher_suite_headers(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
         """
         return pulumi.get(self, "enable_tls_version_and_cipher_suite_headers")
 
     @enable_tls_version_and_cipher_suite_headers.setter
-    def enable_tls_version_and_cipher_suite_headers(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_tls_version_and_cipher_suite_headers(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_tls_version_and_cipher_suite_headers", value)
 
     @_builtins.property
     @pulumi.getter(name="enableWafFailOpen")
-    def enable_waf_fail_open(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_waf_fail_open(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
         """
         return pulumi.get(self, "enable_waf_fail_open")
 
     @enable_waf_fail_open.setter
-    def enable_waf_fail_open(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_waf_fail_open(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_waf_fail_open", value)
 
     @_builtins.property
     @pulumi.getter(name="enableXffClientPort")
-    def enable_xff_client_port(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_xff_client_port(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
         """
         return pulumi.get(self, "enable_xff_client_port")
 
     @enable_xff_client_port.setter
-    def enable_xff_client_port(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_xff_client_port(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_xff_client_port", value)
 
     @_builtins.property
     @pulumi.getter(name="enableZonalShift")
-    def enable_zonal_shift(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_zonal_shift(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether zonal shift is enabled. Defaults to `false`.
         """
         return pulumi.get(self, "enable_zonal_shift")
 
     @enable_zonal_shift.setter
-    def enable_zonal_shift(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_zonal_shift(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_zonal_shift", value)
 
     @_builtins.property
     @pulumi.getter(name="enforceSecurityGroupInboundRulesOnPrivateLinkTraffic")
-    def enforce_security_group_inbound_rules_on_private_link_traffic(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def enforce_security_group_inbound_rules_on_private_link_traffic(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
         """
         return pulumi.get(self, "enforce_security_group_inbound_rules_on_private_link_traffic")
 
     @enforce_security_group_inbound_rules_on_private_link_traffic.setter
-    def enforce_security_group_inbound_rules_on_private_link_traffic(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def enforce_security_group_inbound_rules_on_private_link_traffic(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "enforce_security_group_inbound_rules_on_private_link_traffic", value)
 
     @_builtins.property
     @pulumi.getter(name="healthCheckLogs")
-    def health_check_logs(self) -> Optional[pulumi.Input['LoadBalancerHealthCheckLogsArgs']]:
+    def health_check_logs(self) -> pulumi.Input[Optional['LoadBalancerHealthCheckLogsArgs']]:
         """
         Health Check Logs block. See below. Only valid for Load Balancers of type `application`.
         """
         return pulumi.get(self, "health_check_logs")
 
     @health_check_logs.setter
-    def health_check_logs(self, value: Optional[pulumi.Input['LoadBalancerHealthCheckLogsArgs']]):
+    def health_check_logs(self, value: pulumi.Input[Optional['LoadBalancerHealthCheckLogsArgs']]):
         pulumi.set(self, "health_check_logs", value)
 
     @_builtins.property
     @pulumi.getter(name="idleTimeout")
-    def idle_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def idle_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
         """
         return pulumi.get(self, "idle_timeout")
 
     @idle_timeout.setter
-    def idle_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def idle_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "idle_timeout", value)
 
     @_builtins.property
     @pulumi.getter
-    def internal(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def internal(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, the LB will be internal. Defaults to `false`.
         """
         return pulumi.get(self, "internal")
 
     @internal.setter
-    def internal(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def internal(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "internal", value)
 
     @_builtins.property
     @pulumi.getter(name="ipAddressType")
-    def ip_address_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_address_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
         """
         return pulumi.get(self, "ip_address_type")
 
     @ip_address_type.setter
-    def ip_address_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_address_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_address_type", value)
 
     @_builtins.property
     @pulumi.getter(name="ipamPools")
-    def ipam_pools(self) -> Optional[pulumi.Input['LoadBalancerIpamPoolsArgs']]:
+    def ipam_pools(self) -> pulumi.Input[Optional['LoadBalancerIpamPoolsArgs']]:
         """
         . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipam_pools for more information.
         """
         return pulumi.get(self, "ipam_pools")
 
     @ipam_pools.setter
-    def ipam_pools(self, value: Optional[pulumi.Input['LoadBalancerIpamPoolsArgs']]):
+    def ipam_pools(self, value: pulumi.Input[Optional['LoadBalancerIpamPoolsArgs']]):
         pulumi.set(self, "ipam_pools", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancerType")
-    def load_balancer_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def load_balancer_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
         """
         return pulumi.get(self, "load_balancer_type")
 
     @load_balancer_type.setter
-    def load_balancer_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def load_balancer_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "load_balancer_type", value)
 
     @_builtins.property
     @pulumi.getter(name="minimumLoadBalancerCapacity")
-    def minimum_load_balancer_capacity(self) -> Optional[pulumi.Input['LoadBalancerMinimumLoadBalancerCapacityArgs']]:
+    def minimum_load_balancer_capacity(self) -> pulumi.Input[Optional['LoadBalancerMinimumLoadBalancerCapacityArgs']]:
         """
         Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
         """
         return pulumi.get(self, "minimum_load_balancer_capacity")
 
     @minimum_load_balancer_capacity.setter
-    def minimum_load_balancer_capacity(self, value: Optional[pulumi.Input['LoadBalancerMinimumLoadBalancerCapacityArgs']]):
+    def minimum_load_balancer_capacity(self, value: pulumi.Input[Optional['LoadBalancerMinimumLoadBalancerCapacityArgs']]):
         pulumi.set(self, "minimum_load_balancer_capacity", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
-    def name_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="preserveHostHeader")
-    def preserve_host_header(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def preserve_host_header(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
         """
         return pulumi.get(self, "preserve_host_header")
 
     @preserve_host_header.setter
-    def preserve_host_header(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def preserve_host_header(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "preserve_host_header", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryIpsAutoAssignedPerSubnet")
-    def secondary_ips_auto_assigned_per_subnet(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def secondary_ips_auto_assigned_per_subnet(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of secondary IP addresses to configure for your load balancer nodes. Only valid for Load Balancers of type `network`. The valid range is 0-7. When decreased, this will force a recreation of the resource. Default: `0`.
         """
         return pulumi.get(self, "secondary_ips_auto_assigned_per_subnet")
 
     @secondary_ips_auto_assigned_per_subnet.setter
-    def secondary_ips_auto_assigned_per_subnet(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def secondary_ips_auto_assigned_per_subnet(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "secondary_ips_auto_assigned_per_subnet", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroups")
-    def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
         """
         return pulumi.get(self, "security_groups")
 
     @security_groups.setter
-    def security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetMappings")
-    def subnet_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerSubnetMappingArgs']]]]:
+    def subnet_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LoadBalancerSubnetMappingArgs']]]]:
         """
         Subnet mapping block. See below. For Load Balancers of type `network` subnet mappings can only be added.
         """
         return pulumi.get(self, "subnet_mappings")
 
     @subnet_mappings.setter
-    def subnet_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerSubnetMappingArgs']]]]):
+    def subnet_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LoadBalancerSubnetMappingArgs']]]]):
         pulumi.set(self, "subnet_mappings", value)
 
     @_builtins.property
     @pulumi.getter
-    def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subnets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
         """
         return pulumi.get(self, "subnets")
 
     @subnets.setter
-    def subnets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subnets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subnets", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
-    def vpc_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_id", value)
 
     @_builtins.property
     @pulumi.getter(name="xffHeaderProcessingMode")
-    def xff_header_processing_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def xff_header_processing_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
 
@@ -1154,19 +1154,19 @@ class _LoadBalancerState:
         return pulumi.get(self, "xff_header_processing_mode")
 
     @xff_header_processing_mode.setter
-    def xff_header_processing_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def xff_header_processing_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "xff_header_processing_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="zoneId")
-    def zone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def zone_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
         """
         return pulumi.get(self, "zone_id")
 
     @zone_id.setter
-    def zone_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def zone_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "zone_id", value)
 
 
@@ -1176,38 +1176,38 @@ class LoadBalancer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_logs: Optional[pulumi.Input[Union['LoadBalancerAccessLogsArgs', 'LoadBalancerAccessLogsArgsDict']]] = None,
-                 client_keep_alive: Optional[pulumi.Input[_builtins.int]] = None,
-                 connection_logs: Optional[pulumi.Input[Union['LoadBalancerConnectionLogsArgs', 'LoadBalancerConnectionLogsArgsDict']]] = None,
-                 customer_owned_ipv4_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 desync_mitigation_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_record_client_routing_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 drop_invalid_header_fields: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_cross_zone_load_balancing: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_deletion_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_http2: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_tls_version_and_cipher_suite_headers: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_waf_fail_open: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_xff_client_port: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_zonal_shift: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enforce_security_group_inbound_rules_on_private_link_traffic: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_check_logs: Optional[pulumi.Input[Union['LoadBalancerHealthCheckLogsArgs', 'LoadBalancerHealthCheckLogsArgsDict']]] = None,
-                 idle_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 internal: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipam_pools: Optional[pulumi.Input[Union['LoadBalancerIpamPoolsArgs', 'LoadBalancerIpamPoolsArgsDict']]] = None,
-                 load_balancer_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 minimum_load_balancer_capacity: Optional[pulumi.Input[Union['LoadBalancerMinimumLoadBalancerCapacityArgs', 'LoadBalancerMinimumLoadBalancerCapacityArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 preserve_host_header: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_ips_auto_assigned_per_subnet: Optional[pulumi.Input[_builtins.int]] = None,
-                 security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerSubnetMappingArgs', 'LoadBalancerSubnetMappingArgsDict']]]]] = None,
-                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 xff_header_processing_mode: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_logs: pulumi.Input[Optional[Union['LoadBalancerAccessLogsArgs', 'LoadBalancerAccessLogsArgsDict']]] = None,
+                 client_keep_alive: pulumi.Input[Optional[_builtins.int]] = None,
+                 connection_logs: pulumi.Input[Optional[Union['LoadBalancerConnectionLogsArgs', 'LoadBalancerConnectionLogsArgsDict']]] = None,
+                 customer_owned_ipv4_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 desync_mitigation_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_record_client_routing_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 drop_invalid_header_fields: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_cross_zone_load_balancing: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_http2: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_tls_version_and_cipher_suite_headers: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_waf_fail_open: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_xff_client_port: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_zonal_shift: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enforce_security_group_inbound_rules_on_private_link_traffic: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_check_logs: pulumi.Input[Optional[Union['LoadBalancerHealthCheckLogsArgs', 'LoadBalancerHealthCheckLogsArgsDict']]] = None,
+                 idle_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 internal: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipam_pools: pulumi.Input[Optional[Union['LoadBalancerIpamPoolsArgs', 'LoadBalancerIpamPoolsArgsDict']]] = None,
+                 load_balancer_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_load_balancer_capacity: pulumi.Input[Optional[Union['LoadBalancerMinimumLoadBalancerCapacityArgs', 'LoadBalancerMinimumLoadBalancerCapacityArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 preserve_host_header: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_ips_auto_assigned_per_subnet: pulumi.Input[Optional[_builtins.int]] = None,
+                 security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancerSubnetMappingArgs', 'LoadBalancerSubnetMappingArgsDict']]]]] = None,
+                 subnets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 xff_header_processing_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a Load Balancer resource.
@@ -1477,38 +1477,38 @@ class LoadBalancer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_logs: Optional[pulumi.Input[Union['LoadBalancerAccessLogsArgs', 'LoadBalancerAccessLogsArgsDict']]] = None,
-                 client_keep_alive: Optional[pulumi.Input[_builtins.int]] = None,
-                 connection_logs: Optional[pulumi.Input[Union['LoadBalancerConnectionLogsArgs', 'LoadBalancerConnectionLogsArgsDict']]] = None,
-                 customer_owned_ipv4_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 desync_mitigation_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_record_client_routing_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 drop_invalid_header_fields: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_cross_zone_load_balancing: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_deletion_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_http2: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_tls_version_and_cipher_suite_headers: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_waf_fail_open: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_xff_client_port: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_zonal_shift: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enforce_security_group_inbound_rules_on_private_link_traffic: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_check_logs: Optional[pulumi.Input[Union['LoadBalancerHealthCheckLogsArgs', 'LoadBalancerHealthCheckLogsArgsDict']]] = None,
-                 idle_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 internal: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipam_pools: Optional[pulumi.Input[Union['LoadBalancerIpamPoolsArgs', 'LoadBalancerIpamPoolsArgsDict']]] = None,
-                 load_balancer_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 minimum_load_balancer_capacity: Optional[pulumi.Input[Union['LoadBalancerMinimumLoadBalancerCapacityArgs', 'LoadBalancerMinimumLoadBalancerCapacityArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 preserve_host_header: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_ips_auto_assigned_per_subnet: Optional[pulumi.Input[_builtins.int]] = None,
-                 security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerSubnetMappingArgs', 'LoadBalancerSubnetMappingArgsDict']]]]] = None,
-                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 xff_header_processing_mode: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_logs: pulumi.Input[Optional[Union['LoadBalancerAccessLogsArgs', 'LoadBalancerAccessLogsArgsDict']]] = None,
+                 client_keep_alive: pulumi.Input[Optional[_builtins.int]] = None,
+                 connection_logs: pulumi.Input[Optional[Union['LoadBalancerConnectionLogsArgs', 'LoadBalancerConnectionLogsArgsDict']]] = None,
+                 customer_owned_ipv4_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 desync_mitigation_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_record_client_routing_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 drop_invalid_header_fields: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_cross_zone_load_balancing: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_http2: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_tls_version_and_cipher_suite_headers: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_waf_fail_open: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_xff_client_port: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_zonal_shift: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enforce_security_group_inbound_rules_on_private_link_traffic: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_check_logs: pulumi.Input[Optional[Union['LoadBalancerHealthCheckLogsArgs', 'LoadBalancerHealthCheckLogsArgsDict']]] = None,
+                 idle_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 internal: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipam_pools: pulumi.Input[Optional[Union['LoadBalancerIpamPoolsArgs', 'LoadBalancerIpamPoolsArgsDict']]] = None,
+                 load_balancer_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_load_balancer_capacity: pulumi.Input[Optional[Union['LoadBalancerMinimumLoadBalancerCapacityArgs', 'LoadBalancerMinimumLoadBalancerCapacityArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 preserve_host_header: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_ips_auto_assigned_per_subnet: pulumi.Input[Optional[_builtins.int]] = None,
+                 security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancerSubnetMappingArgs', 'LoadBalancerSubnetMappingArgsDict']]]]] = None,
+                 subnets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 xff_header_processing_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1568,44 +1568,44 @@ class LoadBalancer(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            access_logs: Optional[pulumi.Input[Union['LoadBalancerAccessLogsArgs', 'LoadBalancerAccessLogsArgsDict']]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            arn_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-            client_keep_alive: Optional[pulumi.Input[_builtins.int]] = None,
-            connection_logs: Optional[pulumi.Input[Union['LoadBalancerConnectionLogsArgs', 'LoadBalancerConnectionLogsArgsDict']]] = None,
-            customer_owned_ipv4_pool: Optional[pulumi.Input[_builtins.str]] = None,
-            desync_mitigation_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            dns_name: Optional[pulumi.Input[_builtins.str]] = None,
-            dns_record_client_routing_policy: Optional[pulumi.Input[_builtins.str]] = None,
-            drop_invalid_header_fields: Optional[pulumi.Input[_builtins.bool]] = None,
-            enable_cross_zone_load_balancing: Optional[pulumi.Input[_builtins.bool]] = None,
-            enable_deletion_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-            enable_http2: Optional[pulumi.Input[_builtins.bool]] = None,
-            enable_tls_version_and_cipher_suite_headers: Optional[pulumi.Input[_builtins.bool]] = None,
-            enable_waf_fail_open: Optional[pulumi.Input[_builtins.bool]] = None,
-            enable_xff_client_port: Optional[pulumi.Input[_builtins.bool]] = None,
-            enable_zonal_shift: Optional[pulumi.Input[_builtins.bool]] = None,
-            enforce_security_group_inbound_rules_on_private_link_traffic: Optional[pulumi.Input[_builtins.str]] = None,
-            health_check_logs: Optional[pulumi.Input[Union['LoadBalancerHealthCheckLogsArgs', 'LoadBalancerHealthCheckLogsArgsDict']]] = None,
-            idle_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-            internal: Optional[pulumi.Input[_builtins.bool]] = None,
-            ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
-            ipam_pools: Optional[pulumi.Input[Union['LoadBalancerIpamPoolsArgs', 'LoadBalancerIpamPoolsArgsDict']]] = None,
-            load_balancer_type: Optional[pulumi.Input[_builtins.str]] = None,
-            minimum_load_balancer_capacity: Optional[pulumi.Input[Union['LoadBalancerMinimumLoadBalancerCapacityArgs', 'LoadBalancerMinimumLoadBalancerCapacityArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-            preserve_host_header: Optional[pulumi.Input[_builtins.bool]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_ips_auto_assigned_per_subnet: Optional[pulumi.Input[_builtins.int]] = None,
-            security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            subnet_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerSubnetMappingArgs', 'LoadBalancerSubnetMappingArgsDict']]]]] = None,
-            subnets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
-            xff_header_processing_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            zone_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'LoadBalancer':
+            access_logs: pulumi.Input[Optional[Union['LoadBalancerAccessLogsArgs', 'LoadBalancerAccessLogsArgsDict']]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            arn_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+            client_keep_alive: pulumi.Input[Optional[_builtins.int]] = None,
+            connection_logs: pulumi.Input[Optional[Union['LoadBalancerConnectionLogsArgs', 'LoadBalancerConnectionLogsArgsDict']]] = None,
+            customer_owned_ipv4_pool: pulumi.Input[Optional[_builtins.str]] = None,
+            desync_mitigation_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+            dns_record_client_routing_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            drop_invalid_header_fields: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_cross_zone_load_balancing: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_http2: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_tls_version_and_cipher_suite_headers: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_waf_fail_open: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_xff_client_port: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_zonal_shift: pulumi.Input[Optional[_builtins.bool]] = None,
+            enforce_security_group_inbound_rules_on_private_link_traffic: pulumi.Input[Optional[_builtins.str]] = None,
+            health_check_logs: pulumi.Input[Optional[Union['LoadBalancerHealthCheckLogsArgs', 'LoadBalancerHealthCheckLogsArgsDict']]] = None,
+            idle_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            internal: pulumi.Input[Optional[_builtins.bool]] = None,
+            ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
+            ipam_pools: pulumi.Input[Optional[Union['LoadBalancerIpamPoolsArgs', 'LoadBalancerIpamPoolsArgsDict']]] = None,
+            load_balancer_type: pulumi.Input[Optional[_builtins.str]] = None,
+            minimum_load_balancer_capacity: pulumi.Input[Optional[Union['LoadBalancerMinimumLoadBalancerCapacityArgs', 'LoadBalancerMinimumLoadBalancerCapacityArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            preserve_host_header: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_ips_auto_assigned_per_subnet: pulumi.Input[Optional[_builtins.int]] = None,
+            security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            subnet_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancerSubnetMappingArgs', 'LoadBalancerSubnetMappingArgsDict']]]]] = None,
+            subnets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
+            xff_header_processing_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            zone_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'LoadBalancer':
         """
         Get an existing LoadBalancer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

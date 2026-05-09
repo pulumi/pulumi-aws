@@ -22,20 +22,20 @@ __all__ = ['InfrastructureConfigurationArgs', 'InfrastructureConfiguration']
 class InfrastructureConfigurationArgs:
     def __init__(__self__, *,
                  instance_profile_name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_metadata_options: Optional[pulumi.Input['InfrastructureConfigurationInstanceMetadataOptionsArgs']] = None,
-                 instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 key_pair: Optional[pulumi.Input[_builtins.str]] = None,
-                 logging: Optional[pulumi.Input['InfrastructureConfigurationLoggingArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 placement: Optional[pulumi.Input['InfrastructureConfigurationPlacementArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 terminate_instance_on_failure: Optional[pulumi.Input[_builtins.bool]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_metadata_options: pulumi.Input[Optional['InfrastructureConfigurationInstanceMetadataOptionsArgs']] = None,
+                 instance_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 key_pair: pulumi.Input[Optional[_builtins.str]] = None,
+                 logging: pulumi.Input[Optional['InfrastructureConfigurationLoggingArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 placement: pulumi.Input[Optional['InfrastructureConfigurationPlacementArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 terminate_instance_on_failure: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a InfrastructureConfiguration resource.
 
@@ -101,67 +101,67 @@ class InfrastructureConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description for the configuration.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceMetadataOptions")
-    def instance_metadata_options(self) -> Optional[pulumi.Input['InfrastructureConfigurationInstanceMetadataOptionsArgs']]:
+    def instance_metadata_options(self) -> pulumi.Input[Optional['InfrastructureConfigurationInstanceMetadataOptionsArgs']]:
         """
         Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
         """
         return pulumi.get(self, "instance_metadata_options")
 
     @instance_metadata_options.setter
-    def instance_metadata_options(self, value: Optional[pulumi.Input['InfrastructureConfigurationInstanceMetadataOptionsArgs']]):
+    def instance_metadata_options(self, value: pulumi.Input[Optional['InfrastructureConfigurationInstanceMetadataOptionsArgs']]):
         pulumi.set(self, "instance_metadata_options", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceTypes")
-    def instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def instance_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of EC2 Instance Types.
         """
         return pulumi.get(self, "instance_types")
 
     @instance_types.setter
-    def instance_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def instance_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "instance_types", value)
 
     @_builtins.property
     @pulumi.getter(name="keyPair")
-    def key_pair(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_pair(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of EC2 Key Pair.
         """
         return pulumi.get(self, "key_pair")
 
     @key_pair.setter
-    def key_pair(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_pair(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_pair", value)
 
     @_builtins.property
     @pulumi.getter
-    def logging(self) -> Optional[pulumi.Input['InfrastructureConfigurationLoggingArgs']]:
+    def logging(self) -> pulumi.Input[Optional['InfrastructureConfigurationLoggingArgs']]:
         """
         Configuration block with logging settings. Detailed below.
         """
         return pulumi.get(self, "logging")
 
     @logging.setter
-    def logging(self, value: Optional[pulumi.Input['InfrastructureConfigurationLoggingArgs']]):
+    def logging(self, value: pulumi.Input[Optional['InfrastructureConfigurationLoggingArgs']]):
         pulumi.set(self, "logging", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name for the configuration.
 
@@ -170,128 +170,128 @@ class InfrastructureConfigurationArgs:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def placement(self) -> Optional[pulumi.Input['InfrastructureConfigurationPlacementArgs']]:
+    def placement(self) -> pulumi.Input[Optional['InfrastructureConfigurationPlacementArgs']]:
         """
         Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
         """
         return pulumi.get(self, "placement")
 
     @placement.setter
-    def placement(self, value: Optional[pulumi.Input['InfrastructureConfigurationPlacementArgs']]):
+    def placement(self, value: pulumi.Input[Optional['InfrastructureConfigurationPlacementArgs']]):
         pulumi.set(self, "placement", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceTags")
-    def resource_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def resource_tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags to assign to infrastructure created by the configuration.
         """
         return pulumi.get(self, "resource_tags")
 
     @resource_tags.setter
-    def resource_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def resource_tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resource_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of EC2 Security Group identifiers.
         """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
-    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_group_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="snsTopicArn")
-    def sns_topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sns_topic_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) of SNS Topic.
         """
         return pulumi.get(self, "sns_topic_arn")
 
     @sns_topic_arn.setter
-    def sns_topic_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sns_topic_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sns_topic_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         EC2 Subnet identifier. Also requires `security_group_ids` argument.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags to assign to the configuration. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="terminateInstanceOnFailure")
-    def terminate_instance_on_failure(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def terminate_instance_on_failure(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
         """
         return pulumi.get(self, "terminate_instance_on_failure")
 
     @terminate_instance_on_failure.setter
-    def terminate_instance_on_failure(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def terminate_instance_on_failure(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "terminate_instance_on_failure", value)
 
 
 @pulumi.input_type
 class _InfrastructureConfigurationState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 date_created: Optional[pulumi.Input[_builtins.str]] = None,
-                 date_updated: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_metadata_options: Optional[pulumi.Input['InfrastructureConfigurationInstanceMetadataOptionsArgs']] = None,
-                 instance_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 key_pair: Optional[pulumi.Input[_builtins.str]] = None,
-                 logging: Optional[pulumi.Input['InfrastructureConfigurationLoggingArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 placement: Optional[pulumi.Input['InfrastructureConfigurationPlacementArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 terminate_instance_on_failure: Optional[pulumi.Input[_builtins.bool]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 date_created: pulumi.Input[Optional[_builtins.str]] = None,
+                 date_updated: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_metadata_options: pulumi.Input[Optional['InfrastructureConfigurationInstanceMetadataOptionsArgs']] = None,
+                 instance_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 key_pair: pulumi.Input[Optional[_builtins.str]] = None,
+                 logging: pulumi.Input[Optional['InfrastructureConfigurationLoggingArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 placement: pulumi.Input[Optional['InfrastructureConfigurationPlacementArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 terminate_instance_on_failure: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering InfrastructureConfiguration resources.
 
@@ -358,115 +358,115 @@ class _InfrastructureConfigurationState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) of the configuration.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="dateCreated")
-    def date_created(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def date_created(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date when the configuration was created.
         """
         return pulumi.get(self, "date_created")
 
     @date_created.setter
-    def date_created(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def date_created(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "date_created", value)
 
     @_builtins.property
     @pulumi.getter(name="dateUpdated")
-    def date_updated(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def date_updated(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date when the configuration was updated.
         """
         return pulumi.get(self, "date_updated")
 
     @date_updated.setter
-    def date_updated(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def date_updated(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "date_updated", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description for the configuration.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceMetadataOptions")
-    def instance_metadata_options(self) -> Optional[pulumi.Input['InfrastructureConfigurationInstanceMetadataOptionsArgs']]:
+    def instance_metadata_options(self) -> pulumi.Input[Optional['InfrastructureConfigurationInstanceMetadataOptionsArgs']]:
         """
         Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
         """
         return pulumi.get(self, "instance_metadata_options")
 
     @instance_metadata_options.setter
-    def instance_metadata_options(self, value: Optional[pulumi.Input['InfrastructureConfigurationInstanceMetadataOptionsArgs']]):
+    def instance_metadata_options(self, value: pulumi.Input[Optional['InfrastructureConfigurationInstanceMetadataOptionsArgs']]):
         pulumi.set(self, "instance_metadata_options", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceProfileName")
-    def instance_profile_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_profile_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of IAM Instance Profile.
         """
         return pulumi.get(self, "instance_profile_name")
 
     @instance_profile_name.setter
-    def instance_profile_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_profile_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_profile_name", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceTypes")
-    def instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def instance_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of EC2 Instance Types.
         """
         return pulumi.get(self, "instance_types")
 
     @instance_types.setter
-    def instance_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def instance_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "instance_types", value)
 
     @_builtins.property
     @pulumi.getter(name="keyPair")
-    def key_pair(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_pair(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of EC2 Key Pair.
         """
         return pulumi.get(self, "key_pair")
 
     @key_pair.setter
-    def key_pair(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_pair(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_pair", value)
 
     @_builtins.property
     @pulumi.getter
-    def logging(self) -> Optional[pulumi.Input['InfrastructureConfigurationLoggingArgs']]:
+    def logging(self) -> pulumi.Input[Optional['InfrastructureConfigurationLoggingArgs']]:
         """
         Configuration block with logging settings. Detailed below.
         """
         return pulumi.get(self, "logging")
 
     @logging.setter
-    def logging(self, value: Optional[pulumi.Input['InfrastructureConfigurationLoggingArgs']]):
+    def logging(self, value: pulumi.Input[Optional['InfrastructureConfigurationLoggingArgs']]):
         pulumi.set(self, "logging", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name for the configuration.
 
@@ -475,115 +475,115 @@ class _InfrastructureConfigurationState:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def placement(self) -> Optional[pulumi.Input['InfrastructureConfigurationPlacementArgs']]:
+    def placement(self) -> pulumi.Input[Optional['InfrastructureConfigurationPlacementArgs']]:
         """
         Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
         """
         return pulumi.get(self, "placement")
 
     @placement.setter
-    def placement(self, value: Optional[pulumi.Input['InfrastructureConfigurationPlacementArgs']]):
+    def placement(self, value: pulumi.Input[Optional['InfrastructureConfigurationPlacementArgs']]):
         pulumi.set(self, "placement", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceTags")
-    def resource_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def resource_tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags to assign to infrastructure created by the configuration.
         """
         return pulumi.get(self, "resource_tags")
 
     @resource_tags.setter
-    def resource_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def resource_tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resource_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of EC2 Security Group identifiers.
         """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
-    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_group_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="snsTopicArn")
-    def sns_topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sns_topic_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) of SNS Topic.
         """
         return pulumi.get(self, "sns_topic_arn")
 
     @sns_topic_arn.setter
-    def sns_topic_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sns_topic_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sns_topic_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         EC2 Subnet identifier. Also requires `security_group_ids` argument.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags to assign to the configuration. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="terminateInstanceOnFailure")
-    def terminate_instance_on_failure(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def terminate_instance_on_failure(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
         """
         return pulumi.get(self, "terminate_instance_on_failure")
 
     @terminate_instance_on_failure.setter
-    def terminate_instance_on_failure(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def terminate_instance_on_failure(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "terminate_instance_on_failure", value)
 
 
@@ -593,21 +593,21 @@ class InfrastructureConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_metadata_options: Optional[pulumi.Input[Union['InfrastructureConfigurationInstanceMetadataOptionsArgs', 'InfrastructureConfigurationInstanceMetadataOptionsArgsDict']]] = None,
-                 instance_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 key_pair: Optional[pulumi.Input[_builtins.str]] = None,
-                 logging: Optional[pulumi.Input[Union['InfrastructureConfigurationLoggingArgs', 'InfrastructureConfigurationLoggingArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 placement: Optional[pulumi.Input[Union['InfrastructureConfigurationPlacementArgs', 'InfrastructureConfigurationPlacementArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 terminate_instance_on_failure: Optional[pulumi.Input[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_metadata_options: pulumi.Input[Optional[Union['InfrastructureConfigurationInstanceMetadataOptionsArgs', 'InfrastructureConfigurationInstanceMetadataOptionsArgsDict']]] = None,
+                 instance_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 key_pair: pulumi.Input[Optional[_builtins.str]] = None,
+                 logging: pulumi.Input[Optional[Union['InfrastructureConfigurationLoggingArgs', 'InfrastructureConfigurationLoggingArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 placement: pulumi.Input[Optional[Union['InfrastructureConfigurationPlacementArgs', 'InfrastructureConfigurationPlacementArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 terminate_instance_on_failure: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manages an Image Builder Infrastructure Configuration.
@@ -746,21 +746,21 @@ class InfrastructureConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_metadata_options: Optional[pulumi.Input[Union['InfrastructureConfigurationInstanceMetadataOptionsArgs', 'InfrastructureConfigurationInstanceMetadataOptionsArgsDict']]] = None,
-                 instance_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 key_pair: Optional[pulumi.Input[_builtins.str]] = None,
-                 logging: Optional[pulumi.Input[Union['InfrastructureConfigurationLoggingArgs', 'InfrastructureConfigurationLoggingArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 placement: Optional[pulumi.Input[Union['InfrastructureConfigurationPlacementArgs', 'InfrastructureConfigurationPlacementArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 terminate_instance_on_failure: Optional[pulumi.Input[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_metadata_options: pulumi.Input[Optional[Union['InfrastructureConfigurationInstanceMetadataOptionsArgs', 'InfrastructureConfigurationInstanceMetadataOptionsArgsDict']]] = None,
+                 instance_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 key_pair: pulumi.Input[Optional[_builtins.str]] = None,
+                 logging: pulumi.Input[Optional[Union['InfrastructureConfigurationLoggingArgs', 'InfrastructureConfigurationLoggingArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 placement: pulumi.Input[Optional[Union['InfrastructureConfigurationPlacementArgs', 'InfrastructureConfigurationPlacementArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 terminate_instance_on_failure: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -801,25 +801,25 @@ class InfrastructureConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            date_created: Optional[pulumi.Input[_builtins.str]] = None,
-            date_updated: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            instance_metadata_options: Optional[pulumi.Input[Union['InfrastructureConfigurationInstanceMetadataOptionsArgs', 'InfrastructureConfigurationInstanceMetadataOptionsArgsDict']]] = None,
-            instance_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-            instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            key_pair: Optional[pulumi.Input[_builtins.str]] = None,
-            logging: Optional[pulumi.Input[Union['InfrastructureConfigurationLoggingArgs', 'InfrastructureConfigurationLoggingArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            placement: Optional[pulumi.Input[Union['InfrastructureConfigurationPlacementArgs', 'InfrastructureConfigurationPlacementArgsDict']]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            terminate_instance_on_failure: Optional[pulumi.Input[_builtins.bool]] = None) -> 'InfrastructureConfiguration':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            date_created: pulumi.Input[Optional[_builtins.str]] = None,
+            date_updated: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            instance_metadata_options: pulumi.Input[Optional[Union['InfrastructureConfigurationInstanceMetadataOptionsArgs', 'InfrastructureConfigurationInstanceMetadataOptionsArgsDict']]] = None,
+            instance_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+            instance_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            key_pair: pulumi.Input[Optional[_builtins.str]] = None,
+            logging: pulumi.Input[Optional[Union['InfrastructureConfigurationLoggingArgs', 'InfrastructureConfigurationLoggingArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            placement: pulumi.Input[Optional[Union['InfrastructureConfigurationPlacementArgs', 'InfrastructureConfigurationPlacementArgsDict']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            terminate_instance_on_failure: pulumi.Input[Optional[_builtins.bool]] = None) -> 'InfrastructureConfiguration':
         """
         Get an existing InfrastructureConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

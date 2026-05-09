@@ -73,8 +73,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetAccessPointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -113,8 +113,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetAccessPointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -153,8 +153,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetAccessPointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -193,8 +193,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetAccessPointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -233,8 +233,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetAccessPointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -273,8 +273,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetAccountPublicAccessBlockArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -312,8 +312,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetAccountPublicAccessBlockArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -351,8 +351,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetAccountPublicAccessBlockArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -390,8 +390,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetAccountPublicAccessBlockArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -429,8 +429,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetAccountPublicAccessBlockArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -468,8 +468,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetAccountPublicAccessBlockArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -507,8 +507,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetAccountPublicAccessBlockArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -556,8 +556,8 @@ public final class S3Functions {
      * import com.pulumi.aws.route53.Record;
      * import com.pulumi.aws.route53.RecordArgs;
      * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -606,8 +606,8 @@ public final class S3Functions {
      * import com.pulumi.aws.cloudfront.Distribution;
      * import com.pulumi.aws.cloudfront.DistributionArgs;
      * import com.pulumi.aws.cloudfront.inputs.DistributionOriginArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -663,8 +663,8 @@ public final class S3Functions {
      * import com.pulumi.aws.route53.Record;
      * import com.pulumi.aws.route53.RecordArgs;
      * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -713,8 +713,8 @@ public final class S3Functions {
      * import com.pulumi.aws.cloudfront.Distribution;
      * import com.pulumi.aws.cloudfront.DistributionArgs;
      * import com.pulumi.aws.cloudfront.inputs.DistributionOriginArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -770,8 +770,8 @@ public final class S3Functions {
      * import com.pulumi.aws.route53.Record;
      * import com.pulumi.aws.route53.RecordArgs;
      * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -820,8 +820,8 @@ public final class S3Functions {
      * import com.pulumi.aws.cloudfront.Distribution;
      * import com.pulumi.aws.cloudfront.DistributionArgs;
      * import com.pulumi.aws.cloudfront.inputs.DistributionOriginArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -877,8 +877,8 @@ public final class S3Functions {
      * import com.pulumi.aws.route53.Record;
      * import com.pulumi.aws.route53.RecordArgs;
      * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -927,8 +927,8 @@ public final class S3Functions {
      * import com.pulumi.aws.cloudfront.Distribution;
      * import com.pulumi.aws.cloudfront.DistributionArgs;
      * import com.pulumi.aws.cloudfront.inputs.DistributionOriginArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -984,8 +984,8 @@ public final class S3Functions {
      * import com.pulumi.aws.route53.Record;
      * import com.pulumi.aws.route53.RecordArgs;
      * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1034,8 +1034,8 @@ public final class S3Functions {
      * import com.pulumi.aws.cloudfront.Distribution;
      * import com.pulumi.aws.cloudfront.DistributionArgs;
      * import com.pulumi.aws.cloudfront.inputs.DistributionOriginArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1104,8 +1104,8 @@ public final class S3Functions {
      * import com.pulumi.aws.s3.inputs.GetBucketObjectArgs;
      * import com.pulumi.aws.ec2.Instance;
      * import com.pulumi.aws.ec2.InstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1150,8 +1150,8 @@ public final class S3Functions {
      * import com.pulumi.aws.s3.inputs.GetBucketObjectArgs;
      * import com.pulumi.aws.lambda.Function;
      * import com.pulumi.aws.lambda.FunctionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1223,8 +1223,8 @@ public final class S3Functions {
      * import com.pulumi.aws.s3.inputs.GetBucketObjectArgs;
      * import com.pulumi.aws.ec2.Instance;
      * import com.pulumi.aws.ec2.InstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1269,8 +1269,8 @@ public final class S3Functions {
      * import com.pulumi.aws.s3.inputs.GetBucketObjectArgs;
      * import com.pulumi.aws.lambda.Function;
      * import com.pulumi.aws.lambda.FunctionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1342,8 +1342,8 @@ public final class S3Functions {
      * import com.pulumi.aws.s3.inputs.GetBucketObjectArgs;
      * import com.pulumi.aws.ec2.Instance;
      * import com.pulumi.aws.ec2.InstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1388,8 +1388,8 @@ public final class S3Functions {
      * import com.pulumi.aws.s3.inputs.GetBucketObjectArgs;
      * import com.pulumi.aws.lambda.Function;
      * import com.pulumi.aws.lambda.FunctionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1461,8 +1461,8 @@ public final class S3Functions {
      * import com.pulumi.aws.s3.inputs.GetBucketObjectArgs;
      * import com.pulumi.aws.ec2.Instance;
      * import com.pulumi.aws.ec2.InstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1507,8 +1507,8 @@ public final class S3Functions {
      * import com.pulumi.aws.s3.inputs.GetBucketObjectArgs;
      * import com.pulumi.aws.lambda.Function;
      * import com.pulumi.aws.lambda.FunctionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1580,8 +1580,8 @@ public final class S3Functions {
      * import com.pulumi.aws.s3.inputs.GetBucketObjectArgs;
      * import com.pulumi.aws.ec2.Instance;
      * import com.pulumi.aws.ec2.InstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1626,8 +1626,8 @@ public final class S3Functions {
      * import com.pulumi.aws.s3.inputs.GetBucketObjectArgs;
      * import com.pulumi.aws.lambda.Function;
      * import com.pulumi.aws.lambda.FunctionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1678,8 +1678,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetBucketObjectLockConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1720,8 +1720,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetBucketObjectLockConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1762,8 +1762,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetBucketObjectLockConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1804,8 +1804,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetBucketObjectLockConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1846,8 +1846,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetBucketObjectLockConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1943,8 +1943,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetBucketPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1986,8 +1986,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetBucketPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2029,8 +2029,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetBucketPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2072,8 +2072,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetBucketPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2115,8 +2115,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetBucketPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2158,8 +2158,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetBucketReplicationConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2200,8 +2200,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetBucketReplicationConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2242,8 +2242,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetBucketReplicationConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2284,8 +2284,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetBucketReplicationConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2326,8 +2326,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetBucketReplicationConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2368,8 +2368,8 @@ public final class S3Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2409,8 +2409,8 @@ public final class S3Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2450,8 +2450,8 @@ public final class S3Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2491,8 +2491,8 @@ public final class S3Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2532,8 +2532,8 @@ public final class S3Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2573,8 +2573,8 @@ public final class S3Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2614,8 +2614,8 @@ public final class S3Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2653,8 +2653,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetDirectoryBucketsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2692,8 +2692,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetDirectoryBucketsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2731,8 +2731,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetDirectoryBucketsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2770,8 +2770,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetDirectoryBucketsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2809,8 +2809,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetDirectoryBucketsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2848,8 +2848,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetDirectoryBucketsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2887,8 +2887,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetDirectoryBucketsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2926,8 +2926,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetFilesAccessPointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2966,8 +2966,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetFilesAccessPointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3006,8 +3006,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetFilesAccessPointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3046,8 +3046,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetFilesAccessPointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3086,8 +3086,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetFilesAccessPointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3126,8 +3126,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetFilesFileSystemArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3166,8 +3166,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetFilesFileSystemArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3206,8 +3206,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetFilesFileSystemArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3246,8 +3246,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetFilesFileSystemArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3286,8 +3286,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetFilesFileSystemArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3326,8 +3326,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetFilesFileSystemsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3365,8 +3365,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetFilesFileSystemsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3404,8 +3404,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetFilesFileSystemsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3443,8 +3443,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetFilesFileSystemsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3482,8 +3482,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetFilesFileSystemsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3521,8 +3521,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetFilesFileSystemsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3560,8 +3560,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetFilesFileSystemsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3599,8 +3599,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetFilesMountTargetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3639,8 +3639,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetFilesMountTargetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3679,8 +3679,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetFilesMountTargetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3719,8 +3719,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetFilesMountTargetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3759,8 +3759,8 @@ public final class S3Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.s3.inputs.GetFilesMountTargetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3821,8 +3821,8 @@ public final class S3Functions {
      * import com.pulumi.aws.s3.inputs.GetObjectArgs;
      * import com.pulumi.aws.ec2.Instance;
      * import com.pulumi.aws.ec2.InstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3867,8 +3867,8 @@ public final class S3Functions {
      * import com.pulumi.aws.s3.inputs.GetObjectArgs;
      * import com.pulumi.aws.lambda.Function;
      * import com.pulumi.aws.lambda.FunctionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3939,8 +3939,8 @@ public final class S3Functions {
      * import com.pulumi.aws.s3.inputs.GetObjectArgs;
      * import com.pulumi.aws.ec2.Instance;
      * import com.pulumi.aws.ec2.InstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3985,8 +3985,8 @@ public final class S3Functions {
      * import com.pulumi.aws.s3.inputs.GetObjectArgs;
      * import com.pulumi.aws.lambda.Function;
      * import com.pulumi.aws.lambda.FunctionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4057,8 +4057,8 @@ public final class S3Functions {
      * import com.pulumi.aws.s3.inputs.GetObjectArgs;
      * import com.pulumi.aws.ec2.Instance;
      * import com.pulumi.aws.ec2.InstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4103,8 +4103,8 @@ public final class S3Functions {
      * import com.pulumi.aws.s3.inputs.GetObjectArgs;
      * import com.pulumi.aws.lambda.Function;
      * import com.pulumi.aws.lambda.FunctionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4175,8 +4175,8 @@ public final class S3Functions {
      * import com.pulumi.aws.s3.inputs.GetObjectArgs;
      * import com.pulumi.aws.ec2.Instance;
      * import com.pulumi.aws.ec2.InstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4221,8 +4221,8 @@ public final class S3Functions {
      * import com.pulumi.aws.s3.inputs.GetObjectArgs;
      * import com.pulumi.aws.lambda.Function;
      * import com.pulumi.aws.lambda.FunctionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4293,8 +4293,8 @@ public final class S3Functions {
      * import com.pulumi.aws.s3.inputs.GetObjectArgs;
      * import com.pulumi.aws.ec2.Instance;
      * import com.pulumi.aws.ec2.InstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4339,8 +4339,8 @@ public final class S3Functions {
      * import com.pulumi.aws.s3.inputs.GetObjectArgs;
      * import com.pulumi.aws.lambda.Function;
      * import com.pulumi.aws.lambda.FunctionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

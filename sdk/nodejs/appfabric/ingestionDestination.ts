@@ -159,36 +159,36 @@ export interface IngestionDestinationState {
     /**
      * The Amazon Resource Name (ARN) of the app bundle to use for the request.
      */
-    appBundleArn?: pulumi.Input<string>;
+    appBundleArn?: pulumi.Input<string | undefined>;
     /**
      * ARN of the Ingestion Destination.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Contains information about the destination of ingested data.
      */
-    destinationConfiguration?: pulumi.Input<inputs.appfabric.IngestionDestinationDestinationConfiguration>;
+    destinationConfiguration?: pulumi.Input<inputs.appfabric.IngestionDestinationDestinationConfiguration | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the ingestion to use for the request.
      */
-    ingestionArn?: pulumi.Input<string>;
+    ingestionArn?: pulumi.Input<string | undefined>;
     /**
      * Contains information about how ingested data is processed.
      */
-    processingConfiguration?: pulumi.Input<inputs.appfabric.IngestionDestinationProcessingConfiguration>;
+    processingConfiguration?: pulumi.Input<inputs.appfabric.IngestionDestinationProcessingConfiguration | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.appfabric.IngestionDestinationTimeouts>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.appfabric.IngestionDestinationTimeouts | undefined>;
 }
 
 /**
@@ -214,10 +214,10 @@ export interface IngestionDestinationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.appfabric.IngestionDestinationTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.appfabric.IngestionDestinationTimeouts | undefined>;
 }

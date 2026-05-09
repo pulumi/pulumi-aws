@@ -56,16 +56,16 @@ __all__ = [
 class EndpointCidrOptionsArgsDict(TypedDict):
     cidr: pulumi.Input[_builtins.str]
     port_ranges: pulumi.Input[Sequence[pulumi.Input['EndpointCidrOptionsPortRangeArgsDict']]]
-    protocol: NotRequired[pulumi.Input[_builtins.str]]
-    subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    protocol: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    subnet_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class EndpointCidrOptionsArgs:
     def __init__(__self__, *,
                  cidr: pulumi.Input[_builtins.str],
                  port_ranges: pulumi.Input[Sequence[pulumi.Input['EndpointCidrOptionsPortRangeArgs']]],
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         pulumi.set(__self__, "cidr", cidr)
         pulumi.set(__self__, "port_ranges", port_ranges)
         if protocol is not None:
@@ -93,20 +93,20 @@ class EndpointCidrOptionsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subnet_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
-    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subnet_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subnet_ids", value)
 
 
@@ -142,20 +142,20 @@ class EndpointCidrOptionsPortRangeArgs:
 
 
 class EndpointLoadBalancerOptionsArgsDict(TypedDict):
-    load_balancer_arn: NotRequired[pulumi.Input[_builtins.str]]
-    port: NotRequired[pulumi.Input[_builtins.int]]
-    port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointLoadBalancerOptionsPortRangeArgsDict']]]]
-    protocol: NotRequired[pulumi.Input[_builtins.str]]
-    subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    load_balancer_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    port_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointLoadBalancerOptionsPortRangeArgs']]]]]
+    protocol: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    subnet_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class EndpointLoadBalancerOptionsArgs:
     def __init__(__self__, *,
-                 load_balancer_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointLoadBalancerOptionsPortRangeArgs']]]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 load_balancer_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input['EndpointLoadBalancerOptionsPortRangeArgs']]]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         if load_balancer_arn is not None:
             pulumi.set(__self__, "load_balancer_arn", load_balancer_arn)
         if port is not None:
@@ -169,47 +169,47 @@ class EndpointLoadBalancerOptionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="loadBalancerArn")
-    def load_balancer_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def load_balancer_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "load_balancer_arn")
 
     @load_balancer_arn.setter
-    def load_balancer_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def load_balancer_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "load_balancer_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter(name="portRanges")
-    def port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointLoadBalancerOptionsPortRangeArgs']]]]:
+    def port_ranges(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EndpointLoadBalancerOptionsPortRangeArgs']]]]:
         return pulumi.get(self, "port_ranges")
 
     @port_ranges.setter
-    def port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointLoadBalancerOptionsPortRangeArgs']]]]):
+    def port_ranges(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EndpointLoadBalancerOptionsPortRangeArgs']]]]):
         pulumi.set(self, "port_ranges", value)
 
     @_builtins.property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subnet_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
-    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subnet_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subnet_ids", value)
 
 
@@ -245,18 +245,18 @@ class EndpointLoadBalancerOptionsPortRangeArgs:
 
 
 class EndpointNetworkInterfaceOptionsArgsDict(TypedDict):
-    network_interface_id: NotRequired[pulumi.Input[_builtins.str]]
-    port: NotRequired[pulumi.Input[_builtins.int]]
-    port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointNetworkInterfaceOptionsPortRangeArgsDict']]]]
-    protocol: NotRequired[pulumi.Input[_builtins.str]]
+    network_interface_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    port_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointNetworkInterfaceOptionsPortRangeArgs']]]]]
+    protocol: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class EndpointNetworkInterfaceOptionsArgs:
     def __init__(__self__, *,
-                 network_interface_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointNetworkInterfaceOptionsPortRangeArgs']]]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None):
+                 network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input['EndpointNetworkInterfaceOptionsPortRangeArgs']]]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None):
         if network_interface_id is not None:
             pulumi.set(__self__, "network_interface_id", network_interface_id)
         if port is not None:
@@ -268,38 +268,38 @@ class EndpointNetworkInterfaceOptionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaceId")
-    def network_interface_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_interface_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "network_interface_id")
 
     @network_interface_id.setter
-    def network_interface_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_interface_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_interface_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter(name="portRanges")
-    def port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointNetworkInterfaceOptionsPortRangeArgs']]]]:
+    def port_ranges(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EndpointNetworkInterfaceOptionsPortRangeArgs']]]]:
         return pulumi.get(self, "port_ranges")
 
     @port_ranges.setter
-    def port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointNetworkInterfaceOptionsPortRangeArgs']]]]):
+    def port_ranges(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EndpointNetworkInterfaceOptionsPortRangeArgs']]]]):
         pulumi.set(self, "port_ranges", value)
 
     @_builtins.property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "protocol", value)
 
 
@@ -335,24 +335,24 @@ class EndpointNetworkInterfaceOptionsPortRangeArgs:
 
 
 class EndpointRdsOptionsArgsDict(TypedDict):
-    port: NotRequired[pulumi.Input[_builtins.int]]
-    protocol: NotRequired[pulumi.Input[_builtins.str]]
-    rds_db_cluster_arn: NotRequired[pulumi.Input[_builtins.str]]
-    rds_db_instance_arn: NotRequired[pulumi.Input[_builtins.str]]
-    rds_db_proxy_arn: NotRequired[pulumi.Input[_builtins.str]]
-    rds_endpoint: NotRequired[pulumi.Input[_builtins.str]]
-    subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    protocol: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    rds_db_cluster_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    rds_db_instance_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    rds_db_proxy_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    rds_endpoint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    subnet_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class EndpointRdsOptionsArgs:
     def __init__(__self__, *,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 rds_db_cluster_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 rds_db_instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 rds_db_proxy_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 rds_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 rds_db_cluster_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 rds_db_instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 rds_db_proxy_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 rds_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         if port is not None:
             pulumi.set(__self__, "port", port)
         if protocol is not None:
@@ -370,77 +370,77 @@ class EndpointRdsOptionsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="rdsDbClusterArn")
-    def rds_db_cluster_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rds_db_cluster_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "rds_db_cluster_arn")
 
     @rds_db_cluster_arn.setter
-    def rds_db_cluster_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rds_db_cluster_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rds_db_cluster_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="rdsDbInstanceArn")
-    def rds_db_instance_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rds_db_instance_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "rds_db_instance_arn")
 
     @rds_db_instance_arn.setter
-    def rds_db_instance_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rds_db_instance_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rds_db_instance_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="rdsDbProxyArn")
-    def rds_db_proxy_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rds_db_proxy_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "rds_db_proxy_arn")
 
     @rds_db_proxy_arn.setter
-    def rds_db_proxy_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rds_db_proxy_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rds_db_proxy_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="rdsEndpoint")
-    def rds_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rds_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "rds_endpoint")
 
     @rds_endpoint.setter
-    def rds_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rds_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rds_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subnet_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
-    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subnet_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subnet_ids", value)
 
 
 class EndpointSseSpecificationArgsDict(TypedDict):
-    customer_managed_key_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    customer_managed_key_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    kms_key_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class EndpointSseSpecificationArgs:
     def __init__(__self__, *,
-                 customer_managed_key_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 customer_managed_key_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None):
         if customer_managed_key_enabled is not None:
             pulumi.set(__self__, "customer_managed_key_enabled", customer_managed_key_enabled)
         if kms_key_arn is not None:
@@ -448,29 +448,29 @@ class EndpointSseSpecificationArgs:
 
     @_builtins.property
     @pulumi.getter(name="customerManagedKeyEnabled")
-    def customer_managed_key_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def customer_managed_key_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "customer_managed_key_enabled")
 
     @customer_managed_key_enabled.setter
-    def customer_managed_key_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def customer_managed_key_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "customer_managed_key_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
-    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_arn", value)
 
 
 class GroupSseConfigurationArgsDict(TypedDict):
-    customer_managed_key_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    customer_managed_key_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Boolean flag to indicate that the CMK should be used.
     """
-    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    kms_key_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ARN of the KMS key to use.
     """
@@ -478,8 +478,8 @@ class GroupSseConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class GroupSseConfigurationArgs:
     def __init__(__self__, *,
-                 customer_managed_key_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 customer_managed_key_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] customer_managed_key_enabled: Boolean flag to indicate that the CMK should be used.
         :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS key to use.
@@ -491,47 +491,47 @@ class GroupSseConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="customerManagedKeyEnabled")
-    def customer_managed_key_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def customer_managed_key_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean flag to indicate that the CMK should be used.
         """
         return pulumi.get(self, "customer_managed_key_enabled")
 
     @customer_managed_key_enabled.setter
-    def customer_managed_key_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def customer_managed_key_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "customer_managed_key_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the KMS key to use.
         """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
-    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_arn", value)
 
 
 class InstanceLoggingConfigurationAccessLogsArgsDict(TypedDict):
-    cloudwatch_logs: NotRequired[pulumi.Input['InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgsDict']]
+    cloudwatch_logs: NotRequired[pulumi.Input[Optional['InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs']]]
     """
     A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
     """
-    include_trust_context: NotRequired[pulumi.Input[_builtins.bool]]
+    include_trust_context: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Include trust data sent by trust providers into the logs.
     """
-    kinesis_data_firehose: NotRequired[pulumi.Input['InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgsDict']]
+    kinesis_data_firehose: NotRequired[pulumi.Input[Optional['InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs']]]
     """
     A block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
     """
-    log_version: NotRequired[pulumi.Input[_builtins.str]]
+    log_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
     """
-    s3: NotRequired[pulumi.Input['InstanceLoggingConfigurationAccessLogsS3ArgsDict']]
+    s3: NotRequired[pulumi.Input[Optional['InstanceLoggingConfigurationAccessLogsS3Args']]]
     """
     A block that specifies configures sending Verified Access logs to S3. Detailed below.
     """
@@ -539,11 +539,11 @@ class InstanceLoggingConfigurationAccessLogsArgsDict(TypedDict):
 @pulumi.input_type
 class InstanceLoggingConfigurationAccessLogsArgs:
     def __init__(__self__, *,
-                 cloudwatch_logs: Optional[pulumi.Input['InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs']] = None,
-                 include_trust_context: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kinesis_data_firehose: Optional[pulumi.Input['InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs']] = None,
-                 log_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3: Optional[pulumi.Input['InstanceLoggingConfigurationAccessLogsS3Args']] = None):
+                 cloudwatch_logs: pulumi.Input[Optional['InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs']] = None,
+                 include_trust_context: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kinesis_data_firehose: pulumi.Input[Optional['InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs']] = None,
+                 log_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3: pulumi.Input[Optional['InstanceLoggingConfigurationAccessLogsS3Args']] = None):
         """
         :param pulumi.Input['InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs'] cloudwatch_logs: A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
         :param pulumi.Input[_builtins.bool] include_trust_context: Include trust data sent by trust providers into the logs.
@@ -564,62 +564,62 @@ class InstanceLoggingConfigurationAccessLogsArgs:
 
     @_builtins.property
     @pulumi.getter(name="cloudwatchLogs")
-    def cloudwatch_logs(self) -> Optional[pulumi.Input['InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs']]:
+    def cloudwatch_logs(self) -> pulumi.Input[Optional['InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs']]:
         """
         A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
         """
         return pulumi.get(self, "cloudwatch_logs")
 
     @cloudwatch_logs.setter
-    def cloudwatch_logs(self, value: Optional[pulumi.Input['InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs']]):
+    def cloudwatch_logs(self, value: pulumi.Input[Optional['InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs']]):
         pulumi.set(self, "cloudwatch_logs", value)
 
     @_builtins.property
     @pulumi.getter(name="includeTrustContext")
-    def include_trust_context(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_trust_context(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Include trust data sent by trust providers into the logs.
         """
         return pulumi.get(self, "include_trust_context")
 
     @include_trust_context.setter
-    def include_trust_context(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_trust_context(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_trust_context", value)
 
     @_builtins.property
     @pulumi.getter(name="kinesisDataFirehose")
-    def kinesis_data_firehose(self) -> Optional[pulumi.Input['InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs']]:
+    def kinesis_data_firehose(self) -> pulumi.Input[Optional['InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs']]:
         """
         A block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
         """
         return pulumi.get(self, "kinesis_data_firehose")
 
     @kinesis_data_firehose.setter
-    def kinesis_data_firehose(self, value: Optional[pulumi.Input['InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs']]):
+    def kinesis_data_firehose(self, value: pulumi.Input[Optional['InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs']]):
         pulumi.set(self, "kinesis_data_firehose", value)
 
     @_builtins.property
     @pulumi.getter(name="logVersion")
-    def log_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
         """
         return pulumi.get(self, "log_version")
 
     @log_version.setter
-    def log_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def s3(self) -> Optional[pulumi.Input['InstanceLoggingConfigurationAccessLogsS3Args']]:
+    def s3(self) -> pulumi.Input[Optional['InstanceLoggingConfigurationAccessLogsS3Args']]:
         """
         A block that specifies configures sending Verified Access logs to S3. Detailed below.
         """
         return pulumi.get(self, "s3")
 
     @s3.setter
-    def s3(self, value: Optional[pulumi.Input['InstanceLoggingConfigurationAccessLogsS3Args']]):
+    def s3(self, value: pulumi.Input[Optional['InstanceLoggingConfigurationAccessLogsS3Args']]):
         pulumi.set(self, "s3", value)
 
 
@@ -628,7 +628,7 @@ class InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgsDict(TypedDict):
     """
     Indicates whether logging is enabled.
     """
-    log_group: NotRequired[pulumi.Input[_builtins.str]]
+    log_group: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the CloudWatch Logs Log Group.
     """
@@ -637,7 +637,7 @@ class InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgsDict(TypedDict):
 class InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[_builtins.bool],
-                 log_group: Optional[pulumi.Input[_builtins.str]] = None):
+                 log_group: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether logging is enabled.
         :param pulumi.Input[_builtins.str] log_group: The name of the CloudWatch Logs Log Group.
@@ -660,14 +660,14 @@ class InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs:
 
     @_builtins.property
     @pulumi.getter(name="logGroup")
-    def log_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the CloudWatch Logs Log Group.
         """
         return pulumi.get(self, "log_group")
 
     @log_group.setter
-    def log_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_group", value)
 
 
@@ -676,7 +676,7 @@ class InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgsDict(TypedDic
     """
     Indicates whether logging is enabled.
     """
-    delivery_stream: NotRequired[pulumi.Input[_builtins.str]]
+    delivery_stream: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the delivery stream.
     """
@@ -685,7 +685,7 @@ class InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgsDict(TypedDic
 class InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[_builtins.bool],
-                 delivery_stream: Optional[pulumi.Input[_builtins.str]] = None):
+                 delivery_stream: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether logging is enabled.
         :param pulumi.Input[_builtins.str] delivery_stream: The name of the delivery stream.
@@ -708,14 +708,14 @@ class InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs:
 
     @_builtins.property
     @pulumi.getter(name="deliveryStream")
-    def delivery_stream(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delivery_stream(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the delivery stream.
         """
         return pulumi.get(self, "delivery_stream")
 
     @delivery_stream.setter
-    def delivery_stream(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delivery_stream(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delivery_stream", value)
 
 
@@ -724,15 +724,15 @@ class InstanceLoggingConfigurationAccessLogsS3ArgsDict(TypedDict):
     """
     Indicates whether logging is enabled.
     """
-    bucket_name: NotRequired[pulumi.Input[_builtins.str]]
+    bucket_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of S3 bucket.
     """
-    bucket_owner: NotRequired[pulumi.Input[_builtins.str]]
+    bucket_owner: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the AWS account that owns the Amazon S3 bucket.
     """
-    prefix: NotRequired[pulumi.Input[_builtins.str]]
+    prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The bucket prefix.
     """
@@ -741,9 +741,9 @@ class InstanceLoggingConfigurationAccessLogsS3ArgsDict(TypedDict):
 class InstanceLoggingConfigurationAccessLogsS3Args:
     def __init__(__self__, *,
                  enabled: pulumi.Input[_builtins.bool],
-                 bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether logging is enabled.
         :param pulumi.Input[_builtins.str] bucket_name: The name of S3 bucket.
@@ -772,59 +772,59 @@ class InstanceLoggingConfigurationAccessLogsS3Args:
 
     @_builtins.property
     @pulumi.getter(name="bucketName")
-    def bucket_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of S3 bucket.
         """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
-    def bucket_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket_name", value)
 
     @_builtins.property
     @pulumi.getter(name="bucketOwner")
-    def bucket_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the AWS account that owns the Amazon S3 bucket.
         """
         return pulumi.get(self, "bucket_owner")
 
     @bucket_owner.setter
-    def bucket_owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket_owner", value)
 
     @_builtins.property
     @pulumi.getter
-    def prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The bucket prefix.
         """
         return pulumi.get(self, "prefix")
 
     @prefix.setter
-    def prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "prefix", value)
 
 
 class InstanceVerifiedAccessTrustProviderArgsDict(TypedDict):
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A description for the AWS Verified Access Instance.
     """
-    device_trust_provider_type: NotRequired[pulumi.Input[_builtins.str]]
+    device_trust_provider_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The type of device-based trust provider.
     """
-    trust_provider_type: NotRequired[pulumi.Input[_builtins.str]]
+    trust_provider_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The type of trust provider (user- or device-based).
     """
-    user_trust_provider_type: NotRequired[pulumi.Input[_builtins.str]]
+    user_trust_provider_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The type of user-based trust provider.
     """
-    verified_access_trust_provider_id: NotRequired[pulumi.Input[_builtins.str]]
+    verified_access_trust_provider_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the trust provider.
     """
@@ -832,11 +832,11 @@ class InstanceVerifiedAccessTrustProviderArgsDict(TypedDict):
 @pulumi.input_type
 class InstanceVerifiedAccessTrustProviderArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_trust_provider_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 trust_provider_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_trust_provider_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 verified_access_trust_provider_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_trust_provider_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 trust_provider_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_trust_provider_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 verified_access_trust_provider_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] description: A description for the AWS Verified Access Instance.
         :param pulumi.Input[_builtins.str] device_trust_provider_type: The type of device-based trust provider.
@@ -857,106 +857,106 @@ class InstanceVerifiedAccessTrustProviderArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description for the AWS Verified Access Instance.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="deviceTrustProviderType")
-    def device_trust_provider_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def device_trust_provider_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of device-based trust provider.
         """
         return pulumi.get(self, "device_trust_provider_type")
 
     @device_trust_provider_type.setter
-    def device_trust_provider_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def device_trust_provider_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "device_trust_provider_type", value)
 
     @_builtins.property
     @pulumi.getter(name="trustProviderType")
-    def trust_provider_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def trust_provider_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of trust provider (user- or device-based).
         """
         return pulumi.get(self, "trust_provider_type")
 
     @trust_provider_type.setter
-    def trust_provider_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def trust_provider_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "trust_provider_type", value)
 
     @_builtins.property
     @pulumi.getter(name="userTrustProviderType")
-    def user_trust_provider_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_trust_provider_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of user-based trust provider.
         """
         return pulumi.get(self, "user_trust_provider_type")
 
     @user_trust_provider_type.setter
-    def user_trust_provider_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_trust_provider_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_trust_provider_type", value)
 
     @_builtins.property
     @pulumi.getter(name="verifiedAccessTrustProviderId")
-    def verified_access_trust_provider_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def verified_access_trust_provider_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the trust provider.
         """
         return pulumi.get(self, "verified_access_trust_provider_id")
 
     @verified_access_trust_provider_id.setter
-    def verified_access_trust_provider_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def verified_access_trust_provider_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "verified_access_trust_provider_id", value)
 
 
 class TrustProviderDeviceOptionsArgsDict(TypedDict):
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class TrustProviderDeviceOptionsArgs:
     def __init__(__self__, *,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
 class TrustProviderNativeApplicationOidcOptionsArgsDict(TypedDict):
     client_secret: pulumi.Input[_builtins.str]
-    authorization_endpoint: NotRequired[pulumi.Input[_builtins.str]]
-    client_id: NotRequired[pulumi.Input[_builtins.str]]
-    issuer: NotRequired[pulumi.Input[_builtins.str]]
-    public_signing_key_endpoint: NotRequired[pulumi.Input[_builtins.str]]
-    scope: NotRequired[pulumi.Input[_builtins.str]]
-    token_endpoint: NotRequired[pulumi.Input[_builtins.str]]
-    user_info_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    authorization_endpoint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    issuer: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    public_signing_key_endpoint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    scope: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    token_endpoint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    user_info_endpoint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class TrustProviderNativeApplicationOidcOptionsArgs:
     def __init__(__self__, *,
                  client_secret: pulumi.Input[_builtins.str],
-                 authorization_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 issuer: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_signing_key_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 token_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_info_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
+                 authorization_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 issuer: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_signing_key_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 token_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_info_endpoint: pulumi.Input[Optional[_builtins.str]] = None):
         pulumi.set(__self__, "client_secret", client_secret)
         if authorization_endpoint is not None:
             pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
@@ -984,87 +984,87 @@ class TrustProviderNativeApplicationOidcOptionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="authorizationEndpoint")
-    def authorization_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authorization_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "authorization_endpoint")
 
     @authorization_endpoint.setter
-    def authorization_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authorization_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authorization_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def issuer(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def issuer(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "issuer")
 
     @issuer.setter
-    def issuer(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def issuer(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "issuer", value)
 
     @_builtins.property
     @pulumi.getter(name="publicSigningKeyEndpoint")
-    def public_signing_key_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_signing_key_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "public_signing_key_endpoint")
 
     @public_signing_key_endpoint.setter
-    def public_signing_key_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_signing_key_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_signing_key_endpoint", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scope", value)
 
     @_builtins.property
     @pulumi.getter(name="tokenEndpoint")
-    def token_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def token_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "token_endpoint")
 
     @token_endpoint.setter
-    def token_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def token_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "token_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="userInfoEndpoint")
-    def user_info_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_info_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "user_info_endpoint")
 
     @user_info_endpoint.setter
-    def user_info_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_info_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_info_endpoint", value)
 
 
 class TrustProviderOidcOptionsArgsDict(TypedDict):
     client_secret: pulumi.Input[_builtins.str]
-    authorization_endpoint: NotRequired[pulumi.Input[_builtins.str]]
-    client_id: NotRequired[pulumi.Input[_builtins.str]]
-    issuer: NotRequired[pulumi.Input[_builtins.str]]
-    scope: NotRequired[pulumi.Input[_builtins.str]]
-    token_endpoint: NotRequired[pulumi.Input[_builtins.str]]
-    user_info_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    authorization_endpoint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    issuer: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    scope: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    token_endpoint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    user_info_endpoint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class TrustProviderOidcOptionsArgs:
     def __init__(__self__, *,
                  client_secret: pulumi.Input[_builtins.str],
-                 authorization_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 issuer: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 token_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_info_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
+                 authorization_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 issuer: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 token_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_info_endpoint: pulumi.Input[Optional[_builtins.str]] = None):
         pulumi.set(__self__, "client_secret", client_secret)
         if authorization_endpoint is not None:
             pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
@@ -1090,68 +1090,68 @@ class TrustProviderOidcOptionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="authorizationEndpoint")
-    def authorization_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authorization_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "authorization_endpoint")
 
     @authorization_endpoint.setter
-    def authorization_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authorization_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authorization_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def issuer(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def issuer(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "issuer")
 
     @issuer.setter
-    def issuer(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def issuer(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "issuer", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scope", value)
 
     @_builtins.property
     @pulumi.getter(name="tokenEndpoint")
-    def token_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def token_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "token_endpoint")
 
     @token_endpoint.setter
-    def token_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def token_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "token_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="userInfoEndpoint")
-    def user_info_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_info_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "user_info_endpoint")
 
     @user_info_endpoint.setter
-    def user_info_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_info_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_info_endpoint", value)
 
 
 class TrustProviderSseSpecificationArgsDict(TypedDict):
-    customer_managed_key_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    customer_managed_key_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    kms_key_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class TrustProviderSseSpecificationArgs:
     def __init__(__self__, *,
-                 customer_managed_key_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 customer_managed_key_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None):
         if customer_managed_key_enabled is not None:
             pulumi.set(__self__, "customer_managed_key_enabled", customer_managed_key_enabled)
         if kms_key_arn is not None:
@@ -1159,20 +1159,20 @@ class TrustProviderSseSpecificationArgs:
 
     @_builtins.property
     @pulumi.getter(name="customerManagedKeyEnabled")
-    def customer_managed_key_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def customer_managed_key_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "customer_managed_key_enabled")
 
     @customer_managed_key_enabled.setter
-    def customer_managed_key_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def customer_managed_key_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "customer_managed_key_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
-    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_arn", value)
 
 

@@ -117,15 +117,15 @@ export interface FleetStackAssociationState {
     /**
      * Name of the fleet.
      */
-    fleetName?: pulumi.Input<string>;
+    fleetName?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Name of the stack.
      */
-    stackName?: pulumi.Input<string>;
+    stackName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -139,7 +139,7 @@ export interface FleetStackAssociationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Name of the stack.
      */

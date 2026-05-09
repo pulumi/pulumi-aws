@@ -124,5 +124,5 @@ export interface GetConnectionOutputArgs {
     /**
      * Key-value tags for the connection.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

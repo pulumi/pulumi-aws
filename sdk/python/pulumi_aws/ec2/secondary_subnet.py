@@ -23,11 +23,11 @@ class SecondarySubnetArgs:
     def __init__(__self__, *,
                  ipv4_cidr_block: pulumi.Input[_builtins.str],
                  secondary_network_id: pulumi.Input[_builtins.str],
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 availability_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['SecondarySubnetTimeoutsArgs']] = None):
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 availability_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['SecondarySubnetTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a SecondarySubnet resource.
 
@@ -77,79 +77,79 @@ class SecondarySubnetArgs:
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def availability_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Availability Zone for the secondary subnet. Cannot be specified with `availability_zone_id`.
         """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
-    def availability_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def availability_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "availability_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="availabilityZoneId")
-    def availability_zone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def availability_zone_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the Availability Zone for the secondary subnet. This option is preferred over `availability_zone` as it provides a consistent identifier across AWS accounts. Cannot be specified with `availability_zone`.
         """
         return pulumi.get(self, "availability_zone_id")
 
     @availability_zone_id.setter
-    def availability_zone_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def availability_zone_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "availability_zone_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['SecondarySubnetTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['SecondarySubnetTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['SecondarySubnetTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['SecondarySubnetTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _SecondarySubnetState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 availability_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv4_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv4_cidr_block_associations: Optional[pulumi.Input[Sequence[pulumi.Input['SecondarySubnetIpv4CidrBlockAssociationArgs']]]] = None,
-                 owner_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_network_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['SecondarySubnetTimeoutsArgs']] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 availability_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv4_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv4_cidr_block_associations: pulumi.Input[Optional[Sequence[pulumi.Input['SecondarySubnetIpv4CidrBlockAssociationArgs']]]] = None,
+                 owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_network_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['SecondarySubnetTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering SecondarySubnet resources.
 
@@ -198,167 +198,167 @@ class _SecondarySubnetState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the secondary subnet.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def availability_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Availability Zone for the secondary subnet. Cannot be specified with `availability_zone_id`.
         """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
-    def availability_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def availability_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "availability_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="availabilityZoneId")
-    def availability_zone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def availability_zone_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the Availability Zone for the secondary subnet. This option is preferred over `availability_zone` as it provides a consistent identifier across AWS accounts. Cannot be specified with `availability_zone`.
         """
         return pulumi.get(self, "availability_zone_id")
 
     @availability_zone_id.setter
-    def availability_zone_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def availability_zone_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "availability_zone_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv4CidrBlock")
-    def ipv4_cidr_block(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipv4_cidr_block(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IPv4 CIDR block for the secondary subnet. The CIDR block size must be between `/12` and `/28`.
         """
         return pulumi.get(self, "ipv4_cidr_block")
 
     @ipv4_cidr_block.setter
-    def ipv4_cidr_block(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipv4_cidr_block(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipv4_cidr_block", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv4CidrBlockAssociations")
-    def ipv4_cidr_block_associations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecondarySubnetIpv4CidrBlockAssociationArgs']]]]:
+    def ipv4_cidr_block_associations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SecondarySubnetIpv4CidrBlockAssociationArgs']]]]:
         """
         A list of IPv4 CIDR block associations for the secondary network.
         """
         return pulumi.get(self, "ipv4_cidr_block_associations")
 
     @ipv4_cidr_block_associations.setter
-    def ipv4_cidr_block_associations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SecondarySubnetIpv4CidrBlockAssociationArgs']]]]):
+    def ipv4_cidr_block_associations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SecondarySubnetIpv4CidrBlockAssociationArgs']]]]):
         pulumi.set(self, "ipv4_cidr_block_associations", value)
 
     @_builtins.property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the AWS account that owns the secondary subnet.
         """
         return pulumi.get(self, "owner_id")
 
     @owner_id.setter
-    def owner_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryNetworkId")
-    def secondary_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the secondary network in which to create the secondary subnet.
         """
         return pulumi.get(self, "secondary_network_id")
 
     @secondary_network_id.setter
-    def secondary_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_network_id", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryNetworkType")
-    def secondary_network_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_network_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the secondary network (e.g., `rdma`).
         """
         return pulumi.get(self, "secondary_network_type")
 
     @secondary_network_type.setter
-    def secondary_network_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_network_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_network_type", value)
 
     @_builtins.property
     @pulumi.getter(name="secondarySubnetId")
-    def secondary_subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the secondary subnet.
         """
         return pulumi.get(self, "secondary_subnet_id")
 
     @secondary_subnet_id.setter
-    def secondary_subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_subnet_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         State of the IPv4 CIDR block association.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['SecondarySubnetTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['SecondarySubnetTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['SecondarySubnetTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['SecondarySubnetTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
@@ -368,13 +368,13 @@ class SecondarySubnet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 availability_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv4_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['SecondarySubnetTimeoutsArgs', 'SecondarySubnetTimeoutsArgsDict']]] = None,
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 availability_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv4_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['SecondarySubnetTimeoutsArgs', 'SecondarySubnetTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Provides an EC2 Secondary Subnet resource.
@@ -554,13 +554,13 @@ class SecondarySubnet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 availability_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv4_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['SecondarySubnetTimeoutsArgs', 'SecondarySubnetTimeoutsArgsDict']]] = None,
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 availability_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv4_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['SecondarySubnetTimeoutsArgs', 'SecondarySubnetTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -598,20 +598,20 @@ class SecondarySubnet(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-            availability_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-            ipv4_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-            ipv4_cidr_block_associations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecondarySubnetIpv4CidrBlockAssociationArgs', 'SecondarySubnetIpv4CidrBlockAssociationArgsDict']]]]] = None,
-            owner_id: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_network_type: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-            state: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: Optional[pulumi.Input[Union['SecondarySubnetTimeoutsArgs', 'SecondarySubnetTimeoutsArgsDict']]] = None) -> 'SecondarySubnet':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            availability_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+            ipv4_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+            ipv4_cidr_block_associations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecondarySubnetIpv4CidrBlockAssociationArgs', 'SecondarySubnetIpv4CidrBlockAssociationArgsDict']]]]] = None,
+            owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_network_type: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['SecondarySubnetTimeoutsArgs', 'SecondarySubnetTimeoutsArgsDict']]] = None) -> 'SecondarySubnet':
         """
         Get an existing SecondarySubnet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

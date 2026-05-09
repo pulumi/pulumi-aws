@@ -170,38 +170,38 @@ export interface TopicState {
     /**
      * ARN of the Topic.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Amazon Resource Name (ARN) that uniquely identifies MSK Cluster.
      */
-    clusterArn?: pulumi.Input<string>;
+    clusterArn?: pulumi.Input<string | undefined>;
     /**
      * Explicit configured Kafka configuration in JSON format for Topic.
      */
-    configs?: pulumi.Input<string>;
+    configs?: pulumi.Input<string | undefined>;
     /**
      * Aggregated Kafka configuration in JSON format for Topic, both explicit set values from `configs` and implicit set values (AWS default configuration, historically set values or manual configuration from outside Terraform).
      */
-    configsActual?: pulumi.Input<string>;
+    configsActual?: pulumi.Input<string | undefined>;
     /**
      * Name of Topic.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Number of partitions for Topic.
      */
-    partitionCount?: pulumi.Input<number>;
+    partitionCount?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Replication factor for Topic.
      *
      * The following arguments are optional:
      */
-    replicationFactor?: pulumi.Input<number>;
-    timeouts?: pulumi.Input<inputs.msk.TopicTimeouts>;
+    replicationFactor?: pulumi.Input<number | undefined>;
+    timeouts?: pulumi.Input<inputs.msk.TopicTimeouts | undefined>;
 }
 
 /**
@@ -215,11 +215,11 @@ export interface TopicArgs {
     /**
      * Explicit configured Kafka configuration in JSON format for Topic.
      */
-    configs?: pulumi.Input<string>;
+    configs?: pulumi.Input<string | undefined>;
     /**
      * Name of Topic.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Number of partitions for Topic.
      */
@@ -227,12 +227,12 @@ export interface TopicArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Replication factor for Topic.
      *
      * The following arguments are optional:
      */
     replicationFactor: pulumi.Input<number>;
-    timeouts?: pulumi.Input<inputs.msk.TopicTimeouts>;
+    timeouts?: pulumi.Input<inputs.msk.TopicTimeouts | undefined>;
 }

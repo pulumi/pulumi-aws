@@ -99,7 +99,7 @@ def get_locations(region: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         location_codes=pulumi.get(__ret__, 'location_codes'),
         region=pulumi.get(__ret__, 'region'))
-def get_locations_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_locations_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocationsResult]:
     """
     Retrieve information about the AWS Direct Connect locations in the current AWS Region.

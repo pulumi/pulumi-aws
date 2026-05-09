@@ -213,11 +213,11 @@ def get_query_log_config(filters: Optional[Sequence[Union['GetQueryLogConfigFilt
         resolver_query_log_config_id=pulumi.get(__ret__, 'resolver_query_log_config_id'),
         share_status=pulumi.get(__ret__, 'share_status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_query_log_config_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetQueryLogConfigFilterArgs', 'GetQueryLogConfigFilterArgsDict']]]]] = None,
-                                name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                resolver_query_log_config_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_query_log_config_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetQueryLogConfigFilterArgs', 'GetQueryLogConfigFilterArgsDict']]]]] = None,
+                                name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                resolver_query_log_config_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQueryLogConfigResult]:
     """
     `route53.ResolverQueryLogConfig` provides details about a specific Route53 Resolver Query Logging Configuration.

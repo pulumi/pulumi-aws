@@ -22,8 +22,8 @@ __all__ = ['FieldLevelEncryptionProfileArgs', 'FieldLevelEncryptionProfile']
 class FieldLevelEncryptionProfileArgs:
     def __init__(__self__, *,
                  encryption_entities: pulumi.Input['FieldLevelEncryptionProfileEncryptionEntitiesArgs'],
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a FieldLevelEncryptionProfile resource.
 
@@ -51,38 +51,38 @@ class FieldLevelEncryptionProfileArgs:
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An optional comment about the Field Level Encryption Profile.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Field Level Encryption Profile.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _FieldLevelEncryptionProfileState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 caller_reference: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_entities: Optional[pulumi.Input['FieldLevelEncryptionProfileEncryptionEntitiesArgs']] = None,
-                 etag: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 caller_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_entities: pulumi.Input[Optional['FieldLevelEncryptionProfileEncryptionEntitiesArgs']] = None,
+                 etag: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FieldLevelEncryptionProfile resources.
 
@@ -108,74 +108,74 @@ class _FieldLevelEncryptionProfileState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Field Level Encryption Profile ARN.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="callerReference")
-    def caller_reference(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def caller_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Internal value used by CloudFront to allow future updates to the Field Level Encryption Profile.
         """
         return pulumi.get(self, "caller_reference")
 
     @caller_reference.setter
-    def caller_reference(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def caller_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "caller_reference", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An optional comment about the Field Level Encryption Profile.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionEntities")
-    def encryption_entities(self) -> Optional[pulumi.Input['FieldLevelEncryptionProfileEncryptionEntitiesArgs']]:
+    def encryption_entities(self) -> pulumi.Input[Optional['FieldLevelEncryptionProfileEncryptionEntitiesArgs']]:
         """
         The encryption entities config block for field-level encryption profiles that contains an attribute `items` which includes the encryption key and field pattern specifications.
         """
         return pulumi.get(self, "encryption_entities")
 
     @encryption_entities.setter
-    def encryption_entities(self, value: Optional[pulumi.Input['FieldLevelEncryptionProfileEncryptionEntitiesArgs']]):
+    def encryption_entities(self, value: pulumi.Input[Optional['FieldLevelEncryptionProfileEncryptionEntitiesArgs']]):
         pulumi.set(self, "encryption_entities", value)
 
     @_builtins.property
     @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def etag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The current version of the Field Level Encryption Profile. For example: `E2QWRUHAPOMQZL`.
         """
         return pulumi.get(self, "etag")
 
     @etag.setter
-    def etag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def etag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "etag", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Field Level Encryption Profile.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -185,9 +185,9 @@ class FieldLevelEncryptionProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_entities: Optional[pulumi.Input[Union['FieldLevelEncryptionProfileEncryptionEntitiesArgs', 'FieldLevelEncryptionProfileEncryptionEntitiesArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_entities: pulumi.Input[Optional[Union['FieldLevelEncryptionProfileEncryptionEntitiesArgs', 'FieldLevelEncryptionProfileEncryptionEntitiesArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a CloudFront Field-level Encryption Profile resource.
@@ -290,9 +290,9 @@ class FieldLevelEncryptionProfile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_entities: Optional[pulumi.Input[Union['FieldLevelEncryptionProfileEncryptionEntitiesArgs', 'FieldLevelEncryptionProfileEncryptionEntitiesArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_entities: pulumi.Input[Optional[Union['FieldLevelEncryptionProfileEncryptionEntitiesArgs', 'FieldLevelEncryptionProfileEncryptionEntitiesArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -320,12 +320,12 @@ class FieldLevelEncryptionProfile(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            caller_reference: Optional[pulumi.Input[_builtins.str]] = None,
-            comment: Optional[pulumi.Input[_builtins.str]] = None,
-            encryption_entities: Optional[pulumi.Input[Union['FieldLevelEncryptionProfileEncryptionEntitiesArgs', 'FieldLevelEncryptionProfileEncryptionEntitiesArgsDict']]] = None,
-            etag: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None) -> 'FieldLevelEncryptionProfile':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            caller_reference: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            encryption_entities: pulumi.Input[Optional[Union['FieldLevelEncryptionProfileEncryptionEntitiesArgs', 'FieldLevelEncryptionProfileEncryptionEntitiesArgsDict']]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> 'FieldLevelEncryptionProfile':
         """
         Get an existing FieldLevelEncryptionProfile resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

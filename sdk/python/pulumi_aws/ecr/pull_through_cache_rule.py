@@ -21,10 +21,10 @@ class PullThroughCacheRuleArgs:
     def __init__(__self__, *,
                  ecr_repository_prefix: pulumi.Input[_builtins.str],
                  upstream_registry_url: pulumi.Input[_builtins.str],
-                 credential_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 upstream_repository_prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 credential_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 upstream_repository_prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PullThroughCacheRule resource.
 
@@ -72,63 +72,63 @@ class PullThroughCacheRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="credentialArn")
-    def credential_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def credential_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the Secret which will be used to authenticate against the registry.
         """
         return pulumi.get(self, "credential_arn")
 
     @credential_arn.setter
-    def credential_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def credential_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "credential_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="customRoleArn")
-    def custom_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the IAM role associated with the pull through cache rule. Must be specified if the upstream registry is a cross-account ECR private registry. See [AWS Document - Setting up permissions for cross-account ECR to ECR PTC](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache-private.html).
         """
         return pulumi.get(self, "custom_role_arn")
 
     @custom_role_arn.setter
-    def custom_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_role_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="upstreamRepositoryPrefix")
-    def upstream_repository_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def upstream_repository_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The upstream repository prefix associated with the pull through cache rule. Used if the upstream registry is an ECR private registry. If not specified, it's set to `ROOT`, which allows matching with any upstream repository. See [AWS Document - Customizing repository prefixes for ECR to ECR pull through cache](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache-private-wildcards.html).
         """
         return pulumi.get(self, "upstream_repository_prefix")
 
     @upstream_repository_prefix.setter
-    def upstream_repository_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def upstream_repository_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "upstream_repository_prefix", value)
 
 
 @pulumi.input_type
 class _PullThroughCacheRuleState:
     def __init__(__self__, *,
-                 credential_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 ecr_repository_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 registry_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 upstream_registry_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 upstream_repository_prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 credential_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 ecr_repository_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 registry_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 upstream_registry_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 upstream_repository_prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PullThroughCacheRule resources.
 
@@ -157,86 +157,86 @@ class _PullThroughCacheRuleState:
 
     @_builtins.property
     @pulumi.getter(name="credentialArn")
-    def credential_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def credential_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the Secret which will be used to authenticate against the registry.
         """
         return pulumi.get(self, "credential_arn")
 
     @credential_arn.setter
-    def credential_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def credential_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "credential_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="customRoleArn")
-    def custom_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the IAM role associated with the pull through cache rule. Must be specified if the upstream registry is a cross-account ECR private registry. See [AWS Document - Setting up permissions for cross-account ECR to ECR PTC](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache-private.html).
         """
         return pulumi.get(self, "custom_role_arn")
 
     @custom_role_arn.setter
-    def custom_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="ecrRepositoryPrefix")
-    def ecr_repository_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ecr_repository_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The repository name prefix to use when caching images from the source registry. Use `ROOT` as the prefix to apply a template to all repositories in your registry that don't have an associated pull through cache rule.
         """
         return pulumi.get(self, "ecr_repository_prefix")
 
     @ecr_repository_prefix.setter
-    def ecr_repository_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ecr_repository_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ecr_repository_prefix", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="registryId")
-    def registry_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def registry_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The registry ID where the repository was created.
         """
         return pulumi.get(self, "registry_id")
 
     @registry_id.setter
-    def registry_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def registry_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "registry_id", value)
 
     @_builtins.property
     @pulumi.getter(name="upstreamRegistryUrl")
-    def upstream_registry_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def upstream_registry_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The registry URL of the upstream registry to use as the source.
         """
         return pulumi.get(self, "upstream_registry_url")
 
     @upstream_registry_url.setter
-    def upstream_registry_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def upstream_registry_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "upstream_registry_url", value)
 
     @_builtins.property
     @pulumi.getter(name="upstreamRepositoryPrefix")
-    def upstream_repository_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def upstream_repository_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The upstream repository prefix associated with the pull through cache rule. Used if the upstream registry is an ECR private registry. If not specified, it's set to `ROOT`, which allows matching with any upstream repository. See [AWS Document - Customizing repository prefixes for ECR to ECR pull through cache](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache-private-wildcards.html).
         """
         return pulumi.get(self, "upstream_repository_prefix")
 
     @upstream_repository_prefix.setter
-    def upstream_repository_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def upstream_repository_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "upstream_repository_prefix", value)
 
 
@@ -246,12 +246,12 @@ class PullThroughCacheRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credential_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 ecr_repository_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 upstream_registry_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 upstream_repository_prefix: Optional[pulumi.Input[_builtins.str]] = None,
+                 credential_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 ecr_repository_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 upstream_registry_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 upstream_repository_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides an Elastic Container Registry Pull Through Cache Rule.
@@ -337,12 +337,12 @@ class PullThroughCacheRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credential_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 ecr_repository_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 upstream_registry_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 upstream_repository_prefix: Optional[pulumi.Input[_builtins.str]] = None,
+                 credential_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 ecr_repository_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 upstream_registry_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 upstream_repository_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -373,13 +373,13 @@ class PullThroughCacheRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            credential_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            custom_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            ecr_repository_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            registry_id: Optional[pulumi.Input[_builtins.str]] = None,
-            upstream_registry_url: Optional[pulumi.Input[_builtins.str]] = None,
-            upstream_repository_prefix: Optional[pulumi.Input[_builtins.str]] = None) -> 'PullThroughCacheRule':
+            credential_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            ecr_repository_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            registry_id: pulumi.Input[Optional[_builtins.str]] = None,
+            upstream_registry_url: pulumi.Input[Optional[_builtins.str]] = None,
+            upstream_repository_prefix: pulumi.Input[Optional[_builtins.str]] = None) -> 'PullThroughCacheRule':
         """
         Get an existing PullThroughCacheRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

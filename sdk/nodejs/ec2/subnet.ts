@@ -340,110 +340,110 @@ export interface SubnetState {
     /**
      * The ARN of the subnet.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Specify true to indicate
      * that network interfaces created in the specified subnet should be
      * assigned an IPv6 address. Default is `false`
      */
-    assignIpv6AddressOnCreation?: pulumi.Input<boolean>;
+    assignIpv6AddressOnCreation?: pulumi.Input<boolean | undefined>;
     /**
      * AZ for the subnet.
      */
-    availabilityZone?: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string | undefined>;
     /**
      * AZ ID of the subnet. This argument is not supported in all regions or partitions. If necessary, use `availabilityZone` instead.
      */
-    availabilityZoneId?: pulumi.Input<string>;
+    availabilityZoneId?: pulumi.Input<string | undefined>;
     /**
      * The IPv4 CIDR block for the subnet.
      */
-    cidrBlock?: pulumi.Input<string>;
+    cidrBlock?: pulumi.Input<string | undefined>;
     /**
      * The customer owned IPv4 address pool. Typically used with the `mapCustomerOwnedIpOnLaunch` argument. The `outpostArn` argument must be specified when configured.
      */
-    customerOwnedIpv4Pool?: pulumi.Input<string>;
+    customerOwnedIpv4Pool?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. Default: `false`.
      */
-    enableDns64?: pulumi.Input<boolean>;
+    enableDns64?: pulumi.Input<boolean | undefined>;
     /**
      * Indicates the device position for local network interfaces in this subnet. For example, 1 indicates local network interfaces in this subnet are the secondary network interface (eth1). A local network interface cannot be the primary network interface (eth0).
      */
-    enableLniAtDeviceIndex?: pulumi.Input<number>;
+    enableLniAtDeviceIndex?: pulumi.Input<number | undefined>;
     /**
      * Indicates whether to respond to DNS queries for instance hostnames with DNS A records. Default: `false`.
      */
-    enableResourceNameDnsARecordOnLaunch?: pulumi.Input<boolean>;
+    enableResourceNameDnsARecordOnLaunch?: pulumi.Input<boolean | undefined>;
     /**
      * Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records. Default: `false`.
      */
-    enableResourceNameDnsAaaaRecordOnLaunch?: pulumi.Input<boolean>;
+    enableResourceNameDnsAaaaRecordOnLaunch?: pulumi.Input<boolean | undefined>;
     /**
      * ID of an IPv4 VPC Resource Planning IPAM Pool. The CIDR of this pool is used to allocate the CIDR for the subnet.
      */
-    ipv4IpamPoolId?: pulumi.Input<string>;
+    ipv4IpamPoolId?: pulumi.Input<string | undefined>;
     /**
      * Netmask. Requires specifying a `ipv4IpamPoolId`.
      */
-    ipv4NetmaskLength?: pulumi.Input<number>;
+    ipv4NetmaskLength?: pulumi.Input<number | undefined>;
     /**
      * The IPv6 network range for the subnet,
      * in CIDR notation. The subnet size must use a /64 prefix length. If the existing IPv6 subnet was created with `assignIpv6AddressOnCreation = true`, changing this value will force resource recreation.
      */
-    ipv6CidrBlock?: pulumi.Input<string>;
+    ipv6CidrBlock?: pulumi.Input<string | undefined>;
     /**
      * The association ID for the IPv6 CIDR block.
      */
-    ipv6CidrBlockAssociationId?: pulumi.Input<string>;
+    ipv6CidrBlockAssociationId?: pulumi.Input<string | undefined>;
     /**
      * ID of an IPv6 VPC Resource Planning IPAM Pool. The CIDR of this pool is used to allocate the CIDR for the subnet.
      */
-    ipv6IpamPoolId?: pulumi.Input<string>;
+    ipv6IpamPoolId?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether to create an IPv6-only subnet. Default: `false`.
      */
-    ipv6Native?: pulumi.Input<boolean>;
+    ipv6Native?: pulumi.Input<boolean | undefined>;
     /**
      * Netmask. Requires specifying a `ipv6IpamPoolId`. Valid values are from 44 to 64 in increments of 4.
      */
-    ipv6NetmaskLength?: pulumi.Input<number>;
+    ipv6NetmaskLength?: pulumi.Input<number | undefined>;
     /**
      * Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customerOwnedIpv4Pool` and `outpostArn` arguments must be specified when set to `true`. Default is `false`.
      */
-    mapCustomerOwnedIpOnLaunch?: pulumi.Input<boolean>;
+    mapCustomerOwnedIpOnLaunch?: pulumi.Input<boolean | undefined>;
     /**
      * Specify true to indicate that instances launched into the subnet should be assigned a public IP address. Default is `false`.
      */
-    mapPublicIpOnLaunch?: pulumi.Input<boolean>;
+    mapPublicIpOnLaunch?: pulumi.Input<boolean | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Outpost.
      */
-    outpostArn?: pulumi.Input<string>;
+    outpostArn?: pulumi.Input<string | undefined>;
     /**
      * The ID of the AWS account that owns the subnet.
      */
-    ownerId?: pulumi.Input<string>;
+    ownerId?: pulumi.Input<string | undefined>;
     /**
      * The type of hostnames to assign to instances in the subnet at launch. For IPv6-only subnets, an instance DNS name must be based on the instance ID. For dual-stack and IPv4-only subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name`, `resource-name`.
      */
-    privateDnsHostnameTypeOnLaunch?: pulumi.Input<string>;
+    privateDnsHostnameTypeOnLaunch?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The VPC ID.
      */
-    vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -455,88 +455,88 @@ export interface SubnetArgs {
      * that network interfaces created in the specified subnet should be
      * assigned an IPv6 address. Default is `false`
      */
-    assignIpv6AddressOnCreation?: pulumi.Input<boolean>;
+    assignIpv6AddressOnCreation?: pulumi.Input<boolean | undefined>;
     /**
      * AZ for the subnet.
      */
-    availabilityZone?: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string | undefined>;
     /**
      * AZ ID of the subnet. This argument is not supported in all regions or partitions. If necessary, use `availabilityZone` instead.
      */
-    availabilityZoneId?: pulumi.Input<string>;
+    availabilityZoneId?: pulumi.Input<string | undefined>;
     /**
      * The IPv4 CIDR block for the subnet.
      */
-    cidrBlock?: pulumi.Input<string>;
+    cidrBlock?: pulumi.Input<string | undefined>;
     /**
      * The customer owned IPv4 address pool. Typically used with the `mapCustomerOwnedIpOnLaunch` argument. The `outpostArn` argument must be specified when configured.
      */
-    customerOwnedIpv4Pool?: pulumi.Input<string>;
+    customerOwnedIpv4Pool?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. Default: `false`.
      */
-    enableDns64?: pulumi.Input<boolean>;
+    enableDns64?: pulumi.Input<boolean | undefined>;
     /**
      * Indicates the device position for local network interfaces in this subnet. For example, 1 indicates local network interfaces in this subnet are the secondary network interface (eth1). A local network interface cannot be the primary network interface (eth0).
      */
-    enableLniAtDeviceIndex?: pulumi.Input<number>;
+    enableLniAtDeviceIndex?: pulumi.Input<number | undefined>;
     /**
      * Indicates whether to respond to DNS queries for instance hostnames with DNS A records. Default: `false`.
      */
-    enableResourceNameDnsARecordOnLaunch?: pulumi.Input<boolean>;
+    enableResourceNameDnsARecordOnLaunch?: pulumi.Input<boolean | undefined>;
     /**
      * Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records. Default: `false`.
      */
-    enableResourceNameDnsAaaaRecordOnLaunch?: pulumi.Input<boolean>;
+    enableResourceNameDnsAaaaRecordOnLaunch?: pulumi.Input<boolean | undefined>;
     /**
      * ID of an IPv4 VPC Resource Planning IPAM Pool. The CIDR of this pool is used to allocate the CIDR for the subnet.
      */
-    ipv4IpamPoolId?: pulumi.Input<string>;
+    ipv4IpamPoolId?: pulumi.Input<string | undefined>;
     /**
      * Netmask. Requires specifying a `ipv4IpamPoolId`.
      */
-    ipv4NetmaskLength?: pulumi.Input<number>;
+    ipv4NetmaskLength?: pulumi.Input<number | undefined>;
     /**
      * The IPv6 network range for the subnet,
      * in CIDR notation. The subnet size must use a /64 prefix length. If the existing IPv6 subnet was created with `assignIpv6AddressOnCreation = true`, changing this value will force resource recreation.
      */
-    ipv6CidrBlock?: pulumi.Input<string>;
+    ipv6CidrBlock?: pulumi.Input<string | undefined>;
     /**
      * ID of an IPv6 VPC Resource Planning IPAM Pool. The CIDR of this pool is used to allocate the CIDR for the subnet.
      */
-    ipv6IpamPoolId?: pulumi.Input<string>;
+    ipv6IpamPoolId?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether to create an IPv6-only subnet. Default: `false`.
      */
-    ipv6Native?: pulumi.Input<boolean>;
+    ipv6Native?: pulumi.Input<boolean | undefined>;
     /**
      * Netmask. Requires specifying a `ipv6IpamPoolId`. Valid values are from 44 to 64 in increments of 4.
      */
-    ipv6NetmaskLength?: pulumi.Input<number>;
+    ipv6NetmaskLength?: pulumi.Input<number | undefined>;
     /**
      * Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customerOwnedIpv4Pool` and `outpostArn` arguments must be specified when set to `true`. Default is `false`.
      */
-    mapCustomerOwnedIpOnLaunch?: pulumi.Input<boolean>;
+    mapCustomerOwnedIpOnLaunch?: pulumi.Input<boolean | undefined>;
     /**
      * Specify true to indicate that instances launched into the subnet should be assigned a public IP address. Default is `false`.
      */
-    mapPublicIpOnLaunch?: pulumi.Input<boolean>;
+    mapPublicIpOnLaunch?: pulumi.Input<boolean | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Outpost.
      */
-    outpostArn?: pulumi.Input<string>;
+    outpostArn?: pulumi.Input<string | undefined>;
     /**
      * The type of hostnames to assign to instances in the subnet at launch. For IPv6-only subnets, an instance DNS name must be based on the instance ID. For dual-stack and IPv4-only subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name`, `resource-name`.
      */
-    privateDnsHostnameTypeOnLaunch?: pulumi.Input<string>;
+    privateDnsHostnameTypeOnLaunch?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The VPC ID.
      */

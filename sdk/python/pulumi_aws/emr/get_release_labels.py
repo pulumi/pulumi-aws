@@ -114,8 +114,8 @@ def get_release_labels(filters: Optional[Union['GetReleaseLabelsFiltersArgs', 'G
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'),
         release_labels=pulumi.get(__ret__, 'release_labels'))
-def get_release_labels_output(filters: Optional[pulumi.Input[Optional[Union['GetReleaseLabelsFiltersArgs', 'GetReleaseLabelsFiltersArgsDict']]]] = None,
-                              region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_release_labels_output(filters: pulumi.Input[Optional[Optional[Union['GetReleaseLabelsFiltersArgs', 'GetReleaseLabelsFiltersArgsDict']]]] = None,
+                              region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReleaseLabelsResult]:
     """
     Retrieve information about EMR Release Labels.

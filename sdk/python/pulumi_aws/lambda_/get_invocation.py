@@ -131,7 +131,7 @@ def get_invocation(function_name: Optional[_builtins.str] = None,
     import pulumi_aws as aws
     import pulumi_std as std
 
-    example = aws.lambda.get_invocation(function_name=example_aws_lambda_function["functionName"],
+    example = aws.lambda_.get_invocation(function_name=example_aws_lambda_function["functionName"],
         input=json.dumps({
             "operation": "getStatus",
             "id": "123456",
@@ -148,7 +148,7 @@ def get_invocation(function_name: Optional[_builtins.str] = None,
     import pulumi_std as std
 
     # Get resource configuration from Lambda
-    resource_config = aws.lambda.get_invocation(function_name="resource-config-generator",
+    resource_config = aws.lambda_.get_invocation(function_name="resource-config-generator",
         qualifier="production",
         input=json.dumps({
             "environment": environment,
@@ -158,11 +158,11 @@ def get_invocation(function_name: Optional[_builtins.str] = None,
     config = std.jsondecode(input=resource_config.result).result
     # Use dynamic configuration
     example = aws.elasticache.Cluster("example",
-        cluster_id=config["cache"]["clusterId"],
-        engine=config["cache"]["engine"],
-        node_type=config["cache"]["nodeType"],
-        num_cache_nodes=config["cache"]["nodes"],
-        parameter_group_name=config["cache"]["parameterGroup"],
+        cluster_id=output(config["cache"]["clusterId"]).apply(lambda x: str(x)),
+        engine=output(config["cache"]["engine"]).apply(lambda x: str(x)),
+        node_type=output(config["cache"]["nodeType"]).apply(lambda x: str(x)),
+        num_cache_nodes=output(config["cache"]["nodes"]).apply(lambda x: int(x)),
+        parameter_group_name=output(config["cache"]["parameterGroup"]).apply(lambda x: str(x)),
         tags=config["tags"])
     ```
 
@@ -192,11 +192,11 @@ def get_invocation(function_name: Optional[_builtins.str] = None,
         region=pulumi.get(__ret__, 'region'),
         result=pulumi.get(__ret__, 'result'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'))
-def get_invocation_output(function_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          input: Optional[pulumi.Input[_builtins.str]] = None,
-                          qualifier: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                          region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                          tenant_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_invocation_output(function_name: pulumi.Input[Optional[_builtins.str]] = None,
+                          input: pulumi.Input[Optional[_builtins.str]] = None,
+                          qualifier: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          tenant_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInvocationResult]:
     """
     Invokes an AWS Lambda Function and returns its results. Use this data source to execute Lambda functions during Pulumi operations and use their results in other resources or outputs.
@@ -217,7 +217,7 @@ def get_invocation_output(function_name: Optional[pulumi.Input[_builtins.str]] =
     import pulumi_aws as aws
     import pulumi_std as std
 
-    example = aws.lambda.get_invocation(function_name=example_aws_lambda_function["functionName"],
+    example = aws.lambda_.get_invocation(function_name=example_aws_lambda_function["functionName"],
         input=json.dumps({
             "operation": "getStatus",
             "id": "123456",
@@ -234,7 +234,7 @@ def get_invocation_output(function_name: Optional[pulumi.Input[_builtins.str]] =
     import pulumi_std as std
 
     # Get resource configuration from Lambda
-    resource_config = aws.lambda.get_invocation(function_name="resource-config-generator",
+    resource_config = aws.lambda_.get_invocation(function_name="resource-config-generator",
         qualifier="production",
         input=json.dumps({
             "environment": environment,
@@ -244,11 +244,11 @@ def get_invocation_output(function_name: Optional[pulumi.Input[_builtins.str]] =
     config = std.jsondecode(input=resource_config.result).result
     # Use dynamic configuration
     example = aws.elasticache.Cluster("example",
-        cluster_id=config["cache"]["clusterId"],
-        engine=config["cache"]["engine"],
-        node_type=config["cache"]["nodeType"],
-        num_cache_nodes=config["cache"]["nodes"],
-        parameter_group_name=config["cache"]["parameterGroup"],
+        cluster_id=output(config["cache"]["clusterId"]).apply(lambda x: str(x)),
+        engine=output(config["cache"]["engine"]).apply(lambda x: str(x)),
+        node_type=output(config["cache"]["nodeType"]).apply(lambda x: str(x)),
+        num_cache_nodes=output(config["cache"]["nodes"]).apply(lambda x: int(x)),
+        parameter_group_name=output(config["cache"]["parameterGroup"]).apply(lambda x: str(x)),
         tags=config["tags"])
     ```
 

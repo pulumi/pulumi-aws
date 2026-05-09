@@ -167,44 +167,44 @@ export interface EfsLocationState {
     /**
      * Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
      */
-    accessPointArn?: pulumi.Input<string>;
+    accessPointArn?: pulumi.Input<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the DataSync Location.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Configuration block containing EC2 configurations for connecting to the EFS File System.
      */
-    ec2Config?: pulumi.Input<inputs.datasync.EfsLocationEc2Config>;
+    ec2Config?: pulumi.Input<inputs.datasync.EfsLocationEc2Config | undefined>;
     /**
      * Amazon Resource Name (ARN) of EFS File System.
      */
-    efsFileSystemArn?: pulumi.Input<string>;
+    efsFileSystemArn?: pulumi.Input<string | undefined>;
     /**
      * Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
      */
-    fileSystemAccessRoleArn?: pulumi.Input<string>;
+    fileSystemAccessRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
      */
-    inTransitEncryption?: pulumi.Input<string>;
+    inTransitEncryption?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Subdirectory to perform actions as source or destination. Default `/`.
      */
-    subdirectory?: pulumi.Input<string>;
+    subdirectory?: pulumi.Input<string | undefined>;
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    uri?: pulumi.Input<string>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    uri?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -214,7 +214,7 @@ export interface EfsLocationArgs {
     /**
      * Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
      */
-    accessPointArn?: pulumi.Input<string>;
+    accessPointArn?: pulumi.Input<string | undefined>;
     /**
      * Configuration block containing EC2 configurations for connecting to the EFS File System.
      */
@@ -226,21 +226,21 @@ export interface EfsLocationArgs {
     /**
      * Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
      */
-    fileSystemAccessRoleArn?: pulumi.Input<string>;
+    fileSystemAccessRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
      */
-    inTransitEncryption?: pulumi.Input<string>;
+    inTransitEncryption?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Subdirectory to perform actions as source or destination. Default `/`.
      */
-    subdirectory?: pulumi.Input<string>;
+    subdirectory?: pulumi.Input<string | undefined>;
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

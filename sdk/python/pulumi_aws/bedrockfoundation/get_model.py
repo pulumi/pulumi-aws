@@ -200,8 +200,8 @@ def get_model(model_id: Optional[_builtins.str] = None,
         provider_name=pulumi.get(__ret__, 'provider_name'),
         region=pulumi.get(__ret__, 'region'),
         response_streaming_supported=pulumi.get(__ret__, 'response_streaming_supported'))
-def get_model_output(model_id: Optional[pulumi.Input[_builtins.str]] = None,
-                     region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_model_output(model_id: pulumi.Input[Optional[_builtins.str]] = None,
+                     region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetModelResult]:
     """
     Data source for managing an AWS Bedrock Foundation Model.

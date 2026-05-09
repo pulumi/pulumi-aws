@@ -148,27 +148,27 @@ export interface LicenseAssociationState {
     /**
      * If `licenseType` is set to `ENTERPRISE_FREE_TRIAL`, this is the expiration date of the free trial.
      */
-    freeTrialExpiration?: pulumi.Input<string>;
+    freeTrialExpiration?: pulumi.Input<string | undefined>;
     /**
      * A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
      */
-    grafanaToken?: pulumi.Input<string>;
+    grafanaToken?: pulumi.Input<string | undefined>;
     /**
      * If `licenseType` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
      */
-    licenseExpiration?: pulumi.Input<string>;
+    licenseExpiration?: pulumi.Input<string | undefined>;
     /**
      * The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
      */
-    licenseType?: pulumi.Input<string>;
+    licenseType?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The workspace id.
      */
-    workspaceId?: pulumi.Input<string>;
+    workspaceId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -178,7 +178,7 @@ export interface LicenseAssociationArgs {
     /**
      * A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
      */
-    grafanaToken?: pulumi.Input<string>;
+    grafanaToken?: pulumi.Input<string | undefined>;
     /**
      * The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
      */
@@ -186,7 +186,7 @@ export interface LicenseAssociationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The workspace id.
      */

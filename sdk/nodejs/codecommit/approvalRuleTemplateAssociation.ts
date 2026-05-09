@@ -108,15 +108,15 @@ export interface ApprovalRuleTemplateAssociationState {
     /**
      * The name for the approval rule template.
      */
-    approvalRuleTemplateName?: pulumi.Input<string>;
+    approvalRuleTemplateName?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The name of the repository that you want to associate with the template.
      */
-    repositoryName?: pulumi.Input<string>;
+    repositoryName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -130,7 +130,7 @@ export interface ApprovalRuleTemplateAssociationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The name of the repository that you want to associate with the template.
      */

@@ -240,37 +240,37 @@ export interface ClusterState {
     /**
      * ARN that identifies the cluster.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Execute command configuration for the cluster. See `configuration` Block for details.
      */
-    configuration?: pulumi.Input<inputs.ecs.ClusterConfiguration>;
+    configuration?: pulumi.Input<inputs.ecs.ClusterConfiguration | undefined>;
     /**
      * Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Default Service Connect namespace. See `serviceConnectDefaults` Block for details.
      */
-    serviceConnectDefaults?: pulumi.Input<inputs.ecs.ClusterServiceConnectDefaults>;
+    serviceConnectDefaults?: pulumi.Input<inputs.ecs.ClusterServiceConnectDefaults | undefined>;
     /**
      * Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. See `setting` Block for details.
      */
-    settings?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterSetting>[]>;
+    settings?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterSetting>[] | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -280,27 +280,27 @@ export interface ClusterArgs {
     /**
      * Execute command configuration for the cluster. See `configuration` Block for details.
      */
-    configuration?: pulumi.Input<inputs.ecs.ClusterConfiguration>;
+    configuration?: pulumi.Input<inputs.ecs.ClusterConfiguration | undefined>;
     /**
      * Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Default Service Connect namespace. See `serviceConnectDefaults` Block for details.
      */
-    serviceConnectDefaults?: pulumi.Input<inputs.ecs.ClusterServiceConnectDefaults>;
+    serviceConnectDefaults?: pulumi.Input<inputs.ecs.ClusterServiceConnectDefaults | undefined>;
     /**
      * Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. See `setting` Block for details.
      */
-    settings?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterSetting>[]>;
+    settings?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterSetting>[] | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

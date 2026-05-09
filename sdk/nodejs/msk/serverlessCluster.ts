@@ -165,39 +165,39 @@ export interface ServerlessClusterState {
     /**
      * The ARN of the serverless cluster.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `boot-abcdefg.c2.kafka-serverless.eu-central-1.amazonaws.com:9098`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      */
-    bootstrapBrokersSaslIam?: pulumi.Input<string>;
+    bootstrapBrokersSaslIam?: pulumi.Input<string | undefined>;
     /**
      * Specifies client authentication information for the serverless cluster. See below.
      */
-    clientAuthentication?: pulumi.Input<inputs.msk.ServerlessClusterClientAuthentication>;
+    clientAuthentication?: pulumi.Input<inputs.msk.ServerlessClusterClientAuthentication | undefined>;
     /**
      * The name of the serverless cluster.
      */
-    clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string | undefined>;
     /**
      * UUID of the serverless cluster, for use in IAM policies.
      */
-    clusterUuid?: pulumi.Input<string>;
+    clusterUuid?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * VPC configuration information. See below.
      */
-    vpcConfigs?: pulumi.Input<pulumi.Input<inputs.msk.ServerlessClusterVpcConfig>[]>;
+    vpcConfigs?: pulumi.Input<pulumi.Input<inputs.msk.ServerlessClusterVpcConfig>[] | undefined>;
 }
 
 /**
@@ -211,15 +211,15 @@ export interface ServerlessClusterArgs {
     /**
      * The name of the serverless cluster.
      */
-    clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * VPC configuration information. See below.
      */

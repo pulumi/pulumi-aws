@@ -165,30 +165,30 @@ export interface BucketObjectLockConfigurationV2State {
     /**
      * Name of the bucket.
      */
-    bucket?: pulumi.Input<string>;
+    bucket?: pulumi.Input<string | undefined>;
     /**
      * Account ID of the expected bucket owner.
      *
      * @deprecated expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
      */
-    expectedBucketOwner?: pulumi.Input<string>;
+    expectedBucketOwner?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
      */
-    objectLockEnabled?: pulumi.Input<string>;
+    objectLockEnabled?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for specifying the Object Lock rule for the specified object. See below.
      */
-    rule?: pulumi.Input<inputs.s3.BucketObjectLockConfigurationV2Rule>;
+    rule?: pulumi.Input<inputs.s3.BucketObjectLockConfigurationV2Rule | undefined>;
     /**
      * This argument is deprecated and no longer needed to enable Object Lock.
      * To enable Object Lock for an existing bucket, you must first enable versioning on the bucket and then enable Object Lock. For more details on versioning, see the `aws.s3.BucketVersioning` resource.
      */
-    token?: pulumi.Input<string>;
+    token?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -204,22 +204,22 @@ export interface BucketObjectLockConfigurationV2Args {
      *
      * @deprecated expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
      */
-    expectedBucketOwner?: pulumi.Input<string>;
+    expectedBucketOwner?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
      */
-    objectLockEnabled?: pulumi.Input<string>;
+    objectLockEnabled?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for specifying the Object Lock rule for the specified object. See below.
      */
-    rule?: pulumi.Input<inputs.s3.BucketObjectLockConfigurationV2Rule>;
+    rule?: pulumi.Input<inputs.s3.BucketObjectLockConfigurationV2Rule | undefined>;
     /**
      * This argument is deprecated and no longer needed to enable Object Lock.
      * To enable Object Lock for an existing bucket, you must first enable versioning on the bucket and then enable Object Lock. For more details on versioning, see the `aws.s3.BucketVersioning` resource.
      */
-    token?: pulumi.Input<string>;
+    token?: pulumi.Input<string | undefined>;
 }

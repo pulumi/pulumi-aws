@@ -121,8 +121,8 @@ def get_finding_ids(detector_id: Optional[_builtins.str] = None,
         has_findings=pulumi.get(__ret__, 'has_findings'),
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'))
-def get_finding_ids_output(detector_id: Optional[pulumi.Input[_builtins.str]] = None,
-                           region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_finding_ids_output(detector_id: pulumi.Input[Optional[_builtins.str]] = None,
+                           region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFindingIdsResult]:
     """
     Data source for managing an AWS GuardDuty Finding Ids.

@@ -142,23 +142,23 @@ export interface ResourceState {
     /**
      * ID of the parent API resource
      */
-    parentId?: pulumi.Input<string>;
+    parentId?: pulumi.Input<string | undefined>;
     /**
      * Complete path for this API resource, including all parent paths.
      */
-    path?: pulumi.Input<string>;
+    path?: pulumi.Input<string | undefined>;
     /**
      * Last path segment of this API resource.
      */
-    pathPart?: pulumi.Input<string>;
+    pathPart?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ID of the associated REST API
      */
-    restApi?: pulumi.Input<string | RestApi>;
+    restApi?: pulumi.Input<string | RestApi | undefined>;
 }
 
 /**
@@ -176,7 +176,7 @@ export interface ResourceArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ID of the associated REST API
      */

@@ -136,23 +136,23 @@ export interface RouteState {
     /**
      * Indicates whether to drop traffic that matches this route (default to `false`).
      */
-    blackhole?: pulumi.Input<boolean>;
+    blackhole?: pulumi.Input<boolean | undefined>;
     /**
      * IPv4 or IPv6 RFC1924 CIDR used for destination matches. Routing decisions are based on the most specific match.
      */
-    destinationCidrBlock?: pulumi.Input<string>;
+    destinationCidrBlock?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Identifier of EC2 Transit Gateway Attachment (required if `blackhole` is set to false).
      */
-    transitGatewayAttachmentId?: pulumi.Input<string>;
+    transitGatewayAttachmentId?: pulumi.Input<string | undefined>;
     /**
      * Identifier of EC2 Transit Gateway Route Table.
      */
-    transitGatewayRouteTableId?: pulumi.Input<string>;
+    transitGatewayRouteTableId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -162,7 +162,7 @@ export interface RouteArgs {
     /**
      * Indicates whether to drop traffic that matches this route (default to `false`).
      */
-    blackhole?: pulumi.Input<boolean>;
+    blackhole?: pulumi.Input<boolean | undefined>;
     /**
      * IPv4 or IPv6 RFC1924 CIDR used for destination matches. Routing decisions are based on the most specific match.
      */
@@ -170,11 +170,11 @@ export interface RouteArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Identifier of EC2 Transit Gateway Attachment (required if `blackhole` is set to false).
      */
-    transitGatewayAttachmentId?: pulumi.Input<string>;
+    transitGatewayAttachmentId?: pulumi.Input<string | undefined>;
     /**
      * Identifier of EC2 Transit Gateway Route Table.
      */

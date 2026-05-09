@@ -73,9 +73,9 @@ class LinkAssociationArgs:
 @pulumi.input_type
 class _LinkAssociationState:
     def __init__(__self__, *,
-                 device_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 link_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 device_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 link_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LinkAssociation resources.
 
@@ -92,38 +92,38 @@ class _LinkAssociationState:
 
     @_builtins.property
     @pulumi.getter(name="deviceId")
-    def device_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def device_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the device.
         """
         return pulumi.get(self, "device_id")
 
     @device_id.setter
-    def device_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def device_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "device_id", value)
 
     @_builtins.property
     @pulumi.getter(name="globalNetworkId")
-    def global_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def global_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the global network.
         """
         return pulumi.get(self, "global_network_id")
 
     @global_network_id.setter
-    def global_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def global_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "global_network_id", value)
 
     @_builtins.property
     @pulumi.getter(name="linkId")
-    def link_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def link_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the link.
         """
         return pulumi.get(self, "link_id")
 
     @link_id.setter
-    def link_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def link_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "link_id", value)
 
 
@@ -133,9 +133,9 @@ class LinkAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 device_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 link_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 device_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 link_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Network Manager link association. Associates a link to a device. A device can be associated to multiple links and a link can be associated to multiple devices. The device and link must be in the same global network and the same site.
@@ -212,9 +212,9 @@ class LinkAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 device_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 link_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 device_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 link_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -243,9 +243,9 @@ class LinkAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            device_id: Optional[pulumi.Input[_builtins.str]] = None,
-            global_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-            link_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'LinkAssociation':
+            device_id: pulumi.Input[Optional[_builtins.str]] = None,
+            global_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+            link_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'LinkAssociation':
         """
         Get an existing LinkAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

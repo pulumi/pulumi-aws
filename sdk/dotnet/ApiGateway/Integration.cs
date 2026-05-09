@@ -82,11 +82,11 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var current = Aws.Index.GetCallerIdentity.Invoke();
+    ///     var current = Aws.GetCallerIdentity.Invoke();
     /// 
-    ///     var currentGetRegion = Aws.Index.GetRegion.Invoke();
+    ///     var currentGetRegion = Aws.GetRegion.Invoke();
     /// 
-    ///     var currentGetPartition = Aws.Index.GetPartition.Invoke();
+    ///     var currentGetPartition = Aws.GetPartition.Invoke();
     /// 
     ///     // API Gateway
     ///     var api = new Aws.ApiGateway.RestApi("api", new()
@@ -149,7 +149,7 @@ namespace Pulumi.Aws.ApiGateway
     ///         Role = role.Arn,
     ///         Handler = "lambda.lambda_handler",
     ///         Runtime = Aws.Lambda.Runtime.Python3d12,
-    ///         SourceCodeHash = Std.Index.Filebase64sha256.Invoke(new()
+    ///         SourceCodeHash = Std.Filebase64sha256.Invoke(new()
     ///         {
     ///             Input = "lambda.zip",
     ///         }).Apply(invoke =&gt; invoke.Result),

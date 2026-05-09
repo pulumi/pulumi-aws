@@ -24,7 +24,7 @@ class RealtimeLogConfigArgs:
                  endpoint: pulumi.Input['RealtimeLogConfigEndpointArgs'],
                  fields: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  sampling_rate: pulumi.Input[_builtins.int],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a RealtimeLogConfig resource.
 
@@ -77,25 +77,25 @@ class RealtimeLogConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique name to identify this real-time log configuration.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _RealtimeLogConfigState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint: Optional[pulumi.Input['RealtimeLogConfigEndpointArgs']] = None,
-                 fields: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sampling_rate: Optional[pulumi.Input[_builtins.int]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint: pulumi.Input[Optional['RealtimeLogConfigEndpointArgs']] = None,
+                 fields: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sampling_rate: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering RealtimeLogConfig resources.
 
@@ -118,62 +118,62 @@ class _RealtimeLogConfigState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def endpoint(self) -> Optional[pulumi.Input['RealtimeLogConfigEndpointArgs']]:
+    def endpoint(self) -> pulumi.Input[Optional['RealtimeLogConfigEndpointArgs']]:
         """
         The Amazon Kinesis data streams where real-time log data is sent.
         """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
-    def endpoint(self, value: Optional[pulumi.Input['RealtimeLogConfigEndpointArgs']]):
+    def endpoint(self, value: pulumi.Input[Optional['RealtimeLogConfigEndpointArgs']]):
         pulumi.set(self, "endpoint", value)
 
     @_builtins.property
     @pulumi.getter
-    def fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def fields(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
         """
         return pulumi.get(self, "fields")
 
     @fields.setter
-    def fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def fields(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "fields", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique name to identify this real-time log configuration.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="samplingRate")
-    def sampling_rate(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def sampling_rate(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
         """
         return pulumi.get(self, "sampling_rate")
 
     @sampling_rate.setter
-    def sampling_rate(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def sampling_rate(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "sampling_rate", value)
 
 
@@ -183,10 +183,10 @@ class RealtimeLogConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 endpoint: Optional[pulumi.Input[Union['RealtimeLogConfigEndpointArgs', 'RealtimeLogConfigEndpointArgsDict']]] = None,
-                 fields: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sampling_rate: Optional[pulumi.Input[_builtins.int]] = None,
+                 endpoint: pulumi.Input[Optional[Union['RealtimeLogConfigEndpointArgs', 'RealtimeLogConfigEndpointArgsDict']]] = None,
+                 fields: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sampling_rate: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Provides a CloudFront real-time log configuration resource.
@@ -348,10 +348,10 @@ class RealtimeLogConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 endpoint: Optional[pulumi.Input[Union['RealtimeLogConfigEndpointArgs', 'RealtimeLogConfigEndpointArgsDict']]] = None,
-                 fields: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sampling_rate: Optional[pulumi.Input[_builtins.int]] = None,
+                 endpoint: pulumi.Input[Optional[Union['RealtimeLogConfigEndpointArgs', 'RealtimeLogConfigEndpointArgsDict']]] = None,
+                 fields: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sampling_rate: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -382,11 +382,11 @@ class RealtimeLogConfig(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            endpoint: Optional[pulumi.Input[Union['RealtimeLogConfigEndpointArgs', 'RealtimeLogConfigEndpointArgsDict']]] = None,
-            fields: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            sampling_rate: Optional[pulumi.Input[_builtins.int]] = None) -> 'RealtimeLogConfig':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint: pulumi.Input[Optional[Union['RealtimeLogConfigEndpointArgs', 'RealtimeLogConfigEndpointArgsDict']]] = None,
+            fields: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            sampling_rate: pulumi.Input[Optional[_builtins.int]] = None) -> 'RealtimeLogConfig':
         """
         Get an existing RealtimeLogConfig resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

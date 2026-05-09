@@ -23,7 +23,7 @@ class HostedConnectionArgs:
                  connection_id: pulumi.Input[_builtins.str],
                  owner_account_id: pulumi.Input[_builtins.str],
                  vlan: pulumi.Input[_builtins.int],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a HostedConnection resource.
 
@@ -90,36 +90,36 @@ class HostedConnectionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the connection.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _HostedConnectionState:
     def __init__(__self__, *,
-                 aws_device: Optional[pulumi.Input[_builtins.str]] = None,
-                 bandwidth: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 has_logical_redundancy: Optional[pulumi.Input[_builtins.str]] = None,
-                 jumbo_frame_capable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 lag_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 loa_issue_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 vlan: Optional[pulumi.Input[_builtins.int]] = None):
+                 aws_device: pulumi.Input[Optional[_builtins.str]] = None,
+                 bandwidth: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 has_logical_redundancy: pulumi.Input[Optional[_builtins.str]] = None,
+                 jumbo_frame_capable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 lag_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 loa_issue_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 vlan: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering HostedConnection resources.
 
@@ -178,195 +178,195 @@ class _HostedConnectionState:
 
     @_builtins.property
     @pulumi.getter(name="awsDevice")
-    def aws_device(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_device(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Direct Connect endpoint on which the physical connection terminates.
         """
         return pulumi.get(self, "aws_device")
 
     @aws_device.setter
-    def aws_device(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_device(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_device", value)
 
     @_builtins.property
     @pulumi.getter
-    def bandwidth(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bandwidth(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps, and 25Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Hosted Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/hosted_connection.html).
         """
         return pulumi.get(self, "bandwidth")
 
     @bandwidth.setter
-    def bandwidth(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bandwidth(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bandwidth", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionId")
-    def connection_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the interconnect or LAG.
         """
         return pulumi.get(self, "connection_id")
 
     @connection_id.setter
-    def connection_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_id", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionRegion")
-    def connection_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS Region where the connection is located.
         """
         return pulumi.get(self, "connection_region")
 
     @connection_region.setter
-    def connection_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_region", value)
 
     @_builtins.property
     @pulumi.getter(name="hasLogicalRedundancy")
-    def has_logical_redundancy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def has_logical_redundancy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
         """
         return pulumi.get(self, "has_logical_redundancy")
 
     @has_logical_redundancy.setter
-    def has_logical_redundancy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def has_logical_redundancy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "has_logical_redundancy", value)
 
     @_builtins.property
     @pulumi.getter(name="jumboFrameCapable")
-    def jumbo_frame_capable(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def jumbo_frame_capable(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean value representing if jumbo frames have been enabled for this connection.
         """
         return pulumi.get(self, "jumbo_frame_capable")
 
     @jumbo_frame_capable.setter
-    def jumbo_frame_capable(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def jumbo_frame_capable(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "jumbo_frame_capable", value)
 
     @_builtins.property
     @pulumi.getter(name="lagId")
-    def lag_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lag_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the LAG.
         """
         return pulumi.get(self, "lag_id")
 
     @lag_id.setter
-    def lag_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lag_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lag_id", value)
 
     @_builtins.property
     @pulumi.getter(name="loaIssueTime")
-    def loa_issue_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def loa_issue_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time of the most recent call to [DescribeLoa](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLoa.html) for this connection.
         """
         return pulumi.get(self, "loa_issue_time")
 
     @loa_issue_time.setter
-    def loa_issue_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def loa_issue_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "loa_issue_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location of the connection.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the connection.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="ownerAccountId")
-    def owner_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the AWS account of the customer for the connection.
         """
         return pulumi.get(self, "owner_account_id")
 
     @owner_account_id.setter
-    def owner_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="partnerName")
-    def partner_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partner_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the AWS Direct Connect service provider associated with the connection.
         """
         return pulumi.get(self, "partner_name")
 
     @partner_name.setter
-    def partner_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partner_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partner_name", value)
 
     @_builtins.property
     @pulumi.getter(name="providerName")
-    def provider_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provider_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the service provider associated with the connection.
         """
         return pulumi.get(self, "provider_name")
 
     @provider_name.setter
-    def provider_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provider_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provider_name", value)
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""region is deprecated. Use connection_region instead.""")
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (**Deprecated**) The AWS Region where the connection is located. Use `connection_region` instead.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The state of the connection. Possible values include: ordering, requested, pending, available, down, deleting, deleted, rejected, unknown. See [AllocateHostedConnection](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocateHostedConnection.html) for a description of each connection state.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter
-    def vlan(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def vlan(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The dedicated VLAN provisioned to the hosted connection.
         """
         return pulumi.get(self, "vlan")
 
     @vlan.setter
-    def vlan(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def vlan(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "vlan", value)
 
 
@@ -376,11 +376,11 @@ class HostedConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bandwidth: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vlan: Optional[pulumi.Input[_builtins.int]] = None,
+                 bandwidth: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vlan: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Provides a hosted connection on the specified interconnect or a link aggregation group (LAG) of interconnects. Intended for use by AWS Direct Connect Partners only.
@@ -447,11 +447,11 @@ class HostedConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bandwidth: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vlan: Optional[pulumi.Input[_builtins.int]] = None,
+                 bandwidth: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vlan: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -495,22 +495,22 @@ class HostedConnection(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            aws_device: Optional[pulumi.Input[_builtins.str]] = None,
-            bandwidth: Optional[pulumi.Input[_builtins.str]] = None,
-            connection_id: Optional[pulumi.Input[_builtins.str]] = None,
-            connection_region: Optional[pulumi.Input[_builtins.str]] = None,
-            has_logical_redundancy: Optional[pulumi.Input[_builtins.str]] = None,
-            jumbo_frame_capable: Optional[pulumi.Input[_builtins.bool]] = None,
-            lag_id: Optional[pulumi.Input[_builtins.str]] = None,
-            loa_issue_time: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            owner_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            partner_name: Optional[pulumi.Input[_builtins.str]] = None,
-            provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            state: Optional[pulumi.Input[_builtins.str]] = None,
-            vlan: Optional[pulumi.Input[_builtins.int]] = None) -> 'HostedConnection':
+            aws_device: pulumi.Input[Optional[_builtins.str]] = None,
+            bandwidth: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_id: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_region: pulumi.Input[Optional[_builtins.str]] = None,
+            has_logical_redundancy: pulumi.Input[Optional[_builtins.str]] = None,
+            jumbo_frame_capable: pulumi.Input[Optional[_builtins.bool]] = None,
+            lag_id: pulumi.Input[Optional[_builtins.str]] = None,
+            loa_issue_time: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            partner_name: pulumi.Input[Optional[_builtins.str]] = None,
+            provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            vlan: pulumi.Input[Optional[_builtins.int]] = None) -> 'HostedConnection':
         """
         Get an existing HostedConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

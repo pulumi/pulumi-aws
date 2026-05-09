@@ -136,19 +136,19 @@ export interface Disk_attachmentState {
     /**
      * Name of the Lightsail disk.
      */
-    diskName?: pulumi.Input<string>;
+    diskName?: pulumi.Input<string | undefined>;
     /**
      * Disk path to expose to the instance.
      */
-    diskPath?: pulumi.Input<string>;
+    diskPath?: pulumi.Input<string | undefined>;
     /**
      * Name of the Lightsail instance to attach to.
      */
-    instanceName?: pulumi.Input<string>;
+    instanceName?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -170,5 +170,5 @@ export interface Disk_attachmentArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

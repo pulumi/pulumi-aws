@@ -175,32 +175,32 @@ export interface SourceCredentialState {
     /**
      * The ARN of Source Credential.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
      * repository. Valid values are `BASIC_AUTH`,
      * `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
      */
-    authType?: pulumi.Input<string>;
+    authType?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The source provider used for this project.
      */
-    serverType?: pulumi.Input<string>;
+    serverType?: pulumi.Input<string | undefined>;
     /**
      * For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
      * app password. When using an AWS CodeStar connection (`authType = "CODECONNECTIONS")`, this is an AWS CodeStar
      * Connection ARN.
      */
-    token?: pulumi.Input<string>;
+    token?: pulumi.Input<string | undefined>;
     /**
      * The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for
      * other types of source providers or connections.
      */
-    userName?: pulumi.Input<string>;
+    userName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -216,7 +216,7 @@ export interface SourceCredentialArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The source provider used for this project.
      */
@@ -231,5 +231,5 @@ export interface SourceCredentialArgs {
      * The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for
      * other types of source providers or connections.
      */
-    userName?: pulumi.Input<string>;
+    userName?: pulumi.Input<string | undefined>;
 }

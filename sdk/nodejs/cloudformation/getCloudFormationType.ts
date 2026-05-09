@@ -153,21 +153,21 @@ export interface GetCloudFormationTypeOutputArgs {
     /**
      * ARN of the CloudFormation Type. For example, `arn:aws:cloudformation:us-west-2::type/resource/AWS-EC2-VPC`.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * CloudFormation Registry Type. For example, `RESOURCE`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * CloudFormation Type name. For example, `AWS::EC2::VPC`.
      */
-    typeName?: pulumi.Input<string>;
+    typeName?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the CloudFormation Type version.
      */
-    versionId?: pulumi.Input<string>;
+    versionId?: pulumi.Input<string | undefined>;
 }

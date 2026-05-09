@@ -557,135 +557,135 @@ export interface TrainingJobState {
     /**
      * Algorithm-related parameters of the training job. See `algorithmSpecification` below. Conflicts with `serverlessJobConfig`.
      */
-    algorithmSpecification?: pulumi.Input<inputs.sagemaker.TrainingJobAlgorithmSpecification>;
+    algorithmSpecification?: pulumi.Input<inputs.sagemaker.TrainingJobAlgorithmSpecification | undefined>;
     /**
      * ARN of the Training Job.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Location of checkpoints during training. See `checkpointConfig` below. Conflicts with `serverlessJobConfig`.
      */
-    checkpointConfig?: pulumi.Input<inputs.sagemaker.TrainingJobCheckpointConfig>;
+    checkpointConfig?: pulumi.Input<inputs.sagemaker.TrainingJobCheckpointConfig | undefined>;
     /**
      * Configuration for debugging rules. See `debugHookConfig` below. Conflicts with `serverlessJobConfig`.
      */
-    debugHookConfig?: pulumi.Input<inputs.sagemaker.TrainingJobDebugHookConfig>;
+    debugHookConfig?: pulumi.Input<inputs.sagemaker.TrainingJobDebugHookConfig | undefined>;
     /**
      * List of debug rule configurations. Maximum of 20. See `debugRuleConfigurations` below.
      */
-    debugRuleConfigurations?: pulumi.Input<pulumi.Input<inputs.sagemaker.TrainingJobDebugRuleConfiguration>[]>;
+    debugRuleConfigurations?: pulumi.Input<pulumi.Input<inputs.sagemaker.TrainingJobDebugRuleConfiguration>[] | undefined>;
     /**
      * Whether to delete model packages in the configured model package group when the training job is destroyed. Default is `false`.
      */
-    deleteModelPackagesOnDestroy?: pulumi.Input<boolean>;
+    deleteModelPackagesOnDestroy?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to delete detached VPC ENIs SageMaker may leave behind when the training job is destroyed. Default is `false`.
      */
-    deleteVpcEnisOnDestroy?: pulumi.Input<boolean>;
+    deleteVpcEnisOnDestroy?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to encrypt inter-container traffic. When enabled, communications between containers are encrypted.
      */
-    enableInterContainerTrafficEncryption?: pulumi.Input<boolean>;
+    enableInterContainerTrafficEncryption?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to use managed spot training. Optimizes the cost of training by using Amazon EC2 Spot Instances. Conflicts with `serverlessJobConfig`.
      */
-    enableManagedSpotTraining?: pulumi.Input<boolean>;
+    enableManagedSpotTraining?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to isolate the training container from the network. No inbound or outbound network calls can be made.
      */
-    enableNetworkIsolation?: pulumi.Input<boolean>;
+    enableNetworkIsolation?: pulumi.Input<boolean | undefined>;
     /**
      * Map of environment variables to set in the training container. Maximum of 100 entries.  Conflicts with `serverlessJobConfig`.
      */
-    environment?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    environment?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Associates a SageMaker AI Experiment or Trial to the training job. See `experimentConfig` below. Conflicts with `serverlessJobConfig`.
      */
-    experimentConfig?: pulumi.Input<inputs.sagemaker.TrainingJobExperimentConfig>;
+    experimentConfig?: pulumi.Input<inputs.sagemaker.TrainingJobExperimentConfig | undefined>;
     /**
      * Map of hyperparameters for the training algorithm. Maximum of 100 entries.
      */
-    hyperParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    hyperParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Infrastructure health check configuration. See `infraCheckConfig` below.
      */
-    infraCheckConfig?: pulumi.Input<inputs.sagemaker.TrainingJobInfraCheckConfig>;
+    infraCheckConfig?: pulumi.Input<inputs.sagemaker.TrainingJobInfraCheckConfig | undefined>;
     /**
      * List of input data channel configurations for the training job. Maximum of 20. See `inputDataConfig` below.
      */
-    inputDataConfigs?: pulumi.Input<pulumi.Input<inputs.sagemaker.TrainingJobInputDataConfig>[]>;
+    inputDataConfigs?: pulumi.Input<pulumi.Input<inputs.sagemaker.TrainingJobInputDataConfig>[] | undefined>;
     /**
      * MLflow integration configuration. See `mlflowConfig` below.
      */
-    mlflowConfig?: pulumi.Input<inputs.sagemaker.TrainingJobMlflowConfig>;
+    mlflowConfig?: pulumi.Input<inputs.sagemaker.TrainingJobMlflowConfig | undefined>;
     /**
      * Model package configuration. Requires `serverlessJobConfig`. See `modelPackageConfig` below.
      */
-    modelPackageConfig?: pulumi.Input<inputs.sagemaker.TrainingJobModelPackageConfig>;
+    modelPackageConfig?: pulumi.Input<inputs.sagemaker.TrainingJobModelPackageConfig | undefined>;
     /**
      * Location of the output data from the training job. See `outputDataConfig` below.
      *
      * The following arguments are optional:
      */
-    outputDataConfig?: pulumi.Input<inputs.sagemaker.TrainingJobOutputDataConfig>;
+    outputDataConfig?: pulumi.Input<inputs.sagemaker.TrainingJobOutputDataConfig | undefined>;
     /**
      * Configuration for the profiler. See `profilerConfig` below. Conflicts with `serverlessJobConfig`.
      */
-    profilerConfig?: pulumi.Input<inputs.sagemaker.TrainingJobProfilerConfig>;
+    profilerConfig?: pulumi.Input<inputs.sagemaker.TrainingJobProfilerConfig | undefined>;
     /**
      * List of profiler rule configurations. Maximum of 20. See `profilerRuleConfigurations` below. Conflicts with `serverlessJobConfig`.
      */
-    profilerRuleConfigurations?: pulumi.Input<pulumi.Input<inputs.sagemaker.TrainingJobProfilerRuleConfiguration>[]>;
+    profilerRuleConfigurations?: pulumi.Input<pulumi.Input<inputs.sagemaker.TrainingJobProfilerRuleConfiguration>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Configuration for remote debugging. See `remoteDebugConfig` below.
      */
-    remoteDebugConfig?: pulumi.Input<inputs.sagemaker.TrainingJobRemoteDebugConfig>;
+    remoteDebugConfig?: pulumi.Input<inputs.sagemaker.TrainingJobRemoteDebugConfig | undefined>;
     /**
      * Resources for the training job, including compute instances and storage volumes. See `resourceConfig` below.
      */
-    resourceConfig?: pulumi.Input<inputs.sagemaker.TrainingJobResourceConfig>;
+    resourceConfig?: pulumi.Input<inputs.sagemaker.TrainingJobResourceConfig | undefined>;
     /**
      * Number of times to retry the job if it fails. See `retryStrategy` below. Conflicts with `serverlessJobConfig`.
      */
-    retryStrategy?: pulumi.Input<inputs.sagemaker.TrainingJobRetryStrategy>;
+    retryStrategy?: pulumi.Input<inputs.sagemaker.TrainingJobRetryStrategy | undefined>;
     /**
      * ARN of the IAM role that SageMaker AI assumes to perform tasks on your behalf during training.
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
     /**
      * Configuration for serverless training jobs using foundation models. Conflicts with `algorithmSpecification`, `enableManagedSpotTraining`, `environment`, `retryStrategy`, `checkpointConfig`, `debugHookConfig`, `experimentConfig`, `profilerConfig`, `profilerRuleConfigurations`, and `tensorBoardOutputConfig`. See `serverlessJobConfig` below.
      */
-    serverlessJobConfig?: pulumi.Input<inputs.sagemaker.TrainingJobServerlessJobConfig>;
+    serverlessJobConfig?: pulumi.Input<inputs.sagemaker.TrainingJobServerlessJobConfig | undefined>;
     /**
      * Configuration for session tag chaining. See `sessionChainingConfig` below.
      */
-    sessionChainingConfig?: pulumi.Input<inputs.sagemaker.TrainingJobSessionChainingConfig>;
-    stoppingCondition?: pulumi.Input<inputs.sagemaker.TrainingJobStoppingCondition>;
+    sessionChainingConfig?: pulumi.Input<inputs.sagemaker.TrainingJobSessionChainingConfig | undefined>;
+    stoppingCondition?: pulumi.Input<inputs.sagemaker.TrainingJobStoppingCondition | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Configuration for TensorBoard output. See `tensorBoardOutputConfig` below. Conflicts with `serverlessJobConfig`.
      */
-    tensorBoardOutputConfig?: pulumi.Input<inputs.sagemaker.TrainingJobTensorBoardOutputConfig>;
-    timeouts?: pulumi.Input<inputs.sagemaker.TrainingJobTimeouts>;
+    tensorBoardOutputConfig?: pulumi.Input<inputs.sagemaker.TrainingJobTensorBoardOutputConfig | undefined>;
+    timeouts?: pulumi.Input<inputs.sagemaker.TrainingJobTimeouts | undefined>;
     /**
      * Name of the training job. Must be between 1 and 63 characters, start with a letter or number, and contain only letters, numbers, and hyphens.
      */
-    trainingJobName?: pulumi.Input<string>;
+    trainingJobName?: pulumi.Input<string | undefined>;
     /**
      * VPC configuration for the training job. See `vpcConfig` below.
      */
-    vpcConfig?: pulumi.Input<inputs.sagemaker.TrainingJobVpcConfig>;
+    vpcConfig?: pulumi.Input<inputs.sagemaker.TrainingJobVpcConfig | undefined>;
 }
 
 /**
@@ -695,97 +695,97 @@ export interface TrainingJobArgs {
     /**
      * Algorithm-related parameters of the training job. See `algorithmSpecification` below. Conflicts with `serverlessJobConfig`.
      */
-    algorithmSpecification?: pulumi.Input<inputs.sagemaker.TrainingJobAlgorithmSpecification>;
+    algorithmSpecification?: pulumi.Input<inputs.sagemaker.TrainingJobAlgorithmSpecification | undefined>;
     /**
      * Location of checkpoints during training. See `checkpointConfig` below. Conflicts with `serverlessJobConfig`.
      */
-    checkpointConfig?: pulumi.Input<inputs.sagemaker.TrainingJobCheckpointConfig>;
+    checkpointConfig?: pulumi.Input<inputs.sagemaker.TrainingJobCheckpointConfig | undefined>;
     /**
      * Configuration for debugging rules. See `debugHookConfig` below. Conflicts with `serverlessJobConfig`.
      */
-    debugHookConfig?: pulumi.Input<inputs.sagemaker.TrainingJobDebugHookConfig>;
+    debugHookConfig?: pulumi.Input<inputs.sagemaker.TrainingJobDebugHookConfig | undefined>;
     /**
      * List of debug rule configurations. Maximum of 20. See `debugRuleConfigurations` below.
      */
-    debugRuleConfigurations?: pulumi.Input<pulumi.Input<inputs.sagemaker.TrainingJobDebugRuleConfiguration>[]>;
+    debugRuleConfigurations?: pulumi.Input<pulumi.Input<inputs.sagemaker.TrainingJobDebugRuleConfiguration>[] | undefined>;
     /**
      * Whether to delete model packages in the configured model package group when the training job is destroyed. Default is `false`.
      */
-    deleteModelPackagesOnDestroy?: pulumi.Input<boolean>;
+    deleteModelPackagesOnDestroy?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to delete detached VPC ENIs SageMaker may leave behind when the training job is destroyed. Default is `false`.
      */
-    deleteVpcEnisOnDestroy?: pulumi.Input<boolean>;
+    deleteVpcEnisOnDestroy?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to encrypt inter-container traffic. When enabled, communications between containers are encrypted.
      */
-    enableInterContainerTrafficEncryption?: pulumi.Input<boolean>;
+    enableInterContainerTrafficEncryption?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to use managed spot training. Optimizes the cost of training by using Amazon EC2 Spot Instances. Conflicts with `serverlessJobConfig`.
      */
-    enableManagedSpotTraining?: pulumi.Input<boolean>;
+    enableManagedSpotTraining?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to isolate the training container from the network. No inbound or outbound network calls can be made.
      */
-    enableNetworkIsolation?: pulumi.Input<boolean>;
+    enableNetworkIsolation?: pulumi.Input<boolean | undefined>;
     /**
      * Map of environment variables to set in the training container. Maximum of 100 entries.  Conflicts with `serverlessJobConfig`.
      */
-    environment?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    environment?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Associates a SageMaker AI Experiment or Trial to the training job. See `experimentConfig` below. Conflicts with `serverlessJobConfig`.
      */
-    experimentConfig?: pulumi.Input<inputs.sagemaker.TrainingJobExperimentConfig>;
+    experimentConfig?: pulumi.Input<inputs.sagemaker.TrainingJobExperimentConfig | undefined>;
     /**
      * Map of hyperparameters for the training algorithm. Maximum of 100 entries.
      */
-    hyperParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    hyperParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Infrastructure health check configuration. See `infraCheckConfig` below.
      */
-    infraCheckConfig?: pulumi.Input<inputs.sagemaker.TrainingJobInfraCheckConfig>;
+    infraCheckConfig?: pulumi.Input<inputs.sagemaker.TrainingJobInfraCheckConfig | undefined>;
     /**
      * List of input data channel configurations for the training job. Maximum of 20. See `inputDataConfig` below.
      */
-    inputDataConfigs?: pulumi.Input<pulumi.Input<inputs.sagemaker.TrainingJobInputDataConfig>[]>;
+    inputDataConfigs?: pulumi.Input<pulumi.Input<inputs.sagemaker.TrainingJobInputDataConfig>[] | undefined>;
     /**
      * MLflow integration configuration. See `mlflowConfig` below.
      */
-    mlflowConfig?: pulumi.Input<inputs.sagemaker.TrainingJobMlflowConfig>;
+    mlflowConfig?: pulumi.Input<inputs.sagemaker.TrainingJobMlflowConfig | undefined>;
     /**
      * Model package configuration. Requires `serverlessJobConfig`. See `modelPackageConfig` below.
      */
-    modelPackageConfig?: pulumi.Input<inputs.sagemaker.TrainingJobModelPackageConfig>;
+    modelPackageConfig?: pulumi.Input<inputs.sagemaker.TrainingJobModelPackageConfig | undefined>;
     /**
      * Location of the output data from the training job. See `outputDataConfig` below.
      *
      * The following arguments are optional:
      */
-    outputDataConfig?: pulumi.Input<inputs.sagemaker.TrainingJobOutputDataConfig>;
+    outputDataConfig?: pulumi.Input<inputs.sagemaker.TrainingJobOutputDataConfig | undefined>;
     /**
      * Configuration for the profiler. See `profilerConfig` below. Conflicts with `serverlessJobConfig`.
      */
-    profilerConfig?: pulumi.Input<inputs.sagemaker.TrainingJobProfilerConfig>;
+    profilerConfig?: pulumi.Input<inputs.sagemaker.TrainingJobProfilerConfig | undefined>;
     /**
      * List of profiler rule configurations. Maximum of 20. See `profilerRuleConfigurations` below. Conflicts with `serverlessJobConfig`.
      */
-    profilerRuleConfigurations?: pulumi.Input<pulumi.Input<inputs.sagemaker.TrainingJobProfilerRuleConfiguration>[]>;
+    profilerRuleConfigurations?: pulumi.Input<pulumi.Input<inputs.sagemaker.TrainingJobProfilerRuleConfiguration>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Configuration for remote debugging. See `remoteDebugConfig` below.
      */
-    remoteDebugConfig?: pulumi.Input<inputs.sagemaker.TrainingJobRemoteDebugConfig>;
+    remoteDebugConfig?: pulumi.Input<inputs.sagemaker.TrainingJobRemoteDebugConfig | undefined>;
     /**
      * Resources for the training job, including compute instances and storage volumes. See `resourceConfig` below.
      */
-    resourceConfig?: pulumi.Input<inputs.sagemaker.TrainingJobResourceConfig>;
+    resourceConfig?: pulumi.Input<inputs.sagemaker.TrainingJobResourceConfig | undefined>;
     /**
      * Number of times to retry the job if it fails. See `retryStrategy` below. Conflicts with `serverlessJobConfig`.
      */
-    retryStrategy?: pulumi.Input<inputs.sagemaker.TrainingJobRetryStrategy>;
+    retryStrategy?: pulumi.Input<inputs.sagemaker.TrainingJobRetryStrategy | undefined>;
     /**
      * ARN of the IAM role that SageMaker AI assumes to perform tasks on your behalf during training.
      */
@@ -793,21 +793,21 @@ export interface TrainingJobArgs {
     /**
      * Configuration for serverless training jobs using foundation models. Conflicts with `algorithmSpecification`, `enableManagedSpotTraining`, `environment`, `retryStrategy`, `checkpointConfig`, `debugHookConfig`, `experimentConfig`, `profilerConfig`, `profilerRuleConfigurations`, and `tensorBoardOutputConfig`. See `serverlessJobConfig` below.
      */
-    serverlessJobConfig?: pulumi.Input<inputs.sagemaker.TrainingJobServerlessJobConfig>;
+    serverlessJobConfig?: pulumi.Input<inputs.sagemaker.TrainingJobServerlessJobConfig | undefined>;
     /**
      * Configuration for session tag chaining. See `sessionChainingConfig` below.
      */
-    sessionChainingConfig?: pulumi.Input<inputs.sagemaker.TrainingJobSessionChainingConfig>;
-    stoppingCondition?: pulumi.Input<inputs.sagemaker.TrainingJobStoppingCondition>;
+    sessionChainingConfig?: pulumi.Input<inputs.sagemaker.TrainingJobSessionChainingConfig | undefined>;
+    stoppingCondition?: pulumi.Input<inputs.sagemaker.TrainingJobStoppingCondition | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Configuration for TensorBoard output. See `tensorBoardOutputConfig` below. Conflicts with `serverlessJobConfig`.
      */
-    tensorBoardOutputConfig?: pulumi.Input<inputs.sagemaker.TrainingJobTensorBoardOutputConfig>;
-    timeouts?: pulumi.Input<inputs.sagemaker.TrainingJobTimeouts>;
+    tensorBoardOutputConfig?: pulumi.Input<inputs.sagemaker.TrainingJobTensorBoardOutputConfig | undefined>;
+    timeouts?: pulumi.Input<inputs.sagemaker.TrainingJobTimeouts | undefined>;
     /**
      * Name of the training job. Must be between 1 and 63 characters, start with a letter or number, and contain only letters, numbers, and hyphens.
      */
@@ -815,5 +815,5 @@ export interface TrainingJobArgs {
     /**
      * VPC configuration for the training job. See `vpcConfig` below.
      */
-    vpcConfig?: pulumi.Input<inputs.sagemaker.TrainingJobVpcConfig>;
+    vpcConfig?: pulumi.Input<inputs.sagemaker.TrainingJobVpcConfig | undefined>;
 }

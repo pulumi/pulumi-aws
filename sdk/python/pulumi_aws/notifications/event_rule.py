@@ -23,7 +23,7 @@ class EventRuleArgs:
                  notification_configuration_arn: pulumi.Input[_builtins.str],
                  regions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  source: pulumi.Input[_builtins.str],
-                 event_pattern: Optional[pulumi.Input[_builtins.str]] = None):
+                 event_pattern: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a EventRule resource.
 
@@ -94,26 +94,26 @@ class EventRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="eventPattern")
-    def event_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         JSON string defining the event pattern to match. Maximum length is 4096 characters.
         """
         return pulumi.get(self, "event_pattern")
 
     @event_pattern.setter
-    def event_pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_pattern", value)
 
 
 @pulumi.input_type
 class _EventRuleState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_configuration_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 source: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_configuration_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EventRule resources.
 
@@ -141,67 +141,67 @@ class _EventRuleState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the Event Rule.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="eventPattern")
-    def event_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         JSON string defining the event pattern to match. Maximum length is 4096 characters.
         """
         return pulumi.get(self, "event_pattern")
 
     @event_pattern.setter
-    def event_pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_pattern", value)
 
     @_builtins.property
     @pulumi.getter(name="eventType")
-    def event_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of event to match. Must be between 1 and 128 characters, and match the pattern `([a-zA-Z0-9 \\-\\(\\)])+`.
         """
         return pulumi.get(self, "event_type")
 
     @event_type.setter
-    def event_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_type", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationConfigurationArn")
-    def notification_configuration_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notification_configuration_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the notification configuration to associate with this event rule. Must match the pattern `arn:aws:notifications::[0-9]{12}:configuration/[a-z0-9]{27}`.
         """
         return pulumi.get(self, "notification_configuration_arn")
 
     @notification_configuration_arn.setter
-    def notification_configuration_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notification_configuration_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notification_configuration_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of AWS regions where the event rule will be applied. Each region must be between 2 and 25 characters, and match the pattern `([a-z]{1,2})-([a-z]{1,15}-)+([0-9])`.
         """
         return pulumi.get(self, "regions")
 
     @regions.setter
-    def regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "regions", value)
 
     @_builtins.property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Source of the event. Must be between 1 and 36 characters, and match the pattern `aws.([a-z0-9\\-])+`.
 
@@ -210,7 +210,7 @@ class _EventRuleState:
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source", value)
 
 
@@ -220,11 +220,11 @@ class EventRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 event_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_configuration_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 source: Optional[pulumi.Input[_builtins.str]] = None,
+                 event_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_configuration_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing an AWS User Notifications Event Rule.
@@ -339,11 +339,11 @@ class EventRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 event_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_configuration_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 source: Optional[pulumi.Input[_builtins.str]] = None,
+                 event_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_configuration_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -377,12 +377,12 @@ class EventRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            event_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-            event_type: Optional[pulumi.Input[_builtins.str]] = None,
-            notification_configuration_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            source: Optional[pulumi.Input[_builtins.str]] = None) -> 'EventRule':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            event_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+            event_type: pulumi.Input[Optional[_builtins.str]] = None,
+            notification_configuration_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            source: pulumi.Input[Optional[_builtins.str]] = None) -> 'EventRule':
         """
         Get an existing EventRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

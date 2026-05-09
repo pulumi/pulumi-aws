@@ -214,8 +214,8 @@ def get_connector(id: Optional[_builtins.str] = None,
         sftp_configs=pulumi.get(__ret__, 'sftp_configs'),
         tags=pulumi.get(__ret__, 'tags'),
         url=pulumi.get(__ret__, 'url'))
-def get_connector_output(id: Optional[pulumi.Input[_builtins.str]] = None,
-                         region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_connector_output(id: pulumi.Input[Optional[_builtins.str]] = None,
+                         region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectorResult]:
     """
     Data source for managing an AWS Transfer Family Connector.

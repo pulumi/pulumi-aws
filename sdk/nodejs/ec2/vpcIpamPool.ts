@@ -297,86 +297,86 @@ export interface VpcIpamPoolState {
     /**
      * The IP protocol assigned to this pool. You must choose either IPv4 or IPv6 protocol for a pool.
      */
-    addressFamily?: pulumi.Input<string>;
+    addressFamily?: pulumi.Input<string | undefined>;
     /**
      * A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16 (unless you provide a different netmask value when you create the new allocation).
      */
-    allocationDefaultNetmaskLength?: pulumi.Input<number>;
+    allocationDefaultNetmaskLength?: pulumi.Input<number | undefined>;
     /**
      * The maximum netmask length that will be required for CIDR allocations in this pool.
      */
-    allocationMaxNetmaskLength?: pulumi.Input<number>;
+    allocationMaxNetmaskLength?: pulumi.Input<number | undefined>;
     /**
      * The minimum netmask length that will be required for CIDR allocations in this pool.
      */
-    allocationMinNetmaskLength?: pulumi.Input<number>;
+    allocationMinNetmaskLength?: pulumi.Input<number | undefined>;
     /**
      * Tags that are required for resources that use CIDRs from this IPAM pool. Resources that do not have these tags will not be allowed to allocate space from the pool. If the resources have their tags changed after they have allocated space or if the allocation tagging requirements are changed on the pool, the resource may be marked as noncompliant.
      */
-    allocationResourceTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    allocationResourceTags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Amazon Resource Name (ARN) of IPAM
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * If you include this argument, IPAM automatically imports any VPCs you have in your scope that fall
      * within the CIDR range in the pool.
      */
-    autoImport?: pulumi.Input<boolean>;
+    autoImport?: pulumi.Input<boolean | undefined>;
     /**
      * Limits which AWS service the pool can be used in. Only useable on public scopes. Valid Values: `ec2`.
      */
-    awsService?: pulumi.Input<string>;
+    awsService?: pulumi.Input<string | undefined>;
     /**
      * Enables you to quickly delete an IPAM pool and all resources within that pool, including provisioned CIDRs, allocations, and other pools.
      */
-    cascade?: pulumi.Input<boolean>;
+    cascade?: pulumi.Input<boolean | undefined>;
     /**
      * A description for the IPAM pool.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of the scope in which you would like to create the IPAM pool.
      */
-    ipamScopeId?: pulumi.Input<string>;
-    ipamScopeType?: pulumi.Input<string>;
+    ipamScopeId?: pulumi.Input<string | undefined>;
+    ipamScopeType?: pulumi.Input<string | undefined>;
     /**
      * The locale in which you would like to create the IPAM pool. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. Possible values: Any AWS region, such as `us-east-1`.
      */
-    locale?: pulumi.Input<string>;
-    poolDepth?: pulumi.Input<number>;
+    locale?: pulumi.Input<string | undefined>;
+    poolDepth?: pulumi.Input<number | undefined>;
     /**
      * The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
      */
-    publicIpSource?: pulumi.Input<string>;
+    publicIpSource?: pulumi.Input<string | undefined>;
     /**
      * Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `addressFamily = "ipv6"` and `publicIpSource = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `publicIpSource = "amazon"`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
      */
-    publiclyAdvertisable?: pulumi.Input<boolean>;
+    publiclyAdvertisable?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
      */
-    sourceIpamPoolId?: pulumi.Input<string>;
+    sourceIpamPoolId?: pulumi.Input<string | undefined>;
     /**
      * Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the vpc resides in.
      */
-    sourceResource?: pulumi.Input<inputs.ec2.VpcIpamPoolSourceResource>;
+    sourceResource?: pulumi.Input<inputs.ec2.VpcIpamPoolSourceResource | undefined>;
     /**
      * The ID of the IPAM
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -390,36 +390,36 @@ export interface VpcIpamPoolArgs {
     /**
      * A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16 (unless you provide a different netmask value when you create the new allocation).
      */
-    allocationDefaultNetmaskLength?: pulumi.Input<number>;
+    allocationDefaultNetmaskLength?: pulumi.Input<number | undefined>;
     /**
      * The maximum netmask length that will be required for CIDR allocations in this pool.
      */
-    allocationMaxNetmaskLength?: pulumi.Input<number>;
+    allocationMaxNetmaskLength?: pulumi.Input<number | undefined>;
     /**
      * The minimum netmask length that will be required for CIDR allocations in this pool.
      */
-    allocationMinNetmaskLength?: pulumi.Input<number>;
+    allocationMinNetmaskLength?: pulumi.Input<number | undefined>;
     /**
      * Tags that are required for resources that use CIDRs from this IPAM pool. Resources that do not have these tags will not be allowed to allocate space from the pool. If the resources have their tags changed after they have allocated space or if the allocation tagging requirements are changed on the pool, the resource may be marked as noncompliant.
      */
-    allocationResourceTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    allocationResourceTags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * If you include this argument, IPAM automatically imports any VPCs you have in your scope that fall
      * within the CIDR range in the pool.
      */
-    autoImport?: pulumi.Input<boolean>;
+    autoImport?: pulumi.Input<boolean | undefined>;
     /**
      * Limits which AWS service the pool can be used in. Only useable on public scopes. Valid Values: `ec2`.
      */
-    awsService?: pulumi.Input<string>;
+    awsService?: pulumi.Input<string | undefined>;
     /**
      * Enables you to quickly delete an IPAM pool and all resources within that pool, including provisioned CIDRs, allocations, and other pools.
      */
-    cascade?: pulumi.Input<boolean>;
+    cascade?: pulumi.Input<boolean | undefined>;
     /**
      * A description for the IPAM pool.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of the scope in which you would like to create the IPAM pool.
      */
@@ -427,29 +427,29 @@ export interface VpcIpamPoolArgs {
     /**
      * The locale in which you would like to create the IPAM pool. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. Possible values: Any AWS region, such as `us-east-1`.
      */
-    locale?: pulumi.Input<string>;
+    locale?: pulumi.Input<string | undefined>;
     /**
      * The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
      */
-    publicIpSource?: pulumi.Input<string>;
+    publicIpSource?: pulumi.Input<string | undefined>;
     /**
      * Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `addressFamily = "ipv6"` and `publicIpSource = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `publicIpSource = "amazon"`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
      */
-    publiclyAdvertisable?: pulumi.Input<boolean>;
+    publiclyAdvertisable?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
      */
-    sourceIpamPoolId?: pulumi.Input<string>;
+    sourceIpamPoolId?: pulumi.Input<string | undefined>;
     /**
      * Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the vpc resides in.
      */
-    sourceResource?: pulumi.Input<inputs.ec2.VpcIpamPoolSourceResource>;
+    sourceResource?: pulumi.Input<inputs.ec2.VpcIpamPoolSourceResource | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -53,8 +53,8 @@ public final class OpensearchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.opensearch.OpensearchFunctions;
      * import com.pulumi.aws.opensearch.inputs.GetDomainArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -93,8 +93,8 @@ public final class OpensearchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.opensearch.OpensearchFunctions;
      * import com.pulumi.aws.opensearch.inputs.GetDomainArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -133,8 +133,8 @@ public final class OpensearchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.opensearch.OpensearchFunctions;
      * import com.pulumi.aws.opensearch.inputs.GetDomainArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -173,8 +173,8 @@ public final class OpensearchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.opensearch.OpensearchFunctions;
      * import com.pulumi.aws.opensearch.inputs.GetDomainArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -213,8 +213,8 @@ public final class OpensearchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.opensearch.OpensearchFunctions;
      * import com.pulumi.aws.opensearch.inputs.GetDomainArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -255,8 +255,8 @@ public final class OpensearchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.opensearch.OpensearchFunctions;
      * import com.pulumi.aws.opensearch.inputs.GetServerlessAccessPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -298,8 +298,8 @@ public final class OpensearchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.opensearch.OpensearchFunctions;
      * import com.pulumi.aws.opensearch.inputs.GetServerlessAccessPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -341,8 +341,8 @@ public final class OpensearchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.opensearch.OpensearchFunctions;
      * import com.pulumi.aws.opensearch.inputs.GetServerlessAccessPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -384,8 +384,8 @@ public final class OpensearchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.opensearch.OpensearchFunctions;
      * import com.pulumi.aws.opensearch.inputs.GetServerlessAccessPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -427,8 +427,8 @@ public final class OpensearchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.opensearch.OpensearchFunctions;
      * import com.pulumi.aws.opensearch.inputs.GetServerlessAccessPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -470,8 +470,8 @@ public final class OpensearchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.opensearch.OpensearchFunctions;
      * import com.pulumi.aws.opensearch.inputs.GetServerlessCollectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -512,8 +512,8 @@ public final class OpensearchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.opensearch.OpensearchFunctions;
      * import com.pulumi.aws.opensearch.inputs.GetServerlessCollectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -554,8 +554,8 @@ public final class OpensearchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.opensearch.OpensearchFunctions;
      * import com.pulumi.aws.opensearch.inputs.GetServerlessCollectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -596,8 +596,8 @@ public final class OpensearchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.opensearch.OpensearchFunctions;
      * import com.pulumi.aws.opensearch.inputs.GetServerlessCollectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -638,8 +638,8 @@ public final class OpensearchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.opensearch.OpensearchFunctions;
      * import com.pulumi.aws.opensearch.inputs.GetServerlessCollectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -680,8 +680,8 @@ public final class OpensearchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.opensearch.OpensearchFunctions;
      * import com.pulumi.aws.opensearch.inputs.GetServerlessCollectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -722,8 +722,8 @@ public final class OpensearchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.opensearch.OpensearchFunctions;
      * import com.pulumi.aws.opensearch.inputs.GetServerlessCollectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -764,8 +764,8 @@ public final class OpensearchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.opensearch.OpensearchFunctions;
      * import com.pulumi.aws.opensearch.inputs.GetServerlessCollectionGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -806,8 +806,8 @@ public final class OpensearchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.opensearch.OpensearchFunctions;
      * import com.pulumi.aws.opensearch.inputs.GetServerlessCollectionGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -848,8 +848,8 @@ public final class OpensearchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.opensearch.OpensearchFunctions;
      * import com.pulumi.aws.opensearch.inputs.GetServerlessCollectionGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -890,8 +890,8 @@ public final class OpensearchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.opensearch.OpensearchFunctions;
      * import com.pulumi.aws.opensearch.inputs.GetServerlessCollectionGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -932,8 +932,8 @@ public final class OpensearchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.opensearch.OpensearchFunctions;
      * import com.pulumi.aws.opensearch.inputs.GetServerlessCollectionGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -974,8 +974,8 @@ public final class OpensearchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.opensearch.OpensearchFunctions;
      * import com.pulumi.aws.opensearch.inputs.GetServerlessCollectionGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1016,8 +1016,8 @@ public final class OpensearchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.opensearch.OpensearchFunctions;
      * import com.pulumi.aws.opensearch.inputs.GetServerlessCollectionGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1058,8 +1058,8 @@ public final class OpensearchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.opensearch.OpensearchFunctions;
      * import com.pulumi.aws.opensearch.inputs.GetServerlessCollectionGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1099,8 +1099,8 @@ public final class OpensearchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.opensearch.OpensearchFunctions;
      * import com.pulumi.aws.opensearch.inputs.GetServerlessCollectionGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1140,8 +1140,8 @@ public final class OpensearchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.opensearch.OpensearchFunctions;
      * import com.pulumi.aws.opensearch.inputs.GetServerlessCollectionGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1181,8 +1181,8 @@ public final class OpensearchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.opensearch.OpensearchFunctions;
      * import com.pulumi.aws.opensearch.inputs.GetServerlessCollectionGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1222,8 +1222,8 @@ public final class OpensearchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.opensearch.OpensearchFunctions;
      * import com.pulumi.aws.opensearch.inputs.GetServerlessCollectionGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1263,8 +1263,8 @@ public final class OpensearchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.opensearch.OpensearchFunctions;
      * import com.pulumi.aws.opensearch.inputs.GetServerlessCollectionGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1304,8 +1304,8 @@ public final class OpensearchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.opensearch.OpensearchFunctions;
      * import com.pulumi.aws.opensearch.inputs.GetServerlessCollectionGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1345,8 +1345,8 @@ public final class OpensearchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.opensearch.OpensearchFunctions;
      * import com.pulumi.aws.opensearch.inputs.GetServerlessLifecyclePolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1388,8 +1388,8 @@ public final class OpensearchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.opensearch.OpensearchFunctions;
      * import com.pulumi.aws.opensearch.inputs.GetServerlessLifecyclePolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1431,8 +1431,8 @@ public final class OpensearchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.opensearch.OpensearchFunctions;
      * import com.pulumi.aws.opensearch.inputs.GetServerlessLifecyclePolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1474,8 +1474,8 @@ public final class OpensearchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.opensearch.OpensearchFunctions;
      * import com.pulumi.aws.opensearch.inputs.GetServerlessLifecyclePolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1517,8 +1517,8 @@ public final class OpensearchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.opensearch.OpensearchFunctions;
      * import com.pulumi.aws.opensearch.inputs.GetServerlessLifecyclePolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1560,8 +1560,8 @@ public final class OpensearchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.opensearch.OpensearchFunctions;
      * import com.pulumi.aws.opensearch.inputs.GetServerlessSecurityConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1602,8 +1602,8 @@ public final class OpensearchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.opensearch.OpensearchFunctions;
      * import com.pulumi.aws.opensearch.inputs.GetServerlessSecurityConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1644,8 +1644,8 @@ public final class OpensearchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.opensearch.OpensearchFunctions;
      * import com.pulumi.aws.opensearch.inputs.GetServerlessSecurityConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1686,8 +1686,8 @@ public final class OpensearchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.opensearch.OpensearchFunctions;
      * import com.pulumi.aws.opensearch.inputs.GetServerlessSecurityConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1728,8 +1728,8 @@ public final class OpensearchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.opensearch.OpensearchFunctions;
      * import com.pulumi.aws.opensearch.inputs.GetServerlessSecurityConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1768,8 +1768,8 @@ public final class OpensearchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.opensearch.OpensearchFunctions;
      * import com.pulumi.aws.opensearch.inputs.GetServerlessSecurityPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1809,8 +1809,8 @@ public final class OpensearchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.opensearch.OpensearchFunctions;
      * import com.pulumi.aws.opensearch.inputs.GetServerlessSecurityPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1850,8 +1850,8 @@ public final class OpensearchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.opensearch.OpensearchFunctions;
      * import com.pulumi.aws.opensearch.inputs.GetServerlessSecurityPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1891,8 +1891,8 @@ public final class OpensearchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.opensearch.OpensearchFunctions;
      * import com.pulumi.aws.opensearch.inputs.GetServerlessSecurityPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1932,8 +1932,8 @@ public final class OpensearchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.opensearch.OpensearchFunctions;
      * import com.pulumi.aws.opensearch.inputs.GetServerlessSecurityPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1973,8 +1973,8 @@ public final class OpensearchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.opensearch.OpensearchFunctions;
      * import com.pulumi.aws.opensearch.inputs.GetServerlessVpcEndpointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2013,8 +2013,8 @@ public final class OpensearchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.opensearch.OpensearchFunctions;
      * import com.pulumi.aws.opensearch.inputs.GetServerlessVpcEndpointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2053,8 +2053,8 @@ public final class OpensearchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.opensearch.OpensearchFunctions;
      * import com.pulumi.aws.opensearch.inputs.GetServerlessVpcEndpointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2093,8 +2093,8 @@ public final class OpensearchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.opensearch.OpensearchFunctions;
      * import com.pulumi.aws.opensearch.inputs.GetServerlessVpcEndpointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2133,8 +2133,8 @@ public final class OpensearchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.opensearch.OpensearchFunctions;
      * import com.pulumi.aws.opensearch.inputs.GetServerlessVpcEndpointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

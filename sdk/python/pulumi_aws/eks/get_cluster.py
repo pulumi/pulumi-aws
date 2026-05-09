@@ -401,9 +401,9 @@ def get_cluster(name: Optional[_builtins.str] = None,
         version=pulumi.get(__ret__, 'version'),
         vpc_config=pulumi.get(__ret__, 'vpc_config'),
         zonal_shift_configs=pulumi.get(__ret__, 'zonal_shift_configs'))
-def get_cluster_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                       region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                       tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_cluster_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                       region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
     Retrieve information about an EKS Cluster.

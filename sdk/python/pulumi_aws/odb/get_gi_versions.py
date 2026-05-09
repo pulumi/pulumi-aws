@@ -105,8 +105,8 @@ def get_gi_versions(region: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'),
         shape=pulumi.get(__ret__, 'shape'))
-def get_gi_versions_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                           shape: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_gi_versions_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           shape: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGiVersionsResult]:
     """
     Data source to retrieve available Grid Infrastructure versions of Oracle Database@AWS.

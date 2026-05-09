@@ -153,6 +153,7 @@ def get_instances(filters: Optional[Sequence[Union['GetInstancesFilterArgs', 'Ge
 
     ```python
     import pulumi
+    from typing import Any
     import pulumi_aws as aws
 
     test = aws.ec2.get_instances(instance_tags={
@@ -166,7 +167,7 @@ def get_instances(filters: Optional[Sequence[Union['GetInstancesFilterArgs', 'Ge
             "running",
             "stopped",
         ])
-    test_eip = []
+    test_eip: list[Any] = []
     def create_test(range_body):
         for range in [{"value": i} for i in range(0, range_body)]:
             test_eip.append(aws.ec2.Eip(f"test-{range['value']}", instance=test.ids[range["value"]]))
@@ -202,10 +203,10 @@ def get_instances(filters: Optional[Sequence[Union['GetInstancesFilterArgs', 'Ge
         private_ips=pulumi.get(__ret__, 'private_ips'),
         public_ips=pulumi.get(__ret__, 'public_ips'),
         region=pulumi.get(__ret__, 'region'))
-def get_instances_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetInstancesFilterArgs', 'GetInstancesFilterArgsDict']]]]] = None,
-                         instance_state_names: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                         instance_tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
-                         region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_instances_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetInstancesFilterArgs', 'GetInstancesFilterArgsDict']]]]] = None,
+                         instance_state_names: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                         instance_tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
+                         region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstancesResult]:
     """
     Use this data source to get IDs or IPs of Amazon EC2 instances to be referenced elsewhere,
@@ -220,6 +221,7 @@ def get_instances_output(filters: Optional[pulumi.Input[Optional[Sequence[Union[
 
     ```python
     import pulumi
+    from typing import Any
     import pulumi_aws as aws
 
     test = aws.ec2.get_instances(instance_tags={
@@ -233,7 +235,7 @@ def get_instances_output(filters: Optional[pulumi.Input[Optional[Sequence[Union[
             "running",
             "stopped",
         ])
-    test_eip = []
+    test_eip: list[Any] = []
     def create_test(range_body):
         for range in [{"value": i} for i in range(0, range_body)]:
             test_eip.append(aws.ec2.Eip(f"test-{range['value']}", instance=test.ids[range["value"]]))

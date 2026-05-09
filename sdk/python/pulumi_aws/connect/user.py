@@ -25,13 +25,13 @@ class UserArgs:
                  phone_config: pulumi.Input['UserPhoneConfigArgs'],
                  routing_profile_id: pulumi.Input[_builtins.str],
                  security_profile_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 directory_user_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 hierarchy_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_info: Optional[pulumi.Input['UserIdentityInfoArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 directory_user_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 hierarchy_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_info: pulumi.Input[Optional['UserIdentityInfoArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a User resource.
 
@@ -117,79 +117,79 @@ class UserArgs:
 
     @_builtins.property
     @pulumi.getter(name="directoryUserId")
-    def directory_user_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def directory_user_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the user account in the directory used for identity management. If Amazon Connect cannot access the directory, you can specify this identifier to authenticate users. If you include the identifier, we assume that Amazon Connect cannot access the directory. Otherwise, the identity information is used to authenticate users from your directory. This parameter is required if you are using an existing directory for identity management in Amazon Connect when Amazon Connect cannot access your directory to authenticate users. If you are using SAML for identity management and include this parameter, an error is returned.
         """
         return pulumi.get(self, "directory_user_id")
 
     @directory_user_id.setter
-    def directory_user_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def directory_user_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "directory_user_id", value)
 
     @_builtins.property
     @pulumi.getter(name="hierarchyGroupId")
-    def hierarchy_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hierarchy_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the hierarchy group for the user.
         """
         return pulumi.get(self, "hierarchy_group_id")
 
     @hierarchy_group_id.setter
-    def hierarchy_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hierarchy_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hierarchy_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="identityInfo")
-    def identity_info(self) -> Optional[pulumi.Input['UserIdentityInfoArgs']]:
+    def identity_info(self) -> pulumi.Input[Optional['UserIdentityInfoArgs']]:
         """
         A block that contains information about the identity of the user. Documented below.
         """
         return pulumi.get(self, "identity_info")
 
     @identity_info.setter
-    def identity_info(self, value: Optional[pulumi.Input['UserIdentityInfoArgs']]):
+    def identity_info(self, value: pulumi.Input[Optional['UserIdentityInfoArgs']]):
         pulumi.set(self, "identity_info", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user name for the account. For instances not using SAML for identity management, the user name can include up to 20 characters. If you are using SAML for identity management, the user name can include up to 64 characters from `[a-zA-Z0-9_-.\\@]+`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Tags to apply to the user. If configured with a provider
         `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -197,27 +197,27 @@ class UserArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _UserState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 directory_user_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 hierarchy_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_info: Optional[pulumi.Input['UserIdentityInfoArgs']] = None,
-                 instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 phone_config: Optional[pulumi.Input['UserPhoneConfigArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_profile_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 directory_user_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 hierarchy_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_info: pulumi.Input[Optional['UserIdentityInfoArgs']] = None,
+                 instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 phone_config: pulumi.Input[Optional['UserPhoneConfigArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_profile_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering User resources.
 
@@ -268,139 +268,139 @@ class _UserState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the user.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="directoryUserId")
-    def directory_user_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def directory_user_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the user account in the directory used for identity management. If Amazon Connect cannot access the directory, you can specify this identifier to authenticate users. If you include the identifier, we assume that Amazon Connect cannot access the directory. Otherwise, the identity information is used to authenticate users from your directory. This parameter is required if you are using an existing directory for identity management in Amazon Connect when Amazon Connect cannot access your directory to authenticate users. If you are using SAML for identity management and include this parameter, an error is returned.
         """
         return pulumi.get(self, "directory_user_id")
 
     @directory_user_id.setter
-    def directory_user_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def directory_user_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "directory_user_id", value)
 
     @_builtins.property
     @pulumi.getter(name="hierarchyGroupId")
-    def hierarchy_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hierarchy_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the hierarchy group for the user.
         """
         return pulumi.get(self, "hierarchy_group_id")
 
     @hierarchy_group_id.setter
-    def hierarchy_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hierarchy_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hierarchy_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="identityInfo")
-    def identity_info(self) -> Optional[pulumi.Input['UserIdentityInfoArgs']]:
+    def identity_info(self) -> pulumi.Input[Optional['UserIdentityInfoArgs']]:
         """
         A block that contains information about the identity of the user. Documented below.
         """
         return pulumi.get(self, "identity_info")
 
     @identity_info.setter
-    def identity_info(self, value: Optional[pulumi.Input['UserIdentityInfoArgs']]):
+    def identity_info(self, value: pulumi.Input[Optional['UserIdentityInfoArgs']]):
         pulumi.set(self, "identity_info", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceId")
-    def instance_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier of the hosting Amazon Connect Instance.
         """
         return pulumi.get(self, "instance_id")
 
     @instance_id.setter
-    def instance_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user name for the account. For instances not using SAML for identity management, the user name can include up to 20 characters. If you are using SAML for identity management, the user name can include up to 64 characters from `[a-zA-Z0-9_-.\\@]+`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="phoneConfig")
-    def phone_config(self) -> Optional[pulumi.Input['UserPhoneConfigArgs']]:
+    def phone_config(self) -> pulumi.Input[Optional['UserPhoneConfigArgs']]:
         """
         A block that contains information about the phone settings for the user. Documented below.
         """
         return pulumi.get(self, "phone_config")
 
     @phone_config.setter
-    def phone_config(self, value: Optional[pulumi.Input['UserPhoneConfigArgs']]):
+    def phone_config(self, value: pulumi.Input[Optional['UserPhoneConfigArgs']]):
         pulumi.set(self, "phone_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="routingProfileId")
-    def routing_profile_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_profile_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the routing profile for the user.
         """
         return pulumi.get(self, "routing_profile_id")
 
     @routing_profile_id.setter
-    def routing_profile_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_profile_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_profile_id", value)
 
     @_builtins.property
     @pulumi.getter(name="securityProfileIds")
-    def security_profile_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_profile_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
         """
         return pulumi.get(self, "security_profile_ids")
 
     @security_profile_ids.setter
-    def security_profile_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_profile_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_profile_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Tags to apply to the user. If configured with a provider
         `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -408,31 +408,31 @@ class _UserState:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="userId")
-    def user_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier for the user.
         """
         return pulumi.get(self, "user_id")
 
     @user_id.setter
-    def user_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_id", value)
 
 
@@ -442,17 +442,17 @@ class User(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 directory_user_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 hierarchy_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_info: Optional[pulumi.Input[Union['UserIdentityInfoArgs', 'UserIdentityInfoArgsDict']]] = None,
-                 instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 phone_config: Optional[pulumi.Input[Union['UserPhoneConfigArgs', 'UserPhoneConfigArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_profile_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 directory_user_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 hierarchy_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_info: pulumi.Input[Optional[Union['UserIdentityInfoArgs', 'UserIdentityInfoArgsDict']]] = None,
+                 instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 phone_config: pulumi.Input[Optional[Union['UserPhoneConfigArgs', 'UserPhoneConfigArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_profile_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides an Amazon Connect User resource. For more information see
@@ -740,17 +740,17 @@ class User(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 directory_user_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 hierarchy_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_info: Optional[pulumi.Input[Union['UserIdentityInfoArgs', 'UserIdentityInfoArgsDict']]] = None,
-                 instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 phone_config: Optional[pulumi.Input[Union['UserPhoneConfigArgs', 'UserPhoneConfigArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_profile_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 directory_user_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 hierarchy_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_info: pulumi.Input[Optional[Union['UserIdentityInfoArgs', 'UserIdentityInfoArgsDict']]] = None,
+                 instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 phone_config: pulumi.Input[Optional[Union['UserPhoneConfigArgs', 'UserPhoneConfigArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_profile_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -794,20 +794,20 @@ class User(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            directory_user_id: Optional[pulumi.Input[_builtins.str]] = None,
-            hierarchy_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            identity_info: Optional[pulumi.Input[Union['UserIdentityInfoArgs', 'UserIdentityInfoArgsDict']]] = None,
-            instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            password: Optional[pulumi.Input[_builtins.str]] = None,
-            phone_config: Optional[pulumi.Input[Union['UserPhoneConfigArgs', 'UserPhoneConfigArgsDict']]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            routing_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-            security_profile_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            user_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'User':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            directory_user_id: pulumi.Input[Optional[_builtins.str]] = None,
+            hierarchy_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            identity_info: pulumi.Input[Optional[Union['UserIdentityInfoArgs', 'UserIdentityInfoArgsDict']]] = None,
+            instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            phone_config: pulumi.Input[Optional[Union['UserPhoneConfigArgs', 'UserPhoneConfigArgsDict']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+            security_profile_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            user_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'User':
         """
         Get an existing User resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -136,32 +136,32 @@ export interface ResourceLfTagState {
     /**
      * Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
      */
-    catalogId?: pulumi.Input<string>;
+    catalogId?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for a database resource. See Database for more details.
      */
-    database?: pulumi.Input<inputs.lakeformation.ResourceLfTagDatabase>;
+    database?: pulumi.Input<inputs.lakeformation.ResourceLfTagDatabase | undefined>;
     /**
      * Set of LF-tags to attach to the resource. See LF Tag for more details.
      *
      * Exactly one of the following is required:
      */
-    lfTag?: pulumi.Input<inputs.lakeformation.ResourceLfTagLfTag>;
+    lfTag?: pulumi.Input<inputs.lakeformation.ResourceLfTagLfTag | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for a table resource. See Table for more details.
      */
-    table?: pulumi.Input<inputs.lakeformation.ResourceLfTagTable>;
+    table?: pulumi.Input<inputs.lakeformation.ResourceLfTagTable | undefined>;
     /**
      * Configuration block for a table with columns resource. See Table With Columns for more details.
      *
      * The following arguments are optional:
      */
-    tableWithColumns?: pulumi.Input<inputs.lakeformation.ResourceLfTagTableWithColumns>;
-    timeouts?: pulumi.Input<inputs.lakeformation.ResourceLfTagTimeouts>;
+    tableWithColumns?: pulumi.Input<inputs.lakeformation.ResourceLfTagTableWithColumns | undefined>;
+    timeouts?: pulumi.Input<inputs.lakeformation.ResourceLfTagTimeouts | undefined>;
 }
 
 /**
@@ -171,11 +171,11 @@ export interface ResourceLfTagArgs {
     /**
      * Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
      */
-    catalogId?: pulumi.Input<string>;
+    catalogId?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for a database resource. See Database for more details.
      */
-    database?: pulumi.Input<inputs.lakeformation.ResourceLfTagDatabase>;
+    database?: pulumi.Input<inputs.lakeformation.ResourceLfTagDatabase | undefined>;
     /**
      * Set of LF-tags to attach to the resource. See LF Tag for more details.
      *
@@ -185,16 +185,16 @@ export interface ResourceLfTagArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for a table resource. See Table for more details.
      */
-    table?: pulumi.Input<inputs.lakeformation.ResourceLfTagTable>;
+    table?: pulumi.Input<inputs.lakeformation.ResourceLfTagTable | undefined>;
     /**
      * Configuration block for a table with columns resource. See Table With Columns for more details.
      *
      * The following arguments are optional:
      */
-    tableWithColumns?: pulumi.Input<inputs.lakeformation.ResourceLfTagTableWithColumns>;
-    timeouts?: pulumi.Input<inputs.lakeformation.ResourceLfTagTimeouts>;
+    tableWithColumns?: pulumi.Input<inputs.lakeformation.ResourceLfTagTableWithColumns | undefined>;
+    timeouts?: pulumi.Input<inputs.lakeformation.ResourceLfTagTimeouts | undefined>;
 }

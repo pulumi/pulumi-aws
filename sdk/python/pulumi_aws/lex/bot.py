@@ -24,18 +24,18 @@ class BotArgs:
                  abort_statement: pulumi.Input['BotAbortStatementArgs'],
                  child_directed: pulumi.Input[_builtins.bool],
                  intents: pulumi.Input[Sequence[pulumi.Input['BotIntentArgs']]],
-                 clarification_prompt: Optional[pulumi.Input['BotClarificationPromptArgs']] = None,
-                 create_version: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 detect_sentiment: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_model_improvements: Optional[pulumi.Input[_builtins.bool]] = None,
-                 idle_session_ttl_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 locale: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 nlu_intent_confidence_threshold: Optional[pulumi.Input[_builtins.float]] = None,
-                 process_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 voice_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 clarification_prompt: pulumi.Input[Optional['BotClarificationPromptArgs']] = None,
+                 create_version: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 detect_sentiment: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_model_improvements: pulumi.Input[Optional[_builtins.bool]] = None,
+                 idle_session_ttl_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 locale: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 nlu_intent_confidence_threshold: pulumi.Input[Optional[_builtins.float]] = None,
+                 process_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 voice_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Bot resource.
 
@@ -121,174 +121,174 @@ class BotArgs:
 
     @_builtins.property
     @pulumi.getter(name="clarificationPrompt")
-    def clarification_prompt(self) -> Optional[pulumi.Input['BotClarificationPromptArgs']]:
+    def clarification_prompt(self) -> pulumi.Input[Optional['BotClarificationPromptArgs']]:
         """
         The message that Amazon Lex uses when it doesn't understand the user's request. Attributes are documented under prompt.
         """
         return pulumi.get(self, "clarification_prompt")
 
     @clarification_prompt.setter
-    def clarification_prompt(self, value: Optional[pulumi.Input['BotClarificationPromptArgs']]):
+    def clarification_prompt(self, value: pulumi.Input[Optional['BotClarificationPromptArgs']]):
         pulumi.set(self, "clarification_prompt", value)
 
     @_builtins.property
     @pulumi.getter(name="createVersion")
-    def create_version(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def create_version(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determines if a new bot version is created when the initial resource is created and on each update. Defaults to `false`.
         """
         return pulumi.get(self, "create_version")
 
     @create_version.setter
-    def create_version(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def create_version(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "create_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the bot. Must be less than or equal to 200 characters in length.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="detectSentiment")
-    def detect_sentiment(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def detect_sentiment(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set to true user utterances are sent to Amazon Comprehend for sentiment analysis. If you don't specify detectSentiment, the default is `false`.
         """
         return pulumi.get(self, "detect_sentiment")
 
     @detect_sentiment.setter
-    def detect_sentiment(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def detect_sentiment(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "detect_sentiment", value)
 
     @_builtins.property
     @pulumi.getter(name="enableModelImprovements")
-    def enable_model_improvements(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_model_improvements(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to `true` to enable access to natural language understanding improvements. When you set the `enable_model_improvements` parameter to true you can use the `nlu_intent_confidence_threshold` parameter to configure confidence scores. For more information, see [Confidence Scores](https://docs.aws.amazon.com/lex/latest/dg/confidence-scores.html). You can only set the `enable_model_improvements` parameter in certain Regions. If you set the parameter to true, your bot has access to accuracy improvements. For more information see the [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-enableModelImprovements).
         """
         return pulumi.get(self, "enable_model_improvements")
 
     @enable_model_improvements.setter
-    def enable_model_improvements(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_model_improvements(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_model_improvements", value)
 
     @_builtins.property
     @pulumi.getter(name="idleSessionTtlInSeconds")
-    def idle_session_ttl_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def idle_session_ttl_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum time in seconds that Amazon Lex retains the data gathered in a conversation. Default is `300`. Must be a number between 60 and 86400 (inclusive).
         """
         return pulumi.get(self, "idle_session_ttl_in_seconds")
 
     @idle_session_ttl_in_seconds.setter
-    def idle_session_ttl_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def idle_session_ttl_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "idle_session_ttl_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter
-    def locale(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def locale(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot. For available locales, see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-locale). Default is `en-US`.
         """
         return pulumi.get(self, "locale")
 
     @locale.setter
-    def locale(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def locale(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "locale", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the bot that you want to create, case sensitive. Must be between 2 and 50 characters in length.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="nluIntentConfidenceThreshold")
-    def nlu_intent_confidence_threshold(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def nlu_intent_confidence_threshold(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot. For more information see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-nluIntentConfidenceThreshold) This value requires `enable_model_improvements` to be set to `true` and the default is `0`. Must be a float between 0 and 1.
         """
         return pulumi.get(self, "nlu_intent_confidence_threshold")
 
     @nlu_intent_confidence_threshold.setter
-    def nlu_intent_confidence_threshold(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def nlu_intent_confidence_threshold(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "nlu_intent_confidence_threshold", value)
 
     @_builtins.property
     @pulumi.getter(name="processBehavior")
-    def process_behavior(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def process_behavior(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If you set the `process_behavior` element to `BUILD`, Amazon Lex builds the bot so that it can be run. If you set the element to `SAVE` Amazon Lex saves the bot, but doesn't build it. Default is `SAVE`.
         """
         return pulumi.get(self, "process_behavior")
 
     @process_behavior.setter
-    def process_behavior(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def process_behavior(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "process_behavior", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="voiceId")
-    def voice_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def voice_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Polly voice ID that you want Amazon Lex to use for voice interactions with the user. The locale configured for the voice must match the locale of the bot. For more information, see [Available Voices](http://docs.aws.amazon.com/polly/latest/dg/voicelist.html) in the Amazon Polly Developer Guide.
         """
         return pulumi.get(self, "voice_id")
 
     @voice_id.setter
-    def voice_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def voice_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "voice_id", value)
 
 
 @pulumi.input_type
 class _BotState:
     def __init__(__self__, *,
-                 abort_statement: Optional[pulumi.Input['BotAbortStatementArgs']] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 checksum: Optional[pulumi.Input[_builtins.str]] = None,
-                 child_directed: Optional[pulumi.Input[_builtins.bool]] = None,
-                 clarification_prompt: Optional[pulumi.Input['BotClarificationPromptArgs']] = None,
-                 create_version: Optional[pulumi.Input[_builtins.bool]] = None,
-                 created_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 detect_sentiment: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_model_improvements: Optional[pulumi.Input[_builtins.bool]] = None,
-                 failure_reason: Optional[pulumi.Input[_builtins.str]] = None,
-                 idle_session_ttl_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 intents: Optional[pulumi.Input[Sequence[pulumi.Input['BotIntentArgs']]]] = None,
-                 last_updated_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 locale: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 nlu_intent_confidence_threshold: Optional[pulumi.Input[_builtins.float]] = None,
-                 process_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
-                 voice_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 abort_statement: pulumi.Input[Optional['BotAbortStatementArgs']] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 checksum: pulumi.Input[Optional[_builtins.str]] = None,
+                 child_directed: pulumi.Input[Optional[_builtins.bool]] = None,
+                 clarification_prompt: pulumi.Input[Optional['BotClarificationPromptArgs']] = None,
+                 create_version: pulumi.Input[Optional[_builtins.bool]] = None,
+                 created_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 detect_sentiment: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_model_improvements: pulumi.Input[Optional[_builtins.bool]] = None,
+                 failure_reason: pulumi.Input[Optional[_builtins.str]] = None,
+                 idle_session_ttl_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 intents: pulumi.Input[Optional[Sequence[pulumi.Input['BotIntentArgs']]]] = None,
+                 last_updated_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 locale: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 nlu_intent_confidence_threshold: pulumi.Input[Optional[_builtins.float]] = None,
+                 process_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
+                 voice_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Bot resources.
 
@@ -365,28 +365,28 @@ class _BotState:
 
     @_builtins.property
     @pulumi.getter(name="abortStatement")
-    def abort_statement(self) -> Optional[pulumi.Input['BotAbortStatementArgs']]:
+    def abort_statement(self) -> pulumi.Input[Optional['BotAbortStatementArgs']]:
         """
         The message that Amazon Lex uses to abort a conversation. Attributes are documented under statement.
         """
         return pulumi.get(self, "abort_statement")
 
     @abort_statement.setter
-    def abort_statement(self, value: Optional[pulumi.Input['BotAbortStatementArgs']]):
+    def abort_statement(self, value: pulumi.Input[Optional['BotAbortStatementArgs']]):
         pulumi.set(self, "abort_statement", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def checksum(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def checksum(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Checksum identifying the version of the bot that was created. The checksum is not
         included as an argument because the resource will add it automatically when updating the bot.
@@ -394,204 +394,204 @@ class _BotState:
         return pulumi.get(self, "checksum")
 
     @checksum.setter
-    def checksum(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def checksum(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "checksum", value)
 
     @_builtins.property
     @pulumi.getter(name="childDirected")
-    def child_directed(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def child_directed(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         By specifying true, you confirm that your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. For more information see the [Amazon Lex FAQ](https://aws.amazon.com/lex/faqs#data-security) and the [Amazon Lex PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-childDirected).
         """
         return pulumi.get(self, "child_directed")
 
     @child_directed.setter
-    def child_directed(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def child_directed(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "child_directed", value)
 
     @_builtins.property
     @pulumi.getter(name="clarificationPrompt")
-    def clarification_prompt(self) -> Optional[pulumi.Input['BotClarificationPromptArgs']]:
+    def clarification_prompt(self) -> pulumi.Input[Optional['BotClarificationPromptArgs']]:
         """
         The message that Amazon Lex uses when it doesn't understand the user's request. Attributes are documented under prompt.
         """
         return pulumi.get(self, "clarification_prompt")
 
     @clarification_prompt.setter
-    def clarification_prompt(self, value: Optional[pulumi.Input['BotClarificationPromptArgs']]):
+    def clarification_prompt(self, value: pulumi.Input[Optional['BotClarificationPromptArgs']]):
         pulumi.set(self, "clarification_prompt", value)
 
     @_builtins.property
     @pulumi.getter(name="createVersion")
-    def create_version(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def create_version(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determines if a new bot version is created when the initial resource is created and on each update. Defaults to `false`.
         """
         return pulumi.get(self, "create_version")
 
     @create_version.setter
-    def create_version(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def create_version(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "create_version", value)
 
     @_builtins.property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date when the bot version was created.
         """
         return pulumi.get(self, "created_date")
 
     @created_date.setter
-    def created_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_date", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the bot. Must be less than or equal to 200 characters in length.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="detectSentiment")
-    def detect_sentiment(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def detect_sentiment(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set to true user utterances are sent to Amazon Comprehend for sentiment analysis. If you don't specify detectSentiment, the default is `false`.
         """
         return pulumi.get(self, "detect_sentiment")
 
     @detect_sentiment.setter
-    def detect_sentiment(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def detect_sentiment(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "detect_sentiment", value)
 
     @_builtins.property
     @pulumi.getter(name="enableModelImprovements")
-    def enable_model_improvements(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_model_improvements(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to `true` to enable access to natural language understanding improvements. When you set the `enable_model_improvements` parameter to true you can use the `nlu_intent_confidence_threshold` parameter to configure confidence scores. For more information, see [Confidence Scores](https://docs.aws.amazon.com/lex/latest/dg/confidence-scores.html). You can only set the `enable_model_improvements` parameter in certain Regions. If you set the parameter to true, your bot has access to accuracy improvements. For more information see the [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-enableModelImprovements).
         """
         return pulumi.get(self, "enable_model_improvements")
 
     @enable_model_improvements.setter
-    def enable_model_improvements(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_model_improvements(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_model_improvements", value)
 
     @_builtins.property
     @pulumi.getter(name="failureReason")
-    def failure_reason(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def failure_reason(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If status is FAILED, Amazon Lex provides the reason that it failed to build the bot.
         """
         return pulumi.get(self, "failure_reason")
 
     @failure_reason.setter
-    def failure_reason(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def failure_reason(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "failure_reason", value)
 
     @_builtins.property
     @pulumi.getter(name="idleSessionTtlInSeconds")
-    def idle_session_ttl_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def idle_session_ttl_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum time in seconds that Amazon Lex retains the data gathered in a conversation. Default is `300`. Must be a number between 60 and 86400 (inclusive).
         """
         return pulumi.get(self, "idle_session_ttl_in_seconds")
 
     @idle_session_ttl_in_seconds.setter
-    def idle_session_ttl_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def idle_session_ttl_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "idle_session_ttl_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter
-    def intents(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BotIntentArgs']]]]:
+    def intents(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BotIntentArgs']]]]:
         """
         A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 250 Intent objects.
         """
         return pulumi.get(self, "intents")
 
     @intents.setter
-    def intents(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BotIntentArgs']]]]):
+    def intents(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BotIntentArgs']]]]):
         pulumi.set(self, "intents", value)
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedDate")
-    def last_updated_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_updated_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date when the $LATEST version of this bot was updated.
         """
         return pulumi.get(self, "last_updated_date")
 
     @last_updated_date.setter
-    def last_updated_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_updated_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_updated_date", value)
 
     @_builtins.property
     @pulumi.getter
-    def locale(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def locale(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot. For available locales, see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-locale). Default is `en-US`.
         """
         return pulumi.get(self, "locale")
 
     @locale.setter
-    def locale(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def locale(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "locale", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the bot that you want to create, case sensitive. Must be between 2 and 50 characters in length.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="nluIntentConfidenceThreshold")
-    def nlu_intent_confidence_threshold(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def nlu_intent_confidence_threshold(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot. For more information see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-nluIntentConfidenceThreshold) This value requires `enable_model_improvements` to be set to `true` and the default is `0`. Must be a float between 0 and 1.
         """
         return pulumi.get(self, "nlu_intent_confidence_threshold")
 
     @nlu_intent_confidence_threshold.setter
-    def nlu_intent_confidence_threshold(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def nlu_intent_confidence_threshold(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "nlu_intent_confidence_threshold", value)
 
     @_builtins.property
     @pulumi.getter(name="processBehavior")
-    def process_behavior(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def process_behavior(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If you set the `process_behavior` element to `BUILD`, Amazon Lex builds the bot so that it can be run. If you set the element to `SAVE` Amazon Lex saves the bot, but doesn't build it. Default is `SAVE`.
         """
         return pulumi.get(self, "process_behavior")
 
     @process_behavior.setter
-    def process_behavior(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def process_behavior(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "process_behavior", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         When you send a request to create or update a bot, Amazon Lex sets the status response
         element to BUILDING. After Amazon Lex builds the bot, it sets status to READY. If Amazon Lex can't
@@ -601,31 +601,31 @@ class _BotState:
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the bot.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
     @_builtins.property
     @pulumi.getter(name="voiceId")
-    def voice_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def voice_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Polly voice ID that you want Amazon Lex to use for voice interactions with the user. The locale configured for the voice must match the locale of the bot. For more information, see [Available Voices](http://docs.aws.amazon.com/polly/latest/dg/voicelist.html) in the Amazon Polly Developer Guide.
         """
         return pulumi.get(self, "voice_id")
 
     @voice_id.setter
-    def voice_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def voice_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "voice_id", value)
 
 
@@ -635,21 +635,21 @@ class Bot(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 abort_statement: Optional[pulumi.Input[Union['BotAbortStatementArgs', 'BotAbortStatementArgsDict']]] = None,
-                 child_directed: Optional[pulumi.Input[_builtins.bool]] = None,
-                 clarification_prompt: Optional[pulumi.Input[Union['BotClarificationPromptArgs', 'BotClarificationPromptArgsDict']]] = None,
-                 create_version: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 detect_sentiment: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_model_improvements: Optional[pulumi.Input[_builtins.bool]] = None,
-                 idle_session_ttl_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 intents: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BotIntentArgs', 'BotIntentArgsDict']]]]] = None,
-                 locale: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 nlu_intent_confidence_threshold: Optional[pulumi.Input[_builtins.float]] = None,
-                 process_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 voice_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 abort_statement: pulumi.Input[Optional[Union['BotAbortStatementArgs', 'BotAbortStatementArgsDict']]] = None,
+                 child_directed: pulumi.Input[Optional[_builtins.bool]] = None,
+                 clarification_prompt: pulumi.Input[Optional[Union['BotClarificationPromptArgs', 'BotClarificationPromptArgsDict']]] = None,
+                 create_version: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 detect_sentiment: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_model_improvements: pulumi.Input[Optional[_builtins.bool]] = None,
+                 idle_session_ttl_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 intents: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BotIntentArgs', 'BotIntentArgsDict']]]]] = None,
+                 locale: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 nlu_intent_confidence_threshold: pulumi.Input[Optional[_builtins.float]] = None,
+                 process_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 voice_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides an Amazon Lex Bot resource. For more information see
@@ -784,21 +784,21 @@ class Bot(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 abort_statement: Optional[pulumi.Input[Union['BotAbortStatementArgs', 'BotAbortStatementArgsDict']]] = None,
-                 child_directed: Optional[pulumi.Input[_builtins.bool]] = None,
-                 clarification_prompt: Optional[pulumi.Input[Union['BotClarificationPromptArgs', 'BotClarificationPromptArgsDict']]] = None,
-                 create_version: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 detect_sentiment: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_model_improvements: Optional[pulumi.Input[_builtins.bool]] = None,
-                 idle_session_ttl_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 intents: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BotIntentArgs', 'BotIntentArgsDict']]]]] = None,
-                 locale: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 nlu_intent_confidence_threshold: Optional[pulumi.Input[_builtins.float]] = None,
-                 process_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 voice_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 abort_statement: pulumi.Input[Optional[Union['BotAbortStatementArgs', 'BotAbortStatementArgsDict']]] = None,
+                 child_directed: pulumi.Input[Optional[_builtins.bool]] = None,
+                 clarification_prompt: pulumi.Input[Optional[Union['BotClarificationPromptArgs', 'BotClarificationPromptArgsDict']]] = None,
+                 create_version: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 detect_sentiment: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_model_improvements: pulumi.Input[Optional[_builtins.bool]] = None,
+                 idle_session_ttl_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 intents: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BotIntentArgs', 'BotIntentArgsDict']]]]] = None,
+                 locale: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 nlu_intent_confidence_threshold: pulumi.Input[Optional[_builtins.float]] = None,
+                 process_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 voice_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -846,28 +846,28 @@ class Bot(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            abort_statement: Optional[pulumi.Input[Union['BotAbortStatementArgs', 'BotAbortStatementArgsDict']]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            checksum: Optional[pulumi.Input[_builtins.str]] = None,
-            child_directed: Optional[pulumi.Input[_builtins.bool]] = None,
-            clarification_prompt: Optional[pulumi.Input[Union['BotClarificationPromptArgs', 'BotClarificationPromptArgsDict']]] = None,
-            create_version: Optional[pulumi.Input[_builtins.bool]] = None,
-            created_date: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            detect_sentiment: Optional[pulumi.Input[_builtins.bool]] = None,
-            enable_model_improvements: Optional[pulumi.Input[_builtins.bool]] = None,
-            failure_reason: Optional[pulumi.Input[_builtins.str]] = None,
-            idle_session_ttl_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-            intents: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BotIntentArgs', 'BotIntentArgsDict']]]]] = None,
-            last_updated_date: Optional[pulumi.Input[_builtins.str]] = None,
-            locale: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            nlu_intent_confidence_threshold: Optional[pulumi.Input[_builtins.float]] = None,
-            process_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            version: Optional[pulumi.Input[_builtins.str]] = None,
-            voice_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'Bot':
+            abort_statement: pulumi.Input[Optional[Union['BotAbortStatementArgs', 'BotAbortStatementArgsDict']]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            checksum: pulumi.Input[Optional[_builtins.str]] = None,
+            child_directed: pulumi.Input[Optional[_builtins.bool]] = None,
+            clarification_prompt: pulumi.Input[Optional[Union['BotClarificationPromptArgs', 'BotClarificationPromptArgsDict']]] = None,
+            create_version: pulumi.Input[Optional[_builtins.bool]] = None,
+            created_date: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            detect_sentiment: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_model_improvements: pulumi.Input[Optional[_builtins.bool]] = None,
+            failure_reason: pulumi.Input[Optional[_builtins.str]] = None,
+            idle_session_ttl_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            intents: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BotIntentArgs', 'BotIntentArgsDict']]]]] = None,
+            last_updated_date: pulumi.Input[Optional[_builtins.str]] = None,
+            locale: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            nlu_intent_confidence_threshold: pulumi.Input[Optional[_builtins.float]] = None,
+            process_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None,
+            voice_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'Bot':
         """
         Get an existing Bot resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

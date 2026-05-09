@@ -23,20 +23,20 @@ class LocationHdfsArgs:
     def __init__(__self__, *,
                  agent_arns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  name_nodes: pulumi.Input[Sequence[pulumi.Input['LocationHdfsNameNodeArgs']]],
-                 authentication_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 block_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 kerberos_keytab: Optional[pulumi.Input[_builtins.str]] = None,
-                 kerberos_keytab_base64: Optional[pulumi.Input[_builtins.str]] = None,
-                 kerberos_krb5_conf: Optional[pulumi.Input[_builtins.str]] = None,
-                 kerberos_krb5_conf_base64: Optional[pulumi.Input[_builtins.str]] = None,
-                 kerberos_principal: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_provider_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 qop_configuration: Optional[pulumi.Input['LocationHdfsQopConfigurationArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_factor: Optional[pulumi.Input[_builtins.int]] = None,
-                 simple_user: Optional[pulumi.Input[_builtins.str]] = None,
-                 subdirectory: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 block_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 kerberos_keytab: pulumi.Input[Optional[_builtins.str]] = None,
+                 kerberos_keytab_base64: pulumi.Input[Optional[_builtins.str]] = None,
+                 kerberos_krb5_conf: pulumi.Input[Optional[_builtins.str]] = None,
+                 kerberos_krb5_conf_base64: pulumi.Input[Optional[_builtins.str]] = None,
+                 kerberos_principal: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_provider_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 qop_configuration: pulumi.Input[Optional['LocationHdfsQopConfigurationArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_factor: pulumi.Input[Optional[_builtins.int]] = None,
+                 simple_user: pulumi.Input[Optional[_builtins.str]] = None,
+                 subdirectory: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LocationHdfs resource.
 
@@ -114,195 +114,195 @@ class LocationHdfsArgs:
 
     @_builtins.property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authentication_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of authentication used to determine the identity of the user. Valid values are `SIMPLE` and `KERBEROS`.
         """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
-    def authentication_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authentication_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authentication_type", value)
 
     @_builtins.property
     @pulumi.getter(name="blockSize")
-    def block_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def block_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The size of data blocks to write into the HDFS cluster. The block size must be a multiple of 512 bytes. The default block size is 128 mebibytes (MiB).
         """
         return pulumi.get(self, "block_size")
 
     @block_size.setter
-    def block_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def block_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "block_size", value)
 
     @_builtins.property
     @pulumi.getter(name="kerberosKeytab")
-    def kerberos_keytab(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kerberos_keytab(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Use `kerberos_keytab_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab_base64`) is required.
         """
         return pulumi.get(self, "kerberos_keytab")
 
     @kerberos_keytab.setter
-    def kerberos_keytab(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kerberos_keytab(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kerberos_keytab", value)
 
     @_builtins.property
     @pulumi.getter(name="kerberosKeytabBase64")
-    def kerberos_keytab_base64(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kerberos_keytab_base64(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Use instead of `kerberos_keytab` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab`) is required.
         """
         return pulumi.get(self, "kerberos_keytab_base64")
 
     @kerberos_keytab_base64.setter
-    def kerberos_keytab_base64(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kerberos_keytab_base64(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kerberos_keytab_base64", value)
 
     @_builtins.property
     @pulumi.getter(name="kerberosKrb5Conf")
-    def kerberos_krb5_conf(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kerberos_krb5_conf(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The krb5.conf file that contains the Kerberos configuration information. Use `kerberos_krb5_conf_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf_base64`) is required.
         """
         return pulumi.get(self, "kerberos_krb5_conf")
 
     @kerberos_krb5_conf.setter
-    def kerberos_krb5_conf(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kerberos_krb5_conf(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kerberos_krb5_conf", value)
 
     @_builtins.property
     @pulumi.getter(name="kerberosKrb5ConfBase64")
-    def kerberos_krb5_conf_base64(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kerberos_krb5_conf_base64(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Use instead of `kerberos_krb5_conf` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf`) is required.
         """
         return pulumi.get(self, "kerberos_krb5_conf_base64")
 
     @kerberos_krb5_conf_base64.setter
-    def kerberos_krb5_conf_base64(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kerberos_krb5_conf_base64(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kerberos_krb5_conf_base64", value)
 
     @_builtins.property
     @pulumi.getter(name="kerberosPrincipal")
-    def kerberos_principal(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kerberos_principal(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Kerberos principal with access to the files and folders on the HDFS cluster. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
         """
         return pulumi.get(self, "kerberos_principal")
 
     @kerberos_principal.setter
-    def kerberos_principal(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kerberos_principal(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kerberos_principal", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyProviderUri")
-    def kms_key_provider_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_provider_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URI of the HDFS cluster's Key Management Server (KMS).
         """
         return pulumi.get(self, "kms_key_provider_uri")
 
     @kms_key_provider_uri.setter
-    def kms_key_provider_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_provider_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_provider_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="qopConfiguration")
-    def qop_configuration(self) -> Optional[pulumi.Input['LocationHdfsQopConfigurationArgs']]:
+    def qop_configuration(self) -> pulumi.Input[Optional['LocationHdfsQopConfigurationArgs']]:
         """
         The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qop_configuration` isn't specified, `rpc_protection` and `data_transfer_protection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
         """
         return pulumi.get(self, "qop_configuration")
 
     @qop_configuration.setter
-    def qop_configuration(self, value: Optional[pulumi.Input['LocationHdfsQopConfigurationArgs']]):
+    def qop_configuration(self, value: pulumi.Input[Optional['LocationHdfsQopConfigurationArgs']]):
         pulumi.set(self, "qop_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="replicationFactor")
-    def replication_factor(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def replication_factor(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of DataNodes to replicate the data to when writing to the HDFS cluster. By default, data is replicated to three DataNodes.
         """
         return pulumi.get(self, "replication_factor")
 
     @replication_factor.setter
-    def replication_factor(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def replication_factor(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "replication_factor", value)
 
     @_builtins.property
     @pulumi.getter(name="simpleUser")
-    def simple_user(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def simple_user(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user name used to identify the client on the host operating system. If `SIMPLE` is specified for `authentication_type`, this parameter is required.
         """
         return pulumi.get(self, "simple_user")
 
     @simple_user.setter
-    def simple_user(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def simple_user(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "simple_user", value)
 
     @_builtins.property
     @pulumi.getter
-    def subdirectory(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subdirectory(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to /.
         """
         return pulumi.get(self, "subdirectory")
 
     @subdirectory.setter
-    def subdirectory(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subdirectory(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subdirectory", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _LocationHdfsState:
     def __init__(__self__, *,
-                 agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 authentication_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 block_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 kerberos_keytab: Optional[pulumi.Input[_builtins.str]] = None,
-                 kerberos_keytab_base64: Optional[pulumi.Input[_builtins.str]] = None,
-                 kerberos_krb5_conf: Optional[pulumi.Input[_builtins.str]] = None,
-                 kerberos_krb5_conf_base64: Optional[pulumi.Input[_builtins.str]] = None,
-                 kerberos_principal: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_provider_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_nodes: Optional[pulumi.Input[Sequence[pulumi.Input['LocationHdfsNameNodeArgs']]]] = None,
-                 qop_configuration: Optional[pulumi.Input['LocationHdfsQopConfigurationArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_factor: Optional[pulumi.Input[_builtins.int]] = None,
-                 simple_user: Optional[pulumi.Input[_builtins.str]] = None,
-                 subdirectory: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 uri: Optional[pulumi.Input[_builtins.str]] = None):
+                 agent_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 block_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 kerberos_keytab: pulumi.Input[Optional[_builtins.str]] = None,
+                 kerberos_keytab_base64: pulumi.Input[Optional[_builtins.str]] = None,
+                 kerberos_krb5_conf: pulumi.Input[Optional[_builtins.str]] = None,
+                 kerberos_krb5_conf_base64: pulumi.Input[Optional[_builtins.str]] = None,
+                 kerberos_principal: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_provider_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_nodes: pulumi.Input[Optional[Sequence[pulumi.Input['LocationHdfsNameNodeArgs']]]] = None,
+                 qop_configuration: pulumi.Input[Optional['LocationHdfsQopConfigurationArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_factor: pulumi.Input[Optional[_builtins.int]] = None,
+                 simple_user: pulumi.Input[Optional[_builtins.str]] = None,
+                 subdirectory: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 uri: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LocationHdfs resources.
 
@@ -366,227 +366,227 @@ class _LocationHdfsState:
 
     @_builtins.property
     @pulumi.getter(name="agentArns")
-    def agent_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def agent_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of DataSync Agent ARNs with which this location will be associated.
         """
         return pulumi.get(self, "agent_arns")
 
     @agent_arns.setter
-    def agent_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def agent_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "agent_arns", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) of the DataSync Location.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authentication_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of authentication used to determine the identity of the user. Valid values are `SIMPLE` and `KERBEROS`.
         """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
-    def authentication_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authentication_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authentication_type", value)
 
     @_builtins.property
     @pulumi.getter(name="blockSize")
-    def block_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def block_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The size of data blocks to write into the HDFS cluster. The block size must be a multiple of 512 bytes. The default block size is 128 mebibytes (MiB).
         """
         return pulumi.get(self, "block_size")
 
     @block_size.setter
-    def block_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def block_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "block_size", value)
 
     @_builtins.property
     @pulumi.getter(name="kerberosKeytab")
-    def kerberos_keytab(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kerberos_keytab(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Use `kerberos_keytab_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab_base64`) is required.
         """
         return pulumi.get(self, "kerberos_keytab")
 
     @kerberos_keytab.setter
-    def kerberos_keytab(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kerberos_keytab(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kerberos_keytab", value)
 
     @_builtins.property
     @pulumi.getter(name="kerberosKeytabBase64")
-    def kerberos_keytab_base64(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kerberos_keytab_base64(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Use instead of `kerberos_keytab` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab`) is required.
         """
         return pulumi.get(self, "kerberos_keytab_base64")
 
     @kerberos_keytab_base64.setter
-    def kerberos_keytab_base64(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kerberos_keytab_base64(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kerberos_keytab_base64", value)
 
     @_builtins.property
     @pulumi.getter(name="kerberosKrb5Conf")
-    def kerberos_krb5_conf(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kerberos_krb5_conf(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The krb5.conf file that contains the Kerberos configuration information. Use `kerberos_krb5_conf_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf_base64`) is required.
         """
         return pulumi.get(self, "kerberos_krb5_conf")
 
     @kerberos_krb5_conf.setter
-    def kerberos_krb5_conf(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kerberos_krb5_conf(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kerberos_krb5_conf", value)
 
     @_builtins.property
     @pulumi.getter(name="kerberosKrb5ConfBase64")
-    def kerberos_krb5_conf_base64(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kerberos_krb5_conf_base64(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Use instead of `kerberos_krb5_conf` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf`) is required.
         """
         return pulumi.get(self, "kerberos_krb5_conf_base64")
 
     @kerberos_krb5_conf_base64.setter
-    def kerberos_krb5_conf_base64(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kerberos_krb5_conf_base64(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kerberos_krb5_conf_base64", value)
 
     @_builtins.property
     @pulumi.getter(name="kerberosPrincipal")
-    def kerberos_principal(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kerberos_principal(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Kerberos principal with access to the files and folders on the HDFS cluster. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
         """
         return pulumi.get(self, "kerberos_principal")
 
     @kerberos_principal.setter
-    def kerberos_principal(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kerberos_principal(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kerberos_principal", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyProviderUri")
-    def kms_key_provider_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_provider_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URI of the HDFS cluster's Key Management Server (KMS).
         """
         return pulumi.get(self, "kms_key_provider_uri")
 
     @kms_key_provider_uri.setter
-    def kms_key_provider_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_provider_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_provider_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="nameNodes")
-    def name_nodes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LocationHdfsNameNodeArgs']]]]:
+    def name_nodes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LocationHdfsNameNodeArgs']]]]:
         """
         The NameNode that manages the HDFS namespace. The NameNode performs operations such as opening, closing, and renaming files and directories. The NameNode contains the information to map blocks of data to the DataNodes. You can use only one NameNode. See configuration below.
         """
         return pulumi.get(self, "name_nodes")
 
     @name_nodes.setter
-    def name_nodes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LocationHdfsNameNodeArgs']]]]):
+    def name_nodes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LocationHdfsNameNodeArgs']]]]):
         pulumi.set(self, "name_nodes", value)
 
     @_builtins.property
     @pulumi.getter(name="qopConfiguration")
-    def qop_configuration(self) -> Optional[pulumi.Input['LocationHdfsQopConfigurationArgs']]:
+    def qop_configuration(self) -> pulumi.Input[Optional['LocationHdfsQopConfigurationArgs']]:
         """
         The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qop_configuration` isn't specified, `rpc_protection` and `data_transfer_protection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
         """
         return pulumi.get(self, "qop_configuration")
 
     @qop_configuration.setter
-    def qop_configuration(self, value: Optional[pulumi.Input['LocationHdfsQopConfigurationArgs']]):
+    def qop_configuration(self, value: pulumi.Input[Optional['LocationHdfsQopConfigurationArgs']]):
         pulumi.set(self, "qop_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="replicationFactor")
-    def replication_factor(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def replication_factor(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of DataNodes to replicate the data to when writing to the HDFS cluster. By default, data is replicated to three DataNodes.
         """
         return pulumi.get(self, "replication_factor")
 
     @replication_factor.setter
-    def replication_factor(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def replication_factor(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "replication_factor", value)
 
     @_builtins.property
     @pulumi.getter(name="simpleUser")
-    def simple_user(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def simple_user(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user name used to identify the client on the host operating system. If `SIMPLE` is specified for `authentication_type`, this parameter is required.
         """
         return pulumi.get(self, "simple_user")
 
     @simple_user.setter
-    def simple_user(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def simple_user(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "simple_user", value)
 
     @_builtins.property
     @pulumi.getter
-    def subdirectory(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subdirectory(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to /.
         """
         return pulumi.get(self, "subdirectory")
 
     @subdirectory.setter
-    def subdirectory(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subdirectory(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subdirectory", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "uri")
 
     @uri.setter
-    def uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "uri", value)
 
 
@@ -596,22 +596,22 @@ class LocationHdfs(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 authentication_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 block_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 kerberos_keytab: Optional[pulumi.Input[_builtins.str]] = None,
-                 kerberos_keytab_base64: Optional[pulumi.Input[_builtins.str]] = None,
-                 kerberos_krb5_conf: Optional[pulumi.Input[_builtins.str]] = None,
-                 kerberos_krb5_conf_base64: Optional[pulumi.Input[_builtins.str]] = None,
-                 kerberos_principal: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_provider_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_nodes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LocationHdfsNameNodeArgs', 'LocationHdfsNameNodeArgsDict']]]]] = None,
-                 qop_configuration: Optional[pulumi.Input[Union['LocationHdfsQopConfigurationArgs', 'LocationHdfsQopConfigurationArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_factor: Optional[pulumi.Input[_builtins.int]] = None,
-                 simple_user: Optional[pulumi.Input[_builtins.str]] = None,
-                 subdirectory: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 agent_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 block_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 kerberos_keytab: pulumi.Input[Optional[_builtins.str]] = None,
+                 kerberos_keytab_base64: pulumi.Input[Optional[_builtins.str]] = None,
+                 kerberos_krb5_conf: pulumi.Input[Optional[_builtins.str]] = None,
+                 kerberos_krb5_conf_base64: pulumi.Input[Optional[_builtins.str]] = None,
+                 kerberos_principal: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_provider_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_nodes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LocationHdfsNameNodeArgs', 'LocationHdfsNameNodeArgsDict']]]]] = None,
+                 qop_configuration: pulumi.Input[Optional[Union['LocationHdfsQopConfigurationArgs', 'LocationHdfsQopConfigurationArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_factor: pulumi.Input[Optional[_builtins.int]] = None,
+                 simple_user: pulumi.Input[Optional[_builtins.str]] = None,
+                 subdirectory: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages an HDFS Location within AWS DataSync.
@@ -763,22 +763,22 @@ class LocationHdfs(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 authentication_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 block_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 kerberos_keytab: Optional[pulumi.Input[_builtins.str]] = None,
-                 kerberos_keytab_base64: Optional[pulumi.Input[_builtins.str]] = None,
-                 kerberos_krb5_conf: Optional[pulumi.Input[_builtins.str]] = None,
-                 kerberos_krb5_conf_base64: Optional[pulumi.Input[_builtins.str]] = None,
-                 kerberos_principal: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_provider_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_nodes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LocationHdfsNameNodeArgs', 'LocationHdfsNameNodeArgsDict']]]]] = None,
-                 qop_configuration: Optional[pulumi.Input[Union['LocationHdfsQopConfigurationArgs', 'LocationHdfsQopConfigurationArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_factor: Optional[pulumi.Input[_builtins.int]] = None,
-                 simple_user: Optional[pulumi.Input[_builtins.str]] = None,
-                 subdirectory: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 agent_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 block_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 kerberos_keytab: pulumi.Input[Optional[_builtins.str]] = None,
+                 kerberos_keytab_base64: pulumi.Input[Optional[_builtins.str]] = None,
+                 kerberos_krb5_conf: pulumi.Input[Optional[_builtins.str]] = None,
+                 kerberos_krb5_conf_base64: pulumi.Input[Optional[_builtins.str]] = None,
+                 kerberos_principal: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_provider_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_nodes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LocationHdfsNameNodeArgs', 'LocationHdfsNameNodeArgsDict']]]]] = None,
+                 qop_configuration: pulumi.Input[Optional[Union['LocationHdfsQopConfigurationArgs', 'LocationHdfsQopConfigurationArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_factor: pulumi.Input[Optional[_builtins.int]] = None,
+                 simple_user: pulumi.Input[Optional[_builtins.str]] = None,
+                 subdirectory: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -821,25 +821,25 @@ class LocationHdfs(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            authentication_type: Optional[pulumi.Input[_builtins.str]] = None,
-            block_size: Optional[pulumi.Input[_builtins.int]] = None,
-            kerberos_keytab: Optional[pulumi.Input[_builtins.str]] = None,
-            kerberos_keytab_base64: Optional[pulumi.Input[_builtins.str]] = None,
-            kerberos_krb5_conf: Optional[pulumi.Input[_builtins.str]] = None,
-            kerberos_krb5_conf_base64: Optional[pulumi.Input[_builtins.str]] = None,
-            kerberos_principal: Optional[pulumi.Input[_builtins.str]] = None,
-            kms_key_provider_uri: Optional[pulumi.Input[_builtins.str]] = None,
-            name_nodes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LocationHdfsNameNodeArgs', 'LocationHdfsNameNodeArgsDict']]]]] = None,
-            qop_configuration: Optional[pulumi.Input[Union['LocationHdfsQopConfigurationArgs', 'LocationHdfsQopConfigurationArgsDict']]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            replication_factor: Optional[pulumi.Input[_builtins.int]] = None,
-            simple_user: Optional[pulumi.Input[_builtins.str]] = None,
-            subdirectory: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            uri: Optional[pulumi.Input[_builtins.str]] = None) -> 'LocationHdfs':
+            agent_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
+            block_size: pulumi.Input[Optional[_builtins.int]] = None,
+            kerberos_keytab: pulumi.Input[Optional[_builtins.str]] = None,
+            kerberos_keytab_base64: pulumi.Input[Optional[_builtins.str]] = None,
+            kerberos_krb5_conf: pulumi.Input[Optional[_builtins.str]] = None,
+            kerberos_krb5_conf_base64: pulumi.Input[Optional[_builtins.str]] = None,
+            kerberos_principal: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_key_provider_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            name_nodes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LocationHdfsNameNodeArgs', 'LocationHdfsNameNodeArgsDict']]]]] = None,
+            qop_configuration: pulumi.Input[Optional[Union['LocationHdfsQopConfigurationArgs', 'LocationHdfsQopConfigurationArgsDict']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            replication_factor: pulumi.Input[Optional[_builtins.int]] = None,
+            simple_user: pulumi.Input[Optional[_builtins.str]] = None,
+            subdirectory: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            uri: pulumi.Input[Optional[_builtins.str]] = None) -> 'LocationHdfs':
         """
         Get an existing LocationHdfs resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

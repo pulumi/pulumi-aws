@@ -31,8 +31,8 @@ public final class BillingFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.billing.BillingFunctions;
      * import com.pulumi.aws.billing.inputs.GetViewsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -74,8 +74,8 @@ public final class BillingFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.billing.BillingFunctions;
      * import com.pulumi.aws.billing.inputs.GetViewsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -117,8 +117,8 @@ public final class BillingFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.billing.BillingFunctions;
      * import com.pulumi.aws.billing.inputs.GetViewsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -160,8 +160,8 @@ public final class BillingFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.billing.BillingFunctions;
      * import com.pulumi.aws.billing.inputs.GetViewsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -203,8 +203,8 @@ public final class BillingFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.billing.BillingFunctions;
      * import com.pulumi.aws.billing.inputs.GetViewsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -246,8 +246,8 @@ public final class BillingFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.billing.BillingFunctions;
      * import com.pulumi.aws.billing.inputs.GetViewsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -289,8 +289,8 @@ public final class BillingFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.billing.BillingFunctions;
      * import com.pulumi.aws.billing.inputs.GetViewsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

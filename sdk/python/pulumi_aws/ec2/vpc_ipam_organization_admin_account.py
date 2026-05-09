@@ -38,11 +38,11 @@ class VpcIpamOrganizationAdminAccountArgs:
 @pulumi.input_type
 class _VpcIpamOrganizationAdminAccountState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 delegated_admin_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_principal: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 delegated_admin_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_principal: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VpcIpamOrganizationAdminAccount resources.
 
@@ -64,59 +64,59 @@ class _VpcIpamOrganizationAdminAccountState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Organizations ARN for the delegate account.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="delegatedAdminAccountId")
-    def delegated_admin_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delegated_admin_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "delegated_admin_account_id")
 
     @delegated_admin_account_id.setter
-    def delegated_admin_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delegated_admin_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delegated_admin_account_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Organizations email for the delegate account.
         """
         return pulumi.get(self, "email")
 
     @email.setter
-    def email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Organizations name for the delegate account.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="servicePrincipal")
-    def service_principal(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_principal(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS service principal.
         """
         return pulumi.get(self, "service_principal")
 
     @service_principal.setter
-    def service_principal(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_principal(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_principal", value)
 
 
@@ -126,7 +126,7 @@ class VpcIpamOrganizationAdminAccount(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 delegated_admin_account_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 delegated_admin_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Enables the IPAM Service and promotes a delegated administrator.
@@ -200,7 +200,7 @@ class VpcIpamOrganizationAdminAccount(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 delegated_admin_account_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 delegated_admin_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -227,11 +227,11 @@ class VpcIpamOrganizationAdminAccount(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            delegated_admin_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            email: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            service_principal: Optional[pulumi.Input[_builtins.str]] = None) -> 'VpcIpamOrganizationAdminAccount':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            delegated_admin_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            email: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            service_principal: pulumi.Input[Optional[_builtins.str]] = None) -> 'VpcIpamOrganizationAdminAccount':
         """
         Get an existing VpcIpamOrganizationAdminAccount resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -169,9 +169,9 @@ def get_router_configuration(region: Optional[_builtins.str] = None,
         routers=pulumi.get(__ret__, 'routers'),
         virtual_interface_id=pulumi.get(__ret__, 'virtual_interface_id'),
         virtual_interface_name=pulumi.get(__ret__, 'virtual_interface_name'))
-def get_router_configuration_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                    router_type_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                                    virtual_interface_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_router_configuration_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                    router_type_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                                    virtual_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRouterConfigurationResult]:
     """
     Data source for retrieving Router Configuration instructions for a given AWS Direct Connect Virtual Interface and Router Type.

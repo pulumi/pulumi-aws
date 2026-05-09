@@ -22,28 +22,28 @@ __all__ = ['ProfileArgs', 'Profile']
 class ProfileArgs:
     def __init__(__self__, *,
                  domain_name: pulumi.Input[_builtins.str],
-                 account_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 additional_information: Optional[pulumi.Input[_builtins.str]] = None,
-                 address: Optional[pulumi.Input['ProfileAddressArgs']] = None,
-                 attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 billing_address: Optional[pulumi.Input['ProfileBillingAddressArgs']] = None,
-                 birth_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 business_email_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 business_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 business_phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 first_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 gender_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 home_phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 mailing_address: Optional[pulumi.Input['ProfileMailingAddressArgs']] = None,
-                 middle_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 mobile_phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 party_type_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 personal_email_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 shipping_address: Optional[pulumi.Input['ProfileShippingAddressArgs']] = None):
+                 account_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 additional_information: pulumi.Input[Optional[_builtins.str]] = None,
+                 address: pulumi.Input[Optional['ProfileAddressArgs']] = None,
+                 attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 billing_address: pulumi.Input[Optional['ProfileBillingAddressArgs']] = None,
+                 birth_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 business_email_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 business_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 business_phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 first_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 gender_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 home_phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 mailing_address: pulumi.Input[Optional['ProfileMailingAddressArgs']] = None,
+                 middle_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 mobile_phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 party_type_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 personal_email_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 shipping_address: pulumi.Input[Optional['ProfileShippingAddressArgs']] = None):
         """
         The set of arguments for constructing a Profile resource.
 
@@ -135,295 +135,295 @@ class ProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountNumber")
-    def account_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique account number that you have given to the customer.
         """
         return pulumi.get(self, "account_number")
 
     @account_number.setter
-    def account_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_number", value)
 
     @_builtins.property
     @pulumi.getter(name="additionalInformation")
-    def additional_information(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def additional_information(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Any additional information relevant to the customer’s profile.
         """
         return pulumi.get(self, "additional_information")
 
     @additional_information.setter
-    def additional_information(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def additional_information(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "additional_information", value)
 
     @_builtins.property
     @pulumi.getter
-    def address(self) -> Optional[pulumi.Input['ProfileAddressArgs']]:
+    def address(self) -> pulumi.Input[Optional['ProfileAddressArgs']]:
         """
         A block that specifies a generic address associated with the customer that is not mailing, shipping, or billing. Documented below.
         """
         return pulumi.get(self, "address")
 
     @address.setter
-    def address(self, value: Optional[pulumi.Input['ProfileAddressArgs']]):
+    def address(self, value: pulumi.Input[Optional['ProfileAddressArgs']]):
         pulumi.set(self, "address", value)
 
     @_builtins.property
     @pulumi.getter
-    def attributes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def attributes(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A key value pair of attributes of a customer profile.
         """
         return pulumi.get(self, "attributes")
 
     @attributes.setter
-    def attributes(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def attributes(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="billingAddress")
-    def billing_address(self) -> Optional[pulumi.Input['ProfileBillingAddressArgs']]:
+    def billing_address(self) -> pulumi.Input[Optional['ProfileBillingAddressArgs']]:
         """
         A block that specifies the customer’s billing address. Documented below.
         """
         return pulumi.get(self, "billing_address")
 
     @billing_address.setter
-    def billing_address(self, value: Optional[pulumi.Input['ProfileBillingAddressArgs']]):
+    def billing_address(self, value: pulumi.Input[Optional['ProfileBillingAddressArgs']]):
         pulumi.set(self, "billing_address", value)
 
     @_builtins.property
     @pulumi.getter(name="birthDate")
-    def birth_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def birth_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The customer’s birth date.
         """
         return pulumi.get(self, "birth_date")
 
     @birth_date.setter
-    def birth_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def birth_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "birth_date", value)
 
     @_builtins.property
     @pulumi.getter(name="businessEmailAddress")
-    def business_email_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def business_email_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The customer’s business email address.
         """
         return pulumi.get(self, "business_email_address")
 
     @business_email_address.setter
-    def business_email_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def business_email_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "business_email_address", value)
 
     @_builtins.property
     @pulumi.getter(name="businessName")
-    def business_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def business_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the customer’s business.
         """
         return pulumi.get(self, "business_name")
 
     @business_name.setter
-    def business_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def business_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "business_name", value)
 
     @_builtins.property
     @pulumi.getter(name="businessPhoneNumber")
-    def business_phone_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def business_phone_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The customer’s business phone number.
         """
         return pulumi.get(self, "business_phone_number")
 
     @business_phone_number.setter
-    def business_phone_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def business_phone_number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "business_phone_number", value)
 
     @_builtins.property
     @pulumi.getter(name="emailAddress")
-    def email_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The customer’s email address, which has not been specified as a personal or business address.
         """
         return pulumi.get(self, "email_address")
 
     @email_address.setter
-    def email_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email_address", value)
 
     @_builtins.property
     @pulumi.getter(name="firstName")
-    def first_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def first_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The customer’s first name.
         """
         return pulumi.get(self, "first_name")
 
     @first_name.setter
-    def first_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def first_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "first_name", value)
 
     @_builtins.property
     @pulumi.getter(name="genderString")
-    def gender_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gender_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The gender with which the customer identifies.
         """
         return pulumi.get(self, "gender_string")
 
     @gender_string.setter
-    def gender_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gender_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gender_string", value)
 
     @_builtins.property
     @pulumi.getter(name="homePhoneNumber")
-    def home_phone_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def home_phone_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The customer’s home phone number.
         """
         return pulumi.get(self, "home_phone_number")
 
     @home_phone_number.setter
-    def home_phone_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def home_phone_number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "home_phone_number", value)
 
     @_builtins.property
     @pulumi.getter(name="lastName")
-    def last_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The customer’s last name.
         """
         return pulumi.get(self, "last_name")
 
     @last_name.setter
-    def last_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_name", value)
 
     @_builtins.property
     @pulumi.getter(name="mailingAddress")
-    def mailing_address(self) -> Optional[pulumi.Input['ProfileMailingAddressArgs']]:
+    def mailing_address(self) -> pulumi.Input[Optional['ProfileMailingAddressArgs']]:
         """
         A block that specifies the customer’s mailing address. Documented below.
         """
         return pulumi.get(self, "mailing_address")
 
     @mailing_address.setter
-    def mailing_address(self, value: Optional[pulumi.Input['ProfileMailingAddressArgs']]):
+    def mailing_address(self, value: pulumi.Input[Optional['ProfileMailingAddressArgs']]):
         pulumi.set(self, "mailing_address", value)
 
     @_builtins.property
     @pulumi.getter(name="middleName")
-    def middle_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def middle_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The customer’s middle name.
         """
         return pulumi.get(self, "middle_name")
 
     @middle_name.setter
-    def middle_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def middle_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "middle_name", value)
 
     @_builtins.property
     @pulumi.getter(name="mobilePhoneNumber")
-    def mobile_phone_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mobile_phone_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The customer’s mobile phone number.
         """
         return pulumi.get(self, "mobile_phone_number")
 
     @mobile_phone_number.setter
-    def mobile_phone_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mobile_phone_number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mobile_phone_number", value)
 
     @_builtins.property
     @pulumi.getter(name="partyTypeString")
-    def party_type_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def party_type_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of profile used to describe the customer.
         """
         return pulumi.get(self, "party_type_string")
 
     @party_type_string.setter
-    def party_type_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def party_type_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "party_type_string", value)
 
     @_builtins.property
     @pulumi.getter(name="personalEmailAddress")
-    def personal_email_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def personal_email_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The customer’s personal email address.
         """
         return pulumi.get(self, "personal_email_address")
 
     @personal_email_address.setter
-    def personal_email_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def personal_email_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "personal_email_address", value)
 
     @_builtins.property
     @pulumi.getter(name="phoneNumber")
-    def phone_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def phone_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The customer’s phone number, which has not been specified as a mobile, home, or business number.
         """
         return pulumi.get(self, "phone_number")
 
     @phone_number.setter
-    def phone_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def phone_number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "phone_number", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="shippingAddress")
-    def shipping_address(self) -> Optional[pulumi.Input['ProfileShippingAddressArgs']]:
+    def shipping_address(self) -> pulumi.Input[Optional['ProfileShippingAddressArgs']]:
         """
         A block that specifies the customer’s shipping address. Documented below.
         """
         return pulumi.get(self, "shipping_address")
 
     @shipping_address.setter
-    def shipping_address(self, value: Optional[pulumi.Input['ProfileShippingAddressArgs']]):
+    def shipping_address(self, value: pulumi.Input[Optional['ProfileShippingAddressArgs']]):
         pulumi.set(self, "shipping_address", value)
 
 
 @pulumi.input_type
 class _ProfileState:
     def __init__(__self__, *,
-                 account_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 additional_information: Optional[pulumi.Input[_builtins.str]] = None,
-                 address: Optional[pulumi.Input['ProfileAddressArgs']] = None,
-                 attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 billing_address: Optional[pulumi.Input['ProfileBillingAddressArgs']] = None,
-                 birth_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 business_email_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 business_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 business_phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 first_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 gender_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 home_phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 mailing_address: Optional[pulumi.Input['ProfileMailingAddressArgs']] = None,
-                 middle_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 mobile_phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 party_type_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 personal_email_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 shipping_address: Optional[pulumi.Input['ProfileShippingAddressArgs']] = None):
+                 account_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 additional_information: pulumi.Input[Optional[_builtins.str]] = None,
+                 address: pulumi.Input[Optional['ProfileAddressArgs']] = None,
+                 attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 billing_address: pulumi.Input[Optional['ProfileBillingAddressArgs']] = None,
+                 birth_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 business_email_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 business_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 business_phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 first_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 gender_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 home_phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 mailing_address: pulumi.Input[Optional['ProfileMailingAddressArgs']] = None,
+                 middle_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 mobile_phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 party_type_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 personal_email_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 shipping_address: pulumi.Input[Optional['ProfileShippingAddressArgs']] = None):
         """
         Input properties used for looking up and filtering Profile resources.
 
@@ -502,115 +502,115 @@ class _ProfileState:
 
     @_builtins.property
     @pulumi.getter(name="accountNumber")
-    def account_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique account number that you have given to the customer.
         """
         return pulumi.get(self, "account_number")
 
     @account_number.setter
-    def account_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_number", value)
 
     @_builtins.property
     @pulumi.getter(name="additionalInformation")
-    def additional_information(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def additional_information(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Any additional information relevant to the customer’s profile.
         """
         return pulumi.get(self, "additional_information")
 
     @additional_information.setter
-    def additional_information(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def additional_information(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "additional_information", value)
 
     @_builtins.property
     @pulumi.getter
-    def address(self) -> Optional[pulumi.Input['ProfileAddressArgs']]:
+    def address(self) -> pulumi.Input[Optional['ProfileAddressArgs']]:
         """
         A block that specifies a generic address associated with the customer that is not mailing, shipping, or billing. Documented below.
         """
         return pulumi.get(self, "address")
 
     @address.setter
-    def address(self, value: Optional[pulumi.Input['ProfileAddressArgs']]):
+    def address(self, value: pulumi.Input[Optional['ProfileAddressArgs']]):
         pulumi.set(self, "address", value)
 
     @_builtins.property
     @pulumi.getter
-    def attributes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def attributes(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A key value pair of attributes of a customer profile.
         """
         return pulumi.get(self, "attributes")
 
     @attributes.setter
-    def attributes(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def attributes(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="billingAddress")
-    def billing_address(self) -> Optional[pulumi.Input['ProfileBillingAddressArgs']]:
+    def billing_address(self) -> pulumi.Input[Optional['ProfileBillingAddressArgs']]:
         """
         A block that specifies the customer’s billing address. Documented below.
         """
         return pulumi.get(self, "billing_address")
 
     @billing_address.setter
-    def billing_address(self, value: Optional[pulumi.Input['ProfileBillingAddressArgs']]):
+    def billing_address(self, value: pulumi.Input[Optional['ProfileBillingAddressArgs']]):
         pulumi.set(self, "billing_address", value)
 
     @_builtins.property
     @pulumi.getter(name="birthDate")
-    def birth_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def birth_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The customer’s birth date.
         """
         return pulumi.get(self, "birth_date")
 
     @birth_date.setter
-    def birth_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def birth_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "birth_date", value)
 
     @_builtins.property
     @pulumi.getter(name="businessEmailAddress")
-    def business_email_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def business_email_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The customer’s business email address.
         """
         return pulumi.get(self, "business_email_address")
 
     @business_email_address.setter
-    def business_email_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def business_email_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "business_email_address", value)
 
     @_builtins.property
     @pulumi.getter(name="businessName")
-    def business_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def business_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the customer’s business.
         """
         return pulumi.get(self, "business_name")
 
     @business_name.setter
-    def business_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def business_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "business_name", value)
 
     @_builtins.property
     @pulumi.getter(name="businessPhoneNumber")
-    def business_phone_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def business_phone_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The customer’s business phone number.
         """
         return pulumi.get(self, "business_phone_number")
 
     @business_phone_number.setter
-    def business_phone_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def business_phone_number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "business_phone_number", value)
 
     @_builtins.property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of your Customer Profile domain. It must be unique for your AWS account.
 
@@ -619,163 +619,163 @@ class _ProfileState:
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
-    def domain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_name", value)
 
     @_builtins.property
     @pulumi.getter(name="emailAddress")
-    def email_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The customer’s email address, which has not been specified as a personal or business address.
         """
         return pulumi.get(self, "email_address")
 
     @email_address.setter
-    def email_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email_address", value)
 
     @_builtins.property
     @pulumi.getter(name="firstName")
-    def first_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def first_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The customer’s first name.
         """
         return pulumi.get(self, "first_name")
 
     @first_name.setter
-    def first_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def first_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "first_name", value)
 
     @_builtins.property
     @pulumi.getter(name="genderString")
-    def gender_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gender_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The gender with which the customer identifies.
         """
         return pulumi.get(self, "gender_string")
 
     @gender_string.setter
-    def gender_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gender_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gender_string", value)
 
     @_builtins.property
     @pulumi.getter(name="homePhoneNumber")
-    def home_phone_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def home_phone_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The customer’s home phone number.
         """
         return pulumi.get(self, "home_phone_number")
 
     @home_phone_number.setter
-    def home_phone_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def home_phone_number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "home_phone_number", value)
 
     @_builtins.property
     @pulumi.getter(name="lastName")
-    def last_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The customer’s last name.
         """
         return pulumi.get(self, "last_name")
 
     @last_name.setter
-    def last_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_name", value)
 
     @_builtins.property
     @pulumi.getter(name="mailingAddress")
-    def mailing_address(self) -> Optional[pulumi.Input['ProfileMailingAddressArgs']]:
+    def mailing_address(self) -> pulumi.Input[Optional['ProfileMailingAddressArgs']]:
         """
         A block that specifies the customer’s mailing address. Documented below.
         """
         return pulumi.get(self, "mailing_address")
 
     @mailing_address.setter
-    def mailing_address(self, value: Optional[pulumi.Input['ProfileMailingAddressArgs']]):
+    def mailing_address(self, value: pulumi.Input[Optional['ProfileMailingAddressArgs']]):
         pulumi.set(self, "mailing_address", value)
 
     @_builtins.property
     @pulumi.getter(name="middleName")
-    def middle_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def middle_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The customer’s middle name.
         """
         return pulumi.get(self, "middle_name")
 
     @middle_name.setter
-    def middle_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def middle_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "middle_name", value)
 
     @_builtins.property
     @pulumi.getter(name="mobilePhoneNumber")
-    def mobile_phone_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mobile_phone_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The customer’s mobile phone number.
         """
         return pulumi.get(self, "mobile_phone_number")
 
     @mobile_phone_number.setter
-    def mobile_phone_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mobile_phone_number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mobile_phone_number", value)
 
     @_builtins.property
     @pulumi.getter(name="partyTypeString")
-    def party_type_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def party_type_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of profile used to describe the customer.
         """
         return pulumi.get(self, "party_type_string")
 
     @party_type_string.setter
-    def party_type_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def party_type_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "party_type_string", value)
 
     @_builtins.property
     @pulumi.getter(name="personalEmailAddress")
-    def personal_email_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def personal_email_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The customer’s personal email address.
         """
         return pulumi.get(self, "personal_email_address")
 
     @personal_email_address.setter
-    def personal_email_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def personal_email_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "personal_email_address", value)
 
     @_builtins.property
     @pulumi.getter(name="phoneNumber")
-    def phone_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def phone_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The customer’s phone number, which has not been specified as a mobile, home, or business number.
         """
         return pulumi.get(self, "phone_number")
 
     @phone_number.setter
-    def phone_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def phone_number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "phone_number", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="shippingAddress")
-    def shipping_address(self) -> Optional[pulumi.Input['ProfileShippingAddressArgs']]:
+    def shipping_address(self) -> pulumi.Input[Optional['ProfileShippingAddressArgs']]:
         """
         A block that specifies the customer’s shipping address. Documented below.
         """
         return pulumi.get(self, "shipping_address")
 
     @shipping_address.setter
-    def shipping_address(self, value: Optional[pulumi.Input['ProfileShippingAddressArgs']]):
+    def shipping_address(self, value: pulumi.Input[Optional['ProfileShippingAddressArgs']]):
         pulumi.set(self, "shipping_address", value)
 
 
@@ -785,29 +785,29 @@ class Profile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 additional_information: Optional[pulumi.Input[_builtins.str]] = None,
-                 address: Optional[pulumi.Input[Union['ProfileAddressArgs', 'ProfileAddressArgsDict']]] = None,
-                 attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 billing_address: Optional[pulumi.Input[Union['ProfileBillingAddressArgs', 'ProfileBillingAddressArgsDict']]] = None,
-                 birth_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 business_email_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 business_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 business_phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 first_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 gender_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 home_phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 mailing_address: Optional[pulumi.Input[Union['ProfileMailingAddressArgs', 'ProfileMailingAddressArgsDict']]] = None,
-                 middle_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 mobile_phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 party_type_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 personal_email_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 shipping_address: Optional[pulumi.Input[Union['ProfileShippingAddressArgs', 'ProfileShippingAddressArgsDict']]] = None,
+                 account_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 additional_information: pulumi.Input[Optional[_builtins.str]] = None,
+                 address: pulumi.Input[Optional[Union['ProfileAddressArgs', 'ProfileAddressArgsDict']]] = None,
+                 attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 billing_address: pulumi.Input[Optional[Union['ProfileBillingAddressArgs', 'ProfileBillingAddressArgsDict']]] = None,
+                 birth_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 business_email_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 business_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 business_phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 first_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 gender_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 home_phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 mailing_address: pulumi.Input[Optional[Union['ProfileMailingAddressArgs', 'ProfileMailingAddressArgsDict']]] = None,
+                 middle_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 mobile_phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 party_type_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 personal_email_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 shipping_address: pulumi.Input[Optional[Union['ProfileShippingAddressArgs', 'ProfileShippingAddressArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an Amazon Customer Profiles Profile.
@@ -904,29 +904,29 @@ class Profile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 additional_information: Optional[pulumi.Input[_builtins.str]] = None,
-                 address: Optional[pulumi.Input[Union['ProfileAddressArgs', 'ProfileAddressArgsDict']]] = None,
-                 attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 billing_address: Optional[pulumi.Input[Union['ProfileBillingAddressArgs', 'ProfileBillingAddressArgsDict']]] = None,
-                 birth_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 business_email_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 business_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 business_phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 first_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 gender_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 home_phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 mailing_address: Optional[pulumi.Input[Union['ProfileMailingAddressArgs', 'ProfileMailingAddressArgsDict']]] = None,
-                 middle_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 mobile_phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 party_type_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 personal_email_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 shipping_address: Optional[pulumi.Input[Union['ProfileShippingAddressArgs', 'ProfileShippingAddressArgsDict']]] = None,
+                 account_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 additional_information: pulumi.Input[Optional[_builtins.str]] = None,
+                 address: pulumi.Input[Optional[Union['ProfileAddressArgs', 'ProfileAddressArgsDict']]] = None,
+                 attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 billing_address: pulumi.Input[Optional[Union['ProfileBillingAddressArgs', 'ProfileBillingAddressArgsDict']]] = None,
+                 birth_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 business_email_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 business_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 business_phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 first_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 gender_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 home_phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 mailing_address: pulumi.Input[Optional[Union['ProfileMailingAddressArgs', 'ProfileMailingAddressArgsDict']]] = None,
+                 middle_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 mobile_phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 party_type_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 personal_email_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 shipping_address: pulumi.Input[Optional[Union['ProfileShippingAddressArgs', 'ProfileShippingAddressArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -971,29 +971,29 @@ class Profile(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_number: Optional[pulumi.Input[_builtins.str]] = None,
-            additional_information: Optional[pulumi.Input[_builtins.str]] = None,
-            address: Optional[pulumi.Input[Union['ProfileAddressArgs', 'ProfileAddressArgsDict']]] = None,
-            attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            billing_address: Optional[pulumi.Input[Union['ProfileBillingAddressArgs', 'ProfileBillingAddressArgsDict']]] = None,
-            birth_date: Optional[pulumi.Input[_builtins.str]] = None,
-            business_email_address: Optional[pulumi.Input[_builtins.str]] = None,
-            business_name: Optional[pulumi.Input[_builtins.str]] = None,
-            business_phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-            domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-            email_address: Optional[pulumi.Input[_builtins.str]] = None,
-            first_name: Optional[pulumi.Input[_builtins.str]] = None,
-            gender_string: Optional[pulumi.Input[_builtins.str]] = None,
-            home_phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-            last_name: Optional[pulumi.Input[_builtins.str]] = None,
-            mailing_address: Optional[pulumi.Input[Union['ProfileMailingAddressArgs', 'ProfileMailingAddressArgsDict']]] = None,
-            middle_name: Optional[pulumi.Input[_builtins.str]] = None,
-            mobile_phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-            party_type_string: Optional[pulumi.Input[_builtins.str]] = None,
-            personal_email_address: Optional[pulumi.Input[_builtins.str]] = None,
-            phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            shipping_address: Optional[pulumi.Input[Union['ProfileShippingAddressArgs', 'ProfileShippingAddressArgsDict']]] = None) -> 'Profile':
+            account_number: pulumi.Input[Optional[_builtins.str]] = None,
+            additional_information: pulumi.Input[Optional[_builtins.str]] = None,
+            address: pulumi.Input[Optional[Union['ProfileAddressArgs', 'ProfileAddressArgsDict']]] = None,
+            attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            billing_address: pulumi.Input[Optional[Union['ProfileBillingAddressArgs', 'ProfileBillingAddressArgsDict']]] = None,
+            birth_date: pulumi.Input[Optional[_builtins.str]] = None,
+            business_email_address: pulumi.Input[Optional[_builtins.str]] = None,
+            business_name: pulumi.Input[Optional[_builtins.str]] = None,
+            business_phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            email_address: pulumi.Input[Optional[_builtins.str]] = None,
+            first_name: pulumi.Input[Optional[_builtins.str]] = None,
+            gender_string: pulumi.Input[Optional[_builtins.str]] = None,
+            home_phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+            last_name: pulumi.Input[Optional[_builtins.str]] = None,
+            mailing_address: pulumi.Input[Optional[Union['ProfileMailingAddressArgs', 'ProfileMailingAddressArgsDict']]] = None,
+            middle_name: pulumi.Input[Optional[_builtins.str]] = None,
+            mobile_phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+            party_type_string: pulumi.Input[Optional[_builtins.str]] = None,
+            personal_email_address: pulumi.Input[Optional[_builtins.str]] = None,
+            phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            shipping_address: pulumi.Input[Optional[Union['ProfileShippingAddressArgs', 'ProfileShippingAddressArgsDict']]] = None) -> 'Profile':
         """
         Get an existing Profile resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

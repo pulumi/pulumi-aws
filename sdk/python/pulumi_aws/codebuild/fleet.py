@@ -24,15 +24,15 @@ class FleetArgs:
                  base_capacity: pulumi.Input[_builtins.int],
                  compute_type: pulumi.Input[_builtins.str],
                  environment_type: pulumi.Input[_builtins.str],
-                 compute_configuration: Optional[pulumi.Input['FleetComputeConfigurationArgs']] = None,
-                 fleet_service_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 overflow_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 scaling_configuration: Optional[pulumi.Input['FleetScalingConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_configs: Optional[pulumi.Input[Sequence[pulumi.Input['FleetVpcConfigArgs']]]] = None):
+                 compute_configuration: pulumi.Input[Optional['FleetComputeConfigurationArgs']] = None,
+                 fleet_service_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 overflow_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 scaling_configuration: pulumi.Input[Optional['FleetScalingConfigurationArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vpc_configs: pulumi.Input[Optional[Sequence[pulumi.Input['FleetVpcConfigArgs']]]] = None):
         """
         The set of arguments for constructing a Fleet resource.
 
@@ -113,133 +113,133 @@ class FleetArgs:
 
     @_builtins.property
     @pulumi.getter(name="computeConfiguration")
-    def compute_configuration(self) -> Optional[pulumi.Input['FleetComputeConfigurationArgs']]:
+    def compute_configuration(self) -> pulumi.Input[Optional['FleetComputeConfigurationArgs']]:
         """
         The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `compute_configuration` below.
         """
         return pulumi.get(self, "compute_configuration")
 
     @compute_configuration.setter
-    def compute_configuration(self, value: Optional[pulumi.Input['FleetComputeConfigurationArgs']]):
+    def compute_configuration(self, value: pulumi.Input[Optional['FleetComputeConfigurationArgs']]):
         pulumi.set(self, "compute_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="fleetServiceRole")
-    def fleet_service_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fleet_service_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The service role associated with the compute fleet.
         """
         return pulumi.get(self, "fleet_service_role")
 
     @fleet_service_role.setter
-    def fleet_service_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fleet_service_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fleet_service_role", value)
 
     @_builtins.property
     @pulumi.getter(name="imageId")
-    def image_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def image_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Machine Image (AMI) of the compute fleet.
         """
         return pulumi.get(self, "image_id")
 
     @image_id.setter
-    def image_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def image_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "image_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fleet name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="overflowBehavior")
-    def overflow_behavior(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def overflow_behavior(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
         """
         return pulumi.get(self, "overflow_behavior")
 
     @overflow_behavior.setter
-    def overflow_behavior(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def overflow_behavior(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "overflow_behavior", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="scalingConfiguration")
-    def scaling_configuration(self) -> Optional[pulumi.Input['FleetScalingConfigurationArgs']]:
+    def scaling_configuration(self) -> pulumi.Input[Optional['FleetScalingConfigurationArgs']]:
         """
         Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scaling_configuration` below.
         """
         return pulumi.get(self, "scaling_configuration")
 
     @scaling_configuration.setter
-    def scaling_configuration(self, value: Optional[pulumi.Input['FleetScalingConfigurationArgs']]):
+    def scaling_configuration(self, value: pulumi.Input[Optional['FleetScalingConfigurationArgs']]):
         pulumi.set(self, "scaling_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcConfigs")
-    def vpc_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FleetVpcConfigArgs']]]]:
+    def vpc_configs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FleetVpcConfigArgs']]]]:
         """
         Configuration block. See `vpc_config` below.
         """
         return pulumi.get(self, "vpc_configs")
 
     @vpc_configs.setter
-    def vpc_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FleetVpcConfigArgs']]]]):
+    def vpc_configs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FleetVpcConfigArgs']]]]):
         pulumi.set(self, "vpc_configs", value)
 
 
 @pulumi.input_type
 class _FleetState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 base_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 compute_configuration: Optional[pulumi.Input['FleetComputeConfigurationArgs']] = None,
-                 compute_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 created: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 fleet_service_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_modified: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 overflow_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 scaling_configuration: Optional[pulumi.Input['FleetScalingConfigurationArgs']] = None,
-                 statuses: Optional[pulumi.Input[Sequence[pulumi.Input['FleetStatusArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_configs: Optional[pulumi.Input[Sequence[pulumi.Input['FleetVpcConfigArgs']]]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 base_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 compute_configuration: pulumi.Input[Optional['FleetComputeConfigurationArgs']] = None,
+                 compute_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 created: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 fleet_service_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_modified: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 overflow_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 scaling_configuration: pulumi.Input[Optional['FleetScalingConfigurationArgs']] = None,
+                 statuses: pulumi.Input[Optional[Sequence[pulumi.Input['FleetStatusArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vpc_configs: pulumi.Input[Optional[Sequence[pulumi.Input['FleetVpcConfigArgs']]]] = None):
         """
         Input properties used for looking up and filtering Fleet resources.
 
@@ -299,67 +299,67 @@ class _FleetState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the Fleet.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="baseCapacity")
-    def base_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def base_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of machines allocated to the ﬂeet.
         """
         return pulumi.get(self, "base_capacity")
 
     @base_capacity.setter
-    def base_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def base_capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "base_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="computeConfiguration")
-    def compute_configuration(self) -> Optional[pulumi.Input['FleetComputeConfigurationArgs']]:
+    def compute_configuration(self) -> pulumi.Input[Optional['FleetComputeConfigurationArgs']]:
         """
         The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `compute_configuration` below.
         """
         return pulumi.get(self, "compute_configuration")
 
     @compute_configuration.setter
-    def compute_configuration(self, value: Optional[pulumi.Input['FleetComputeConfigurationArgs']]):
+    def compute_configuration(self, value: pulumi.Input[Optional['FleetComputeConfigurationArgs']]):
         pulumi.set(self, "compute_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="computeType")
-    def compute_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def compute_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Compute resources the compute fleet uses. See [compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
         """
         return pulumi.get(self, "compute_type")
 
     @compute_type.setter
-    def compute_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def compute_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "compute_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def created(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Creation time of the fleet.
         """
         return pulumi.get(self, "created")
 
     @created.setter
-    def created(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentType")
-    def environment_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def environment_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Environment type of the compute fleet. See [environment types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
 
@@ -368,136 +368,136 @@ class _FleetState:
         return pulumi.get(self, "environment_type")
 
     @environment_type.setter
-    def environment_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def environment_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "environment_type", value)
 
     @_builtins.property
     @pulumi.getter(name="fleetServiceRole")
-    def fleet_service_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fleet_service_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The service role associated with the compute fleet.
         """
         return pulumi.get(self, "fleet_service_role")
 
     @fleet_service_role.setter
-    def fleet_service_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fleet_service_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fleet_service_role", value)
 
     @_builtins.property
     @pulumi.getter(name="imageId")
-    def image_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def image_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Machine Image (AMI) of the compute fleet.
         """
         return pulumi.get(self, "image_id")
 
     @image_id.setter
-    def image_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def image_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "image_id", value)
 
     @_builtins.property
     @pulumi.getter(name="lastModified")
-    def last_modified(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_modified(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Last modification time of the fleet.
         """
         return pulumi.get(self, "last_modified")
 
     @last_modified.setter
-    def last_modified(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_modified(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_modified", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fleet name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="overflowBehavior")
-    def overflow_behavior(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def overflow_behavior(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
         """
         return pulumi.get(self, "overflow_behavior")
 
     @overflow_behavior.setter
-    def overflow_behavior(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def overflow_behavior(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "overflow_behavior", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="scalingConfiguration")
-    def scaling_configuration(self) -> Optional[pulumi.Input['FleetScalingConfigurationArgs']]:
+    def scaling_configuration(self) -> pulumi.Input[Optional['FleetScalingConfigurationArgs']]:
         """
         Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scaling_configuration` below.
         """
         return pulumi.get(self, "scaling_configuration")
 
     @scaling_configuration.setter
-    def scaling_configuration(self, value: Optional[pulumi.Input['FleetScalingConfigurationArgs']]):
+    def scaling_configuration(self, value: pulumi.Input[Optional['FleetScalingConfigurationArgs']]):
         pulumi.set(self, "scaling_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def statuses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FleetStatusArgs']]]]:
+    def statuses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FleetStatusArgs']]]]:
         """
         Nested attribute containing information about the current status of the fleet.
         """
         return pulumi.get(self, "statuses")
 
     @statuses.setter
-    def statuses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FleetStatusArgs']]]]):
+    def statuses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FleetStatusArgs']]]]):
         pulumi.set(self, "statuses", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcConfigs")
-    def vpc_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FleetVpcConfigArgs']]]]:
+    def vpc_configs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FleetVpcConfigArgs']]]]:
         """
         Configuration block. See `vpc_config` below.
         """
         return pulumi.get(self, "vpc_configs")
 
     @vpc_configs.setter
-    def vpc_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FleetVpcConfigArgs']]]]):
+    def vpc_configs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FleetVpcConfigArgs']]]]):
         pulumi.set(self, "vpc_configs", value)
 
 
@@ -507,18 +507,18 @@ class Fleet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 base_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 compute_configuration: Optional[pulumi.Input[Union['FleetComputeConfigurationArgs', 'FleetComputeConfigurationArgsDict']]] = None,
-                 compute_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 fleet_service_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 overflow_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 scaling_configuration: Optional[pulumi.Input[Union['FleetScalingConfigurationArgs', 'FleetScalingConfigurationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict']]]]] = None,
+                 base_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 compute_configuration: pulumi.Input[Optional[Union['FleetComputeConfigurationArgs', 'FleetComputeConfigurationArgsDict']]] = None,
+                 compute_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 fleet_service_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 overflow_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 scaling_configuration: pulumi.Input[Optional[Union['FleetScalingConfigurationArgs', 'FleetScalingConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vpc_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict']]]]] = None,
                  __props__=None):
         """
         Provides a CodeBuild Fleet Resource.
@@ -656,18 +656,18 @@ class Fleet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 base_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 compute_configuration: Optional[pulumi.Input[Union['FleetComputeConfigurationArgs', 'FleetComputeConfigurationArgsDict']]] = None,
-                 compute_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 fleet_service_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 overflow_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 scaling_configuration: Optional[pulumi.Input[Union['FleetScalingConfigurationArgs', 'FleetScalingConfigurationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict']]]]] = None,
+                 base_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 compute_configuration: pulumi.Input[Optional[Union['FleetComputeConfigurationArgs', 'FleetComputeConfigurationArgsDict']]] = None,
+                 compute_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 fleet_service_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 overflow_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 scaling_configuration: pulumi.Input[Optional[Union['FleetScalingConfigurationArgs', 'FleetScalingConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vpc_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -710,23 +710,23 @@ class Fleet(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            base_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-            compute_configuration: Optional[pulumi.Input[Union['FleetComputeConfigurationArgs', 'FleetComputeConfigurationArgsDict']]] = None,
-            compute_type: Optional[pulumi.Input[_builtins.str]] = None,
-            created: Optional[pulumi.Input[_builtins.str]] = None,
-            environment_type: Optional[pulumi.Input[_builtins.str]] = None,
-            fleet_service_role: Optional[pulumi.Input[_builtins.str]] = None,
-            image_id: Optional[pulumi.Input[_builtins.str]] = None,
-            last_modified: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            overflow_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            scaling_configuration: Optional[pulumi.Input[Union['FleetScalingConfigurationArgs', 'FleetScalingConfigurationArgsDict']]] = None,
-            statuses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FleetStatusArgs', 'FleetStatusArgsDict']]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            vpc_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict']]]]] = None) -> 'Fleet':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            base_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            compute_configuration: pulumi.Input[Optional[Union['FleetComputeConfigurationArgs', 'FleetComputeConfigurationArgsDict']]] = None,
+            compute_type: pulumi.Input[Optional[_builtins.str]] = None,
+            created: pulumi.Input[Optional[_builtins.str]] = None,
+            environment_type: pulumi.Input[Optional[_builtins.str]] = None,
+            fleet_service_role: pulumi.Input[Optional[_builtins.str]] = None,
+            image_id: pulumi.Input[Optional[_builtins.str]] = None,
+            last_modified: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            overflow_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            scaling_configuration: pulumi.Input[Optional[Union['FleetScalingConfigurationArgs', 'FleetScalingConfigurationArgsDict']]] = None,
+            statuses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetStatusArgs', 'FleetStatusArgsDict']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            vpc_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict']]]]] = None) -> 'Fleet':
         """
         Get an existing Fleet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -25,21 +25,21 @@ class OntapFileSystemArgs:
                  preferred_subnet_id: pulumi.Input[_builtins.str],
                  storage_capacity: pulumi.Input[_builtins.int],
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 automatic_backup_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 daily_automatic_backup_start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_iops_configuration: Optional[pulumi.Input['OntapFileSystemDiskIopsConfigurationArgs']] = None,
-                 endpoint_ip_address_range: Optional[pulumi.Input[_builtins.str]] = None,
-                 fsx_admin_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 ha_pairs: Optional[pulumi.Input[_builtins.int]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 storage_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 throughput_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 throughput_capacity_per_ha_pair: Optional[pulumi.Input[_builtins.int]] = None,
-                 weekly_maintenance_start_time: Optional[pulumi.Input[_builtins.str]] = None):
+                 automatic_backup_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 daily_automatic_backup_start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_iops_configuration: pulumi.Input[Optional['OntapFileSystemDiskIopsConfigurationArgs']] = None,
+                 endpoint_ip_address_range: pulumi.Input[Optional[_builtins.str]] = None,
+                 fsx_admin_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 ha_pairs: pulumi.Input[Optional[_builtins.int]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_table_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 throughput_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 throughput_capacity_per_ha_pair: pulumi.Input[Optional[_builtins.int]] = None,
+                 weekly_maintenance_start_time: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a OntapFileSystem resource.
 
@@ -150,43 +150,43 @@ class OntapFileSystemArgs:
 
     @_builtins.property
     @pulumi.getter(name="automaticBackupRetentionDays")
-    def automatic_backup_retention_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def automatic_backup_retention_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
         """
         return pulumi.get(self, "automatic_backup_retention_days")
 
     @automatic_backup_retention_days.setter
-    def automatic_backup_retention_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def automatic_backup_retention_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "automatic_backup_retention_days", value)
 
     @_builtins.property
     @pulumi.getter(name="dailyAutomaticBackupStartTime")
-    def daily_automatic_backup_start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def daily_automatic_backup_start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automatic_backup_retention_days` to be set.
         """
         return pulumi.get(self, "daily_automatic_backup_start_time")
 
     @daily_automatic_backup_start_time.setter
-    def daily_automatic_backup_start_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def daily_automatic_backup_start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "daily_automatic_backup_start_time", value)
 
     @_builtins.property
     @pulumi.getter(name="diskIopsConfiguration")
-    def disk_iops_configuration(self) -> Optional[pulumi.Input['OntapFileSystemDiskIopsConfigurationArgs']]:
+    def disk_iops_configuration(self) -> pulumi.Input[Optional['OntapFileSystemDiskIopsConfigurationArgs']]:
         """
         The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration below.
         """
         return pulumi.get(self, "disk_iops_configuration")
 
     @disk_iops_configuration.setter
-    def disk_iops_configuration(self, value: Optional[pulumi.Input['OntapFileSystemDiskIopsConfigurationArgs']]):
+    def disk_iops_configuration(self, value: pulumi.Input[Optional['OntapFileSystemDiskIopsConfigurationArgs']]):
         pulumi.set(self, "disk_iops_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointIpAddressRange")
-    def endpoint_ip_address_range(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint_ip_address_range(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.* range.
 
@@ -195,171 +195,171 @@ class OntapFileSystemArgs:
         return pulumi.get(self, "endpoint_ip_address_range")
 
     @endpoint_ip_address_range.setter
-    def endpoint_ip_address_range(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint_ip_address_range(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint_ip_address_range", value)
 
     @_builtins.property
     @pulumi.getter(name="fsxAdminPassword")
-    def fsx_admin_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fsx_admin_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ONTAP administrative password for the fsxadmin user that you can use to administer your file system using the ONTAP CLI and REST API.
         """
         return pulumi.get(self, "fsx_admin_password")
 
     @fsx_admin_password.setter
-    def fsx_admin_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fsx_admin_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fsx_admin_password", value)
 
     @_builtins.property
     @pulumi.getter(name="haPairs")
-    def ha_pairs(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ha_pairs(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of ha_pairs to deploy for the file system. Valid value is 1 for `SINGLE_AZ_1` or `MULTI_AZ_1` and `MULTI_AZ_2`. Valid values are 1 through 12 for `SINGLE_AZ_2`.
         """
         return pulumi.get(self, "ha_pairs")
 
     @ha_pairs.setter
-    def ha_pairs(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ha_pairs(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ha_pairs", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="routeTableIds")
-    def route_table_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def route_table_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the VPC route tables in which your file system's endpoints will be created. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
         """
         return pulumi.get(self, "route_table_ids")
 
     @route_table_ids.setter
-    def route_table_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def route_table_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "route_table_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
-    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_group_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="storageType")
-    def storage_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The filesystem storage type. defaults to `SSD`.
         """
         return pulumi.get(self, "storage_type")
 
     @storage_type.setter
-    def storage_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="throughputCapacity")
-    def throughput_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def throughput_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter is only supported when not using the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
         """
         return pulumi.get(self, "throughput_capacity")
 
     @throughput_capacity.setter
-    def throughput_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def throughput_capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "throughput_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="throughputCapacityPerHaPair")
-    def throughput_capacity_per_ha_pair(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def throughput_capacity_per_ha_pair(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Sets the per-HA-pair throughput capacity (in MBps) for the file system that you're creating, as opposed to `throughput_capacity` which specifies the total throughput capacity for the file system. Valid value for `MULTI_AZ_1` and `SINGLE_AZ_1` are `128`, `256`, `512`, `1024`, `2048`, and `4096`. Valid values for deployment type `MULTI_AZ_2` and `SINGLE_AZ_2` are `384`,`768`,`1536`,`3072`,`6144` where `ha_pairs` is `1`. Valid values for deployment type `SINGLE_AZ_2` are `1536`, `3072`, and `6144` where `ha_pairs` is greater than 1. This parameter is only supported when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
         """
         return pulumi.get(self, "throughput_capacity_per_ha_pair")
 
     @throughput_capacity_per_ha_pair.setter
-    def throughput_capacity_per_ha_pair(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def throughput_capacity_per_ha_pair(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "throughput_capacity_per_ha_pair", value)
 
     @_builtins.property
     @pulumi.getter(name="weeklyMaintenanceStartTime")
-    def weekly_maintenance_start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def weekly_maintenance_start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """
         return pulumi.get(self, "weekly_maintenance_start_time")
 
     @weekly_maintenance_start_time.setter
-    def weekly_maintenance_start_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def weekly_maintenance_start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "weekly_maintenance_start_time", value)
 
 
 @pulumi.input_type
 class _OntapFileSystemState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 automatic_backup_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 daily_automatic_backup_start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_iops_configuration: Optional[pulumi.Input['OntapFileSystemDiskIopsConfigurationArgs']] = None,
-                 dns_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_ip_address_range: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['OntapFileSystemEndpointArgs']]]] = None,
-                 fsx_admin_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 ha_pairs: Optional[pulumi.Input[_builtins.int]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 owner_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 storage_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 storage_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 throughput_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 throughput_capacity_per_ha_pair: Optional[pulumi.Input[_builtins.int]] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 weekly_maintenance_start_time: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 automatic_backup_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 daily_automatic_backup_start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_iops_configuration: pulumi.Input[Optional['OntapFileSystemDiskIopsConfigurationArgs']] = None,
+                 dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_ip_address_range: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoints: pulumi.Input[Optional[Sequence[pulumi.Input['OntapFileSystemEndpointArgs']]]] = None,
+                 fsx_admin_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 ha_pairs: pulumi.Input[Optional[_builtins.int]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interface_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_table_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 storage_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 throughput_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 throughput_capacity_per_ha_pair: pulumi.Input[Optional[_builtins.int]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 weekly_maintenance_start_time: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OntapFileSystem resources.
 
@@ -447,79 +447,79 @@ class _OntapFileSystemState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name of the file system.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="automaticBackupRetentionDays")
-    def automatic_backup_retention_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def automatic_backup_retention_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
         """
         return pulumi.get(self, "automatic_backup_retention_days")
 
     @automatic_backup_retention_days.setter
-    def automatic_backup_retention_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def automatic_backup_retention_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "automatic_backup_retention_days", value)
 
     @_builtins.property
     @pulumi.getter(name="dailyAutomaticBackupStartTime")
-    def daily_automatic_backup_start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def daily_automatic_backup_start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automatic_backup_retention_days` to be set.
         """
         return pulumi.get(self, "daily_automatic_backup_start_time")
 
     @daily_automatic_backup_start_time.setter
-    def daily_automatic_backup_start_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def daily_automatic_backup_start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "daily_automatic_backup_start_time", value)
 
     @_builtins.property
     @pulumi.getter(name="deploymentType")
-    def deployment_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def deployment_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The filesystem deployment type. Supports `MULTI_AZ_1`, `MULTI_AZ_2`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
         """
         return pulumi.get(self, "deployment_type")
 
     @deployment_type.setter
-    def deployment_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def deployment_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deployment_type", value)
 
     @_builtins.property
     @pulumi.getter(name="diskIopsConfiguration")
-    def disk_iops_configuration(self) -> Optional[pulumi.Input['OntapFileSystemDiskIopsConfigurationArgs']]:
+    def disk_iops_configuration(self) -> pulumi.Input[Optional['OntapFileSystemDiskIopsConfigurationArgs']]:
         """
         The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration below.
         """
         return pulumi.get(self, "disk_iops_configuration")
 
     @disk_iops_configuration.setter
-    def disk_iops_configuration(self, value: Optional[pulumi.Input['OntapFileSystemDiskIopsConfigurationArgs']]):
+    def disk_iops_configuration(self, value: pulumi.Input[Optional['OntapFileSystemDiskIopsConfigurationArgs']]):
         pulumi.set(self, "disk_iops_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsName")
-    def dns_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
         """
         return pulumi.get(self, "dns_name")
 
     @dns_name.setter
-    def dns_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_name", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointIpAddressRange")
-    def endpoint_ip_address_range(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint_ip_address_range(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.* range.
 
@@ -528,235 +528,235 @@ class _OntapFileSystemState:
         return pulumi.get(self, "endpoint_ip_address_range")
 
     @endpoint_ip_address_range.setter
-    def endpoint_ip_address_range(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint_ip_address_range(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint_ip_address_range", value)
 
     @_builtins.property
     @pulumi.getter
-    def endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OntapFileSystemEndpointArgs']]]]:
+    def endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OntapFileSystemEndpointArgs']]]]:
         """
         The endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
         """
         return pulumi.get(self, "endpoints")
 
     @endpoints.setter
-    def endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OntapFileSystemEndpointArgs']]]]):
+    def endpoints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OntapFileSystemEndpointArgs']]]]):
         pulumi.set(self, "endpoints", value)
 
     @_builtins.property
     @pulumi.getter(name="fsxAdminPassword")
-    def fsx_admin_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fsx_admin_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ONTAP administrative password for the fsxadmin user that you can use to administer your file system using the ONTAP CLI and REST API.
         """
         return pulumi.get(self, "fsx_admin_password")
 
     @fsx_admin_password.setter
-    def fsx_admin_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fsx_admin_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fsx_admin_password", value)
 
     @_builtins.property
     @pulumi.getter(name="haPairs")
-    def ha_pairs(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ha_pairs(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of ha_pairs to deploy for the file system. Valid value is 1 for `SINGLE_AZ_1` or `MULTI_AZ_1` and `MULTI_AZ_2`. Valid values are 1 through 12 for `SINGLE_AZ_2`.
         """
         return pulumi.get(self, "ha_pairs")
 
     @ha_pairs.setter
-    def ha_pairs(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ha_pairs(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ha_pairs", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaceIds")
-    def network_interface_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def network_interface_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
         """
         return pulumi.get(self, "network_interface_ids")
 
     @network_interface_ids.setter
-    def network_interface_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def network_interface_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "network_interface_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS account identifier that created the file system.
         """
         return pulumi.get(self, "owner_id")
 
     @owner_id.setter
-    def owner_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner_id", value)
 
     @_builtins.property
     @pulumi.getter(name="preferredSubnetId")
-    def preferred_subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def preferred_subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
         """
         return pulumi.get(self, "preferred_subnet_id")
 
     @preferred_subnet_id.setter
-    def preferred_subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def preferred_subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "preferred_subnet_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="routeTableIds")
-    def route_table_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def route_table_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the VPC route tables in which your file system's endpoints will be created. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
         """
         return pulumi.get(self, "route_table_ids")
 
     @route_table_ids.setter
-    def route_table_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def route_table_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "route_table_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
-    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_group_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="storageCapacity")
-    def storage_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def storage_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with deployment_type `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values are between `1024` and `524288` for `MULTI_AZ_2`. Valid values between `1024` (`1024` per ha pair) and `1048576` for file systems with deployment_type `SINGLE_AZ_2`. For `SINGLE_AZ_2`, the `1048576` (1PB) maximum is only supported when using 2 or more ha_pairs, the maximum is `524288` (512TB) when using 1 ha_pair.
         """
         return pulumi.get(self, "storage_capacity")
 
     @storage_capacity.setter
-    def storage_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def storage_capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "storage_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="storageType")
-    def storage_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The filesystem storage type. defaults to `SSD`.
         """
         return pulumi.get(self, "storage_type")
 
     @storage_type.setter
-    def storage_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_type", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subnet_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of IDs for the subnets that the file system will be accessible from. Up to 2 subnets can be provided.
         """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
-    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subnet_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subnet_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="throughputCapacity")
-    def throughput_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def throughput_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter is only supported when not using the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
         """
         return pulumi.get(self, "throughput_capacity")
 
     @throughput_capacity.setter
-    def throughput_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def throughput_capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "throughput_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="throughputCapacityPerHaPair")
-    def throughput_capacity_per_ha_pair(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def throughput_capacity_per_ha_pair(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Sets the per-HA-pair throughput capacity (in MBps) for the file system that you're creating, as opposed to `throughput_capacity` which specifies the total throughput capacity for the file system. Valid value for `MULTI_AZ_1` and `SINGLE_AZ_1` are `128`, `256`, `512`, `1024`, `2048`, and `4096`. Valid values for deployment type `MULTI_AZ_2` and `SINGLE_AZ_2` are `384`,`768`,`1536`,`3072`,`6144` where `ha_pairs` is `1`. Valid values for deployment type `SINGLE_AZ_2` are `1536`, `3072`, and `6144` where `ha_pairs` is greater than 1. This parameter is only supported when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
         """
         return pulumi.get(self, "throughput_capacity_per_ha_pair")
 
     @throughput_capacity_per_ha_pair.setter
-    def throughput_capacity_per_ha_pair(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def throughput_capacity_per_ha_pair(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "throughput_capacity_per_ha_pair", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the Virtual Private Cloud for the file system.
         """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
-    def vpc_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_id", value)
 
     @_builtins.property
     @pulumi.getter(name="weeklyMaintenanceStartTime")
-    def weekly_maintenance_start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def weekly_maintenance_start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """
         return pulumi.get(self, "weekly_maintenance_start_time")
 
     @weekly_maintenance_start_time.setter
-    def weekly_maintenance_start_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def weekly_maintenance_start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "weekly_maintenance_start_time", value)
 
 
@@ -766,25 +766,25 @@ class OntapFileSystem(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 automatic_backup_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 daily_automatic_backup_start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_iops_configuration: Optional[pulumi.Input[Union['OntapFileSystemDiskIopsConfigurationArgs', 'OntapFileSystemDiskIopsConfigurationArgsDict']]] = None,
-                 endpoint_ip_address_range: Optional[pulumi.Input[_builtins.str]] = None,
-                 fsx_admin_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 ha_pairs: Optional[pulumi.Input[_builtins.int]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 storage_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 storage_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 throughput_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 throughput_capacity_per_ha_pair: Optional[pulumi.Input[_builtins.int]] = None,
-                 weekly_maintenance_start_time: Optional[pulumi.Input[_builtins.str]] = None,
+                 automatic_backup_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 daily_automatic_backup_start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_iops_configuration: pulumi.Input[Optional[Union['OntapFileSystemDiskIopsConfigurationArgs', 'OntapFileSystemDiskIopsConfigurationArgsDict']]] = None,
+                 endpoint_ip_address_range: pulumi.Input[Optional[_builtins.str]] = None,
+                 fsx_admin_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 ha_pairs: pulumi.Input[Optional[_builtins.int]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_table_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 storage_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 throughput_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 throughput_capacity_per_ha_pair: pulumi.Input[Optional[_builtins.int]] = None,
+                 weekly_maintenance_start_time: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an Amazon FSx for NetApp ONTAP file system.
@@ -993,25 +993,25 @@ class OntapFileSystem(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 automatic_backup_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 daily_automatic_backup_start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_iops_configuration: Optional[pulumi.Input[Union['OntapFileSystemDiskIopsConfigurationArgs', 'OntapFileSystemDiskIopsConfigurationArgsDict']]] = None,
-                 endpoint_ip_address_range: Optional[pulumi.Input[_builtins.str]] = None,
-                 fsx_admin_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 ha_pairs: Optional[pulumi.Input[_builtins.int]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 storage_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 storage_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 throughput_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 throughput_capacity_per_ha_pair: Optional[pulumi.Input[_builtins.int]] = None,
-                 weekly_maintenance_start_time: Optional[pulumi.Input[_builtins.str]] = None,
+                 automatic_backup_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 daily_automatic_backup_start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_iops_configuration: pulumi.Input[Optional[Union['OntapFileSystemDiskIopsConfigurationArgs', 'OntapFileSystemDiskIopsConfigurationArgsDict']]] = None,
+                 endpoint_ip_address_range: pulumi.Input[Optional[_builtins.str]] = None,
+                 fsx_admin_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 ha_pairs: pulumi.Input[Optional[_builtins.int]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_table_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 storage_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 throughput_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 throughput_capacity_per_ha_pair: pulumi.Input[Optional[_builtins.int]] = None,
+                 weekly_maintenance_start_time: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1067,32 +1067,32 @@ class OntapFileSystem(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            automatic_backup_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-            daily_automatic_backup_start_time: Optional[pulumi.Input[_builtins.str]] = None,
-            deployment_type: Optional[pulumi.Input[_builtins.str]] = None,
-            disk_iops_configuration: Optional[pulumi.Input[Union['OntapFileSystemDiskIopsConfigurationArgs', 'OntapFileSystemDiskIopsConfigurationArgsDict']]] = None,
-            dns_name: Optional[pulumi.Input[_builtins.str]] = None,
-            endpoint_ip_address_range: Optional[pulumi.Input[_builtins.str]] = None,
-            endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OntapFileSystemEndpointArgs', 'OntapFileSystemEndpointArgsDict']]]]] = None,
-            fsx_admin_password: Optional[pulumi.Input[_builtins.str]] = None,
-            ha_pairs: Optional[pulumi.Input[_builtins.int]] = None,
-            kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-            network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            owner_id: Optional[pulumi.Input[_builtins.str]] = None,
-            preferred_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            storage_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-            storage_type: Optional[pulumi.Input[_builtins.str]] = None,
-            subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            throughput_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-            throughput_capacity_per_ha_pair: Optional[pulumi.Input[_builtins.int]] = None,
-            vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
-            weekly_maintenance_start_time: Optional[pulumi.Input[_builtins.str]] = None) -> 'OntapFileSystem':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            automatic_backup_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+            daily_automatic_backup_start_time: pulumi.Input[Optional[_builtins.str]] = None,
+            deployment_type: pulumi.Input[Optional[_builtins.str]] = None,
+            disk_iops_configuration: pulumi.Input[Optional[Union['OntapFileSystemDiskIopsConfigurationArgs', 'OntapFileSystemDiskIopsConfigurationArgsDict']]] = None,
+            dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint_ip_address_range: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OntapFileSystemEndpointArgs', 'OntapFileSystemEndpointArgsDict']]]]] = None,
+            fsx_admin_password: pulumi.Input[Optional[_builtins.str]] = None,
+            ha_pairs: pulumi.Input[Optional[_builtins.int]] = None,
+            kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            network_interface_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+            preferred_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            route_table_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            storage_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            throughput_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            throughput_capacity_per_ha_pair: pulumi.Input[Optional[_builtins.int]] = None,
+            vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
+            weekly_maintenance_start_time: pulumi.Input[Optional[_builtins.str]] = None) -> 'OntapFileSystem':
         """
         Get an existing OntapFileSystem resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

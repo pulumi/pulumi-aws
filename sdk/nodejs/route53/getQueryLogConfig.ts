@@ -168,21 +168,21 @@ export interface GetQueryLogConfigOutputArgs {
      * several valid keys, for a full reference, check out
      * [Route53resolver Filter value in the AWS API reference][1].
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.route53.GetQueryLogConfigFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.route53.GetQueryLogConfigFilterArgs>[] | undefined>;
     /**
      * The name of the query logging configuration.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ID of the Route53 Resolver Query Logging Configuration.
      */
-    resolverQueryLogConfigId?: pulumi.Input<string>;
+    resolverQueryLogConfigId?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the service.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

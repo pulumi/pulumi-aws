@@ -114,15 +114,15 @@ export interface UserSettingsAssociationState {
      *
      * The following arguments are optional:
      */
-    portalArn?: pulumi.Input<string>;
+    portalArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN of the user settings to associate with the portal. Forces replacement if changed.
      */
-    userSettingsArn?: pulumi.Input<string>;
+    userSettingsArn?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -138,7 +138,7 @@ export interface UserSettingsAssociationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN of the user settings to associate with the portal. Forces replacement if changed.
      */

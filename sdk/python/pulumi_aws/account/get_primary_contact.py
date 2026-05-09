@@ -239,7 +239,7 @@ def get_primary_contact(account_id: Optional[_builtins.str] = None,
         postal_code=pulumi.get(__ret__, 'postal_code'),
         state_or_region=pulumi.get(__ret__, 'state_or_region'),
         website_url=pulumi.get(__ret__, 'website_url'))
-def get_primary_contact_output(account_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_primary_contact_output(account_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrimaryContactResult]:
     """
     Data source for the primary contact information associated with an AWS Account.

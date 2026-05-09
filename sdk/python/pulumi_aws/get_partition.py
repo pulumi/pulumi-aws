@@ -118,7 +118,7 @@ def get_partition(id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         partition=pulumi.get(__ret__, 'partition'),
         reverse_dns_prefix=pulumi.get(__ret__, 'reverse_dns_prefix'))
-def get_partition_output(id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_partition_output(id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPartitionResult]:
     """
     Use this data source to lookup information about the current AWS partition in

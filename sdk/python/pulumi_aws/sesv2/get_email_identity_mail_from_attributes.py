@@ -125,8 +125,8 @@ def get_email_identity_mail_from_attributes(email_identity: Optional[_builtins.s
         id=pulumi.get(__ret__, 'id'),
         mail_from_domain=pulumi.get(__ret__, 'mail_from_domain'),
         region=pulumi.get(__ret__, 'region'))
-def get_email_identity_mail_from_attributes_output(email_identity: Optional[pulumi.Input[_builtins.str]] = None,
-                                                   region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_email_identity_mail_from_attributes_output(email_identity: pulumi.Input[Optional[_builtins.str]] = None,
+                                                   region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEmailIdentityMailFromAttributesResult]:
     """
     Data source for managing an AWS SESv2 (Simple Email V2) Email Identity Mail From Attributes.

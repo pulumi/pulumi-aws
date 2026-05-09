@@ -24,10 +24,10 @@ class ConnectorProfileArgs:
                  connection_mode: pulumi.Input[_builtins.str],
                  connector_profile_config: pulumi.Input['ConnectorProfileConnectorProfileConfigArgs'],
                  connector_type: pulumi.Input[_builtins.str],
-                 connector_label: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 connector_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ConnectorProfile resource.
 
@@ -89,40 +89,40 @@ class ConnectorProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectorLabel")
-    def connector_label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connector_label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for `CustomConnector` connector type.
         """
         return pulumi.get(self, "connector_label")
 
     @connector_label.setter
-    def connector_label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connector_label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connector_label", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsArn")
-    def kms_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
         """
         return pulumi.get(self, "kms_arn")
 
     @kms_arn.setter
-    def kms_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         * `name ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
@@ -130,22 +130,22 @@ class ConnectorProfileArgs:
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _ConnectorProfileState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 connector_label: Optional[pulumi.Input[_builtins.str]] = None,
-                 connector_profile_config: Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigArgs']] = None,
-                 connector_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 connector_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 connector_profile_config: pulumi.Input[Optional['ConnectorProfileConnectorProfileConfigArgs']] = None,
+                 connector_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ConnectorProfile resources.
 
@@ -180,100 +180,100 @@ class _ConnectorProfileState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the connector profile.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionMode")
-    def connection_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
         """
         return pulumi.get(self, "connection_mode")
 
     @connection_mode.setter
-    def connection_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="connectorLabel")
-    def connector_label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connector_label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for `CustomConnector` connector type.
         """
         return pulumi.get(self, "connector_label")
 
     @connector_label.setter
-    def connector_label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connector_label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connector_label", value)
 
     @_builtins.property
     @pulumi.getter(name="connectorProfileConfig")
-    def connector_profile_config(self) -> Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigArgs']]:
+    def connector_profile_config(self) -> pulumi.Input[Optional['ConnectorProfileConnectorProfileConfigArgs']]:
         """
         Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
         """
         return pulumi.get(self, "connector_profile_config")
 
     @connector_profile_config.setter
-    def connector_profile_config(self, value: Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigArgs']]):
+    def connector_profile_config(self, value: pulumi.Input[Optional['ConnectorProfileConnectorProfileConfigArgs']]):
         pulumi.set(self, "connector_profile_config", value)
 
     @_builtins.property
     @pulumi.getter(name="connectorType")
-    def connector_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connector_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
         """
         return pulumi.get(self, "connector_type")
 
     @connector_type.setter
-    def connector_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connector_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connector_type", value)
 
     @_builtins.property
     @pulumi.getter(name="credentialsArn")
-    def credentials_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def credentials_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the connector profile credentials.
         """
         return pulumi.get(self, "credentials_arn")
 
     @credentials_arn.setter
-    def credentials_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def credentials_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "credentials_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsArn")
-    def kms_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
         """
         return pulumi.get(self, "kms_arn")
 
     @kms_arn.setter
-    def kms_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         * `name ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
@@ -281,7 +281,7 @@ class _ConnectorProfileState:
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
@@ -291,13 +291,13 @@ class ConnectorProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connection_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 connector_label: Optional[pulumi.Input[_builtins.str]] = None,
-                 connector_profile_config: Optional[pulumi.Input[Union['ConnectorProfileConnectorProfileConfigArgs', 'ConnectorProfileConnectorProfileConfigArgsDict']]] = None,
-                 connector_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 connection_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 connector_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 connector_profile_config: pulumi.Input[Optional[Union['ConnectorProfileConnectorProfileConfigArgs', 'ConnectorProfileConnectorProfileConfigArgsDict']]] = None,
+                 connector_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides an AppFlow connector profile resource.
@@ -500,13 +500,13 @@ class ConnectorProfile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connection_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 connector_label: Optional[pulumi.Input[_builtins.str]] = None,
-                 connector_profile_config: Optional[pulumi.Input[Union['ConnectorProfileConnectorProfileConfigArgs', 'ConnectorProfileConnectorProfileConfigArgsDict']]] = None,
-                 connector_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 connection_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 connector_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 connector_profile_config: pulumi.Input[Optional[Union['ConnectorProfileConnectorProfileConfigArgs', 'ConnectorProfileConnectorProfileConfigArgsDict']]] = None,
+                 connector_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -541,15 +541,15 @@ class ConnectorProfile(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            connection_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            connector_label: Optional[pulumi.Input[_builtins.str]] = None,
-            connector_profile_config: Optional[pulumi.Input[Union['ConnectorProfileConnectorProfileConfigArgs', 'ConnectorProfileConnectorProfileConfigArgsDict']]] = None,
-            connector_type: Optional[pulumi.Input[_builtins.str]] = None,
-            credentials_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            kms_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None) -> 'ConnectorProfile':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            connector_label: pulumi.Input[Optional[_builtins.str]] = None,
+            connector_profile_config: pulumi.Input[Optional[Union['ConnectorProfileConnectorProfileConfigArgs', 'ConnectorProfileConnectorProfileConfigArgsDict']]] = None,
+            connector_type: pulumi.Input[Optional[_builtins.str]] = None,
+            credentials_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> 'ConnectorProfile':
         """
         Get an existing ConnectorProfile resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

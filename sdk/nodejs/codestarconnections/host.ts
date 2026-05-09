@@ -144,31 +144,31 @@ export interface HostState {
     /**
      * The CodeStar Host ARN.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The name of the host to be created. The name must be unique in the calling AWS account.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The endpoint of the infrastructure to be represented by the host after it is created.
      */
-    providerEndpoint?: pulumi.Input<string>;
+    providerEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The name of the external provider where your third-party code repository is configured.
      */
-    providerType?: pulumi.Input<string>;
+    providerType?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The CodeStar Host status. Possible values are `PENDING`, `AVAILABLE`, `VPC_CONFIG_DELETING`, `VPC_CONFIG_INITIALIZING`, and `VPC_CONFIG_FAILED_INITIALIZATION`.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
      */
-    vpcConfiguration?: pulumi.Input<inputs.codestarconnections.HostVpcConfiguration>;
+    vpcConfiguration?: pulumi.Input<inputs.codestarconnections.HostVpcConfiguration | undefined>;
 }
 
 /**
@@ -178,7 +178,7 @@ export interface HostArgs {
     /**
      * The name of the host to be created. The name must be unique in the calling AWS account.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The endpoint of the infrastructure to be represented by the host after it is created.
      */
@@ -190,9 +190,9 @@ export interface HostArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
      */
-    vpcConfiguration?: pulumi.Input<inputs.codestarconnections.HostVpcConfiguration>;
+    vpcConfiguration?: pulumi.Input<inputs.codestarconnections.HostVpcConfiguration | undefined>;
 }

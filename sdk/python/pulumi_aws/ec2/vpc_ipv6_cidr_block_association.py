@@ -20,12 +20,12 @@ __all__ = ['VpcIpv6CidrBlockAssociationArgs', 'VpcIpv6CidrBlockAssociation']
 class VpcIpv6CidrBlockAssociationArgs:
     def __init__(__self__, *,
                  vpc_id: pulumi.Input[_builtins.str],
-                 assign_generated_ipv6_cidr_block: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ipv6_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv6_ipam_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv6_netmask_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 ipv6_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 assign_generated_ipv6_cidr_block: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ipv6_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv6_ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv6_netmask_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 ipv6_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VpcIpv6CidrBlockAssociation resource.
 
@@ -65,89 +65,89 @@ class VpcIpv6CidrBlockAssociationArgs:
 
     @_builtins.property
     @pulumi.getter(name="assignGeneratedIpv6CidrBlock")
-    def assign_generated_ipv6_cidr_block(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def assign_generated_ipv6_cidr_block(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6_ipam_pool_id`, `ipv6_pool`, `ipv6_cidr_block` and `ipv6_netmask_length`.
         """
         return pulumi.get(self, "assign_generated_ipv6_cidr_block")
 
     @assign_generated_ipv6_cidr_block.setter
-    def assign_generated_ipv6_cidr_block(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def assign_generated_ipv6_cidr_block(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "assign_generated_ipv6_cidr_block", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6CidrBlock")
-    def ipv6_cidr_block(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipv6_cidr_block(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6_netmask_length`. This parameter is required if `ipv6_netmask_length` is not set and the IPAM pool does not have `allocation_default_netmask` set. Conflicts with `assign_generated_ipv6_cidr_block`.
         """
         return pulumi.get(self, "ipv6_cidr_block")
 
     @ipv6_cidr_block.setter
-    def ipv6_cidr_block(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipv6_cidr_block(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipv6_cidr_block", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6IpamPoolId")
-    def ipv6_ipam_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipv6_ipam_pool_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of an IPv6 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Conflict with `assign_generated_ipv6_cidr_block` and `ipv6_pool`.
         """
         return pulumi.get(self, "ipv6_ipam_pool_id")
 
     @ipv6_ipam_pool_id.setter
-    def ipv6_ipam_pool_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipv6_ipam_pool_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipv6_ipam_pool_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6NetmaskLength")
-    def ipv6_netmask_length(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ipv6_netmask_length(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The netmask length of the IPv6 CIDR you want to allocate to this VPC. Requires specifying a `ipv6_ipam_pool_id`. This parameter is optional if the IPAM pool has `allocation_default_netmask` set, otherwise it or `ipv6_cidr_block` are required. Conflicts with `ipv6_cidr_block`.
         """
         return pulumi.get(self, "ipv6_netmask_length")
 
     @ipv6_netmask_length.setter
-    def ipv6_netmask_length(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ipv6_netmask_length(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ipv6_netmask_length", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6Pool")
-    def ipv6_pool(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipv6_pool(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The  ID of an IPv6 address pool from which to allocate the IPv6 CIDR block. Conflicts with `assign_generated_ipv6_cidr_block` and `ipv6_ipam_pool_id`.
         """
         return pulumi.get(self, "ipv6_pool")
 
     @ipv6_pool.setter
-    def ipv6_pool(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipv6_pool(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipv6_pool", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _VpcIpv6CidrBlockAssociationState:
     def __init__(__self__, *,
-                 assign_generated_ipv6_cidr_block: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ip_source: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv6_address_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv6_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv6_ipam_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv6_netmask_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 ipv6_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 assign_generated_ipv6_cidr_block: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ip_source: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv6_address_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv6_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv6_ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv6_netmask_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 ipv6_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VpcIpv6CidrBlockAssociation resources.
 
@@ -182,110 +182,110 @@ class _VpcIpv6CidrBlockAssociationState:
 
     @_builtins.property
     @pulumi.getter(name="assignGeneratedIpv6CidrBlock")
-    def assign_generated_ipv6_cidr_block(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def assign_generated_ipv6_cidr_block(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6_ipam_pool_id`, `ipv6_pool`, `ipv6_cidr_block` and `ipv6_netmask_length`.
         """
         return pulumi.get(self, "assign_generated_ipv6_cidr_block")
 
     @assign_generated_ipv6_cidr_block.setter
-    def assign_generated_ipv6_cidr_block(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def assign_generated_ipv6_cidr_block(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "assign_generated_ipv6_cidr_block", value)
 
     @_builtins.property
     @pulumi.getter(name="ipSource")
-    def ip_source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The source that allocated the IP address space. Values: `amazon`, `byoip`, `none`.
         """
         return pulumi.get(self, "ip_source")
 
     @ip_source.setter
-    def ip_source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_source", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6AddressAttribute")
-    def ipv6_address_attribute(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipv6_address_attribute(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Public IPv6 addresses are those advertised on the internet from AWS. Private IP addresses are not and cannot be advertised on the internet from AWS. Values: `public`, `private`.
         """
         return pulumi.get(self, "ipv6_address_attribute")
 
     @ipv6_address_attribute.setter
-    def ipv6_address_attribute(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipv6_address_attribute(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipv6_address_attribute", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6CidrBlock")
-    def ipv6_cidr_block(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipv6_cidr_block(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6_netmask_length`. This parameter is required if `ipv6_netmask_length` is not set and the IPAM pool does not have `allocation_default_netmask` set. Conflicts with `assign_generated_ipv6_cidr_block`.
         """
         return pulumi.get(self, "ipv6_cidr_block")
 
     @ipv6_cidr_block.setter
-    def ipv6_cidr_block(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipv6_cidr_block(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipv6_cidr_block", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6IpamPoolId")
-    def ipv6_ipam_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipv6_ipam_pool_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of an IPv6 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Conflict with `assign_generated_ipv6_cidr_block` and `ipv6_pool`.
         """
         return pulumi.get(self, "ipv6_ipam_pool_id")
 
     @ipv6_ipam_pool_id.setter
-    def ipv6_ipam_pool_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipv6_ipam_pool_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipv6_ipam_pool_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6NetmaskLength")
-    def ipv6_netmask_length(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ipv6_netmask_length(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The netmask length of the IPv6 CIDR you want to allocate to this VPC. Requires specifying a `ipv6_ipam_pool_id`. This parameter is optional if the IPAM pool has `allocation_default_netmask` set, otherwise it or `ipv6_cidr_block` are required. Conflicts with `ipv6_cidr_block`.
         """
         return pulumi.get(self, "ipv6_netmask_length")
 
     @ipv6_netmask_length.setter
-    def ipv6_netmask_length(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ipv6_netmask_length(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ipv6_netmask_length", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6Pool")
-    def ipv6_pool(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipv6_pool(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The  ID of an IPv6 address pool from which to allocate the IPv6 CIDR block. Conflicts with `assign_generated_ipv6_cidr_block` and `ipv6_ipam_pool_id`.
         """
         return pulumi.get(self, "ipv6_pool")
 
     @ipv6_pool.setter
-    def ipv6_pool(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipv6_pool(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipv6_pool", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the VPC to make the association with.
         """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
-    def vpc_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_id", value)
 
 
@@ -295,13 +295,13 @@ class VpcIpv6CidrBlockAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assign_generated_ipv6_cidr_block: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ipv6_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv6_ipam_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv6_netmask_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 ipv6_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 assign_generated_ipv6_cidr_block: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ipv6_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv6_ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv6_netmask_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 ipv6_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a resource to associate additional IPv6 CIDR blocks with a VPC.
@@ -418,13 +418,13 @@ class VpcIpv6CidrBlockAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assign_generated_ipv6_cidr_block: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ipv6_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv6_ipam_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv6_netmask_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 ipv6_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 assign_generated_ipv6_cidr_block: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ipv6_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv6_ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv6_netmask_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 ipv6_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -455,15 +455,15 @@ class VpcIpv6CidrBlockAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            assign_generated_ipv6_cidr_block: Optional[pulumi.Input[_builtins.bool]] = None,
-            ip_source: Optional[pulumi.Input[_builtins.str]] = None,
-            ipv6_address_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-            ipv6_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-            ipv6_ipam_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-            ipv6_netmask_length: Optional[pulumi.Input[_builtins.int]] = None,
-            ipv6_pool: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            vpc_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'VpcIpv6CidrBlockAssociation':
+            assign_generated_ipv6_cidr_block: pulumi.Input[Optional[_builtins.bool]] = None,
+            ip_source: pulumi.Input[Optional[_builtins.str]] = None,
+            ipv6_address_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+            ipv6_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+            ipv6_ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+            ipv6_netmask_length: pulumi.Input[Optional[_builtins.int]] = None,
+            ipv6_pool: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            vpc_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'VpcIpv6CidrBlockAssociation':
         """
         Get an existing VpcIpv6CidrBlockAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

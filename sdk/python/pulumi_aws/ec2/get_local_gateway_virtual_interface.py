@@ -170,7 +170,7 @@ def get_local_gateway_virtual_interface(filters: Optional[Sequence[Union['GetLoc
     import pulumi
     import pulumi_aws as aws
 
-    example = {__key: aws.ec2.get_local_gateway_virtual_interface(id=__value) for __key, __value in enumerate(example_aws_ec2_local_gateway_virtual_interface_group["localGatewayVirtualInterfaceIds"])}
+    example = {str(__key): aws.ec2.get_local_gateway_virtual_interface(id=__value) for __key, __value in enumerate(example_aws_ec2_local_gateway_virtual_interface_group["localGatewayVirtualInterfaceIds"])}
     ```
 
 
@@ -199,10 +199,10 @@ def get_local_gateway_virtual_interface(filters: Optional[Sequence[Union['GetLoc
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
         vlan=pulumi.get(__ret__, 'vlan'))
-def get_local_gateway_virtual_interface_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetLocalGatewayVirtualInterfaceFilterArgs', 'GetLocalGatewayVirtualInterfaceFilterArgsDict']]]]] = None,
-                                               id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                               region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                               tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_local_gateway_virtual_interface_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetLocalGatewayVirtualInterfaceFilterArgs', 'GetLocalGatewayVirtualInterfaceFilterArgsDict']]]]] = None,
+                                               id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                               region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                               tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocalGatewayVirtualInterfaceResult]:
     """
     Provides details about an EC2 Local Gateway Virtual Interface. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
@@ -213,7 +213,7 @@ def get_local_gateway_virtual_interface_output(filters: Optional[pulumi.Input[Op
     import pulumi
     import pulumi_aws as aws
 
-    example = {__key: aws.ec2.get_local_gateway_virtual_interface(id=__value) for __key, __value in enumerate(example_aws_ec2_local_gateway_virtual_interface_group["localGatewayVirtualInterfaceIds"])}
+    example = {str(__key): aws.ec2.get_local_gateway_virtual_interface(id=__value) for __key, __value in enumerate(example_aws_ec2_local_gateway_virtual_interface_group["localGatewayVirtualInterfaceIds"])}
     ```
 
 

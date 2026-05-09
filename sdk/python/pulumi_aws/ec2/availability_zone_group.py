@@ -21,7 +21,7 @@ class AvailabilityZoneGroupArgs:
     def __init__(__self__, *,
                  group_name: pulumi.Input[_builtins.str],
                  opt_in_status: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AvailabilityZoneGroup resource.
 
@@ -60,23 +60,23 @@ class AvailabilityZoneGroupArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _AvailabilityZoneGroupState:
     def __init__(__self__, *,
-                 group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 opt_in_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 opt_in_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AvailabilityZoneGroup resources.
 
@@ -93,38 +93,38 @@ class _AvailabilityZoneGroupState:
 
     @_builtins.property
     @pulumi.getter(name="groupName")
-    def group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Availability Zone Group.
         """
         return pulumi.get(self, "group_name")
 
     @group_name.setter
-    def group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="optInStatus")
-    def opt_in_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def opt_in_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
         """
         return pulumi.get(self, "opt_in_status")
 
     @opt_in_status.setter
-    def opt_in_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def opt_in_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "opt_in_status", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
@@ -134,9 +134,9 @@ class AvailabilityZoneGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 opt_in_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 opt_in_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an EC2 Availability Zone Group, such as updating its opt-in status.
@@ -215,9 +215,9 @@ class AvailabilityZoneGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 opt_in_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 opt_in_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -244,9 +244,9 @@ class AvailabilityZoneGroup(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            opt_in_status: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None) -> 'AvailabilityZoneGroup':
+            group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            opt_in_status: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> 'AvailabilityZoneGroup':
         """
         Get an existing AvailabilityZoneGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -325,9 +325,9 @@ def get_connection(filters: Optional[Sequence[Union['GetConnectionFilterArgs', '
         vpn_concentrator_id=pulumi.get(__ret__, 'vpn_concentrator_id'),
         vpn_connection_id=pulumi.get(__ret__, 'vpn_connection_id'),
         vpn_gateway_id=pulumi.get(__ret__, 'vpn_gateway_id'))
-def get_connection_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetConnectionFilterArgs', 'GetConnectionFilterArgsDict']]]]] = None,
-                          region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                          vpn_connection_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_connection_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetConnectionFilterArgs', 'GetConnectionFilterArgsDict']]]]] = None,
+                          region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          vpn_connection_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionResult]:
     """
     Fetches details of a Site-to-Site VPN connection. A Site-to-Site VPN connection is an Internet Protocol security (IPsec) VPN connection between a VPC and an on-premises network.

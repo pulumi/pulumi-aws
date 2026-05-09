@@ -50,14 +50,14 @@ __all__ = [
 ]
 
 class ClusterCacheNodeArgsDict(TypedDict):
-    address: NotRequired[pulumi.Input[_builtins.str]]
-    availability_zone: NotRequired[pulumi.Input[_builtins.str]]
+    address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    availability_zone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
-    outpost_arn: NotRequired[pulumi.Input[_builtins.str]]
-    port: NotRequired[pulumi.Input[_builtins.int]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    outpost_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`. Changing this value will re-create the resource.
     """
@@ -65,11 +65,11 @@ class ClusterCacheNodeArgsDict(TypedDict):
 @pulumi.input_type
 class ClusterCacheNodeArgs:
     def __init__(__self__, *,
-                 address: Optional[pulumi.Input[_builtins.str]] = None,
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 outpost_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None):
+                 address: pulumi.Input[Optional[_builtins.str]] = None,
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 outpost_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] availability_zone: Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
         :param pulumi.Input[_builtins.int] port: The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`. Changing this value will re-create the resource.
@@ -87,53 +87,53 @@ class ClusterCacheNodeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def address(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "address")
 
     @address.setter
-    def address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "address", value)
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def availability_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
         """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
-    def availability_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def availability_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "availability_zone", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="outpostArn")
-    def outpost_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def outpost_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "outpost_arn")
 
     @outpost_arn.setter
-    def outpost_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def outpost_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "outpost_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`. Changing this value will re-create the resource.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
 
@@ -223,11 +223,11 @@ class ClusterLogDeliveryConfigurationArgs:
 
 
 class GlobalReplicationGroupGlobalNodeGroupArgsDict(TypedDict):
-    global_node_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    global_node_group_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the global node group.
     """
-    slots: NotRequired[pulumi.Input[_builtins.str]]
+    slots: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The keyspace for this node group.
     """
@@ -235,8 +235,8 @@ class GlobalReplicationGroupGlobalNodeGroupArgsDict(TypedDict):
 @pulumi.input_type
 class GlobalReplicationGroupGlobalNodeGroupArgs:
     def __init__(__self__, *,
-                 global_node_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 slots: Optional[pulumi.Input[_builtins.str]] = None):
+                 global_node_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 slots: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] global_node_group_id: The ID of the global node group.
         :param pulumi.Input[_builtins.str] slots: The keyspace for this node group.
@@ -248,26 +248,26 @@ class GlobalReplicationGroupGlobalNodeGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="globalNodeGroupId")
-    def global_node_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def global_node_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the global node group.
         """
         return pulumi.get(self, "global_node_group_id")
 
     @global_node_group_id.setter
-    def global_node_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def global_node_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "global_node_group_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def slots(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def slots(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The keyspace for this node group.
         """
         return pulumi.get(self, "slots")
 
     @slots.setter
-    def slots(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def slots(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "slots", value)
 
 
@@ -404,31 +404,31 @@ class ReplicationGroupLogDeliveryConfigurationArgs:
 
 
 class ReplicationGroupNodeGroupConfigurationArgsDict(TypedDict):
-    node_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    node_group_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ID for the node group. Redis (cluster mode disabled) replication groups don't have node group IDs, so this value is ignored. For Redis (cluster mode enabled) replication groups, the node group ID is a 1 to 4 character alphanumeric string.
     """
-    primary_availability_zone: NotRequired[pulumi.Input[_builtins.str]]
+    primary_availability_zone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Availability zone for the primary node.
     """
-    primary_outpost_arn: NotRequired[pulumi.Input[_builtins.str]]
+    primary_outpost_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ARN of the Outpost for the primary node.
     """
-    replica_availability_zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    replica_availability_zones: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of availability zones for the replica nodes.
     """
-    replica_count: NotRequired[pulumi.Input[_builtins.int]]
+    replica_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Number of replica nodes in this node group. Default AWS limit is 5. Higher values may be available with a quota increase.
     """
-    replica_outpost_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    replica_outpost_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of ARNs of the Outposts for the replica nodes.
     """
-    slots: NotRequired[pulumi.Input[_builtins.str]]
+    slots: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Keyspace for this node group. Format is `start-end` (e.g., `0-5460`). For Redis (cluster mode disabled) replication groups, this value is ignored.
     """
@@ -436,13 +436,13 @@ class ReplicationGroupNodeGroupConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class ReplicationGroupNodeGroupConfigurationArgs:
     def __init__(__self__, *,
-                 node_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_outpost_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 replica_availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 replica_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 replica_outpost_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 slots: Optional[pulumi.Input[_builtins.str]] = None):
+                 node_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_outpost_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 replica_availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 replica_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 replica_outpost_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 slots: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] node_group_id: ID for the node group. Redis (cluster mode disabled) replication groups don't have node group IDs, so this value is ignored. For Redis (cluster mode enabled) replication groups, the node group ID is a 1 to 4 character alphanumeric string.
         :param pulumi.Input[_builtins.str] primary_availability_zone: Availability zone for the primary node.
@@ -469,86 +469,86 @@ class ReplicationGroupNodeGroupConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="nodeGroupId")
-    def node_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def node_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID for the node group. Redis (cluster mode disabled) replication groups don't have node group IDs, so this value is ignored. For Redis (cluster mode enabled) replication groups, the node group ID is a 1 to 4 character alphanumeric string.
         """
         return pulumi.get(self, "node_group_id")
 
     @node_group_id.setter
-    def node_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def node_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "node_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryAvailabilityZone")
-    def primary_availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_availability_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Availability zone for the primary node.
         """
         return pulumi.get(self, "primary_availability_zone")
 
     @primary_availability_zone.setter
-    def primary_availability_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_availability_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_availability_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryOutpostArn")
-    def primary_outpost_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_outpost_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the Outpost for the primary node.
         """
         return pulumi.get(self, "primary_outpost_arn")
 
     @primary_outpost_arn.setter
-    def primary_outpost_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_outpost_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_outpost_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="replicaAvailabilityZones")
-    def replica_availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def replica_availability_zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of availability zones for the replica nodes.
         """
         return pulumi.get(self, "replica_availability_zones")
 
     @replica_availability_zones.setter
-    def replica_availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def replica_availability_zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "replica_availability_zones", value)
 
     @_builtins.property
     @pulumi.getter(name="replicaCount")
-    def replica_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def replica_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of replica nodes in this node group. Default AWS limit is 5. Higher values may be available with a quota increase.
         """
         return pulumi.get(self, "replica_count")
 
     @replica_count.setter
-    def replica_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def replica_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "replica_count", value)
 
     @_builtins.property
     @pulumi.getter(name="replicaOutpostArns")
-    def replica_outpost_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def replica_outpost_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of ARNs of the Outposts for the replica nodes.
         """
         return pulumi.get(self, "replica_outpost_arns")
 
     @replica_outpost_arns.setter
-    def replica_outpost_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def replica_outpost_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "replica_outpost_arns", value)
 
     @_builtins.property
     @pulumi.getter
-    def slots(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def slots(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Keyspace for this node group. Format is `start-end` (e.g., `0-5460`). For Redis (cluster mode disabled) replication groups, this value is ignored.
         """
         return pulumi.get(self, "slots")
 
     @slots.setter
-    def slots(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def slots(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "slots", value)
 
 
@@ -584,15 +584,15 @@ class ReservedCacheNodeRecurringChargeArgs:
 
 
 class ReservedCacheNodeTimeoutsArgsDict(TypedDict):
-    create: NotRequired[pulumi.Input[_builtins.str]]
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
-    delete: NotRequired[pulumi.Input[_builtins.str]]
+    delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     """
-    update: NotRequired[pulumi.Input[_builtins.str]]
+    update: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
@@ -600,9 +600,9 @@ class ReservedCacheNodeTimeoutsArgsDict(TypedDict):
 @pulumi.input_type
 class ReservedCacheNodeTimeoutsArgs:
     def __init__(__self__, *,
-                 create: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete: Optional[pulumi.Input[_builtins.str]] = None,
-                 update: Optional[pulumi.Input[_builtins.str]] = None):
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete: pulumi.Input[Optional[_builtins.str]] = None,
+                 update: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
@@ -617,47 +617,47 @@ class ReservedCacheNodeTimeoutsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "create")
 
     @create.setter
-    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create", value)
 
     @_builtins.property
     @pulumi.getter
-    def delete(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delete(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
         """
         return pulumi.get(self, "delete")
 
     @delete.setter
-    def delete(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delete", value)
 
     @_builtins.property
     @pulumi.getter
-    def update(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def update(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "update")
 
     @update.setter
-    def update(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def update(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "update", value)
 
 
 class ServerlessCacheCacheUsageLimitsArgsDict(TypedDict):
-    data_storage: NotRequired[pulumi.Input['ServerlessCacheCacheUsageLimitsDataStorageArgsDict']]
+    data_storage: NotRequired[pulumi.Input[Optional['ServerlessCacheCacheUsageLimitsDataStorageArgs']]]
     """
     The maximum data storage limit in the cache, expressed in Gigabytes. See `data_storage` Block for details.
     """
-    ecpu_per_seconds: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServerlessCacheCacheUsageLimitsEcpuPerSecondArgsDict']]]]
+    ecpu_per_seconds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs']]]]]
     """
     The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second. See `ecpu_per_second` Block for details.
     """
@@ -665,8 +665,8 @@ class ServerlessCacheCacheUsageLimitsArgsDict(TypedDict):
 @pulumi.input_type
 class ServerlessCacheCacheUsageLimitsArgs:
     def __init__(__self__, *,
-                 data_storage: Optional[pulumi.Input['ServerlessCacheCacheUsageLimitsDataStorageArgs']] = None,
-                 ecpu_per_seconds: Optional[pulumi.Input[Sequence[pulumi.Input['ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs']]]] = None):
+                 data_storage: pulumi.Input[Optional['ServerlessCacheCacheUsageLimitsDataStorageArgs']] = None,
+                 ecpu_per_seconds: pulumi.Input[Optional[Sequence[pulumi.Input['ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs']]]] = None):
         """
         :param pulumi.Input['ServerlessCacheCacheUsageLimitsDataStorageArgs'] data_storage: The maximum data storage limit in the cache, expressed in Gigabytes. See `data_storage` Block for details.
         :param pulumi.Input[Sequence[pulumi.Input['ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs']]] ecpu_per_seconds: The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second. See `ecpu_per_second` Block for details.
@@ -678,26 +678,26 @@ class ServerlessCacheCacheUsageLimitsArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataStorage")
-    def data_storage(self) -> Optional[pulumi.Input['ServerlessCacheCacheUsageLimitsDataStorageArgs']]:
+    def data_storage(self) -> pulumi.Input[Optional['ServerlessCacheCacheUsageLimitsDataStorageArgs']]:
         """
         The maximum data storage limit in the cache, expressed in Gigabytes. See `data_storage` Block for details.
         """
         return pulumi.get(self, "data_storage")
 
     @data_storage.setter
-    def data_storage(self, value: Optional[pulumi.Input['ServerlessCacheCacheUsageLimitsDataStorageArgs']]):
+    def data_storage(self, value: pulumi.Input[Optional['ServerlessCacheCacheUsageLimitsDataStorageArgs']]):
         pulumi.set(self, "data_storage", value)
 
     @_builtins.property
     @pulumi.getter(name="ecpuPerSeconds")
-    def ecpu_per_seconds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs']]]]:
+    def ecpu_per_seconds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs']]]]:
         """
         The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second. See `ecpu_per_second` Block for details.
         """
         return pulumi.get(self, "ecpu_per_seconds")
 
     @ecpu_per_seconds.setter
-    def ecpu_per_seconds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs']]]]):
+    def ecpu_per_seconds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs']]]]):
         pulumi.set(self, "ecpu_per_seconds", value)
 
 
@@ -706,11 +706,11 @@ class ServerlessCacheCacheUsageLimitsDataStorageArgsDict(TypedDict):
     """
     The unit that the storage is measured in, in GB.
     """
-    maximum: NotRequired[pulumi.Input[_builtins.int]]
+    maximum: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
     """
-    minimum: NotRequired[pulumi.Input[_builtins.int]]
+    minimum: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The lower limit for data storage the cache is set to use. Must be between 1 and 5,000.
     """
@@ -719,8 +719,8 @@ class ServerlessCacheCacheUsageLimitsDataStorageArgsDict(TypedDict):
 class ServerlessCacheCacheUsageLimitsDataStorageArgs:
     def __init__(__self__, *,
                  unit: pulumi.Input[_builtins.str],
-                 maximum: Optional[pulumi.Input[_builtins.int]] = None,
-                 minimum: Optional[pulumi.Input[_builtins.int]] = None):
+                 maximum: pulumi.Input[Optional[_builtins.int]] = None,
+                 minimum: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] unit: The unit that the storage is measured in, in GB.
         :param pulumi.Input[_builtins.int] maximum: The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
@@ -746,35 +746,35 @@ class ServerlessCacheCacheUsageLimitsDataStorageArgs:
 
     @_builtins.property
     @pulumi.getter
-    def maximum(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maximum(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
         """
         return pulumi.get(self, "maximum")
 
     @maximum.setter
-    def maximum(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maximum(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum", value)
 
     @_builtins.property
     @pulumi.getter
-    def minimum(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def minimum(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The lower limit for data storage the cache is set to use. Must be between 1 and 5,000.
         """
         return pulumi.get(self, "minimum")
 
     @minimum.setter
-    def minimum(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def minimum(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "minimum", value)
 
 
 class ServerlessCacheCacheUsageLimitsEcpuPerSecondArgsDict(TypedDict):
-    maximum: NotRequired[pulumi.Input[_builtins.int]]
+    maximum: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum number of ECPUs the cache can consume per second. Must be between 1,000 and 15,000,000.
     """
-    minimum: NotRequired[pulumi.Input[_builtins.int]]
+    minimum: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The minimum number of ECPUs the cache can consume per second. Must be between 1,000 and 15,000,000.
     """
@@ -782,8 +782,8 @@ class ServerlessCacheCacheUsageLimitsEcpuPerSecondArgsDict(TypedDict):
 @pulumi.input_type
 class ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs:
     def __init__(__self__, *,
-                 maximum: Optional[pulumi.Input[_builtins.int]] = None,
-                 minimum: Optional[pulumi.Input[_builtins.int]] = None):
+                 maximum: pulumi.Input[Optional[_builtins.int]] = None,
+                 minimum: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] maximum: The maximum number of ECPUs the cache can consume per second. Must be between 1,000 and 15,000,000.
         :param pulumi.Input[_builtins.int] minimum: The minimum number of ECPUs the cache can consume per second. Must be between 1,000 and 15,000,000.
@@ -795,26 +795,26 @@ class ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs:
 
     @_builtins.property
     @pulumi.getter
-    def maximum(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maximum(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of ECPUs the cache can consume per second. Must be between 1,000 and 15,000,000.
         """
         return pulumi.get(self, "maximum")
 
     @maximum.setter
-    def maximum(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maximum(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum", value)
 
     @_builtins.property
     @pulumi.getter
-    def minimum(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def minimum(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minimum number of ECPUs the cache can consume per second. Must be between 1,000 and 15,000,000.
         """
         return pulumi.get(self, "minimum")
 
     @minimum.setter
-    def minimum(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def minimum(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "minimum", value)
 
 
@@ -913,15 +913,15 @@ class ServerlessCacheReaderEndpointArgs:
 
 
 class ServerlessCacheTimeoutsArgsDict(TypedDict):
-    create: NotRequired[pulumi.Input[_builtins.str]]
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
-    delete: NotRequired[pulumi.Input[_builtins.str]]
+    delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     """
-    update: NotRequired[pulumi.Input[_builtins.str]]
+    update: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
@@ -929,9 +929,9 @@ class ServerlessCacheTimeoutsArgsDict(TypedDict):
 @pulumi.input_type
 class ServerlessCacheTimeoutsArgs:
     def __init__(__self__, *,
-                 create: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete: Optional[pulumi.Input[_builtins.str]] = None,
-                 update: Optional[pulumi.Input[_builtins.str]] = None):
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete: pulumi.Input[Optional[_builtins.str]] = None,
+                 update: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
@@ -946,38 +946,38 @@ class ServerlessCacheTimeoutsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "create")
 
     @create.setter
-    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create", value)
 
     @_builtins.property
     @pulumi.getter
-    def delete(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delete(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
         """
         return pulumi.get(self, "delete")
 
     @delete.setter
-    def delete(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delete", value)
 
     @_builtins.property
     @pulumi.getter
-    def update(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def update(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "update")
 
     @update.setter
-    def update(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def update(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "update", value)
 
 
@@ -986,8 +986,8 @@ class UserAuthenticationModeArgsDict(TypedDict):
     """
     Specifies the authentication type. Possible options are: `password`, `no-password-required` or `iam`.
     """
-    password_count: NotRequired[pulumi.Input[_builtins.int]]
-    passwords: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    password_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    passwords: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies the passwords to use for authentication if `type` is set to `password`.
     """
@@ -996,8 +996,8 @@ class UserAuthenticationModeArgsDict(TypedDict):
 class UserAuthenticationModeArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 password_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 passwords: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 password_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 passwords: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Specifies the authentication type. Possible options are: `password`, `no-password-required` or `iam`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] passwords: Specifies the passwords to use for authentication if `type` is set to `password`.
@@ -1022,23 +1022,23 @@ class UserAuthenticationModeArgs:
 
     @_builtins.property
     @pulumi.getter(name="passwordCount")
-    def password_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def password_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "password_count")
 
     @password_count.setter
-    def password_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def password_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "password_count", value)
 
     @_builtins.property
     @pulumi.getter
-    def passwords(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def passwords(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the passwords to use for authentication if `type` is set to `password`.
         """
         return pulumi.get(self, "passwords")
 
     @passwords.setter
-    def passwords(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def passwords(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "passwords", value)
 
 

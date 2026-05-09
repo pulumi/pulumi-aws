@@ -43,8 +43,8 @@ public final class VpclatticeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
      * import com.pulumi.aws.vpclattice.inputs.GetAuthPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -85,8 +85,8 @@ public final class VpclatticeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
      * import com.pulumi.aws.vpclattice.inputs.GetAuthPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -127,8 +127,8 @@ public final class VpclatticeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
      * import com.pulumi.aws.vpclattice.inputs.GetAuthPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -169,8 +169,8 @@ public final class VpclatticeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
      * import com.pulumi.aws.vpclattice.inputs.GetAuthPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -211,8 +211,8 @@ public final class VpclatticeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
      * import com.pulumi.aws.vpclattice.inputs.GetAuthPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -253,8 +253,8 @@ public final class VpclatticeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
      * import com.pulumi.aws.vpclattice.inputs.GetListenerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -294,8 +294,8 @@ public final class VpclatticeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
      * import com.pulumi.aws.vpclattice.inputs.GetListenerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -335,8 +335,8 @@ public final class VpclatticeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
      * import com.pulumi.aws.vpclattice.inputs.GetListenerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -376,8 +376,8 @@ public final class VpclatticeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
      * import com.pulumi.aws.vpclattice.inputs.GetListenerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -417,8 +417,8 @@ public final class VpclatticeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
      * import com.pulumi.aws.vpclattice.inputs.GetListenerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -458,8 +458,8 @@ public final class VpclatticeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
      * import com.pulumi.aws.vpclattice.inputs.GetResourcePolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -500,8 +500,8 @@ public final class VpclatticeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
      * import com.pulumi.aws.vpclattice.inputs.GetResourcePolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -542,8 +542,8 @@ public final class VpclatticeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
      * import com.pulumi.aws.vpclattice.inputs.GetResourcePolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -584,8 +584,8 @@ public final class VpclatticeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
      * import com.pulumi.aws.vpclattice.inputs.GetResourcePolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -626,8 +626,8 @@ public final class VpclatticeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
      * import com.pulumi.aws.vpclattice.inputs.GetResourcePolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -668,8 +668,8 @@ public final class VpclatticeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
      * import com.pulumi.aws.vpclattice.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -710,8 +710,8 @@ public final class VpclatticeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
      * import com.pulumi.aws.vpclattice.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -752,8 +752,8 @@ public final class VpclatticeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
      * import com.pulumi.aws.vpclattice.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -794,8 +794,8 @@ public final class VpclatticeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
      * import com.pulumi.aws.vpclattice.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -836,8 +836,8 @@ public final class VpclatticeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
      * import com.pulumi.aws.vpclattice.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -878,8 +878,8 @@ public final class VpclatticeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
      * import com.pulumi.aws.vpclattice.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -920,8 +920,8 @@ public final class VpclatticeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
      * import com.pulumi.aws.vpclattice.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -962,8 +962,8 @@ public final class VpclatticeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
      * import com.pulumi.aws.vpclattice.inputs.GetServiceNetworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1004,8 +1004,8 @@ public final class VpclatticeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
      * import com.pulumi.aws.vpclattice.inputs.GetServiceNetworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1046,8 +1046,8 @@ public final class VpclatticeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
      * import com.pulumi.aws.vpclattice.inputs.GetServiceNetworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1088,8 +1088,8 @@ public final class VpclatticeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
      * import com.pulumi.aws.vpclattice.inputs.GetServiceNetworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1130,8 +1130,8 @@ public final class VpclatticeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
      * import com.pulumi.aws.vpclattice.inputs.GetServiceNetworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

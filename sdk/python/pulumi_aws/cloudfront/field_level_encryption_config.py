@@ -23,7 +23,7 @@ class FieldLevelEncryptionConfigArgs:
     def __init__(__self__, *,
                  content_type_profile_config: pulumi.Input['FieldLevelEncryptionConfigContentTypeProfileConfigArgs'],
                  query_arg_profile_config: pulumi.Input['FieldLevelEncryptionConfigQueryArgProfileConfigArgs'],
-                 comment: Optional[pulumi.Input[_builtins.str]] = None):
+                 comment: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a FieldLevelEncryptionConfig resource.
 
@@ -62,26 +62,26 @@ class FieldLevelEncryptionConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An optional comment about the Field Level Encryption Config.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
 
 @pulumi.input_type
 class _FieldLevelEncryptionConfigState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 caller_reference: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_type_profile_config: Optional[pulumi.Input['FieldLevelEncryptionConfigContentTypeProfileConfigArgs']] = None,
-                 etag: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_arg_profile_config: Optional[pulumi.Input['FieldLevelEncryptionConfigQueryArgProfileConfigArgs']] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 caller_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_type_profile_config: pulumi.Input[Optional['FieldLevelEncryptionConfigContentTypeProfileConfigArgs']] = None,
+                 etag: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_arg_profile_config: pulumi.Input[Optional['FieldLevelEncryptionConfigQueryArgProfileConfigArgs']] = None):
         """
         Input properties used for looking up and filtering FieldLevelEncryptionConfig resources.
 
@@ -107,74 +107,74 @@ class _FieldLevelEncryptionConfigState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Field Level Encryption Config ARN.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="callerReference")
-    def caller_reference(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def caller_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Internal value used by CloudFront to allow future updates to the Field Level Encryption Config.
         """
         return pulumi.get(self, "caller_reference")
 
     @caller_reference.setter
-    def caller_reference(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def caller_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "caller_reference", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An optional comment about the Field Level Encryption Config.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="contentTypeProfileConfig")
-    def content_type_profile_config(self) -> Optional[pulumi.Input['FieldLevelEncryptionConfigContentTypeProfileConfigArgs']]:
+    def content_type_profile_config(self) -> pulumi.Input[Optional['FieldLevelEncryptionConfigContentTypeProfileConfigArgs']]:
         """
         Content Type Profile Config specifies when to forward content if a content type isn't recognized and profiles to use as by default in a request if a query argument doesn't specify a profile to use.
         """
         return pulumi.get(self, "content_type_profile_config")
 
     @content_type_profile_config.setter
-    def content_type_profile_config(self, value: Optional[pulumi.Input['FieldLevelEncryptionConfigContentTypeProfileConfigArgs']]):
+    def content_type_profile_config(self, value: pulumi.Input[Optional['FieldLevelEncryptionConfigContentTypeProfileConfigArgs']]):
         pulumi.set(self, "content_type_profile_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def etag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The current version of the Field Level Encryption Config. For example: `E2QWRUHAPOMQZL`.
         """
         return pulumi.get(self, "etag")
 
     @etag.setter
-    def etag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def etag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "etag", value)
 
     @_builtins.property
     @pulumi.getter(name="queryArgProfileConfig")
-    def query_arg_profile_config(self) -> Optional[pulumi.Input['FieldLevelEncryptionConfigQueryArgProfileConfigArgs']]:
+    def query_arg_profile_config(self) -> pulumi.Input[Optional['FieldLevelEncryptionConfigQueryArgProfileConfigArgs']]:
         """
         Query Arg Profile Config that specifies when to forward content if a profile isn't found and the profile that can be provided as a query argument in a request.
         """
         return pulumi.get(self, "query_arg_profile_config")
 
     @query_arg_profile_config.setter
-    def query_arg_profile_config(self, value: Optional[pulumi.Input['FieldLevelEncryptionConfigQueryArgProfileConfigArgs']]):
+    def query_arg_profile_config(self, value: pulumi.Input[Optional['FieldLevelEncryptionConfigQueryArgProfileConfigArgs']]):
         pulumi.set(self, "query_arg_profile_config", value)
 
 
@@ -184,9 +184,9 @@ class FieldLevelEncryptionConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_type_profile_config: Optional[pulumi.Input[Union['FieldLevelEncryptionConfigContentTypeProfileConfigArgs', 'FieldLevelEncryptionConfigContentTypeProfileConfigArgsDict']]] = None,
-                 query_arg_profile_config: Optional[pulumi.Input[Union['FieldLevelEncryptionConfigQueryArgProfileConfigArgs', 'FieldLevelEncryptionConfigQueryArgProfileConfigArgsDict']]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_type_profile_config: pulumi.Input[Optional[Union['FieldLevelEncryptionConfigContentTypeProfileConfigArgs', 'FieldLevelEncryptionConfigContentTypeProfileConfigArgsDict']]] = None,
+                 query_arg_profile_config: pulumi.Input[Optional[Union['FieldLevelEncryptionConfigQueryArgProfileConfigArgs', 'FieldLevelEncryptionConfigQueryArgProfileConfigArgsDict']]] = None,
                  __props__=None):
         """
         Provides a CloudFront Field-level Encryption Config resource.
@@ -295,9 +295,9 @@ class FieldLevelEncryptionConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_type_profile_config: Optional[pulumi.Input[Union['FieldLevelEncryptionConfigContentTypeProfileConfigArgs', 'FieldLevelEncryptionConfigContentTypeProfileConfigArgsDict']]] = None,
-                 query_arg_profile_config: Optional[pulumi.Input[Union['FieldLevelEncryptionConfigQueryArgProfileConfigArgs', 'FieldLevelEncryptionConfigQueryArgProfileConfigArgsDict']]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_type_profile_config: pulumi.Input[Optional[Union['FieldLevelEncryptionConfigContentTypeProfileConfigArgs', 'FieldLevelEncryptionConfigContentTypeProfileConfigArgsDict']]] = None,
+                 query_arg_profile_config: pulumi.Input[Optional[Union['FieldLevelEncryptionConfigQueryArgProfileConfigArgs', 'FieldLevelEncryptionConfigQueryArgProfileConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -327,12 +327,12 @@ class FieldLevelEncryptionConfig(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            caller_reference: Optional[pulumi.Input[_builtins.str]] = None,
-            comment: Optional[pulumi.Input[_builtins.str]] = None,
-            content_type_profile_config: Optional[pulumi.Input[Union['FieldLevelEncryptionConfigContentTypeProfileConfigArgs', 'FieldLevelEncryptionConfigContentTypeProfileConfigArgsDict']]] = None,
-            etag: Optional[pulumi.Input[_builtins.str]] = None,
-            query_arg_profile_config: Optional[pulumi.Input[Union['FieldLevelEncryptionConfigQueryArgProfileConfigArgs', 'FieldLevelEncryptionConfigQueryArgProfileConfigArgsDict']]] = None) -> 'FieldLevelEncryptionConfig':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            caller_reference: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            content_type_profile_config: pulumi.Input[Optional[Union['FieldLevelEncryptionConfigContentTypeProfileConfigArgs', 'FieldLevelEncryptionConfigContentTypeProfileConfigArgsDict']]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            query_arg_profile_config: pulumi.Input[Optional[Union['FieldLevelEncryptionConfigQueryArgProfileConfigArgs', 'FieldLevelEncryptionConfigQueryArgProfileConfigArgsDict']]] = None) -> 'FieldLevelEncryptionConfig':
         """
         Get an existing FieldLevelEncryptionConfig resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -359,65 +359,65 @@ export interface StreamProcessorState {
     /**
      * ARN of the Stream Processor.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * See `dataSharingPreference`.
      */
-    dataSharingPreference?: pulumi.Input<inputs.rekognition.StreamProcessorDataSharingPreference>;
+    dataSharingPreference?: pulumi.Input<inputs.rekognition.StreamProcessorDataSharingPreference | undefined>;
     /**
      * Input video stream. See `input`.
      */
-    input?: pulumi.Input<inputs.rekognition.StreamProcessorInput>;
+    input?: pulumi.Input<inputs.rekognition.StreamProcessorInput | undefined>;
     /**
      * Optional parameter for label detection stream processors.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * The name of the Stream Processor.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notificationChannel`.
      */
-    notificationChannel?: pulumi.Input<inputs.rekognition.StreamProcessorNotificationChannel>;
+    notificationChannel?: pulumi.Input<inputs.rekognition.StreamProcessorNotificationChannel | undefined>;
     /**
      * Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
      */
-    output?: pulumi.Input<inputs.rekognition.StreamProcessorOutput>;
+    output?: pulumi.Input<inputs.rekognition.StreamProcessorOutput | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regionsOfInterest`.
      */
-    regionsOfInterests?: pulumi.Input<pulumi.Input<inputs.rekognition.StreamProcessorRegionsOfInterest>[]>;
+    regionsOfInterests?: pulumi.Input<pulumi.Input<inputs.rekognition.StreamProcessorRegionsOfInterest>[] | undefined>;
     /**
      * The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
     /**
      * Input parameters used in a streaming video analyzed by a stream processor. See `settings`.
      *
      * The following arguments are optional:
      */
-    settings?: pulumi.Input<inputs.rekognition.StreamProcessorSettings>;
+    settings?: pulumi.Input<inputs.rekognition.StreamProcessorSettings | undefined>;
     /**
      * (**Deprecated**) ARN of the Stream Processor.
      * Use `arn` instead.
      *
      * @deprecated Use 'arn' instead. This attribute will be removed in a future version of the provider.
      */
-    streamProcessorArn?: pulumi.Input<string>;
+    streamProcessorArn?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.rekognition.StreamProcessorTimeouts>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.rekognition.StreamProcessorTimeouts | undefined>;
 }
 
 /**
@@ -427,7 +427,7 @@ export interface StreamProcessorArgs {
     /**
      * See `dataSharingPreference`.
      */
-    dataSharingPreference?: pulumi.Input<inputs.rekognition.StreamProcessorDataSharingPreference>;
+    dataSharingPreference?: pulumi.Input<inputs.rekognition.StreamProcessorDataSharingPreference | undefined>;
     /**
      * Input video stream. See `input`.
      */
@@ -435,15 +435,15 @@ export interface StreamProcessorArgs {
     /**
      * Optional parameter for label detection stream processors.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * The name of the Stream Processor.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notificationChannel`.
      */
-    notificationChannel?: pulumi.Input<inputs.rekognition.StreamProcessorNotificationChannel>;
+    notificationChannel?: pulumi.Input<inputs.rekognition.StreamProcessorNotificationChannel | undefined>;
     /**
      * Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
      */
@@ -451,11 +451,11 @@ export interface StreamProcessorArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regionsOfInterest`.
      */
-    regionsOfInterests?: pulumi.Input<pulumi.Input<inputs.rekognition.StreamProcessorRegionsOfInterest>[]>;
+    regionsOfInterests?: pulumi.Input<pulumi.Input<inputs.rekognition.StreamProcessorRegionsOfInterest>[] | undefined>;
     /**
      * The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
      */
@@ -469,6 +469,6 @@ export interface StreamProcessorArgs {
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.rekognition.StreamProcessorTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.rekognition.StreamProcessorTimeouts | undefined>;
 }

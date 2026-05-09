@@ -219,12 +219,12 @@ def get_resource_share(filters: Optional[Sequence[Union['GetResourceShareFilterA
         resource_share_status=pulumi.get(__ret__, 'resource_share_status'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_resource_share_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetResourceShareFilterArgs', 'GetResourceShareFilterArgsDict']]]]] = None,
-                              name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                              region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                              resource_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                              resource_share_status: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                              tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_resource_share_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetResourceShareFilterArgs', 'GetResourceShareFilterArgsDict']]]]] = None,
+                              name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              resource_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                              resource_share_status: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceShareResult]:
     """
     `ram.ResourceShare` Retrieve information about a RAM Resource Share.

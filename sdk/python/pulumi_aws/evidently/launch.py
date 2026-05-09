@@ -23,13 +23,13 @@ class LaunchArgs:
     def __init__(__self__, *,
                  groups: pulumi.Input[Sequence[pulumi.Input['LaunchGroupArgs']]],
                  project: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 metric_monitors: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchMetricMonitorArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 randomization_salt: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 scheduled_splits_config: Optional[pulumi.Input['LaunchScheduledSplitsConfigArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric_monitors: pulumi.Input[Optional[Sequence[pulumi.Input['LaunchMetricMonitorArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 randomization_salt: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 scheduled_splits_config: pulumi.Input[Optional['LaunchScheduledSplitsConfigArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Launch resource.
 
@@ -86,109 +86,109 @@ class LaunchArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the description of the launch.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="metricMonitors")
-    def metric_monitors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchMetricMonitorArgs']]]]:
+    def metric_monitors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LaunchMetricMonitorArgs']]]]:
         """
         One or up to three blocks that define the metrics that will be used to monitor the launch performance. Detailed below.
         """
         return pulumi.get(self, "metric_monitors")
 
     @metric_monitors.setter
-    def metric_monitors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchMetricMonitorArgs']]]]):
+    def metric_monitors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LaunchMetricMonitorArgs']]]]):
         pulumi.set(self, "metric_monitors", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name for the new launch. Minimum length of `1`. Maximum length of `127`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="randomizationSalt")
-    def randomization_salt(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def randomization_salt(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and randomizationSalt. If you omit randomizationSalt, Evidently uses the launch name as the randomizationSalt.
         """
         return pulumi.get(self, "randomization_salt")
 
     @randomization_salt.setter
-    def randomization_salt(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def randomization_salt(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "randomization_salt", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="scheduledSplitsConfig")
-    def scheduled_splits_config(self) -> Optional[pulumi.Input['LaunchScheduledSplitsConfigArgs']]:
+    def scheduled_splits_config(self) -> pulumi.Input[Optional['LaunchScheduledSplitsConfigArgs']]:
         """
         A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
         """
         return pulumi.get(self, "scheduled_splits_config")
 
     @scheduled_splits_config.setter
-    def scheduled_splits_config(self, value: Optional[pulumi.Input['LaunchScheduledSplitsConfigArgs']]):
+    def scheduled_splits_config(self, value: pulumi.Input[Optional['LaunchScheduledSplitsConfigArgs']]):
         pulumi.set(self, "scheduled_splits_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Tags to apply to the launch. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _LaunchState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 executions: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchExecutionArgs']]]] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchGroupArgs']]]] = None,
-                 last_updated_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 metric_monitors: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchMetricMonitorArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project: Optional[pulumi.Input[_builtins.str]] = None,
-                 randomization_salt: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 scheduled_splits_config: Optional[pulumi.Input['LaunchScheduledSplitsConfigArgs']] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 status_reason: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 executions: pulumi.Input[Optional[Sequence[pulumi.Input['LaunchExecutionArgs']]]] = None,
+                 groups: pulumi.Input[Optional[Sequence[pulumi.Input['LaunchGroupArgs']]]] = None,
+                 last_updated_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric_monitors: pulumi.Input[Optional[Sequence[pulumi.Input['LaunchMetricMonitorArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project: pulumi.Input[Optional[_builtins.str]] = None,
+                 randomization_salt: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 scheduled_splits_config: pulumi.Input[Optional['LaunchScheduledSplitsConfigArgs']] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 status_reason: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Launch resources.
 
@@ -247,206 +247,206 @@ class _LaunchState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the launch.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date and time that the launch is created.
         """
         return pulumi.get(self, "created_time")
 
     @created_time.setter
-    def created_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the description of the launch.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def executions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchExecutionArgs']]]]:
+    def executions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LaunchExecutionArgs']]]]:
         """
         A block that contains information about the start and end times of the launch. Detailed below
         """
         return pulumi.get(self, "executions")
 
     @executions.setter
-    def executions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchExecutionArgs']]]]):
+    def executions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LaunchExecutionArgs']]]]):
         pulumi.set(self, "executions", value)
 
     @_builtins.property
     @pulumi.getter
-    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchGroupArgs']]]]:
+    def groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LaunchGroupArgs']]]]:
         """
         One or up to five blocks that contain the feature and variations that are to be used for the launch. Detailed below.
         """
         return pulumi.get(self, "groups")
 
     @groups.setter
-    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchGroupArgs']]]]):
+    def groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LaunchGroupArgs']]]]):
         pulumi.set(self, "groups", value)
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedTime")
-    def last_updated_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_updated_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date and time that the launch was most recently updated.
         """
         return pulumi.get(self, "last_updated_time")
 
     @last_updated_time.setter
-    def last_updated_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_updated_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_updated_time", value)
 
     @_builtins.property
     @pulumi.getter(name="metricMonitors")
-    def metric_monitors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchMetricMonitorArgs']]]]:
+    def metric_monitors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LaunchMetricMonitorArgs']]]]:
         """
         One or up to three blocks that define the metrics that will be used to monitor the launch performance. Detailed below.
         """
         return pulumi.get(self, "metric_monitors")
 
     @metric_monitors.setter
-    def metric_monitors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchMetricMonitorArgs']]]]):
+    def metric_monitors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LaunchMetricMonitorArgs']]]]):
         pulumi.set(self, "metric_monitors", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name for the new launch. Minimum length of `1`. Maximum length of `127`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def project(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name or ARN of the project that is to contain the new launch.
         """
         return pulumi.get(self, "project")
 
     @project.setter
-    def project(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project", value)
 
     @_builtins.property
     @pulumi.getter(name="randomizationSalt")
-    def randomization_salt(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def randomization_salt(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and randomizationSalt. If you omit randomizationSalt, Evidently uses the launch name as the randomizationSalt.
         """
         return pulumi.get(self, "randomization_salt")
 
     @randomization_salt.setter
-    def randomization_salt(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def randomization_salt(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "randomization_salt", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="scheduledSplitsConfig")
-    def scheduled_splits_config(self) -> Optional[pulumi.Input['LaunchScheduledSplitsConfigArgs']]:
+    def scheduled_splits_config(self) -> pulumi.Input[Optional['LaunchScheduledSplitsConfigArgs']]:
         """
         A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
         """
         return pulumi.get(self, "scheduled_splits_config")
 
     @scheduled_splits_config.setter
-    def scheduled_splits_config(self, value: Optional[pulumi.Input['LaunchScheduledSplitsConfigArgs']]):
+    def scheduled_splits_config(self, value: pulumi.Input[Optional['LaunchScheduledSplitsConfigArgs']]):
         pulumi.set(self, "scheduled_splits_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The current state of the launch. Valid values are `CREATED`, `UPDATING`, `RUNNING`, `COMPLETED`, and `CANCELLED`.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="statusReason")
-    def status_reason(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status_reason(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If the launch was stopped, this is the string that was entered by the person who stopped the launch, to explain why it was stopped.
         """
         return pulumi.get(self, "status_reason")
 
     @status_reason.setter
-    def status_reason(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status_reason(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status_reason", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Tags to apply to the launch. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of launch.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -456,15 +456,15 @@ class Launch(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchGroupArgs', 'LaunchGroupArgsDict']]]]] = None,
-                 metric_monitors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchMetricMonitorArgs', 'LaunchMetricMonitorArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project: Optional[pulumi.Input[_builtins.str]] = None,
-                 randomization_salt: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 scheduled_splits_config: Optional[pulumi.Input[Union['LaunchScheduledSplitsConfigArgs', 'LaunchScheduledSplitsConfigArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchGroupArgs', 'LaunchGroupArgsDict']]]]] = None,
+                 metric_monitors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchMetricMonitorArgs', 'LaunchMetricMonitorArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project: pulumi.Input[Optional[_builtins.str]] = None,
+                 randomization_salt: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 scheduled_splits_config: pulumi.Input[Optional[Union['LaunchScheduledSplitsConfigArgs', 'LaunchScheduledSplitsConfigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a CloudWatch Evidently Launch resource.
@@ -1035,15 +1035,15 @@ class Launch(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchGroupArgs', 'LaunchGroupArgsDict']]]]] = None,
-                 metric_monitors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchMetricMonitorArgs', 'LaunchMetricMonitorArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project: Optional[pulumi.Input[_builtins.str]] = None,
-                 randomization_salt: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 scheduled_splits_config: Optional[pulumi.Input[Union['LaunchScheduledSplitsConfigArgs', 'LaunchScheduledSplitsConfigArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchGroupArgs', 'LaunchGroupArgsDict']]]]] = None,
+                 metric_monitors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchMetricMonitorArgs', 'LaunchMetricMonitorArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project: pulumi.Input[Optional[_builtins.str]] = None,
+                 randomization_salt: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 scheduled_splits_config: pulumi.Input[Optional[Union['LaunchScheduledSplitsConfigArgs', 'LaunchScheduledSplitsConfigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1084,23 +1084,23 @@ class Launch(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            created_time: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            executions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchExecutionArgs', 'LaunchExecutionArgsDict']]]]] = None,
-            groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchGroupArgs', 'LaunchGroupArgsDict']]]]] = None,
-            last_updated_time: Optional[pulumi.Input[_builtins.str]] = None,
-            metric_monitors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchMetricMonitorArgs', 'LaunchMetricMonitorArgsDict']]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            project: Optional[pulumi.Input[_builtins.str]] = None,
-            randomization_salt: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            scheduled_splits_config: Optional[pulumi.Input[Union['LaunchScheduledSplitsConfigArgs', 'LaunchScheduledSplitsConfigArgsDict']]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            status_reason: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None) -> 'Launch':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            created_time: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            executions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchExecutionArgs', 'LaunchExecutionArgsDict']]]]] = None,
+            groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchGroupArgs', 'LaunchGroupArgsDict']]]]] = None,
+            last_updated_time: pulumi.Input[Optional[_builtins.str]] = None,
+            metric_monitors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchMetricMonitorArgs', 'LaunchMetricMonitorArgsDict']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            project: pulumi.Input[Optional[_builtins.str]] = None,
+            randomization_salt: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            scheduled_splits_config: pulumi.Input[Optional[Union['LaunchScheduledSplitsConfigArgs', 'LaunchScheduledSplitsConfigArgsDict']]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            status_reason: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> 'Launch':
         """
         Get an existing Launch resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

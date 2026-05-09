@@ -138,25 +138,25 @@ export interface SubscriberNotificationState {
     /**
      * Specify the configuration using which you want to create the subscriber notification..
      */
-    configuration?: pulumi.Input<inputs.securitylake.SubscriberNotificationConfiguration>;
+    configuration?: pulumi.Input<inputs.securitylake.SubscriberNotificationConfiguration | undefined>;
     /**
      * (**Deprecated**) The subscriber endpoint to which exception messages are posted.
      *
      * @deprecated Use subscriberEndpoint instead
      */
-    endpointId?: pulumi.Input<string>;
+    endpointId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The subscriber endpoint to which exception messages are posted.
      */
-    subscriberEndpoint?: pulumi.Input<string>;
+    subscriberEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The subscriber ID for the notification subscription.
      */
-    subscriberId?: pulumi.Input<string>;
+    subscriberId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -170,7 +170,7 @@ export interface SubscriberNotificationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The subscriber ID for the notification subscription.
      */

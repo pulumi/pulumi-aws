@@ -214,57 +214,57 @@ export interface FolderState {
     /**
      * ARN of the folder.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
      */
-    awsAccountId?: pulumi.Input<string>;
+    awsAccountId?: pulumi.Input<string | undefined>;
     /**
      * The time that the folder was created.
      */
-    createdTime?: pulumi.Input<string>;
+    createdTime?: pulumi.Input<string | undefined>;
     /**
      * Identifier for the folder.
      */
-    folderId?: pulumi.Input<string>;
+    folderId?: pulumi.Input<string | undefined>;
     /**
      * An array of ancestor ARN strings for the folder. Empty for root-level folders.
      */
-    folderPaths?: pulumi.Input<pulumi.Input<string>[]>;
+    folderPaths?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
      */
-    folderType?: pulumi.Input<string>;
+    folderType?: pulumi.Input<string | undefined>;
     /**
      * The time that the folder was last updated.
      */
-    lastUpdatedTime?: pulumi.Input<string>;
+    lastUpdatedTime?: pulumi.Input<string | undefined>;
     /**
      * Display name for the folder.
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
      */
-    parentFolderArn?: pulumi.Input<string>;
+    parentFolderArn?: pulumi.Input<string | undefined>;
     /**
      * A set of resource permissions on the folder. Maximum of 64 items. See permissions.
      */
-    permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.FolderPermission>[]>;
+    permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.FolderPermission>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -274,7 +274,7 @@ export interface FolderArgs {
     /**
      * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
      */
-    awsAccountId?: pulumi.Input<string>;
+    awsAccountId?: pulumi.Input<string | undefined>;
     /**
      * Identifier for the folder.
      */
@@ -282,27 +282,27 @@ export interface FolderArgs {
     /**
      * The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
      */
-    folderType?: pulumi.Input<string>;
+    folderType?: pulumi.Input<string | undefined>;
     /**
      * Display name for the folder.
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
      */
-    parentFolderArn?: pulumi.Input<string>;
+    parentFolderArn?: pulumi.Input<string | undefined>;
     /**
      * A set of resource permissions on the folder. Maximum of 64 items. See permissions.
      */
-    permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.FolderPermission>[]>;
+    permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.FolderPermission>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

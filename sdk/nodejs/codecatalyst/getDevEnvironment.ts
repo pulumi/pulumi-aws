@@ -167,11 +167,11 @@ export interface GetDevEnvironmentOutputArgs {
     /**
      * The user-specified alias for the Dev Environment.
      */
-    alias?: pulumi.Input<string>;
+    alias?: pulumi.Input<string | undefined>;
     /**
      * The system-generated unique ID of the user who created the Dev Environment.
      */
-    creatorId?: pulumi.Input<string>;
+    creatorId?: pulumi.Input<string | undefined>;
     /**
      * - (Required) The system-generated unique ID of the Dev Environment for which you want to view information. To retrieve a list of Dev Environment IDs, use [ListDevEnvironments](https://docs.aws.amazon.com/codecatalyst/latest/APIReference/API_ListDevEnvironments.html).
      */
@@ -183,14 +183,14 @@ export interface GetDevEnvironmentOutputArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The source repository that contains the branch to clone into the Dev Environment.
      */
-    repositories?: pulumi.Input<pulumi.Input<inputs.codecatalyst.GetDevEnvironmentRepositoryArgs>[]>;
+    repositories?: pulumi.Input<pulumi.Input<inputs.codecatalyst.GetDevEnvironmentRepositoryArgs>[] | undefined>;
     /**
      * The name of the space.
      */
     spaceName: pulumi.Input<string>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

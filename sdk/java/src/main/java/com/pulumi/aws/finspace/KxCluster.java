@@ -46,8 +46,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.finspace.inputs.KxClusterCacheStorageConfigurationArgs;
  * import com.pulumi.aws.finspace.inputs.KxClusterDatabaseArgs;
  * import com.pulumi.aws.finspace.inputs.KxClusterCodeArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -82,7 +82,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .databases(KxClusterDatabaseArgs.builder()
  *                 .databaseName(exampleAwsFinspaceKxDatabase.name())
- *                 .cacheConfiguration(List.of(Map.ofEntries(
+ *                 .cacheConfiguration(Arrays.asList(Map.ofEntries(
  *                     Map.entry("cacheType", "CACHE_1000"),
  *                     Map.entry("dbPaths", "/")
  *                 )))

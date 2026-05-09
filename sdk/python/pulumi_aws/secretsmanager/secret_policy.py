@@ -21,8 +21,8 @@ class SecretPolicyArgs:
     def __init__(__self__, *,
                  policy: pulumi.Input[_builtins.str],
                  secret_arn: pulumi.Input[_builtins.str],
-                 block_public_policy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 block_public_policy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SecretPolicy resource.
 
@@ -68,36 +68,36 @@ class SecretPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="blockPublicPolicy")
-    def block_public_policy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def block_public_policy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
         """
         return pulumi.get(self, "block_public_policy")
 
     @block_public_policy.setter
-    def block_public_policy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def block_public_policy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "block_public_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _SecretPolicyState:
     def __init__(__self__, *,
-                 block_public_policy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 block_public_policy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SecretPolicy resources.
 
@@ -119,43 +119,43 @@ class _SecretPolicyState:
 
     @_builtins.property
     @pulumi.getter(name="blockPublicPolicy")
-    def block_public_policy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def block_public_policy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
         """
         return pulumi.get(self, "block_public_policy")
 
     @block_public_policy.setter
-    def block_public_policy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def block_public_policy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "block_public_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
         """
         return pulumi.get(self, "policy")
 
     @policy.setter
-    def policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="secretArn")
-    def secret_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secret_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Secret ARN.
 
@@ -164,7 +164,7 @@ class _SecretPolicyState:
         return pulumi.get(self, "secret_arn")
 
     @secret_arn.setter
-    def secret_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secret_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secret_arn", value)
 
 
@@ -174,10 +174,10 @@ class SecretPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 block_public_policy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 block_public_policy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a resource to manage AWS Secrets Manager secret policy.
@@ -293,10 +293,10 @@ class SecretPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 block_public_policy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 block_public_policy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -324,10 +324,10 @@ class SecretPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            block_public_policy: Optional[pulumi.Input[_builtins.bool]] = None,
-            policy: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            secret_arn: Optional[pulumi.Input[_builtins.str]] = None) -> 'SecretPolicy':
+            block_public_policy: pulumi.Input[Optional[_builtins.bool]] = None,
+            policy: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            secret_arn: pulumi.Input[Optional[_builtins.str]] = None) -> 'SecretPolicy':
         """
         Get an existing SecretPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -25,13 +25,13 @@ class FileCacheArgs:
                  file_cache_type_version: pulumi.Input[_builtins.str],
                  storage_capacity: pulumi.Input[_builtins.int],
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 copy_tags_to_data_repository_associations: Optional[pulumi.Input[_builtins.bool]] = None,
-                 data_repository_associations: Optional[pulumi.Input[Sequence[pulumi.Input['FileCacheDataRepositoryAssociationArgs']]]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 lustre_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['FileCacheLustreConfigurationArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 copy_tags_to_data_repository_associations: pulumi.Input[Optional[_builtins.bool]] = None,
+                 data_repository_associations: pulumi.Input[Optional[Sequence[pulumi.Input['FileCacheDataRepositoryAssociationArgs']]]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 lustre_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['FileCacheLustreConfigurationArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a FileCache resource.
 
@@ -121,19 +121,19 @@ class FileCacheArgs:
 
     @_builtins.property
     @pulumi.getter(name="copyTagsToDataRepositoryAssociations")
-    def copy_tags_to_data_repository_associations(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def copy_tags_to_data_repository_associations(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean flag indicating whether tags for the cache should be copied to data repository associations. This value defaults to false.
         """
         return pulumi.get(self, "copy_tags_to_data_repository_associations")
 
     @copy_tags_to_data_repository_associations.setter
-    def copy_tags_to_data_repository_associations(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def copy_tags_to_data_repository_associations(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "copy_tags_to_data_repository_associations", value)
 
     @_builtins.property
     @pulumi.getter(name="dataRepositoryAssociations")
-    def data_repository_associations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FileCacheDataRepositoryAssociationArgs']]]]:
+    def data_repository_associations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FileCacheDataRepositoryAssociationArgs']]]]:
         """
         See the `data_repository_association` configuration block. Max of 8.
         A list of up to 8 configurations for data repository associations (DRAs) to be created during the cache creation. The DRAs link the cache to either an Amazon S3 data repository or a Network File System (NFS) data repository that supports the NFSv3 protocol. The DRA configurations must meet the following requirements: 1) All configurations on the list must be of the same data repository type, either all S3 or all NFS. A cache can't link to different data repository types at the same time. 2) An NFS DRA must link to an NFS file system that supports the NFSv3 protocol. DRA automatic import and automatic export is not supported.
@@ -141,92 +141,92 @@ class FileCacheArgs:
         return pulumi.get(self, "data_repository_associations")
 
     @data_repository_associations.setter
-    def data_repository_associations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FileCacheDataRepositoryAssociationArgs']]]]):
+    def data_repository_associations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FileCacheDataRepositoryAssociationArgs']]]]):
         pulumi.set(self, "data_repository_associations", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the AWS Key Management Service (AWS KMS) key to use for encrypting data on an Amazon File Cache. If a KmsKeyId isn't specified, the Amazon FSx-managed AWS KMS key for your account is used.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="lustreConfigurations")
-    def lustre_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FileCacheLustreConfigurationArgs']]]]:
+    def lustre_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FileCacheLustreConfigurationArgs']]]]:
         """
         See the `lustre_configuration` block. Required when `file_cache_type` is `LUSTRE`.
         """
         return pulumi.get(self, "lustre_configurations")
 
     @lustre_configurations.setter
-    def lustre_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FileCacheLustreConfigurationArgs']]]]):
+    def lustre_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FileCacheLustreConfigurationArgs']]]]):
         pulumi.set(self, "lustre_configurations", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
         """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
-    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_group_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _FileCacheState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 copy_tags_to_data_repository_associations: Optional[pulumi.Input[_builtins.bool]] = None,
-                 data_repository_association_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 data_repository_associations: Optional[pulumi.Input[Sequence[pulumi.Input['FileCacheDataRepositoryAssociationArgs']]]] = None,
-                 dns_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_cache_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_cache_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_cache_type_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 lustre_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['FileCacheLustreConfigurationArgs']]]] = None,
-                 network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 owner_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 storage_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 copy_tags_to_data_repository_associations: pulumi.Input[Optional[_builtins.bool]] = None,
+                 data_repository_association_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 data_repository_associations: pulumi.Input[Optional[Sequence[pulumi.Input['FileCacheDataRepositoryAssociationArgs']]]] = None,
+                 dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_cache_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_cache_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_cache_type_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 lustre_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['FileCacheLustreConfigurationArgs']]]] = None,
+                 network_interface_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 storage_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FileCache resources.
 
@@ -292,43 +292,43 @@ class _FileCacheState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) for the resource.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="copyTagsToDataRepositoryAssociations")
-    def copy_tags_to_data_repository_associations(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def copy_tags_to_data_repository_associations(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean flag indicating whether tags for the cache should be copied to data repository associations. This value defaults to false.
         """
         return pulumi.get(self, "copy_tags_to_data_repository_associations")
 
     @copy_tags_to_data_repository_associations.setter
-    def copy_tags_to_data_repository_associations(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def copy_tags_to_data_repository_associations(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "copy_tags_to_data_repository_associations", value)
 
     @_builtins.property
     @pulumi.getter(name="dataRepositoryAssociationIds")
-    def data_repository_association_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def data_repository_association_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of IDs of data repository associations that are associated with this cache.
         """
         return pulumi.get(self, "data_repository_association_ids")
 
     @data_repository_association_ids.setter
-    def data_repository_association_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def data_repository_association_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "data_repository_association_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="dataRepositoryAssociations")
-    def data_repository_associations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FileCacheDataRepositoryAssociationArgs']]]]:
+    def data_repository_associations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FileCacheDataRepositoryAssociationArgs']]]]:
         """
         See the `data_repository_association` configuration block. Max of 8.
         A list of up to 8 configurations for data repository associations (DRAs) to be created during the cache creation. The DRAs link the cache to either an Amazon S3 data repository or a Network File System (NFS) data repository that supports the NFSv3 protocol. The DRA configurations must meet the following requirements: 1) All configurations on the list must be of the same data repository type, either all S3 or all NFS. A cache can't link to different data repository types at the same time. 2) An NFS DRA must link to an NFS file system that supports the NFSv3 protocol. DRA automatic import and automatic export is not supported.
@@ -336,141 +336,141 @@ class _FileCacheState:
         return pulumi.get(self, "data_repository_associations")
 
     @data_repository_associations.setter
-    def data_repository_associations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FileCacheDataRepositoryAssociationArgs']]]]):
+    def data_repository_associations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FileCacheDataRepositoryAssociationArgs']]]]):
         pulumi.set(self, "data_repository_associations", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsName")
-    def dns_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Domain Name System (DNS) name for the cache.
         """
         return pulumi.get(self, "dns_name")
 
     @dns_name.setter
-    def dns_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_name", value)
 
     @_builtins.property
     @pulumi.getter(name="fileCacheId")
-    def file_cache_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def file_cache_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The system-generated, unique ID of the cache.
         """
         return pulumi.get(self, "file_cache_id")
 
     @file_cache_id.setter
-    def file_cache_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def file_cache_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "file_cache_id", value)
 
     @_builtins.property
     @pulumi.getter(name="fileCacheType")
-    def file_cache_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def file_cache_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of cache that you're creating. The only supported value is `LUSTRE`.
         """
         return pulumi.get(self, "file_cache_type")
 
     @file_cache_type.setter
-    def file_cache_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def file_cache_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "file_cache_type", value)
 
     @_builtins.property
     @pulumi.getter(name="fileCacheTypeVersion")
-    def file_cache_type_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def file_cache_type_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version for the type of cache that you're creating. The only supported value is `2.12`.
         """
         return pulumi.get(self, "file_cache_type_version")
 
     @file_cache_type_version.setter
-    def file_cache_type_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def file_cache_type_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "file_cache_type_version", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ID of the AWS Key Management Service (AWS KMS) key to use for encrypting data on an Amazon File Cache. If a KmsKeyId isn't specified, the Amazon FSx-managed AWS KMS key for your account is used.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="lustreConfigurations")
-    def lustre_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FileCacheLustreConfigurationArgs']]]]:
+    def lustre_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FileCacheLustreConfigurationArgs']]]]:
         """
         See the `lustre_configuration` block. Required when `file_cache_type` is `LUSTRE`.
         """
         return pulumi.get(self, "lustre_configurations")
 
     @lustre_configurations.setter
-    def lustre_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FileCacheLustreConfigurationArgs']]]]):
+    def lustre_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FileCacheLustreConfigurationArgs']]]]):
         pulumi.set(self, "lustre_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaceIds")
-    def network_interface_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def network_interface_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of network interface IDs.
         """
         return pulumi.get(self, "network_interface_ids")
 
     @network_interface_ids.setter
-    def network_interface_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def network_interface_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "network_interface_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "owner_id")
 
     @owner_id.setter
-    def owner_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
         """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
-    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_group_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="storageCapacity")
-    def storage_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def storage_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
         """
         return pulumi.get(self, "storage_capacity")
 
     @storage_capacity.setter
-    def storage_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def storage_capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "storage_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subnet_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
 
@@ -479,40 +479,40 @@ class _FileCacheState:
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
-    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subnet_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subnet_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of your virtual private cloud (VPC).
         """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
-    def vpc_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_id", value)
 
 
@@ -522,17 +522,17 @@ class FileCache(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 copy_tags_to_data_repository_associations: Optional[pulumi.Input[_builtins.bool]] = None,
-                 data_repository_associations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FileCacheDataRepositoryAssociationArgs', 'FileCacheDataRepositoryAssociationArgsDict']]]]] = None,
-                 file_cache_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_cache_type_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 lustre_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FileCacheLustreConfigurationArgs', 'FileCacheLustreConfigurationArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 storage_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 copy_tags_to_data_repository_associations: pulumi.Input[Optional[_builtins.bool]] = None,
+                 data_repository_associations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FileCacheDataRepositoryAssociationArgs', 'FileCacheDataRepositoryAssociationArgsDict']]]]] = None,
+                 file_cache_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_cache_type_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 lustre_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FileCacheLustreConfigurationArgs', 'FileCacheLustreConfigurationArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 storage_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Resource for managing an Amazon File Cache cache.
@@ -670,17 +670,17 @@ class FileCache(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 copy_tags_to_data_repository_associations: Optional[pulumi.Input[_builtins.bool]] = None,
-                 data_repository_associations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FileCacheDataRepositoryAssociationArgs', 'FileCacheDataRepositoryAssociationArgsDict']]]]] = None,
-                 file_cache_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_cache_type_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 lustre_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FileCacheLustreConfigurationArgs', 'FileCacheLustreConfigurationArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 storage_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 copy_tags_to_data_repository_associations: pulumi.Input[Optional[_builtins.bool]] = None,
+                 data_repository_associations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FileCacheDataRepositoryAssociationArgs', 'FileCacheDataRepositoryAssociationArgsDict']]]]] = None,
+                 file_cache_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_cache_type_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 lustre_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FileCacheLustreConfigurationArgs', 'FileCacheLustreConfigurationArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 storage_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -727,25 +727,25 @@ class FileCache(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            copy_tags_to_data_repository_associations: Optional[pulumi.Input[_builtins.bool]] = None,
-            data_repository_association_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            data_repository_associations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FileCacheDataRepositoryAssociationArgs', 'FileCacheDataRepositoryAssociationArgsDict']]]]] = None,
-            dns_name: Optional[pulumi.Input[_builtins.str]] = None,
-            file_cache_id: Optional[pulumi.Input[_builtins.str]] = None,
-            file_cache_type: Optional[pulumi.Input[_builtins.str]] = None,
-            file_cache_type_version: Optional[pulumi.Input[_builtins.str]] = None,
-            kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-            lustre_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FileCacheLustreConfigurationArgs', 'FileCacheLustreConfigurationArgsDict']]]]] = None,
-            network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            owner_id: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            storage_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-            subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            vpc_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'FileCache':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            copy_tags_to_data_repository_associations: pulumi.Input[Optional[_builtins.bool]] = None,
+            data_repository_association_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            data_repository_associations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FileCacheDataRepositoryAssociationArgs', 'FileCacheDataRepositoryAssociationArgsDict']]]]] = None,
+            dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+            file_cache_id: pulumi.Input[Optional[_builtins.str]] = None,
+            file_cache_type: pulumi.Input[Optional[_builtins.str]] = None,
+            file_cache_type_version: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            lustre_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FileCacheLustreConfigurationArgs', 'FileCacheLustreConfigurationArgsDict']]]]] = None,
+            network_interface_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            storage_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            vpc_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'FileCache':
         """
         Get an existing FileCache resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

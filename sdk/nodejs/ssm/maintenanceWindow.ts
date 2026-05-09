@@ -190,59 +190,59 @@ export interface MaintenanceWindowState {
     /**
      * Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
      */
-    allowUnassociatedTargets?: pulumi.Input<boolean>;
+    allowUnassociatedTargets?: pulumi.Input<boolean | undefined>;
     /**
      * The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
      */
-    cutoff?: pulumi.Input<number>;
+    cutoff?: pulumi.Input<number | undefined>;
     /**
      * A description for the maintenance window.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The duration of the Maintenance Window in hours.
      */
-    duration?: pulumi.Input<number>;
+    duration?: pulumi.Input<number | undefined>;
     /**
      * Whether the maintenance window is enabled. Default: `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to no longer run the maintenance window.
      */
-    endDate?: pulumi.Input<string>;
+    endDate?: pulumi.Input<string | undefined>;
     /**
      * The name of the maintenance window.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
      */
-    schedule?: pulumi.Input<string>;
+    schedule?: pulumi.Input<string | undefined>;
     /**
      * The number of days to wait after the date and time specified by a CRON expression before running the maintenance window. Valid range is `1` to `6`.
      */
-    scheduleOffset?: pulumi.Input<number>;
+    scheduleOffset?: pulumi.Input<number | undefined>;
     /**
      * Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
      */
-    scheduleTimezone?: pulumi.Input<string>;
+    scheduleTimezone?: pulumi.Input<string | undefined>;
     /**
      * Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
      */
-    startDate?: pulumi.Input<string>;
+    startDate?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -252,7 +252,7 @@ export interface MaintenanceWindowArgs {
     /**
      * Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
      */
-    allowUnassociatedTargets?: pulumi.Input<boolean>;
+    allowUnassociatedTargets?: pulumi.Input<boolean | undefined>;
     /**
      * The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
      */
@@ -260,7 +260,7 @@ export interface MaintenanceWindowArgs {
     /**
      * A description for the maintenance window.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The duration of the Maintenance Window in hours.
      */
@@ -268,19 +268,19 @@ export interface MaintenanceWindowArgs {
     /**
      * Whether the maintenance window is enabled. Default: `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to no longer run the maintenance window.
      */
-    endDate?: pulumi.Input<string>;
+    endDate?: pulumi.Input<string | undefined>;
     /**
      * The name of the maintenance window.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
      */
@@ -288,17 +288,17 @@ export interface MaintenanceWindowArgs {
     /**
      * The number of days to wait after the date and time specified by a CRON expression before running the maintenance window. Valid range is `1` to `6`.
      */
-    scheduleOffset?: pulumi.Input<number>;
+    scheduleOffset?: pulumi.Input<number | undefined>;
     /**
      * Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
      */
-    scheduleTimezone?: pulumi.Input<string>;
+    scheduleTimezone?: pulumi.Input<string | undefined>;
     /**
      * Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
      */
-    startDate?: pulumi.Input<string>;
+    startDate?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

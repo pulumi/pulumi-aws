@@ -21,13 +21,13 @@ __all__ = ['ConnectionGroupArgs', 'ConnectionGroup']
 @pulumi.input_type
 class ConnectionGroupArgs:
     def __init__(__self__, *,
-                 anycast_ip_list_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ipv6_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['ConnectionGroupTimeoutsArgs']] = None,
-                 wait_for_deployment: Optional[pulumi.Input[_builtins.bool]] = None):
+                 anycast_ip_list_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ipv6_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['ConnectionGroupTimeoutsArgs']] = None,
+                 wait_for_deployment: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ConnectionGroup resource.
 
@@ -54,100 +54,100 @@ class ConnectionGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="anycastIpListId")
-    def anycast_ip_list_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def anycast_ip_list_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the associated Anycast IP List. `ipv6_enabled` must not be set to `true` in order to set this argument
         """
         return pulumi.get(self, "anycast_ip_list_id")
 
     @anycast_ip_list_id.setter
-    def anycast_ip_list_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def anycast_ip_list_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "anycast_ip_list_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the connection group is enabled. Default is `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6Enabled")
-    def ipv6_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ipv6_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether IPv6 is enabled for the connection group. Default is `false`.
         """
         return pulumi.get(self, "ipv6_enabled")
 
     @ipv6_enabled.setter
-    def ipv6_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ipv6_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ipv6_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the connection group.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['ConnectionGroupTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['ConnectionGroupTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['ConnectionGroupTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['ConnectionGroupTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter(name="waitForDeployment")
-    def wait_for_deployment(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def wait_for_deployment(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "wait_for_deployment")
 
     @wait_for_deployment.setter
-    def wait_for_deployment(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def wait_for_deployment(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "wait_for_deployment", value)
 
 
 @pulumi.input_type
 class _ConnectionGroupState:
     def __init__(__self__, *,
-                 anycast_ip_list_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 etag: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv6_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_default: Optional[pulumi.Input[_builtins.bool]] = None,
-                 last_modified_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['ConnectionGroupTimeoutsArgs']] = None,
-                 wait_for_deployment: Optional[pulumi.Input[_builtins.bool]] = None):
+                 anycast_ip_list_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 etag: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv6_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_default: pulumi.Input[Optional[_builtins.bool]] = None,
+                 last_modified_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['ConnectionGroupTimeoutsArgs']] = None,
+                 wait_for_deployment: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering ConnectionGroup resources.
 
@@ -195,164 +195,164 @@ class _ConnectionGroupState:
 
     @_builtins.property
     @pulumi.getter(name="anycastIpListId")
-    def anycast_ip_list_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def anycast_ip_list_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the associated Anycast IP List. `ipv6_enabled` must not be set to `true` in order to set this argument
         """
         return pulumi.get(self, "anycast_ip_list_id")
 
     @anycast_ip_list_id.setter
-    def anycast_ip_list_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def anycast_ip_list_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "anycast_ip_list_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the connection group.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the connection group is enabled. Default is `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def etag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Current version of the connection group.
         """
         return pulumi.get(self, "etag")
 
     @etag.setter
-    def etag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def etag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "etag", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6Enabled")
-    def ipv6_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ipv6_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether IPv6 is enabled for the connection group. Default is `false`.
         """
         return pulumi.get(self, "ipv6_enabled")
 
     @ipv6_enabled.setter
-    def ipv6_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ipv6_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ipv6_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="isDefault")
-    def is_default(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_default(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the connection group is the default connection group for the distribution tenants.
         """
         return pulumi.get(self, "is_default")
 
     @is_default.setter
-    def is_default(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_default(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_default", value)
 
     @_builtins.property
     @pulumi.getter(name="lastModifiedTime")
-    def last_modified_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_modified_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date and time when the connection group was last modified.
         """
         return pulumi.get(self, "last_modified_time")
 
     @last_modified_time.setter
-    def last_modified_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_modified_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_modified_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the connection group.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="routingEndpoint")
-    def routing_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The routing endpoint (also known as the DNS name) that is assigned to the connection group, such as d111111abcdef8.cloudfront.net.
         """
         return pulumi.get(self, "routing_endpoint")
 
     @routing_endpoint.setter
-    def routing_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_endpoint", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Current status of the connection group.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['ConnectionGroupTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['ConnectionGroupTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['ConnectionGroupTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['ConnectionGroupTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter(name="waitForDeployment")
-    def wait_for_deployment(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def wait_for_deployment(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "wait_for_deployment")
 
     @wait_for_deployment.setter
-    def wait_for_deployment(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def wait_for_deployment(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "wait_for_deployment", value)
 
 
@@ -362,13 +362,13 @@ class ConnectionGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 anycast_ip_list_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ipv6_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['ConnectionGroupTimeoutsArgs', 'ConnectionGroupTimeoutsArgsDict']]] = None,
-                 wait_for_deployment: Optional[pulumi.Input[_builtins.bool]] = None,
+                 anycast_ip_list_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ipv6_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ConnectionGroupTimeoutsArgs', 'ConnectionGroupTimeoutsArgsDict']]] = None,
+                 wait_for_deployment: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Creates an Amazon CloudFront Connection Group.
@@ -455,13 +455,13 @@ class ConnectionGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 anycast_ip_list_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ipv6_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['ConnectionGroupTimeoutsArgs', 'ConnectionGroupTimeoutsArgsDict']]] = None,
-                 wait_for_deployment: Optional[pulumi.Input[_builtins.bool]] = None,
+                 anycast_ip_list_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ipv6_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ConnectionGroupTimeoutsArgs', 'ConnectionGroupTimeoutsArgsDict']]] = None,
+                 wait_for_deployment: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -495,20 +495,20 @@ class ConnectionGroup(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            anycast_ip_list_id: Optional[pulumi.Input[_builtins.str]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            etag: Optional[pulumi.Input[_builtins.str]] = None,
-            ipv6_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            is_default: Optional[pulumi.Input[_builtins.bool]] = None,
-            last_modified_time: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            routing_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: Optional[pulumi.Input[Union['ConnectionGroupTimeoutsArgs', 'ConnectionGroupTimeoutsArgsDict']]] = None,
-            wait_for_deployment: Optional[pulumi.Input[_builtins.bool]] = None) -> 'ConnectionGroup':
+            anycast_ip_list_id: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            ipv6_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            is_default: pulumi.Input[Optional[_builtins.bool]] = None,
+            last_modified_time: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['ConnectionGroupTimeoutsArgs', 'ConnectionGroupTimeoutsArgsDict']]] = None,
+            wait_for_deployment: pulumi.Input[Optional[_builtins.bool]] = None) -> 'ConnectionGroup':
         """
         Get an existing ConnectionGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

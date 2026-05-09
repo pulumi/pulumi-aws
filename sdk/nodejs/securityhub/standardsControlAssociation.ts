@@ -50,7 +50,7 @@ import * as utilities from "../utilities";
  *         input: iam1.standardsControlAssociations.map(__item => __item.standardsArn),
  *     }).result.map((v, k) => ({key: k, value: v}))) {
  *         iam1StandardsControlAssociation.push(new aws.securityhub.StandardsControlAssociation(`iam_1-${range.key}`, {
- *             standardsArn: range.key,
+ *             standardsArn: String(range.key),
  *             securityControlId: iam1.securityControlId,
  *             associationStatus: "DISABLED",
  *             updatedReason: "Not needed",
@@ -177,25 +177,25 @@ export interface StandardsControlAssociationState {
     /**
      * The desired enablement status of the control in the standard. Valid values: `ENABLED`, `DISABLED`.
      */
-    associationStatus?: pulumi.Input<string>;
+    associationStatus?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The unique identifier for the security control whose enablement status you want to update.
      */
-    securityControlId?: pulumi.Input<string>;
+    securityControlId?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the standard in which you want to update the control's enablement status.
      *
      * The following arguments are optional:
      */
-    standardsArn?: pulumi.Input<string>;
+    standardsArn?: pulumi.Input<string | undefined>;
     /**
      * The reason for updating the control's enablement status in the standard. Required when `associationStatus` is `DISABLED`.
      */
-    updatedReason?: pulumi.Input<string>;
+    updatedReason?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -209,7 +209,7 @@ export interface StandardsControlAssociationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The unique identifier for the security control whose enablement status you want to update.
      */
@@ -223,5 +223,5 @@ export interface StandardsControlAssociationArgs {
     /**
      * The reason for updating the control's enablement status in the standard. Required when `associationStatus` is `DISABLED`.
      */
-    updatedReason?: pulumi.Input<string>;
+    updatedReason?: pulumi.Input<string | undefined>;
 }

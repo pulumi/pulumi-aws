@@ -183,35 +183,35 @@ export interface ProtectionGroupState {
     /**
      * Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.
      */
-    aggregation?: pulumi.Input<string>;
+    aggregation?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
      */
-    members?: pulumi.Input<pulumi.Input<string>[]>;
+    members?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The criteria to use to choose the protected resources for inclusion in the group.
      */
-    pattern?: pulumi.Input<string>;
+    pattern?: pulumi.Input<string | undefined>;
     /**
      * The ARN (Amazon Resource Name) of the protection group.
      */
-    protectionGroupArn?: pulumi.Input<string>;
+    protectionGroupArn?: pulumi.Input<string | undefined>;
     /**
      * The name of the protection group.
      */
-    protectionGroupId?: pulumi.Input<string>;
+    protectionGroupId?: pulumi.Input<string | undefined>;
     /**
      * The resource type to include in the protection group. You must set this when you set `pattern` to BY_RESOURCE_TYPE and you must not set it for any other `pattern` setting.
      */
-    resourceType?: pulumi.Input<string>;
+    resourceType?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -225,7 +225,7 @@ export interface ProtectionGroupArgs {
     /**
      * The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
      */
-    members?: pulumi.Input<pulumi.Input<string>[]>;
+    members?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The criteria to use to choose the protected resources for inclusion in the group.
      */
@@ -237,9 +237,9 @@ export interface ProtectionGroupArgs {
     /**
      * The resource type to include in the protection group. You must set this when you set `pattern` to BY_RESOURCE_TYPE and you must not set it for any other `pattern` setting.
      */
-    resourceType?: pulumi.Input<string>;
+    resourceType?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

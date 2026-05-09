@@ -382,52 +382,52 @@ export interface TlsInspectionConfigurationState {
     /**
      * ARN of the TLS Inspection Configuration.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Certificate Manager certificate block. See Certificate Authority below for details.
      */
-    certificateAuthorities?: pulumi.Input<pulumi.Input<inputs.networkfirewall.TlsInspectionConfigurationCertificateAuthority>[]>;
+    certificateAuthorities?: pulumi.Input<pulumi.Input<inputs.networkfirewall.TlsInspectionConfigurationCertificateAuthority>[] | undefined>;
     /**
      * List of certificate blocks describing certificates associated with the TLS inspection configuration. See Certificates below for details.
      */
-    certificates?: pulumi.Input<pulumi.Input<inputs.networkfirewall.TlsInspectionConfigurationCertificate>[]>;
+    certificates?: pulumi.Input<pulumi.Input<inputs.networkfirewall.TlsInspectionConfigurationCertificate>[] | undefined>;
     /**
      * Description of the TLS inspection configuration.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Encryption configuration block. Detailed below.
      */
-    encryptionConfigurations?: pulumi.Input<pulumi.Input<inputs.networkfirewall.TlsInspectionConfigurationEncryptionConfiguration>[]>;
+    encryptionConfigurations?: pulumi.Input<pulumi.Input<inputs.networkfirewall.TlsInspectionConfigurationEncryptionConfiguration>[] | undefined>;
     /**
      * Descriptive name of the TLS inspection configuration.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Number of firewall policies that use this TLS inspection configuration.
      */
-    numberOfAssociations?: pulumi.Input<number>;
+    numberOfAssociations?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.networkfirewall.TlsInspectionConfigurationTimeouts>;
+    region?: pulumi.Input<string | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.networkfirewall.TlsInspectionConfigurationTimeouts | undefined>;
     /**
      * TLS inspection configuration block. Detailed below.
      *
      * The following arguments are optional:
      */
-    tlsInspectionConfiguration?: pulumi.Input<inputs.networkfirewall.TlsInspectionConfigurationTlsInspectionConfiguration>;
+    tlsInspectionConfiguration?: pulumi.Input<inputs.networkfirewall.TlsInspectionConfigurationTlsInspectionConfiguration | undefined>;
     /**
      * A unique identifier for the TLS inspection configuration.
      */
-    tlsInspectionConfigurationId?: pulumi.Input<string>;
+    tlsInspectionConfigurationId?: pulumi.Input<string | undefined>;
     /**
      * String token used when updating the rule group.
      */
-    updateToken?: pulumi.Input<string>;
+    updateToken?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -437,21 +437,21 @@ export interface TlsInspectionConfigurationArgs {
     /**
      * Description of the TLS inspection configuration.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Encryption configuration block. Detailed below.
      */
-    encryptionConfigurations?: pulumi.Input<pulumi.Input<inputs.networkfirewall.TlsInspectionConfigurationEncryptionConfiguration>[]>;
+    encryptionConfigurations?: pulumi.Input<pulumi.Input<inputs.networkfirewall.TlsInspectionConfigurationEncryptionConfiguration>[] | undefined>;
     /**
      * Descriptive name of the TLS inspection configuration.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.networkfirewall.TlsInspectionConfigurationTimeouts>;
+    region?: pulumi.Input<string | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.networkfirewall.TlsInspectionConfigurationTimeouts | undefined>;
     /**
      * TLS inspection configuration block. Detailed below.
      *

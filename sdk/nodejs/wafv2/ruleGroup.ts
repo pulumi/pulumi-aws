@@ -473,56 +473,56 @@ export interface RuleGroupState {
     /**
      * The ARN of the WAF rule group.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
      */
-    capacity?: pulumi.Input<number>;
+    capacity?: pulumi.Input<number | undefined>;
     /**
      * Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
      */
-    customResponseBodies?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupCustomResponseBody>[]>;
+    customResponseBodies?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupCustomResponseBody>[] | undefined>;
     /**
      * A friendly description of the rule group.
      */
-    description?: pulumi.Input<string>;
-    lockToken?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
+    lockToken?: pulumi.Input<string | undefined>;
     /**
      * A friendly name of the rule group.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRule>[] | undefined>;
     /**
      * Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing rule group into a configuration with `rulesJson` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html) for the JSON structure.
      */
-    rulesJson?: pulumi.Input<string>;
+    rulesJson?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
      */
-    scope?: pulumi.Input<string>;
+    scope?: pulumi.Input<string | undefined>;
     /**
      * An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
      */
-    visibilityConfig?: pulumi.Input<inputs.wafv2.RuleGroupVisibilityConfig>;
+    visibilityConfig?: pulumi.Input<inputs.wafv2.RuleGroupVisibilityConfig | undefined>;
 }
 
 /**
@@ -536,31 +536,31 @@ export interface RuleGroupArgs {
     /**
      * Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
      */
-    customResponseBodies?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupCustomResponseBody>[]>;
+    customResponseBodies?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupCustomResponseBody>[] | undefined>;
     /**
      * A friendly description of the rule group.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A friendly name of the rule group.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRule>[] | undefined>;
     /**
      * Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing rule group into a configuration with `rulesJson` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html) for the JSON structure.
      */
-    rulesJson?: pulumi.Input<string>;
+    rulesJson?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
      */
@@ -568,7 +568,7 @@ export interface RuleGroupArgs {
     /**
      * An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
      */

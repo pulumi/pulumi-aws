@@ -148,41 +148,41 @@ export interface UserState {
     /**
      * ARN of the appstream user.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
      */
-    authenticationType?: pulumi.Input<string>;
+    authenticationType?: pulumi.Input<string | undefined>;
     /**
      * Date and time, in UTC and extended RFC 3339 format, when the user was created.
      */
-    createdTime?: pulumi.Input<string>;
+    createdTime?: pulumi.Input<string | undefined>;
     /**
      * Whether the user in the user pool is enabled.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * First name, or given name, of the user.
      */
-    firstName?: pulumi.Input<string>;
+    firstName?: pulumi.Input<string | undefined>;
     /**
      * Last name, or surname, of the user.
      */
-    lastName?: pulumi.Input<string>;
+    lastName?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Send an email notification.
      */
-    sendEmailNotification?: pulumi.Input<boolean>;
+    sendEmailNotification?: pulumi.Input<boolean | undefined>;
     /**
      * Email address of the user.
      *
      * The following arguments are optional:
      */
-    userName?: pulumi.Input<string>;
+    userName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -196,23 +196,23 @@ export interface UserArgs {
     /**
      * Whether the user in the user pool is enabled.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * First name, or given name, of the user.
      */
-    firstName?: pulumi.Input<string>;
+    firstName?: pulumi.Input<string | undefined>;
     /**
      * Last name, or surname, of the user.
      */
-    lastName?: pulumi.Input<string>;
+    lastName?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Send an email notification.
      */
-    sendEmailNotification?: pulumi.Input<boolean>;
+    sendEmailNotification?: pulumi.Input<boolean | undefined>;
     /**
      * Email address of the user.
      *

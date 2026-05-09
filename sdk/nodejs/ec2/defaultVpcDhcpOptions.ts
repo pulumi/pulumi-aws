@@ -145,32 +145,32 @@ export interface DefaultVpcDhcpOptionsState {
     /**
      * The ARN of the DHCP Options Set.
      */
-    arn?: pulumi.Input<string>;
-    domainName?: pulumi.Input<string>;
-    domainNameServers?: pulumi.Input<string>;
-    ipv6AddressPreferredLeaseTime?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
+    domainName?: pulumi.Input<string | undefined>;
+    domainNameServers?: pulumi.Input<string | undefined>;
+    ipv6AddressPreferredLeaseTime?: pulumi.Input<string | undefined>;
     /**
      * List of NETBIOS name servers.
      */
-    netbiosNameServers?: pulumi.Input<string>;
+    netbiosNameServers?: pulumi.Input<string | undefined>;
     /**
      * The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
      */
-    netbiosNodeType?: pulumi.Input<string>;
-    ntpServers?: pulumi.Input<string>;
+    netbiosNodeType?: pulumi.Input<string | undefined>;
+    ntpServers?: pulumi.Input<string | undefined>;
     /**
      * The ID of the AWS account that owns the DHCP options set.
      */
-    ownerId?: pulumi.Input<string>;
+    ownerId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -180,13 +180,13 @@ export interface DefaultVpcDhcpOptionsArgs {
     /**
      * The ID of the AWS account that owns the DHCP options set.
      */
-    ownerId?: pulumi.Input<string>;
+    ownerId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

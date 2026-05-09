@@ -22,8 +22,8 @@ __all__ = ['AllowedImagesSettingsArgs', 'AllowedImagesSettings']
 class AllowedImagesSettingsArgs:
     def __init__(__self__, *,
                  state: pulumi.Input[_builtins.str],
-                 image_criterions: Optional[pulumi.Input[Sequence[pulumi.Input['AllowedImagesSettingsImageCriterionArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 image_criterions: pulumi.Input[Optional[Sequence[pulumi.Input['AllowedImagesSettingsImageCriterionArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AllowedImagesSettings resource.
 
@@ -51,35 +51,35 @@ class AllowedImagesSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="imageCriterions")
-    def image_criterions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AllowedImagesSettingsImageCriterionArgs']]]]:
+    def image_criterions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AllowedImagesSettingsImageCriterionArgs']]]]:
         """
         List of image criteria. Maximum of 10 criterion blocks allowed. See `image_criterion` below.
         """
         return pulumi.get(self, "image_criterions")
 
     @image_criterions.setter
-    def image_criterions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AllowedImagesSettingsImageCriterionArgs']]]]):
+    def image_criterions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AllowedImagesSettingsImageCriterionArgs']]]]):
         pulumi.set(self, "image_criterions", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _AllowedImagesSettingsState:
     def __init__(__self__, *,
-                 image_criterions: Optional[pulumi.Input[Sequence[pulumi.Input['AllowedImagesSettingsImageCriterionArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None):
+                 image_criterions: pulumi.Input[Optional[Sequence[pulumi.Input['AllowedImagesSettingsImageCriterionArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AllowedImagesSettings resources.
 
@@ -96,38 +96,38 @@ class _AllowedImagesSettingsState:
 
     @_builtins.property
     @pulumi.getter(name="imageCriterions")
-    def image_criterions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AllowedImagesSettingsImageCriterionArgs']]]]:
+    def image_criterions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AllowedImagesSettingsImageCriterionArgs']]]]:
         """
         List of image criteria. Maximum of 10 criterion blocks allowed. See `image_criterion` below.
         """
         return pulumi.get(self, "image_criterions")
 
     @image_criterions.setter
-    def image_criterions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AllowedImagesSettingsImageCriterionArgs']]]]):
+    def image_criterions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AllowedImagesSettingsImageCriterionArgs']]]]):
         pulumi.set(self, "image_criterions", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         State of the allowed images settings. Valid values are `enabled` or `audit-mode`.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state", value)
 
 
@@ -137,9 +137,9 @@ class AllowedImagesSettings(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 image_criterions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AllowedImagesSettingsImageCriterionArgs', 'AllowedImagesSettingsImageCriterionArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
+                 image_criterions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AllowedImagesSettingsImageCriterionArgs', 'AllowedImagesSettingsImageCriterionArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides EC2 allowed images settings for an AWS account. This feature allows you to control which AMIs can be used to launch EC2 instances in your account based on specified criteria.
@@ -266,9 +266,9 @@ class AllowedImagesSettings(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 image_criterions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AllowedImagesSettingsImageCriterionArgs', 'AllowedImagesSettingsImageCriterionArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
+                 image_criterions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AllowedImagesSettingsImageCriterionArgs', 'AllowedImagesSettingsImageCriterionArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -293,9 +293,9 @@ class AllowedImagesSettings(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            image_criterions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AllowedImagesSettingsImageCriterionArgs', 'AllowedImagesSettingsImageCriterionArgsDict']]]]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            state: Optional[pulumi.Input[_builtins.str]] = None) -> 'AllowedImagesSettings':
+            image_criterions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AllowedImagesSettingsImageCriterionArgs', 'AllowedImagesSettingsImageCriterionArgsDict']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None) -> 'AllowedImagesSettings':
         """
         Get an existing AllowedImagesSettings resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

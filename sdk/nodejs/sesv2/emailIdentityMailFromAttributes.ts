@@ -115,19 +115,19 @@ export interface EmailIdentityMailFromAttributesState {
     /**
      * The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
      */
-    behaviorOnMxFailure?: pulumi.Input<string>;
+    behaviorOnMxFailure?: pulumi.Input<string | undefined>;
     /**
      * The verified email identity.
      */
-    emailIdentity?: pulumi.Input<string>;
+    emailIdentity?: pulumi.Input<string | undefined>;
     /**
      * The custom MAIL FROM domain that you want the verified identity to use. Required if `behaviorOnMxFailure` is `REJECT_MESSAGE`.
      */
-    mailFromDomain?: pulumi.Input<string>;
+    mailFromDomain?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -137,7 +137,7 @@ export interface EmailIdentityMailFromAttributesArgs {
     /**
      * The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
      */
-    behaviorOnMxFailure?: pulumi.Input<string>;
+    behaviorOnMxFailure?: pulumi.Input<string | undefined>;
     /**
      * The verified email identity.
      */
@@ -145,9 +145,9 @@ export interface EmailIdentityMailFromAttributesArgs {
     /**
      * The custom MAIL FROM domain that you want the verified identity to use. Required if `behaviorOnMxFailure` is `REJECT_MESSAGE`.
      */
-    mailFromDomain?: pulumi.Input<string>;
+    mailFromDomain?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

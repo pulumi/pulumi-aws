@@ -24,12 +24,12 @@ class HostedTransitVirtualInterfaceArgs:
                  connection_id: pulumi.Input[_builtins.str],
                  owner_account_id: pulumi.Input[_builtins.str],
                  vlan: pulumi.Input[_builtins.int],
-                 amazon_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 bgp_auth_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 mtu: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 amazon_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 bgp_auth_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 mtu: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a HostedTransitVirtualInterface resource.
 
@@ -125,95 +125,95 @@ class HostedTransitVirtualInterfaceArgs:
 
     @_builtins.property
     @pulumi.getter(name="amazonAddress")
-    def amazon_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def amazon_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
         """
         return pulumi.get(self, "amazon_address")
 
     @amazon_address.setter
-    def amazon_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def amazon_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "amazon_address", value)
 
     @_builtins.property
     @pulumi.getter(name="bgpAuthKey")
-    def bgp_auth_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bgp_auth_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The authentication key for BGP configuration.
         """
         return pulumi.get(self, "bgp_auth_key")
 
     @bgp_auth_key.setter
-    def bgp_auth_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bgp_auth_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bgp_auth_key", value)
 
     @_builtins.property
     @pulumi.getter(name="customerAddress")
-    def customer_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customer_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
         """
         return pulumi.get(self, "customer_address")
 
     @customer_address.setter
-    def customer_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customer_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customer_address", value)
 
     @_builtins.property
     @pulumi.getter
-    def mtu(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def mtu(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection. The MTU of a virtual transit interface can be either `1500` or `8500` (jumbo frames). Default is `1500`.
         """
         return pulumi.get(self, "mtu")
 
     @mtu.setter
-    def mtu(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def mtu(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "mtu", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name for the virtual interface.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _HostedTransitVirtualInterfaceState:
     def __init__(__self__, *,
-                 address_family: Optional[pulumi.Input[_builtins.str]] = None,
-                 amazon_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 amazon_side_asn: Optional[pulumi.Input[_builtins.str]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_device: Optional[pulumi.Input[_builtins.str]] = None,
-                 bgp_asn: Optional[pulumi.Input[_builtins.int]] = None,
-                 bgp_auth_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 jumbo_frame_capable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 mtu: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 vlan: Optional[pulumi.Input[_builtins.int]] = None):
+                 address_family: pulumi.Input[Optional[_builtins.str]] = None,
+                 amazon_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 amazon_side_asn: pulumi.Input[Optional[_builtins.str]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_device: pulumi.Input[Optional[_builtins.str]] = None,
+                 bgp_asn: pulumi.Input[Optional[_builtins.int]] = None,
+                 bgp_auth_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 jumbo_frame_capable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 mtu: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 vlan: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering HostedTransitVirtualInterface resources.
 
@@ -265,179 +265,179 @@ class _HostedTransitVirtualInterfaceState:
 
     @_builtins.property
     @pulumi.getter(name="addressFamily")
-    def address_family(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def address_family(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The address family for the BGP peer. `ipv4 ` or `ipv6`.
         """
         return pulumi.get(self, "address_family")
 
     @address_family.setter
-    def address_family(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def address_family(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "address_family", value)
 
     @_builtins.property
     @pulumi.getter(name="amazonAddress")
-    def amazon_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def amazon_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
         """
         return pulumi.get(self, "amazon_address")
 
     @amazon_address.setter
-    def amazon_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def amazon_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "amazon_address", value)
 
     @_builtins.property
     @pulumi.getter(name="amazonSideAsn")
-    def amazon_side_asn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def amazon_side_asn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "amazon_side_asn")
 
     @amazon_side_asn.setter
-    def amazon_side_asn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def amazon_side_asn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "amazon_side_asn", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the virtual interface.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="awsDevice")
-    def aws_device(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_device(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Direct Connect endpoint on which the virtual interface terminates.
         """
         return pulumi.get(self, "aws_device")
 
     @aws_device.setter
-    def aws_device(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_device(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_device", value)
 
     @_builtins.property
     @pulumi.getter(name="bgpAsn")
-    def bgp_asn(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def bgp_asn(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
         """
         return pulumi.get(self, "bgp_asn")
 
     @bgp_asn.setter
-    def bgp_asn(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def bgp_asn(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "bgp_asn", value)
 
     @_builtins.property
     @pulumi.getter(name="bgpAuthKey")
-    def bgp_auth_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bgp_auth_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The authentication key for BGP configuration.
         """
         return pulumi.get(self, "bgp_auth_key")
 
     @bgp_auth_key.setter
-    def bgp_auth_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bgp_auth_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bgp_auth_key", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionId")
-    def connection_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
         """
         return pulumi.get(self, "connection_id")
 
     @connection_id.setter
-    def connection_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_id", value)
 
     @_builtins.property
     @pulumi.getter(name="customerAddress")
-    def customer_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customer_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
         """
         return pulumi.get(self, "customer_address")
 
     @customer_address.setter
-    def customer_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customer_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customer_address", value)
 
     @_builtins.property
     @pulumi.getter(name="jumboFrameCapable")
-    def jumbo_frame_capable(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def jumbo_frame_capable(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether jumbo frames (8500 MTU) are supported.
         """
         return pulumi.get(self, "jumbo_frame_capable")
 
     @jumbo_frame_capable.setter
-    def jumbo_frame_capable(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def jumbo_frame_capable(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "jumbo_frame_capable", value)
 
     @_builtins.property
     @pulumi.getter
-    def mtu(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def mtu(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection. The MTU of a virtual transit interface can be either `1500` or `8500` (jumbo frames). Default is `1500`.
         """
         return pulumi.get(self, "mtu")
 
     @mtu.setter
-    def mtu(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def mtu(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "mtu", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name for the virtual interface.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="ownerAccountId")
-    def owner_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS account that will own the new virtual interface.
         """
         return pulumi.get(self, "owner_account_id")
 
     @owner_account_id.setter
-    def owner_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner_account_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def vlan(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def vlan(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The VLAN ID.
         """
         return pulumi.get(self, "vlan")
 
     @vlan.setter
-    def vlan(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def vlan(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "vlan", value)
 
 
@@ -447,17 +447,17 @@ class HostedTransitVirtualInterface(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 address_family: Optional[pulumi.Input[_builtins.str]] = None,
-                 amazon_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 bgp_asn: Optional[pulumi.Input[_builtins.int]] = None,
-                 bgp_auth_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 mtu: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 vlan: Optional[pulumi.Input[_builtins.int]] = None,
+                 address_family: pulumi.Input[Optional[_builtins.str]] = None,
+                 amazon_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 bgp_asn: pulumi.Input[Optional[_builtins.int]] = None,
+                 bgp_auth_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 mtu: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 vlan: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Provides a Direct Connect hosted transit virtual interface resource.
@@ -550,17 +550,17 @@ class HostedTransitVirtualInterface(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 address_family: Optional[pulumi.Input[_builtins.str]] = None,
-                 amazon_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 bgp_asn: Optional[pulumi.Input[_builtins.int]] = None,
-                 bgp_auth_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 mtu: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 vlan: Optional[pulumi.Input[_builtins.int]] = None,
+                 address_family: pulumi.Input[Optional[_builtins.str]] = None,
+                 amazon_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 bgp_asn: pulumi.Input[Optional[_builtins.int]] = None,
+                 bgp_auth_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 mtu: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 vlan: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -605,21 +605,21 @@ class HostedTransitVirtualInterface(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            address_family: Optional[pulumi.Input[_builtins.str]] = None,
-            amazon_address: Optional[pulumi.Input[_builtins.str]] = None,
-            amazon_side_asn: Optional[pulumi.Input[_builtins.str]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            aws_device: Optional[pulumi.Input[_builtins.str]] = None,
-            bgp_asn: Optional[pulumi.Input[_builtins.int]] = None,
-            bgp_auth_key: Optional[pulumi.Input[_builtins.str]] = None,
-            connection_id: Optional[pulumi.Input[_builtins.str]] = None,
-            customer_address: Optional[pulumi.Input[_builtins.str]] = None,
-            jumbo_frame_capable: Optional[pulumi.Input[_builtins.bool]] = None,
-            mtu: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            owner_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            vlan: Optional[pulumi.Input[_builtins.int]] = None) -> 'HostedTransitVirtualInterface':
+            address_family: pulumi.Input[Optional[_builtins.str]] = None,
+            amazon_address: pulumi.Input[Optional[_builtins.str]] = None,
+            amazon_side_asn: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            aws_device: pulumi.Input[Optional[_builtins.str]] = None,
+            bgp_asn: pulumi.Input[Optional[_builtins.int]] = None,
+            bgp_auth_key: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_id: pulumi.Input[Optional[_builtins.str]] = None,
+            customer_address: pulumi.Input[Optional[_builtins.str]] = None,
+            jumbo_frame_capable: pulumi.Input[Optional[_builtins.bool]] = None,
+            mtu: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            vlan: pulumi.Input[Optional[_builtins.int]] = None) -> 'HostedTransitVirtualInterface':
         """
         Get an existing HostedTransitVirtualInterface resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

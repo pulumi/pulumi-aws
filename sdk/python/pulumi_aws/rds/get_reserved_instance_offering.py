@@ -191,12 +191,12 @@ def get_reserved_instance_offering(db_instance_class: Optional[_builtins.str] = 
         offering_type=pulumi.get(__ret__, 'offering_type'),
         product_description=pulumi.get(__ret__, 'product_description'),
         region=pulumi.get(__ret__, 'region'))
-def get_reserved_instance_offering_output(db_instance_class: Optional[pulumi.Input[_builtins.str]] = None,
-                                          duration: Optional[pulumi.Input[_builtins.int]] = None,
-                                          multi_az: Optional[pulumi.Input[_builtins.bool]] = None,
-                                          offering_type: Optional[pulumi.Input[_builtins.str]] = None,
-                                          product_description: Optional[pulumi.Input[_builtins.str]] = None,
-                                          region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_reserved_instance_offering_output(db_instance_class: pulumi.Input[Optional[_builtins.str]] = None,
+                                          duration: pulumi.Input[Optional[_builtins.int]] = None,
+                                          multi_az: pulumi.Input[Optional[_builtins.bool]] = None,
+                                          offering_type: pulumi.Input[Optional[_builtins.str]] = None,
+                                          product_description: pulumi.Input[Optional[_builtins.str]] = None,
+                                          region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReservedInstanceOfferingResult]:
     """
     Information about a single RDS Reserved Instance Offering.

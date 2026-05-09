@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Iot
     /// 
     ///     var cert = new Aws.Iot.Certificate("cert", new()
     ///     {
-    ///         Csr = Std.Index.File.Invoke(new()
+    ///         Csr = Std.File.Invoke(new()
     ///         {
     ///             Input = "csr.pem",
     ///         }).Apply(invoke =&gt; invoke.Result),

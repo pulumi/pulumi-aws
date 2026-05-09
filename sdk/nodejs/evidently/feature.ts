@@ -281,67 +281,67 @@ export interface FeatureState {
     /**
      * The ARN of the feature.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The date and time that the feature is created.
      */
-    createdTime?: pulumi.Input<string>;
+    createdTime?: pulumi.Input<string | undefined>;
     /**
      * The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature. This variation must also be listed in the `variations` structure. If you omit `defaultVariation`, the first variation listed in the `variations` structure is used as the default variation.
      */
-    defaultVariation?: pulumi.Input<string>;
+    defaultVariation?: pulumi.Input<string | undefined>;
     /**
      * Specifies the description of the feature.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
      */
-    entityOverrides?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    entityOverrides?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * One or more blocks that define the evaluation rules for the feature. Detailed below
      */
-    evaluationRules?: pulumi.Input<pulumi.Input<inputs.evidently.FeatureEvaluationRule>[]>;
+    evaluationRules?: pulumi.Input<pulumi.Input<inputs.evidently.FeatureEvaluationRule>[] | undefined>;
     /**
      * Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
      */
-    evaluationStrategy?: pulumi.Input<string>;
+    evaluationStrategy?: pulumi.Input<string | undefined>;
     /**
      * The date and time that the feature was most recently updated.
      */
-    lastUpdatedTime?: pulumi.Input<string>;
+    lastUpdatedTime?: pulumi.Input<string | undefined>;
     /**
      * The name for the new feature. Minimum length of `1`. Maximum length of `127`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name or ARN of the project that is to contain the new feature.
      */
-    project?: pulumi.Input<string>;
+    project?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The current state of the feature. Valid values are `AVAILABLE` and `UPDATING`.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Tags to apply to the feature. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Defines the type of value used to define the different feature variations. Valid Values: `STRING`, `LONG`, `DOUBLE`, `BOOLEAN`.
      */
-    valueType?: pulumi.Input<string>;
+    valueType?: pulumi.Input<string | undefined>;
     /**
      * One or more blocks that contain the configuration of the feature's different variations. Detailed below
      */
-    variations?: pulumi.Input<pulumi.Input<inputs.evidently.FeatureVariation>[]>;
+    variations?: pulumi.Input<pulumi.Input<inputs.evidently.FeatureVariation>[] | undefined>;
 }
 
 /**
@@ -351,23 +351,23 @@ export interface FeatureArgs {
     /**
      * The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature. This variation must also be listed in the `variations` structure. If you omit `defaultVariation`, the first variation listed in the `variations` structure is used as the default variation.
      */
-    defaultVariation?: pulumi.Input<string>;
+    defaultVariation?: pulumi.Input<string | undefined>;
     /**
      * Specifies the description of the feature.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
      */
-    entityOverrides?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    entityOverrides?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
      */
-    evaluationStrategy?: pulumi.Input<string>;
+    evaluationStrategy?: pulumi.Input<string | undefined>;
     /**
      * The name for the new feature. Minimum length of `1`. Maximum length of `127`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name or ARN of the project that is to contain the new feature.
      */
@@ -375,11 +375,11 @@ export interface FeatureArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Tags to apply to the feature. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * One or more blocks that contain the configuration of the feature's different variations. Detailed below
      */

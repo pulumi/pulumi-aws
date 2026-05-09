@@ -22,13 +22,13 @@ __all__ = ['KeyArgs', 'Key']
 class KeyArgs:
     def __init__(__self__, *,
                  exportable: pulumi.Input[_builtins.bool],
-                 deletion_window_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['KeyKeyAttributeArgs']]]] = None,
-                 key_check_value_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['KeyTimeoutsArgs']] = None):
+                 deletion_window_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_attributes: pulumi.Input[Optional[Sequence[pulumi.Input['KeyKeyAttributeArgs']]]] = None,
+                 key_check_value_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['KeyTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Key resource.
 
@@ -71,28 +71,28 @@ class KeyArgs:
 
     @_builtins.property
     @pulumi.getter(name="deletionWindowInDays")
-    def deletion_window_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def deletion_window_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "deletion_window_in_days")
 
     @deletion_window_in_days.setter
-    def deletion_window_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def deletion_window_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "deletion_window_in_days", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable the key.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="keyAttributes")
-    def key_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KeyKeyAttributeArgs']]]]:
+    def key_attributes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['KeyKeyAttributeArgs']]]]:
         """
         Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
 
@@ -101,71 +101,71 @@ class KeyArgs:
         return pulumi.get(self, "key_attributes")
 
     @key_attributes.setter
-    def key_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KeyKeyAttributeArgs']]]]):
+    def key_attributes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['KeyKeyAttributeArgs']]]]):
         pulumi.set(self, "key_attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="keyCheckValueAlgorithm")
-    def key_check_value_algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_check_value_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV).
         """
         return pulumi.get(self, "key_check_value_algorithm")
 
     @key_check_value_algorithm.setter
-    def key_check_value_algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_check_value_algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_check_value_algorithm", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['KeyTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['KeyTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['KeyTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['KeyTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _KeyState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 deletion_window_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 exportable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['KeyKeyAttributeArgs']]]] = None,
-                 key_check_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_check_value_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_origin: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['KeyTimeoutsArgs']] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 deletion_window_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 exportable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_attributes: pulumi.Input[Optional[Sequence[pulumi.Input['KeyKeyAttributeArgs']]]] = None,
+                 key_check_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_check_value_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_origin: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['KeyTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering Key resources.
 
@@ -212,52 +212,52 @@ class _KeyState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the key.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="deletionWindowInDays")
-    def deletion_window_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def deletion_window_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "deletion_window_in_days")
 
     @deletion_window_in_days.setter
-    def deletion_window_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def deletion_window_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "deletion_window_in_days", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable the key.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def exportable(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def exportable(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the key is exportable from the service.
         """
         return pulumi.get(self, "exportable")
 
     @exportable.setter
-    def exportable(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def exportable(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "exportable", value)
 
     @_builtins.property
     @pulumi.getter(name="keyAttributes")
-    def key_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KeyKeyAttributeArgs']]]]:
+    def key_attributes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['KeyKeyAttributeArgs']]]]:
         """
         Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
 
@@ -266,100 +266,100 @@ class _KeyState:
         return pulumi.get(self, "key_attributes")
 
     @key_attributes.setter
-    def key_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KeyKeyAttributeArgs']]]]):
+    def key_attributes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['KeyKeyAttributeArgs']]]]):
         pulumi.set(self, "key_attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="keyCheckValue")
-    def key_check_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_check_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Key check value (KCV) is used to check if all parties holding a given key have the same key or to detect that a key has changed.
         """
         return pulumi.get(self, "key_check_value")
 
     @key_check_value.setter
-    def key_check_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_check_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_check_value", value)
 
     @_builtins.property
     @pulumi.getter(name="keyCheckValueAlgorithm")
-    def key_check_value_algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_check_value_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV).
         """
         return pulumi.get(self, "key_check_value_algorithm")
 
     @key_check_value_algorithm.setter
-    def key_check_value_algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_check_value_algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_check_value_algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="keyOrigin")
-    def key_origin(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_origin(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Source of the key material.
         """
         return pulumi.get(self, "key_origin")
 
     @key_origin.setter
-    def key_origin(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_origin(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_origin", value)
 
     @_builtins.property
     @pulumi.getter(name="keyState")
-    def key_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         State of key that is being created or deleted.
         """
         return pulumi.get(self, "key_state")
 
     @key_state.setter
-    def key_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_state", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['KeyTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['KeyTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['KeyTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['KeyTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
@@ -369,14 +369,14 @@ class Key(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deletion_window_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 exportable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KeyKeyAttributeArgs', 'KeyKeyAttributeArgsDict']]]]] = None,
-                 key_check_value_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['KeyTimeoutsArgs', 'KeyTimeoutsArgsDict']]] = None,
+                 deletion_window_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 exportable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KeyKeyAttributeArgs', 'KeyKeyAttributeArgsDict']]]]] = None,
+                 key_check_value_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['KeyTimeoutsArgs', 'KeyTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Payment Cryptography Control Plane Key.
@@ -492,14 +492,14 @@ class Key(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deletion_window_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 exportable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KeyKeyAttributeArgs', 'KeyKeyAttributeArgsDict']]]]] = None,
-                 key_check_value_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['KeyTimeoutsArgs', 'KeyTimeoutsArgsDict']]] = None,
+                 deletion_window_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 exportable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KeyKeyAttributeArgs', 'KeyKeyAttributeArgsDict']]]]] = None,
+                 key_check_value_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['KeyTimeoutsArgs', 'KeyTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -534,19 +534,19 @@ class Key(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            deletion_window_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            exportable: Optional[pulumi.Input[_builtins.bool]] = None,
-            key_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KeyKeyAttributeArgs', 'KeyKeyAttributeArgsDict']]]]] = None,
-            key_check_value: Optional[pulumi.Input[_builtins.str]] = None,
-            key_check_value_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-            key_origin: Optional[pulumi.Input[_builtins.str]] = None,
-            key_state: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: Optional[pulumi.Input[Union['KeyTimeoutsArgs', 'KeyTimeoutsArgsDict']]] = None) -> 'Key':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            deletion_window_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            exportable: pulumi.Input[Optional[_builtins.bool]] = None,
+            key_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KeyKeyAttributeArgs', 'KeyKeyAttributeArgsDict']]]]] = None,
+            key_check_value: pulumi.Input[Optional[_builtins.str]] = None,
+            key_check_value_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+            key_origin: pulumi.Input[Optional[_builtins.str]] = None,
+            key_state: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['KeyTimeoutsArgs', 'KeyTimeoutsArgsDict']]] = None) -> 'Key':
         """
         Get an existing Key resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

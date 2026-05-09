@@ -279,14 +279,14 @@ def get_dev_environment(alias: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         status_reason=pulumi.get(__ret__, 'status_reason'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_dev_environment_output(alias: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                               creator_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                               env_id: Optional[pulumi.Input[_builtins.str]] = None,
-                               project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                               repositories: Optional[pulumi.Input[Optional[Sequence[Union['GetDevEnvironmentRepositoryArgs', 'GetDevEnvironmentRepositoryArgsDict']]]]] = None,
-                               space_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_dev_environment_output(alias: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               creator_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               env_id: pulumi.Input[Optional[_builtins.str]] = None,
+                               project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               repositories: pulumi.Input[Optional[Optional[Sequence[Union['GetDevEnvironmentRepositoryArgs', 'GetDevEnvironmentRepositoryArgsDict']]]]] = None,
+                               space_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDevEnvironmentResult]:
     """
     Data source for managing an AWS CodeCatalyst Dev Environment.

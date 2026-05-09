@@ -21,7 +21,7 @@ class ClusterSnapshotArgs:
     def __init__(__self__, *,
                  db_cluster_identifier: pulumi.Input[_builtins.str],
                  db_cluster_snapshot_identifier: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ClusterSnapshot resource.
 
@@ -60,34 +60,34 @@ class ClusterSnapshotArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _ClusterSnapshotState:
     def __init__(__self__, *,
-                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 db_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_cluster_snapshot_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_cluster_snapshot_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshot_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_db_cluster_snapshot_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 db_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_cluster_snapshot_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_cluster_snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshot_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_db_cluster_snapshot_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ClusterSnapshot resources.
 
@@ -135,164 +135,164 @@ class _ClusterSnapshotState:
 
     @_builtins.property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def availability_zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of EC2 Availability Zones that instances in the DocumentDB cluster snapshot can be restored in.
         """
         return pulumi.get(self, "availability_zones")
 
     @availability_zones.setter
-    def availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def availability_zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "availability_zones", value)
 
     @_builtins.property
     @pulumi.getter(name="dbClusterIdentifier")
-    def db_cluster_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def db_cluster_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The DocumentDB Cluster Identifier from which to take the snapshot.
         """
         return pulumi.get(self, "db_cluster_identifier")
 
     @db_cluster_identifier.setter
-    def db_cluster_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def db_cluster_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "db_cluster_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="dbClusterSnapshotArn")
-    def db_cluster_snapshot_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def db_cluster_snapshot_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) for the DocumentDB Cluster Snapshot.
         """
         return pulumi.get(self, "db_cluster_snapshot_arn")
 
     @db_cluster_snapshot_arn.setter
-    def db_cluster_snapshot_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def db_cluster_snapshot_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "db_cluster_snapshot_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="dbClusterSnapshotIdentifier")
-    def db_cluster_snapshot_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def db_cluster_snapshot_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Identifier for the snapshot.
         """
         return pulumi.get(self, "db_cluster_snapshot_identifier")
 
     @db_cluster_snapshot_identifier.setter
-    def db_cluster_snapshot_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def db_cluster_snapshot_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "db_cluster_snapshot_identifier", value)
 
     @_builtins.property
     @pulumi.getter
-    def engine(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def engine(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the database engine.
         """
         return pulumi.get(self, "engine")
 
     @engine.setter
-    def engine(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def engine(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "engine", value)
 
     @_builtins.property
     @pulumi.getter(name="engineVersion")
-    def engine_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def engine_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version of the database engine for this DocumentDB cluster snapshot.
         """
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
-    def engine_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def engine_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "engine_version", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If storage_encrypted is true, the AWS KMS key identifier for the encrypted DocumentDB cluster snapshot.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Port that the DocumentDB cluster was listening on at the time of the snapshot.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotType")
-    def snapshot_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def snapshot_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "snapshot_type")
 
     @snapshot_type.setter
-    def snapshot_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def snapshot_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "snapshot_type", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceDbClusterSnapshotArn")
-    def source_db_cluster_snapshot_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_db_cluster_snapshot_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "source_db_cluster_snapshot_arn")
 
     @source_db_cluster_snapshot_arn.setter
-    def source_db_cluster_snapshot_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_db_cluster_snapshot_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_db_cluster_snapshot_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of this DocumentDB Cluster Snapshot.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="storageEncrypted")
-    def storage_encrypted(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def storage_encrypted(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the DocumentDB cluster snapshot is encrypted.
         """
         return pulumi.get(self, "storage_encrypted")
 
     @storage_encrypted.setter
-    def storage_encrypted(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def storage_encrypted(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "storage_encrypted", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The VPC ID associated with the DocumentDB cluster snapshot.
         """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
-    def vpc_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_id", value)
 
 
@@ -302,9 +302,9 @@ class ClusterSnapshot(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 db_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_cluster_snapshot_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 db_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_cluster_snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a DocumentDB database cluster snapshot for DocumentDB clusters.
@@ -379,9 +379,9 @@ class ClusterSnapshot(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 db_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_cluster_snapshot_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 db_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_cluster_snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -419,20 +419,20 @@ class ClusterSnapshot(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            db_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-            db_cluster_snapshot_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            db_cluster_snapshot_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-            engine: Optional[pulumi.Input[_builtins.str]] = None,
-            engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-            kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-            port: Optional[pulumi.Input[_builtins.int]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            snapshot_type: Optional[pulumi.Input[_builtins.str]] = None,
-            source_db_cluster_snapshot_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-            vpc_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'ClusterSnapshot':
+            availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            db_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            db_cluster_snapshot_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            db_cluster_snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            engine: pulumi.Input[Optional[_builtins.str]] = None,
+            engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            port: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            snapshot_type: pulumi.Input[Optional[_builtins.str]] = None,
+            source_db_cluster_snapshot_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+            vpc_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ClusterSnapshot':
         """
         Get an existing ClusterSnapshot resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -170,17 +170,17 @@ export interface GetNetworkInterfaceOutputArgs {
     /**
      * One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-network-interfaces](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-network-interfaces.html) in the AWS CLI reference.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetNetworkInterfaceFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetNetworkInterfaceFilterArgs>[] | undefined>;
     /**
      * Identifier for the network interface.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Any tags assigned to the network interface.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

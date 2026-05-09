@@ -26,22 +26,22 @@ class KxClusterArgs:
                  release_label: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
                  vpc_configuration: pulumi.Input['KxClusterVpcConfigurationArgs'],
-                 auto_scaling_configuration: Optional[pulumi.Input['KxClusterAutoScalingConfigurationArgs']] = None,
-                 availability_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_storage_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterCacheStorageConfigurationArgs']]]] = None,
-                 capacity_configuration: Optional[pulumi.Input['KxClusterCapacityConfigurationArgs']] = None,
-                 code: Optional[pulumi.Input['KxClusterCodeArgs']] = None,
-                 command_line_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 databases: Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterDatabaseArgs']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 execution_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 initialization_script: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 savedown_storage_configuration: Optional[pulumi.Input['KxClusterSavedownStorageConfigurationArgs']] = None,
-                 scaling_group_configuration: Optional[pulumi.Input['KxClusterScalingGroupConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tickerplant_log_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterTickerplantLogConfigurationArgs']]]] = None):
+                 auto_scaling_configuration: pulumi.Input[Optional['KxClusterAutoScalingConfigurationArgs']] = None,
+                 availability_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_storage_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['KxClusterCacheStorageConfigurationArgs']]]] = None,
+                 capacity_configuration: pulumi.Input[Optional['KxClusterCapacityConfigurationArgs']] = None,
+                 code: pulumi.Input[Optional['KxClusterCodeArgs']] = None,
+                 command_line_arguments: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 databases: pulumi.Input[Optional[Sequence[pulumi.Input['KxClusterDatabaseArgs']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 execution_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 initialization_script: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 savedown_storage_configuration: pulumi.Input[Optional['KxClusterSavedownStorageConfigurationArgs']] = None,
+                 scaling_group_configuration: pulumi.Input[Optional['KxClusterScalingGroupConfigurationArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tickerplant_log_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['KxClusterTickerplantLogConfigurationArgs']]]] = None):
         """
         The set of arguments for constructing a KxCluster resource.
 
@@ -185,227 +185,227 @@ class KxClusterArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoScalingConfiguration")
-    def auto_scaling_configuration(self) -> Optional[pulumi.Input['KxClusterAutoScalingConfigurationArgs']]:
+    def auto_scaling_configuration(self) -> pulumi.Input[Optional['KxClusterAutoScalingConfigurationArgs']]:
         """
         Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See auto_scaling_configuration.
         """
         return pulumi.get(self, "auto_scaling_configuration")
 
     @auto_scaling_configuration.setter
-    def auto_scaling_configuration(self, value: Optional[pulumi.Input['KxClusterAutoScalingConfigurationArgs']]):
+    def auto_scaling_configuration(self, value: pulumi.Input[Optional['KxClusterAutoScalingConfigurationArgs']]):
         pulumi.set(self, "auto_scaling_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="availabilityZoneId")
-    def availability_zone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def availability_zone_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The availability zone identifiers for the requested regions. Required when `az_mode` is set to SINGLE.
         """
         return pulumi.get(self, "availability_zone_id")
 
     @availability_zone_id.setter
-    def availability_zone_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def availability_zone_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "availability_zone_id", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheStorageConfigurations")
-    def cache_storage_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterCacheStorageConfigurationArgs']]]]:
+    def cache_storage_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['KxClusterCacheStorageConfigurationArgs']]]]:
         """
         Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See cache_storage_configuration.
         """
         return pulumi.get(self, "cache_storage_configurations")
 
     @cache_storage_configurations.setter
-    def cache_storage_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterCacheStorageConfigurationArgs']]]]):
+    def cache_storage_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['KxClusterCacheStorageConfigurationArgs']]]]):
         pulumi.set(self, "cache_storage_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="capacityConfiguration")
-    def capacity_configuration(self) -> Optional[pulumi.Input['KxClusterCapacityConfigurationArgs']]:
+    def capacity_configuration(self) -> pulumi.Input[Optional['KxClusterCapacityConfigurationArgs']]:
         """
         Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
         """
         return pulumi.get(self, "capacity_configuration")
 
     @capacity_configuration.setter
-    def capacity_configuration(self, value: Optional[pulumi.Input['KxClusterCapacityConfigurationArgs']]):
+    def capacity_configuration(self, value: pulumi.Input[Optional['KxClusterCapacityConfigurationArgs']]):
         pulumi.set(self, "capacity_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def code(self) -> Optional[pulumi.Input['KxClusterCodeArgs']]:
+    def code(self) -> pulumi.Input[Optional['KxClusterCodeArgs']]:
         """
         Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See code.
         """
         return pulumi.get(self, "code")
 
     @code.setter
-    def code(self, value: Optional[pulumi.Input['KxClusterCodeArgs']]):
+    def code(self, value: pulumi.Input[Optional['KxClusterCodeArgs']]):
         pulumi.set(self, "code", value)
 
     @_builtins.property
     @pulumi.getter(name="commandLineArguments")
-    def command_line_arguments(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def command_line_arguments(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         List of key-value pairs to make available inside the cluster.
         """
         return pulumi.get(self, "command_line_arguments")
 
     @command_line_arguments.setter
-    def command_line_arguments(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def command_line_arguments(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "command_line_arguments", value)
 
     @_builtins.property
     @pulumi.getter
-    def databases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterDatabaseArgs']]]]:
+    def databases(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['KxClusterDatabaseArgs']]]]:
         """
         KX database that will be available for querying. Defined below.
         """
         return pulumi.get(self, "databases")
 
     @databases.setter
-    def databases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterDatabaseArgs']]]]):
+    def databases(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['KxClusterDatabaseArgs']]]]):
         pulumi.set(self, "databases", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the cluster.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="executionRole")
-    def execution_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def execution_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An IAM role that defines a set of permissions associated with a cluster. These permissions are assumed when a cluster attempts to access another cluster.
         """
         return pulumi.get(self, "execution_role")
 
     @execution_role.setter
-    def execution_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def execution_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "execution_role", value)
 
     @_builtins.property
     @pulumi.getter(name="initializationScript")
-    def initialization_script(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def initialization_script(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Path to Q program that will be run at launch of a cluster. This is a relative path within .zip file that contains the custom code, which will be loaded on the cluster. It must include the file name itself. For example, somedir/init.q.
         """
         return pulumi.get(self, "initialization_script")
 
     @initialization_script.setter
-    def initialization_script(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def initialization_script(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "initialization_script", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique name for the cluster that you want to create.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="savedownStorageConfiguration")
-    def savedown_storage_configuration(self) -> Optional[pulumi.Input['KxClusterSavedownStorageConfigurationArgs']]:
+    def savedown_storage_configuration(self) -> pulumi.Input[Optional['KxClusterSavedownStorageConfigurationArgs']]:
         """
         Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
         """
         return pulumi.get(self, "savedown_storage_configuration")
 
     @savedown_storage_configuration.setter
-    def savedown_storage_configuration(self, value: Optional[pulumi.Input['KxClusterSavedownStorageConfigurationArgs']]):
+    def savedown_storage_configuration(self, value: pulumi.Input[Optional['KxClusterSavedownStorageConfigurationArgs']]):
         pulumi.set(self, "savedown_storage_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="scalingGroupConfiguration")
-    def scaling_group_configuration(self) -> Optional[pulumi.Input['KxClusterScalingGroupConfigurationArgs']]:
+    def scaling_group_configuration(self) -> pulumi.Input[Optional['KxClusterScalingGroupConfigurationArgs']]:
         """
         The structure that stores the configuration details of a scaling group.
         """
         return pulumi.get(self, "scaling_group_configuration")
 
     @scaling_group_configuration.setter
-    def scaling_group_configuration(self, value: Optional[pulumi.Input['KxClusterScalingGroupConfigurationArgs']]):
+    def scaling_group_configuration(self, value: pulumi.Input[Optional['KxClusterScalingGroupConfigurationArgs']]):
         pulumi.set(self, "scaling_group_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tickerplantLogConfigurations")
-    def tickerplant_log_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterTickerplantLogConfigurationArgs']]]]:
+    def tickerplant_log_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['KxClusterTickerplantLogConfigurationArgs']]]]:
         """
         A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
         """
         return pulumi.get(self, "tickerplant_log_configurations")
 
     @tickerplant_log_configurations.setter
-    def tickerplant_log_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterTickerplantLogConfigurationArgs']]]]):
+    def tickerplant_log_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['KxClusterTickerplantLogConfigurationArgs']]]]):
         pulumi.set(self, "tickerplant_log_configurations", value)
 
 
 @pulumi.input_type
 class _KxClusterState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_scaling_configuration: Optional[pulumi.Input['KxClusterAutoScalingConfigurationArgs']] = None,
-                 availability_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 az_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_storage_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterCacheStorageConfigurationArgs']]]] = None,
-                 capacity_configuration: Optional[pulumi.Input['KxClusterCapacityConfigurationArgs']] = None,
-                 code: Optional[pulumi.Input['KxClusterCodeArgs']] = None,
-                 command_line_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 created_timestamp: Optional[pulumi.Input[_builtins.str]] = None,
-                 databases: Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterDatabaseArgs']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 execution_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 initialization_script: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_modified_timestamp: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 release_label: Optional[pulumi.Input[_builtins.str]] = None,
-                 savedown_storage_configuration: Optional[pulumi.Input['KxClusterSavedownStorageConfigurationArgs']] = None,
-                 scaling_group_configuration: Optional[pulumi.Input['KxClusterScalingGroupConfigurationArgs']] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 status_reason: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tickerplant_log_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterTickerplantLogConfigurationArgs']]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_configuration: Optional[pulumi.Input['KxClusterVpcConfigurationArgs']] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_scaling_configuration: pulumi.Input[Optional['KxClusterAutoScalingConfigurationArgs']] = None,
+                 availability_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 az_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_storage_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['KxClusterCacheStorageConfigurationArgs']]]] = None,
+                 capacity_configuration: pulumi.Input[Optional['KxClusterCapacityConfigurationArgs']] = None,
+                 code: pulumi.Input[Optional['KxClusterCodeArgs']] = None,
+                 command_line_arguments: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 created_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
+                 databases: pulumi.Input[Optional[Sequence[pulumi.Input['KxClusterDatabaseArgs']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 execution_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 initialization_script: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_modified_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 release_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 savedown_storage_configuration: pulumi.Input[Optional['KxClusterSavedownStorageConfigurationArgs']] = None,
+                 scaling_group_configuration: pulumi.Input[Optional['KxClusterScalingGroupConfigurationArgs']] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 status_reason: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tickerplant_log_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['KxClusterTickerplantLogConfigurationArgs']]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_configuration: pulumi.Input[Optional['KxClusterVpcConfigurationArgs']] = None):
         """
         Input properties used for looking up and filtering KxCluster resources.
 
@@ -501,43 +501,43 @@ class _KxClusterState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) identifier of the KX cluster.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="autoScalingConfiguration")
-    def auto_scaling_configuration(self) -> Optional[pulumi.Input['KxClusterAutoScalingConfigurationArgs']]:
+    def auto_scaling_configuration(self) -> pulumi.Input[Optional['KxClusterAutoScalingConfigurationArgs']]:
         """
         Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See auto_scaling_configuration.
         """
         return pulumi.get(self, "auto_scaling_configuration")
 
     @auto_scaling_configuration.setter
-    def auto_scaling_configuration(self, value: Optional[pulumi.Input['KxClusterAutoScalingConfigurationArgs']]):
+    def auto_scaling_configuration(self, value: pulumi.Input[Optional['KxClusterAutoScalingConfigurationArgs']]):
         pulumi.set(self, "auto_scaling_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="availabilityZoneId")
-    def availability_zone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def availability_zone_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The availability zone identifiers for the requested regions. Required when `az_mode` is set to SINGLE.
         """
         return pulumi.get(self, "availability_zone_id")
 
     @availability_zone_id.setter
-    def availability_zone_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def availability_zone_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "availability_zone_id", value)
 
     @_builtins.property
     @pulumi.getter(name="azMode")
-    def az_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def az_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The number of availability zones you want to assign per cluster. This can be one of the following:
         * SINGLE - Assigns one availability zone per cluster.
@@ -546,258 +546,258 @@ class _KxClusterState:
         return pulumi.get(self, "az_mode")
 
     @az_mode.setter
-    def az_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def az_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "az_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheStorageConfigurations")
-    def cache_storage_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterCacheStorageConfigurationArgs']]]]:
+    def cache_storage_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['KxClusterCacheStorageConfigurationArgs']]]]:
         """
         Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See cache_storage_configuration.
         """
         return pulumi.get(self, "cache_storage_configurations")
 
     @cache_storage_configurations.setter
-    def cache_storage_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterCacheStorageConfigurationArgs']]]]):
+    def cache_storage_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['KxClusterCacheStorageConfigurationArgs']]]]):
         pulumi.set(self, "cache_storage_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="capacityConfiguration")
-    def capacity_configuration(self) -> Optional[pulumi.Input['KxClusterCapacityConfigurationArgs']]:
+    def capacity_configuration(self) -> pulumi.Input[Optional['KxClusterCapacityConfigurationArgs']]:
         """
         Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
         """
         return pulumi.get(self, "capacity_configuration")
 
     @capacity_configuration.setter
-    def capacity_configuration(self, value: Optional[pulumi.Input['KxClusterCapacityConfigurationArgs']]):
+    def capacity_configuration(self, value: pulumi.Input[Optional['KxClusterCapacityConfigurationArgs']]):
         pulumi.set(self, "capacity_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def code(self) -> Optional[pulumi.Input['KxClusterCodeArgs']]:
+    def code(self) -> pulumi.Input[Optional['KxClusterCodeArgs']]:
         """
         Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See code.
         """
         return pulumi.get(self, "code")
 
     @code.setter
-    def code(self, value: Optional[pulumi.Input['KxClusterCodeArgs']]):
+    def code(self, value: pulumi.Input[Optional['KxClusterCodeArgs']]):
         pulumi.set(self, "code", value)
 
     @_builtins.property
     @pulumi.getter(name="commandLineArguments")
-    def command_line_arguments(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def command_line_arguments(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         List of key-value pairs to make available inside the cluster.
         """
         return pulumi.get(self, "command_line_arguments")
 
     @command_line_arguments.setter
-    def command_line_arguments(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def command_line_arguments(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "command_line_arguments", value)
 
     @_builtins.property
     @pulumi.getter(name="createdTimestamp")
-    def created_timestamp(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_timestamp(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Timestamp at which the cluster is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
         """
         return pulumi.get(self, "created_timestamp")
 
     @created_timestamp.setter
-    def created_timestamp(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_timestamp(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_timestamp", value)
 
     @_builtins.property
     @pulumi.getter
-    def databases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterDatabaseArgs']]]]:
+    def databases(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['KxClusterDatabaseArgs']]]]:
         """
         KX database that will be available for querying. Defined below.
         """
         return pulumi.get(self, "databases")
 
     @databases.setter
-    def databases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterDatabaseArgs']]]]):
+    def databases(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['KxClusterDatabaseArgs']]]]):
         pulumi.set(self, "databases", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the cluster.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentId")
-    def environment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def environment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique identifier for the KX environment.
         """
         return pulumi.get(self, "environment_id")
 
     @environment_id.setter
-    def environment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def environment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "environment_id", value)
 
     @_builtins.property
     @pulumi.getter(name="executionRole")
-    def execution_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def execution_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An IAM role that defines a set of permissions associated with a cluster. These permissions are assumed when a cluster attempts to access another cluster.
         """
         return pulumi.get(self, "execution_role")
 
     @execution_role.setter
-    def execution_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def execution_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "execution_role", value)
 
     @_builtins.property
     @pulumi.getter(name="initializationScript")
-    def initialization_script(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def initialization_script(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Path to Q program that will be run at launch of a cluster. This is a relative path within .zip file that contains the custom code, which will be loaded on the cluster. It must include the file name itself. For example, somedir/init.q.
         """
         return pulumi.get(self, "initialization_script")
 
     @initialization_script.setter
-    def initialization_script(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def initialization_script(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "initialization_script", value)
 
     @_builtins.property
     @pulumi.getter(name="lastModifiedTimestamp")
-    def last_modified_timestamp(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_modified_timestamp(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Last timestamp at which the cluster was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
         """
         return pulumi.get(self, "last_modified_timestamp")
 
     @last_modified_timestamp.setter
-    def last_modified_timestamp(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_modified_timestamp(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_modified_timestamp", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique name for the cluster that you want to create.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="releaseLabel")
-    def release_label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def release_label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version of FinSpace Managed kdb to run.
         """
         return pulumi.get(self, "release_label")
 
     @release_label.setter
-    def release_label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def release_label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "release_label", value)
 
     @_builtins.property
     @pulumi.getter(name="savedownStorageConfiguration")
-    def savedown_storage_configuration(self) -> Optional[pulumi.Input['KxClusterSavedownStorageConfigurationArgs']]:
+    def savedown_storage_configuration(self) -> pulumi.Input[Optional['KxClusterSavedownStorageConfigurationArgs']]:
         """
         Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
         """
         return pulumi.get(self, "savedown_storage_configuration")
 
     @savedown_storage_configuration.setter
-    def savedown_storage_configuration(self, value: Optional[pulumi.Input['KxClusterSavedownStorageConfigurationArgs']]):
+    def savedown_storage_configuration(self, value: pulumi.Input[Optional['KxClusterSavedownStorageConfigurationArgs']]):
         pulumi.set(self, "savedown_storage_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="scalingGroupConfiguration")
-    def scaling_group_configuration(self) -> Optional[pulumi.Input['KxClusterScalingGroupConfigurationArgs']]:
+    def scaling_group_configuration(self) -> pulumi.Input[Optional['KxClusterScalingGroupConfigurationArgs']]:
         """
         The structure that stores the configuration details of a scaling group.
         """
         return pulumi.get(self, "scaling_group_configuration")
 
     @scaling_group_configuration.setter
-    def scaling_group_configuration(self, value: Optional[pulumi.Input['KxClusterScalingGroupConfigurationArgs']]):
+    def scaling_group_configuration(self, value: pulumi.Input[Optional['KxClusterScalingGroupConfigurationArgs']]):
         pulumi.set(self, "scaling_group_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="statusReason")
-    def status_reason(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status_reason(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "status_reason")
 
     @status_reason.setter
-    def status_reason(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status_reason(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status_reason", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="tickerplantLogConfigurations")
-    def tickerplant_log_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterTickerplantLogConfigurationArgs']]]]:
+    def tickerplant_log_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['KxClusterTickerplantLogConfigurationArgs']]]]:
         """
         A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
         """
         return pulumi.get(self, "tickerplant_log_configurations")
 
     @tickerplant_log_configurations.setter
-    def tickerplant_log_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterTickerplantLogConfigurationArgs']]]]):
+    def tickerplant_log_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['KxClusterTickerplantLogConfigurationArgs']]]]):
         pulumi.set(self, "tickerplant_log_configurations", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of KDB database. The following types are available:
         * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
@@ -809,12 +809,12 @@ class _KxClusterState:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcConfiguration")
-    def vpc_configuration(self) -> Optional[pulumi.Input['KxClusterVpcConfigurationArgs']]:
+    def vpc_configuration(self) -> pulumi.Input[Optional['KxClusterVpcConfigurationArgs']]:
         """
         Configuration details about the network where the Privatelink endpoint of the cluster resides. See vpc_configuration.
 
@@ -823,7 +823,7 @@ class _KxClusterState:
         return pulumi.get(self, "vpc_configuration")
 
     @vpc_configuration.setter
-    def vpc_configuration(self, value: Optional[pulumi.Input['KxClusterVpcConfigurationArgs']]):
+    def vpc_configuration(self, value: pulumi.Input[Optional['KxClusterVpcConfigurationArgs']]):
         pulumi.set(self, "vpc_configuration", value)
 
 
@@ -833,27 +833,27 @@ class KxCluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_scaling_configuration: Optional[pulumi.Input[Union['KxClusterAutoScalingConfigurationArgs', 'KxClusterAutoScalingConfigurationArgsDict']]] = None,
-                 availability_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 az_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_storage_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KxClusterCacheStorageConfigurationArgs', 'KxClusterCacheStorageConfigurationArgsDict']]]]] = None,
-                 capacity_configuration: Optional[pulumi.Input[Union['KxClusterCapacityConfigurationArgs', 'KxClusterCapacityConfigurationArgsDict']]] = None,
-                 code: Optional[pulumi.Input[Union['KxClusterCodeArgs', 'KxClusterCodeArgsDict']]] = None,
-                 command_line_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 databases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KxClusterDatabaseArgs', 'KxClusterDatabaseArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 execution_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 initialization_script: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 release_label: Optional[pulumi.Input[_builtins.str]] = None,
-                 savedown_storage_configuration: Optional[pulumi.Input[Union['KxClusterSavedownStorageConfigurationArgs', 'KxClusterSavedownStorageConfigurationArgsDict']]] = None,
-                 scaling_group_configuration: Optional[pulumi.Input[Union['KxClusterScalingGroupConfigurationArgs', 'KxClusterScalingGroupConfigurationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tickerplant_log_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KxClusterTickerplantLogConfigurationArgs', 'KxClusterTickerplantLogConfigurationArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_configuration: Optional[pulumi.Input[Union['KxClusterVpcConfigurationArgs', 'KxClusterVpcConfigurationArgsDict']]] = None,
+                 auto_scaling_configuration: pulumi.Input[Optional[Union['KxClusterAutoScalingConfigurationArgs', 'KxClusterAutoScalingConfigurationArgsDict']]] = None,
+                 availability_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 az_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_storage_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KxClusterCacheStorageConfigurationArgs', 'KxClusterCacheStorageConfigurationArgsDict']]]]] = None,
+                 capacity_configuration: pulumi.Input[Optional[Union['KxClusterCapacityConfigurationArgs', 'KxClusterCapacityConfigurationArgsDict']]] = None,
+                 code: pulumi.Input[Optional[Union['KxClusterCodeArgs', 'KxClusterCodeArgsDict']]] = None,
+                 command_line_arguments: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 databases: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KxClusterDatabaseArgs', 'KxClusterDatabaseArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 execution_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 initialization_script: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 release_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 savedown_storage_configuration: pulumi.Input[Optional[Union['KxClusterSavedownStorageConfigurationArgs', 'KxClusterSavedownStorageConfigurationArgsDict']]] = None,
+                 scaling_group_configuration: pulumi.Input[Optional[Union['KxClusterScalingGroupConfigurationArgs', 'KxClusterScalingGroupConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tickerplant_log_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KxClusterTickerplantLogConfigurationArgs', 'KxClusterTickerplantLogConfigurationArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_configuration: pulumi.Input[Optional[Union['KxClusterVpcConfigurationArgs', 'KxClusterVpcConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS FinSpace Kx Cluster.
@@ -1017,27 +1017,27 @@ class KxCluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_scaling_configuration: Optional[pulumi.Input[Union['KxClusterAutoScalingConfigurationArgs', 'KxClusterAutoScalingConfigurationArgsDict']]] = None,
-                 availability_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 az_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_storage_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KxClusterCacheStorageConfigurationArgs', 'KxClusterCacheStorageConfigurationArgsDict']]]]] = None,
-                 capacity_configuration: Optional[pulumi.Input[Union['KxClusterCapacityConfigurationArgs', 'KxClusterCapacityConfigurationArgsDict']]] = None,
-                 code: Optional[pulumi.Input[Union['KxClusterCodeArgs', 'KxClusterCodeArgsDict']]] = None,
-                 command_line_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 databases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KxClusterDatabaseArgs', 'KxClusterDatabaseArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 execution_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 initialization_script: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 release_label: Optional[pulumi.Input[_builtins.str]] = None,
-                 savedown_storage_configuration: Optional[pulumi.Input[Union['KxClusterSavedownStorageConfigurationArgs', 'KxClusterSavedownStorageConfigurationArgsDict']]] = None,
-                 scaling_group_configuration: Optional[pulumi.Input[Union['KxClusterScalingGroupConfigurationArgs', 'KxClusterScalingGroupConfigurationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tickerplant_log_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KxClusterTickerplantLogConfigurationArgs', 'KxClusterTickerplantLogConfigurationArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_configuration: Optional[pulumi.Input[Union['KxClusterVpcConfigurationArgs', 'KxClusterVpcConfigurationArgsDict']]] = None,
+                 auto_scaling_configuration: pulumi.Input[Optional[Union['KxClusterAutoScalingConfigurationArgs', 'KxClusterAutoScalingConfigurationArgsDict']]] = None,
+                 availability_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 az_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_storage_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KxClusterCacheStorageConfigurationArgs', 'KxClusterCacheStorageConfigurationArgsDict']]]]] = None,
+                 capacity_configuration: pulumi.Input[Optional[Union['KxClusterCapacityConfigurationArgs', 'KxClusterCapacityConfigurationArgsDict']]] = None,
+                 code: pulumi.Input[Optional[Union['KxClusterCodeArgs', 'KxClusterCodeArgsDict']]] = None,
+                 command_line_arguments: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 databases: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KxClusterDatabaseArgs', 'KxClusterDatabaseArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 execution_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 initialization_script: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 release_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 savedown_storage_configuration: pulumi.Input[Optional[Union['KxClusterSavedownStorageConfigurationArgs', 'KxClusterSavedownStorageConfigurationArgsDict']]] = None,
+                 scaling_group_configuration: pulumi.Input[Optional[Union['KxClusterScalingGroupConfigurationArgs', 'KxClusterScalingGroupConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tickerplant_log_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KxClusterTickerplantLogConfigurationArgs', 'KxClusterTickerplantLogConfigurationArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_configuration: pulumi.Input[Optional[Union['KxClusterVpcConfigurationArgs', 'KxClusterVpcConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1094,33 +1094,33 @@ class KxCluster(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            auto_scaling_configuration: Optional[pulumi.Input[Union['KxClusterAutoScalingConfigurationArgs', 'KxClusterAutoScalingConfigurationArgsDict']]] = None,
-            availability_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-            az_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            cache_storage_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KxClusterCacheStorageConfigurationArgs', 'KxClusterCacheStorageConfigurationArgsDict']]]]] = None,
-            capacity_configuration: Optional[pulumi.Input[Union['KxClusterCapacityConfigurationArgs', 'KxClusterCapacityConfigurationArgsDict']]] = None,
-            code: Optional[pulumi.Input[Union['KxClusterCodeArgs', 'KxClusterCodeArgsDict']]] = None,
-            command_line_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            created_timestamp: Optional[pulumi.Input[_builtins.str]] = None,
-            databases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KxClusterDatabaseArgs', 'KxClusterDatabaseArgsDict']]]]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-            execution_role: Optional[pulumi.Input[_builtins.str]] = None,
-            initialization_script: Optional[pulumi.Input[_builtins.str]] = None,
-            last_modified_timestamp: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            release_label: Optional[pulumi.Input[_builtins.str]] = None,
-            savedown_storage_configuration: Optional[pulumi.Input[Union['KxClusterSavedownStorageConfigurationArgs', 'KxClusterSavedownStorageConfigurationArgsDict']]] = None,
-            scaling_group_configuration: Optional[pulumi.Input[Union['KxClusterScalingGroupConfigurationArgs', 'KxClusterScalingGroupConfigurationArgsDict']]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            status_reason: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tickerplant_log_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KxClusterTickerplantLogConfigurationArgs', 'KxClusterTickerplantLogConfigurationArgsDict']]]]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None,
-            vpc_configuration: Optional[pulumi.Input[Union['KxClusterVpcConfigurationArgs', 'KxClusterVpcConfigurationArgsDict']]] = None) -> 'KxCluster':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_scaling_configuration: pulumi.Input[Optional[Union['KxClusterAutoScalingConfigurationArgs', 'KxClusterAutoScalingConfigurationArgsDict']]] = None,
+            availability_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+            az_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            cache_storage_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KxClusterCacheStorageConfigurationArgs', 'KxClusterCacheStorageConfigurationArgsDict']]]]] = None,
+            capacity_configuration: pulumi.Input[Optional[Union['KxClusterCapacityConfigurationArgs', 'KxClusterCapacityConfigurationArgsDict']]] = None,
+            code: pulumi.Input[Optional[Union['KxClusterCodeArgs', 'KxClusterCodeArgsDict']]] = None,
+            command_line_arguments: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            created_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
+            databases: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KxClusterDatabaseArgs', 'KxClusterDatabaseArgsDict']]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            execution_role: pulumi.Input[Optional[_builtins.str]] = None,
+            initialization_script: pulumi.Input[Optional[_builtins.str]] = None,
+            last_modified_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            release_label: pulumi.Input[Optional[_builtins.str]] = None,
+            savedown_storage_configuration: pulumi.Input[Optional[Union['KxClusterSavedownStorageConfigurationArgs', 'KxClusterSavedownStorageConfigurationArgsDict']]] = None,
+            scaling_group_configuration: pulumi.Input[Optional[Union['KxClusterScalingGroupConfigurationArgs', 'KxClusterScalingGroupConfigurationArgsDict']]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            status_reason: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tickerplant_log_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KxClusterTickerplantLogConfigurationArgs', 'KxClusterTickerplantLogConfigurationArgsDict']]]]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            vpc_configuration: pulumi.Input[Optional[Union['KxClusterVpcConfigurationArgs', 'KxClusterVpcConfigurationArgsDict']]] = None) -> 'KxCluster':
         """
         Get an existing KxCluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

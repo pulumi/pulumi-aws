@@ -180,10 +180,10 @@ def get_connect(filters: Optional[Sequence[Union['GetConnectFilterArgs', 'GetCon
         transit_gateway_connect_id=pulumi.get(__ret__, 'transit_gateway_connect_id'),
         transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'),
         transport_attachment_id=pulumi.get(__ret__, 'transport_attachment_id'))
-def get_connect_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetConnectFilterArgs', 'GetConnectFilterArgsDict']]]]] = None,
-                       region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                       tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
-                       transit_gateway_connect_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_connect_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetConnectFilterArgs', 'GetConnectFilterArgsDict']]]]] = None,
+                       region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
+                       transit_gateway_connect_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectResult]:
     """
     Get information on an EC2 Transit Gateway Connect.

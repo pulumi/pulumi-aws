@@ -32,7 +32,7 @@ __all__ = [
 ]
 
 class FileSystemAssociationCacheAttributesArgsDict(TypedDict):
-    cache_stale_timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    cache_stale_timeout_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Refreshes a file share's cache by using Time To Live (TTL).
     TTL is the length of time since the last refresh after which access to the directory would cause the file gateway
@@ -42,7 +42,7 @@ class FileSystemAssociationCacheAttributesArgsDict(TypedDict):
 @pulumi.input_type
 class FileSystemAssociationCacheAttributesArgs:
     def __init__(__self__, *,
-                 cache_stale_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 cache_stale_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] cache_stale_timeout_in_seconds: Refreshes a file share's cache by using Time To Live (TTL).
                TTL is the length of time since the last refresh after which access to the directory would cause the file gateway
@@ -53,7 +53,7 @@ class FileSystemAssociationCacheAttributesArgs:
 
     @_builtins.property
     @pulumi.getter(name="cacheStaleTimeoutInSeconds")
-    def cache_stale_timeout_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cache_stale_timeout_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Refreshes a file share's cache by using Time To Live (TTL).
         TTL is the length of time since the last refresh after which access to the directory would cause the file gateway
@@ -62,12 +62,12 @@ class FileSystemAssociationCacheAttributesArgs:
         return pulumi.get(self, "cache_stale_timeout_in_seconds")
 
     @cache_stale_timeout_in_seconds.setter
-    def cache_stale_timeout_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cache_stale_timeout_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cache_stale_timeout_in_seconds", value)
 
 
 class GatewayGatewayNetworkInterfaceArgsDict(TypedDict):
-    ipv4_address: NotRequired[pulumi.Input[_builtins.str]]
+    ipv4_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Internet Protocol version 4 (IPv4) address of the interface.
     """
@@ -75,7 +75,7 @@ class GatewayGatewayNetworkInterfaceArgsDict(TypedDict):
 @pulumi.input_type
 class GatewayGatewayNetworkInterfaceArgs:
     def __init__(__self__, *,
-                 ipv4_address: Optional[pulumi.Input[_builtins.str]] = None):
+                 ipv4_address: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] ipv4_address: The Internet Protocol version 4 (IPv4) address of the interface.
         """
@@ -84,14 +84,14 @@ class GatewayGatewayNetworkInterfaceArgs:
 
     @_builtins.property
     @pulumi.getter(name="ipv4Address")
-    def ipv4_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipv4_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Internet Protocol version 4 (IPv4) address of the interface.
         """
         return pulumi.get(self, "ipv4_address")
 
     @ipv4_address.setter
-    def ipv4_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipv4_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipv4_address", value)
 
 
@@ -100,15 +100,15 @@ class GatewayMaintenanceStartTimeArgsDict(TypedDict):
     """
     The hour component of the maintenance start time represented as _hh_, where _hh_ is the hour (00 to 23). The hour of the day is in the time zone of the gateway.
     """
-    day_of_month: NotRequired[pulumi.Input[_builtins.str]]
+    day_of_month: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The day of the month component of the maintenance start time represented as an ordinal number from 1 to 28, where 1 represents the first day of the month and 28 represents the last day of the month.
     """
-    day_of_week: NotRequired[pulumi.Input[_builtins.str]]
+    day_of_week: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The day of the week component of the maintenance start time week represented as an ordinal number from 0 to 6, where 0 represents Sunday and 6 Saturday.
     """
-    minute_of_hour: NotRequired[pulumi.Input[_builtins.int]]
+    minute_of_hour: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The minute component of the maintenance start time represented as _mm_, where _mm_ is the minute (00 to 59). The minute of the hour is in the time zone of the gateway.
     """
@@ -117,9 +117,9 @@ class GatewayMaintenanceStartTimeArgsDict(TypedDict):
 class GatewayMaintenanceStartTimeArgs:
     def __init__(__self__, *,
                  hour_of_day: pulumi.Input[_builtins.int],
-                 day_of_month: Optional[pulumi.Input[_builtins.str]] = None,
-                 day_of_week: Optional[pulumi.Input[_builtins.str]] = None,
-                 minute_of_hour: Optional[pulumi.Input[_builtins.int]] = None):
+                 day_of_month: pulumi.Input[Optional[_builtins.str]] = None,
+                 day_of_week: pulumi.Input[Optional[_builtins.str]] = None,
+                 minute_of_hour: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] hour_of_day: The hour component of the maintenance start time represented as _hh_, where _hh_ is the hour (00 to 23). The hour of the day is in the time zone of the gateway.
         :param pulumi.Input[_builtins.str] day_of_month: The day of the month component of the maintenance start time represented as an ordinal number from 1 to 28, where 1 represents the first day of the month and 28 represents the last day of the month.
@@ -148,38 +148,38 @@ class GatewayMaintenanceStartTimeArgs:
 
     @_builtins.property
     @pulumi.getter(name="dayOfMonth")
-    def day_of_month(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def day_of_month(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The day of the month component of the maintenance start time represented as an ordinal number from 1 to 28, where 1 represents the first day of the month and 28 represents the last day of the month.
         """
         return pulumi.get(self, "day_of_month")
 
     @day_of_month.setter
-    def day_of_month(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def day_of_month(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "day_of_month", value)
 
     @_builtins.property
     @pulumi.getter(name="dayOfWeek")
-    def day_of_week(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def day_of_week(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The day of the week component of the maintenance start time week represented as an ordinal number from 0 to 6, where 0 represents Sunday and 6 Saturday.
         """
         return pulumi.get(self, "day_of_week")
 
     @day_of_week.setter
-    def day_of_week(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def day_of_week(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "day_of_week", value)
 
     @_builtins.property
     @pulumi.getter(name="minuteOfHour")
-    def minute_of_hour(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def minute_of_hour(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minute component of the maintenance start time represented as _mm_, where _mm_ is the minute (00 to 59). The minute of the hour is in the time zone of the gateway.
         """
         return pulumi.get(self, "minute_of_hour")
 
     @minute_of_hour.setter
-    def minute_of_hour(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def minute_of_hour(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "minute_of_hour", value)
 
 
@@ -196,18 +196,18 @@ class GatewaySmbActiveDirectorySettingsArgsDict(TypedDict):
     """
     The user name of user who has permission to add the gateway to the Active Directory domain.
     """
-    active_directory_status: NotRequired[pulumi.Input[_builtins.str]]
-    domain_controllers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    active_directory_status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    domain_controllers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of IPv4 addresses, NetBIOS names, or host names of your domain server.
     If you need to specify the port number include it after the colon (“:”). For example, `mydc.mydomain.com:389`.
     """
-    organizational_unit: NotRequired[pulumi.Input[_builtins.str]]
+    organizational_unit: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The organizational unit (OU) is a container in an Active Directory that can hold users, groups,
     computers, and other OUs and this parameter specifies the OU that the gateway will join within the AD domain.
     """
-    timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    timeout_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the time in seconds, in which the JoinDomain operation must complete. The default is `20` seconds.
     """
@@ -218,10 +218,10 @@ class GatewaySmbActiveDirectorySettingsArgs:
                  domain_name: pulumi.Input[_builtins.str],
                  password: pulumi.Input[_builtins.str],
                  username: pulumi.Input[_builtins.str],
-                 active_directory_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_controllers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 organizational_unit: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 active_directory_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_controllers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 organizational_unit: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] domain_name: The name of the domain that you want the gateway to join.
         :param pulumi.Input[_builtins.str] password: The password of the user who has permission to add the gateway to the Active Directory domain.
@@ -282,16 +282,16 @@ class GatewaySmbActiveDirectorySettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="activeDirectoryStatus")
-    def active_directory_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def active_directory_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "active_directory_status")
 
     @active_directory_status.setter
-    def active_directory_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def active_directory_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "active_directory_status", value)
 
     @_builtins.property
     @pulumi.getter(name="domainControllers")
-    def domain_controllers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def domain_controllers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of IPv4 addresses, NetBIOS names, or host names of your domain server.
         If you need to specify the port number include it after the colon (“:”). For example, `mydc.mydomain.com:389`.
@@ -299,12 +299,12 @@ class GatewaySmbActiveDirectorySettingsArgs:
         return pulumi.get(self, "domain_controllers")
 
     @domain_controllers.setter
-    def domain_controllers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def domain_controllers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "domain_controllers", value)
 
     @_builtins.property
     @pulumi.getter(name="organizationalUnit")
-    def organizational_unit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def organizational_unit(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The organizational unit (OU) is a container in an Active Directory that can hold users, groups,
         computers, and other OUs and this parameter specifies the OU that the gateway will join within the AD domain.
@@ -312,24 +312,24 @@ class GatewaySmbActiveDirectorySettingsArgs:
         return pulumi.get(self, "organizational_unit")
 
     @organizational_unit.setter
-    def organizational_unit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def organizational_unit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "organizational_unit", value)
 
     @_builtins.property
     @pulumi.getter(name="timeoutInSeconds")
-    def timeout_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def timeout_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the time in seconds, in which the JoinDomain operation must complete. The default is `20` seconds.
         """
         return pulumi.get(self, "timeout_in_seconds")
 
     @timeout_in_seconds.setter
-    def timeout_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def timeout_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout_in_seconds", value)
 
 
 class NfsFileShareCacheAttributesArgsDict(TypedDict):
-    cache_stale_timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    cache_stale_timeout_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Refreshes a file share's cache by using Time To Live (TTL).
     TTL is the length of time since the last refresh after which access to the directory would cause the file gateway
@@ -339,7 +339,7 @@ class NfsFileShareCacheAttributesArgsDict(TypedDict):
 @pulumi.input_type
 class NfsFileShareCacheAttributesArgs:
     def __init__(__self__, *,
-                 cache_stale_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 cache_stale_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] cache_stale_timeout_in_seconds: Refreshes a file share's cache by using Time To Live (TTL).
                TTL is the length of time since the last refresh after which access to the directory would cause the file gateway
@@ -350,7 +350,7 @@ class NfsFileShareCacheAttributesArgs:
 
     @_builtins.property
     @pulumi.getter(name="cacheStaleTimeoutInSeconds")
-    def cache_stale_timeout_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cache_stale_timeout_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Refreshes a file share's cache by using Time To Live (TTL).
         TTL is the length of time since the last refresh after which access to the directory would cause the file gateway
@@ -359,24 +359,24 @@ class NfsFileShareCacheAttributesArgs:
         return pulumi.get(self, "cache_stale_timeout_in_seconds")
 
     @cache_stale_timeout_in_seconds.setter
-    def cache_stale_timeout_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cache_stale_timeout_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cache_stale_timeout_in_seconds", value)
 
 
 class NfsFileShareNfsFileShareDefaultsArgsDict(TypedDict):
-    directory_mode: NotRequired[pulumi.Input[_builtins.str]]
+    directory_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Unix directory mode in the string form "nnnn". Defaults to `"0777"`.
     """
-    file_mode: NotRequired[pulumi.Input[_builtins.str]]
+    file_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Unix file mode in the string form "nnnn". Defaults to `"0666"`.
     """
-    group_id: NotRequired[pulumi.Input[_builtins.str]]
+    group_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The default group ID for the file share (unless the files have another group ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
     """
-    owner_id: NotRequired[pulumi.Input[_builtins.str]]
+    owner_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The default owner ID for the file share (unless the files have another owner ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
     """
@@ -384,10 +384,10 @@ class NfsFileShareNfsFileShareDefaultsArgsDict(TypedDict):
 @pulumi.input_type
 class NfsFileShareNfsFileShareDefaultsArgs:
     def __init__(__self__, *,
-                 directory_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 directory_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] directory_mode: The Unix directory mode in the string form "nnnn". Defaults to `"0777"`.
         :param pulumi.Input[_builtins.str] file_mode: The Unix file mode in the string form "nnnn". Defaults to `"0666"`.
@@ -405,55 +405,55 @@ class NfsFileShareNfsFileShareDefaultsArgs:
 
     @_builtins.property
     @pulumi.getter(name="directoryMode")
-    def directory_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def directory_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Unix directory mode in the string form "nnnn". Defaults to `"0777"`.
         """
         return pulumi.get(self, "directory_mode")
 
     @directory_mode.setter
-    def directory_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def directory_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "directory_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="fileMode")
-    def file_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def file_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Unix file mode in the string form "nnnn". Defaults to `"0666"`.
         """
         return pulumi.get(self, "file_mode")
 
     @file_mode.setter
-    def file_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def file_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "file_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="groupId")
-    def group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default group ID for the file share (unless the files have another group ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
         """
         return pulumi.get(self, "group_id")
 
     @group_id.setter
-    def group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default owner ID for the file share (unless the files have another owner ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
         """
         return pulumi.get(self, "owner_id")
 
     @owner_id.setter
-    def owner_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner_id", value)
 
 
 class SmbFileShareCacheAttributesArgsDict(TypedDict):
-    cache_stale_timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    cache_stale_timeout_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Refreshes a file share's cache by using Time To Live (TTL).
     TTL is the length of time since the last refresh after which access to the directory would cause the file gateway
@@ -463,7 +463,7 @@ class SmbFileShareCacheAttributesArgsDict(TypedDict):
 @pulumi.input_type
 class SmbFileShareCacheAttributesArgs:
     def __init__(__self__, *,
-                 cache_stale_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 cache_stale_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] cache_stale_timeout_in_seconds: Refreshes a file share's cache by using Time To Live (TTL).
                TTL is the length of time since the last refresh after which access to the directory would cause the file gateway
@@ -474,7 +474,7 @@ class SmbFileShareCacheAttributesArgs:
 
     @_builtins.property
     @pulumi.getter(name="cacheStaleTimeoutInSeconds")
-    def cache_stale_timeout_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cache_stale_timeout_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Refreshes a file share's cache by using Time To Live (TTL).
         TTL is the length of time since the last refresh after which access to the directory would cause the file gateway
@@ -483,7 +483,7 @@ class SmbFileShareCacheAttributesArgs:
         return pulumi.get(self, "cache_stale_timeout_in_seconds")
 
     @cache_stale_timeout_in_seconds.setter
-    def cache_stale_timeout_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cache_stale_timeout_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cache_stale_timeout_in_seconds", value)
 
 

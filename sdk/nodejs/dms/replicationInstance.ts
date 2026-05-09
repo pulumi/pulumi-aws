@@ -293,95 +293,95 @@ export interface ReplicationInstanceState {
     /**
      * The amount of storage (in gigabytes) to be initially allocated for the replication instance.
      */
-    allocatedStorage?: pulumi.Input<number>;
+    allocatedStorage?: pulumi.Input<number | undefined>;
     /**
      * Indicates that major version upgrades are allowed.
      */
-    allowMajorVersionUpgrade?: pulumi.Input<boolean>;
+    allowMajorVersionUpgrade?: pulumi.Input<boolean | undefined>;
     /**
      * Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
      */
-    applyImmediately?: pulumi.Input<boolean>;
+    applyImmediately?: pulumi.Input<boolean | undefined>;
     /**
      * Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
      */
-    autoMinorVersionUpgrade?: pulumi.Input<boolean>;
+    autoMinorVersionUpgrade?: pulumi.Input<boolean | undefined>;
     /**
      * The EC2 Availability Zone that the replication instance will be created in.
      */
-    availabilityZone?: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string | undefined>;
     /**
      * A list of custom DNS name servers supported for the replication instance to access your on-premise source or target database. This list overrides the default name servers supported by the replication instance. You can specify a comma-separated list of internet addresses for up to four on-premise DNS name servers.
      */
-    dnsNameServers?: pulumi.Input<string>;
+    dnsNameServers?: pulumi.Input<string | undefined>;
     /**
      * The engine version number of the replication instance.
      */
-    engineVersion?: pulumi.Input<string>;
+    engineVersion?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for settings required for Kerberos authentication. See below.
      */
-    kerberosAuthenticationSettings?: pulumi.Input<inputs.dms.ReplicationInstanceKerberosAuthenticationSettings>;
+    kerberosAuthenticationSettings?: pulumi.Input<inputs.dms.ReplicationInstanceKerberosAuthenticationSettings | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      */
-    kmsKeyArn?: pulumi.Input<string>;
+    kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
      * Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
      */
-    multiAz?: pulumi.Input<boolean>;
+    multiAz?: pulumi.Input<boolean | undefined>;
     /**
      * The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
      */
-    networkType?: pulumi.Input<string>;
+    networkType?: pulumi.Input<string | undefined>;
     /**
      * The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
      */
-    preferredMaintenanceWindow?: pulumi.Input<string>;
+    preferredMaintenanceWindow?: pulumi.Input<string | undefined>;
     /**
      * Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
      */
-    publiclyAccessible?: pulumi.Input<boolean>;
+    publiclyAccessible?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the replication instance.
      */
-    replicationInstanceArn?: pulumi.Input<string>;
+    replicationInstanceArn?: pulumi.Input<string | undefined>;
     /**
      * The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
      */
-    replicationInstanceClass?: pulumi.Input<string>;
+    replicationInstanceClass?: pulumi.Input<string | undefined>;
     /**
      * The replication instance identifier. This parameter is stored as a lowercase string.
      */
-    replicationInstanceId?: pulumi.Input<string>;
+    replicationInstanceId?: pulumi.Input<string | undefined>;
     /**
      * A list of the private IP addresses of the replication instance.
      */
-    replicationInstancePrivateIps?: pulumi.Input<pulumi.Input<string>[]>;
+    replicationInstancePrivateIps?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A list of the public IP addresses of the replication instance.
      */
-    replicationInstancePublicIps?: pulumi.Input<pulumi.Input<string>[]>;
+    replicationInstancePublicIps?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A subnet group to associate with the replication instance.
      */
-    replicationSubnetGroupId?: pulumi.Input<string>;
+    replicationSubnetGroupId?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
      */
-    vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -391,59 +391,59 @@ export interface ReplicationInstanceArgs {
     /**
      * The amount of storage (in gigabytes) to be initially allocated for the replication instance.
      */
-    allocatedStorage?: pulumi.Input<number>;
+    allocatedStorage?: pulumi.Input<number | undefined>;
     /**
      * Indicates that major version upgrades are allowed.
      */
-    allowMajorVersionUpgrade?: pulumi.Input<boolean>;
+    allowMajorVersionUpgrade?: pulumi.Input<boolean | undefined>;
     /**
      * Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
      */
-    applyImmediately?: pulumi.Input<boolean>;
+    applyImmediately?: pulumi.Input<boolean | undefined>;
     /**
      * Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
      */
-    autoMinorVersionUpgrade?: pulumi.Input<boolean>;
+    autoMinorVersionUpgrade?: pulumi.Input<boolean | undefined>;
     /**
      * The EC2 Availability Zone that the replication instance will be created in.
      */
-    availabilityZone?: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string | undefined>;
     /**
      * A list of custom DNS name servers supported for the replication instance to access your on-premise source or target database. This list overrides the default name servers supported by the replication instance. You can specify a comma-separated list of internet addresses for up to four on-premise DNS name servers.
      */
-    dnsNameServers?: pulumi.Input<string>;
+    dnsNameServers?: pulumi.Input<string | undefined>;
     /**
      * The engine version number of the replication instance.
      */
-    engineVersion?: pulumi.Input<string>;
+    engineVersion?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for settings required for Kerberos authentication. See below.
      */
-    kerberosAuthenticationSettings?: pulumi.Input<inputs.dms.ReplicationInstanceKerberosAuthenticationSettings>;
+    kerberosAuthenticationSettings?: pulumi.Input<inputs.dms.ReplicationInstanceKerberosAuthenticationSettings | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      */
-    kmsKeyArn?: pulumi.Input<string>;
+    kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
      * Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
      */
-    multiAz?: pulumi.Input<boolean>;
+    multiAz?: pulumi.Input<boolean | undefined>;
     /**
      * The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
      */
-    networkType?: pulumi.Input<string>;
+    networkType?: pulumi.Input<string | undefined>;
     /**
      * The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
      */
-    preferredMaintenanceWindow?: pulumi.Input<string>;
+    preferredMaintenanceWindow?: pulumi.Input<string | undefined>;
     /**
      * Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
      */
-    publiclyAccessible?: pulumi.Input<boolean>;
+    publiclyAccessible?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
      */
@@ -455,13 +455,13 @@ export interface ReplicationInstanceArgs {
     /**
      * A subnet group to associate with the replication instance.
      */
-    replicationSubnetGroupId?: pulumi.Input<string>;
+    replicationSubnetGroupId?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
      */
-    vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

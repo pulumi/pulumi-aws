@@ -219,58 +219,58 @@ export interface RouteState {
     /**
      * API identifier.
      */
-    apiId?: pulumi.Input<string>;
+    apiId?: pulumi.Input<string | undefined>;
     /**
      * Boolean whether an API key is required for the route. Defaults to `false`. Supported only for WebSocket APIs.
      */
-    apiKeyRequired?: pulumi.Input<boolean>;
+    apiKeyRequired?: pulumi.Input<boolean | undefined>;
     /**
      * Authorization scopes supported by this route. The scopes are used with a JWT authorizer to authorize the method invocation.
      */
-    authorizationScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    authorizationScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Authorization type for the route.
      * For WebSocket APIs, valid values are `NONE` for open access, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
      * For HTTP APIs, valid values are `NONE` for open access, `JWT` for using JSON Web Tokens, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
      * Defaults to `NONE`.
      */
-    authorizationType?: pulumi.Input<string>;
+    authorizationType?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the `aws.apigatewayv2.Authorizer` resource to be associated with this route.
      */
-    authorizerId?: pulumi.Input<string>;
+    authorizerId?: pulumi.Input<string | undefined>;
     /**
      * The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route. Supported only for WebSocket APIs.
      */
-    modelSelectionExpression?: pulumi.Input<string>;
+    modelSelectionExpression?: pulumi.Input<string | undefined>;
     /**
      * Operation name for the route. Must be between 1 and 64 characters in length.
      */
-    operationName?: pulumi.Input<string>;
+    operationName?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Request models for the route. Supported only for WebSocket APIs.
      */
-    requestModels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    requestModels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Request parameters for the route. Supported only for WebSocket APIs.
      */
-    requestParameters?: pulumi.Input<pulumi.Input<inputs.apigatewayv2.RouteRequestParameter>[]>;
+    requestParameters?: pulumi.Input<pulumi.Input<inputs.apigatewayv2.RouteRequestParameter>[] | undefined>;
     /**
      * Route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
      */
-    routeKey?: pulumi.Input<string>;
+    routeKey?: pulumi.Input<string | undefined>;
     /**
      * The [route response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-response-selection-expressions) for the route. Supported only for WebSocket APIs.
      */
-    routeResponseSelectionExpression?: pulumi.Input<string>;
+    routeResponseSelectionExpression?: pulumi.Input<string | undefined>;
     /**
      * Target for the route, of the form `integrations/`*`IntegrationID`*, where *`IntegrationID`* is the identifier of an `aws.apigatewayv2.Integration` resource.
      */
-    target?: pulumi.Input<string>;
+    target?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -284,42 +284,42 @@ export interface RouteArgs {
     /**
      * Boolean whether an API key is required for the route. Defaults to `false`. Supported only for WebSocket APIs.
      */
-    apiKeyRequired?: pulumi.Input<boolean>;
+    apiKeyRequired?: pulumi.Input<boolean | undefined>;
     /**
      * Authorization scopes supported by this route. The scopes are used with a JWT authorizer to authorize the method invocation.
      */
-    authorizationScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    authorizationScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Authorization type for the route.
      * For WebSocket APIs, valid values are `NONE` for open access, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
      * For HTTP APIs, valid values are `NONE` for open access, `JWT` for using JSON Web Tokens, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
      * Defaults to `NONE`.
      */
-    authorizationType?: pulumi.Input<string>;
+    authorizationType?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the `aws.apigatewayv2.Authorizer` resource to be associated with this route.
      */
-    authorizerId?: pulumi.Input<string>;
+    authorizerId?: pulumi.Input<string | undefined>;
     /**
      * The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route. Supported only for WebSocket APIs.
      */
-    modelSelectionExpression?: pulumi.Input<string>;
+    modelSelectionExpression?: pulumi.Input<string | undefined>;
     /**
      * Operation name for the route. Must be between 1 and 64 characters in length.
      */
-    operationName?: pulumi.Input<string>;
+    operationName?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Request models for the route. Supported only for WebSocket APIs.
      */
-    requestModels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    requestModels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Request parameters for the route. Supported only for WebSocket APIs.
      */
-    requestParameters?: pulumi.Input<pulumi.Input<inputs.apigatewayv2.RouteRequestParameter>[]>;
+    requestParameters?: pulumi.Input<pulumi.Input<inputs.apigatewayv2.RouteRequestParameter>[] | undefined>;
     /**
      * Route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
      */
@@ -327,9 +327,9 @@ export interface RouteArgs {
     /**
      * The [route response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-response-selection-expressions) for the route. Supported only for WebSocket APIs.
      */
-    routeResponseSelectionExpression?: pulumi.Input<string>;
+    routeResponseSelectionExpression?: pulumi.Input<string | undefined>;
     /**
      * Target for the route, of the form `integrations/`*`IntegrationID`*, where *`IntegrationID`* is the identifier of an `aws.apigatewayv2.Integration` resource.
      */
-    target?: pulumi.Input<string>;
+    target?: pulumi.Input<string | undefined>;
 }

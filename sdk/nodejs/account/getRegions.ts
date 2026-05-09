@@ -93,9 +93,9 @@ export interface GetRegionsOutputArgs {
     /**
      * AWS account ID. Must be a member account in the same organization.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * A list of region opt-in statuses to filter the results. Valid values are `ENABLED`, `ENABLING`, `DISABLING`, `DISABLED`, and `ENABLED_BY_DEFAULT`.
      */
-    regionOptStatusContains?: pulumi.Input<pulumi.Input<string>[]>;
+    regionOptStatusContains?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

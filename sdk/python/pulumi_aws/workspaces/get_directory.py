@@ -380,9 +380,9 @@ def get_directory(directory_id: Optional[_builtins.str] = None,
         workspace_directory_name=pulumi.get(__ret__, 'workspace_directory_name'),
         workspace_security_group_id=pulumi.get(__ret__, 'workspace_security_group_id'),
         workspace_type=pulumi.get(__ret__, 'workspace_type'))
-def get_directory_output(directory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                         region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                         tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_directory_output(directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                         region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                         tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDirectoryResult]:
     """
     Retrieve information about an AWS WorkSpaces directory.

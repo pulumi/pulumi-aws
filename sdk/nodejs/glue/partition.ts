@@ -154,40 +154,40 @@ export interface PartitionState {
     /**
      * ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
      */
-    catalogId?: pulumi.Input<string>;
+    catalogId?: pulumi.Input<string | undefined>;
     /**
      * The time at which the partition was created.
      */
-    creationTime?: pulumi.Input<string>;
+    creationTime?: pulumi.Input<string | undefined>;
     /**
      * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
      */
-    databaseName?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string | undefined>;
     /**
      * The last time at which the partition was accessed.
      */
-    lastAccessedTime?: pulumi.Input<string>;
+    lastAccessedTime?: pulumi.Input<string | undefined>;
     /**
      * The last time at which column statistics were computed for this partition.
      */
-    lastAnalyzedTime?: pulumi.Input<string>;
+    lastAnalyzedTime?: pulumi.Input<string | undefined>;
     /**
      * Properties associated with this table, as a list of key-value pairs.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The values that define the partition.
      */
-    partitionValues?: pulumi.Input<pulumi.Input<string>[]>;
+    partitionValues?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
      */
-    storageDescriptor?: pulumi.Input<inputs.glue.PartitionStorageDescriptor>;
-    tableName?: pulumi.Input<string>;
+    storageDescriptor?: pulumi.Input<inputs.glue.PartitionStorageDescriptor | undefined>;
+    tableName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -197,7 +197,7 @@ export interface PartitionArgs {
     /**
      * ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
      */
-    catalogId?: pulumi.Input<string>;
+    catalogId?: pulumi.Input<string | undefined>;
     /**
      * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
      */
@@ -205,7 +205,7 @@ export interface PartitionArgs {
     /**
      * Properties associated with this table, as a list of key-value pairs.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The values that define the partition.
      */
@@ -213,10 +213,10 @@ export interface PartitionArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
      */
-    storageDescriptor?: pulumi.Input<inputs.glue.PartitionStorageDescriptor>;
+    storageDescriptor?: pulumi.Input<inputs.glue.PartitionStorageDescriptor | undefined>;
     tableName: pulumi.Input<string>;
 }

@@ -23,9 +23,9 @@ class WebAclLoggingConfigurationArgs:
     def __init__(__self__, *,
                  log_destination_configs: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  resource_arn: pulumi.Input[_builtins.str],
-                 logging_filter: Optional[pulumi.Input['WebAclLoggingConfigurationLoggingFilterArgs']] = None,
-                 redacted_fields: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclLoggingConfigurationRedactedFieldArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 logging_filter: pulumi.Input[Optional['WebAclLoggingConfigurationLoggingFilterArgs']] = None,
+                 redacted_fields: pulumi.Input[Optional[Sequence[pulumi.Input['WebAclLoggingConfigurationRedactedFieldArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WebAclLoggingConfiguration resource.
 
@@ -70,49 +70,49 @@ class WebAclLoggingConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="loggingFilter")
-    def logging_filter(self) -> Optional[pulumi.Input['WebAclLoggingConfigurationLoggingFilterArgs']]:
+    def logging_filter(self) -> pulumi.Input[Optional['WebAclLoggingConfigurationLoggingFilterArgs']]:
         """
         Configuration block that specifies which web requests are kept in the logs and which are dropped. It allows filtering based on the rule action and the web request labels applied by matching rules during web ACL evaluation. For more details, refer to the Logging Filter section below.
         """
         return pulumi.get(self, "logging_filter")
 
     @logging_filter.setter
-    def logging_filter(self, value: Optional[pulumi.Input['WebAclLoggingConfigurationLoggingFilterArgs']]):
+    def logging_filter(self, value: pulumi.Input[Optional['WebAclLoggingConfigurationLoggingFilterArgs']]):
         pulumi.set(self, "logging_filter", value)
 
     @_builtins.property
     @pulumi.getter(name="redactedFields")
-    def redacted_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclLoggingConfigurationRedactedFieldArgs']]]]:
+    def redacted_fields(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WebAclLoggingConfigurationRedactedFieldArgs']]]]:
         """
         Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redacted_fields` blocks are supported. See Redacted Fields below for more details.
         """
         return pulumi.get(self, "redacted_fields")
 
     @redacted_fields.setter
-    def redacted_fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclLoggingConfigurationRedactedFieldArgs']]]]):
+    def redacted_fields(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WebAclLoggingConfigurationRedactedFieldArgs']]]]):
         pulumi.set(self, "redacted_fields", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _WebAclLoggingConfigurationState:
     def __init__(__self__, *,
-                 log_destination_configs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 logging_filter: Optional[pulumi.Input['WebAclLoggingConfigurationLoggingFilterArgs']] = None,
-                 redacted_fields: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclLoggingConfigurationRedactedFieldArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 log_destination_configs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 logging_filter: pulumi.Input[Optional['WebAclLoggingConfigurationLoggingFilterArgs']] = None,
+                 redacted_fields: pulumi.Input[Optional[Sequence[pulumi.Input['WebAclLoggingConfigurationRedactedFieldArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WebAclLoggingConfiguration resources.
 
@@ -135,62 +135,62 @@ class _WebAclLoggingConfigurationState:
 
     @_builtins.property
     @pulumi.getter(name="logDestinationConfigs")
-    def log_destination_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def log_destination_configs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) with the web ACL. **Note:** data firehose, log group, or bucket name **must** be prefixed with `aws-waf-logs-`, e.g. `aws-waf-logs-example-firehose`, `aws-waf-logs-example-log-group`, or `aws-waf-logs-example-bucket`.
         """
         return pulumi.get(self, "log_destination_configs")
 
     @log_destination_configs.setter
-    def log_destination_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def log_destination_configs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "log_destination_configs", value)
 
     @_builtins.property
     @pulumi.getter(name="loggingFilter")
-    def logging_filter(self) -> Optional[pulumi.Input['WebAclLoggingConfigurationLoggingFilterArgs']]:
+    def logging_filter(self) -> pulumi.Input[Optional['WebAclLoggingConfigurationLoggingFilterArgs']]:
         """
         Configuration block that specifies which web requests are kept in the logs and which are dropped. It allows filtering based on the rule action and the web request labels applied by matching rules during web ACL evaluation. For more details, refer to the Logging Filter section below.
         """
         return pulumi.get(self, "logging_filter")
 
     @logging_filter.setter
-    def logging_filter(self, value: Optional[pulumi.Input['WebAclLoggingConfigurationLoggingFilterArgs']]):
+    def logging_filter(self, value: pulumi.Input[Optional['WebAclLoggingConfigurationLoggingFilterArgs']]):
         pulumi.set(self, "logging_filter", value)
 
     @_builtins.property
     @pulumi.getter(name="redactedFields")
-    def redacted_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclLoggingConfigurationRedactedFieldArgs']]]]:
+    def redacted_fields(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WebAclLoggingConfigurationRedactedFieldArgs']]]]:
         """
         Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redacted_fields` blocks are supported. See Redacted Fields below for more details.
         """
         return pulumi.get(self, "redacted_fields")
 
     @redacted_fields.setter
-    def redacted_fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclLoggingConfigurationRedactedFieldArgs']]]]):
+    def redacted_fields(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WebAclLoggingConfigurationRedactedFieldArgs']]]]):
         pulumi.set(self, "redacted_fields", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceArn")
-    def resource_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) of the web ACL that you want to associate with `log_destination_configs`.
         """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
-    def resource_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_arn", value)
 
 
@@ -200,11 +200,11 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 log_destination_configs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 logging_filter: Optional[pulumi.Input[Union['WebAclLoggingConfigurationLoggingFilterArgs', 'WebAclLoggingConfigurationLoggingFilterArgsDict']]] = None,
-                 redacted_fields: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebAclLoggingConfigurationRedactedFieldArgs', 'WebAclLoggingConfigurationRedactedFieldArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 log_destination_configs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 logging_filter: pulumi.Input[Optional[Union['WebAclLoggingConfigurationLoggingFilterArgs', 'WebAclLoggingConfigurationLoggingFilterArgsDict']]] = None,
+                 redacted_fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebAclLoggingConfigurationRedactedFieldArgs', 'WebAclLoggingConfigurationRedactedFieldArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         This resource creates a WAFv2 Web ACL Logging Configuration.
@@ -381,11 +381,11 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 log_destination_configs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 logging_filter: Optional[pulumi.Input[Union['WebAclLoggingConfigurationLoggingFilterArgs', 'WebAclLoggingConfigurationLoggingFilterArgsDict']]] = None,
-                 redacted_fields: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebAclLoggingConfigurationRedactedFieldArgs', 'WebAclLoggingConfigurationRedactedFieldArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 log_destination_configs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 logging_filter: pulumi.Input[Optional[Union['WebAclLoggingConfigurationLoggingFilterArgs', 'WebAclLoggingConfigurationLoggingFilterArgsDict']]] = None,
+                 redacted_fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebAclLoggingConfigurationRedactedFieldArgs', 'WebAclLoggingConfigurationRedactedFieldArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -414,11 +414,11 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            log_destination_configs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            logging_filter: Optional[pulumi.Input[Union['WebAclLoggingConfigurationLoggingFilterArgs', 'WebAclLoggingConfigurationLoggingFilterArgsDict']]] = None,
-            redacted_fields: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebAclLoggingConfigurationRedactedFieldArgs', 'WebAclLoggingConfigurationRedactedFieldArgsDict']]]]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_arn: Optional[pulumi.Input[_builtins.str]] = None) -> 'WebAclLoggingConfiguration':
+            log_destination_configs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            logging_filter: pulumi.Input[Optional[Union['WebAclLoggingConfigurationLoggingFilterArgs', 'WebAclLoggingConfigurationLoggingFilterArgsDict']]] = None,
+            redacted_fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebAclLoggingConfigurationRedactedFieldArgs', 'WebAclLoggingConfigurationRedactedFieldArgsDict']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_arn: pulumi.Input[Optional[_builtins.str]] = None) -> 'WebAclLoggingConfiguration':
         """
         Get an existing WebAclLoggingConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

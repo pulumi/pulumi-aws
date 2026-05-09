@@ -179,59 +179,59 @@ export interface VpcAttachmentAccepterState {
     /**
      * Whether Appliance Mode support is enabled. Valid values: `disable`, `enable`.
      */
-    applianceModeSupport?: pulumi.Input<string>;
+    applianceModeSupport?: pulumi.Input<string | undefined>;
     /**
      * Whether DNS support is enabled. Valid values: `disable`, `enable`.
      */
-    dnsSupport?: pulumi.Input<string>;
+    dnsSupport?: pulumi.Input<string | undefined>;
     /**
      * Whether IPv6 support is enabled. Valid values: `disable`, `enable`.
      */
-    ipv6Support?: pulumi.Input<string>;
+    ipv6Support?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
      */
-    securityGroupReferencingSupport?: pulumi.Input<string>;
+    securityGroupReferencingSupport?: pulumi.Input<string | undefined>;
     /**
      * Identifiers of EC2 Subnets.
      */
-    subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    subnetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ID of the EC2 Transit Gateway Attachment to manage.
      */
-    transitGatewayAttachmentId?: pulumi.Input<string>;
+    transitGatewayAttachmentId?: pulumi.Input<string | undefined>;
     /**
      * Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. Default value: `true`.
      */
-    transitGatewayDefaultRouteTableAssociation?: pulumi.Input<boolean>;
+    transitGatewayDefaultRouteTableAssociation?: pulumi.Input<boolean | undefined>;
     /**
      * Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. Default value: `true`.
      */
-    transitGatewayDefaultRouteTablePropagation?: pulumi.Input<boolean>;
+    transitGatewayDefaultRouteTablePropagation?: pulumi.Input<boolean | undefined>;
     /**
      * Identifier of EC2 Transit Gateway.
      */
-    transitGatewayId?: pulumi.Input<string>;
+    transitGatewayId?: pulumi.Input<string | undefined>;
     /**
      * Identifier of EC2 VPC.
      */
-    vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the AWS account that owns the EC2 VPC.
      */
-    vpcOwnerId?: pulumi.Input<string>;
+    vpcOwnerId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -241,11 +241,11 @@ export interface VpcAttachmentAccepterArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ID of the EC2 Transit Gateway Attachment to manage.
      */
@@ -253,9 +253,9 @@ export interface VpcAttachmentAccepterArgs {
     /**
      * Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. Default value: `true`.
      */
-    transitGatewayDefaultRouteTableAssociation?: pulumi.Input<boolean>;
+    transitGatewayDefaultRouteTableAssociation?: pulumi.Input<boolean | undefined>;
     /**
      * Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. Default value: `true`.
      */
-    transitGatewayDefaultRouteTablePropagation?: pulumi.Input<boolean>;
+    transitGatewayDefaultRouteTablePropagation?: pulumi.Input<boolean | undefined>;
 }

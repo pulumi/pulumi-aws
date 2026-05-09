@@ -96,7 +96,7 @@ def get_sites(region: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         ids=pulumi.get(__ret__, 'ids'),
         region=pulumi.get(__ret__, 'region'))
-def get_sites_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_sites_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSitesResult]:
     """
     Provides details about multiple Outposts Sites.

@@ -226,23 +226,23 @@ export class ConfigurationPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ConfigurationPolicy resources.
  */
 export interface ConfigurationPolicyState {
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Defines how Security Hub is configured. See below.
      */
-    configurationPolicy?: pulumi.Input<inputs.securityhub.ConfigurationPolicyConfigurationPolicy>;
+    configurationPolicy?: pulumi.Input<inputs.securityhub.ConfigurationPolicyConfigurationPolicy | undefined>;
     /**
      * The description of the configuration policy.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the configuration policy.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -256,13 +256,13 @@ export interface ConfigurationPolicyArgs {
     /**
      * The description of the configuration policy.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the configuration policy.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

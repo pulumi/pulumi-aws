@@ -163,28 +163,28 @@ export interface TrustAnchorState {
     /**
      * Amazon Resource Name (ARN) of the Trust Anchor
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Whether or not the Trust Anchor should be enabled.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the Trust Anchor.
      */
-    name?: pulumi.Input<string>;
-    notificationSettings?: pulumi.Input<pulumi.Input<inputs.rolesanywhere.TrustAnchorNotificationSetting>[]>;
+    name?: pulumi.Input<string | undefined>;
+    notificationSettings?: pulumi.Input<pulumi.Input<inputs.rolesanywhere.TrustAnchorNotificationSetting>[] | undefined>;
     /**
      * The source of trust, documented below
      */
-    source?: pulumi.Input<inputs.rolesanywhere.TrustAnchorSource>;
+    source?: pulumi.Input<inputs.rolesanywhere.TrustAnchorSource | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -194,12 +194,12 @@ export interface TrustAnchorArgs {
     /**
      * Whether or not the Trust Anchor should be enabled.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the Trust Anchor.
      */
-    name?: pulumi.Input<string>;
-    notificationSettings?: pulumi.Input<pulumi.Input<inputs.rolesanywhere.TrustAnchorNotificationSetting>[]>;
+    name?: pulumi.Input<string | undefined>;
+    notificationSettings?: pulumi.Input<pulumi.Input<inputs.rolesanywhere.TrustAnchorNotificationSetting>[] | undefined>;
     /**
      * The source of trust, documented below
      */
@@ -207,5 +207,5 @@ export interface TrustAnchorArgs {
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

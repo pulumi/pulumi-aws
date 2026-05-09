@@ -22,11 +22,11 @@ __all__ = ['PlanArgs', 'Plan']
 class PlanArgs:
     def __init__(__self__, *,
                  rules: pulumi.Input[Sequence[pulumi.Input['PlanRuleArgs']]],
-                 advanced_backup_settings: Optional[pulumi.Input[Sequence[pulumi.Input['PlanAdvancedBackupSettingArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 scan_settings: Optional[pulumi.Input[Sequence[pulumi.Input['PlanScanSettingArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 advanced_backup_settings: pulumi.Input[Optional[Sequence[pulumi.Input['PlanAdvancedBackupSettingArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 scan_settings: pulumi.Input[Optional[Sequence[pulumi.Input['PlanScanSettingArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Plan resource.
 
@@ -63,77 +63,77 @@ class PlanArgs:
 
     @_builtins.property
     @pulumi.getter(name="advancedBackupSettings")
-    def advanced_backup_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PlanAdvancedBackupSettingArgs']]]]:
+    def advanced_backup_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PlanAdvancedBackupSettingArgs']]]]:
         """
         An object that specifies backup options for each resource type.
         """
         return pulumi.get(self, "advanced_backup_settings")
 
     @advanced_backup_settings.setter
-    def advanced_backup_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PlanAdvancedBackupSettingArgs']]]]):
+    def advanced_backup_settings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PlanAdvancedBackupSettingArgs']]]]):
         pulumi.set(self, "advanced_backup_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name of a backup plan.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="scanSettings")
-    def scan_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PlanScanSettingArgs']]]]:
+    def scan_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PlanScanSettingArgs']]]]:
         """
         Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
         """
         return pulumi.get(self, "scan_settings")
 
     @scan_settings.setter
-    def scan_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PlanScanSettingArgs']]]]):
+    def scan_settings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PlanScanSettingArgs']]]]):
         pulumi.set(self, "scan_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Metadata that you can assign to help organize the plans you create. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _PlanState:
     def __init__(__self__, *,
-                 advanced_backup_settings: Optional[pulumi.Input[Sequence[pulumi.Input['PlanAdvancedBackupSettingArgs']]]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['PlanRuleArgs']]]] = None,
-                 scan_settings: Optional[pulumi.Input[Sequence[pulumi.Input['PlanScanSettingArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 advanced_backup_settings: pulumi.Input[Optional[Sequence[pulumi.Input['PlanAdvancedBackupSettingArgs']]]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input['PlanRuleArgs']]]] = None,
+                 scan_settings: pulumi.Input[Optional[Sequence[pulumi.Input['PlanScanSettingArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Plan resources.
 
@@ -168,110 +168,110 @@ class _PlanState:
 
     @_builtins.property
     @pulumi.getter(name="advancedBackupSettings")
-    def advanced_backup_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PlanAdvancedBackupSettingArgs']]]]:
+    def advanced_backup_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PlanAdvancedBackupSettingArgs']]]]:
         """
         An object that specifies backup options for each resource type.
         """
         return pulumi.get(self, "advanced_backup_settings")
 
     @advanced_backup_settings.setter
-    def advanced_backup_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PlanAdvancedBackupSettingArgs']]]]):
+    def advanced_backup_settings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PlanAdvancedBackupSettingArgs']]]]):
         pulumi.set(self, "advanced_backup_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the backup plan.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name of a backup plan.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PlanRuleArgs']]]]:
+    def rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PlanRuleArgs']]]]:
         """
         A rule object that specifies a scheduled task that is used to back up a selection of resources.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PlanRuleArgs']]]]):
+    def rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PlanRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
     @_builtins.property
     @pulumi.getter(name="scanSettings")
-    def scan_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PlanScanSettingArgs']]]]:
+    def scan_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PlanScanSettingArgs']]]]:
         """
         Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
         """
         return pulumi.get(self, "scan_settings")
 
     @scan_settings.setter
-    def scan_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PlanScanSettingArgs']]]]):
+    def scan_settings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PlanScanSettingArgs']]]]):
         pulumi.set(self, "scan_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Metadata that you can assign to help organize the plans you create. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -281,12 +281,12 @@ class Plan(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 advanced_backup_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PlanAdvancedBackupSettingArgs', 'PlanAdvancedBackupSettingArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PlanRuleArgs', 'PlanRuleArgsDict']]]]] = None,
-                 scan_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PlanScanSettingArgs', 'PlanScanSettingArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 advanced_backup_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlanAdvancedBackupSettingArgs', 'PlanAdvancedBackupSettingArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlanRuleArgs', 'PlanRuleArgsDict']]]]] = None,
+                 scan_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlanScanSettingArgs', 'PlanScanSettingArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides an AWS Backup plan resource.
@@ -390,12 +390,12 @@ class Plan(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 advanced_backup_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PlanAdvancedBackupSettingArgs', 'PlanAdvancedBackupSettingArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PlanRuleArgs', 'PlanRuleArgsDict']]]]] = None,
-                 scan_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PlanScanSettingArgs', 'PlanScanSettingArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 advanced_backup_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlanAdvancedBackupSettingArgs', 'PlanAdvancedBackupSettingArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlanRuleArgs', 'PlanRuleArgsDict']]]]] = None,
+                 scan_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlanScanSettingArgs', 'PlanScanSettingArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -426,15 +426,15 @@ class Plan(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            advanced_backup_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PlanAdvancedBackupSettingArgs', 'PlanAdvancedBackupSettingArgsDict']]]]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PlanRuleArgs', 'PlanRuleArgsDict']]]]] = None,
-            scan_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PlanScanSettingArgs', 'PlanScanSettingArgsDict']]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            version: Optional[pulumi.Input[_builtins.str]] = None) -> 'Plan':
+            advanced_backup_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlanAdvancedBackupSettingArgs', 'PlanAdvancedBackupSettingArgsDict']]]]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlanRuleArgs', 'PlanRuleArgsDict']]]]] = None,
+            scan_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlanScanSettingArgs', 'PlanScanSettingArgsDict']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> 'Plan':
         """
         Get an existing Plan resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

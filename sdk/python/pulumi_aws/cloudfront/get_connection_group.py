@@ -210,8 +210,8 @@ def get_connection_group(id: Optional[_builtins.str] = None,
         routing_endpoint=pulumi.get(__ret__, 'routing_endpoint'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_connection_group_output(id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                routing_endpoint: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_connection_group_output(id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                routing_endpoint: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionGroupResult]:
     """
     Use this data source to retrieve information about a CloudFront connection group.

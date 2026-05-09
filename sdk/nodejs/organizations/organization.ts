@@ -176,51 +176,51 @@ export interface OrganizationState {
     /**
      * List of organization accounts including the master account. For a list excluding the master account, see the `nonMasterAccounts` attribute. All elements have these attributes:
      */
-    accounts?: pulumi.Input<pulumi.Input<inputs.organizations.OrganizationAccount>[]>;
+    accounts?: pulumi.Input<pulumi.Input<inputs.organizations.OrganizationAccount>[] | undefined>;
     /**
      * ARN of the root.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * List of AWS service principal names for which you want to enable integration with your organization. This is typically in the form of a URL, such as service-abbreviation.amazonaws.com. Organization must have `featureSet` set to `ALL`. Some services do not support enablement via this endpoint, see [warning in aws docs](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html).
      */
-    awsServiceAccessPrincipals?: pulumi.Input<pulumi.Input<string>[]>;
+    awsServiceAccessPrincipals?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of Organizations policy types to enable in the Organization Root. Organization must have `featureSet` set to `ALL`. For additional information about valid policy types (e.g., `AISERVICES_OPT_OUT_POLICY`, `BACKUP_POLICY`, `BEDROCK_POLICY`, `CHATBOT_POLICY`, `DECLARATIVE_POLICY_EC2`, `INSPECTOR_POLICY`, `RESOURCE_CONTROL_POLICY`, `S3_POLICY`, `SECURITYHUB_POLICY`, `SERVICE_CONTROL_POLICY`, `TAG_POLICY` and `UPGRADE_ROLLOUT_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html). To enable `INSPECTOR_POLICY`, `awsServiceAccessPrincipals` must include `inspector2.amazonaws.com`. To enable `SECURITYHUB_POLICY`, `awsServiceAccessPrincipals` must include `securityhub.amazonaws.com`.
      */
-    enabledPolicyTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    enabledPolicyTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specify `ALL` (default) or `CONSOLIDATED_BILLING`.
      */
-    featureSet?: pulumi.Input<string>;
+    featureSet?: pulumi.Input<string | undefined>;
     /**
      * ARN of the master account.
      */
-    masterAccountArn?: pulumi.Input<string>;
+    masterAccountArn?: pulumi.Input<string | undefined>;
     /**
      * Email address of the master account.
      */
-    masterAccountEmail?: pulumi.Input<string>;
+    masterAccountEmail?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the master account.
      */
-    masterAccountId?: pulumi.Input<string>;
+    masterAccountId?: pulumi.Input<string | undefined>;
     /**
      * Name of the master account.
      */
-    masterAccountName?: pulumi.Input<string>;
+    masterAccountName?: pulumi.Input<string | undefined>;
     /**
      * List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
      */
-    nonMasterAccounts?: pulumi.Input<pulumi.Input<inputs.organizations.OrganizationNonMasterAccount>[]>;
+    nonMasterAccounts?: pulumi.Input<pulumi.Input<inputs.organizations.OrganizationNonMasterAccount>[] | undefined>;
     /**
      * Return (as attributes) only the results of the [`DescribeOrganization`](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganization.html) API to avoid [API limits](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html#throttling-limits). When configured to `true` only the `arn`, `featureSet`, `masterAccountArn`, `masterAccountEmail` and `masterAccountId` attributes will be returned. All others will be empty. Default: `false`.
      */
-    returnOrganizationOnly?: pulumi.Input<boolean>;
+    returnOrganizationOnly?: pulumi.Input<boolean | undefined>;
     /**
      * List of organization roots. All elements have these attributes:
      */
-    roots?: pulumi.Input<pulumi.Input<inputs.organizations.OrganizationRoot>[]>;
+    roots?: pulumi.Input<pulumi.Input<inputs.organizations.OrganizationRoot>[] | undefined>;
 }
 
 /**
@@ -230,17 +230,17 @@ export interface OrganizationArgs {
     /**
      * List of AWS service principal names for which you want to enable integration with your organization. This is typically in the form of a URL, such as service-abbreviation.amazonaws.com. Organization must have `featureSet` set to `ALL`. Some services do not support enablement via this endpoint, see [warning in aws docs](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html).
      */
-    awsServiceAccessPrincipals?: pulumi.Input<pulumi.Input<string>[]>;
+    awsServiceAccessPrincipals?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of Organizations policy types to enable in the Organization Root. Organization must have `featureSet` set to `ALL`. For additional information about valid policy types (e.g., `AISERVICES_OPT_OUT_POLICY`, `BACKUP_POLICY`, `BEDROCK_POLICY`, `CHATBOT_POLICY`, `DECLARATIVE_POLICY_EC2`, `INSPECTOR_POLICY`, `RESOURCE_CONTROL_POLICY`, `S3_POLICY`, `SECURITYHUB_POLICY`, `SERVICE_CONTROL_POLICY`, `TAG_POLICY` and `UPGRADE_ROLLOUT_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html). To enable `INSPECTOR_POLICY`, `awsServiceAccessPrincipals` must include `inspector2.amazonaws.com`. To enable `SECURITYHUB_POLICY`, `awsServiceAccessPrincipals` must include `securityhub.amazonaws.com`.
      */
-    enabledPolicyTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    enabledPolicyTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specify `ALL` (default) or `CONSOLIDATED_BILLING`.
      */
-    featureSet?: pulumi.Input<string>;
+    featureSet?: pulumi.Input<string | undefined>;
     /**
      * Return (as attributes) only the results of the [`DescribeOrganization`](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganization.html) API to avoid [API limits](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html#throttling-limits). When configured to `true` only the `arn`, `featureSet`, `masterAccountArn`, `masterAccountEmail` and `masterAccountId` attributes will be returned. All others will be empty. Default: `false`.
      */
-    returnOrganizationOnly?: pulumi.Input<boolean>;
+    returnOrganizationOnly?: pulumi.Input<boolean | undefined>;
 }

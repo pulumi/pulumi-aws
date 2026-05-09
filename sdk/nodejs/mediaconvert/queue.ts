@@ -144,43 +144,43 @@ export interface QueueState {
     /**
      * The Arn of the queue
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
      */
-    concurrentJobs?: pulumi.Input<number>;
+    concurrentJobs?: pulumi.Input<number | undefined>;
     /**
      * A description of the queue
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A unique identifier describing the queue
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
      */
-    pricingPlan?: pulumi.Input<string>;
+    pricingPlan?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A detail pricing plan of the  reserved queue. See below.
      */
-    reservationPlanSettings?: pulumi.Input<inputs.mediaconvert.QueueReservationPlanSettings>;
+    reservationPlanSettings?: pulumi.Input<inputs.mediaconvert.QueueReservationPlanSettings | undefined>;
     /**
      * A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -190,33 +190,33 @@ export interface QueueArgs {
     /**
      * The maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
      */
-    concurrentJobs?: pulumi.Input<number>;
+    concurrentJobs?: pulumi.Input<number | undefined>;
     /**
      * A description of the queue
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A unique identifier describing the queue
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
      */
-    pricingPlan?: pulumi.Input<string>;
+    pricingPlan?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A detail pricing plan of the  reserved queue. See below.
      */
-    reservationPlanSettings?: pulumi.Input<inputs.mediaconvert.QueueReservationPlanSettings>;
+    reservationPlanSettings?: pulumi.Input<inputs.mediaconvert.QueueReservationPlanSettings | undefined>;
     /**
      * A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

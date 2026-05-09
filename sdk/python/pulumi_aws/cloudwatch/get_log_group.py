@@ -190,9 +190,9 @@ def get_log_group(name: Optional[_builtins.str] = None,
         region=pulumi.get(__ret__, 'region'),
         retention_in_days=pulumi.get(__ret__, 'retention_in_days'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_log_group_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                         region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                         tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_log_group_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                         region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                         tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLogGroupResult]:
     """
     Use this data source to get information about an AWS Cloudwatch Log Group

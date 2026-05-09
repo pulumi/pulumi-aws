@@ -22,16 +22,16 @@ __all__ = ['DistributionTenantArgs', 'DistributionTenant']
 class DistributionTenantArgs:
     def __init__(__self__, *,
                  distribution_id: pulumi.Input[_builtins.str],
-                 connection_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 customizations: Optional[pulumi.Input['DistributionTenantCustomizationsArgs']] = None,
-                 domains: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTenantDomainArgs']]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 managed_certificate_request: Optional[pulumi.Input['DistributionTenantManagedCertificateRequestArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTenantParameterArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['DistributionTenantTimeoutsArgs']] = None,
-                 wait_for_deployment: Optional[pulumi.Input[_builtins.bool]] = None):
+                 connection_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 customizations: pulumi.Input[Optional['DistributionTenantCustomizationsArgs']] = None,
+                 domains: pulumi.Input[Optional[Sequence[pulumi.Input['DistributionTenantDomainArgs']]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 managed_certificate_request: pulumi.Input[Optional['DistributionTenantManagedCertificateRequestArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input['DistributionTenantParameterArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['DistributionTenantTimeoutsArgs']] = None,
+                 wait_for_deployment: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a DistributionTenant resource.
 
@@ -82,140 +82,140 @@ class DistributionTenantArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectionGroupId")
-    def connection_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the connection group for the distribution tenant. If not specified, CloudFront uses the default connection group.
         """
         return pulumi.get(self, "connection_group_id")
 
     @connection_group_id.setter
-    def connection_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_group_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def customizations(self) -> Optional[pulumi.Input['DistributionTenantCustomizationsArgs']]:
+    def customizations(self) -> pulumi.Input[Optional['DistributionTenantCustomizationsArgs']]:
         """
         Customizations for the distribution tenant (maximum one).
         """
         return pulumi.get(self, "customizations")
 
     @customizations.setter
-    def customizations(self, value: Optional[pulumi.Input['DistributionTenantCustomizationsArgs']]):
+    def customizations(self, value: pulumi.Input[Optional['DistributionTenantCustomizationsArgs']]):
         pulumi.set(self, "customizations", value)
 
     @_builtins.property
     @pulumi.getter
-    def domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTenantDomainArgs']]]]:
+    def domains(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DistributionTenantDomainArgs']]]]:
         """
         Set of domains associated with the distribution tenant.
         """
         return pulumi.get(self, "domains")
 
     @domains.setter
-    def domains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTenantDomainArgs']]]]):
+    def domains(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DistributionTenantDomainArgs']]]]):
         pulumi.set(self, "domains", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the distribution tenant is enabled to serve traffic. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="managedCertificateRequest")
-    def managed_certificate_request(self) -> Optional[pulumi.Input['DistributionTenantManagedCertificateRequestArgs']]:
+    def managed_certificate_request(self) -> pulumi.Input[Optional['DistributionTenantManagedCertificateRequestArgs']]:
         """
         Managed certificate request for CloudFront managed ACM certificate (maximum one).
         """
         return pulumi.get(self, "managed_certificate_request")
 
     @managed_certificate_request.setter
-    def managed_certificate_request(self, value: Optional[pulumi.Input['DistributionTenantManagedCertificateRequestArgs']]):
+    def managed_certificate_request(self, value: pulumi.Input[Optional['DistributionTenantManagedCertificateRequestArgs']]):
         pulumi.set(self, "managed_certificate_request", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the distribution tenant.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTenantParameterArgs']]]]:
+    def parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DistributionTenantParameterArgs']]]]:
         """
         Set of parameter values for the distribution tenant.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTenantParameterArgs']]]]):
+    def parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DistributionTenantParameterArgs']]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['DistributionTenantTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['DistributionTenantTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['DistributionTenantTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['DistributionTenantTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter(name="waitForDeployment")
-    def wait_for_deployment(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def wait_for_deployment(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If enabled, the resource will wait for the distribution tenant status to change from `InProgress` to `Deployed`. Setting this to `false` will skip the process. Default: `true`.
         """
         return pulumi.get(self, "wait_for_deployment")
 
     @wait_for_deployment.setter
-    def wait_for_deployment(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def wait_for_deployment(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "wait_for_deployment", value)
 
 
 @pulumi.input_type
 class _DistributionTenantState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 customizations: Optional[pulumi.Input['DistributionTenantCustomizationsArgs']] = None,
-                 distribution_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 domains: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTenantDomainArgs']]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 etag: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_certificate_request: Optional[pulumi.Input['DistributionTenantManagedCertificateRequestArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTenantParameterArgs']]]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['DistributionTenantTimeoutsArgs']] = None,
-                 wait_for_deployment: Optional[pulumi.Input[_builtins.bool]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 customizations: pulumi.Input[Optional['DistributionTenantCustomizationsArgs']] = None,
+                 distribution_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 domains: pulumi.Input[Optional[Sequence[pulumi.Input['DistributionTenantDomainArgs']]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 etag: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_certificate_request: pulumi.Input[Optional['DistributionTenantManagedCertificateRequestArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input['DistributionTenantParameterArgs']]]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['DistributionTenantTimeoutsArgs']] = None,
+                 wait_for_deployment: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering DistributionTenant resources.
 
@@ -267,179 +267,179 @@ class _DistributionTenantState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the distribution tenant.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionGroupId")
-    def connection_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the connection group for the distribution tenant. If not specified, CloudFront uses the default connection group.
         """
         return pulumi.get(self, "connection_group_id")
 
     @connection_group_id.setter
-    def connection_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_group_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def customizations(self) -> Optional[pulumi.Input['DistributionTenantCustomizationsArgs']]:
+    def customizations(self) -> pulumi.Input[Optional['DistributionTenantCustomizationsArgs']]:
         """
         Customizations for the distribution tenant (maximum one).
         """
         return pulumi.get(self, "customizations")
 
     @customizations.setter
-    def customizations(self, value: Optional[pulumi.Input['DistributionTenantCustomizationsArgs']]):
+    def customizations(self, value: pulumi.Input[Optional['DistributionTenantCustomizationsArgs']]):
         pulumi.set(self, "customizations", value)
 
     @_builtins.property
     @pulumi.getter(name="distributionId")
-    def distribution_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def distribution_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the multi-tenant distribution.
         """
         return pulumi.get(self, "distribution_id")
 
     @distribution_id.setter
-    def distribution_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def distribution_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "distribution_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTenantDomainArgs']]]]:
+    def domains(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DistributionTenantDomainArgs']]]]:
         """
         Set of domains associated with the distribution tenant.
         """
         return pulumi.get(self, "domains")
 
     @domains.setter
-    def domains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTenantDomainArgs']]]]):
+    def domains(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DistributionTenantDomainArgs']]]]):
         pulumi.set(self, "domains", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the distribution tenant is enabled to serve traffic. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def etag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Current version of the distribution tenant.
         """
         return pulumi.get(self, "etag")
 
     @etag.setter
-    def etag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def etag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "etag", value)
 
     @_builtins.property
     @pulumi.getter(name="managedCertificateRequest")
-    def managed_certificate_request(self) -> Optional[pulumi.Input['DistributionTenantManagedCertificateRequestArgs']]:
+    def managed_certificate_request(self) -> pulumi.Input[Optional['DistributionTenantManagedCertificateRequestArgs']]:
         """
         Managed certificate request for CloudFront managed ACM certificate (maximum one).
         """
         return pulumi.get(self, "managed_certificate_request")
 
     @managed_certificate_request.setter
-    def managed_certificate_request(self, value: Optional[pulumi.Input['DistributionTenantManagedCertificateRequestArgs']]):
+    def managed_certificate_request(self, value: pulumi.Input[Optional['DistributionTenantManagedCertificateRequestArgs']]):
         pulumi.set(self, "managed_certificate_request", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the distribution tenant.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTenantParameterArgs']]]]:
+    def parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DistributionTenantParameterArgs']]]]:
         """
         Set of parameter values for the distribution tenant.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTenantParameterArgs']]]]):
+    def parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DistributionTenantParameterArgs']]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Current status of the distribution tenant.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['DistributionTenantTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['DistributionTenantTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['DistributionTenantTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['DistributionTenantTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter(name="waitForDeployment")
-    def wait_for_deployment(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def wait_for_deployment(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If enabled, the resource will wait for the distribution tenant status to change from `InProgress` to `Deployed`. Setting this to `false` will skip the process. Default: `true`.
         """
         return pulumi.get(self, "wait_for_deployment")
 
     @wait_for_deployment.setter
-    def wait_for_deployment(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def wait_for_deployment(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "wait_for_deployment", value)
 
 
@@ -449,17 +449,17 @@ class DistributionTenant(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connection_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 customizations: Optional[pulumi.Input[Union['DistributionTenantCustomizationsArgs', 'DistributionTenantCustomizationsArgsDict']]] = None,
-                 distribution_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 domains: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributionTenantDomainArgs', 'DistributionTenantDomainArgsDict']]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 managed_certificate_request: Optional[pulumi.Input[Union['DistributionTenantManagedCertificateRequestArgs', 'DistributionTenantManagedCertificateRequestArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributionTenantParameterArgs', 'DistributionTenantParameterArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['DistributionTenantTimeoutsArgs', 'DistributionTenantTimeoutsArgsDict']]] = None,
-                 wait_for_deployment: Optional[pulumi.Input[_builtins.bool]] = None,
+                 connection_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 customizations: pulumi.Input[Optional[Union['DistributionTenantCustomizationsArgs', 'DistributionTenantCustomizationsArgsDict']]] = None,
+                 distribution_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 domains: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionTenantDomainArgs', 'DistributionTenantDomainArgsDict']]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 managed_certificate_request: pulumi.Input[Optional[Union['DistributionTenantManagedCertificateRequestArgs', 'DistributionTenantManagedCertificateRequestArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionTenantParameterArgs', 'DistributionTenantParameterArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['DistributionTenantTimeoutsArgs', 'DistributionTenantTimeoutsArgsDict']]] = None,
+                 wait_for_deployment: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Creates an Amazon CloudFront distribution tenant.
@@ -637,17 +637,17 @@ class DistributionTenant(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connection_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 customizations: Optional[pulumi.Input[Union['DistributionTenantCustomizationsArgs', 'DistributionTenantCustomizationsArgsDict']]] = None,
-                 distribution_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 domains: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributionTenantDomainArgs', 'DistributionTenantDomainArgsDict']]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 managed_certificate_request: Optional[pulumi.Input[Union['DistributionTenantManagedCertificateRequestArgs', 'DistributionTenantManagedCertificateRequestArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributionTenantParameterArgs', 'DistributionTenantParameterArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['DistributionTenantTimeoutsArgs', 'DistributionTenantTimeoutsArgsDict']]] = None,
-                 wait_for_deployment: Optional[pulumi.Input[_builtins.bool]] = None,
+                 connection_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 customizations: pulumi.Input[Optional[Union['DistributionTenantCustomizationsArgs', 'DistributionTenantCustomizationsArgsDict']]] = None,
+                 distribution_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 domains: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionTenantDomainArgs', 'DistributionTenantDomainArgsDict']]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 managed_certificate_request: pulumi.Input[Optional[Union['DistributionTenantManagedCertificateRequestArgs', 'DistributionTenantManagedCertificateRequestArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionTenantParameterArgs', 'DistributionTenantParameterArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['DistributionTenantTimeoutsArgs', 'DistributionTenantTimeoutsArgsDict']]] = None,
+                 wait_for_deployment: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -684,21 +684,21 @@ class DistributionTenant(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            connection_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            customizations: Optional[pulumi.Input[Union['DistributionTenantCustomizationsArgs', 'DistributionTenantCustomizationsArgsDict']]] = None,
-            distribution_id: Optional[pulumi.Input[_builtins.str]] = None,
-            domains: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributionTenantDomainArgs', 'DistributionTenantDomainArgsDict']]]]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            etag: Optional[pulumi.Input[_builtins.str]] = None,
-            managed_certificate_request: Optional[pulumi.Input[Union['DistributionTenantManagedCertificateRequestArgs', 'DistributionTenantManagedCertificateRequestArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributionTenantParameterArgs', 'DistributionTenantParameterArgsDict']]]]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: Optional[pulumi.Input[Union['DistributionTenantTimeoutsArgs', 'DistributionTenantTimeoutsArgsDict']]] = None,
-            wait_for_deployment: Optional[pulumi.Input[_builtins.bool]] = None) -> 'DistributionTenant':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            customizations: pulumi.Input[Optional[Union['DistributionTenantCustomizationsArgs', 'DistributionTenantCustomizationsArgsDict']]] = None,
+            distribution_id: pulumi.Input[Optional[_builtins.str]] = None,
+            domains: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionTenantDomainArgs', 'DistributionTenantDomainArgsDict']]]]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_certificate_request: pulumi.Input[Optional[Union['DistributionTenantManagedCertificateRequestArgs', 'DistributionTenantManagedCertificateRequestArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionTenantParameterArgs', 'DistributionTenantParameterArgsDict']]]]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['DistributionTenantTimeoutsArgs', 'DistributionTenantTimeoutsArgsDict']]] = None,
+            wait_for_deployment: pulumi.Input[Optional[_builtins.bool]] = None) -> 'DistributionTenant':
         """
         Get an existing DistributionTenant resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

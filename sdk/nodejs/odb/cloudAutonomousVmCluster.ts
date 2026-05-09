@@ -508,218 +508,218 @@ export interface CloudAutonomousVmClusterState {
     /**
      * The Amazon Resource Name (ARN) for the Exadata infrastructure.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The progress of the current operation on the Autonomous VM cluster, as a percentage.
      */
-    autonomousDataStoragePercentage?: pulumi.Input<number>;
+    autonomousDataStoragePercentage?: pulumi.Input<number | undefined>;
     /**
      * The data storage size allocated for Autonomous Databases in the Autonomous VM cluster, in TB. Changing this will force terraform to create new resource.
      */
-    autonomousDataStorageSizeInTbs?: pulumi.Input<number>;
+    autonomousDataStorageSizeInTbs?: pulumi.Input<number | undefined>;
     /**
      * The available data storage space for Autonomous Databases in the Autonomous VM cluster, in TB.
      */
-    availableAutonomousDataStorageSizeInTbs?: pulumi.Input<number>;
+    availableAutonomousDataStorageSizeInTbs?: pulumi.Input<number | undefined>;
     /**
      * The number of Autonomous CDBs that you can create with the currently available storage.
      */
-    availableContainerDatabases?: pulumi.Input<number>;
+    availableContainerDatabases?: pulumi.Input<number | undefined>;
     /**
      * The number of CPU cores available for allocation to Autonomous Databases.
      */
-    availableCpus?: pulumi.Input<number>;
+    availableCpus?: pulumi.Input<number | undefined>;
     /**
      * Exadata infrastructure ARN. Changing this will force Terraform to create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
      */
-    cloudExadataInfrastructureArn?: pulumi.Input<string>;
+    cloudExadataInfrastructureArn?: pulumi.Input<string | undefined>;
     /**
      * Exadata infrastructure id. Changing this will force Terraform to create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
      */
-    cloudExadataInfrastructureId?: pulumi.Input<string>;
+    cloudExadataInfrastructureId?: pulumi.Input<string | undefined>;
     /**
      * The compute model of the Autonomous VM cluster: ECPU or OCPU.
      */
-    computeModel?: pulumi.Input<string>;
+    computeModel?: pulumi.Input<string | undefined>;
     /**
      * The total number of CPU cores in the Autonomous VM cluster.
      */
-    cpuCoreCount?: pulumi.Input<number>;
+    cpuCoreCount?: pulumi.Input<number | undefined>;
     /**
      * The number of CPU cores enabled per node in the Autonomous VM cluster. Changing this will force terraform to create new resource.
      */
-    cpuCoreCountPerNode?: pulumi.Input<number>;
+    cpuCoreCountPerNode?: pulumi.Input<number | undefined>;
     /**
      * The percentage of total CPU cores currently in use in the Autonomous VM cluster.
      */
-    cpuPercentage?: pulumi.Input<number>;
+    cpuPercentage?: pulumi.Input<number | undefined>;
     /**
      * The date and time when the Autonomous VM cluster was created.
      */
-    createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string | undefined>;
     /**
      * The total data storage allocated to the Autonomous VM cluster, in GB.
      */
-    dataStorageSizeInGbs?: pulumi.Input<number>;
+    dataStorageSizeInGbs?: pulumi.Input<number | undefined>;
     /**
      * The total data storage allocated to the Autonomous VM cluster, in TB.
      */
-    dataStorageSizeInTbs?: pulumi.Input<number>;
+    dataStorageSizeInTbs?: pulumi.Input<number | undefined>;
     /**
      * The database servers in the Autonomous VM cluster. Changing this will force terraform to create new resource.
      */
-    dbServers?: pulumi.Input<pulumi.Input<string>[]>;
+    dbServers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The description of the Autonomous VM cluster.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name of the Autonomous VM cluster. Changing this will force terraform to create new resource.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The domain name of the Autonomous VM cluster.
      */
-    domain?: pulumi.Input<string>;
+    domain?: pulumi.Input<string | undefined>;
     /**
      * The minimum value to which you can scale down the Exadata storage, in TB.
      */
-    exadataStorageInTbsLowestScaledValue?: pulumi.Input<number>;
+    exadataStorageInTbsLowestScaledValue?: pulumi.Input<number | undefined>;
     /**
      * The hostname of the Autonomous VM cluster.
      */
-    hostname?: pulumi.Input<string>;
+    hostname?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster. Changing this will force terraform to create new resource.
      */
-    isMtlsEnabledVmCluster?: pulumi.Input<boolean>;
+    isMtlsEnabledVmCluster?: pulumi.Input<boolean | undefined>;
     /**
      * The license model for the Autonomous VM cluster. Valid values are LICENSE_INCLUDED or BRING_YOUR_OWN_LICENSE. Changing this will force terraform to create new resource.
      */
-    licenseModel?: pulumi.Input<string>;
+    licenseModel?: pulumi.Input<string | undefined>;
     /**
      * The maintenance window of the Autonomous VM cluster. Changing this will force terraform to create new resource.
      *
      * The following arguments are optional:
      */
-    maintenanceWindow?: pulumi.Input<inputs.odb.CloudAutonomousVmClusterMaintenanceWindow>;
+    maintenanceWindow?: pulumi.Input<inputs.odb.CloudAutonomousVmClusterMaintenanceWindow | undefined>;
     /**
      * The minimum value to which you can scale down the maximum number of Autonomous CDBs.
      */
-    maxAcdsLowestScaledValue?: pulumi.Input<number>;
+    maxAcdsLowestScaledValue?: pulumi.Input<number | undefined>;
     /**
      * The amount of memory allocated per Oracle Compute Unit, in GB. Changing this will force terraform to create new resource.
      */
-    memoryPerOracleComputeUnitInGbs?: pulumi.Input<number>;
+    memoryPerOracleComputeUnitInGbs?: pulumi.Input<number | undefined>;
     /**
      * The total amount of memory allocated to the Autonomous VM cluster, in gigabytes(GB).
      */
-    memorySizeInGbs?: pulumi.Input<number>;
+    memorySizeInGbs?: pulumi.Input<number | undefined>;
     /**
      * The number of database server nodes in the Autonomous VM cluster.
      */
-    nodeCount?: pulumi.Input<number>;
+    nodeCount?: pulumi.Input<number | undefined>;
     /**
      * The number of Autonomous CDBs that can't be provisioned because of resource constraints.
      */
-    nonProvisionableAutonomousContainerDatabases?: pulumi.Input<number>;
+    nonProvisionableAutonomousContainerDatabases?: pulumi.Input<number | undefined>;
     /**
      * The name of the OCI resource anchor associated with this Autonomous VM cluster.
      */
-    ociResourceAnchorName?: pulumi.Input<string>;
+    ociResourceAnchorName?: pulumi.Input<string | undefined>;
     /**
      * The URL for accessing the OCI console page for this Autonomous VM cluster.
      */
-    ociUrl?: pulumi.Input<string>;
+    ociUrl?: pulumi.Input<string | undefined>;
     /**
      * The Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
      */
-    ocid?: pulumi.Input<string>;
+    ocid?: pulumi.Input<string | undefined>;
     /**
      * ARN of the ODB network associated with this Autonomous VM Cluster. Changing this will force Terraform to create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
      */
-    odbNetworkArn?: pulumi.Input<string>;
+    odbNetworkArn?: pulumi.Input<string | undefined>;
     /**
      * Unique identifier of the ODB network associated with this Autonomous VM Cluster. Changing this will force Terraform to create a new resource. Changing this will create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
      */
-    odbNetworkId?: pulumi.Input<string>;
+    odbNetworkId?: pulumi.Input<string | undefined>;
     /**
      * The local node storage allocated to the Autonomous VM cluster, in gigabytes (GB).
      */
-    odbNodeStorageSizeInGbs?: pulumi.Input<number>;
+    odbNodeStorageSizeInGbs?: pulumi.Input<number | undefined>;
     /**
      * The progress of the current operation on the Autonomous VM cluster, as a percentage.
      */
-    percentProgress?: pulumi.Input<number>;
+    percentProgress?: pulumi.Input<number | undefined>;
     /**
      * The number of Autonomous CDBs that can be provisioned in the Autonomous VM cluster.
      */
-    provisionableAutonomousContainerDatabases?: pulumi.Input<number>;
+    provisionableAutonomousContainerDatabases?: pulumi.Input<number | undefined>;
     /**
      * The number of Autonomous CDBs currently provisioned in the Autonomous VM cluster.
      */
-    provisionedAutonomousContainerDatabases?: pulumi.Input<number>;
+    provisionedAutonomousContainerDatabases?: pulumi.Input<number | undefined>;
     /**
      * The number of CPUs provisioned in the Autonomous VM cluster.
      */
-    provisionedCpus?: pulumi.Input<number>;
+    provisionedCpus?: pulumi.Input<number | undefined>;
     /**
      * The number of CPU cores that can be reclaimed from terminated or scaled-down Autonomous Databases.
      */
-    reclaimableCpus?: pulumi.Input<number>;
+    reclaimableCpus?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The number of CPU cores reserved for system operations and redundancy.
      */
-    reservedCpus?: pulumi.Input<number>;
+    reservedCpus?: pulumi.Input<number | undefined>;
     /**
      * The SCAN listener port for non-TLS (TCP) protocol. The default is 1521. Changing this will force terraform to create new resource.
      */
-    scanListenerPortNonTls?: pulumi.Input<number>;
+    scanListenerPortNonTls?: pulumi.Input<number | undefined>;
     /**
      * The SCAN listener port for TLS (TCP) protocol. The default is 2484. Changing this will force terraform to create new resource.
      */
-    scanListenerPortTls?: pulumi.Input<number>;
+    scanListenerPortTls?: pulumi.Input<number | undefined>;
     /**
      * The shape of the Exadata infrastructure for the Autonomous VM cluster.
      */
-    shape?: pulumi.Input<string>;
+    shape?: pulumi.Input<string | undefined>;
     /**
      * The status of the Autonomous VM cluster. Possible values include CREATING, AVAILABLE, UPDATING, DELETING, DELETED, FAILED.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Additional information about the current status of the Autonomous VM cluster.
      */
-    statusReason?: pulumi.Input<string>;
+    statusReason?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The combined set of user-defined and provider-defined tags.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The expiration date and time of the database SSL certificate.
      */
-    timeDatabaseSslCertificateExpires?: pulumi.Input<string>;
+    timeDatabaseSslCertificateExpires?: pulumi.Input<string | undefined>;
     /**
      * The expiration date and time of the ORDS certificate.
      */
-    timeOrdsCertificateExpires?: pulumi.Input<string>;
+    timeOrdsCertificateExpires?: pulumi.Input<string | undefined>;
     /**
      * The time zone of the Autonomous VM cluster. Changing this will force terraform to create new resource.
      */
-    timeZone?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.odb.CloudAutonomousVmClusterTimeouts>;
+    timeZone?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.odb.CloudAutonomousVmClusterTimeouts | undefined>;
     /**
      * The total number of Autonomous Container Databases that can be created with the allocated local storage. Changing this will force terraform to create new resource.
      */
-    totalContainerDatabases?: pulumi.Input<number>;
+    totalContainerDatabases?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -733,11 +733,11 @@ export interface CloudAutonomousVmClusterArgs {
     /**
      * Exadata infrastructure ARN. Changing this will force Terraform to create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
      */
-    cloudExadataInfrastructureArn?: pulumi.Input<string>;
+    cloudExadataInfrastructureArn?: pulumi.Input<string | undefined>;
     /**
      * Exadata infrastructure id. Changing this will force Terraform to create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
      */
-    cloudExadataInfrastructureId?: pulumi.Input<string>;
+    cloudExadataInfrastructureId?: pulumi.Input<string | undefined>;
     /**
      * The number of CPU cores enabled per node in the Autonomous VM cluster. Changing this will force terraform to create new resource.
      */
@@ -749,7 +749,7 @@ export interface CloudAutonomousVmClusterArgs {
     /**
      * The description of the Autonomous VM cluster.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name of the Autonomous VM cluster. Changing this will force terraform to create new resource.
      */
@@ -757,11 +757,11 @@ export interface CloudAutonomousVmClusterArgs {
     /**
      * Indicates whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster. Changing this will force terraform to create new resource.
      */
-    isMtlsEnabledVmCluster?: pulumi.Input<boolean>;
+    isMtlsEnabledVmCluster?: pulumi.Input<boolean | undefined>;
     /**
      * The license model for the Autonomous VM cluster. Valid values are LICENSE_INCLUDED or BRING_YOUR_OWN_LICENSE. Changing this will force terraform to create new resource.
      */
-    licenseModel?: pulumi.Input<string>;
+    licenseModel?: pulumi.Input<string | undefined>;
     /**
      * The maintenance window of the Autonomous VM cluster. Changing this will force terraform to create new resource.
      *
@@ -775,15 +775,15 @@ export interface CloudAutonomousVmClusterArgs {
     /**
      * ARN of the ODB network associated with this Autonomous VM Cluster. Changing this will force Terraform to create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
      */
-    odbNetworkArn?: pulumi.Input<string>;
+    odbNetworkArn?: pulumi.Input<string | undefined>;
     /**
      * Unique identifier of the ODB network associated with this Autonomous VM Cluster. Changing this will force Terraform to create a new resource. Changing this will create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
      */
-    odbNetworkId?: pulumi.Input<string>;
+    odbNetworkId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The SCAN listener port for non-TLS (TCP) protocol. The default is 1521. Changing this will force terraform to create new resource.
      */
@@ -795,12 +795,12 @@ export interface CloudAutonomousVmClusterArgs {
     /**
      * A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The time zone of the Autonomous VM cluster. Changing this will force terraform to create new resource.
      */
-    timeZone?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.odb.CloudAutonomousVmClusterTimeouts>;
+    timeZone?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.odb.CloudAutonomousVmClusterTimeouts | undefined>;
     /**
      * The total number of Autonomous Container Databases that can be created with the allocated local storage. Changing this will force terraform to create new resource.
      */

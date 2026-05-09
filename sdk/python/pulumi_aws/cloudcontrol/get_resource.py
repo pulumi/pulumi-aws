@@ -151,11 +151,11 @@ def get_resource(identifier: Optional[_builtins.str] = None,
         role_arn=pulumi.get(__ret__, 'role_arn'),
         type_name=pulumi.get(__ret__, 'type_name'),
         type_version_id=pulumi.get(__ret__, 'type_version_id'))
-def get_resource_output(identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                        region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                        role_arn: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                        type_name: Optional[pulumi.Input[_builtins.str]] = None,
-                        type_version_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_resource_output(identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                        region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        role_arn: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        type_name: pulumi.Input[Optional[_builtins.str]] = None,
+                        type_version_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceResult]:
     """
     Provides details for a Cloud Control API Resource. The reading of these resources is proxied through Cloud Control API handlers to the backend service.

@@ -22,9 +22,9 @@ __all__ = ['EmailTemplateArgs', 'EmailTemplate']
 class EmailTemplateArgs:
     def __init__(__self__, *,
                  template_name: pulumi.Input[_builtins.str],
-                 email_templates: Optional[pulumi.Input[Sequence[pulumi.Input['EmailTemplateEmailTemplateArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 email_templates: pulumi.Input[Optional[Sequence[pulumi.Input['EmailTemplateEmailTemplateArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a EmailTemplate resource.
 
@@ -54,47 +54,47 @@ class EmailTemplateArgs:
 
     @_builtins.property
     @pulumi.getter(name="emailTemplates")
-    def email_templates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EmailTemplateEmailTemplateArgs']]]]:
+    def email_templates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EmailTemplateEmailTemplateArgs']]]]:
         """
         Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
         """
         return pulumi.get(self, "email_templates")
 
     @email_templates.setter
-    def email_templates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EmailTemplateEmailTemplateArgs']]]]):
+    def email_templates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EmailTemplateEmailTemplateArgs']]]]):
         pulumi.set(self, "email_templates", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _EmailTemplateState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_templates: Optional[pulumi.Input[Sequence[pulumi.Input['EmailTemplateEmailTemplateArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 template_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_templates: pulumi.Input[Optional[Sequence[pulumi.Input['EmailTemplateEmailTemplateArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 template_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EmailTemplate resources.
 
@@ -118,68 +118,68 @@ class _EmailTemplateState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) of the message template.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="emailTemplates")
-    def email_templates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EmailTemplateEmailTemplateArgs']]]]:
+    def email_templates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EmailTemplateEmailTemplateArgs']]]]:
         """
         Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
         """
         return pulumi.get(self, "email_templates")
 
     @email_templates.setter
-    def email_templates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EmailTemplateEmailTemplateArgs']]]]):
+    def email_templates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EmailTemplateEmailTemplateArgs']]]]):
         pulumi.set(self, "email_templates", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="templateName")
-    def template_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
         """
         return pulumi.get(self, "template_name")
 
     @template_name.setter
-    def template_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template_name", value)
 
 
@@ -189,10 +189,10 @@ class EmailTemplate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 email_templates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EmailTemplateEmailTemplateArgs', 'EmailTemplateEmailTemplateArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 template_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 email_templates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EmailTemplateEmailTemplateArgs', 'EmailTemplateEmailTemplateArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 template_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a Pinpoint Email Template resource
@@ -281,10 +281,10 @@ class EmailTemplate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 email_templates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EmailTemplateEmailTemplateArgs', 'EmailTemplateEmailTemplateArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 template_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 email_templates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EmailTemplateEmailTemplateArgs', 'EmailTemplateEmailTemplateArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 template_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -312,12 +312,12 @@ class EmailTemplate(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            email_templates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EmailTemplateEmailTemplateArgs', 'EmailTemplateEmailTemplateArgsDict']]]]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            template_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'EmailTemplate':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            email_templates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EmailTemplateEmailTemplateArgs', 'EmailTemplateEmailTemplateArgsDict']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            template_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'EmailTemplate':
         """
         Get an existing EmailTemplate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

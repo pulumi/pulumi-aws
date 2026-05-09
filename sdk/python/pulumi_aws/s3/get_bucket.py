@@ -214,8 +214,8 @@ def get_bucket(bucket: Optional[_builtins.str] = None,
         region=pulumi.get(__ret__, 'region'),
         website_domain=pulumi.get(__ret__, 'website_domain'),
         website_endpoint=pulumi.get(__ret__, 'website_endpoint'))
-def get_bucket_output(bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                      region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_bucket_output(bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                      region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBucketResult]:
     """
     Provides details about a specific S3 bucket.

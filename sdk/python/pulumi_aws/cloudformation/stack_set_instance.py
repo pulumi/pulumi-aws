@@ -22,14 +22,14 @@ __all__ = ['StackSetInstanceArgs', 'StackSetInstance']
 class StackSetInstanceArgs:
     def __init__(__self__, *,
                  stack_set_name: pulumi.Input[_builtins.str],
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 call_as: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_targets: Optional[pulumi.Input['StackSetInstanceDeploymentTargetsArgs']] = None,
-                 operation_preferences: Optional[pulumi.Input['StackSetInstanceOperationPreferencesArgs']] = None,
-                 parameter_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 retain_stack: Optional[pulumi.Input[_builtins.bool]] = None,
-                 stack_set_instance_region: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 call_as: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_targets: pulumi.Input[Optional['StackSetInstanceDeploymentTargetsArgs']] = None,
+                 operation_preferences: pulumi.Input[Optional['StackSetInstanceOperationPreferencesArgs']] = None,
+                 parameter_overrides: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 retain_stack: pulumi.Input[Optional[_builtins.bool]] = None,
+                 stack_set_instance_region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a StackSetInstance resource.
 
@@ -78,117 +78,117 @@ class StackSetInstanceArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="callAs")
-    def call_as(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def call_as(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
         """
         return pulumi.get(self, "call_as")
 
     @call_as.setter
-    def call_as(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def call_as(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "call_as", value)
 
     @_builtins.property
     @pulumi.getter(name="deploymentTargets")
-    def deployment_targets(self) -> Optional[pulumi.Input['StackSetInstanceDeploymentTargetsArgs']]:
+    def deployment_targets(self) -> pulumi.Input[Optional['StackSetInstanceDeploymentTargetsArgs']]:
         """
         AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deployment_targets below.
         """
         return pulumi.get(self, "deployment_targets")
 
     @deployment_targets.setter
-    def deployment_targets(self, value: Optional[pulumi.Input['StackSetInstanceDeploymentTargetsArgs']]):
+    def deployment_targets(self, value: pulumi.Input[Optional['StackSetInstanceDeploymentTargetsArgs']]):
         pulumi.set(self, "deployment_targets", value)
 
     @_builtins.property
     @pulumi.getter(name="operationPreferences")
-    def operation_preferences(self) -> Optional[pulumi.Input['StackSetInstanceOperationPreferencesArgs']]:
+    def operation_preferences(self) -> pulumi.Input[Optional['StackSetInstanceOperationPreferencesArgs']]:
         """
         Preferences for how AWS CloudFormation performs a stack set operation.
         """
         return pulumi.get(self, "operation_preferences")
 
     @operation_preferences.setter
-    def operation_preferences(self, value: Optional[pulumi.Input['StackSetInstanceOperationPreferencesArgs']]):
+    def operation_preferences(self, value: pulumi.Input[Optional['StackSetInstanceOperationPreferencesArgs']]):
         pulumi.set(self, "operation_preferences", value)
 
     @_builtins.property
     @pulumi.getter(name="parameterOverrides")
-    def parameter_overrides(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameter_overrides(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of input parameters to override from the StackSet for this Instance.
         """
         return pulumi.get(self, "parameter_overrides")
 
     @parameter_overrides.setter
-    def parameter_overrides(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameter_overrides(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameter_overrides", value)
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""region is deprecated. Use stack_set_instance_region instead.""")
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `stack_set_instance_region` instead.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="retainStack")
-    def retain_stack(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def retain_stack(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
         """
         return pulumi.get(self, "retain_stack")
 
     @retain_stack.setter
-    def retain_stack(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def retain_stack(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "retain_stack", value)
 
     @_builtins.property
     @pulumi.getter(name="stackSetInstanceRegion")
-    def stack_set_instance_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stack_set_instance_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
         """
         return pulumi.get(self, "stack_set_instance_region")
 
     @stack_set_instance_region.setter
-    def stack_set_instance_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stack_set_instance_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stack_set_instance_region", value)
 
 
 @pulumi.input_type
 class _StackSetInstanceState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 call_as: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_targets: Optional[pulumi.Input['StackSetInstanceDeploymentTargetsArgs']] = None,
-                 operation_preferences: Optional[pulumi.Input['StackSetInstanceOperationPreferencesArgs']] = None,
-                 organizational_unit_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameter_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 retain_stack: Optional[pulumi.Input[_builtins.bool]] = None,
-                 stack_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 stack_instance_summaries: Optional[pulumi.Input[Sequence[pulumi.Input['StackSetInstanceStackInstanceSummaryArgs']]]] = None,
-                 stack_set_instance_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 stack_set_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 call_as: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_targets: pulumi.Input[Optional['StackSetInstanceDeploymentTargetsArgs']] = None,
+                 operation_preferences: pulumi.Input[Optional['StackSetInstanceOperationPreferencesArgs']] = None,
+                 organizational_unit_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameter_overrides: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 retain_stack: pulumi.Input[Optional[_builtins.bool]] = None,
+                 stack_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 stack_instance_summaries: pulumi.Input[Optional[Sequence[pulumi.Input['StackSetInstanceStackInstanceSummaryArgs']]]] = None,
+                 stack_set_instance_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 stack_set_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering StackSetInstance resources.
 
@@ -235,147 +235,147 @@ class _StackSetInstanceState:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="callAs")
-    def call_as(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def call_as(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
         """
         return pulumi.get(self, "call_as")
 
     @call_as.setter
-    def call_as(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def call_as(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "call_as", value)
 
     @_builtins.property
     @pulumi.getter(name="deploymentTargets")
-    def deployment_targets(self) -> Optional[pulumi.Input['StackSetInstanceDeploymentTargetsArgs']]:
+    def deployment_targets(self) -> pulumi.Input[Optional['StackSetInstanceDeploymentTargetsArgs']]:
         """
         AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deployment_targets below.
         """
         return pulumi.get(self, "deployment_targets")
 
     @deployment_targets.setter
-    def deployment_targets(self, value: Optional[pulumi.Input['StackSetInstanceDeploymentTargetsArgs']]):
+    def deployment_targets(self, value: pulumi.Input[Optional['StackSetInstanceDeploymentTargetsArgs']]):
         pulumi.set(self, "deployment_targets", value)
 
     @_builtins.property
     @pulumi.getter(name="operationPreferences")
-    def operation_preferences(self) -> Optional[pulumi.Input['StackSetInstanceOperationPreferencesArgs']]:
+    def operation_preferences(self) -> pulumi.Input[Optional['StackSetInstanceOperationPreferencesArgs']]:
         """
         Preferences for how AWS CloudFormation performs a stack set operation.
         """
         return pulumi.get(self, "operation_preferences")
 
     @operation_preferences.setter
-    def operation_preferences(self, value: Optional[pulumi.Input['StackSetInstanceOperationPreferencesArgs']]):
+    def operation_preferences(self, value: pulumi.Input[Optional['StackSetInstanceOperationPreferencesArgs']]):
         pulumi.set(self, "operation_preferences", value)
 
     @_builtins.property
     @pulumi.getter(name="organizationalUnitId")
-    def organizational_unit_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def organizational_unit_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Organizational unit ID in which the stack is deployed.
         """
         return pulumi.get(self, "organizational_unit_id")
 
     @organizational_unit_id.setter
-    def organizational_unit_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def organizational_unit_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "organizational_unit_id", value)
 
     @_builtins.property
     @pulumi.getter(name="parameterOverrides")
-    def parameter_overrides(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameter_overrides(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of input parameters to override from the StackSet for this Instance.
         """
         return pulumi.get(self, "parameter_overrides")
 
     @parameter_overrides.setter
-    def parameter_overrides(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameter_overrides(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameter_overrides", value)
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""region is deprecated. Use stack_set_instance_region instead.""")
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `stack_set_instance_region` instead.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="retainStack")
-    def retain_stack(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def retain_stack(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
         """
         return pulumi.get(self, "retain_stack")
 
     @retain_stack.setter
-    def retain_stack(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def retain_stack(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "retain_stack", value)
 
     @_builtins.property
     @pulumi.getter(name="stackId")
-    def stack_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stack_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Stack identifier.
         """
         return pulumi.get(self, "stack_id")
 
     @stack_id.setter
-    def stack_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stack_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stack_id", value)
 
     @_builtins.property
     @pulumi.getter(name="stackInstanceSummaries")
-    def stack_instance_summaries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StackSetInstanceStackInstanceSummaryArgs']]]]:
+    def stack_instance_summaries(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StackSetInstanceStackInstanceSummaryArgs']]]]:
         """
         List of stack instances created from an organizational unit deployment target. This will only be populated when `deployment_targets` is set. See `stack_instance_summaries`.
         """
         return pulumi.get(self, "stack_instance_summaries")
 
     @stack_instance_summaries.setter
-    def stack_instance_summaries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StackSetInstanceStackInstanceSummaryArgs']]]]):
+    def stack_instance_summaries(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['StackSetInstanceStackInstanceSummaryArgs']]]]):
         pulumi.set(self, "stack_instance_summaries", value)
 
     @_builtins.property
     @pulumi.getter(name="stackSetInstanceRegion")
-    def stack_set_instance_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stack_set_instance_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
         """
         return pulumi.get(self, "stack_set_instance_region")
 
     @stack_set_instance_region.setter
-    def stack_set_instance_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stack_set_instance_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stack_set_instance_region", value)
 
     @_builtins.property
     @pulumi.getter(name="stackSetName")
-    def stack_set_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stack_set_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the StackSet.
         """
         return pulumi.get(self, "stack_set_name")
 
     @stack_set_name.setter
-    def stack_set_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stack_set_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stack_set_name", value)
 
 
@@ -385,15 +385,15 @@ class StackSetInstance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 call_as: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_targets: Optional[pulumi.Input[Union['StackSetInstanceDeploymentTargetsArgs', 'StackSetInstanceDeploymentTargetsArgsDict']]] = None,
-                 operation_preferences: Optional[pulumi.Input[Union['StackSetInstanceOperationPreferencesArgs', 'StackSetInstanceOperationPreferencesArgsDict']]] = None,
-                 parameter_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 retain_stack: Optional[pulumi.Input[_builtins.bool]] = None,
-                 stack_set_instance_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 stack_set_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 call_as: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_targets: pulumi.Input[Optional[Union['StackSetInstanceDeploymentTargetsArgs', 'StackSetInstanceDeploymentTargetsArgsDict']]] = None,
+                 operation_preferences: pulumi.Input[Optional[Union['StackSetInstanceOperationPreferencesArgs', 'StackSetInstanceOperationPreferencesArgsDict']]] = None,
+                 parameter_overrides: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 retain_stack: pulumi.Input[Optional[_builtins.bool]] = None,
+                 stack_set_instance_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 stack_set_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a CloudFormation StackSet Instance. Instances are managed in the account and region of the StackSet after the target account permissions have been configured. Additional information about StackSets can be found in the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html).
@@ -616,15 +616,15 @@ class StackSetInstance(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 call_as: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_targets: Optional[pulumi.Input[Union['StackSetInstanceDeploymentTargetsArgs', 'StackSetInstanceDeploymentTargetsArgsDict']]] = None,
-                 operation_preferences: Optional[pulumi.Input[Union['StackSetInstanceOperationPreferencesArgs', 'StackSetInstanceOperationPreferencesArgsDict']]] = None,
-                 parameter_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 retain_stack: Optional[pulumi.Input[_builtins.bool]] = None,
-                 stack_set_instance_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 stack_set_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 call_as: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_targets: pulumi.Input[Optional[Union['StackSetInstanceDeploymentTargetsArgs', 'StackSetInstanceDeploymentTargetsArgsDict']]] = None,
+                 operation_preferences: pulumi.Input[Optional[Union['StackSetInstanceOperationPreferencesArgs', 'StackSetInstanceOperationPreferencesArgsDict']]] = None,
+                 parameter_overrides: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 retain_stack: pulumi.Input[Optional[_builtins.bool]] = None,
+                 stack_set_instance_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 stack_set_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -658,18 +658,18 @@ class StackSetInstance(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            call_as: Optional[pulumi.Input[_builtins.str]] = None,
-            deployment_targets: Optional[pulumi.Input[Union['StackSetInstanceDeploymentTargetsArgs', 'StackSetInstanceDeploymentTargetsArgsDict']]] = None,
-            operation_preferences: Optional[pulumi.Input[Union['StackSetInstanceOperationPreferencesArgs', 'StackSetInstanceOperationPreferencesArgsDict']]] = None,
-            organizational_unit_id: Optional[pulumi.Input[_builtins.str]] = None,
-            parameter_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            retain_stack: Optional[pulumi.Input[_builtins.bool]] = None,
-            stack_id: Optional[pulumi.Input[_builtins.str]] = None,
-            stack_instance_summaries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StackSetInstanceStackInstanceSummaryArgs', 'StackSetInstanceStackInstanceSummaryArgsDict']]]]] = None,
-            stack_set_instance_region: Optional[pulumi.Input[_builtins.str]] = None,
-            stack_set_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'StackSetInstance':
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            call_as: pulumi.Input[Optional[_builtins.str]] = None,
+            deployment_targets: pulumi.Input[Optional[Union['StackSetInstanceDeploymentTargetsArgs', 'StackSetInstanceDeploymentTargetsArgsDict']]] = None,
+            operation_preferences: pulumi.Input[Optional[Union['StackSetInstanceOperationPreferencesArgs', 'StackSetInstanceOperationPreferencesArgsDict']]] = None,
+            organizational_unit_id: pulumi.Input[Optional[_builtins.str]] = None,
+            parameter_overrides: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            retain_stack: pulumi.Input[Optional[_builtins.bool]] = None,
+            stack_id: pulumi.Input[Optional[_builtins.str]] = None,
+            stack_instance_summaries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StackSetInstanceStackInstanceSummaryArgs', 'StackSetInstanceStackInstanceSummaryArgsDict']]]]] = None,
+            stack_set_instance_region: pulumi.Input[Optional[_builtins.str]] = None,
+            stack_set_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'StackSetInstance':
         """
         Get an existing StackSetInstance resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

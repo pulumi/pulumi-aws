@@ -25,7 +25,7 @@ namespace Pulumi.Aws.OpenSearchIngest
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var current = Aws.Index.GetRegion.Invoke();
+    ///     var current = Aws.GetRegion.Invoke();
     /// 
     ///     var example = new Aws.Iam.Role("example", new()
     ///     {
@@ -93,7 +93,7 @@ namespace Pulumi.Aws.OpenSearchIngest
     ///     var example = new Aws.OpenSearchIngest.Pipeline("example", new()
     ///     {
     ///         PipelineName = "example",
-    ///         PipelineConfigurationBody = Std.Index.File.Invoke(new()
+    ///         PipelineConfigurationBody = Std.File.Invoke(new()
     ///         {
     ///             Input = "example.yaml",
     ///         }).Apply(invoke =&gt; invoke.Result),

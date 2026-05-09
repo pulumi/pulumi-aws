@@ -157,32 +157,32 @@ export interface PackageState {
     /**
      * The current version of the package.
      */
-    availablePackageVersion?: pulumi.Input<string>;
+    availablePackageVersion?: pulumi.Input<string | undefined>;
     /**
      * Engine version that the package is compatible with. This argument is required and only valid when `packageType` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
      */
-    engineVersion?: pulumi.Input<string>;
+    engineVersion?: pulumi.Input<string | undefined>;
     /**
      * Description of the package.
      */
-    packageDescription?: pulumi.Input<string>;
-    packageId?: pulumi.Input<string>;
+    packageDescription?: pulumi.Input<string | undefined>;
+    packageId?: pulumi.Input<string | undefined>;
     /**
      * Unique name for the package.
      */
-    packageName?: pulumi.Input<string>;
+    packageName?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for the package source options.
      */
-    packageSource?: pulumi.Input<inputs.opensearch.PackagePackageSource>;
+    packageSource?: pulumi.Input<inputs.opensearch.PackagePackageSource | undefined>;
     /**
      * The type of package. Valid values are `TXT-DICTIONARY`, `ZIP-PLUGIN`, `PACKAGE-LICENSE` and `PACKAGE-CONFIG`.
      */
-    packageType?: pulumi.Input<string>;
+    packageType?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -192,11 +192,11 @@ export interface PackageArgs {
     /**
      * Engine version that the package is compatible with. This argument is required and only valid when `packageType` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
      */
-    engineVersion?: pulumi.Input<string>;
+    engineVersion?: pulumi.Input<string | undefined>;
     /**
      * Description of the package.
      */
-    packageDescription?: pulumi.Input<string>;
+    packageDescription?: pulumi.Input<string | undefined>;
     /**
      * Unique name for the package.
      */
@@ -212,5 +212,5 @@ export interface PackageArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

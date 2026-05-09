@@ -58,8 +58,8 @@ class GroupPolicyAttachmentsExclusiveArgs:
 @pulumi.input_type
 class _GroupPolicyAttachmentsExclusiveState:
     def __init__(__self__, *,
-                 group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering GroupPolicyAttachmentsExclusive resources.
 
@@ -73,26 +73,26 @@ class _GroupPolicyAttachmentsExclusiveState:
 
     @_builtins.property
     @pulumi.getter(name="groupName")
-    def group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IAM group name.
         """
         return pulumi.get(self, "group_name")
 
     @group_name.setter
-    def group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="policyArns")
-    def policy_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def policy_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of managed IAM policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
         """
         return pulumi.get(self, "policy_arns")
 
     @policy_arns.setter
-    def policy_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def policy_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "policy_arns", value)
 
 
@@ -102,8 +102,8 @@ class GroupPolicyAttachmentsExclusive(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Resource for maintaining exclusive management of managed IAM policies assigned to an AWS IAM (Identity & Access Management) group.
@@ -219,8 +219,8 @@ class GroupPolicyAttachmentsExclusive(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -246,8 +246,8 @@ class GroupPolicyAttachmentsExclusive(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            policy_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'GroupPolicyAttachmentsExclusive':
+            group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'GroupPolicyAttachmentsExclusive':
         """
         Get an existing GroupPolicyAttachmentsExclusive resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

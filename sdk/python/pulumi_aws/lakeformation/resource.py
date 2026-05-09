@@ -20,12 +20,12 @@ __all__ = ['ResourceArgs', 'Resource']
 class ResourceArgs:
     def __init__(__self__, *,
                  arn: pulumi.Input[_builtins.str],
-                 hybrid_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_service_linked_role: Optional[pulumi.Input[_builtins.bool]] = None,
-                 with_federation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 with_privileged_access: Optional[pulumi.Input[_builtins.bool]] = None):
+                 hybrid_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_service_linked_role: pulumi.Input[Optional[_builtins.bool]] = None,
+                 with_federation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 with_privileged_access: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Resource resource.
 
@@ -71,67 +71,67 @@ class ResourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="hybridAccessEnabled")
-    def hybrid_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def hybrid_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag to enable AWS LakeFormation hybrid access permission mode.
         """
         return pulumi.get(self, "hybrid_access_enabled")
 
     @hybrid_access_enabled.setter
-    def hybrid_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def hybrid_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "hybrid_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Role that has read/write access to the resource.
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="useServiceLinkedRole")
-    def use_service_linked_role(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_service_linked_role(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
         """
         return pulumi.get(self, "use_service_linked_role")
 
     @use_service_linked_role.setter
-    def use_service_linked_role(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_service_linked_role(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_service_linked_role", value)
 
     @_builtins.property
     @pulumi.getter(name="withFederation")
-    def with_federation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def with_federation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not the resource is a federated resource. Set to true when registering AWS Glue connections for federated catalog functionality.
         """
         return pulumi.get(self, "with_federation")
 
     @with_federation.setter
-    def with_federation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def with_federation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "with_federation", value)
 
     @_builtins.property
     @pulumi.getter(name="withPrivilegedAccess")
-    def with_privileged_access(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def with_privileged_access(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean to grant the calling principal the permissions to perform all supported Lake Formation operations on the registered data location.
 
@@ -140,21 +140,21 @@ class ResourceArgs:
         return pulumi.get(self, "with_privileged_access")
 
     @with_privileged_access.setter
-    def with_privileged_access(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def with_privileged_access(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "with_privileged_access", value)
 
 
 @pulumi.input_type
 class _ResourceState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 hybrid_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 last_modified: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_service_linked_role: Optional[pulumi.Input[_builtins.bool]] = None,
-                 with_federation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 with_privileged_access: Optional[pulumi.Input[_builtins.bool]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 hybrid_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 last_modified: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_service_linked_role: pulumi.Input[Optional[_builtins.bool]] = None,
+                 with_federation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 with_privileged_access: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Resource resources.
 
@@ -190,7 +190,7 @@ class _ResourceState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) of the resource.
 
@@ -199,84 +199,84 @@ class _ResourceState:
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="hybridAccessEnabled")
-    def hybrid_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def hybrid_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag to enable AWS LakeFormation hybrid access permission mode.
         """
         return pulumi.get(self, "hybrid_access_enabled")
 
     @hybrid_access_enabled.setter
-    def hybrid_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def hybrid_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "hybrid_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="lastModified")
-    def last_modified(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_modified(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         """
         return pulumi.get(self, "last_modified")
 
     @last_modified.setter
-    def last_modified(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_modified(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_modified", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Role that has read/write access to the resource.
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="useServiceLinkedRole")
-    def use_service_linked_role(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_service_linked_role(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
         """
         return pulumi.get(self, "use_service_linked_role")
 
     @use_service_linked_role.setter
-    def use_service_linked_role(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_service_linked_role(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_service_linked_role", value)
 
     @_builtins.property
     @pulumi.getter(name="withFederation")
-    def with_federation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def with_federation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not the resource is a federated resource. Set to true when registering AWS Glue connections for federated catalog functionality.
         """
         return pulumi.get(self, "with_federation")
 
     @with_federation.setter
-    def with_federation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def with_federation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "with_federation", value)
 
     @_builtins.property
     @pulumi.getter(name="withPrivilegedAccess")
-    def with_privileged_access(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def with_privileged_access(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean to grant the calling principal the permissions to perform all supported Lake Formation operations on the registered data location.
 
@@ -285,7 +285,7 @@ class _ResourceState:
         return pulumi.get(self, "with_privileged_access")
 
     @with_privileged_access.setter
-    def with_privileged_access(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def with_privileged_access(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "with_privileged_access", value)
 
 
@@ -295,13 +295,13 @@ class Resource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 hybrid_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_service_linked_role: Optional[pulumi.Input[_builtins.bool]] = None,
-                 with_federation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 with_privileged_access: Optional[pulumi.Input[_builtins.bool]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 hybrid_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_service_linked_role: pulumi.Input[Optional[_builtins.bool]] = None,
+                 with_federation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 with_privileged_access: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Registers a Lake Formation resource (e.g., S3 bucket) as managed by the Data Catalog. In other words, the S3 path is added to the data lake.
@@ -376,13 +376,13 @@ class Resource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 hybrid_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_service_linked_role: Optional[pulumi.Input[_builtins.bool]] = None,
-                 with_federation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 with_privileged_access: Optional[pulumi.Input[_builtins.bool]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 hybrid_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_service_linked_role: pulumi.Input[Optional[_builtins.bool]] = None,
+                 with_federation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 with_privileged_access: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -412,14 +412,14 @@ class Resource(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            hybrid_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            last_modified: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            use_service_linked_role: Optional[pulumi.Input[_builtins.bool]] = None,
-            with_federation: Optional[pulumi.Input[_builtins.bool]] = None,
-            with_privileged_access: Optional[pulumi.Input[_builtins.bool]] = None) -> 'Resource':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            hybrid_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            last_modified: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            use_service_linked_role: pulumi.Input[Optional[_builtins.bool]] = None,
+            with_federation: pulumi.Input[Optional[_builtins.bool]] = None,
+            with_privileged_access: pulumi.Input[Optional[_builtins.bool]] = None) -> 'Resource':
         """
         Get an existing Resource resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

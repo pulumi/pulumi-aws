@@ -22,7 +22,7 @@ __all__ = ['ClassificationExportConfigurationArgs', 'ClassificationExportConfigu
 class ClassificationExportConfigurationArgs:
     def __init__(__self__, *,
                  s3_destination: pulumi.Input['ClassificationExportConfigurationS3DestinationArgs'],
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ClassificationExportConfiguration resource.
 
@@ -47,22 +47,22 @@ class ClassificationExportConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _ClassificationExportConfigurationState:
     def __init__(__self__, *,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_destination: Optional[pulumi.Input['ClassificationExportConfigurationS3DestinationArgs']] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_destination: pulumi.Input[Optional['ClassificationExportConfigurationS3DestinationArgs']] = None):
         """
         Input properties used for looking up and filtering ClassificationExportConfiguration resources.
 
@@ -76,26 +76,26 @@ class _ClassificationExportConfigurationState:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="s3Destination")
-    def s3_destination(self) -> Optional[pulumi.Input['ClassificationExportConfigurationS3DestinationArgs']]:
+    def s3_destination(self) -> pulumi.Input[Optional['ClassificationExportConfigurationS3DestinationArgs']]:
         """
         Configuration block for a S3 Destination. Defined below
         """
         return pulumi.get(self, "s3_destination")
 
     @s3_destination.setter
-    def s3_destination(self, value: Optional[pulumi.Input['ClassificationExportConfigurationS3DestinationArgs']]):
+    def s3_destination(self, value: pulumi.Input[Optional['ClassificationExportConfigurationS3DestinationArgs']]):
         pulumi.set(self, "s3_destination", value)
 
 
@@ -105,8 +105,8 @@ class ClassificationExportConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_destination: Optional[pulumi.Input[Union['ClassificationExportConfigurationS3DestinationArgs', 'ClassificationExportConfigurationS3DestinationArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_destination: pulumi.Input[Optional[Union['ClassificationExportConfigurationS3DestinationArgs', 'ClassificationExportConfigurationS3DestinationArgsDict']]] = None,
                  __props__=None):
         """
         Provides a resource to manage an [Amazon Macie Classification Export Configuration](https://docs.aws.amazon.com/macie/latest/APIReference/classification-export-configuration.html).
@@ -188,8 +188,8 @@ class ClassificationExportConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_destination: Optional[pulumi.Input[Union['ClassificationExportConfigurationS3DestinationArgs', 'ClassificationExportConfigurationS3DestinationArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_destination: pulumi.Input[Optional[Union['ClassificationExportConfigurationS3DestinationArgs', 'ClassificationExportConfigurationS3DestinationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -213,8 +213,8 @@ class ClassificationExportConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            s3_destination: Optional[pulumi.Input[Union['ClassificationExportConfigurationS3DestinationArgs', 'ClassificationExportConfigurationS3DestinationArgsDict']]] = None) -> 'ClassificationExportConfiguration':
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            s3_destination: pulumi.Input[Optional[Union['ClassificationExportConfigurationS3DestinationArgs', 'ClassificationExportConfigurationS3DestinationArgsDict']]] = None) -> 'ClassificationExportConfiguration':
         """
         Get an existing ClassificationExportConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

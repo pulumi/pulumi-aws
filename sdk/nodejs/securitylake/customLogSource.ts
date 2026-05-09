@@ -153,33 +153,33 @@ export interface CustomLogSourceState {
     /**
      * The attributes of a third-party custom source.
      */
-    attributes?: pulumi.Input<pulumi.Input<inputs.securitylake.CustomLogSourceAttribute>[]>;
+    attributes?: pulumi.Input<pulumi.Input<inputs.securitylake.CustomLogSourceAttribute>[] | undefined>;
     /**
      * The configuration for the third-party custom source.
      */
-    configuration?: pulumi.Input<inputs.securitylake.CustomLogSourceConfiguration>;
+    configuration?: pulumi.Input<inputs.securitylake.CustomLogSourceConfiguration | undefined>;
     /**
      * The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.
      */
-    eventClasses?: pulumi.Input<pulumi.Input<string>[]>;
+    eventClasses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The details of the log provider for a third-party custom source.
      */
-    providerDetails?: pulumi.Input<pulumi.Input<inputs.securitylake.CustomLogSourceProviderDetail>[]>;
+    providerDetails?: pulumi.Input<pulumi.Input<inputs.securitylake.CustomLogSourceProviderDetail>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Specify the name for a third-party custom source.
      * This must be a Regionally unique value.
      * Has a maximum length of 20.
      */
-    sourceName?: pulumi.Input<string>;
+    sourceName?: pulumi.Input<string | undefined>;
     /**
      * Specify the source version for the third-party custom source, to limit log collection to a specific version of custom data source.
      */
-    sourceVersion?: pulumi.Input<string>;
+    sourceVersion?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -193,11 +193,11 @@ export interface CustomLogSourceArgs {
     /**
      * The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.
      */
-    eventClasses?: pulumi.Input<pulumi.Input<string>[]>;
+    eventClasses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Specify the name for a third-party custom source.
      * This must be a Regionally unique value.
@@ -207,5 +207,5 @@ export interface CustomLogSourceArgs {
     /**
      * Specify the source version for the third-party custom source, to limit log collection to a specific version of custom data source.
      */
-    sourceVersion?: pulumi.Input<string>;
+    sourceVersion?: pulumi.Input<string | undefined>;
 }

@@ -204,10 +204,10 @@ def get_quicksight_analysis(analysis_id: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         theme_arn=pulumi.get(__ret__, 'theme_arn'))
-def get_quicksight_analysis_output(analysis_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                   aws_account_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                   region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                   tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_quicksight_analysis_output(analysis_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                   aws_account_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                   region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                   tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQuicksightAnalysisResult]:
     """
     Data source for managing an AWS QuickSight Analysis.

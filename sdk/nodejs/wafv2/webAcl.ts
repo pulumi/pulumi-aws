@@ -211,84 +211,84 @@ export interface WebAclState {
     /**
      * The URL to use in SDK integrations with managed rule groups.
      */
-    applicationIntegrationUrl?: pulumi.Input<string>;
+    applicationIntegrationUrl?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the WAF WebACL.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Specifies custom configurations for the associations between the web ACL and protected resources. See `associationConfig` below for details.
      */
-    associationConfig?: pulumi.Input<inputs.wafv2.WebAclAssociationConfig>;
+    associationConfig?: pulumi.Input<inputs.wafv2.WebAclAssociationConfig | undefined>;
     /**
      * Web ACL capacity units (WCUs) currently being used by this web ACL.
      */
-    capacity?: pulumi.Input<number>;
+    capacity?: pulumi.Input<number | undefined>;
     /**
      * Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captchaConfig` below for details.
      */
-    captchaConfig?: pulumi.Input<inputs.wafv2.WebAclCaptchaConfig>;
+    captchaConfig?: pulumi.Input<inputs.wafv2.WebAclCaptchaConfig | undefined>;
     /**
      * Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challengeConfig` below for details.
      */
-    challengeConfig?: pulumi.Input<inputs.wafv2.WebAclChallengeConfig>;
+    challengeConfig?: pulumi.Input<inputs.wafv2.WebAclChallengeConfig | undefined>;
     /**
      * Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
      */
-    customResponseBodies?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclCustomResponseBody>[]>;
+    customResponseBodies?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclCustomResponseBody>[] | undefined>;
     /**
      * Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `dataProtectionConfig` below for details.
      */
-    dataProtectionConfig?: pulumi.Input<inputs.wafv2.WebAclDataProtectionConfig>;
+    dataProtectionConfig?: pulumi.Input<inputs.wafv2.WebAclDataProtectionConfig | undefined>;
     /**
      * Action to perform if none of the `rules` contained in the WebACL match. See `defaultAction` below for details.
      */
-    defaultAction?: pulumi.Input<inputs.wafv2.WebAclDefaultAction>;
+    defaultAction?: pulumi.Input<inputs.wafv2.WebAclDefaultAction | undefined>;
     /**
      * Friendly description of the WebACL.
      */
-    description?: pulumi.Input<string>;
-    lockToken?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
+    lockToken?: pulumi.Input<string | undefined>;
     /**
      * Friendly name of the WebACL. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing web ACL into a configuration with `ruleJson` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
      */
-    ruleJson?: pulumi.Input<string>;
+    ruleJson?: pulumi.Input<string | undefined>;
     /**
      * **`rule` blocks in this resource have several known limitations.** Consider using `aws.wafv2.WebAclRule` to manage rules as separate resources instead. Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRule>[] | undefined>;
     /**
      * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
      */
-    scope?: pulumi.Input<string>;
+    scope?: pulumi.Input<string | undefined>;
     /**
      * Map of key-value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
      */
-    tokenDomains?: pulumi.Input<pulumi.Input<string>[]>;
+    tokenDomains?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibilityConfig` below for details.
      */
-    visibilityConfig?: pulumi.Input<inputs.wafv2.WebAclVisibilityConfig>;
+    visibilityConfig?: pulumi.Input<inputs.wafv2.WebAclVisibilityConfig | undefined>;
 }
 
 /**
@@ -298,23 +298,23 @@ export interface WebAclArgs {
     /**
      * Specifies custom configurations for the associations between the web ACL and protected resources. See `associationConfig` below for details.
      */
-    associationConfig?: pulumi.Input<inputs.wafv2.WebAclAssociationConfig>;
+    associationConfig?: pulumi.Input<inputs.wafv2.WebAclAssociationConfig | undefined>;
     /**
      * Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captchaConfig` below for details.
      */
-    captchaConfig?: pulumi.Input<inputs.wafv2.WebAclCaptchaConfig>;
+    captchaConfig?: pulumi.Input<inputs.wafv2.WebAclCaptchaConfig | undefined>;
     /**
      * Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challengeConfig` below for details.
      */
-    challengeConfig?: pulumi.Input<inputs.wafv2.WebAclChallengeConfig>;
+    challengeConfig?: pulumi.Input<inputs.wafv2.WebAclChallengeConfig | undefined>;
     /**
      * Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
      */
-    customResponseBodies?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclCustomResponseBody>[]>;
+    customResponseBodies?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclCustomResponseBody>[] | undefined>;
     /**
      * Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `dataProtectionConfig` below for details.
      */
-    dataProtectionConfig?: pulumi.Input<inputs.wafv2.WebAclDataProtectionConfig>;
+    dataProtectionConfig?: pulumi.Input<inputs.wafv2.WebAclDataProtectionConfig | undefined>;
     /**
      * Action to perform if none of the `rules` contained in the WebACL match. See `defaultAction` below for details.
      */
@@ -322,27 +322,27 @@ export interface WebAclArgs {
     /**
      * Friendly description of the WebACL.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Friendly name of the WebACL. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing web ACL into a configuration with `ruleJson` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
      */
-    ruleJson?: pulumi.Input<string>;
+    ruleJson?: pulumi.Input<string | undefined>;
     /**
      * **`rule` blocks in this resource have several known limitations.** Consider using `aws.wafv2.WebAclRule` to manage rules as separate resources instead. Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRule>[] | undefined>;
     /**
      * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
      */
@@ -350,11 +350,11 @@ export interface WebAclArgs {
     /**
      * Map of key-value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
      */
-    tokenDomains?: pulumi.Input<pulumi.Input<string>[]>;
+    tokenDomains?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibilityConfig` below for details.
      */

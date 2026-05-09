@@ -367,93 +367,93 @@ export interface DomainState {
     /**
      * IAM policy document specifying the access policies for the domain.
      */
-    accessPolicies?: pulumi.Input<string | inputs.elasticsearch.PolicyDocument>;
+    accessPolicies?: pulumi.Input<string | inputs.elasticsearch.PolicyDocument | undefined>;
     /**
      * Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your Elasticsearch domain on every apply.
      */
-    advancedOptions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    advancedOptions?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Configuration block for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). Detailed below.
      */
-    advancedSecurityOptions?: pulumi.Input<inputs.elasticsearch.DomainAdvancedSecurityOptions>;
+    advancedSecurityOptions?: pulumi.Input<inputs.elasticsearch.DomainAdvancedSecurityOptions | undefined>;
     /**
      * ARN of the domain.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for the Auto-Tune options of the domain. Detailed below.
      */
-    autoTuneOptions?: pulumi.Input<inputs.elasticsearch.DomainAutoTuneOptions>;
+    autoTuneOptions?: pulumi.Input<inputs.elasticsearch.DomainAutoTuneOptions | undefined>;
     /**
      * Configuration block for the cluster of the domain. Detailed below.
      */
-    clusterConfig?: pulumi.Input<inputs.elasticsearch.DomainClusterConfig>;
+    clusterConfig?: pulumi.Input<inputs.elasticsearch.DomainClusterConfig | undefined>;
     /**
      * Configuration block for authenticating Kibana with Cognito. Detailed below.
      */
-    cognitoOptions?: pulumi.Input<inputs.elasticsearch.DomainCognitoOptions>;
+    cognitoOptions?: pulumi.Input<inputs.elasticsearch.DomainCognitoOptions | undefined>;
     /**
      * Configuration block for domain endpoint HTTP(S) related options. Detailed below.
      */
-    domainEndpointOptions?: pulumi.Input<inputs.elasticsearch.DomainDomainEndpointOptions>;
+    domainEndpointOptions?: pulumi.Input<inputs.elasticsearch.DomainDomainEndpointOptions | undefined>;
     /**
      * Unique identifier for the domain.
      */
-    domainId?: pulumi.Input<string>;
+    domainId?: pulumi.Input<string | undefined>;
     /**
      * Name of the domain.
      *
      * The following arguments are optional:
      */
-    domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). Detailed below.
      */
-    ebsOptions?: pulumi.Input<inputs.elasticsearch.DomainEbsOptions>;
+    ebsOptions?: pulumi.Input<inputs.elasticsearch.DomainEbsOptions | undefined>;
     /**
      * Version of Elasticsearch to deploy. Defaults to `1.5`.
      */
-    elasticsearchVersion?: pulumi.Input<string>;
+    elasticsearchVersion?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for encrypt at rest options. Only available for [certain instance types](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html). Detailed below.
      */
-    encryptAtRest?: pulumi.Input<inputs.elasticsearch.DomainEncryptAtRest>;
+    encryptAtRest?: pulumi.Input<inputs.elasticsearch.DomainEncryptAtRest | undefined>;
     /**
      * Domain-specific endpoint used to submit index, search, and data upload requests.
      */
-    endpoint?: pulumi.Input<string>;
+    endpoint?: pulumi.Input<string | undefined>;
     /**
      * Domain-specific endpoint for kibana without https scheme.
      */
-    kibanaEndpoint?: pulumi.Input<string>;
+    kibanaEndpoint?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
      */
-    logPublishingOptions?: pulumi.Input<pulumi.Input<inputs.elasticsearch.DomainLogPublishingOption>[]>;
+    logPublishingOptions?: pulumi.Input<pulumi.Input<inputs.elasticsearch.DomainLogPublishingOption>[] | undefined>;
     /**
      * Configuration block for node-to-node encryption options. Detailed below.
      */
-    nodeToNodeEncryption?: pulumi.Input<inputs.elasticsearch.DomainNodeToNodeEncryption>;
+    nodeToNodeEncryption?: pulumi.Input<inputs.elasticsearch.DomainNodeToNodeEncryption | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running Elasticsearch 5.3 and later, Amazon ES takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions of Elasticsearch, Amazon ES takes daily automated snapshots.
      */
-    snapshotOptions?: pulumi.Input<inputs.elasticsearch.DomainSnapshotOptions>;
+    snapshotOptions?: pulumi.Input<inputs.elasticsearch.DomainSnapshotOptions | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)). Detailed below.
      */
-    vpcOptions?: pulumi.Input<inputs.elasticsearch.DomainVpcOptions>;
+    vpcOptions?: pulumi.Input<inputs.elasticsearch.DomainVpcOptions | undefined>;
 }
 
 /**
@@ -463,71 +463,71 @@ export interface DomainArgs {
     /**
      * IAM policy document specifying the access policies for the domain.
      */
-    accessPolicies?: pulumi.Input<string | inputs.elasticsearch.PolicyDocument>;
+    accessPolicies?: pulumi.Input<string | inputs.elasticsearch.PolicyDocument | undefined>;
     /**
      * Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your Elasticsearch domain on every apply.
      */
-    advancedOptions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    advancedOptions?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Configuration block for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). Detailed below.
      */
-    advancedSecurityOptions?: pulumi.Input<inputs.elasticsearch.DomainAdvancedSecurityOptions>;
+    advancedSecurityOptions?: pulumi.Input<inputs.elasticsearch.DomainAdvancedSecurityOptions | undefined>;
     /**
      * Configuration block for the Auto-Tune options of the domain. Detailed below.
      */
-    autoTuneOptions?: pulumi.Input<inputs.elasticsearch.DomainAutoTuneOptions>;
+    autoTuneOptions?: pulumi.Input<inputs.elasticsearch.DomainAutoTuneOptions | undefined>;
     /**
      * Configuration block for the cluster of the domain. Detailed below.
      */
-    clusterConfig?: pulumi.Input<inputs.elasticsearch.DomainClusterConfig>;
+    clusterConfig?: pulumi.Input<inputs.elasticsearch.DomainClusterConfig | undefined>;
     /**
      * Configuration block for authenticating Kibana with Cognito. Detailed below.
      */
-    cognitoOptions?: pulumi.Input<inputs.elasticsearch.DomainCognitoOptions>;
+    cognitoOptions?: pulumi.Input<inputs.elasticsearch.DomainCognitoOptions | undefined>;
     /**
      * Configuration block for domain endpoint HTTP(S) related options. Detailed below.
      */
-    domainEndpointOptions?: pulumi.Input<inputs.elasticsearch.DomainDomainEndpointOptions>;
+    domainEndpointOptions?: pulumi.Input<inputs.elasticsearch.DomainDomainEndpointOptions | undefined>;
     /**
      * Name of the domain.
      *
      * The following arguments are optional:
      */
-    domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). Detailed below.
      */
-    ebsOptions?: pulumi.Input<inputs.elasticsearch.DomainEbsOptions>;
+    ebsOptions?: pulumi.Input<inputs.elasticsearch.DomainEbsOptions | undefined>;
     /**
      * Version of Elasticsearch to deploy. Defaults to `1.5`.
      */
-    elasticsearchVersion?: pulumi.Input<string>;
+    elasticsearchVersion?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for encrypt at rest options. Only available for [certain instance types](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html). Detailed below.
      */
-    encryptAtRest?: pulumi.Input<inputs.elasticsearch.DomainEncryptAtRest>;
+    encryptAtRest?: pulumi.Input<inputs.elasticsearch.DomainEncryptAtRest | undefined>;
     /**
      * Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
      */
-    logPublishingOptions?: pulumi.Input<pulumi.Input<inputs.elasticsearch.DomainLogPublishingOption>[]>;
+    logPublishingOptions?: pulumi.Input<pulumi.Input<inputs.elasticsearch.DomainLogPublishingOption>[] | undefined>;
     /**
      * Configuration block for node-to-node encryption options. Detailed below.
      */
-    nodeToNodeEncryption?: pulumi.Input<inputs.elasticsearch.DomainNodeToNodeEncryption>;
+    nodeToNodeEncryption?: pulumi.Input<inputs.elasticsearch.DomainNodeToNodeEncryption | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running Elasticsearch 5.3 and later, Amazon ES takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions of Elasticsearch, Amazon ES takes daily automated snapshots.
      */
-    snapshotOptions?: pulumi.Input<inputs.elasticsearch.DomainSnapshotOptions>;
+    snapshotOptions?: pulumi.Input<inputs.elasticsearch.DomainSnapshotOptions | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)). Detailed below.
      */
-    vpcOptions?: pulumi.Input<inputs.elasticsearch.DomainVpcOptions>;
+    vpcOptions?: pulumi.Input<inputs.elasticsearch.DomainVpcOptions | undefined>;
 }

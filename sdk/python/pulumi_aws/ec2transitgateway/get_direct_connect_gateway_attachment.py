@@ -158,11 +158,11 @@ def get_direct_connect_gateway_attachment(dx_gateway_id: Optional[_builtins.str]
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
         transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'))
-def get_direct_connect_gateway_attachment_output(dx_gateway_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                                 filters: Optional[pulumi.Input[Optional[Sequence[Union['GetDirectConnectGatewayAttachmentFilterArgs', 'GetDirectConnectGatewayAttachmentFilterArgsDict']]]]] = None,
-                                                 region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                                 tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
-                                                 transit_gateway_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_direct_connect_gateway_attachment_output(dx_gateway_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                 filters: pulumi.Input[Optional[Optional[Sequence[Union['GetDirectConnectGatewayAttachmentFilterArgs', 'GetDirectConnectGatewayAttachmentFilterArgsDict']]]]] = None,
+                                                 region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                 tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
+                                                 transit_gateway_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDirectConnectGatewayAttachmentResult]:
     """
     Get information on an EC2 Transit Gateway's attachment to a Direct Connect Gateway.

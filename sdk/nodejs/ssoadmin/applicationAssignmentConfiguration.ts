@@ -121,15 +121,15 @@ export interface ApplicationAssignmentConfigurationState {
     /**
      * ARN of the application.
      */
-    applicationArn?: pulumi.Input<string>;
+    applicationArn?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether users must have an explicit assignment to access the application. If `false`, all users have access to the application.
      */
-    assignmentRequired?: pulumi.Input<boolean>;
+    assignmentRequired?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -147,5 +147,5 @@ export interface ApplicationAssignmentConfigurationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

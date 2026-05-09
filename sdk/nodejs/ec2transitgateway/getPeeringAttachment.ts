@@ -152,15 +152,15 @@ export interface GetPeeringAttachmentOutputArgs {
     /**
      * One or more configuration blocks containing name-values filters. Detailed below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2transitgateway.GetPeeringAttachmentFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.ec2transitgateway.GetPeeringAttachmentFilterArgs>[] | undefined>;
     /**
      * Identifier of the EC2 Transit Gateway Peering Attachment.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Mapping of tags, each pair of which must exactly match
      * a pair on the specific EC2 Transit Gateway Peering Attachment to retrieve.
@@ -168,5 +168,5 @@ export interface GetPeeringAttachmentOutputArgs {
      * More complex filters can be expressed using one or more `filter` sub-blocks,
      * which take the following arguments:
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

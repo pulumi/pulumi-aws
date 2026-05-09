@@ -48,7 +48,7 @@ import (
 //				return err
 //			}
 //			_, err = autoscaling.NewNotification(ctx, "slack_notifications", &autoscaling.NotificationArgs{
-//				GroupNames: interface{}(groups.Names),
+//				GroupNames: toPulumiStringArray(groups.Names),
 //				Notifications: autoscaling.NotificationTypeArray{
 //					autoscaling.NotificationTypeInstanceLaunch,
 //					autoscaling.NotificationTypeInstanceTerminate,
@@ -62,6 +62,14 @@ import (
 //			}
 //			return nil
 //		})
+//	}
+//
+//	func toPulumiStringArray(arr []string) pulumi.StringArray {
+//		var pulumiArr pulumi.StringArray
+//		for _, v := range arr {
+//			pulumiArr = append(pulumiArr, pulumi.String(v))
+//		}
+//		return pulumiArr
 //	}
 //
 // ```

@@ -116,15 +116,15 @@ export interface LogTransformerState {
     /**
      * Log group ARN to set the transformer for.
      */
-    logGroupArn?: pulumi.Input<string>;
+    logGroupArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Specifies the configuration of the transformer. You must include at least one configuration, and 20 at most. See `transformerConfig` below for details.
      */
-    transformerConfigs?: pulumi.Input<pulumi.Input<inputs.cloudwatch.LogTransformerTransformerConfig>[]>;
+    transformerConfigs?: pulumi.Input<pulumi.Input<inputs.cloudwatch.LogTransformerTransformerConfig>[] | undefined>;
 }
 
 /**
@@ -138,7 +138,7 @@ export interface LogTransformerArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Specifies the configuration of the transformer. You must include at least one configuration, and 20 at most. See `transformerConfig` below for details.
      */

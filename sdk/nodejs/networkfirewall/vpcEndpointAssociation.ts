@@ -169,44 +169,44 @@ export interface VpcEndpointAssociationState {
     /**
      * A description of the VPC endpoint association.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) that identifies the firewall.
      */
-    firewallArn?: pulumi.Input<string>;
+    firewallArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ID for a subnet that's used in an association with a firewall. See Subnet Mapping below for details.
      */
-    subnetMapping?: pulumi.Input<inputs.networkfirewall.VpcEndpointAssociationSubnetMapping>;
+    subnetMapping?: pulumi.Input<inputs.networkfirewall.VpcEndpointAssociationSubnetMapping | undefined>;
     /**
      * Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.networkfirewall.VpcEndpointAssociationTimeouts>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.networkfirewall.VpcEndpointAssociationTimeouts | undefined>;
     /**
      * ARN of the VPC Endpoint Association.
      */
-    vpcEndpointAssociationArn?: pulumi.Input<string>;
+    vpcEndpointAssociationArn?: pulumi.Input<string | undefined>;
     /**
      * The unique identifier of the VPC endpoint association.
      */
-    vpcEndpointAssociationId?: pulumi.Input<string>;
+    vpcEndpointAssociationId?: pulumi.Input<string | undefined>;
     /**
      * Nested list of information about the current status of the VPC Endpoint Association.
      */
-    vpcEndpointAssociationStatuses?: pulumi.Input<pulumi.Input<inputs.networkfirewall.VpcEndpointAssociationVpcEndpointAssociationStatus>[]>;
+    vpcEndpointAssociationStatuses?: pulumi.Input<pulumi.Input<inputs.networkfirewall.VpcEndpointAssociationVpcEndpointAssociationStatus>[] | undefined>;
     /**
      * The unique identifier of the VPC for the endpoint association.
      */
-    vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -216,7 +216,7 @@ export interface VpcEndpointAssociationArgs {
     /**
      * A description of the VPC endpoint association.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) that identifies the firewall.
      */
@@ -224,7 +224,7 @@ export interface VpcEndpointAssociationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ID for a subnet that's used in an association with a firewall. See Subnet Mapping below for details.
      */
@@ -232,8 +232,8 @@ export interface VpcEndpointAssociationArgs {
     /**
      * Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.networkfirewall.VpcEndpointAssociationTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.networkfirewall.VpcEndpointAssociationTimeouts | undefined>;
     /**
      * The unique identifier of the VPC for the endpoint association.
      */

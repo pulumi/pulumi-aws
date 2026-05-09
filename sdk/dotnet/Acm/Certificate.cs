@@ -88,12 +88,12 @@ namespace Pulumi.Aws.Acm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Tls.Index.PrivateKey("example", new()
+    ///     var example = new Tls.PrivateKey("example", new()
     ///     {
     ///         Algorithm = "RSA",
     ///     });
     /// 
-    ///     var exampleSelfSignedCert = new Tls.Index.SelfSignedCert("example", new()
+    ///     var exampleSelfSignedCert = new Tls.SelfSignedCert("example", new()
     ///     {
     ///         KeyAlgorithm = "RSA",
     ///         PrivateKeyPem = example.PrivateKeyPem,

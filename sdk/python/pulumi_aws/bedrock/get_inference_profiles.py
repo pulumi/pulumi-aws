@@ -124,8 +124,8 @@ def get_inference_profiles(region: Optional[_builtins.str] = None,
         inference_profile_summaries=pulumi.get(__ret__, 'inference_profile_summaries'),
         region=pulumi.get(__ret__, 'region'),
         type=pulumi.get(__ret__, 'type'))
-def get_inference_profiles_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                  type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_inference_profiles_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                  type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInferenceProfilesResult]:
     """
     Data source for managing AWS Bedrock Inference Profiles.

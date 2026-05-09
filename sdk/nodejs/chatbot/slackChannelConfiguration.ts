@@ -195,62 +195,62 @@ export interface SlackChannelConfigurationState {
     /**
      * ARN of the Slack channel configuration.
      */
-    chatConfigurationArn?: pulumi.Input<string>;
+    chatConfigurationArn?: pulumi.Input<string | undefined>;
     /**
      * Name of the Slack channel configuration.
      */
-    configurationName?: pulumi.Input<string>;
+    configurationName?: pulumi.Input<string | undefined>;
     /**
      * List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
      */
-    guardrailPolicyArns?: pulumi.Input<pulumi.Input<string>[]>;
+    guardrailPolicyArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * User-defined role that AWS Chatbot assumes. This is not the service-linked role.
      */
-    iamRoleArn?: pulumi.Input<string>;
+    iamRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Logging levels include `ERROR`, `INFO`, or `NONE`.
      */
-    loggingLevel?: pulumi.Input<string>;
+    loggingLevel?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ID of the Slack channel. For example, `C07EZ1ABC23`.
      */
-    slackChannelId?: pulumi.Input<string>;
+    slackChannelId?: pulumi.Input<string | undefined>;
     /**
      * Name of the Slack channel.
      */
-    slackChannelName?: pulumi.Input<string>;
+    slackChannelName?: pulumi.Input<string | undefined>;
     /**
      * ID of the Slack workspace authorized with AWS Chatbot. For example, `T07EA123LEP`.
      *
      * The following arguments are optional:
      */
-    slackTeamId?: pulumi.Input<string>;
+    slackTeamId?: pulumi.Input<string | undefined>;
     /**
      * Name of the Slack team.
      */
-    slackTeamName?: pulumi.Input<string>;
+    slackTeamName?: pulumi.Input<string | undefined>;
     /**
      * ARNs of the SNS topics that deliver notifications to AWS Chatbot.
      */
-    snsTopicArns?: pulumi.Input<pulumi.Input<string>[]>;
+    snsTopicArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Map of tags assigned to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.chatbot.SlackChannelConfigurationTimeouts>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.chatbot.SlackChannelConfigurationTimeouts | undefined>;
     /**
      * Enables use of a user role requirement in your chat configuration.
      */
-    userAuthorizationRequired?: pulumi.Input<boolean>;
+    userAuthorizationRequired?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -264,7 +264,7 @@ export interface SlackChannelConfigurationArgs {
     /**
      * List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
      */
-    guardrailPolicyArns?: pulumi.Input<pulumi.Input<string>[]>;
+    guardrailPolicyArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * User-defined role that AWS Chatbot assumes. This is not the service-linked role.
      */
@@ -272,11 +272,11 @@ export interface SlackChannelConfigurationArgs {
     /**
      * Logging levels include `ERROR`, `INFO`, or `NONE`.
      */
-    loggingLevel?: pulumi.Input<string>;
+    loggingLevel?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ID of the Slack channel. For example, `C07EZ1ABC23`.
      */
@@ -290,14 +290,14 @@ export interface SlackChannelConfigurationArgs {
     /**
      * ARNs of the SNS topics that deliver notifications to AWS Chatbot.
      */
-    snsTopicArns?: pulumi.Input<pulumi.Input<string>[]>;
+    snsTopicArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Map of tags assigned to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.chatbot.SlackChannelConfigurationTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.chatbot.SlackChannelConfigurationTimeouts | undefined>;
     /**
      * Enables use of a user role requirement in your chat configuration.
      */
-    userAuthorizationRequired?: pulumi.Input<boolean>;
+    userAuthorizationRequired?: pulumi.Input<boolean | undefined>;
 }

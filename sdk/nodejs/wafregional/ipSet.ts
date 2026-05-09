@@ -120,19 +120,19 @@ export interface IpSetState {
     /**
      * The ARN of the WAF IPSet.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR notation) from which web requests originate.
      */
-    ipSetDescriptors?: pulumi.Input<pulumi.Input<inputs.wafregional.IpSetIpSetDescriptor>[]>;
+    ipSetDescriptors?: pulumi.Input<pulumi.Input<inputs.wafregional.IpSetIpSetDescriptor>[] | undefined>;
     /**
      * The name or description of the IPSet.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -142,13 +142,13 @@ export interface IpSetArgs {
     /**
      * One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR notation) from which web requests originate.
      */
-    ipSetDescriptors?: pulumi.Input<pulumi.Input<inputs.wafregional.IpSetIpSetDescriptor>[]>;
+    ipSetDescriptors?: pulumi.Input<pulumi.Input<inputs.wafregional.IpSetIpSetDescriptor>[] | undefined>;
     /**
      * The name or description of the IPSet.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

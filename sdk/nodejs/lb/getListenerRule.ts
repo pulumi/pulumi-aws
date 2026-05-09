@@ -182,33 +182,33 @@ export interface GetListenerRuleOutputArgs {
      * List of actions associated with the rule, sorted by `order`.
      * Detailed below.
      */
-    actions?: pulumi.Input<pulumi.Input<inputs.lb.GetListenerRuleActionArgs>[]>;
+    actions?: pulumi.Input<pulumi.Input<inputs.lb.GetListenerRuleActionArgs>[] | undefined>;
     /**
      * ARN of the Listener Rule.
      * Either `arn` or `listenerArn` must be set.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Set of conditions associated with the rule.
      * Detailed below.
      */
-    conditions?: pulumi.Input<pulumi.Input<inputs.lb.GetListenerRuleConditionArgs>[]>;
+    conditions?: pulumi.Input<pulumi.Input<inputs.lb.GetListenerRuleConditionArgs>[] | undefined>;
     /**
      * ARN of the associated Listener.
      * Either `arn` or `listenerArn` must be set.
      */
-    listenerArn?: pulumi.Input<string>;
+    listenerArn?: pulumi.Input<string | undefined>;
     /**
      * Priority of the Listener Rule within the Listener.
      * Must be set if `listenerArn` is set, otherwise must not be set.
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Block for transform to apply to requests that match this rule. Detailed below.
      */
-    transforms?: pulumi.Input<pulumi.Input<inputs.lb.GetListenerRuleTransformArgs>[]>;
+    transforms?: pulumi.Input<pulumi.Input<inputs.lb.GetListenerRuleTransformArgs>[] | undefined>;
 }

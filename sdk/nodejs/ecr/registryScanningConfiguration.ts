@@ -149,19 +149,19 @@ export interface RegistryScanningConfigurationState {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The registry ID the scanning configuration applies to.
      */
-    registryId?: pulumi.Input<string>;
+    registryId?: pulumi.Input<string | undefined>;
     /**
      * One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.ecr.RegistryScanningConfigurationRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.ecr.RegistryScanningConfigurationRule>[] | undefined>;
     /**
      * the scanning type to set for the registry. Can be either `ENHANCED` or `BASIC`.
      */
-    scanType?: pulumi.Input<string>;
+    scanType?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -171,11 +171,11 @@ export interface RegistryScanningConfigurationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.ecr.RegistryScanningConfigurationRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.ecr.RegistryScanningConfigurationRule>[] | undefined>;
     /**
      * the scanning type to set for the registry. Can be either `ENHANCED` or `BASIC`.
      */

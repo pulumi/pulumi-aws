@@ -172,26 +172,26 @@ export interface SslNegotiationPolicyState {
     /**
      * An SSL Negotiation policy attribute. Each has two properties:
      */
-    attributes?: pulumi.Input<pulumi.Input<inputs.elb.SslNegotiationPolicyAttribute>[]>;
+    attributes?: pulumi.Input<pulumi.Input<inputs.elb.SslNegotiationPolicyAttribute>[] | undefined>;
     /**
      * The load balancer port to which the policy
      * should be applied. This must be an active listener on the load
      * balancer.
      */
-    lbPort?: pulumi.Input<number>;
+    lbPort?: pulumi.Input<number | undefined>;
     /**
      * The load balancer to which the policy
      * should be attached.
      */
-    loadBalancer?: pulumi.Input<string>;
+    loadBalancer?: pulumi.Input<string | undefined>;
     /**
      * The name of the SSL negotiation policy.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of arbitrary keys and values that, when changed, will trigger a redeployment.
      *
@@ -199,7 +199,7 @@ export interface SslNegotiationPolicyState {
      *
      * > **NOTE:** The AWS documentation references Server Order Preference, which the AWS Elastic Load Balancing API refers to as `Server-Defined-Cipher-Order`. If you wish to set Server Order Preference, use this value instead.
      */
-    triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -209,7 +209,7 @@ export interface SslNegotiationPolicyArgs {
     /**
      * An SSL Negotiation policy attribute. Each has two properties:
      */
-    attributes?: pulumi.Input<pulumi.Input<inputs.elb.SslNegotiationPolicyAttribute>[]>;
+    attributes?: pulumi.Input<pulumi.Input<inputs.elb.SslNegotiationPolicyAttribute>[] | undefined>;
     /**
      * The load balancer port to which the policy
      * should be applied. This must be an active listener on the load
@@ -224,11 +224,11 @@ export interface SslNegotiationPolicyArgs {
     /**
      * The name of the SSL negotiation policy.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of arbitrary keys and values that, when changed, will trigger a redeployment.
      *
@@ -236,5 +236,5 @@ export interface SslNegotiationPolicyArgs {
      *
      * > **NOTE:** The AWS documentation references Server Order Preference, which the AWS Elastic Load Balancing API refers to as `Server-Defined-Cipher-Order`. If you wish to set Server Order Preference, use this value instead.
      */
-    triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

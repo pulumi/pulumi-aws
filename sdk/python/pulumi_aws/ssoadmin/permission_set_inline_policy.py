@@ -22,7 +22,7 @@ class PermissionSetInlinePolicyArgs:
                  inline_policy: pulumi.Input[_builtins.str],
                  instance_arn: pulumi.Input[_builtins.str],
                  permission_set_arn: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PermissionSetInlinePolicy resource.
 
@@ -75,24 +75,24 @@ class PermissionSetInlinePolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _PermissionSetInlinePolicyState:
     def __init__(__self__, *,
-                 inline_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 permission_set_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 inline_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 permission_set_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PermissionSetInlinePolicy resources.
 
@@ -112,50 +112,50 @@ class _PermissionSetInlinePolicyState:
 
     @_builtins.property
     @pulumi.getter(name="inlinePolicy")
-    def inline_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def inline_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IAM inline policy to attach to a Permission Set.
         """
         return pulumi.get(self, "inline_policy")
 
     @inline_policy.setter
-    def inline_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def inline_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "inline_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceArn")
-    def instance_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
         """
         return pulumi.get(self, "instance_arn")
 
     @instance_arn.setter
-    def instance_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="permissionSetArn")
-    def permission_set_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def permission_set_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the Permission Set.
         """
         return pulumi.get(self, "permission_set_arn")
 
     @permission_set_arn.setter
-    def permission_set_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def permission_set_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "permission_set_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
@@ -165,10 +165,10 @@ class PermissionSetInlinePolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 inline_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 permission_set_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 inline_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 permission_set_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides an IAM inline policy for a Single Sign-On (SSO) Permission Set resource
@@ -280,10 +280,10 @@ class PermissionSetInlinePolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 inline_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 permission_set_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 inline_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 permission_set_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -313,10 +313,10 @@ class PermissionSetInlinePolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            inline_policy: Optional[pulumi.Input[_builtins.str]] = None,
-            instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            permission_set_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None) -> 'PermissionSetInlinePolicy':
+            inline_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            permission_set_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> 'PermissionSetInlinePolicy':
         """
         Get an existing PermissionSetInlinePolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

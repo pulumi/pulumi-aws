@@ -24,12 +24,12 @@ class LocationAzureBlobArgs:
                  agent_arns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  authentication_type: pulumi.Input[_builtins.str],
                  container_url: pulumi.Input[_builtins.str],
-                 access_tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 blob_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 sas_configuration: Optional[pulumi.Input['LocationAzureBlobSasConfigurationArgs']] = None,
-                 subdirectory: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 access_tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 blob_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 sas_configuration: pulumi.Input[Optional['LocationAzureBlobSasConfigurationArgs']] = None,
+                 subdirectory: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LocationAzureBlob resource.
 
@@ -97,92 +97,92 @@ class LocationAzureBlobArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessTier")
-    def access_tier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_tier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The access tier that you want your objects or files transferred into. Valid values: `HOT`, `COOL` and `ARCHIVE`. Default: `HOT`.
         """
         return pulumi.get(self, "access_tier")
 
     @access_tier.setter
-    def access_tier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_tier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_tier", value)
 
     @_builtins.property
     @pulumi.getter(name="blobType")
-    def blob_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def blob_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
         """
         return pulumi.get(self, "blob_type")
 
     @blob_type.setter
-    def blob_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def blob_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "blob_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="sasConfiguration")
-    def sas_configuration(self) -> Optional[pulumi.Input['LocationAzureBlobSasConfigurationArgs']]:
+    def sas_configuration(self) -> pulumi.Input[Optional['LocationAzureBlobSasConfigurationArgs']]:
         """
         The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
         """
         return pulumi.get(self, "sas_configuration")
 
     @sas_configuration.setter
-    def sas_configuration(self, value: Optional[pulumi.Input['LocationAzureBlobSasConfigurationArgs']]):
+    def sas_configuration(self, value: pulumi.Input[Optional['LocationAzureBlobSasConfigurationArgs']]):
         pulumi.set(self, "sas_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def subdirectory(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subdirectory(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Path segments if you want to limit your transfer to a virtual directory in the container.
         """
         return pulumi.get(self, "subdirectory")
 
     @subdirectory.setter
-    def subdirectory(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subdirectory(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subdirectory", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _LocationAzureBlobState:
     def __init__(__self__, *,
-                 access_tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 authentication_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 blob_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 container_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 sas_configuration: Optional[pulumi.Input['LocationAzureBlobSasConfigurationArgs']] = None,
-                 subdirectory: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 uri: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 agent_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 blob_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 sas_configuration: pulumi.Input[Optional['LocationAzureBlobSasConfigurationArgs']] = None,
+                 subdirectory: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 uri: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LocationAzureBlob resources.
 
@@ -225,143 +225,143 @@ class _LocationAzureBlobState:
 
     @_builtins.property
     @pulumi.getter(name="accessTier")
-    def access_tier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_tier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The access tier that you want your objects or files transferred into. Valid values: `HOT`, `COOL` and `ARCHIVE`. Default: `HOT`.
         """
         return pulumi.get(self, "access_tier")
 
     @access_tier.setter
-    def access_tier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_tier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_tier", value)
 
     @_builtins.property
     @pulumi.getter(name="agentArns")
-    def agent_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def agent_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of DataSync Agent ARNs with which this location will be associated.
         """
         return pulumi.get(self, "agent_arns")
 
     @agent_arns.setter
-    def agent_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def agent_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "agent_arns", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) of the DataSync Location.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authentication_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.
         """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
-    def authentication_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authentication_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authentication_type", value)
 
     @_builtins.property
     @pulumi.getter(name="blobType")
-    def blob_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def blob_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
         """
         return pulumi.get(self, "blob_type")
 
     @blob_type.setter
-    def blob_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def blob_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "blob_type", value)
 
     @_builtins.property
     @pulumi.getter(name="containerUrl")
-    def container_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def container_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL of the Azure Blob Storage container involved in your transfer.
         """
         return pulumi.get(self, "container_url")
 
     @container_url.setter
-    def container_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def container_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "container_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="sasConfiguration")
-    def sas_configuration(self) -> Optional[pulumi.Input['LocationAzureBlobSasConfigurationArgs']]:
+    def sas_configuration(self) -> pulumi.Input[Optional['LocationAzureBlobSasConfigurationArgs']]:
         """
         The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
         """
         return pulumi.get(self, "sas_configuration")
 
     @sas_configuration.setter
-    def sas_configuration(self, value: Optional[pulumi.Input['LocationAzureBlobSasConfigurationArgs']]):
+    def sas_configuration(self, value: pulumi.Input[Optional['LocationAzureBlobSasConfigurationArgs']]):
         pulumi.set(self, "sas_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def subdirectory(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subdirectory(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Path segments if you want to limit your transfer to a virtual directory in the container.
         """
         return pulumi.get(self, "subdirectory")
 
     @subdirectory.setter
-    def subdirectory(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subdirectory(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subdirectory", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "uri")
 
     @uri.setter
-    def uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "uri", value)
 
 
@@ -371,15 +371,15 @@ class LocationAzureBlob(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 authentication_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 blob_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 container_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 sas_configuration: Optional[pulumi.Input[Union['LocationAzureBlobSasConfigurationArgs', 'LocationAzureBlobSasConfigurationArgsDict']]] = None,
-                 subdirectory: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 access_tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 agent_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 blob_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 sas_configuration: pulumi.Input[Optional[Union['LocationAzureBlobSasConfigurationArgs', 'LocationAzureBlobSasConfigurationArgsDict']]] = None,
+                 subdirectory: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a Microsoft Azure Blob Storage Location within AWS DataSync.
@@ -484,15 +484,15 @@ class LocationAzureBlob(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 authentication_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 blob_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 container_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 sas_configuration: Optional[pulumi.Input[Union['LocationAzureBlobSasConfigurationArgs', 'LocationAzureBlobSasConfigurationArgsDict']]] = None,
-                 subdirectory: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 access_tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 agent_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 blob_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 sas_configuration: pulumi.Input[Optional[Union['LocationAzureBlobSasConfigurationArgs', 'LocationAzureBlobSasConfigurationArgsDict']]] = None,
+                 subdirectory: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -530,18 +530,18 @@ class LocationAzureBlob(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            access_tier: Optional[pulumi.Input[_builtins.str]] = None,
-            agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            authentication_type: Optional[pulumi.Input[_builtins.str]] = None,
-            blob_type: Optional[pulumi.Input[_builtins.str]] = None,
-            container_url: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            sas_configuration: Optional[pulumi.Input[Union['LocationAzureBlobSasConfigurationArgs', 'LocationAzureBlobSasConfigurationArgsDict']]] = None,
-            subdirectory: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            uri: Optional[pulumi.Input[_builtins.str]] = None) -> 'LocationAzureBlob':
+            access_tier: pulumi.Input[Optional[_builtins.str]] = None,
+            agent_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
+            blob_type: pulumi.Input[Optional[_builtins.str]] = None,
+            container_url: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            sas_configuration: pulumi.Input[Optional[Union['LocationAzureBlobSasConfigurationArgs', 'LocationAzureBlobSasConfigurationArgsDict']]] = None,
+            subdirectory: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            uri: pulumi.Input[Optional[_builtins.str]] = None) -> 'LocationAzureBlob':
         """
         Get an existing LocationAzureBlob resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

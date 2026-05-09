@@ -20,15 +20,15 @@ __all__ = ['ApnsVoipSandboxChannelArgs', 'ApnsVoipSandboxChannel']
 class ApnsVoipSandboxChannelArgs:
     def __init__(__self__, *,
                  application_id: pulumi.Input[_builtins.str],
-                 bundle_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_authentication_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 private_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 team_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 token_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 token_key_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 bundle_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_authentication_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 private_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 team_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 token_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 token_key_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApnsVoipSandboxChannel resource.
 
@@ -86,31 +86,31 @@ class ApnsVoipSandboxChannelArgs:
 
     @_builtins.property
     @pulumi.getter(name="bundleId")
-    def bundle_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bundle_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID assigned to your iOS app. To find this value, choose Certificates, IDs & Profiles, choose App IDs in the Identifiers section, and choose your app.
         """
         return pulumi.get(self, "bundle_id")
 
     @bundle_id.setter
-    def bundle_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bundle_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bundle_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def certificate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The pem encoded TLS Certificate from Apple.
         """
         return pulumi.get(self, "certificate")
 
     @certificate.setter
-    def certificate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultAuthenticationMethod")
-    def default_authentication_method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_authentication_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default authentication method used for APNs.
         __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
@@ -124,24 +124,24 @@ class ApnsVoipSandboxChannelArgs:
         return pulumi.get(self, "default_authentication_method")
 
     @default_authentication_method.setter
-    def default_authentication_method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_authentication_method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_authentication_method", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the channel is enabled or disabled. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="privateKey")
-    def private_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Certificate Private Key file (ie. `.key` file).
 
@@ -150,71 +150,71 @@ class ApnsVoipSandboxChannelArgs:
         return pulumi.get(self, "private_key")
 
     @private_key.setter
-    def private_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="teamId")
-    def team_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def team_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID assigned to your Apple developer account team. This value is provided on the Membership page.
         """
         return pulumi.get(self, "team_id")
 
     @team_id.setter
-    def team_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def team_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "team_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tokenKey")
-    def token_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def token_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The `.p8` file that you download from your Apple developer account when you create an authentication key.
         """
         return pulumi.get(self, "token_key")
 
     @token_key.setter
-    def token_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def token_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "token_key", value)
 
     @_builtins.property
     @pulumi.getter(name="tokenKeyId")
-    def token_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def token_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
         """
         return pulumi.get(self, "token_key_id")
 
     @token_key_id.setter
-    def token_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def token_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "token_key_id", value)
 
 
 @pulumi.input_type
 class _ApnsVoipSandboxChannelState:
     def __init__(__self__, *,
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 bundle_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_authentication_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 private_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 team_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 token_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 token_key_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 bundle_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_authentication_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 private_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 team_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 token_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 token_key_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApnsVoipSandboxChannel resources.
 
@@ -261,43 +261,43 @@ class _ApnsVoipSandboxChannelState:
 
     @_builtins.property
     @pulumi.getter(name="applicationId")
-    def application_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The application ID.
         """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
-    def application_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_id", value)
 
     @_builtins.property
     @pulumi.getter(name="bundleId")
-    def bundle_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bundle_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID assigned to your iOS app. To find this value, choose Certificates, IDs & Profiles, choose App IDs in the Identifiers section, and choose your app.
         """
         return pulumi.get(self, "bundle_id")
 
     @bundle_id.setter
-    def bundle_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bundle_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bundle_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def certificate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The pem encoded TLS Certificate from Apple.
         """
         return pulumi.get(self, "certificate")
 
     @certificate.setter
-    def certificate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultAuthenticationMethod")
-    def default_authentication_method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_authentication_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default authentication method used for APNs.
         __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
@@ -311,24 +311,24 @@ class _ApnsVoipSandboxChannelState:
         return pulumi.get(self, "default_authentication_method")
 
     @default_authentication_method.setter
-    def default_authentication_method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_authentication_method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_authentication_method", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the channel is enabled or disabled. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="privateKey")
-    def private_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Certificate Private Key file (ie. `.key` file).
 
@@ -337,55 +337,55 @@ class _ApnsVoipSandboxChannelState:
         return pulumi.get(self, "private_key")
 
     @private_key.setter
-    def private_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="teamId")
-    def team_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def team_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID assigned to your Apple developer account team. This value is provided on the Membership page.
         """
         return pulumi.get(self, "team_id")
 
     @team_id.setter
-    def team_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def team_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "team_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tokenKey")
-    def token_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def token_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The `.p8` file that you download from your Apple developer account when you create an authentication key.
         """
         return pulumi.get(self, "token_key")
 
     @token_key.setter
-    def token_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def token_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "token_key", value)
 
     @_builtins.property
     @pulumi.getter(name="tokenKeyId")
-    def token_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def token_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
         """
         return pulumi.get(self, "token_key_id")
 
     @token_key_id.setter
-    def token_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def token_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "token_key_id", value)
 
 
@@ -395,16 +395,16 @@ class ApnsVoipSandboxChannel(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 bundle_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_authentication_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 private_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 team_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 token_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 token_key_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 bundle_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_authentication_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 private_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 team_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 token_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 token_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a Pinpoint APNs VoIP Sandbox Channel resource.
@@ -503,16 +503,16 @@ class ApnsVoipSandboxChannel(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 bundle_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_authentication_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 private_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 team_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 token_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 token_key_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 bundle_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_authentication_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 private_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 team_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 token_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 token_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -546,16 +546,16 @@ class ApnsVoipSandboxChannel(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            application_id: Optional[pulumi.Input[_builtins.str]] = None,
-            bundle_id: Optional[pulumi.Input[_builtins.str]] = None,
-            certificate: Optional[pulumi.Input[_builtins.str]] = None,
-            default_authentication_method: Optional[pulumi.Input[_builtins.str]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            private_key: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            team_id: Optional[pulumi.Input[_builtins.str]] = None,
-            token_key: Optional[pulumi.Input[_builtins.str]] = None,
-            token_key_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'ApnsVoipSandboxChannel':
+            application_id: pulumi.Input[Optional[_builtins.str]] = None,
+            bundle_id: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate: pulumi.Input[Optional[_builtins.str]] = None,
+            default_authentication_method: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            private_key: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            team_id: pulumi.Input[Optional[_builtins.str]] = None,
+            token_key: pulumi.Input[Optional[_builtins.str]] = None,
+            token_key_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ApnsVoipSandboxChannel':
         """
         Get an existing ApnsVoipSandboxChannel resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

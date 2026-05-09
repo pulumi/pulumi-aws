@@ -174,47 +174,47 @@ export interface LicenseConfigurationState {
     /**
      * The license configuration ARN.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Description of the license configuration.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Number of licenses managed by the license configuration.
      */
-    licenseCount?: pulumi.Input<number>;
+    licenseCount?: pulumi.Input<number | undefined>;
     /**
      * Sets the number of available licenses as a hard limit.
      */
-    licenseCountHardLimit?: pulumi.Input<boolean>;
+    licenseCountHardLimit?: pulumi.Input<boolean | undefined>;
     /**
      * Dimension to use to track license inventory. Specify either `vCPU`, `Instance`, `Core` or `Socket`.
      */
-    licenseCountingType?: pulumi.Input<string>;
+    licenseCountingType?: pulumi.Input<string | undefined>;
     /**
      * Array of configured License Manager rules.
      */
-    licenseRules?: pulumi.Input<pulumi.Input<string>[]>;
+    licenseRules?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Name of the license configuration.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Account ID of the owner of the license configuration.
      */
-    ownerAccountId?: pulumi.Input<string>;
+    ownerAccountId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -224,15 +224,15 @@ export interface LicenseConfigurationArgs {
     /**
      * Description of the license configuration.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Number of licenses managed by the license configuration.
      */
-    licenseCount?: pulumi.Input<number>;
+    licenseCount?: pulumi.Input<number | undefined>;
     /**
      * Sets the number of available licenses as a hard limit.
      */
-    licenseCountHardLimit?: pulumi.Input<boolean>;
+    licenseCountHardLimit?: pulumi.Input<boolean | undefined>;
     /**
      * Dimension to use to track license inventory. Specify either `vCPU`, `Instance`, `Core` or `Socket`.
      */
@@ -240,17 +240,17 @@ export interface LicenseConfigurationArgs {
     /**
      * Array of configured License Manager rules.
      */
-    licenseRules?: pulumi.Input<pulumi.Input<string>[]>;
+    licenseRules?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Name of the license configuration.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

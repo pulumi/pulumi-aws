@@ -134,15 +134,15 @@ export interface PrefixListAssociationState {
     /**
      * The ID of the core network to associate the prefix list with.
      */
-    coreNetworkId?: pulumi.Input<string>;
+    coreNetworkId?: pulumi.Input<string | undefined>;
     /**
      * An alias for the prefix list association. This alias can be used to reference the prefix list in the core network policy document. Must start with a letter, be less than 64 characters long, and may only include letters and numbers.
      */
-    prefixListAlias?: pulumi.Input<string>;
+    prefixListAlias?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the EC2 managed prefix list to associate with the core network.
      */
-    prefixListArn?: pulumi.Input<string>;
+    prefixListArn?: pulumi.Input<string | undefined>;
 }
 
 /**

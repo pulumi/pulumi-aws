@@ -185,18 +185,18 @@ export interface GetVolumeOutputArgs {
      * several valid keys, for a full reference, check out
      * [describe-volumes in the AWS CLI reference][1].
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ebs.GetVolumeFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.ebs.GetVolumeFilterArgs>[] | undefined>;
     /**
      * If more than one result is returned, use the most
      * recent volume.
      */
-    mostRecent?: pulumi.Input<boolean>;
+    mostRecent?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of tags for the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

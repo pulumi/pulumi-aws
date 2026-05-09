@@ -86,7 +86,7 @@ export interface OrganizationsAccessState {
     /**
      * Whether to enable AWS Organizations access.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
 }
 
 /**

@@ -22,34 +22,34 @@ __all__ = ['LustreFileSystemArgs', 'LustreFileSystem']
 class LustreFileSystemArgs:
     def __init__(__self__, *,
                  subnet_ids: pulumi.Input[_builtins.str],
-                 auto_import_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 automatic_backup_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 backup_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 copy_tags_to_backups: Optional[pulumi.Input[_builtins.bool]] = None,
-                 daily_automatic_backup_start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_compression_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_read_cache_configuration: Optional[pulumi.Input['LustreFileSystemDataReadCacheConfigurationArgs']] = None,
-                 deployment_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 drive_cache_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 efa_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 export_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_system_type_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 final_backup_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 import_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 imported_file_chunk_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_configuration: Optional[pulumi.Input['LustreFileSystemLogConfigurationArgs']] = None,
-                 metadata_configuration: Optional[pulumi.Input['LustreFileSystemMetadataConfigurationArgs']] = None,
-                 per_unit_storage_throughput: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 root_squash_configuration: Optional[pulumi.Input['LustreFileSystemRootSquashConfigurationArgs']] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 skip_final_backup: Optional[pulumi.Input[_builtins.bool]] = None,
-                 storage_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 storage_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 throughput_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 weekly_maintenance_start_time: Optional[pulumi.Input[_builtins.str]] = None):
+                 auto_import_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 automatic_backup_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 backup_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 copy_tags_to_backups: pulumi.Input[Optional[_builtins.bool]] = None,
+                 daily_automatic_backup_start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_compression_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_read_cache_configuration: pulumi.Input[Optional['LustreFileSystemDataReadCacheConfigurationArgs']] = None,
+                 deployment_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 drive_cache_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 efa_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 export_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_system_type_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 final_backup_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 import_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 imported_file_chunk_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_configuration: pulumi.Input[Optional['LustreFileSystemLogConfigurationArgs']] = None,
+                 metadata_configuration: pulumi.Input[Optional['LustreFileSystemMetadataConfigurationArgs']] = None,
+                 per_unit_storage_throughput: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 root_squash_configuration: pulumi.Input[Optional['LustreFileSystemRootSquashConfigurationArgs']] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 skip_final_backup: pulumi.Input[Optional[_builtins.bool]] = None,
+                 storage_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 throughput_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 weekly_maintenance_start_time: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a LustreFileSystem resource.
 
@@ -162,148 +162,148 @@ class LustreFileSystemArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoImportPolicy")
-    def auto_import_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auto_import_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         How Amazon FSx keeps your file and directory listings up to date as you add or modify objects in your linked S3 bucket. see [Auto Import Data Repo](https://docs.aws.amazon.com/fsx/latest/LustreGuide/autoimport-data-repo.html) for more details. Only supported on `PERSISTENT_1` deployment types.
         """
         return pulumi.get(self, "auto_import_policy")
 
     @auto_import_policy.setter
-    def auto_import_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auto_import_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auto_import_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="automaticBackupRetentionDays")
-    def automatic_backup_retention_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def automatic_backup_retention_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type.
         """
         return pulumi.get(self, "automatic_backup_retention_days")
 
     @automatic_backup_retention_days.setter
-    def automatic_backup_retention_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def automatic_backup_retention_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "automatic_backup_retention_days", value)
 
     @_builtins.property
     @pulumi.getter(name="backupId")
-    def backup_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backup_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the source backup to create the filesystem from.
         """
         return pulumi.get(self, "backup_id")
 
     @backup_id.setter
-    def backup_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backup_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backup_id", value)
 
     @_builtins.property
     @pulumi.getter(name="copyTagsToBackups")
-    def copy_tags_to_backups(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def copy_tags_to_backups(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean flag indicating whether tags for the file system should be copied to backups. Applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. The default value is false.
         """
         return pulumi.get(self, "copy_tags_to_backups")
 
     @copy_tags_to_backups.setter
-    def copy_tags_to_backups(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def copy_tags_to_backups(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "copy_tags_to_backups", value)
 
     @_builtins.property
     @pulumi.getter(name="dailyAutomaticBackupStartTime")
-    def daily_automatic_backup_start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def daily_automatic_backup_start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Requires `automatic_backup_retention_days` to be set.
         """
         return pulumi.get(self, "daily_automatic_backup_start_time")
 
     @daily_automatic_backup_start_time.setter
-    def daily_automatic_backup_start_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def daily_automatic_backup_start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "daily_automatic_backup_start_time", value)
 
     @_builtins.property
     @pulumi.getter(name="dataCompressionType")
-    def data_compression_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_compression_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Sets the data compression configuration for the file system. Valid values are `LZ4` and `NONE`. Default value is `NONE`. Unsetting this value reverts the compression type back to `NONE`.
         """
         return pulumi.get(self, "data_compression_type")
 
     @data_compression_type.setter
-    def data_compression_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_compression_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_compression_type", value)
 
     @_builtins.property
     @pulumi.getter(name="dataReadCacheConfiguration")
-    def data_read_cache_configuration(self) -> Optional[pulumi.Input['LustreFileSystemDataReadCacheConfigurationArgs']]:
+    def data_read_cache_configuration(self) -> pulumi.Input[Optional['LustreFileSystemDataReadCacheConfigurationArgs']]:
         return pulumi.get(self, "data_read_cache_configuration")
 
     @data_read_cache_configuration.setter
-    def data_read_cache_configuration(self, value: Optional[pulumi.Input['LustreFileSystemDataReadCacheConfigurationArgs']]):
+    def data_read_cache_configuration(self, value: pulumi.Input[Optional['LustreFileSystemDataReadCacheConfigurationArgs']]):
         pulumi.set(self, "data_read_cache_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="deploymentType")
-    def deployment_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def deployment_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`, `PERSISTENT_2`.
         """
         return pulumi.get(self, "deployment_type")
 
     @deployment_type.setter
-    def deployment_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def deployment_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deployment_type", value)
 
     @_builtins.property
     @pulumi.getter(name="driveCacheType")
-    def drive_cache_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def drive_cache_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
         """
         return pulumi.get(self, "drive_cache_type")
 
     @drive_cache_type.setter
-    def drive_cache_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def drive_cache_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "drive_cache_type", value)
 
     @_builtins.property
     @pulumi.getter(name="efaEnabled")
-    def efa_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def efa_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Adds support for Elastic Fabric Adapter (EFA) and GPUDirect Storage (GDS) to Lustre. This must be set at creation. If set this cannot be changed and this prevents changes to `per_unit_storage_throughput`. This is only supported when deployment_type is set to `PERSISTENT_2`, `metadata_configuration` is used, and an EFA-enabled security group is attached.
         """
         return pulumi.get(self, "efa_enabled")
 
     @efa_enabled.setter
-    def efa_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def efa_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "efa_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="exportPath")
-    def export_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def export_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `import_path` argument and the path must use the same Amazon S3 bucket as specified in `import_path`. Set equal to `import_path` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`. Only supported on `PERSISTENT_1` deployment types.
         """
         return pulumi.get(self, "export_path")
 
     @export_path.setter
-    def export_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def export_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "export_path", value)
 
     @_builtins.property
     @pulumi.getter(name="fileSystemTypeVersion")
-    def file_system_type_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def file_system_type_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Sets the Lustre version for the file system. Valid values are `2.10`, `2.12`, and `2.15`. When creating a file system, `2.10` is valid for `SCRATCH_1`, `SCRATCH_2`, and `PERSISTENT_1` deployment types; `2.12` and `2.15` are valid for all deployment types. Changing this value to a higher version triggers an in-place upgrade. Changing to a lower version forces resource replacement (destroy and recreate).
         """
         return pulumi.get(self, "file_system_type_version")
 
     @file_system_type_version.setter
-    def file_system_type_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def file_system_type_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "file_system_type_version", value)
 
     @_builtins.property
     @pulumi.getter(name="finalBackupTags")
-    def final_backup_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def final_backup_tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to apply to the file system's final backup.
 
@@ -312,120 +312,120 @@ class LustreFileSystemArgs:
         return pulumi.get(self, "final_backup_tags")
 
     @final_backup_tags.setter
-    def final_backup_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def final_backup_tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "final_backup_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="importPath")
-    def import_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def import_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         S3 URI (with optional prefix) that you're using as the data repository for your FSx for Lustre file system. For example, `s3://example-bucket/optional-prefix/`. Only supported on `PERSISTENT_1` deployment types.
         """
         return pulumi.get(self, "import_path")
 
     @import_path.setter
-    def import_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def import_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "import_path", value)
 
     @_builtins.property
     @pulumi.getter(name="importedFileChunkSize")
-    def imported_file_chunk_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def imported_file_chunk_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. Can only be specified with `import_path` argument. Defaults to `1024`. Minimum of `1` and maximum of `512000`. Only supported on `PERSISTENT_1` deployment types.
         """
         return pulumi.get(self, "imported_file_chunk_size")
 
     @imported_file_chunk_size.setter
-    def imported_file_chunk_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def imported_file_chunk_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "imported_file_chunk_size", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN for the KMS Key to encrypt the file system at rest, applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Defaults to an AWS managed KMS Key.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="logConfiguration")
-    def log_configuration(self) -> Optional[pulumi.Input['LustreFileSystemLogConfigurationArgs']]:
+    def log_configuration(self) -> pulumi.Input[Optional['LustreFileSystemLogConfigurationArgs']]:
         """
         The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs. See `log_configuration` Block for details.
         """
         return pulumi.get(self, "log_configuration")
 
     @log_configuration.setter
-    def log_configuration(self, value: Optional[pulumi.Input['LustreFileSystemLogConfigurationArgs']]):
+    def log_configuration(self, value: pulumi.Input[Optional['LustreFileSystemLogConfigurationArgs']]):
         pulumi.set(self, "log_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="metadataConfiguration")
-    def metadata_configuration(self) -> Optional[pulumi.Input['LustreFileSystemMetadataConfigurationArgs']]:
+    def metadata_configuration(self) -> pulumi.Input[Optional['LustreFileSystemMetadataConfigurationArgs']]:
         """
         The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deployment_type` is set to `PERSISTENT_2`. See `metadata_configuration` Block for details.
         """
         return pulumi.get(self, "metadata_configuration")
 
     @metadata_configuration.setter
-    def metadata_configuration(self, value: Optional[pulumi.Input['LustreFileSystemMetadataConfigurationArgs']]):
+    def metadata_configuration(self, value: pulumi.Input[Optional['LustreFileSystemMetadataConfigurationArgs']]):
         pulumi.set(self, "metadata_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="perUnitStorageThroughput")
-    def per_unit_storage_throughput(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def per_unit_storage_throughput(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` deployment_type and `SSD` storage_type are 50, 100, 200. Valid values for `PERSISTENT_1` deployment_type and `HDD` storage_type are 12, 40. Valid values for `PERSISTENT_2` deployment_type and ` SSD` storage_type are 125, 250, 500, 1000.
         """
         return pulumi.get(self, "per_unit_storage_throughput")
 
     @per_unit_storage_throughput.setter
-    def per_unit_storage_throughput(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def per_unit_storage_throughput(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "per_unit_storage_throughput", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="rootSquashConfiguration")
-    def root_squash_configuration(self) -> Optional[pulumi.Input['LustreFileSystemRootSquashConfigurationArgs']]:
+    def root_squash_configuration(self) -> pulumi.Input[Optional['LustreFileSystemRootSquashConfigurationArgs']]:
         """
         The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user. See `root_squash_configuration` Block for details.
         """
         return pulumi.get(self, "root_squash_configuration")
 
     @root_squash_configuration.setter
-    def root_squash_configuration(self, value: Optional[pulumi.Input['LustreFileSystemRootSquashConfigurationArgs']]):
+    def root_squash_configuration(self, value: pulumi.Input[Optional['LustreFileSystemRootSquashConfigurationArgs']]):
         pulumi.set(self, "root_squash_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
-    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_group_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="skipFinalBackup")
-    def skip_final_backup(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_final_backup(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `true`.
 
@@ -434,109 +434,109 @@ class LustreFileSystemArgs:
         return pulumi.get(self, "skip_final_backup")
 
     @skip_final_backup.setter
-    def skip_final_backup(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_final_backup(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_final_backup", value)
 
     @_builtins.property
     @pulumi.getter(name="storageCapacity")
-    def storage_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def storage_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2`, `PERSISTENT_1` and `PERSISTENT_2` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
         """
         return pulumi.get(self, "storage_capacity")
 
     @storage_capacity.setter
-    def storage_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def storage_capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "storage_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="storageType")
-    def storage_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The filesystem storage type. One of `SSD`, `HDD` or `INTELLIGENT_TIERING`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types. `INTELLIGENT_TIERING` requires `data_read_cache_configuration` and `metadata_configuration` to be set and is only supported for `PERSISTENT_2` deployment types.
         """
         return pulumi.get(self, "storage_type")
 
     @storage_type.setter
-    def storage_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="throughputCapacity")
-    def throughput_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def throughput_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Throughput in MBps required for the `INTELLIGENT_TIERING` storage type. Must be 4000 or multiples of 4000.
         """
         return pulumi.get(self, "throughput_capacity")
 
     @throughput_capacity.setter
-    def throughput_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def throughput_capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "throughput_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="weeklyMaintenanceStartTime")
-    def weekly_maintenance_start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def weekly_maintenance_start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """
         return pulumi.get(self, "weekly_maintenance_start_time")
 
     @weekly_maintenance_start_time.setter
-    def weekly_maintenance_start_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def weekly_maintenance_start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "weekly_maintenance_start_time", value)
 
 
 @pulumi.input_type
 class _LustreFileSystemState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_import_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 automatic_backup_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 backup_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 copy_tags_to_backups: Optional[pulumi.Input[_builtins.bool]] = None,
-                 daily_automatic_backup_start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_compression_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_read_cache_configuration: Optional[pulumi.Input['LustreFileSystemDataReadCacheConfigurationArgs']] = None,
-                 deployment_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 drive_cache_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 efa_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 export_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_system_type_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 final_backup_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 import_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 imported_file_chunk_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_configuration: Optional[pulumi.Input['LustreFileSystemLogConfigurationArgs']] = None,
-                 metadata_configuration: Optional[pulumi.Input['LustreFileSystemMetadataConfigurationArgs']] = None,
-                 mount_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 owner_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 per_unit_storage_throughput: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 root_squash_configuration: Optional[pulumi.Input['LustreFileSystemRootSquashConfigurationArgs']] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 skip_final_backup: Optional[pulumi.Input[_builtins.bool]] = None,
-                 storage_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 storage_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_ids: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 throughput_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 weekly_maintenance_start_time: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_import_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 automatic_backup_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 backup_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 copy_tags_to_backups: pulumi.Input[Optional[_builtins.bool]] = None,
+                 daily_automatic_backup_start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_compression_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_read_cache_configuration: pulumi.Input[Optional['LustreFileSystemDataReadCacheConfigurationArgs']] = None,
+                 deployment_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 drive_cache_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 efa_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 export_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_system_type_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 final_backup_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 import_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 imported_file_chunk_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_configuration: pulumi.Input[Optional['LustreFileSystemLogConfigurationArgs']] = None,
+                 metadata_configuration: pulumi.Input[Optional['LustreFileSystemMetadataConfigurationArgs']] = None,
+                 mount_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interface_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 per_unit_storage_throughput: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 root_squash_configuration: pulumi.Input[Optional['LustreFileSystemRootSquashConfigurationArgs']] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 skip_final_backup: pulumi.Input[Optional[_builtins.bool]] = None,
+                 storage_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_ids: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 throughput_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 weekly_maintenance_start_time: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LustreFileSystem resources.
 
@@ -657,172 +657,172 @@ class _LustreFileSystemState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name of the file system.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="autoImportPolicy")
-    def auto_import_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auto_import_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         How Amazon FSx keeps your file and directory listings up to date as you add or modify objects in your linked S3 bucket. see [Auto Import Data Repo](https://docs.aws.amazon.com/fsx/latest/LustreGuide/autoimport-data-repo.html) for more details. Only supported on `PERSISTENT_1` deployment types.
         """
         return pulumi.get(self, "auto_import_policy")
 
     @auto_import_policy.setter
-    def auto_import_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auto_import_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auto_import_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="automaticBackupRetentionDays")
-    def automatic_backup_retention_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def automatic_backup_retention_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type.
         """
         return pulumi.get(self, "automatic_backup_retention_days")
 
     @automatic_backup_retention_days.setter
-    def automatic_backup_retention_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def automatic_backup_retention_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "automatic_backup_retention_days", value)
 
     @_builtins.property
     @pulumi.getter(name="backupId")
-    def backup_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backup_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the source backup to create the filesystem from.
         """
         return pulumi.get(self, "backup_id")
 
     @backup_id.setter
-    def backup_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backup_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backup_id", value)
 
     @_builtins.property
     @pulumi.getter(name="copyTagsToBackups")
-    def copy_tags_to_backups(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def copy_tags_to_backups(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean flag indicating whether tags for the file system should be copied to backups. Applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. The default value is false.
         """
         return pulumi.get(self, "copy_tags_to_backups")
 
     @copy_tags_to_backups.setter
-    def copy_tags_to_backups(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def copy_tags_to_backups(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "copy_tags_to_backups", value)
 
     @_builtins.property
     @pulumi.getter(name="dailyAutomaticBackupStartTime")
-    def daily_automatic_backup_start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def daily_automatic_backup_start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Requires `automatic_backup_retention_days` to be set.
         """
         return pulumi.get(self, "daily_automatic_backup_start_time")
 
     @daily_automatic_backup_start_time.setter
-    def daily_automatic_backup_start_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def daily_automatic_backup_start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "daily_automatic_backup_start_time", value)
 
     @_builtins.property
     @pulumi.getter(name="dataCompressionType")
-    def data_compression_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_compression_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Sets the data compression configuration for the file system. Valid values are `LZ4` and `NONE`. Default value is `NONE`. Unsetting this value reverts the compression type back to `NONE`.
         """
         return pulumi.get(self, "data_compression_type")
 
     @data_compression_type.setter
-    def data_compression_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_compression_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_compression_type", value)
 
     @_builtins.property
     @pulumi.getter(name="dataReadCacheConfiguration")
-    def data_read_cache_configuration(self) -> Optional[pulumi.Input['LustreFileSystemDataReadCacheConfigurationArgs']]:
+    def data_read_cache_configuration(self) -> pulumi.Input[Optional['LustreFileSystemDataReadCacheConfigurationArgs']]:
         return pulumi.get(self, "data_read_cache_configuration")
 
     @data_read_cache_configuration.setter
-    def data_read_cache_configuration(self, value: Optional[pulumi.Input['LustreFileSystemDataReadCacheConfigurationArgs']]):
+    def data_read_cache_configuration(self, value: pulumi.Input[Optional['LustreFileSystemDataReadCacheConfigurationArgs']]):
         pulumi.set(self, "data_read_cache_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="deploymentType")
-    def deployment_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def deployment_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`, `PERSISTENT_2`.
         """
         return pulumi.get(self, "deployment_type")
 
     @deployment_type.setter
-    def deployment_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def deployment_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deployment_type", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsName")
-    def dns_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
         """
         return pulumi.get(self, "dns_name")
 
     @dns_name.setter
-    def dns_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_name", value)
 
     @_builtins.property
     @pulumi.getter(name="driveCacheType")
-    def drive_cache_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def drive_cache_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
         """
         return pulumi.get(self, "drive_cache_type")
 
     @drive_cache_type.setter
-    def drive_cache_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def drive_cache_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "drive_cache_type", value)
 
     @_builtins.property
     @pulumi.getter(name="efaEnabled")
-    def efa_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def efa_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Adds support for Elastic Fabric Adapter (EFA) and GPUDirect Storage (GDS) to Lustre. This must be set at creation. If set this cannot be changed and this prevents changes to `per_unit_storage_throughput`. This is only supported when deployment_type is set to `PERSISTENT_2`, `metadata_configuration` is used, and an EFA-enabled security group is attached.
         """
         return pulumi.get(self, "efa_enabled")
 
     @efa_enabled.setter
-    def efa_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def efa_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "efa_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="exportPath")
-    def export_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def export_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `import_path` argument and the path must use the same Amazon S3 bucket as specified in `import_path`. Set equal to `import_path` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`. Only supported on `PERSISTENT_1` deployment types.
         """
         return pulumi.get(self, "export_path")
 
     @export_path.setter
-    def export_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def export_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "export_path", value)
 
     @_builtins.property
     @pulumi.getter(name="fileSystemTypeVersion")
-    def file_system_type_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def file_system_type_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Sets the Lustre version for the file system. Valid values are `2.10`, `2.12`, and `2.15`. When creating a file system, `2.10` is valid for `SCRATCH_1`, `SCRATCH_2`, and `PERSISTENT_1` deployment types; `2.12` and `2.15` are valid for all deployment types. Changing this value to a higher version triggers an in-place upgrade. Changing to a lower version forces resource replacement (destroy and recreate).
         """
         return pulumi.get(self, "file_system_type_version")
 
     @file_system_type_version.setter
-    def file_system_type_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def file_system_type_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "file_system_type_version", value)
 
     @_builtins.property
     @pulumi.getter(name="finalBackupTags")
-    def final_backup_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def final_backup_tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to apply to the file system's final backup.
 
@@ -831,156 +831,156 @@ class _LustreFileSystemState:
         return pulumi.get(self, "final_backup_tags")
 
     @final_backup_tags.setter
-    def final_backup_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def final_backup_tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "final_backup_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="importPath")
-    def import_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def import_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         S3 URI (with optional prefix) that you're using as the data repository for your FSx for Lustre file system. For example, `s3://example-bucket/optional-prefix/`. Only supported on `PERSISTENT_1` deployment types.
         """
         return pulumi.get(self, "import_path")
 
     @import_path.setter
-    def import_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def import_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "import_path", value)
 
     @_builtins.property
     @pulumi.getter(name="importedFileChunkSize")
-    def imported_file_chunk_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def imported_file_chunk_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. Can only be specified with `import_path` argument. Defaults to `1024`. Minimum of `1` and maximum of `512000`. Only supported on `PERSISTENT_1` deployment types.
         """
         return pulumi.get(self, "imported_file_chunk_size")
 
     @imported_file_chunk_size.setter
-    def imported_file_chunk_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def imported_file_chunk_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "imported_file_chunk_size", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN for the KMS Key to encrypt the file system at rest, applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Defaults to an AWS managed KMS Key.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="logConfiguration")
-    def log_configuration(self) -> Optional[pulumi.Input['LustreFileSystemLogConfigurationArgs']]:
+    def log_configuration(self) -> pulumi.Input[Optional['LustreFileSystemLogConfigurationArgs']]:
         """
         The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs. See `log_configuration` Block for details.
         """
         return pulumi.get(self, "log_configuration")
 
     @log_configuration.setter
-    def log_configuration(self, value: Optional[pulumi.Input['LustreFileSystemLogConfigurationArgs']]):
+    def log_configuration(self, value: pulumi.Input[Optional['LustreFileSystemLogConfigurationArgs']]):
         pulumi.set(self, "log_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="metadataConfiguration")
-    def metadata_configuration(self) -> Optional[pulumi.Input['LustreFileSystemMetadataConfigurationArgs']]:
+    def metadata_configuration(self) -> pulumi.Input[Optional['LustreFileSystemMetadataConfigurationArgs']]:
         """
         The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deployment_type` is set to `PERSISTENT_2`. See `metadata_configuration` Block for details.
         """
         return pulumi.get(self, "metadata_configuration")
 
     @metadata_configuration.setter
-    def metadata_configuration(self, value: Optional[pulumi.Input['LustreFileSystemMetadataConfigurationArgs']]):
+    def metadata_configuration(self, value: pulumi.Input[Optional['LustreFileSystemMetadataConfigurationArgs']]):
         pulumi.set(self, "metadata_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="mountName")
-    def mount_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mount_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value to be used when mounting the filesystem.
         """
         return pulumi.get(self, "mount_name")
 
     @mount_name.setter
-    def mount_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mount_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mount_name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaceIds")
-    def network_interface_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def network_interface_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of Elastic Network Interface identifiers from which the file system is accessible. As explained in the [documentation](https://docs.aws.amazon.com/fsx/latest/LustreGuide/mounting-on-premises.html), the first network interface returned is the primary network interface.
         """
         return pulumi.get(self, "network_interface_ids")
 
     @network_interface_ids.setter
-    def network_interface_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def network_interface_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "network_interface_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS account identifier that created the file system.
         """
         return pulumi.get(self, "owner_id")
 
     @owner_id.setter
-    def owner_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner_id", value)
 
     @_builtins.property
     @pulumi.getter(name="perUnitStorageThroughput")
-    def per_unit_storage_throughput(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def per_unit_storage_throughput(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` deployment_type and `SSD` storage_type are 50, 100, 200. Valid values for `PERSISTENT_1` deployment_type and `HDD` storage_type are 12, 40. Valid values for `PERSISTENT_2` deployment_type and ` SSD` storage_type are 125, 250, 500, 1000.
         """
         return pulumi.get(self, "per_unit_storage_throughput")
 
     @per_unit_storage_throughput.setter
-    def per_unit_storage_throughput(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def per_unit_storage_throughput(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "per_unit_storage_throughput", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="rootSquashConfiguration")
-    def root_squash_configuration(self) -> Optional[pulumi.Input['LustreFileSystemRootSquashConfigurationArgs']]:
+    def root_squash_configuration(self) -> pulumi.Input[Optional['LustreFileSystemRootSquashConfigurationArgs']]:
         """
         The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user. See `root_squash_configuration` Block for details.
         """
         return pulumi.get(self, "root_squash_configuration")
 
     @root_squash_configuration.setter
-    def root_squash_configuration(self, value: Optional[pulumi.Input['LustreFileSystemRootSquashConfigurationArgs']]):
+    def root_squash_configuration(self, value: pulumi.Input[Optional['LustreFileSystemRootSquashConfigurationArgs']]):
         pulumi.set(self, "root_squash_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
-    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_group_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="skipFinalBackup")
-    def skip_final_backup(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_final_backup(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `true`.
 
@@ -989,36 +989,36 @@ class _LustreFileSystemState:
         return pulumi.get(self, "skip_final_backup")
 
     @skip_final_backup.setter
-    def skip_final_backup(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_final_backup(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_final_backup", value)
 
     @_builtins.property
     @pulumi.getter(name="storageCapacity")
-    def storage_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def storage_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2`, `PERSISTENT_1` and `PERSISTENT_2` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
         """
         return pulumi.get(self, "storage_capacity")
 
     @storage_capacity.setter
-    def storage_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def storage_capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "storage_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="storageType")
-    def storage_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The filesystem storage type. One of `SSD`, `HDD` or `INTELLIGENT_TIERING`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types. `INTELLIGENT_TIERING` requires `data_read_cache_configuration` and `metadata_configuration` to be set and is only supported for `PERSISTENT_2` deployment types.
         """
         return pulumi.get(self, "storage_type")
 
     @storage_type.setter
-    def storage_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_type", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_ids(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet's Availability Zone.
 
@@ -1027,67 +1027,67 @@ class _LustreFileSystemState:
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
-    def subnet_ids(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_ids(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="throughputCapacity")
-    def throughput_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def throughput_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Throughput in MBps required for the `INTELLIGENT_TIERING` storage type. Must be 4000 or multiples of 4000.
         """
         return pulumi.get(self, "throughput_capacity")
 
     @throughput_capacity.setter
-    def throughput_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def throughput_capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "throughput_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the Virtual Private Cloud for the file system.
         """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
-    def vpc_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_id", value)
 
     @_builtins.property
     @pulumi.getter(name="weeklyMaintenanceStartTime")
-    def weekly_maintenance_start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def weekly_maintenance_start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """
         return pulumi.get(self, "weekly_maintenance_start_time")
 
     @weekly_maintenance_start_time.setter
-    def weekly_maintenance_start_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def weekly_maintenance_start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "weekly_maintenance_start_time", value)
 
 
@@ -1097,35 +1097,35 @@ class LustreFileSystem(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_import_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 automatic_backup_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 backup_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 copy_tags_to_backups: Optional[pulumi.Input[_builtins.bool]] = None,
-                 daily_automatic_backup_start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_compression_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_read_cache_configuration: Optional[pulumi.Input[Union['LustreFileSystemDataReadCacheConfigurationArgs', 'LustreFileSystemDataReadCacheConfigurationArgsDict']]] = None,
-                 deployment_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 drive_cache_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 efa_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 export_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_system_type_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 final_backup_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 import_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 imported_file_chunk_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_configuration: Optional[pulumi.Input[Union['LustreFileSystemLogConfigurationArgs', 'LustreFileSystemLogConfigurationArgsDict']]] = None,
-                 metadata_configuration: Optional[pulumi.Input[Union['LustreFileSystemMetadataConfigurationArgs', 'LustreFileSystemMetadataConfigurationArgsDict']]] = None,
-                 per_unit_storage_throughput: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 root_squash_configuration: Optional[pulumi.Input[Union['LustreFileSystemRootSquashConfigurationArgs', 'LustreFileSystemRootSquashConfigurationArgsDict']]] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 skip_final_backup: Optional[pulumi.Input[_builtins.bool]] = None,
-                 storage_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 storage_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_ids: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 throughput_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 weekly_maintenance_start_time: Optional[pulumi.Input[_builtins.str]] = None,
+                 auto_import_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 automatic_backup_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 backup_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 copy_tags_to_backups: pulumi.Input[Optional[_builtins.bool]] = None,
+                 daily_automatic_backup_start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_compression_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_read_cache_configuration: pulumi.Input[Optional[Union['LustreFileSystemDataReadCacheConfigurationArgs', 'LustreFileSystemDataReadCacheConfigurationArgsDict']]] = None,
+                 deployment_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 drive_cache_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 efa_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 export_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_system_type_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 final_backup_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 import_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 imported_file_chunk_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_configuration: pulumi.Input[Optional[Union['LustreFileSystemLogConfigurationArgs', 'LustreFileSystemLogConfigurationArgsDict']]] = None,
+                 metadata_configuration: pulumi.Input[Optional[Union['LustreFileSystemMetadataConfigurationArgs', 'LustreFileSystemMetadataConfigurationArgsDict']]] = None,
+                 per_unit_storage_throughput: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 root_squash_configuration: pulumi.Input[Optional[Union['LustreFileSystemRootSquashConfigurationArgs', 'LustreFileSystemRootSquashConfigurationArgsDict']]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 skip_final_backup: pulumi.Input[Optional[_builtins.bool]] = None,
+                 storage_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_ids: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 throughput_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 weekly_maintenance_start_time: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a FSx Lustre File System. See the [FSx Lustre Guide](https://docs.aws.amazon.com/fsx/latest/LustreGuide/what-is.html) for more information.
@@ -1255,35 +1255,35 @@ class LustreFileSystem(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_import_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 automatic_backup_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 backup_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 copy_tags_to_backups: Optional[pulumi.Input[_builtins.bool]] = None,
-                 daily_automatic_backup_start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_compression_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_read_cache_configuration: Optional[pulumi.Input[Union['LustreFileSystemDataReadCacheConfigurationArgs', 'LustreFileSystemDataReadCacheConfigurationArgsDict']]] = None,
-                 deployment_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 drive_cache_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 efa_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 export_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_system_type_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 final_backup_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 import_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 imported_file_chunk_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_configuration: Optional[pulumi.Input[Union['LustreFileSystemLogConfigurationArgs', 'LustreFileSystemLogConfigurationArgsDict']]] = None,
-                 metadata_configuration: Optional[pulumi.Input[Union['LustreFileSystemMetadataConfigurationArgs', 'LustreFileSystemMetadataConfigurationArgsDict']]] = None,
-                 per_unit_storage_throughput: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 root_squash_configuration: Optional[pulumi.Input[Union['LustreFileSystemRootSquashConfigurationArgs', 'LustreFileSystemRootSquashConfigurationArgsDict']]] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 skip_final_backup: Optional[pulumi.Input[_builtins.bool]] = None,
-                 storage_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 storage_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_ids: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 throughput_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 weekly_maintenance_start_time: Optional[pulumi.Input[_builtins.str]] = None,
+                 auto_import_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 automatic_backup_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 backup_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 copy_tags_to_backups: pulumi.Input[Optional[_builtins.bool]] = None,
+                 daily_automatic_backup_start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_compression_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_read_cache_configuration: pulumi.Input[Optional[Union['LustreFileSystemDataReadCacheConfigurationArgs', 'LustreFileSystemDataReadCacheConfigurationArgsDict']]] = None,
+                 deployment_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 drive_cache_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 efa_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 export_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_system_type_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 final_backup_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 import_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 imported_file_chunk_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_configuration: pulumi.Input[Optional[Union['LustreFileSystemLogConfigurationArgs', 'LustreFileSystemLogConfigurationArgsDict']]] = None,
+                 metadata_configuration: pulumi.Input[Optional[Union['LustreFileSystemMetadataConfigurationArgs', 'LustreFileSystemMetadataConfigurationArgsDict']]] = None,
+                 per_unit_storage_throughput: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 root_squash_configuration: pulumi.Input[Optional[Union['LustreFileSystemRootSquashConfigurationArgs', 'LustreFileSystemRootSquashConfigurationArgsDict']]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 skip_final_backup: pulumi.Input[Optional[_builtins.bool]] = None,
+                 storage_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_ids: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 throughput_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 weekly_maintenance_start_time: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1341,42 +1341,42 @@ class LustreFileSystem(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            auto_import_policy: Optional[pulumi.Input[_builtins.str]] = None,
-            automatic_backup_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-            backup_id: Optional[pulumi.Input[_builtins.str]] = None,
-            copy_tags_to_backups: Optional[pulumi.Input[_builtins.bool]] = None,
-            daily_automatic_backup_start_time: Optional[pulumi.Input[_builtins.str]] = None,
-            data_compression_type: Optional[pulumi.Input[_builtins.str]] = None,
-            data_read_cache_configuration: Optional[pulumi.Input[Union['LustreFileSystemDataReadCacheConfigurationArgs', 'LustreFileSystemDataReadCacheConfigurationArgsDict']]] = None,
-            deployment_type: Optional[pulumi.Input[_builtins.str]] = None,
-            dns_name: Optional[pulumi.Input[_builtins.str]] = None,
-            drive_cache_type: Optional[pulumi.Input[_builtins.str]] = None,
-            efa_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            export_path: Optional[pulumi.Input[_builtins.str]] = None,
-            file_system_type_version: Optional[pulumi.Input[_builtins.str]] = None,
-            final_backup_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            import_path: Optional[pulumi.Input[_builtins.str]] = None,
-            imported_file_chunk_size: Optional[pulumi.Input[_builtins.int]] = None,
-            kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-            log_configuration: Optional[pulumi.Input[Union['LustreFileSystemLogConfigurationArgs', 'LustreFileSystemLogConfigurationArgsDict']]] = None,
-            metadata_configuration: Optional[pulumi.Input[Union['LustreFileSystemMetadataConfigurationArgs', 'LustreFileSystemMetadataConfigurationArgsDict']]] = None,
-            mount_name: Optional[pulumi.Input[_builtins.str]] = None,
-            network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            owner_id: Optional[pulumi.Input[_builtins.str]] = None,
-            per_unit_storage_throughput: Optional[pulumi.Input[_builtins.int]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            root_squash_configuration: Optional[pulumi.Input[Union['LustreFileSystemRootSquashConfigurationArgs', 'LustreFileSystemRootSquashConfigurationArgsDict']]] = None,
-            security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            skip_final_backup: Optional[pulumi.Input[_builtins.bool]] = None,
-            storage_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-            storage_type: Optional[pulumi.Input[_builtins.str]] = None,
-            subnet_ids: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            throughput_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-            vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
-            weekly_maintenance_start_time: Optional[pulumi.Input[_builtins.str]] = None) -> 'LustreFileSystem':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_import_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            automatic_backup_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+            backup_id: pulumi.Input[Optional[_builtins.str]] = None,
+            copy_tags_to_backups: pulumi.Input[Optional[_builtins.bool]] = None,
+            daily_automatic_backup_start_time: pulumi.Input[Optional[_builtins.str]] = None,
+            data_compression_type: pulumi.Input[Optional[_builtins.str]] = None,
+            data_read_cache_configuration: pulumi.Input[Optional[Union['LustreFileSystemDataReadCacheConfigurationArgs', 'LustreFileSystemDataReadCacheConfigurationArgsDict']]] = None,
+            deployment_type: pulumi.Input[Optional[_builtins.str]] = None,
+            dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+            drive_cache_type: pulumi.Input[Optional[_builtins.str]] = None,
+            efa_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            export_path: pulumi.Input[Optional[_builtins.str]] = None,
+            file_system_type_version: pulumi.Input[Optional[_builtins.str]] = None,
+            final_backup_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            import_path: pulumi.Input[Optional[_builtins.str]] = None,
+            imported_file_chunk_size: pulumi.Input[Optional[_builtins.int]] = None,
+            kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            log_configuration: pulumi.Input[Optional[Union['LustreFileSystemLogConfigurationArgs', 'LustreFileSystemLogConfigurationArgsDict']]] = None,
+            metadata_configuration: pulumi.Input[Optional[Union['LustreFileSystemMetadataConfigurationArgs', 'LustreFileSystemMetadataConfigurationArgsDict']]] = None,
+            mount_name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_interface_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+            per_unit_storage_throughput: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            root_squash_configuration: pulumi.Input[Optional[Union['LustreFileSystemRootSquashConfigurationArgs', 'LustreFileSystemRootSquashConfigurationArgsDict']]] = None,
+            security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            skip_final_backup: pulumi.Input[Optional[_builtins.bool]] = None,
+            storage_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_ids: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            throughput_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
+            weekly_maintenance_start_time: pulumi.Input[Optional[_builtins.str]] = None) -> 'LustreFileSystem':
         """
         Get an existing LustreFileSystem resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

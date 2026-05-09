@@ -22,19 +22,19 @@ __all__ = [
 ]
 
 class ServiceQuotaUsageMetricArgsDict(TypedDict):
-    metric_dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceQuotaUsageMetricMetricDimensionArgsDict']]]]
+    metric_dimensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceQuotaUsageMetricMetricDimensionArgs']]]]]
     """
     The metric dimensions.
     """
-    metric_name: NotRequired[pulumi.Input[_builtins.str]]
+    metric_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the metric.
     """
-    metric_namespace: NotRequired[pulumi.Input[_builtins.str]]
+    metric_namespace: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The namespace of the metric.
     """
-    metric_statistic_recommendation: NotRequired[pulumi.Input[_builtins.str]]
+    metric_statistic_recommendation: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The metric statistic that AWS recommend you use when determining quota usage.
     """
@@ -42,10 +42,10 @@ class ServiceQuotaUsageMetricArgsDict(TypedDict):
 @pulumi.input_type
 class ServiceQuotaUsageMetricArgs:
     def __init__(__self__, *,
-                 metric_dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceQuotaUsageMetricMetricDimensionArgs']]]] = None,
-                 metric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 metric_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 metric_statistic_recommendation: Optional[pulumi.Input[_builtins.str]] = None):
+                 metric_dimensions: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceQuotaUsageMetricMetricDimensionArgs']]]] = None,
+                 metric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric_statistic_recommendation: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['ServiceQuotaUsageMetricMetricDimensionArgs']]] metric_dimensions: The metric dimensions.
         :param pulumi.Input[_builtins.str] metric_name: The name of the metric.
@@ -63,66 +63,66 @@ class ServiceQuotaUsageMetricArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricDimensions")
-    def metric_dimensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceQuotaUsageMetricMetricDimensionArgs']]]]:
+    def metric_dimensions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceQuotaUsageMetricMetricDimensionArgs']]]]:
         """
         The metric dimensions.
         """
         return pulumi.get(self, "metric_dimensions")
 
     @metric_dimensions.setter
-    def metric_dimensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceQuotaUsageMetricMetricDimensionArgs']]]]):
+    def metric_dimensions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceQuotaUsageMetricMetricDimensionArgs']]]]):
         pulumi.set(self, "metric_dimensions", value)
 
     @_builtins.property
     @pulumi.getter(name="metricName")
-    def metric_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metric_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the metric.
         """
         return pulumi.get(self, "metric_name")
 
     @metric_name.setter
-    def metric_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metric_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metric_name", value)
 
     @_builtins.property
     @pulumi.getter(name="metricNamespace")
-    def metric_namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metric_namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The namespace of the metric.
         """
         return pulumi.get(self, "metric_namespace")
 
     @metric_namespace.setter
-    def metric_namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metric_namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metric_namespace", value)
 
     @_builtins.property
     @pulumi.getter(name="metricStatisticRecommendation")
-    def metric_statistic_recommendation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metric_statistic_recommendation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The metric statistic that AWS recommend you use when determining quota usage.
         """
         return pulumi.get(self, "metric_statistic_recommendation")
 
     @metric_statistic_recommendation.setter
-    def metric_statistic_recommendation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metric_statistic_recommendation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metric_statistic_recommendation", value)
 
 
 class ServiceQuotaUsageMetricMetricDimensionArgsDict(TypedDict):
-    class_: NotRequired[pulumi.Input[_builtins.str]]
-    resource: NotRequired[pulumi.Input[_builtins.str]]
-    service: NotRequired[pulumi.Input[_builtins.str]]
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    class_: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    resource: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    service: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class ServiceQuotaUsageMetricMetricDimensionArgs:
     def __init__(__self__, *,
-                 class_: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource: Optional[pulumi.Input[_builtins.str]] = None,
-                 service: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 class_: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource: pulumi.Input[Optional[_builtins.str]] = None,
+                 service: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         if class_ is not None:
             pulumi.set(__self__, "class_", class_)
         if resource is not None:
@@ -134,38 +134,38 @@ class ServiceQuotaUsageMetricMetricDimensionArgs:
 
     @_builtins.property
     @pulumi.getter(name="class")
-    def class_(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def class_(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "class_")
 
     @class_.setter
-    def class_(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def class_(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "class_", value)
 
     @_builtins.property
     @pulumi.getter
-    def resource(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "resource")
 
     @resource.setter
-    def resource(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource", value)
 
     @_builtins.property
     @pulumi.getter
-    def service(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "service")
 
     @service.setter
-    def service(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 

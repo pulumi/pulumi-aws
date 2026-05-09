@@ -106,11 +106,11 @@ export interface ClassificationExportConfigurationState {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for a S3 Destination. Defined below
      */
-    s3Destination?: pulumi.Input<inputs.macie2.ClassificationExportConfigurationS3Destination>;
+    s3Destination?: pulumi.Input<inputs.macie2.ClassificationExportConfigurationS3Destination | undefined>;
 }
 
 /**
@@ -120,7 +120,7 @@ export interface ClassificationExportConfigurationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for a S3 Destination. Defined below
      */

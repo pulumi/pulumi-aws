@@ -123,21 +123,21 @@ export interface GetEngineVersionOutputArgs {
     /**
      * DB engine. (Default: `docdb`)
      */
-    engine?: pulumi.Input<string>;
+    engine?: pulumi.Input<string | undefined>;
     /**
      * Name of a specific DB parameter group family. An example parameter group family is `docdb3.6`.
      */
-    parameterGroupFamily?: pulumi.Input<string>;
+    parameterGroupFamily?: pulumi.Input<string | undefined>;
     /**
      * Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferredVersions` arguments are not configured, the data source will return the default version for the engine.
      */
-    preferredVersions?: pulumi.Input<pulumi.Input<string>[]>;
+    preferredVersions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Version of the DB engine. For example, `3.6.0`. If `version` and `preferredVersions` are not set, the data source will provide information for the AWS-defined default version. If both the `version` and `preferredVersions` arguments are not configured, the data source will return the default version for the engine.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }

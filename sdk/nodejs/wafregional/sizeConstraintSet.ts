@@ -112,19 +112,19 @@ export class SizeConstraintSet extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SizeConstraintSet resources.
  */
 export interface SizeConstraintSetState {
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The name or description of the Size Constraint Set.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Specifies the parts of web requests that you want to inspect the size of.
      */
-    sizeConstraints?: pulumi.Input<pulumi.Input<inputs.wafregional.SizeConstraintSetSizeConstraint>[]>;
+    sizeConstraints?: pulumi.Input<pulumi.Input<inputs.wafregional.SizeConstraintSetSizeConstraint>[] | undefined>;
 }
 
 /**
@@ -134,13 +134,13 @@ export interface SizeConstraintSetArgs {
     /**
      * The name or description of the Size Constraint Set.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Specifies the parts of web requests that you want to inspect the size of.
      */
-    sizeConstraints?: pulumi.Input<pulumi.Input<inputs.wafregional.SizeConstraintSetSizeConstraint>[]>;
+    sizeConstraints?: pulumi.Input<pulumi.Input<inputs.wafregional.SizeConstraintSetSizeConstraint>[] | undefined>;
 }

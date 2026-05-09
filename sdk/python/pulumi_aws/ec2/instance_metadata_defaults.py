@@ -19,11 +19,11 @@ __all__ = ['InstanceMetadataDefaultsArgs', 'InstanceMetadataDefaults']
 @pulumi.input_type
 class InstanceMetadataDefaultsArgs:
     def __init__(__self__, *,
-                 http_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 http_put_response_hop_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 http_tokens: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_metadata_tags: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 http_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_put_response_hop_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 http_tokens: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_metadata_tags: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a InstanceMetadataDefaults resource.
 
@@ -46,73 +46,73 @@ class InstanceMetadataDefaultsArgs:
 
     @_builtins.property
     @pulumi.getter(name="httpEndpoint")
-    def http_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def http_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether the metadata service is available. Can be `"enabled"`, `"disabled"`, or `"no-preference"`. Default: `"no-preference"`.
         """
         return pulumi.get(self, "http_endpoint")
 
     @http_endpoint.setter
-    def http_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def http_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "http_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="httpPutResponseHopLimit")
-    def http_put_response_hop_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def http_put_response_hop_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`, or `-1` to indicate no preference. Default: `-1`.
         """
         return pulumi.get(self, "http_put_response_hop_limit")
 
     @http_put_response_hop_limit.setter
-    def http_put_response_hop_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def http_put_response_hop_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "http_put_response_hop_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="httpTokens")
-    def http_tokens(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def http_tokens(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"`, `"required"`, or `"no-preference"`. Default: `"no-preference"`.
         """
         return pulumi.get(self, "http_tokens")
 
     @http_tokens.setter
-    def http_tokens(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def http_tokens(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "http_tokens", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceMetadataTags")
-    def instance_metadata_tags(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_metadata_tags(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables or disables access to instance tags from the instance metadata service. Can be `"enabled"`, `"disabled"`, or `"no-preference"`. Default: `"no-preference"`.
         """
         return pulumi.get(self, "instance_metadata_tags")
 
     @instance_metadata_tags.setter
-    def instance_metadata_tags(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_metadata_tags(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_metadata_tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _InstanceMetadataDefaultsState:
     def __init__(__self__, *,
-                 http_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 http_put_response_hop_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 http_tokens: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_metadata_tags: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 http_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_put_response_hop_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 http_tokens: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_metadata_tags: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering InstanceMetadataDefaults resources.
 
@@ -135,62 +135,62 @@ class _InstanceMetadataDefaultsState:
 
     @_builtins.property
     @pulumi.getter(name="httpEndpoint")
-    def http_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def http_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether the metadata service is available. Can be `"enabled"`, `"disabled"`, or `"no-preference"`. Default: `"no-preference"`.
         """
         return pulumi.get(self, "http_endpoint")
 
     @http_endpoint.setter
-    def http_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def http_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "http_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="httpPutResponseHopLimit")
-    def http_put_response_hop_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def http_put_response_hop_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`, or `-1` to indicate no preference. Default: `-1`.
         """
         return pulumi.get(self, "http_put_response_hop_limit")
 
     @http_put_response_hop_limit.setter
-    def http_put_response_hop_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def http_put_response_hop_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "http_put_response_hop_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="httpTokens")
-    def http_tokens(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def http_tokens(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"`, `"required"`, or `"no-preference"`. Default: `"no-preference"`.
         """
         return pulumi.get(self, "http_tokens")
 
     @http_tokens.setter
-    def http_tokens(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def http_tokens(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "http_tokens", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceMetadataTags")
-    def instance_metadata_tags(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_metadata_tags(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables or disables access to instance tags from the instance metadata service. Can be `"enabled"`, `"disabled"`, or `"no-preference"`. Default: `"no-preference"`.
         """
         return pulumi.get(self, "instance_metadata_tags")
 
     @instance_metadata_tags.setter
-    def instance_metadata_tags(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_metadata_tags(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_metadata_tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
@@ -200,11 +200,11 @@ class InstanceMetadataDefaults(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 http_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 http_put_response_hop_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 http_tokens: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_metadata_tags: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 http_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_put_response_hop_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 http_tokens: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_metadata_tags: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages regional EC2 instance metadata default settings.
@@ -275,11 +275,11 @@ class InstanceMetadataDefaults(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 http_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 http_put_response_hop_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 http_tokens: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_metadata_tags: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 http_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_put_response_hop_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 http_tokens: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_metadata_tags: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -304,11 +304,11 @@ class InstanceMetadataDefaults(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            http_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            http_put_response_hop_limit: Optional[pulumi.Input[_builtins.int]] = None,
-            http_tokens: Optional[pulumi.Input[_builtins.str]] = None,
-            instance_metadata_tags: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None) -> 'InstanceMetadataDefaults':
+            http_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            http_put_response_hop_limit: pulumi.Input[Optional[_builtins.int]] = None,
+            http_tokens: pulumi.Input[Optional[_builtins.str]] = None,
+            instance_metadata_tags: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> 'InstanceMetadataDefaults':
         """
         Get an existing InstanceMetadataDefaults resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

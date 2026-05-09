@@ -234,13 +234,13 @@ def get_route_table(filters: Optional[Sequence[Union['GetRouteTableFilterArgs', 
         subnet_id=pulumi.get(__ret__, 'subnet_id'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-def get_route_table_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetRouteTableFilterArgs', 'GetRouteTableFilterArgsDict']]]]] = None,
-                           gateway_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                           region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                           route_table_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                           subnet_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                           tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
-                           vpc_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_route_table_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetRouteTableFilterArgs', 'GetRouteTableFilterArgsDict']]]]] = None,
+                           gateway_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           route_table_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           subnet_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
+                           vpc_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRouteTableResult]:
     """
     `ec2.RouteTable` provides details about a specific Route Table.

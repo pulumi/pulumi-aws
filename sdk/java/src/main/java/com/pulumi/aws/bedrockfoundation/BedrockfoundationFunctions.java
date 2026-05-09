@@ -35,8 +35,8 @@ public final class BedrockfoundationFunctions {
      * import com.pulumi.aws.bedrockfoundation.BedrockfoundationFunctions;
      * import com.pulumi.aws.bedrockfoundation.inputs.GetModelsArgs;
      * import com.pulumi.aws.bedrockfoundation.inputs.GetModelArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -81,8 +81,8 @@ public final class BedrockfoundationFunctions {
      * import com.pulumi.aws.bedrockfoundation.BedrockfoundationFunctions;
      * import com.pulumi.aws.bedrockfoundation.inputs.GetModelsArgs;
      * import com.pulumi.aws.bedrockfoundation.inputs.GetModelArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -127,8 +127,8 @@ public final class BedrockfoundationFunctions {
      * import com.pulumi.aws.bedrockfoundation.BedrockfoundationFunctions;
      * import com.pulumi.aws.bedrockfoundation.inputs.GetModelsArgs;
      * import com.pulumi.aws.bedrockfoundation.inputs.GetModelArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -173,8 +173,8 @@ public final class BedrockfoundationFunctions {
      * import com.pulumi.aws.bedrockfoundation.BedrockfoundationFunctions;
      * import com.pulumi.aws.bedrockfoundation.inputs.GetModelsArgs;
      * import com.pulumi.aws.bedrockfoundation.inputs.GetModelArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -219,8 +219,8 @@ public final class BedrockfoundationFunctions {
      * import com.pulumi.aws.bedrockfoundation.BedrockfoundationFunctions;
      * import com.pulumi.aws.bedrockfoundation.inputs.GetModelsArgs;
      * import com.pulumi.aws.bedrockfoundation.inputs.GetModelArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -264,8 +264,8 @@ public final class BedrockfoundationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrockfoundation.BedrockfoundationFunctions;
      * import com.pulumi.aws.bedrockfoundation.inputs.GetModelsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -296,8 +296,8 @@ public final class BedrockfoundationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrockfoundation.BedrockfoundationFunctions;
      * import com.pulumi.aws.bedrockfoundation.inputs.GetModelsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -338,8 +338,8 @@ public final class BedrockfoundationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrockfoundation.BedrockfoundationFunctions;
      * import com.pulumi.aws.bedrockfoundation.inputs.GetModelsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -370,8 +370,8 @@ public final class BedrockfoundationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrockfoundation.BedrockfoundationFunctions;
      * import com.pulumi.aws.bedrockfoundation.inputs.GetModelsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -412,8 +412,8 @@ public final class BedrockfoundationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrockfoundation.BedrockfoundationFunctions;
      * import com.pulumi.aws.bedrockfoundation.inputs.GetModelsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -444,8 +444,8 @@ public final class BedrockfoundationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrockfoundation.BedrockfoundationFunctions;
      * import com.pulumi.aws.bedrockfoundation.inputs.GetModelsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -486,8 +486,8 @@ public final class BedrockfoundationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrockfoundation.BedrockfoundationFunctions;
      * import com.pulumi.aws.bedrockfoundation.inputs.GetModelsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -518,8 +518,8 @@ public final class BedrockfoundationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrockfoundation.BedrockfoundationFunctions;
      * import com.pulumi.aws.bedrockfoundation.inputs.GetModelsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -560,8 +560,8 @@ public final class BedrockfoundationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrockfoundation.BedrockfoundationFunctions;
      * import com.pulumi.aws.bedrockfoundation.inputs.GetModelsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -592,8 +592,8 @@ public final class BedrockfoundationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrockfoundation.BedrockfoundationFunctions;
      * import com.pulumi.aws.bedrockfoundation.inputs.GetModelsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -634,8 +634,8 @@ public final class BedrockfoundationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrockfoundation.BedrockfoundationFunctions;
      * import com.pulumi.aws.bedrockfoundation.inputs.GetModelsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -666,8 +666,8 @@ public final class BedrockfoundationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrockfoundation.BedrockfoundationFunctions;
      * import com.pulumi.aws.bedrockfoundation.inputs.GetModelsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -708,8 +708,8 @@ public final class BedrockfoundationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrockfoundation.BedrockfoundationFunctions;
      * import com.pulumi.aws.bedrockfoundation.inputs.GetModelsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -740,8 +740,8 @@ public final class BedrockfoundationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrockfoundation.BedrockfoundationFunctions;
      * import com.pulumi.aws.bedrockfoundation.inputs.GetModelsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

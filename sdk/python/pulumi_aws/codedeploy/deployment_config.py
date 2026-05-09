@@ -21,12 +21,12 @@ __all__ = ['DeploymentConfigArgs', 'DeploymentConfig']
 @pulumi.input_type
 class DeploymentConfigArgs:
     def __init__(__self__, *,
-                 compute_platform: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_config_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 minimum_healthy_hosts: Optional[pulumi.Input['DeploymentConfigMinimumHealthyHostsArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 traffic_routing_config: Optional[pulumi.Input['DeploymentConfigTrafficRoutingConfigArgs']] = None,
-                 zonal_config: Optional[pulumi.Input['DeploymentConfigZonalConfigArgs']] = None):
+                 compute_platform: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_config_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_healthy_hosts: pulumi.Input[Optional['DeploymentConfigMinimumHealthyHostsArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 traffic_routing_config: pulumi.Input[Optional['DeploymentConfigTrafficRoutingConfigArgs']] = None,
+                 zonal_config: pulumi.Input[Optional['DeploymentConfigZonalConfigArgs']] = None):
         """
         The set of arguments for constructing a DeploymentConfig resource.
 
@@ -52,88 +52,88 @@ class DeploymentConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="computePlatform")
-    def compute_platform(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def compute_platform(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
         """
         return pulumi.get(self, "compute_platform")
 
     @compute_platform.setter
-    def compute_platform(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def compute_platform(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "compute_platform", value)
 
     @_builtins.property
     @pulumi.getter(name="deploymentConfigName")
-    def deployment_config_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def deployment_config_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the deployment config.
         """
         return pulumi.get(self, "deployment_config_name")
 
     @deployment_config_name.setter
-    def deployment_config_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def deployment_config_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deployment_config_name", value)
 
     @_builtins.property
     @pulumi.getter(name="minimumHealthyHosts")
-    def minimum_healthy_hosts(self) -> Optional[pulumi.Input['DeploymentConfigMinimumHealthyHostsArgs']]:
+    def minimum_healthy_hosts(self) -> pulumi.Input[Optional['DeploymentConfigMinimumHealthyHostsArgs']]:
         """
         A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
         """
         return pulumi.get(self, "minimum_healthy_hosts")
 
     @minimum_healthy_hosts.setter
-    def minimum_healthy_hosts(self, value: Optional[pulumi.Input['DeploymentConfigMinimumHealthyHostsArgs']]):
+    def minimum_healthy_hosts(self, value: pulumi.Input[Optional['DeploymentConfigMinimumHealthyHostsArgs']]):
         pulumi.set(self, "minimum_healthy_hosts", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="trafficRoutingConfig")
-    def traffic_routing_config(self) -> Optional[pulumi.Input['DeploymentConfigTrafficRoutingConfigArgs']]:
+    def traffic_routing_config(self) -> pulumi.Input[Optional['DeploymentConfigTrafficRoutingConfigArgs']]:
         """
         A traffic_routing_config block. Traffic Routing Config is documented below.
         """
         return pulumi.get(self, "traffic_routing_config")
 
     @traffic_routing_config.setter
-    def traffic_routing_config(self, value: Optional[pulumi.Input['DeploymentConfigTrafficRoutingConfigArgs']]):
+    def traffic_routing_config(self, value: pulumi.Input[Optional['DeploymentConfigTrafficRoutingConfigArgs']]):
         pulumi.set(self, "traffic_routing_config", value)
 
     @_builtins.property
     @pulumi.getter(name="zonalConfig")
-    def zonal_config(self) -> Optional[pulumi.Input['DeploymentConfigZonalConfigArgs']]:
+    def zonal_config(self) -> pulumi.Input[Optional['DeploymentConfigZonalConfigArgs']]:
         """
         A zonal_config block. Zonal Config is documented below.
         """
         return pulumi.get(self, "zonal_config")
 
     @zonal_config.setter
-    def zonal_config(self, value: Optional[pulumi.Input['DeploymentConfigZonalConfigArgs']]):
+    def zonal_config(self, value: pulumi.Input[Optional['DeploymentConfigZonalConfigArgs']]):
         pulumi.set(self, "zonal_config", value)
 
 
 @pulumi.input_type
 class _DeploymentConfigState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 compute_platform: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_config_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_config_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 minimum_healthy_hosts: Optional[pulumi.Input['DeploymentConfigMinimumHealthyHostsArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 traffic_routing_config: Optional[pulumi.Input['DeploymentConfigTrafficRoutingConfigArgs']] = None,
-                 zonal_config: Optional[pulumi.Input['DeploymentConfigZonalConfigArgs']] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 compute_platform: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_config_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_config_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_healthy_hosts: pulumi.Input[Optional['DeploymentConfigMinimumHealthyHostsArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 traffic_routing_config: pulumi.Input[Optional['DeploymentConfigTrafficRoutingConfigArgs']] = None,
+                 zonal_config: pulumi.Input[Optional['DeploymentConfigZonalConfigArgs']] = None):
         """
         Input properties used for looking up and filtering DeploymentConfig resources.
 
@@ -165,98 +165,98 @@ class _DeploymentConfigState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the deployment config.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="computePlatform")
-    def compute_platform(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def compute_platform(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
         """
         return pulumi.get(self, "compute_platform")
 
     @compute_platform.setter
-    def compute_platform(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def compute_platform(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "compute_platform", value)
 
     @_builtins.property
     @pulumi.getter(name="deploymentConfigId")
-    def deployment_config_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def deployment_config_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS Assigned deployment config id
         """
         return pulumi.get(self, "deployment_config_id")
 
     @deployment_config_id.setter
-    def deployment_config_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def deployment_config_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deployment_config_id", value)
 
     @_builtins.property
     @pulumi.getter(name="deploymentConfigName")
-    def deployment_config_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def deployment_config_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the deployment config.
         """
         return pulumi.get(self, "deployment_config_name")
 
     @deployment_config_name.setter
-    def deployment_config_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def deployment_config_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deployment_config_name", value)
 
     @_builtins.property
     @pulumi.getter(name="minimumHealthyHosts")
-    def minimum_healthy_hosts(self) -> Optional[pulumi.Input['DeploymentConfigMinimumHealthyHostsArgs']]:
+    def minimum_healthy_hosts(self) -> pulumi.Input[Optional['DeploymentConfigMinimumHealthyHostsArgs']]:
         """
         A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
         """
         return pulumi.get(self, "minimum_healthy_hosts")
 
     @minimum_healthy_hosts.setter
-    def minimum_healthy_hosts(self, value: Optional[pulumi.Input['DeploymentConfigMinimumHealthyHostsArgs']]):
+    def minimum_healthy_hosts(self, value: pulumi.Input[Optional['DeploymentConfigMinimumHealthyHostsArgs']]):
         pulumi.set(self, "minimum_healthy_hosts", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="trafficRoutingConfig")
-    def traffic_routing_config(self) -> Optional[pulumi.Input['DeploymentConfigTrafficRoutingConfigArgs']]:
+    def traffic_routing_config(self) -> pulumi.Input[Optional['DeploymentConfigTrafficRoutingConfigArgs']]:
         """
         A traffic_routing_config block. Traffic Routing Config is documented below.
         """
         return pulumi.get(self, "traffic_routing_config")
 
     @traffic_routing_config.setter
-    def traffic_routing_config(self, value: Optional[pulumi.Input['DeploymentConfigTrafficRoutingConfigArgs']]):
+    def traffic_routing_config(self, value: pulumi.Input[Optional['DeploymentConfigTrafficRoutingConfigArgs']]):
         pulumi.set(self, "traffic_routing_config", value)
 
     @_builtins.property
     @pulumi.getter(name="zonalConfig")
-    def zonal_config(self) -> Optional[pulumi.Input['DeploymentConfigZonalConfigArgs']]:
+    def zonal_config(self) -> pulumi.Input[Optional['DeploymentConfigZonalConfigArgs']]:
         """
         A zonal_config block. Zonal Config is documented below.
         """
         return pulumi.get(self, "zonal_config")
 
     @zonal_config.setter
-    def zonal_config(self, value: Optional[pulumi.Input['DeploymentConfigZonalConfigArgs']]):
+    def zonal_config(self, value: pulumi.Input[Optional['DeploymentConfigZonalConfigArgs']]):
         pulumi.set(self, "zonal_config", value)
 
 
@@ -266,12 +266,12 @@ class DeploymentConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compute_platform: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_config_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 minimum_healthy_hosts: Optional[pulumi.Input[Union['DeploymentConfigMinimumHealthyHostsArgs', 'DeploymentConfigMinimumHealthyHostsArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 traffic_routing_config: Optional[pulumi.Input[Union['DeploymentConfigTrafficRoutingConfigArgs', 'DeploymentConfigTrafficRoutingConfigArgsDict']]] = None,
-                 zonal_config: Optional[pulumi.Input[Union['DeploymentConfigZonalConfigArgs', 'DeploymentConfigZonalConfigArgsDict']]] = None,
+                 compute_platform: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_config_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_healthy_hosts: pulumi.Input[Optional[Union['DeploymentConfigMinimumHealthyHostsArgs', 'DeploymentConfigMinimumHealthyHostsArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 traffic_routing_config: pulumi.Input[Optional[Union['DeploymentConfigTrafficRoutingConfigArgs', 'DeploymentConfigTrafficRoutingConfigArgsDict']]] = None,
+                 zonal_config: pulumi.Input[Optional[Union['DeploymentConfigZonalConfigArgs', 'DeploymentConfigZonalConfigArgsDict']]] = None,
                  __props__=None):
         """
         Provides a CodeDeploy deployment config for an application
@@ -467,12 +467,12 @@ class DeploymentConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compute_platform: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_config_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 minimum_healthy_hosts: Optional[pulumi.Input[Union['DeploymentConfigMinimumHealthyHostsArgs', 'DeploymentConfigMinimumHealthyHostsArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 traffic_routing_config: Optional[pulumi.Input[Union['DeploymentConfigTrafficRoutingConfigArgs', 'DeploymentConfigTrafficRoutingConfigArgsDict']]] = None,
-                 zonal_config: Optional[pulumi.Input[Union['DeploymentConfigZonalConfigArgs', 'DeploymentConfigZonalConfigArgsDict']]] = None,
+                 compute_platform: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_config_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_healthy_hosts: pulumi.Input[Optional[Union['DeploymentConfigMinimumHealthyHostsArgs', 'DeploymentConfigMinimumHealthyHostsArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 traffic_routing_config: pulumi.Input[Optional[Union['DeploymentConfigTrafficRoutingConfigArgs', 'DeploymentConfigTrafficRoutingConfigArgsDict']]] = None,
+                 zonal_config: pulumi.Input[Optional[Union['DeploymentConfigZonalConfigArgs', 'DeploymentConfigZonalConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -500,14 +500,14 @@ class DeploymentConfig(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            compute_platform: Optional[pulumi.Input[_builtins.str]] = None,
-            deployment_config_id: Optional[pulumi.Input[_builtins.str]] = None,
-            deployment_config_name: Optional[pulumi.Input[_builtins.str]] = None,
-            minimum_healthy_hosts: Optional[pulumi.Input[Union['DeploymentConfigMinimumHealthyHostsArgs', 'DeploymentConfigMinimumHealthyHostsArgsDict']]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            traffic_routing_config: Optional[pulumi.Input[Union['DeploymentConfigTrafficRoutingConfigArgs', 'DeploymentConfigTrafficRoutingConfigArgsDict']]] = None,
-            zonal_config: Optional[pulumi.Input[Union['DeploymentConfigZonalConfigArgs', 'DeploymentConfigZonalConfigArgsDict']]] = None) -> 'DeploymentConfig':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            compute_platform: pulumi.Input[Optional[_builtins.str]] = None,
+            deployment_config_id: pulumi.Input[Optional[_builtins.str]] = None,
+            deployment_config_name: pulumi.Input[Optional[_builtins.str]] = None,
+            minimum_healthy_hosts: pulumi.Input[Optional[Union['DeploymentConfigMinimumHealthyHostsArgs', 'DeploymentConfigMinimumHealthyHostsArgsDict']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            traffic_routing_config: pulumi.Input[Optional[Union['DeploymentConfigTrafficRoutingConfigArgs', 'DeploymentConfigTrafficRoutingConfigArgsDict']]] = None,
+            zonal_config: pulumi.Input[Optional[Union['DeploymentConfigZonalConfigArgs', 'DeploymentConfigZonalConfigArgsDict']]] = None) -> 'DeploymentConfig':
         """
         Get an existing DeploymentConfig resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

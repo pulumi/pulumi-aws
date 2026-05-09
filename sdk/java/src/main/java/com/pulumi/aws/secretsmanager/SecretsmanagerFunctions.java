@@ -44,8 +44,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetRandomPasswordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -85,8 +85,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetRandomPasswordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -126,8 +126,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetRandomPasswordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -167,8 +167,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetRandomPasswordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -208,8 +208,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetRandomPasswordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -249,8 +249,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetRandomPasswordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -290,8 +290,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetRandomPasswordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -333,8 +333,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetSecretArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -366,8 +366,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetSecretArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -408,8 +408,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetSecretArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -441,8 +441,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetSecretArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -483,8 +483,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetSecretArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -516,8 +516,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetSecretArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -558,8 +558,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetSecretArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -591,8 +591,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetSecretArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -633,8 +633,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetSecretArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -666,8 +666,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetSecretArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -708,8 +708,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetSecretArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -741,8 +741,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetSecretArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -783,8 +783,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetSecretArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -816,8 +816,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetSecretArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -858,8 +858,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetSecretRotationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -900,8 +900,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetSecretRotationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -942,8 +942,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetSecretRotationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -984,8 +984,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetSecretRotationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1026,8 +1026,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetSecretRotationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1070,8 +1070,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetSecretVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1103,8 +1103,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetSecretVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1139,8 +1139,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.JsondecodeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1182,8 +1182,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetSecretVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1215,8 +1215,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetSecretVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1251,8 +1251,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.JsondecodeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1294,8 +1294,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetSecretVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1327,8 +1327,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetSecretVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1363,8 +1363,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.JsondecodeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1406,8 +1406,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetSecretVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1439,8 +1439,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetSecretVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1475,8 +1475,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.JsondecodeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1518,8 +1518,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetSecretVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1551,8 +1551,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetSecretVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1587,8 +1587,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.JsondecodeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1630,8 +1630,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetSecretVersionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1663,8 +1663,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetSecretVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1699,8 +1699,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.JsondecodeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1742,8 +1742,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetSecretVersionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1775,8 +1775,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetSecretVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1811,8 +1811,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.JsondecodeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1854,8 +1854,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetSecretVersionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1887,8 +1887,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetSecretVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1923,8 +1923,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.JsondecodeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1966,8 +1966,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetSecretVersionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1999,8 +1999,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetSecretVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2035,8 +2035,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.JsondecodeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2078,8 +2078,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetSecretVersionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2111,8 +2111,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetSecretVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2147,8 +2147,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.JsondecodeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2186,8 +2186,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetSecretsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2229,8 +2229,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetSecretsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2272,8 +2272,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetSecretsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2315,8 +2315,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetSecretsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2358,8 +2358,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetSecretsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2401,8 +2401,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetSecretsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2444,8 +2444,8 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetSecretsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

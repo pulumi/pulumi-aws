@@ -238,47 +238,47 @@ export interface WebhookState {
     /**
      * The CodePipeline webhook's ARN.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
      */
-    authentication?: pulumi.Input<string>;
+    authentication?: pulumi.Input<string | undefined>;
     /**
      * An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
      */
-    authenticationConfiguration?: pulumi.Input<inputs.codepipeline.WebhookAuthenticationConfiguration>;
+    authenticationConfiguration?: pulumi.Input<inputs.codepipeline.WebhookAuthenticationConfiguration | undefined>;
     /**
      * One or more `filter` blocks. Filter blocks are documented below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.codepipeline.WebhookFilter>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.codepipeline.WebhookFilter>[] | undefined>;
     /**
      * The name of the webhook.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
      */
-    targetAction?: pulumi.Input<string>;
+    targetAction?: pulumi.Input<string | undefined>;
     /**
      * The name of the pipeline.
      */
-    targetPipeline?: pulumi.Input<string>;
+    targetPipeline?: pulumi.Input<string | undefined>;
     /**
      * The CodePipeline webhook's URL. POST events to this endpoint to trigger the target.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -292,7 +292,7 @@ export interface WebhookArgs {
     /**
      * An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
      */
-    authenticationConfiguration?: pulumi.Input<inputs.codepipeline.WebhookAuthenticationConfiguration>;
+    authenticationConfiguration?: pulumi.Input<inputs.codepipeline.WebhookAuthenticationConfiguration | undefined>;
     /**
      * One or more `filter` blocks. Filter blocks are documented below.
      */
@@ -300,15 +300,15 @@ export interface WebhookArgs {
     /**
      * The name of the webhook.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
      */

@@ -97,7 +97,7 @@ class CentralizationRuleForOrganizationRuleDestinationArgsDict(TypedDict):
     """
     AWS region where logs will be centralized.
     """
-    destination_logs_configuration: NotRequired[pulumi.Input['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgsDict']]
+    destination_logs_configuration: NotRequired[pulumi.Input[Optional['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgs']]]
     """
     Configuration block for destination logs settings. See `destination_logs_configuration` below.
     """
@@ -107,7 +107,7 @@ class CentralizationRuleForOrganizationRuleDestinationArgs:
     def __init__(__self__, *,
                  account: pulumi.Input[_builtins.str],
                  region: pulumi.Input[_builtins.str],
-                 destination_logs_configuration: Optional[pulumi.Input['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgs']] = None):
+                 destination_logs_configuration: pulumi.Input[Optional['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] account: AWS account ID where logs will be centralized.
         :param pulumi.Input[_builtins.str] region: AWS region where logs will be centralized.
@@ -144,27 +144,27 @@ class CentralizationRuleForOrganizationRuleDestinationArgs:
 
     @_builtins.property
     @pulumi.getter(name="destinationLogsConfiguration")
-    def destination_logs_configuration(self) -> Optional[pulumi.Input['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgs']]:
+    def destination_logs_configuration(self) -> pulumi.Input[Optional['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgs']]:
         """
         Configuration block for destination logs settings. See `destination_logs_configuration` below.
         """
         return pulumi.get(self, "destination_logs_configuration")
 
     @destination_logs_configuration.setter
-    def destination_logs_configuration(self, value: Optional[pulumi.Input['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgs']]):
+    def destination_logs_configuration(self, value: pulumi.Input[Optional['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgs']]):
         pulumi.set(self, "destination_logs_configuration", value)
 
 
 class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgsDict(TypedDict):
-    backup_configuration: NotRequired[pulumi.Input['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgsDict']]
+    backup_configuration: NotRequired[pulumi.Input[Optional['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgs']]]
     """
     Configuration block for backup settings. See `backup_configuration` below.
     """
-    log_group_name_configuration: NotRequired[pulumi.Input['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogGroupNameConfigurationArgsDict']]
+    log_group_name_configuration: NotRequired[pulumi.Input[Optional['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogGroupNameConfigurationArgs']]]
     """
     Configuration block for a naming pattern for destination log groups created during centralization. See `log_group_name_configuration` below.
     """
-    logs_encryption_configuration: NotRequired[pulumi.Input['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgsDict']]
+    logs_encryption_configuration: NotRequired[pulumi.Input[Optional['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgs']]]
     """
     Configuration block for logs encryption settings. See `logs_encryption_configuration` below.
     """
@@ -172,9 +172,9 @@ class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurati
 @pulumi.input_type
 class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgs:
     def __init__(__self__, *,
-                 backup_configuration: Optional[pulumi.Input['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgs']] = None,
-                 log_group_name_configuration: Optional[pulumi.Input['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogGroupNameConfigurationArgs']] = None,
-                 logs_encryption_configuration: Optional[pulumi.Input['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgs']] = None):
+                 backup_configuration: pulumi.Input[Optional['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgs']] = None,
+                 log_group_name_configuration: pulumi.Input[Optional['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogGroupNameConfigurationArgs']] = None,
+                 logs_encryption_configuration: pulumi.Input[Optional['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgs']] = None):
         """
         :param pulumi.Input['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgs'] backup_configuration: Configuration block for backup settings. See `backup_configuration` below.
         :param pulumi.Input['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogGroupNameConfigurationArgs'] log_group_name_configuration: Configuration block for a naming pattern for destination log groups created during centralization. See `log_group_name_configuration` below.
@@ -189,47 +189,47 @@ class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurati
 
     @_builtins.property
     @pulumi.getter(name="backupConfiguration")
-    def backup_configuration(self) -> Optional[pulumi.Input['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgs']]:
+    def backup_configuration(self) -> pulumi.Input[Optional['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgs']]:
         """
         Configuration block for backup settings. See `backup_configuration` below.
         """
         return pulumi.get(self, "backup_configuration")
 
     @backup_configuration.setter
-    def backup_configuration(self, value: Optional[pulumi.Input['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgs']]):
+    def backup_configuration(self, value: pulumi.Input[Optional['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgs']]):
         pulumi.set(self, "backup_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="logGroupNameConfiguration")
-    def log_group_name_configuration(self) -> Optional[pulumi.Input['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogGroupNameConfigurationArgs']]:
+    def log_group_name_configuration(self) -> pulumi.Input[Optional['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogGroupNameConfigurationArgs']]:
         """
         Configuration block for a naming pattern for destination log groups created during centralization. See `log_group_name_configuration` below.
         """
         return pulumi.get(self, "log_group_name_configuration")
 
     @log_group_name_configuration.setter
-    def log_group_name_configuration(self, value: Optional[pulumi.Input['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogGroupNameConfigurationArgs']]):
+    def log_group_name_configuration(self, value: pulumi.Input[Optional['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogGroupNameConfigurationArgs']]):
         pulumi.set(self, "log_group_name_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="logsEncryptionConfiguration")
-    def logs_encryption_configuration(self) -> Optional[pulumi.Input['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgs']]:
+    def logs_encryption_configuration(self) -> pulumi.Input[Optional['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgs']]:
         """
         Configuration block for logs encryption settings. See `logs_encryption_configuration` below.
         """
         return pulumi.get(self, "logs_encryption_configuration")
 
     @logs_encryption_configuration.setter
-    def logs_encryption_configuration(self, value: Optional[pulumi.Input['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgs']]):
+    def logs_encryption_configuration(self, value: pulumi.Input[Optional['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgs']]):
         pulumi.set(self, "logs_encryption_configuration", value)
 
 
 class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgsDict(TypedDict):
-    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    kms_key_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ARN of the KMS key to use for backup encryption.
     """
-    region: NotRequired[pulumi.Input[_builtins.str]]
+    region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     AWS region for backup storage.
     """
@@ -237,8 +237,8 @@ class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurati
 @pulumi.input_type
 class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgs:
     def __init__(__self__, *,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS key to use for backup encryption.
         :param pulumi.Input[_builtins.str] region: AWS region for backup storage.
@@ -250,26 +250,26 @@ class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurati
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the KMS key to use for backup encryption.
         """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
-    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS region for backup storage.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
@@ -306,11 +306,11 @@ class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurati
     """
     Encryption strategy for logs. Valid values: `AWS_OWNED`, `CUSTOMER_MANAGED`.
     """
-    encryption_conflict_resolution_strategy: NotRequired[pulumi.Input[_builtins.str]]
+    encryption_conflict_resolution_strategy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Strategy for resolving encryption conflicts. Valid values: `ALLOW`, `SKIP`.
     """
-    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    kms_key_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ARN of the KMS key to use for encryption when `encryption_strategy` is `CUSTOMER_MANAGED`.
     """
@@ -319,8 +319,8 @@ class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurati
 class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgs:
     def __init__(__self__, *,
                  encryption_strategy: pulumi.Input[_builtins.str],
-                 encryption_conflict_resolution_strategy: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 encryption_conflict_resolution_strategy: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] encryption_strategy: Encryption strategy for logs. Valid values: `AWS_OWNED`, `CUSTOMER_MANAGED`.
         :param pulumi.Input[_builtins.str] encryption_conflict_resolution_strategy: Strategy for resolving encryption conflicts. Valid values: `ALLOW`, `SKIP`.
@@ -346,26 +346,26 @@ class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurati
 
     @_builtins.property
     @pulumi.getter(name="encryptionConflictResolutionStrategy")
-    def encryption_conflict_resolution_strategy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encryption_conflict_resolution_strategy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Strategy for resolving encryption conflicts. Valid values: `ALLOW`, `SKIP`.
         """
         return pulumi.get(self, "encryption_conflict_resolution_strategy")
 
     @encryption_conflict_resolution_strategy.setter
-    def encryption_conflict_resolution_strategy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encryption_conflict_resolution_strategy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encryption_conflict_resolution_strategy", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the KMS key to use for encryption when `encryption_strategy` is `CUSTOMER_MANAGED`.
         """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
-    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_arn", value)
 
 
@@ -378,7 +378,7 @@ class CentralizationRuleForOrganizationRuleSourceArgsDict(TypedDict):
     """
     Scope defining which resources to include. Use organization ID format: `OrganizationId = 'o-example123456'`.
     """
-    source_logs_configuration: NotRequired[pulumi.Input['CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgsDict']]
+    source_logs_configuration: NotRequired[pulumi.Input[Optional['CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs']]]
     """
     Configuration block for source logs settings. See `source_logs_configuration` below.
     """
@@ -388,7 +388,7 @@ class CentralizationRuleForOrganizationRuleSourceArgs:
     def __init__(__self__, *,
                  regions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  scope: pulumi.Input[_builtins.str],
-                 source_logs_configuration: Optional[pulumi.Input['CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs']] = None):
+                 source_logs_configuration: pulumi.Input[Optional['CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: Set of AWS regions from which to centralize logs. Must contain at least one region.
         :param pulumi.Input[_builtins.str] scope: Scope defining which resources to include. Use organization ID format: `OrganizationId = 'o-example123456'`.
@@ -425,14 +425,14 @@ class CentralizationRuleForOrganizationRuleSourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="sourceLogsConfiguration")
-    def source_logs_configuration(self) -> Optional[pulumi.Input['CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs']]:
+    def source_logs_configuration(self) -> pulumi.Input[Optional['CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs']]:
         """
         Configuration block for source logs settings. See `source_logs_configuration` below.
         """
         return pulumi.get(self, "source_logs_configuration")
 
     @source_logs_configuration.setter
-    def source_logs_configuration(self, value: Optional[pulumi.Input['CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs']]):
+    def source_logs_configuration(self, value: pulumi.Input[Optional['CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs']]):
         pulumi.set(self, "source_logs_configuration", value)
 
 
@@ -441,8 +441,8 @@ class CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgsDict
     """
     Strategy for handling encrypted log groups. Valid values: `ALLOW`, `SKIP`.
     """
-    data_source_selection_criteria: NotRequired[pulumi.Input[_builtins.str]]
-    log_group_selection_criteria: NotRequired[pulumi.Input[_builtins.str]]
+    data_source_selection_criteria: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    log_group_selection_criteria: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Criteria for selecting log groups. Use `*` for all log groups or OAM filter syntax like `LogGroupName LIKE '/aws/lambda%'`. Must be between 1 and 2000 characters.
     """
@@ -451,8 +451,8 @@ class CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgsDict
 class CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs:
     def __init__(__self__, *,
                  encrypted_log_group_strategy: pulumi.Input[_builtins.str],
-                 data_source_selection_criteria: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_group_selection_criteria: Optional[pulumi.Input[_builtins.str]] = None):
+                 data_source_selection_criteria: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_group_selection_criteria: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] encrypted_log_group_strategy: Strategy for handling encrypted log groups. Valid values: `ALLOW`, `SKIP`.
         :param pulumi.Input[_builtins.str] log_group_selection_criteria: Criteria for selecting log groups. Use `*` for all log groups or OAM filter syntax like `LogGroupName LIKE '/aws/lambda%'`. Must be between 1 and 2000 characters.
@@ -477,32 +477,32 @@ class CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataSourceSelectionCriteria")
-    def data_source_selection_criteria(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_source_selection_criteria(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "data_source_selection_criteria")
 
     @data_source_selection_criteria.setter
-    def data_source_selection_criteria(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_source_selection_criteria(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_source_selection_criteria", value)
 
     @_builtins.property
     @pulumi.getter(name="logGroupSelectionCriteria")
-    def log_group_selection_criteria(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_group_selection_criteria(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Criteria for selecting log groups. Use `*` for all log groups or OAM filter syntax like `LogGroupName LIKE '/aws/lambda%'`. Must be between 1 and 2000 characters.
         """
         return pulumi.get(self, "log_group_selection_criteria")
 
     @log_group_selection_criteria.setter
-    def log_group_selection_criteria(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_group_selection_criteria(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_group_selection_criteria", value)
 
 
 class CentralizationRuleForOrganizationTimeoutsArgsDict(TypedDict):
-    create: NotRequired[pulumi.Input[_builtins.str]]
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
-    update: NotRequired[pulumi.Input[_builtins.str]]
+    update: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
@@ -510,8 +510,8 @@ class CentralizationRuleForOrganizationTimeoutsArgsDict(TypedDict):
 @pulumi.input_type
 class CentralizationRuleForOrganizationTimeoutsArgs:
     def __init__(__self__, *,
-                 create: Optional[pulumi.Input[_builtins.str]] = None,
-                 update: Optional[pulumi.Input[_builtins.str]] = None):
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 update: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         :param pulumi.Input[_builtins.str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
@@ -523,35 +523,35 @@ class CentralizationRuleForOrganizationTimeoutsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "create")
 
     @create.setter
-    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create", value)
 
     @_builtins.property
     @pulumi.getter
-    def update(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def update(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "update")
 
     @update.setter
-    def update(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def update(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "update", value)
 
 
 class TelemetryEnrichmentTimeoutsArgsDict(TypedDict):
-    create: NotRequired[pulumi.Input[_builtins.str]]
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
-    delete: NotRequired[pulumi.Input[_builtins.str]]
+    delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     """
@@ -559,8 +559,8 @@ class TelemetryEnrichmentTimeoutsArgsDict(TypedDict):
 @pulumi.input_type
 class TelemetryEnrichmentTimeoutsArgs:
     def __init__(__self__, *,
-                 create: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete: Optional[pulumi.Input[_builtins.str]] = None):
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
@@ -572,26 +572,26 @@ class TelemetryEnrichmentTimeoutsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "create")
 
     @create.setter
-    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create", value)
 
     @_builtins.property
     @pulumi.getter
-    def delete(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delete(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
         """
         return pulumi.get(self, "delete")
 
     @delete.setter
-    def delete(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delete", value)
 
 
@@ -624,15 +624,15 @@ class TelemetryPipelineConfigurationArgs:
 
 
 class TelemetryPipelineTimeoutsArgsDict(TypedDict):
-    create: NotRequired[pulumi.Input[_builtins.str]]
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
-    delete: NotRequired[pulumi.Input[_builtins.str]]
+    delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     """
-    update: NotRequired[pulumi.Input[_builtins.str]]
+    update: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
@@ -640,9 +640,9 @@ class TelemetryPipelineTimeoutsArgsDict(TypedDict):
 @pulumi.input_type
 class TelemetryPipelineTimeoutsArgs:
     def __init__(__self__, *,
-                 create: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete: Optional[pulumi.Input[_builtins.str]] = None,
-                 update: Optional[pulumi.Input[_builtins.str]] = None):
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete: pulumi.Input[Optional[_builtins.str]] = None,
+                 update: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
@@ -657,38 +657,38 @@ class TelemetryPipelineTimeoutsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "create")
 
     @create.setter
-    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create", value)
 
     @_builtins.property
     @pulumi.getter
-    def delete(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delete(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
         """
         return pulumi.get(self, "delete")
 
     @delete.setter
-    def delete(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delete", value)
 
     @_builtins.property
     @pulumi.getter
-    def update(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def update(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "update")
 
     @update.setter
-    def update(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def update(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "update", value)
 
 

@@ -233,9 +233,9 @@ def get_rest_api(name: Optional[_builtins.str] = None,
         region=pulumi.get(__ret__, 'region'),
         root_resource_id=pulumi.get(__ret__, 'root_resource_id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_rest_api_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                        region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                        tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_rest_api_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                        region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRestApiResult]:
     """
     Use this data source to get the id and root_resource_id of a REST API in

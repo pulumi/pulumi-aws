@@ -145,23 +145,23 @@ export interface VaultNotificationsState {
     /**
      * The ARN of the vault.
      */
-    backupVaultArn?: pulumi.Input<string>;
+    backupVaultArn?: pulumi.Input<string | undefined>;
     /**
      * An array of events that indicate the status of jobs to back up resources to the backup vault.
      */
-    backupVaultEvents?: pulumi.Input<pulumi.Input<string>[]>;
+    backupVaultEvents?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Name of the backup vault to add notifications for.
      */
-    backupVaultName?: pulumi.Input<string>;
+    backupVaultName?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
      */
-    snsTopicArn?: pulumi.Input<string>;
+    snsTopicArn?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -179,7 +179,7 @@ export interface VaultNotificationsArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
      */

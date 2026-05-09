@@ -25,23 +25,23 @@ class NodeGroupArgs:
                  node_role_arn: pulumi.Input[_builtins.str],
                  scaling_config: pulumi.Input['NodeGroupScalingConfigArgs'],
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 ami_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 capacity_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 force_update_version: Optional[pulumi.Input[_builtins.bool]] = None,
-                 instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 launch_template: Optional[pulumi.Input['NodeGroupLaunchTemplateArgs']] = None,
-                 node_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_group_name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_repair_config: Optional[pulumi.Input['NodeGroupNodeRepairConfigArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 release_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_access: Optional[pulumi.Input['NodeGroupRemoteAccessArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 taints: Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupTaintArgs']]]] = None,
-                 update_config: Optional[pulumi.Input['NodeGroupUpdateConfigArgs']] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 ami_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 capacity_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 force_update_version: pulumi.Input[Optional[_builtins.bool]] = None,
+                 instance_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 launch_template: pulumi.Input[Optional['NodeGroupLaunchTemplateArgs']] = None,
+                 node_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_group_name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_repair_config: pulumi.Input[Optional['NodeGroupNodeRepairConfigArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 release_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_access: pulumi.Input[Optional['NodeGroupRemoteAccessArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 taints: pulumi.Input[Optional[Sequence[pulumi.Input['NodeGroupTaintArgs']]]] = None,
+                 update_config: pulumi.Input[Optional['NodeGroupUpdateConfigArgs']] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a NodeGroup resource.
 
@@ -160,237 +160,237 @@ class NodeGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="amiType")
-    def ami_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ami_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
         """
         return pulumi.get(self, "ami_type")
 
     @ami_type.setter
-    def ami_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ami_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ami_type", value)
 
     @_builtins.property
     @pulumi.getter(name="capacityType")
-    def capacity_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def capacity_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
         """
         return pulumi.get(self, "capacity_type")
 
     @capacity_type.setter
-    def capacity_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def capacity_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "capacity_type", value)
 
     @_builtins.property
     @pulumi.getter(name="diskSize")
-    def disk_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def disk_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Disk size in GiB for worker nodes. Defaults to `50` for Windows, `20` all other node groups. The provider will only perform drift detection if a configuration value is provided.
         """
         return pulumi.get(self, "disk_size")
 
     @disk_size.setter
-    def disk_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def disk_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "disk_size", value)
 
     @_builtins.property
     @pulumi.getter(name="forceUpdateVersion")
-    def force_update_version(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def force_update_version(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
         """
         return pulumi.get(self, "force_update_version")
 
     @force_update_version.setter
-    def force_update_version(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def force_update_version(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "force_update_version", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceTypes")
-    def instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def instance_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. The provider will only perform drift detection if a configuration value is provided.
         """
         return pulumi.get(self, "instance_types")
 
     @instance_types.setter
-    def instance_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def instance_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "instance_types", value)
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def labels(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def labels(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "labels", value)
 
     @_builtins.property
     @pulumi.getter(name="launchTemplate")
-    def launch_template(self) -> Optional[pulumi.Input['NodeGroupLaunchTemplateArgs']]:
+    def launch_template(self) -> pulumi.Input[Optional['NodeGroupLaunchTemplateArgs']]:
         """
         Configuration block with Launch Template settings. See `launch_template` below for details. Conflicts with `remote_access`.
         """
         return pulumi.get(self, "launch_template")
 
     @launch_template.setter
-    def launch_template(self, value: Optional[pulumi.Input['NodeGroupLaunchTemplateArgs']]):
+    def launch_template(self, value: pulumi.Input[Optional['NodeGroupLaunchTemplateArgs']]):
         pulumi.set(self, "launch_template", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeGroupName")
-    def node_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def node_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `node_group_name_prefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
         """
         return pulumi.get(self, "node_group_name")
 
     @node_group_name.setter
-    def node_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def node_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "node_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeGroupNamePrefix")
-    def node_group_name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def node_group_name_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
         """
         return pulumi.get(self, "node_group_name_prefix")
 
     @node_group_name_prefix.setter
-    def node_group_name_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def node_group_name_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "node_group_name_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeRepairConfig")
-    def node_repair_config(self) -> Optional[pulumi.Input['NodeGroupNodeRepairConfigArgs']]:
+    def node_repair_config(self) -> pulumi.Input[Optional['NodeGroupNodeRepairConfigArgs']]:
         """
         The node auto repair configuration for the node group. See `node_repair_config` below for details.
         """
         return pulumi.get(self, "node_repair_config")
 
     @node_repair_config.setter
-    def node_repair_config(self, value: Optional[pulumi.Input['NodeGroupNodeRepairConfigArgs']]):
+    def node_repair_config(self, value: pulumi.Input[Optional['NodeGroupNodeRepairConfigArgs']]):
         pulumi.set(self, "node_repair_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="releaseVersion")
-    def release_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def release_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
         """
         return pulumi.get(self, "release_version")
 
     @release_version.setter
-    def release_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def release_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "release_version", value)
 
     @_builtins.property
     @pulumi.getter(name="remoteAccess")
-    def remote_access(self) -> Optional[pulumi.Input['NodeGroupRemoteAccessArgs']]:
+    def remote_access(self) -> pulumi.Input[Optional['NodeGroupRemoteAccessArgs']]:
         """
         Configuration block with remote access settings. See `remote_access` below for details. Conflicts with `launch_template`.
         """
         return pulumi.get(self, "remote_access")
 
     @remote_access.setter
-    def remote_access(self, value: Optional[pulumi.Input['NodeGroupRemoteAccessArgs']]):
+    def remote_access(self, value: pulumi.Input[Optional['NodeGroupRemoteAccessArgs']]):
         pulumi.set(self, "remote_access", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def taints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupTaintArgs']]]]:
+    def taints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NodeGroupTaintArgs']]]]:
         """
         The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.
         """
         return pulumi.get(self, "taints")
 
     @taints.setter
-    def taints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupTaintArgs']]]]):
+    def taints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NodeGroupTaintArgs']]]]):
         pulumi.set(self, "taints", value)
 
     @_builtins.property
     @pulumi.getter(name="updateConfig")
-    def update_config(self) -> Optional[pulumi.Input['NodeGroupUpdateConfigArgs']]:
+    def update_config(self) -> pulumi.Input[Optional['NodeGroupUpdateConfigArgs']]:
         """
         Configuration block with update settings. See `update_config` below for details.
         """
         return pulumi.get(self, "update_config")
 
     @update_config.setter
-    def update_config(self, value: Optional[pulumi.Input['NodeGroupUpdateConfigArgs']]):
+    def update_config(self, value: pulumi.Input[Optional['NodeGroupUpdateConfigArgs']]):
         pulumi.set(self, "update_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
 @pulumi.input_type
 class _NodeGroupState:
     def __init__(__self__, *,
-                 ami_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 capacity_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 force_update_version: Optional[pulumi.Input[_builtins.bool]] = None,
-                 instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 launch_template: Optional[pulumi.Input['NodeGroupLaunchTemplateArgs']] = None,
-                 node_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_group_name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_repair_config: Optional[pulumi.Input['NodeGroupNodeRepairConfigArgs']] = None,
-                 node_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 release_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_access: Optional[pulumi.Input['NodeGroupRemoteAccessArgs']] = None,
-                 resources: Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupResourceArgs']]]] = None,
-                 scaling_config: Optional[pulumi.Input['NodeGroupScalingConfigArgs']] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 taints: Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupTaintArgs']]]] = None,
-                 update_config: Optional[pulumi.Input['NodeGroupUpdateConfigArgs']] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 ami_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 capacity_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 force_update_version: pulumi.Input[Optional[_builtins.bool]] = None,
+                 instance_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 launch_template: pulumi.Input[Optional['NodeGroupLaunchTemplateArgs']] = None,
+                 node_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_group_name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_repair_config: pulumi.Input[Optional['NodeGroupNodeRepairConfigArgs']] = None,
+                 node_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 release_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_access: pulumi.Input[Optional['NodeGroupRemoteAccessArgs']] = None,
+                 resources: pulumi.Input[Optional[Sequence[pulumi.Input['NodeGroupResourceArgs']]]] = None,
+                 scaling_config: pulumi.Input[Optional['NodeGroupScalingConfigArgs']] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 taints: pulumi.Input[Optional[Sequence[pulumi.Input['NodeGroupTaintArgs']]]] = None,
+                 update_config: pulumi.Input[Optional['NodeGroupUpdateConfigArgs']] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NodeGroup resources.
 
@@ -475,235 +475,235 @@ class _NodeGroupState:
 
     @_builtins.property
     @pulumi.getter(name="amiType")
-    def ami_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ami_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
         """
         return pulumi.get(self, "ami_type")
 
     @ami_type.setter
-    def ami_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ami_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ami_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) of the EKS Node Group.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="capacityType")
-    def capacity_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def capacity_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
         """
         return pulumi.get(self, "capacity_type")
 
     @capacity_type.setter
-    def capacity_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def capacity_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "capacity_type", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the EKS Cluster.
         """
         return pulumi.get(self, "cluster_name")
 
     @cluster_name.setter
-    def cluster_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_name", value)
 
     @_builtins.property
     @pulumi.getter(name="diskSize")
-    def disk_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def disk_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Disk size in GiB for worker nodes. Defaults to `50` for Windows, `20` all other node groups. The provider will only perform drift detection if a configuration value is provided.
         """
         return pulumi.get(self, "disk_size")
 
     @disk_size.setter
-    def disk_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def disk_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "disk_size", value)
 
     @_builtins.property
     @pulumi.getter(name="forceUpdateVersion")
-    def force_update_version(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def force_update_version(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
         """
         return pulumi.get(self, "force_update_version")
 
     @force_update_version.setter
-    def force_update_version(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def force_update_version(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "force_update_version", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceTypes")
-    def instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def instance_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. The provider will only perform drift detection if a configuration value is provided.
         """
         return pulumi.get(self, "instance_types")
 
     @instance_types.setter
-    def instance_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def instance_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "instance_types", value)
 
     @_builtins.property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def labels(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def labels(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "labels", value)
 
     @_builtins.property
     @pulumi.getter(name="launchTemplate")
-    def launch_template(self) -> Optional[pulumi.Input['NodeGroupLaunchTemplateArgs']]:
+    def launch_template(self) -> pulumi.Input[Optional['NodeGroupLaunchTemplateArgs']]:
         """
         Configuration block with Launch Template settings. See `launch_template` below for details. Conflicts with `remote_access`.
         """
         return pulumi.get(self, "launch_template")
 
     @launch_template.setter
-    def launch_template(self, value: Optional[pulumi.Input['NodeGroupLaunchTemplateArgs']]):
+    def launch_template(self, value: pulumi.Input[Optional['NodeGroupLaunchTemplateArgs']]):
         pulumi.set(self, "launch_template", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeGroupName")
-    def node_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def node_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `node_group_name_prefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
         """
         return pulumi.get(self, "node_group_name")
 
     @node_group_name.setter
-    def node_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def node_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "node_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeGroupNamePrefix")
-    def node_group_name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def node_group_name_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
         """
         return pulumi.get(self, "node_group_name_prefix")
 
     @node_group_name_prefix.setter
-    def node_group_name_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def node_group_name_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "node_group_name_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeRepairConfig")
-    def node_repair_config(self) -> Optional[pulumi.Input['NodeGroupNodeRepairConfigArgs']]:
+    def node_repair_config(self) -> pulumi.Input[Optional['NodeGroupNodeRepairConfigArgs']]:
         """
         The node auto repair configuration for the node group. See `node_repair_config` below for details.
         """
         return pulumi.get(self, "node_repair_config")
 
     @node_repair_config.setter
-    def node_repair_config(self, value: Optional[pulumi.Input['NodeGroupNodeRepairConfigArgs']]):
+    def node_repair_config(self, value: pulumi.Input[Optional['NodeGroupNodeRepairConfigArgs']]):
         pulumi.set(self, "node_repair_config", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeRoleArn")
-    def node_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def node_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
         """
         return pulumi.get(self, "node_role_arn")
 
     @node_role_arn.setter
-    def node_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def node_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "node_role_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="releaseVersion")
-    def release_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def release_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
         """
         return pulumi.get(self, "release_version")
 
     @release_version.setter
-    def release_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def release_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "release_version", value)
 
     @_builtins.property
     @pulumi.getter(name="remoteAccess")
-    def remote_access(self) -> Optional[pulumi.Input['NodeGroupRemoteAccessArgs']]:
+    def remote_access(self) -> pulumi.Input[Optional['NodeGroupRemoteAccessArgs']]:
         """
         Configuration block with remote access settings. See `remote_access` below for details. Conflicts with `launch_template`.
         """
         return pulumi.get(self, "remote_access")
 
     @remote_access.setter
-    def remote_access(self, value: Optional[pulumi.Input['NodeGroupRemoteAccessArgs']]):
+    def remote_access(self, value: pulumi.Input[Optional['NodeGroupRemoteAccessArgs']]):
         pulumi.set(self, "remote_access", value)
 
     @_builtins.property
     @pulumi.getter
-    def resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupResourceArgs']]]]:
+    def resources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NodeGroupResourceArgs']]]]:
         """
         List of objects containing information about underlying resources.
         """
         return pulumi.get(self, "resources")
 
     @resources.setter
-    def resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupResourceArgs']]]]):
+    def resources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NodeGroupResourceArgs']]]]):
         pulumi.set(self, "resources", value)
 
     @_builtins.property
     @pulumi.getter(name="scalingConfig")
-    def scaling_config(self) -> Optional[pulumi.Input['NodeGroupScalingConfigArgs']]:
+    def scaling_config(self) -> pulumi.Input[Optional['NodeGroupScalingConfigArgs']]:
         """
         Configuration block with scaling settings. See `scaling_config` below for details.
         """
         return pulumi.get(self, "scaling_config")
 
     @scaling_config.setter
-    def scaling_config(self, value: Optional[pulumi.Input['NodeGroupScalingConfigArgs']]):
+    def scaling_config(self, value: pulumi.Input[Optional['NodeGroupScalingConfigArgs']]):
         pulumi.set(self, "scaling_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Status of the EKS Node Group.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subnet_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Identifiers of EC2 Subnets to associate with the EKS Node Group.
 
@@ -712,67 +712,67 @@ class _NodeGroupState:
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
-    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subnet_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subnet_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def taints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupTaintArgs']]]]:
+    def taints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NodeGroupTaintArgs']]]]:
         """
         The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.
         """
         return pulumi.get(self, "taints")
 
     @taints.setter
-    def taints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupTaintArgs']]]]):
+    def taints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NodeGroupTaintArgs']]]]):
         pulumi.set(self, "taints", value)
 
     @_builtins.property
     @pulumi.getter(name="updateConfig")
-    def update_config(self) -> Optional[pulumi.Input['NodeGroupUpdateConfigArgs']]:
+    def update_config(self) -> pulumi.Input[Optional['NodeGroupUpdateConfigArgs']]:
         """
         Configuration block with update settings. See `update_config` below for details.
         """
         return pulumi.get(self, "update_config")
 
     @update_config.setter
-    def update_config(self, value: Optional[pulumi.Input['NodeGroupUpdateConfigArgs']]):
+    def update_config(self, value: pulumi.Input[Optional['NodeGroupUpdateConfigArgs']]):
         pulumi.set(self, "update_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -782,27 +782,27 @@ class NodeGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ami_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 capacity_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 force_update_version: Optional[pulumi.Input[_builtins.bool]] = None,
-                 instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 launch_template: Optional[pulumi.Input[Union['NodeGroupLaunchTemplateArgs', 'NodeGroupLaunchTemplateArgsDict']]] = None,
-                 node_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_group_name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_repair_config: Optional[pulumi.Input[Union['NodeGroupNodeRepairConfigArgs', 'NodeGroupNodeRepairConfigArgsDict']]] = None,
-                 node_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 release_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_access: Optional[pulumi.Input[Union['NodeGroupRemoteAccessArgs', 'NodeGroupRemoteAccessArgsDict']]] = None,
-                 scaling_config: Optional[pulumi.Input[Union['NodeGroupScalingConfigArgs', 'NodeGroupScalingConfigArgsDict']]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 taints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NodeGroupTaintArgs', 'NodeGroupTaintArgsDict']]]]] = None,
-                 update_config: Optional[pulumi.Input[Union['NodeGroupUpdateConfigArgs', 'NodeGroupUpdateConfigArgsDict']]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
+                 ami_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 capacity_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 force_update_version: pulumi.Input[Optional[_builtins.bool]] = None,
+                 instance_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 launch_template: pulumi.Input[Optional[Union['NodeGroupLaunchTemplateArgs', 'NodeGroupLaunchTemplateArgsDict']]] = None,
+                 node_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_group_name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_repair_config: pulumi.Input[Optional[Union['NodeGroupNodeRepairConfigArgs', 'NodeGroupNodeRepairConfigArgsDict']]] = None,
+                 node_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 release_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_access: pulumi.Input[Optional[Union['NodeGroupRemoteAccessArgs', 'NodeGroupRemoteAccessArgsDict']]] = None,
+                 scaling_config: pulumi.Input[Optional[Union['NodeGroupScalingConfigArgs', 'NodeGroupScalingConfigArgsDict']]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 taints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NodeGroupTaintArgs', 'NodeGroupTaintArgsDict']]]]] = None,
+                 update_config: pulumi.Input[Optional[Union['NodeGroupUpdateConfigArgs', 'NodeGroupUpdateConfigArgsDict']]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an EKS Node Group, which can provision and optionally update an Auto Scaling Group of Kubernetes worker nodes compatible with EKS. Additional documentation about this functionality can be found in the [EKS User Guide](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html).
@@ -880,11 +880,12 @@ class NodeGroup(pulumi.CustomResource):
 
         ```python
         import pulumi
+        from typing import Any
         import pulumi_aws as aws
         import pulumi_std as std
 
         available = aws.get_availability_zones(state="available")
-        example = []
+        example: list[Any] = []
         for range in [{"value": i} for i in range(0, 2)]:
             example.append(aws.ec2.Subnet(f"example-{range['value']}",
                 availability_zone=available.names[range["value"]],
@@ -1023,11 +1024,12 @@ class NodeGroup(pulumi.CustomResource):
 
         ```python
         import pulumi
+        from typing import Any
         import pulumi_aws as aws
         import pulumi_std as std
 
         available = aws.get_availability_zones(state="available")
-        example = []
+        example: list[Any] = []
         for range in [{"value": i} for i in range(0, 2)]:
             example.append(aws.ec2.Subnet(f"example-{range['value']}",
                 availability_zone=available.names[range["value"]],
@@ -1073,27 +1075,27 @@ class NodeGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ami_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 capacity_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 force_update_version: Optional[pulumi.Input[_builtins.bool]] = None,
-                 instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 launch_template: Optional[pulumi.Input[Union['NodeGroupLaunchTemplateArgs', 'NodeGroupLaunchTemplateArgsDict']]] = None,
-                 node_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_group_name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_repair_config: Optional[pulumi.Input[Union['NodeGroupNodeRepairConfigArgs', 'NodeGroupNodeRepairConfigArgsDict']]] = None,
-                 node_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 release_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_access: Optional[pulumi.Input[Union['NodeGroupRemoteAccessArgs', 'NodeGroupRemoteAccessArgsDict']]] = None,
-                 scaling_config: Optional[pulumi.Input[Union['NodeGroupScalingConfigArgs', 'NodeGroupScalingConfigArgsDict']]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 taints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NodeGroupTaintArgs', 'NodeGroupTaintArgsDict']]]]] = None,
-                 update_config: Optional[pulumi.Input[Union['NodeGroupUpdateConfigArgs', 'NodeGroupUpdateConfigArgsDict']]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
+                 ami_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 capacity_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 force_update_version: pulumi.Input[Optional[_builtins.bool]] = None,
+                 instance_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 launch_template: pulumi.Input[Optional[Union['NodeGroupLaunchTemplateArgs', 'NodeGroupLaunchTemplateArgsDict']]] = None,
+                 node_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_group_name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_repair_config: pulumi.Input[Optional[Union['NodeGroupNodeRepairConfigArgs', 'NodeGroupNodeRepairConfigArgsDict']]] = None,
+                 node_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 release_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_access: pulumi.Input[Optional[Union['NodeGroupRemoteAccessArgs', 'NodeGroupRemoteAccessArgsDict']]] = None,
+                 scaling_config: pulumi.Input[Optional[Union['NodeGroupScalingConfigArgs', 'NodeGroupScalingConfigArgsDict']]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 taints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NodeGroupTaintArgs', 'NodeGroupTaintArgsDict']]]]] = None,
+                 update_config: pulumi.Input[Optional[Union['NodeGroupUpdateConfigArgs', 'NodeGroupUpdateConfigArgsDict']]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1146,31 +1148,31 @@ class NodeGroup(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            ami_type: Optional[pulumi.Input[_builtins.str]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            capacity_type: Optional[pulumi.Input[_builtins.str]] = None,
-            cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-            disk_size: Optional[pulumi.Input[_builtins.int]] = None,
-            force_update_version: Optional[pulumi.Input[_builtins.bool]] = None,
-            instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            launch_template: Optional[pulumi.Input[Union['NodeGroupLaunchTemplateArgs', 'NodeGroupLaunchTemplateArgsDict']]] = None,
-            node_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            node_group_name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-            node_repair_config: Optional[pulumi.Input[Union['NodeGroupNodeRepairConfigArgs', 'NodeGroupNodeRepairConfigArgsDict']]] = None,
-            node_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            release_version: Optional[pulumi.Input[_builtins.str]] = None,
-            remote_access: Optional[pulumi.Input[Union['NodeGroupRemoteAccessArgs', 'NodeGroupRemoteAccessArgsDict']]] = None,
-            resources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NodeGroupResourceArgs', 'NodeGroupResourceArgsDict']]]]] = None,
-            scaling_config: Optional[pulumi.Input[Union['NodeGroupScalingConfigArgs', 'NodeGroupScalingConfigArgsDict']]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            taints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NodeGroupTaintArgs', 'NodeGroupTaintArgsDict']]]]] = None,
-            update_config: Optional[pulumi.Input[Union['NodeGroupUpdateConfigArgs', 'NodeGroupUpdateConfigArgsDict']]] = None,
-            version: Optional[pulumi.Input[_builtins.str]] = None) -> 'NodeGroup':
+            ami_type: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            capacity_type: pulumi.Input[Optional[_builtins.str]] = None,
+            cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+            disk_size: pulumi.Input[Optional[_builtins.int]] = None,
+            force_update_version: pulumi.Input[Optional[_builtins.bool]] = None,
+            instance_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            launch_template: pulumi.Input[Optional[Union['NodeGroupLaunchTemplateArgs', 'NodeGroupLaunchTemplateArgsDict']]] = None,
+            node_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            node_group_name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            node_repair_config: pulumi.Input[Optional[Union['NodeGroupNodeRepairConfigArgs', 'NodeGroupNodeRepairConfigArgsDict']]] = None,
+            node_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            release_version: pulumi.Input[Optional[_builtins.str]] = None,
+            remote_access: pulumi.Input[Optional[Union['NodeGroupRemoteAccessArgs', 'NodeGroupRemoteAccessArgsDict']]] = None,
+            resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NodeGroupResourceArgs', 'NodeGroupResourceArgsDict']]]]] = None,
+            scaling_config: pulumi.Input[Optional[Union['NodeGroupScalingConfigArgs', 'NodeGroupScalingConfigArgsDict']]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            taints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NodeGroupTaintArgs', 'NodeGroupTaintArgsDict']]]]] = None,
+            update_config: pulumi.Input[Optional[Union['NodeGroupUpdateConfigArgs', 'NodeGroupUpdateConfigArgsDict']]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> 'NodeGroup':
         """
         Get an existing NodeGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

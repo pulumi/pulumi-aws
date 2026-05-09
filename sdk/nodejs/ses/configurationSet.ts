@@ -166,37 +166,37 @@ export interface ConfigurationSetState {
     /**
      * SES configuration set ARN.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Whether messages that use the configuration set are required to use TLS. See below.
      */
-    deliveryOptions?: pulumi.Input<inputs.ses.ConfigurationSetDeliveryOptions>;
+    deliveryOptions?: pulumi.Input<inputs.ses.ConfigurationSetDeliveryOptions | undefined>;
     /**
      * Date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
      */
-    lastFreshStart?: pulumi.Input<string>;
+    lastFreshStart?: pulumi.Input<string | undefined>;
     /**
      * Name of the configuration set.
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
      */
-    reputationMetricsEnabled?: pulumi.Input<boolean>;
+    reputationMetricsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
      */
-    sendingEnabled?: pulumi.Input<boolean>;
+    sendingEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
      */
-    trackingOptions?: pulumi.Input<inputs.ses.ConfigurationSetTrackingOptions>;
+    trackingOptions?: pulumi.Input<inputs.ses.ConfigurationSetTrackingOptions | undefined>;
 }
 
 /**
@@ -206,27 +206,27 @@ export interface ConfigurationSetArgs {
     /**
      * Whether messages that use the configuration set are required to use TLS. See below.
      */
-    deliveryOptions?: pulumi.Input<inputs.ses.ConfigurationSetDeliveryOptions>;
+    deliveryOptions?: pulumi.Input<inputs.ses.ConfigurationSetDeliveryOptions | undefined>;
     /**
      * Name of the configuration set.
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
      */
-    reputationMetricsEnabled?: pulumi.Input<boolean>;
+    reputationMetricsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
      */
-    sendingEnabled?: pulumi.Input<boolean>;
+    sendingEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
      */
-    trackingOptions?: pulumi.Input<inputs.ses.ConfigurationSetTrackingOptions>;
+    trackingOptions?: pulumi.Input<inputs.ses.ConfigurationSetTrackingOptions | undefined>;
 }

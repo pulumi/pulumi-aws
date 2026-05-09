@@ -201,8 +201,8 @@ def get_response_headers_policy(id: Optional[_builtins.str] = None,
         remove_headers_configs=pulumi.get(__ret__, 'remove_headers_configs'),
         security_headers_configs=pulumi.get(__ret__, 'security_headers_configs'),
         server_timing_headers_configs=pulumi.get(__ret__, 'server_timing_headers_configs'))
-def get_response_headers_policy_output(id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                       name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_response_headers_policy_output(id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                       name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResponseHeadersPolicyResult]:
     """
     Use this data source to retrieve information about a CloudFront cache policy.

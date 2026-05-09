@@ -121,7 +121,7 @@ import (
 //				Element: requiredProfile,
 //			}, nil).Result
 //			// Conditional resource creation based on signing profile validation
-//			var tmp0 float64
+//			var tmp0 int
 //			if pulumi.Bool(profileAllowed) {
 //				tmp0 = 1
 //			} else {

@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var current = Aws.Index.GetRegion.Invoke();
+    ///     var current = Aws.GetRegion.Invoke();
     /// 
     ///     var main = new Aws.Ec2.VpcIpam("main", new()
     ///     {
@@ -56,7 +56,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var current = Aws.Index.GetRegion.Invoke();
+    ///     var current = Aws.GetRegion.Invoke();
     /// 
     ///     var config = new Config();
     ///     var ipamRegions = config.GetObject&lt;dynamic[]&gt;("ipamRegions") ?? new[]
@@ -65,7 +65,7 @@ namespace Pulumi.Aws.Ec2
     ///         "us-west-2",
     ///     };
     ///     // ensure current provider region is an operating_regions entry
-    ///     var allIpamRegions = Std.Index.Concat.Invoke(new()
+    ///     var allIpamRegions = Std.Concat.Invoke(new()
     ///     {
     ///         Input = new[]
     ///         {
@@ -75,7 +75,7 @@ namespace Pulumi.Aws.Ec2
     ///             },
     ///             ipamRegions,
     ///         },
-    ///     }).Apply(invoke =&gt; Std.Index.Distinct.Invoke(new()
+    ///     }).Apply(invoke =&gt; Std.Distinct.Invoke(new()
     ///     {
     ///         Input = invoke.Result,
     ///     })).Apply(invoke =&gt; invoke.Result);

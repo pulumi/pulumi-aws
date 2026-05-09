@@ -178,31 +178,31 @@ export interface ReplicationConfigurationState {
      * * `destination[0].file_system_id` - The fs ID of the replica.
      * * `destination[0].status` - The status of the replication.
      */
-    creationTime?: pulumi.Input<string>;
+    creationTime?: pulumi.Input<string | undefined>;
     /**
      * A destination configuration block (documented below).
      */
-    destination?: pulumi.Input<inputs.efs.ReplicationConfigurationDestination>;
+    destination?: pulumi.Input<inputs.efs.ReplicationConfigurationDestination | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the original source Amazon EFS file system in the replication configuration.
      */
-    originalSourceFileSystemArn?: pulumi.Input<string>;
+    originalSourceFileSystemArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
      */
-    sourceFileSystemArn?: pulumi.Input<string>;
+    sourceFileSystemArn?: pulumi.Input<string | undefined>;
     /**
      * The ID of the file system that is to be replicated.
      */
-    sourceFileSystemId?: pulumi.Input<string>;
+    sourceFileSystemId?: pulumi.Input<string | undefined>;
     /**
      * The AWS Region in which the source Amazon EFS file system is located.
      */
-    sourceFileSystemRegion?: pulumi.Input<string>;
+    sourceFileSystemRegion?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -216,7 +216,7 @@ export interface ReplicationConfigurationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ID of the file system that is to be replicated.
      */

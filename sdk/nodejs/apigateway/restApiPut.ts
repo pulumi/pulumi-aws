@@ -167,30 +167,30 @@ export interface RestApiPutState {
     /**
      * PUT request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 6MB.
      */
-    body?: pulumi.Input<string>;
+    body?: pulumi.Input<string | undefined>;
     /**
      * Whether to rollback the API update when a warning is encountered. The default value is `false`.
      */
-    failOnWarnings?: pulumi.Input<boolean>;
+    failOnWarnings?: pulumi.Input<boolean | undefined>;
     /**
      * Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, use `ignore = "documentation"`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the associated REST API.
      *
      * The following arguments are optional:
      */
-    restApiId?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.apigateway.RestApiPutTimeouts>;
+    restApiId?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.apigateway.RestApiPutTimeouts | undefined>;
     /**
      * Map of arbitrary keys and values that, when changed, will trigger a redeployment. To force a redeployment without changing these keys/values, use the `-replace` option with `pulumi preview` or `pulumi up`.
      */
-    triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -204,24 +204,24 @@ export interface RestApiPutArgs {
     /**
      * Whether to rollback the API update when a warning is encountered. The default value is `false`.
      */
-    failOnWarnings?: pulumi.Input<boolean>;
+    failOnWarnings?: pulumi.Input<boolean | undefined>;
     /**
      * Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, use `ignore = "documentation"`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the associated REST API.
      *
      * The following arguments are optional:
      */
     restApiId: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.apigateway.RestApiPutTimeouts>;
+    timeouts?: pulumi.Input<inputs.apigateway.RestApiPutTimeouts | undefined>;
     /**
      * Map of arbitrary keys and values that, when changed, will trigger a redeployment. To force a redeployment without changing these keys/values, use the `-replace` option with `pulumi preview` or `pulumi up`.
      */
-    triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

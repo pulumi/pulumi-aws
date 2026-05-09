@@ -113,19 +113,19 @@ export interface ClusterIamRolesState {
     /**
      * The name of the Redshift Cluster IAM Roles.
      */
-    clusterIdentifier?: pulumi.Input<string>;
+    clusterIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
      */
-    defaultIamRoleArn?: pulumi.Input<string>;
+    defaultIamRoleArn?: pulumi.Input<string | undefined>;
     /**
      * A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
      */
-    iamRoleArns?: pulumi.Input<pulumi.Input<string>[]>;
+    iamRoleArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -139,13 +139,13 @@ export interface ClusterIamRolesArgs {
     /**
      * The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
      */
-    defaultIamRoleArn?: pulumi.Input<string>;
+    defaultIamRoleArn?: pulumi.Input<string | undefined>;
     /**
      * A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
      */
-    iamRoleArns?: pulumi.Input<pulumi.Input<string>[]>;
+    iamRoleArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

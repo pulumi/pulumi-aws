@@ -155,34 +155,34 @@ export interface MultiplexState {
     /**
      * ARN of the Multiplex.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * A list of availability zones. You must specify exactly two.
      */
-    availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
+    availabilityZones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Multiplex settings. See Multiplex Settings for more details.
      */
-    multiplexSettings?: pulumi.Input<inputs.medialive.MultiplexMultiplexSettings>;
+    multiplexSettings?: pulumi.Input<inputs.medialive.MultiplexMultiplexSettings | undefined>;
     /**
      * name of Multiplex.
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Whether to start the Multiplex. Defaults to `false`.
      */
-    startMultiplex?: pulumi.Input<boolean>;
+    startMultiplex?: pulumi.Input<boolean | undefined>;
     /**
      * A map of tags to assign to the Multiplex. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -196,23 +196,23 @@ export interface MultiplexArgs {
     /**
      * Multiplex settings. See Multiplex Settings for more details.
      */
-    multiplexSettings?: pulumi.Input<inputs.medialive.MultiplexMultiplexSettings>;
+    multiplexSettings?: pulumi.Input<inputs.medialive.MultiplexMultiplexSettings | undefined>;
     /**
      * name of Multiplex.
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Whether to start the Multiplex. Defaults to `false`.
      */
-    startMultiplex?: pulumi.Input<boolean>;
+    startMultiplex?: pulumi.Input<boolean | undefined>;
     /**
      * A map of tags to assign to the Multiplex. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -218,43 +218,43 @@ export interface FileSystemAssociationState {
     /**
      * Amazon Resource Name (ARN) of the newly created file system association.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the storage used for the audit logs.
      */
-    auditDestinationArn?: pulumi.Input<string>;
+    auditDestinationArn?: pulumi.Input<string | undefined>;
     /**
      * Refresh cache information. see Cache Attributes for more details.
      */
-    cacheAttributes?: pulumi.Input<inputs.storagegateway.FileSystemAssociationCacheAttributes>;
+    cacheAttributes?: pulumi.Input<inputs.storagegateway.FileSystemAssociationCacheAttributes | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the gateway.
      */
-    gatewayArn?: pulumi.Input<string>;
+    gatewayArn?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
      */
-    locationArn?: pulumi.Input<string>;
+    locationArn?: pulumi.Input<string | undefined>;
     /**
      * The password of the user credential.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The user name of the user credential that has permission to access the root share of the Amazon FSx file system. The user account must belong to the Amazon FSx delegated admin user group.
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -264,11 +264,11 @@ export interface FileSystemAssociationArgs {
     /**
      * The Amazon Resource Name (ARN) of the storage used for the audit logs.
      */
-    auditDestinationArn?: pulumi.Input<string>;
+    auditDestinationArn?: pulumi.Input<string | undefined>;
     /**
      * Refresh cache information. see Cache Attributes for more details.
      */
-    cacheAttributes?: pulumi.Input<inputs.storagegateway.FileSystemAssociationCacheAttributes>;
+    cacheAttributes?: pulumi.Input<inputs.storagegateway.FileSystemAssociationCacheAttributes | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the gateway.
      */
@@ -284,11 +284,11 @@ export interface FileSystemAssociationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The user name of the user credential that has permission to access the root share of the Amazon FSx file system. The user account must belong to the Amazon FSx delegated admin user group.
      */

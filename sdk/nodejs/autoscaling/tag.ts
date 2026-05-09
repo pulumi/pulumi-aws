@@ -133,15 +133,15 @@ export interface TagState {
     /**
      * Name of the Autoscaling Group to apply the tag to.
      */
-    autoscalingGroupName?: pulumi.Input<string>;
+    autoscalingGroupName?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Tag to create. The `tag` block is documented below.
      */
-    tag?: pulumi.Input<inputs.autoscaling.TagTag>;
+    tag?: pulumi.Input<inputs.autoscaling.TagTag | undefined>;
 }
 
 /**
@@ -155,7 +155,7 @@ export interface TagArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Tag to create. The `tag` block is documented below.
      */

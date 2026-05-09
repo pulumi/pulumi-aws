@@ -22,8 +22,8 @@ __all__ = ['KeyvaluestoreKeysExclusiveArgs', 'KeyvaluestoreKeysExclusive']
 class KeyvaluestoreKeysExclusiveArgs:
     def __init__(__self__, *,
                  key_value_store_arn: pulumi.Input[_builtins.str],
-                 max_batch_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_key_value_pairs: Optional[pulumi.Input[Sequence[pulumi.Input['KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs']]]] = None):
+                 max_batch_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_key_value_pairs: pulumi.Input[Optional[Sequence[pulumi.Input['KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs']]]] = None):
         """
         The set of arguments for constructing a KeyvaluestoreKeysExclusive resource.
 
@@ -56,19 +56,19 @@ class KeyvaluestoreKeysExclusiveArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxBatchSize")
-    def max_batch_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_batch_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum resource key values pairs that will update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first. Defaults to `50`.
         """
         return pulumi.get(self, "max_batch_size")
 
     @max_batch_size.setter
-    def max_batch_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_batch_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_batch_size", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceKeyValuePairs")
-    def resource_key_value_pairs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs']]]]:
+    def resource_key_value_pairs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs']]]]:
         """
         A list of all resource key value pairs associated with the KeyValueStore.
         See `resource_key_value_pair` below.
@@ -76,17 +76,17 @@ class KeyvaluestoreKeysExclusiveArgs:
         return pulumi.get(self, "resource_key_value_pairs")
 
     @resource_key_value_pairs.setter
-    def resource_key_value_pairs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs']]]]):
+    def resource_key_value_pairs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs']]]]):
         pulumi.set(self, "resource_key_value_pairs", value)
 
 
 @pulumi.input_type
 class _KeyvaluestoreKeysExclusiveState:
     def __init__(__self__, *,
-                 key_value_store_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_batch_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_key_value_pairs: Optional[pulumi.Input[Sequence[pulumi.Input['KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs']]]] = None,
-                 total_size_in_bytes: Optional[pulumi.Input[_builtins.int]] = None):
+                 key_value_store_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_batch_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_key_value_pairs: pulumi.Input[Optional[Sequence[pulumi.Input['KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs']]]] = None,
+                 total_size_in_bytes: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering KeyvaluestoreKeysExclusive resources.
 
@@ -109,7 +109,7 @@ class _KeyvaluestoreKeysExclusiveState:
 
     @_builtins.property
     @pulumi.getter(name="keyValueStoreArn")
-    def key_value_store_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_value_store_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) of the Key Value Store.
 
@@ -118,24 +118,24 @@ class _KeyvaluestoreKeysExclusiveState:
         return pulumi.get(self, "key_value_store_arn")
 
     @key_value_store_arn.setter
-    def key_value_store_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_value_store_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_value_store_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="maxBatchSize")
-    def max_batch_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_batch_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum resource key values pairs that will update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first. Defaults to `50`.
         """
         return pulumi.get(self, "max_batch_size")
 
     @max_batch_size.setter
-    def max_batch_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_batch_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_batch_size", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceKeyValuePairs")
-    def resource_key_value_pairs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs']]]]:
+    def resource_key_value_pairs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs']]]]:
         """
         A list of all resource key value pairs associated with the KeyValueStore.
         See `resource_key_value_pair` below.
@@ -143,19 +143,19 @@ class _KeyvaluestoreKeysExclusiveState:
         return pulumi.get(self, "resource_key_value_pairs")
 
     @resource_key_value_pairs.setter
-    def resource_key_value_pairs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs']]]]):
+    def resource_key_value_pairs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs']]]]):
         pulumi.set(self, "resource_key_value_pairs", value)
 
     @_builtins.property
     @pulumi.getter(name="totalSizeInBytes")
-    def total_size_in_bytes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def total_size_in_bytes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Total size of the Key Value Store in bytes.
         """
         return pulumi.get(self, "total_size_in_bytes")
 
     @total_size_in_bytes.setter
-    def total_size_in_bytes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def total_size_in_bytes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "total_size_in_bytes", value)
 
 
@@ -165,9 +165,9 @@ class KeyvaluestoreKeysExclusive(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 key_value_store_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_batch_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_key_value_pairs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs', 'KeyvaluestoreKeysExclusiveResourceKeyValuePairArgsDict']]]]] = None,
+                 key_value_store_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_batch_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_key_value_pairs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs', 'KeyvaluestoreKeysExclusiveResourceKeyValuePairArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource for maintaining exclusive management of resource key value pairs defined in an AWS CloudFront KeyValueStore.
@@ -295,9 +295,9 @@ class KeyvaluestoreKeysExclusive(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 key_value_store_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_batch_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_key_value_pairs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs', 'KeyvaluestoreKeysExclusiveResourceKeyValuePairArgsDict']]]]] = None,
+                 key_value_store_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_batch_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_key_value_pairs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs', 'KeyvaluestoreKeysExclusiveResourceKeyValuePairArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -323,10 +323,10 @@ class KeyvaluestoreKeysExclusive(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            key_value_store_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            max_batch_size: Optional[pulumi.Input[_builtins.int]] = None,
-            resource_key_value_pairs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs', 'KeyvaluestoreKeysExclusiveResourceKeyValuePairArgsDict']]]]] = None,
-            total_size_in_bytes: Optional[pulumi.Input[_builtins.int]] = None) -> 'KeyvaluestoreKeysExclusive':
+            key_value_store_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            max_batch_size: pulumi.Input[Optional[_builtins.int]] = None,
+            resource_key_value_pairs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs', 'KeyvaluestoreKeysExclusiveResourceKeyValuePairArgsDict']]]]] = None,
+            total_size_in_bytes: pulumi.Input[Optional[_builtins.int]] = None) -> 'KeyvaluestoreKeysExclusive':
         """
         Get an existing KeyvaluestoreKeysExclusive resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

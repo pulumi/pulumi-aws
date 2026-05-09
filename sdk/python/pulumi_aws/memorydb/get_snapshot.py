@@ -181,9 +181,9 @@ def get_snapshot(name: Optional[_builtins.str] = None,
         region=pulumi.get(__ret__, 'region'),
         source=pulumi.get(__ret__, 'source'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_snapshot_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                        region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                        tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_snapshot_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                        region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSnapshotResult]:
     """
     Provides information about a MemoryDB Snapshot.

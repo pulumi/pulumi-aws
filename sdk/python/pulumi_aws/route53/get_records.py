@@ -130,8 +130,8 @@ def get_records(name_regex: Optional[_builtins.str] = None,
         name_regex=pulumi.get(__ret__, 'name_regex'),
         resource_record_sets=pulumi.get(__ret__, 'resource_record_sets'),
         zone_id=pulumi.get(__ret__, 'zone_id'))
-def get_records_output(name_regex: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                       zone_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_records_output(name_regex: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       zone_id: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRecordsResult]:
     """
     Use this data source to get the details of resource records in a Route 53 hosted zone.

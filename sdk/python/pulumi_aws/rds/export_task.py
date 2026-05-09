@@ -26,10 +26,10 @@ class ExportTaskArgs:
                  kms_key_id: pulumi.Input[_builtins.str],
                  s3_bucket_name: pulumi.Input[_builtins.str],
                  source_arn: pulumi.Input[_builtins.str],
-                 export_onlies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input['ExportTaskTimeoutsArgs']] = None):
+                 export_onlies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional['ExportTaskTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a ExportTask resource.
 
@@ -122,70 +122,70 @@ class ExportTaskArgs:
 
     @_builtins.property
     @pulumi.getter(name="exportOnlies")
-    def export_onlies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def export_onlies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Data to be exported from the snapshot. If this parameter is not provided, all the snapshot data is exported. Valid values are documented in the [AWS StartExportTask API documentation](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartExportTask.html#API_StartExportTask_RequestParameters).
         """
         return pulumi.get(self, "export_onlies")
 
     @export_onlies.setter
-    def export_onlies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def export_onlies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "export_onlies", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="s3Prefix")
-    def s3_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
         """
         return pulumi.get(self, "s3_prefix")
 
     @s3_prefix.setter
-    def s3_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_prefix", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['ExportTaskTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['ExportTaskTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['ExportTaskTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['ExportTaskTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _ExportTaskState:
     def __init__(__self__, *,
-                 export_onlies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 export_task_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 failure_cause: Optional[pulumi.Input[_builtins.str]] = None,
-                 iam_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 percent_progress: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshot_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 task_end_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 task_start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input['ExportTaskTimeoutsArgs']] = None,
-                 warning_message: Optional[pulumi.Input[_builtins.str]] = None):
+                 export_onlies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 export_task_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 failure_cause: pulumi.Input[Optional[_builtins.str]] = None,
+                 iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 percent_progress: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshot_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 task_end_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 task_start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional['ExportTaskTimeoutsArgs']] = None,
+                 warning_message: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ExportTask resources.
 
@@ -245,127 +245,127 @@ class _ExportTaskState:
 
     @_builtins.property
     @pulumi.getter(name="exportOnlies")
-    def export_onlies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def export_onlies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Data to be exported from the snapshot. If this parameter is not provided, all the snapshot data is exported. Valid values are documented in the [AWS StartExportTask API documentation](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartExportTask.html#API_StartExportTask_RequestParameters).
         """
         return pulumi.get(self, "export_onlies")
 
     @export_onlies.setter
-    def export_onlies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def export_onlies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "export_onlies", value)
 
     @_builtins.property
     @pulumi.getter(name="exportTaskIdentifier")
-    def export_task_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def export_task_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique identifier for the snapshot export task.
         """
         return pulumi.get(self, "export_task_identifier")
 
     @export_task_identifier.setter
-    def export_task_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def export_task_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "export_task_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="failureCause")
-    def failure_cause(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def failure_cause(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Reason the export failed, if it failed.
         """
         return pulumi.get(self, "failure_cause")
 
     @failure_cause.setter
-    def failure_cause(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def failure_cause(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "failure_cause", value)
 
     @_builtins.property
     @pulumi.getter(name="iamRoleArn")
-    def iam_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def iam_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the IAM role to use for writing to the Amazon S3 bucket.
         """
         return pulumi.get(self, "iam_role_arn")
 
     @iam_role_arn.setter
-    def iam_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def iam_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "iam_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the Amazon Web Services KMS key to use to encrypt the snapshot.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="percentProgress")
-    def percent_progress(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def percent_progress(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Progress of the snapshot export task as a percentage.
         """
         return pulumi.get(self, "percent_progress")
 
     @percent_progress.setter
-    def percent_progress(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def percent_progress(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "percent_progress", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="s3BucketName")
-    def s3_bucket_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_bucket_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Amazon S3 bucket to export the snapshot to.
         """
         return pulumi.get(self, "s3_bucket_name")
 
     @s3_bucket_name.setter
-    def s3_bucket_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_bucket_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_bucket_name", value)
 
     @_builtins.property
     @pulumi.getter(name="s3Prefix")
-    def s3_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
         """
         return pulumi.get(self, "s3_prefix")
 
     @s3_prefix.setter
-    def s3_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotTime")
-    def snapshot_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def snapshot_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Time that the snapshot was created.
         """
         return pulumi.get(self, "snapshot_time")
 
     @snapshot_time.setter
-    def snapshot_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def snapshot_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "snapshot_time", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceArn")
-    def source_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) of the snapshot to export.
 
@@ -374,76 +374,76 @@ class _ExportTaskState:
         return pulumi.get(self, "source_arn")
 
     @source_arn.setter
-    def source_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceType")
-    def source_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of source for the export.
         """
         return pulumi.get(self, "source_type")
 
     @source_type.setter
-    def source_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Status of the export task.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="taskEndTime")
-    def task_end_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def task_end_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Time that the snapshot export task completed.
         """
         return pulumi.get(self, "task_end_time")
 
     @task_end_time.setter
-    def task_end_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def task_end_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "task_end_time", value)
 
     @_builtins.property
     @pulumi.getter(name="taskStartTime")
-    def task_start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def task_start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Time that the snapshot export task started.
         """
         return pulumi.get(self, "task_start_time")
 
     @task_start_time.setter
-    def task_start_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def task_start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "task_start_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['ExportTaskTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['ExportTaskTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['ExportTaskTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['ExportTaskTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter(name="warningMessage")
-    def warning_message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def warning_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Warning about the snapshot export task, if any.
         """
         return pulumi.get(self, "warning_message")
 
     @warning_message.setter
-    def warning_message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def warning_message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "warning_message", value)
 
 
@@ -453,15 +453,15 @@ class ExportTask(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 export_onlies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 export_task_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 iam_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input[Union['ExportTaskTimeoutsArgs', 'ExportTaskTimeoutsArgsDict']]] = None,
+                 export_onlies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 export_task_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ExportTaskTimeoutsArgs', 'ExportTaskTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS RDS (Relational Database) Export Task.
@@ -709,15 +709,15 @@ class ExportTask(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 export_onlies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 export_task_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 iam_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input[Union['ExportTaskTimeoutsArgs', 'ExportTaskTimeoutsArgsDict']]] = None,
+                 export_onlies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 export_task_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ExportTaskTimeoutsArgs', 'ExportTaskTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -764,23 +764,23 @@ class ExportTask(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            export_onlies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            export_task_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-            failure_cause: Optional[pulumi.Input[_builtins.str]] = None,
-            iam_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-            percent_progress: Optional[pulumi.Input[_builtins.int]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            s3_bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
-            s3_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-            snapshot_time: Optional[pulumi.Input[_builtins.str]] = None,
-            source_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            source_type: Optional[pulumi.Input[_builtins.str]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            task_end_time: Optional[pulumi.Input[_builtins.str]] = None,
-            task_start_time: Optional[pulumi.Input[_builtins.str]] = None,
-            timeouts: Optional[pulumi.Input[Union['ExportTaskTimeoutsArgs', 'ExportTaskTimeoutsArgsDict']]] = None,
-            warning_message: Optional[pulumi.Input[_builtins.str]] = None) -> 'ExportTask':
+            export_onlies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            export_task_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            failure_cause: pulumi.Input[Optional[_builtins.str]] = None,
+            iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            percent_progress: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            s3_bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+            s3_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            snapshot_time: pulumi.Input[Optional[_builtins.str]] = None,
+            source_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            source_type: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            task_end_time: pulumi.Input[Optional[_builtins.str]] = None,
+            task_start_time: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['ExportTaskTimeoutsArgs', 'ExportTaskTimeoutsArgsDict']]] = None,
+            warning_message: pulumi.Input[Optional[_builtins.str]] = None) -> 'ExportTask':
         """
         Get an existing ExportTask resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

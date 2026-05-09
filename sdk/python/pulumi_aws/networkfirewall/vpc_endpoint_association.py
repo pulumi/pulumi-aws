@@ -24,10 +24,10 @@ class VpcEndpointAssociationArgs:
                  firewall_arn: pulumi.Input[_builtins.str],
                  subnet_mapping: pulumi.Input['VpcEndpointAssociationSubnetMappingArgs'],
                  vpc_id: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['VpcEndpointAssociationTimeoutsArgs']] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['VpcEndpointAssociationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a VpcEndpointAssociation resource.
 
@@ -88,64 +88,64 @@ class VpcEndpointAssociationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the VPC endpoint association.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['VpcEndpointAssociationTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['VpcEndpointAssociationTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['VpcEndpointAssociationTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['VpcEndpointAssociationTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _VpcEndpointAssociationState:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 firewall_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_mapping: Optional[pulumi.Input['VpcEndpointAssociationSubnetMappingArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['VpcEndpointAssociationTimeoutsArgs']] = None,
-                 vpc_endpoint_association_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_endpoint_association_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_endpoint_association_statuses: Optional[pulumi.Input[Sequence[pulumi.Input['VpcEndpointAssociationVpcEndpointAssociationStatusArgs']]]] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 firewall_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_mapping: pulumi.Input[Optional['VpcEndpointAssociationSubnetMappingArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['VpcEndpointAssociationTimeoutsArgs']] = None,
+                 vpc_endpoint_association_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_endpoint_association_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_endpoint_association_statuses: pulumi.Input[Optional[Sequence[pulumi.Input['VpcEndpointAssociationVpcEndpointAssociationStatusArgs']]]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VpcEndpointAssociation resources.
 
@@ -185,131 +185,131 @@ class _VpcEndpointAssociationState:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the VPC endpoint association.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="firewallArn")
-    def firewall_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def firewall_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) that identifies the firewall.
         """
         return pulumi.get(self, "firewall_arn")
 
     @firewall_arn.setter
-    def firewall_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def firewall_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "firewall_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetMapping")
-    def subnet_mapping(self) -> Optional[pulumi.Input['VpcEndpointAssociationSubnetMappingArgs']]:
+    def subnet_mapping(self) -> pulumi.Input[Optional['VpcEndpointAssociationSubnetMappingArgs']]:
         """
         The ID for a subnet that's used in an association with a firewall. See Subnet Mapping below for details.
         """
         return pulumi.get(self, "subnet_mapping")
 
     @subnet_mapping.setter
-    def subnet_mapping(self, value: Optional[pulumi.Input['VpcEndpointAssociationSubnetMappingArgs']]):
+    def subnet_mapping(self, value: pulumi.Input[Optional['VpcEndpointAssociationSubnetMappingArgs']]):
         pulumi.set(self, "subnet_mapping", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['VpcEndpointAssociationTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['VpcEndpointAssociationTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['VpcEndpointAssociationTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['VpcEndpointAssociationTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcEndpointAssociationArn")
-    def vpc_endpoint_association_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_endpoint_association_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the VPC Endpoint Association.
         """
         return pulumi.get(self, "vpc_endpoint_association_arn")
 
     @vpc_endpoint_association_arn.setter
-    def vpc_endpoint_association_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_endpoint_association_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_endpoint_association_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcEndpointAssociationId")
-    def vpc_endpoint_association_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_endpoint_association_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique identifier of the VPC endpoint association.
         """
         return pulumi.get(self, "vpc_endpoint_association_id")
 
     @vpc_endpoint_association_id.setter
-    def vpc_endpoint_association_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_endpoint_association_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_endpoint_association_id", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcEndpointAssociationStatuses")
-    def vpc_endpoint_association_statuses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpcEndpointAssociationVpcEndpointAssociationStatusArgs']]]]:
+    def vpc_endpoint_association_statuses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VpcEndpointAssociationVpcEndpointAssociationStatusArgs']]]]:
         """
         Nested list of information about the current status of the VPC Endpoint Association.
         """
         return pulumi.get(self, "vpc_endpoint_association_statuses")
 
     @vpc_endpoint_association_statuses.setter
-    def vpc_endpoint_association_statuses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpcEndpointAssociationVpcEndpointAssociationStatusArgs']]]]):
+    def vpc_endpoint_association_statuses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VpcEndpointAssociationVpcEndpointAssociationStatusArgs']]]]):
         pulumi.set(self, "vpc_endpoint_association_statuses", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique identifier of the VPC for the endpoint association.
         """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
-    def vpc_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_id", value)
 
 
@@ -319,13 +319,13 @@ class VpcEndpointAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 firewall_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_mapping: Optional[pulumi.Input[Union['VpcEndpointAssociationSubnetMappingArgs', 'VpcEndpointAssociationSubnetMappingArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['VpcEndpointAssociationTimeoutsArgs', 'VpcEndpointAssociationTimeoutsArgsDict']]] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 firewall_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_mapping: pulumi.Input[Optional[Union['VpcEndpointAssociationSubnetMappingArgs', 'VpcEndpointAssociationSubnetMappingArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['VpcEndpointAssociationTimeoutsArgs', 'VpcEndpointAssociationTimeoutsArgsDict']]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a firewall endpoint for an AWS Network Firewall firewall.
@@ -423,13 +423,13 @@ class VpcEndpointAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 firewall_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_mapping: Optional[pulumi.Input[Union['VpcEndpointAssociationSubnetMappingArgs', 'VpcEndpointAssociationSubnetMappingArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['VpcEndpointAssociationTimeoutsArgs', 'VpcEndpointAssociationTimeoutsArgsDict']]] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 firewall_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_mapping: pulumi.Input[Optional[Union['VpcEndpointAssociationSubnetMappingArgs', 'VpcEndpointAssociationSubnetMappingArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['VpcEndpointAssociationTimeoutsArgs', 'VpcEndpointAssociationTimeoutsArgsDict']]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -466,17 +466,17 @@ class VpcEndpointAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            firewall_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            subnet_mapping: Optional[pulumi.Input[Union['VpcEndpointAssociationSubnetMappingArgs', 'VpcEndpointAssociationSubnetMappingArgsDict']]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: Optional[pulumi.Input[Union['VpcEndpointAssociationTimeoutsArgs', 'VpcEndpointAssociationTimeoutsArgsDict']]] = None,
-            vpc_endpoint_association_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            vpc_endpoint_association_id: Optional[pulumi.Input[_builtins.str]] = None,
-            vpc_endpoint_association_statuses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpcEndpointAssociationVpcEndpointAssociationStatusArgs', 'VpcEndpointAssociationVpcEndpointAssociationStatusArgsDict']]]]] = None,
-            vpc_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'VpcEndpointAssociation':
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            firewall_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_mapping: pulumi.Input[Optional[Union['VpcEndpointAssociationSubnetMappingArgs', 'VpcEndpointAssociationSubnetMappingArgsDict']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['VpcEndpointAssociationTimeoutsArgs', 'VpcEndpointAssociationTimeoutsArgsDict']]] = None,
+            vpc_endpoint_association_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            vpc_endpoint_association_id: pulumi.Input[Optional[_builtins.str]] = None,
+            vpc_endpoint_association_statuses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VpcEndpointAssociationVpcEndpointAssociationStatusArgs', 'VpcEndpointAssociationVpcEndpointAssociationStatusArgsDict']]]]] = None,
+            vpc_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'VpcEndpointAssociation':
         """
         Get an existing VpcEndpointAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

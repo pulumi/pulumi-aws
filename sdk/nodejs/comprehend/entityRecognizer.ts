@@ -219,25 +219,25 @@ export interface EntityRecognizerState {
     /**
      * ARN of the Entity Recognizer version.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The ARN for an IAM Role which allows Comprehend to read the training and testing data.
      */
-    dataAccessRoleArn?: pulumi.Input<string>;
+    dataAccessRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Configuration for the training and testing data.
      * See the `inputDataConfig` Configuration Block section below.
      */
-    inputDataConfig?: pulumi.Input<inputs.comprehend.EntityRecognizerInputDataConfig>;
+    inputDataConfig?: pulumi.Input<inputs.comprehend.EntityRecognizerInputDataConfig | undefined>;
     /**
      * Two-letter language code for the language.
      * One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
      */
-    languageCode?: pulumi.Input<string>;
+    languageCode?: pulumi.Input<string | undefined>;
     /**
      * The ID or ARN of a KMS Key used to encrypt trained Entity Recognizers.
      */
-    modelKmsKeyId?: pulumi.Input<string>;
+    modelKmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * Name for the Entity Recognizer.
      * Has a maximum length of 63 characters.
@@ -245,19 +245,19 @@ export interface EntityRecognizerState {
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Name for the version of the Entity Recognizer.
      * Each version must have a unique name within the Entity Recognizer.
@@ -267,23 +267,23 @@ export interface EntityRecognizerState {
      * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
      * Conflicts with `versionNamePrefix`.
      */
-    versionName?: pulumi.Input<string>;
+    versionName?: pulumi.Input<string | undefined>;
     /**
      * Creates a unique version name beginning with the specified prefix.
      * Has a maximum length of 37 characters.
      * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
      * Conflicts with `versionName`.
      */
-    versionNamePrefix?: pulumi.Input<string>;
+    versionNamePrefix?: pulumi.Input<string | undefined>;
     /**
      * ID or ARN of a KMS Key used to encrypt storage volumes during job processing.
      */
-    volumeKmsKeyId?: pulumi.Input<string>;
+    volumeKmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * Configuration parameters for VPC to contain Entity Recognizer resources.
      * See the `vpcConfig` Configuration Block section below.
      */
-    vpcConfig?: pulumi.Input<inputs.comprehend.EntityRecognizerVpcConfig>;
+    vpcConfig?: pulumi.Input<inputs.comprehend.EntityRecognizerVpcConfig | undefined>;
 }
 
 /**
@@ -307,7 +307,7 @@ export interface EntityRecognizerArgs {
     /**
      * The ID or ARN of a KMS Key used to encrypt trained Entity Recognizers.
      */
-    modelKmsKeyId?: pulumi.Input<string>;
+    modelKmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * Name for the Entity Recognizer.
      * Has a maximum length of 63 characters.
@@ -315,15 +315,15 @@ export interface EntityRecognizerArgs {
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Name for the version of the Entity Recognizer.
      * Each version must have a unique name within the Entity Recognizer.
@@ -333,21 +333,21 @@ export interface EntityRecognizerArgs {
      * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
      * Conflicts with `versionNamePrefix`.
      */
-    versionName?: pulumi.Input<string>;
+    versionName?: pulumi.Input<string | undefined>;
     /**
      * Creates a unique version name beginning with the specified prefix.
      * Has a maximum length of 37 characters.
      * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
      * Conflicts with `versionName`.
      */
-    versionNamePrefix?: pulumi.Input<string>;
+    versionNamePrefix?: pulumi.Input<string | undefined>;
     /**
      * ID or ARN of a KMS Key used to encrypt storage volumes during job processing.
      */
-    volumeKmsKeyId?: pulumi.Input<string>;
+    volumeKmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * Configuration parameters for VPC to contain Entity Recognizer resources.
      * See the `vpcConfig` Configuration Block section below.
      */
-    vpcConfig?: pulumi.Input<inputs.comprehend.EntityRecognizerVpcConfig>;
+    vpcConfig?: pulumi.Input<inputs.comprehend.EntityRecognizerVpcConfig | undefined>;
 }

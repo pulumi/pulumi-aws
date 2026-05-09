@@ -184,31 +184,31 @@ export interface DeliveryChannelState {
     /**
      * The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The name of the S3 bucket used to store the configuration history.
      */
-    s3BucketName?: pulumi.Input<string>;
+    s3BucketName?: pulumi.Input<string | undefined>;
     /**
      * The prefix for the specified S3 bucket.
      */
-    s3KeyPrefix?: pulumi.Input<string>;
+    s3KeyPrefix?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the AWS KMS key used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
      */
-    s3KmsKeyArn?: pulumi.Input<string>;
+    s3KmsKeyArn?: pulumi.Input<string | undefined>;
     /**
      * Options for how AWS Config delivers configuration snapshots. See below
      */
-    snapshotDeliveryProperties?: pulumi.Input<inputs.cfg.DeliveryChannelSnapshotDeliveryProperties>;
+    snapshotDeliveryProperties?: pulumi.Input<inputs.cfg.DeliveryChannelSnapshotDeliveryProperties | undefined>;
     /**
      * The ARN of the SNS topic that AWS Config delivers notifications to.
      */
-    snsTopicArn?: pulumi.Input<string>;
+    snsTopicArn?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -218,11 +218,11 @@ export interface DeliveryChannelArgs {
     /**
      * The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The name of the S3 bucket used to store the configuration history.
      */
@@ -230,17 +230,17 @@ export interface DeliveryChannelArgs {
     /**
      * The prefix for the specified S3 bucket.
      */
-    s3KeyPrefix?: pulumi.Input<string>;
+    s3KeyPrefix?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the AWS KMS key used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
      */
-    s3KmsKeyArn?: pulumi.Input<string>;
+    s3KmsKeyArn?: pulumi.Input<string | undefined>;
     /**
      * Options for how AWS Config delivers configuration snapshots. See below
      */
-    snapshotDeliveryProperties?: pulumi.Input<inputs.cfg.DeliveryChannelSnapshotDeliveryProperties>;
+    snapshotDeliveryProperties?: pulumi.Input<inputs.cfg.DeliveryChannelSnapshotDeliveryProperties | undefined>;
     /**
      * The ARN of the SNS topic that AWS Config delivers notifications to.
      */
-    snsTopicArn?: pulumi.Input<string>;
+    snsTopicArn?: pulumi.Input<string | undefined>;
 }

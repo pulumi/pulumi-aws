@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleGetSubnet = example.then(example => std.toset({
  *     input: example.ids,
- * })).then(invoke => .reduce((__obj, [__key, __value]) => ({ ...__obj, [__key]: aws.ec2.getSubnet({
+ * })).then(invoke => .reduce((__obj, [__key, __value]) => ({ ...__obj, [String(__key)]: aws.ec2.getSubnet({
  *     id: __value,
  * }) }), {}));
  * export const subnetCidrBlocks = exampleGetSubnet.apply(exampleGetSubnet => Object.values(exampleGetSubnet).map(s => (s.cidrBlock)));
@@ -130,7 +130,7 @@ export interface GetSubnetsResult {
  * });
  * const exampleGetSubnet = example.then(example => std.toset({
  *     input: example.ids,
- * })).then(invoke => .reduce((__obj, [__key, __value]) => ({ ...__obj, [__key]: aws.ec2.getSubnet({
+ * })).then(invoke => .reduce((__obj, [__key, __value]) => ({ ...__obj, [String(__key)]: aws.ec2.getSubnet({
  *     id: __value,
  * }) }), {}));
  * export const subnetCidrBlocks = exampleGetSubnet.apply(exampleGetSubnet => Object.values(exampleGetSubnet).map(s => (s.cidrBlock)));
@@ -185,14 +185,14 @@ export interface GetSubnetsOutputArgs {
     /**
      * Custom filter block as described below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetSubnetsFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetSubnetsFilterArgs>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired subnets.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

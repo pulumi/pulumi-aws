@@ -124,16 +124,16 @@ export interface ProxyProtocolPolicyState {
      * List of instance ports to which the policy
      * should be applied. This can be specified if the protocol is SSL or TCP.
      */
-    instancePorts?: pulumi.Input<pulumi.Input<string>[]>;
+    instancePorts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The load balancer to which the policy
      * should be attached.
      */
-    loadBalancer?: pulumi.Input<string>;
+    loadBalancer?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -153,5 +153,5 @@ export interface ProxyProtocolPolicyArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

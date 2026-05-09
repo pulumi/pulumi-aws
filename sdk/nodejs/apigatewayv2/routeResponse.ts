@@ -139,27 +139,27 @@ export interface RouteResponseState {
     /**
      * API identifier.
      */
-    apiId?: pulumi.Input<string>;
+    apiId?: pulumi.Input<string | undefined>;
     /**
      * The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
      */
-    modelSelectionExpression?: pulumi.Input<string>;
+    modelSelectionExpression?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Response models for the route response.
      */
-    responseModels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    responseModels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Identifier of the `aws.apigatewayv2.Route`.
      */
-    routeId?: pulumi.Input<string>;
+    routeId?: pulumi.Input<string | undefined>;
     /**
      * Route response key.
      */
-    routeResponseKey?: pulumi.Input<string>;
+    routeResponseKey?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -173,15 +173,15 @@ export interface RouteResponseArgs {
     /**
      * The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
      */
-    modelSelectionExpression?: pulumi.Input<string>;
+    modelSelectionExpression?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Response models for the route response.
      */
-    responseModels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    responseModels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Identifier of the `aws.apigatewayv2.Route`.
      */

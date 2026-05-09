@@ -190,69 +190,69 @@ export interface NetworkInsightsAnalysisState {
     /**
      * Potential intermediate components of a feasible path. Described below.
      */
-    alternatePathHints?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInsightsAnalysisAlternatePathHint>[]>;
+    alternatePathHints?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInsightsAnalysisAlternatePathHint>[] | undefined>;
     /**
      * ARN of the Network Insights Analysis.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Explanation codes for an unreachable path. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Explanation.html) for details.
      */
-    explanations?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInsightsAnalysisExplanation>[]>;
+    explanations?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInsightsAnalysisExplanation>[] | undefined>;
     /**
      * A list of ARNs for resources the path must traverse.
      */
-    filterInArns?: pulumi.Input<pulumi.Input<string>[]>;
+    filterInArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The components in the path from source to destination. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
      */
-    forwardPathComponents?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInsightsAnalysisForwardPathComponent>[]>;
+    forwardPathComponents?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInsightsAnalysisForwardPathComponent>[] | undefined>;
     /**
      * ID of the Network Insights Path to run an analysis on.
      *
      * The following arguments are optional:
      */
-    networkInsightsPathId?: pulumi.Input<string>;
+    networkInsightsPathId?: pulumi.Input<string | undefined>;
     /**
      * Set to `true` if the destination was reachable.
      */
-    pathFound?: pulumi.Input<boolean>;
+    pathFound?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The components in the path from destination to source. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
      */
-    returnPathComponents?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInsightsAnalysisReturnPathComponent>[]>;
+    returnPathComponents?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInsightsAnalysisReturnPathComponent>[] | undefined>;
     /**
      * The date/time the analysis was started.
      */
-    startDate?: pulumi.Input<string>;
+    startDate?: pulumi.Input<string | undefined>;
     /**
      * The status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `pathFound`.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * A message to provide more context when the `status` is `failed`.
      */
-    statusMessage?: pulumi.Input<string>;
+    statusMessage?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * If enabled, the resource will wait for the Network Insights Analysis status to change to `succeeded` or `failed`. Setting this to `false` will skip the process. Default: `true`.
      */
-    waitForCompletion?: pulumi.Input<boolean>;
+    waitForCompletion?: pulumi.Input<boolean | undefined>;
     /**
      * The warning message.
      */
-    warningMessage?: pulumi.Input<string>;
+    warningMessage?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -262,7 +262,7 @@ export interface NetworkInsightsAnalysisArgs {
     /**
      * A list of ARNs for resources the path must traverse.
      */
-    filterInArns?: pulumi.Input<pulumi.Input<string>[]>;
+    filterInArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * ID of the Network Insights Path to run an analysis on.
      *
@@ -272,13 +272,13 @@ export interface NetworkInsightsAnalysisArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * If enabled, the resource will wait for the Network Insights Analysis status to change to `succeeded` or `failed`. Setting this to `false` will skip the process. Default: `true`.
      */
-    waitForCompletion?: pulumi.Input<boolean>;
+    waitForCompletion?: pulumi.Input<boolean | undefined>;
 }

@@ -99,5 +99,5 @@ export interface GetGatewayOutputArgs {
     /**
      * A map of tags assigned to the gateway.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

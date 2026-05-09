@@ -136,27 +136,27 @@ export interface OrganizationalUnitState {
     /**
      * List of child accounts for this Organizational Unit. Does not return account information for child Organizational Units. All elements have these attributes:
      */
-    accounts?: pulumi.Input<pulumi.Input<inputs.organizations.OrganizationalUnitAccount>[]>;
+    accounts?: pulumi.Input<pulumi.Input<inputs.organizations.OrganizationalUnitAccount>[] | undefined>;
     /**
      * ARN of the organizational unit
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The name for the organizational unit
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * ID of the parent organizational unit, which may be the root
      */
-    parentId?: pulumi.Input<string>;
+    parentId?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -166,7 +166,7 @@ export interface OrganizationalUnitArgs {
     /**
      * The name for the organizational unit
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * ID of the parent organizational unit, which may be the root
      */
@@ -174,5 +174,5 @@ export interface OrganizationalUnitArgs {
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

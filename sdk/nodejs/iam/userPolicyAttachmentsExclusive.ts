@@ -124,11 +124,11 @@ export interface UserPolicyAttachmentsExclusiveState {
     /**
      * A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
      */
-    policyArns?: pulumi.Input<pulumi.Input<string>[]>;
+    policyArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * IAM user name.
      */
-    userName?: pulumi.Input<string>;
+    userName?: pulumi.Input<string | undefined>;
 }
 
 /**

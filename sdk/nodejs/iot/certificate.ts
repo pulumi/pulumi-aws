@@ -172,19 +172,19 @@ export interface CertificateState {
     /**
      * Boolean flag to indicate if the certificate should be active
      */
-    active?: pulumi.Input<boolean>;
+    active?: pulumi.Input<boolean | undefined>;
     /**
      * The ARN of the created certificate.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The certificate ID of the CA certificate used to sign the certificate.
      */
-    caCertificateId?: pulumi.Input<string>;
+    caCertificateId?: pulumi.Input<string | undefined>;
     /**
      * The CA certificate for the certificate to be registered. If this is set, the CA needs to be registered with AWS IoT beforehand.
      */
-    caPem?: pulumi.Input<string>;
+    caPem?: pulumi.Input<string | undefined>;
     /**
      * The certificate to be registered. If `caPem` is unspecified, review
      * [RegisterCertificateWithoutCA](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificateWithoutCA.html).
@@ -192,7 +192,7 @@ export interface CertificateState {
      * [RegisterCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificate.html)
      * for more information on registering a certificate.
      */
-    certificatePem?: pulumi.Input<string>;
+    certificatePem?: pulumi.Input<string | undefined>;
     /**
      * The certificate signing request. Review
      * [CreateCertificateFromCsr](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateCertificateFromCsr.html)
@@ -200,19 +200,19 @@ export interface CertificateState {
      * If none is specified both the certificate and keys will be generated, review [CreateKeysAndCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateKeysAndCertificate.html)
      * for more information on generating keys and a certificate.
      */
-    csr?: pulumi.Input<string>;
+    csr?: pulumi.Input<string | undefined>;
     /**
      * When neither CSR nor certificate is provided, the private key.
      */
-    privateKey?: pulumi.Input<string>;
+    privateKey?: pulumi.Input<string | undefined>;
     /**
      * When neither CSR nor certificate is provided, the public key.
      */
-    publicKey?: pulumi.Input<string>;
+    publicKey?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -226,7 +226,7 @@ export interface CertificateArgs {
     /**
      * The CA certificate for the certificate to be registered. If this is set, the CA needs to be registered with AWS IoT beforehand.
      */
-    caPem?: pulumi.Input<string>;
+    caPem?: pulumi.Input<string | undefined>;
     /**
      * The certificate to be registered. If `caPem` is unspecified, review
      * [RegisterCertificateWithoutCA](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificateWithoutCA.html).
@@ -234,7 +234,7 @@ export interface CertificateArgs {
      * [RegisterCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificate.html)
      * for more information on registering a certificate.
      */
-    certificatePem?: pulumi.Input<string>;
+    certificatePem?: pulumi.Input<string | undefined>;
     /**
      * The certificate signing request. Review
      * [CreateCertificateFromCsr](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateCertificateFromCsr.html)
@@ -242,9 +242,9 @@ export interface CertificateArgs {
      * If none is specified both the certificate and keys will be generated, review [CreateKeysAndCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateKeysAndCertificate.html)
      * for more information on generating keys and a certificate.
      */
-    csr?: pulumi.Input<string>;
+    csr?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

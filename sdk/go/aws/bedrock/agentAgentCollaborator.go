@@ -31,143 +31,142 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{
-// }, nil);
-// if err != nil {
-// return err
-// }
-// currentGetPartition, err := aws.GetPartition(ctx, &aws.GetPartitionArgs{
-// }, nil);
-// if err != nil {
-// return err
-// }
-// currentGetRegion, err := aws.GetRegion(ctx, &aws.GetRegionArgs{
-// }, nil);
-// if err != nil {
-// return err
-// }
-// exampleAgentTrust, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Actions: []string{
-// "sts:AssumeRole",
-// },
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Identifiers: []string{
-// "bedrock.amazonaws.com",
-// },
-// Type: "Service",
-// },
-// },
-// Conditions: []iam.GetPolicyDocumentStatementCondition{
-// {
-// Test: "StringEquals",
-// Values: interface{}{
-// current.AccountId,
-// },
-// Variable: "aws:SourceAccount",
-// },
-// {
-// Test: "ArnLike",
-// Values: []string{
-// fmt.Sprintf("arn:%v:bedrock:%v:%v:agent/*", currentGetPartition.Partition, currentGetRegion.Region, current.AccountId),
-// },
-// Variable: "AWS:SourceArn",
-// },
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// exampleAgentPermissions, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Actions: []string{
-// "bedrock:InvokeModel",
-// },
-// Resources: []string{
-// fmt.Sprintf("arn:%v:bedrock:%v::foundation-model/anthropic.claude-3-5-sonnet-20241022-v2:0", currentGetPartition.Partition, currentGetRegion.Region),
-// },
-// },
-// {
-// Actions: []string{
-// "bedrock:GetAgentAlias",
-// "bedrock:InvokeAgent",
-// },
-// Resources: []string{
-// fmt.Sprintf("arn:%v:bedrock:%v:%v:agent/*", currentAgent.Partition, currentGetRegion.Region, current.AccountId),
-// fmt.Sprintf("arn:%v:bedrock:%v:%v:agent-alias/*", currentAgent.Partition, currentGetRegion.Region, current.AccountId),
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// example, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
-// AssumeRolePolicy: pulumi.String(pulumi.String(exampleAgentTrust.Json)),
-// NamePrefix: pulumi.String("AmazonBedrockExecutionRoleForAgents_"),
-// })
-// if err != nil {
-// return err
-// }
-// _, err = iam.NewRolePolicy(ctx, "example", &iam.RolePolicyArgs{
-// Policy: pulumi.String(pulumi.String(exampleAgentPermissions.Json)),
-// Role: example.ID(),
-// })
-// if err != nil {
-// return err
-// }
-// exampleCollaborator, err := bedrock.NewAgentAgent(ctx, "example_collaborator", &bedrock.AgentAgentArgs{
-// AgentName: pulumi.String("my-agent-collaborator"),
-// AgentResourceRoleArn: example.Arn,
-// IdleSessionTtlInSeconds: pulumi.Int(500),
-// FoundationModel: pulumi.String("anthropic.claude-3-5-sonnet-20241022-v2:0"),
-// Instruction: pulumi.String("do what the supervisor tells you to do"),
-// })
-// if err != nil {
-// return err
-// }
-// exampleSupervisor, err := bedrock.NewAgentAgent(ctx, "example_supervisor", &bedrock.AgentAgentArgs{
-// AgentName: pulumi.String("my-agent-supervisor"),
-// AgentResourceRoleArn: example.Arn,
-// AgentCollaboration: pulumi.String("SUPERVISOR"),
-// IdleSessionTtlInSeconds: pulumi.Int(500),
-// FoundationModel: pulumi.String("anthropic.claude-3-5-sonnet-20241022-v2:0"),
-// Instruction: pulumi.String("tell the sub agent what to do"),
-// PrepareAgent: pulumi.Bool(false),
-// })
-// if err != nil {
-// return err
-// }
-// exampleAgentAgentAlias, err := bedrock.NewAgentAgentAlias(ctx, "example", &bedrock.AgentAgentAliasArgs{
-// AgentAliasName: pulumi.String("my-agent-alias"),
-// AgentId: exampleCollaborator.AgentId,
-// Description: pulumi.String("Test Alias"),
-// })
-// if err != nil {
-// return err
-// }
-// _, err = bedrock.NewAgentAgentCollaborator(ctx, "example", &bedrock.AgentAgentCollaboratorArgs{
-// AgentId: exampleSupervisor.AgentId,
-// CollaborationInstruction: pulumi.String("tell the other agent what to do"),
-// CollaboratorName: pulumi.String("my-collab-example"),
-// RelayConversationHistory: pulumi.String("TO_COLLABORATOR"),
-// AgentDescriptor: &bedrock.AgentAgentCollaboratorAgentDescriptorArgs{
-// AliasArn: exampleAgentAgentAlias.AgentAliasArn,
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			currentGetPartition, err := aws.GetPartition(ctx, &aws.GetPartitionArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			currentGetRegion, err := aws.GetRegion(ctx, &aws.GetRegionArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleAgentTrust, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Identifiers: []string{
+//									"bedrock.amazonaws.com",
+//								},
+//								Type: "Service",
+//							},
+//						},
+//						Conditions: []iam.GetPolicyDocumentStatementCondition{
+//							{
+//								Test: "StringEquals",
+//								Values: pulumi.StringArray{
+//									current.AccountId,
+//								},
+//								Variable: "aws:SourceAccount",
+//							},
+//							{
+//								Test: "ArnLike",
+//								Values: []string{
+//									fmt.Sprintf("arn:%v:bedrock:%v:%v:agent/*", currentGetPartition.Partition, currentGetRegion.Region, current.AccountId),
+//								},
+//								Variable: "AWS:SourceArn",
+//							},
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleAgentPermissions, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Actions: []string{
+//							"bedrock:InvokeModel",
+//						},
+//						Resources: []string{
+//							fmt.Sprintf("arn:%v:bedrock:%v::foundation-model/anthropic.claude-3-5-sonnet-20241022-v2:0", currentGetPartition.Partition, currentGetRegion.Region),
+//						},
+//					},
+//					{
+//						Actions: []string{
+//							"bedrock:GetAgentAlias",
+//							"bedrock:InvokeAgent",
+//						},
+//						Resources: []string{
+//							fmt.Sprintf("arn:%v:bedrock:%v:%v:agent/*", currentAgent.Partition, currentGetRegion.Region, current.AccountId),
+//							fmt.Sprintf("arn:%v:bedrock:%v:%v:agent-alias/*", currentAgent.Partition, currentGetRegion.Region, current.AccountId),
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			example, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
+//				AssumeRolePolicy: pulumi.String(pulumi.String(exampleAgentTrust.Json)),
+//				NamePrefix:       pulumi.String("AmazonBedrockExecutionRoleForAgents_"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewRolePolicy(ctx, "example", &iam.RolePolicyArgs{
+//				Policy: pulumi.String(pulumi.String(exampleAgentPermissions.Json)),
+//				Role:   example.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleCollaborator, err := bedrock.NewAgentAgent(ctx, "example_collaborator", &bedrock.AgentAgentArgs{
+//				AgentName:               pulumi.String("my-agent-collaborator"),
+//				AgentResourceRoleArn:    example.Arn,
+//				IdleSessionTtlInSeconds: pulumi.Int(500),
+//				FoundationModel:         pulumi.String("anthropic.claude-3-5-sonnet-20241022-v2:0"),
+//				Instruction:             pulumi.String("do what the supervisor tells you to do"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSupervisor, err := bedrock.NewAgentAgent(ctx, "example_supervisor", &bedrock.AgentAgentArgs{
+//				AgentName:               pulumi.String("my-agent-supervisor"),
+//				AgentResourceRoleArn:    example.Arn,
+//				AgentCollaboration:      pulumi.String("SUPERVISOR"),
+//				IdleSessionTtlInSeconds: pulumi.Int(500),
+//				FoundationModel:         pulumi.String("anthropic.claude-3-5-sonnet-20241022-v2:0"),
+//				Instruction:             pulumi.String("tell the sub agent what to do"),
+//				PrepareAgent:            pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAgentAgentAlias, err := bedrock.NewAgentAgentAlias(ctx, "example", &bedrock.AgentAgentAliasArgs{
+//				AgentAliasName: pulumi.String("my-agent-alias"),
+//				AgentId:        exampleCollaborator.AgentId,
+//				Description:    pulumi.String("Test Alias"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = bedrock.NewAgentAgentCollaborator(ctx, "example", &bedrock.AgentAgentCollaboratorArgs{
+//				AgentId:                  exampleSupervisor.AgentId,
+//				CollaborationInstruction: pulumi.String("tell the other agent what to do"),
+//				CollaboratorName:         pulumi.String("my-collab-example"),
+//				RelayConversationHistory: pulumi.String("TO_COLLABORATOR"),
+//				AgentDescriptor: &bedrock.AgentAgentCollaboratorAgentDescriptorArgs{
+//					AliasArn: exampleAgentAgentAlias.AgentAliasArn,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import

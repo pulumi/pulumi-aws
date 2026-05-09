@@ -138,9 +138,9 @@ def get_regions(all_regions: Optional[_builtins.bool] = None,
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
         names=pulumi.get(__ret__, 'names'))
-def get_regions_output(all_regions: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                       filters: Optional[pulumi.Input[Optional[Sequence[Union['GetRegionsFilterArgs', 'GetRegionsFilterArgsDict']]]]] = None,
-                       id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_regions_output(all_regions: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                       filters: pulumi.Input[Optional[Optional[Sequence[Union['GetRegionsFilterArgs', 'GetRegionsFilterArgsDict']]]]] = None,
+                       id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRegionsResult]:
     """
     Provides information about AWS Regions. Can be used to filter regions i.e., by Opt-In status or only regions enabled for current account. To get details like endpoint and description of each region the data source can be combined with the `get_region` data source.

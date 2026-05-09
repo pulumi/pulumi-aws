@@ -98,7 +98,7 @@ def get_sinks(region: Optional[_builtins.str] = None,
         arns=pulumi.get(__ret__, 'arns'),
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'))
-def get_sinks_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_sinks_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSinksResult]:
     """
     Data source for managing an AWS CloudWatch Observability Access Manager Sinks.

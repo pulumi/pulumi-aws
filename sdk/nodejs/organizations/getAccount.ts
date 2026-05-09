@@ -119,5 +119,5 @@ export interface GetAccountOutputArgs {
     /**
      * Map of tags for the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -140,27 +140,27 @@ export interface UsagePlanKeyState {
     /**
      * Identifier of the API key resource.
      */
-    keyId?: pulumi.Input<string>;
+    keyId?: pulumi.Input<string | undefined>;
     /**
      * Type of the API key resource. Currently, the valid key type is API_KEY.
      */
-    keyType?: pulumi.Input<string>;
+    keyType?: pulumi.Input<string | undefined>;
     /**
      * Name of a usage plan key.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Id of the usage plan resource representing to associate the key to.
      */
-    usagePlanId?: pulumi.Input<string>;
+    usagePlanId?: pulumi.Input<string | undefined>;
     /**
      * Value of a usage plan key.
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -178,7 +178,7 @@ export interface UsagePlanKeyArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Id of the usage plan resource representing to associate the key to.
      */

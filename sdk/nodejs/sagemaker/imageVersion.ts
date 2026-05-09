@@ -195,60 +195,60 @@ export interface ImageVersionState {
     /**
      * A list of aliases for the image version.
      */
-    aliases?: pulumi.Input<pulumi.Input<string>[]>;
+    aliases?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The registry path of the container image on which this image version is based.
      */
-    baseImage?: pulumi.Input<string>;
+    baseImage?: pulumi.Input<string | undefined>;
     /**
      * The registry path of the container image that contains this image version.
      */
-    containerImage?: pulumi.Input<string>;
+    containerImage?: pulumi.Input<string | undefined>;
     /**
      * Indicates Horovod compatibility.
      */
-    horovod?: pulumi.Input<boolean>;
-    imageArn?: pulumi.Input<string>;
+    horovod?: pulumi.Input<boolean | undefined>;
+    imageArn?: pulumi.Input<string | undefined>;
     /**
      * The name of the image. Must be unique to your account.
      */
-    imageName?: pulumi.Input<string>;
+    imageName?: pulumi.Input<string | undefined>;
     /**
      * Indicates SageMaker AI job type compatibility. Valid values are: `TRAINING`, `INFERENCE`, and `NOTEBOOK_KERNEL`.
      */
-    jobType?: pulumi.Input<string>;
+    jobType?: pulumi.Input<string | undefined>;
     /**
      * The machine learning framework vended in the image version.
      */
-    mlFramework?: pulumi.Input<string>;
+    mlFramework?: pulumi.Input<string | undefined>;
     /**
      * Indicates CPU or GPU compatibility. Valid values are: `CPU` and `GPU`.
      */
-    processor?: pulumi.Input<string>;
+    processor?: pulumi.Input<string | undefined>;
     /**
      * The supported programming language and its version.
      */
-    programmingLang?: pulumi.Input<string>;
+    programmingLang?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The maintainer description of the image version.
      */
-    releaseNotes?: pulumi.Input<string>;
+    releaseNotes?: pulumi.Input<string | undefined>;
     /**
      * The stability of the image version, specified by the maintainer. Valid values are: `NOT_PROVIDED`, `STABLE`, `TO_BE_ARCHIVED`, and `ARCHIVED`.
      */
-    vendorGuidance?: pulumi.Input<string>;
+    vendorGuidance?: pulumi.Input<string | undefined>;
     /**
      * The version of the image. If not specified, the latest version is described.
      */
-    version?: pulumi.Input<number>;
+    version?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -258,7 +258,7 @@ export interface ImageVersionArgs {
     /**
      * A list of aliases for the image version.
      */
-    aliases?: pulumi.Input<pulumi.Input<string>[]>;
+    aliases?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The registry path of the container image on which this image version is based.
      */
@@ -266,7 +266,7 @@ export interface ImageVersionArgs {
     /**
      * Indicates Horovod compatibility.
      */
-    horovod?: pulumi.Input<boolean>;
+    horovod?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the image. Must be unique to your account.
      */
@@ -274,29 +274,29 @@ export interface ImageVersionArgs {
     /**
      * Indicates SageMaker AI job type compatibility. Valid values are: `TRAINING`, `INFERENCE`, and `NOTEBOOK_KERNEL`.
      */
-    jobType?: pulumi.Input<string>;
+    jobType?: pulumi.Input<string | undefined>;
     /**
      * The machine learning framework vended in the image version.
      */
-    mlFramework?: pulumi.Input<string>;
+    mlFramework?: pulumi.Input<string | undefined>;
     /**
      * Indicates CPU or GPU compatibility. Valid values are: `CPU` and `GPU`.
      */
-    processor?: pulumi.Input<string>;
+    processor?: pulumi.Input<string | undefined>;
     /**
      * The supported programming language and its version.
      */
-    programmingLang?: pulumi.Input<string>;
+    programmingLang?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The maintainer description of the image version.
      */
-    releaseNotes?: pulumi.Input<string>;
+    releaseNotes?: pulumi.Input<string | undefined>;
     /**
      * The stability of the image version, specified by the maintainer. Valid values are: `NOT_PROVIDED`, `STABLE`, `TO_BE_ARCHIVED`, and `ARCHIVED`.
      */
-    vendorGuidance?: pulumi.Input<string>;
+    vendorGuidance?: pulumi.Input<string | undefined>;
 }
