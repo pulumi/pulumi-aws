@@ -66,7 +66,7 @@ jobs:
         repository: pulumi/examples
         path: p-examples
     - name: Setup mise
-      uses: jdx/mise-action@590bfd78fa3e93efd2e7ea21d65d397118ac1430
+      uses: jdx/mise-action@8d3b0ba20a9cea7b883d922ea958553c941ab082
       env:
         MISE_ENV: test
         MISE_FETCH_REMOTE_VERSIONS_TIMEOUT: 30s
@@ -75,16 +75,6 @@ jobs:
         github_token: ${{ steps.app-auth.outputs.token }}
         # also save this cache since we are using a different mise env.
         cache_save: true
-    - name: Setup Go Cache
-      uses: actions/setup-go@4dc6199c7b1a012772edbd06daecab0f50c9053c # v6
-      with:
-        cache-dependency-path: |
-          examples/*.sum
-          provider/*.sum
-          upstream/*.sum
-          sdk/go/*.sum
-          sdk/*.sum
-          *.sum
     - name: Prepare local workspace
       run: make prepare_local_workspace
       env:

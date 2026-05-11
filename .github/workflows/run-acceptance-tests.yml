@@ -39,6 +39,7 @@ jobs:
       default_branch: ${{ github.event.pull_request.base.ref }}
       is_pr: ${{ github.event_name == 'pull_request' }}
       is_automated: ${{ github.actor == 'dependabot[bot]' }}
+      acceptance_fanout: true
 
   build_provider:
     uses: ./.github/workflows/build_provider.yml
@@ -60,7 +61,7 @@ jobs:
   test_provider:
     if: github.event_name == 'repository_dispatch' ||
       github.event.pull_request.head.repo.full_name == github.repository
-    runs-on: ubuntu-latest
+    runs-on: pulumi-ubuntu-8core
     needs: prerequisites
     permissions:
       contents: read
@@ -94,7 +95,7 @@ jobs:
         private-key: ${{ steps.esc-secrets.outputs.PULUMI_PROVIDER_AUTOMATION_PRIVATE_KEY }}
         owner: ${{ github.repository_owner }}
     - name: Setup mise
-      uses: jdx/mise-action@c6a35e2d7dc8cf1493e7465af7460b4748cd4806
+      uses: jdx/mise-action@8d3b0ba20a9cea7b883d922ea958553c941ab082
       env:
         MISE_FETCH_REMOTE_VERSIONS_TIMEOUT: 30s
       with:
@@ -127,7 +128,7 @@ jobs:
   build_schema:
     if: github.event_name == 'repository_dispatch' ||
       github.event.pull_request.head.repo.full_name == github.repository
-    runs-on: ubuntu-latest
+    runs-on: pulumi-ubuntu-8core
     needs: prerequisites
     permissions:
       contents: read
@@ -168,7 +169,7 @@ jobs:
           .pulumi/examples-cache
         key: ${{ runner.os }}-${{ hashFiles('provider/go.sum') }}
     - name: Setup mise
-      uses: jdx/mise-action@c6a35e2d7dc8cf1493e7465af7460b4748cd4806
+      uses: jdx/mise-action@8d3b0ba20a9cea7b883d922ea958553c941ab082
       env:
         MISE_FETCH_REMOTE_VERSIONS_TIMEOUT: 30s
       with:
