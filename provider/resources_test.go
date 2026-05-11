@@ -40,6 +40,17 @@ func Test_parseAssumeRoles(t *testing.T) {
 		_, err := parseAssumeRoles(vars)
 		assert.ErrorContains(t, err, "expected aws:assumeRoles to be an array, got object")
 	})
+
+	t.Run("rejects legacy singular config key", func(t *testing.T) {
+		vars := resource.PropertyMap{
+			"assumeRole": resource.NewObjectProperty(resource.PropertyMap{
+				"roleArn": resource.NewStringProperty("arn:aws:iam::12345678912:root"),
+			}),
+		}
+
+		_, err := parseAssumeRoles(vars)
+		assert.ErrorContains(t, err, "invalid config key 'aws:assumeRole', should be 'aws:assumeRoles'")
+	})
 }
 
 func TestParseDuration(t *testing.T) {
