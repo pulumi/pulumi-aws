@@ -8,17 +8,12 @@ require (
 	github.com/aws/aws-sdk-go-v2/credentials v1.19.16
 	github.com/aws/aws-sdk-go-v2/service/iam v1.53.10
 	github.com/pulumi/providertest v0.6.0
-	github.com/pulumi/pulumi-aws/sdk/v7 v7.0.0-00010101000000-000000000000
 	github.com/pulumi/pulumi/pkg/v3 v3.236.0
 	github.com/pulumi/pulumi/sdk/v3 v3.236.0
 	github.com/stretchr/testify v1.11.1
 )
 
-replace (
-	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20260318212141-5525259d096b
-
-	github.com/pulumi/pulumi-aws/sdk/v7 => ../sdk
-)
+replace github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20260318212141-5525259d096b
 
 require (
 	cel.dev/expr v0.25.1 // indirect
