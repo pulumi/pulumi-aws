@@ -194,6 +194,9 @@ jobs:
       run: make schema
       env:
         PROVIDER_VERSION: ${{ needs.prerequisites.outputs.version }}
+    - name: Check worktree clean
+      id: worktreeClean
+      uses: pulumi/git-status-check-action@v1
     - if: github.event_name == 'pull_request'
       name: Check Schema is Valid
       env:
