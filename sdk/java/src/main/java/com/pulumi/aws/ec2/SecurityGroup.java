@@ -335,11 +335,11 @@ import javax.annotation.Nullable;
  *             aws ec2 modify-vpc-endpoint --vpc-endpoint-id ${ENDPOINT_ID} --add-security-group-ids %s --remove-security-group-ids %s
  * ", tags.workaround1(),tags.workaround2(),id))
  *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(Arrays.asList(example))
+ *                 .dependsOn(example)
  *                 .build());
  * 
  *         var exampleResource = new Resource("exampleResource", ResourceArgs.builder()
- *             .triggers(Map.of("rerunUponChangeOf", StdFunctions.join(JoinArgs.builder()
+ *             .triggers(Map.of("rerun_upon_change_of", StdFunctions.join(JoinArgs.builder()
  *                 .separator(",")
  *                 .input(exampleAwsVpcEndpoint.securityGroupIds())
  *                 .build()).result()))
@@ -350,7 +350,7 @@ import javax.annotation.Nullable;
  *             aws ec2 modify-vpc-endpoint --vpc-endpoint-id %s --remove-security-group-ids %s
  * ", exampleAwsVpcEndpoint.id(),default_.id()))
  *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(Arrays.asList(exampleResource))
+ *                 .dependsOn(exampleResource)
  *                 .build());
  * 
  *     }

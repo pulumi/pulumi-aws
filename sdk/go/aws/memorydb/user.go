@@ -32,8 +32,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := random.NewPassword(ctx, "example", &random.PasswordArgs{
-//				Length: 16,
+//			example, err := random.NewRandomPassword(ctx, "example", &random.RandomPasswordArgs{
+//				Length: pulumi.Int(16),
 //			})
 //			if err != nil {
 //				return err

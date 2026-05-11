@@ -421,12 +421,12 @@ class Webhook(pulumi.CustomResource):
         bar_repository_webhook = github.RepositoryWebhook("bar",
             repository=repo["name"],
             name="web",
-            configuration=[{
+            configuration={
                 "url": bar_webhook.url,
-                "contentType": "json",
-                "insecureSsl": True,
+                "content_type": "json",
+                "insecure_ssl": True,
                 "secret": webhook_secret,
-            }],
+            },
             events=["push"])
         ```
 
@@ -532,12 +532,12 @@ class Webhook(pulumi.CustomResource):
         bar_repository_webhook = github.RepositoryWebhook("bar",
             repository=repo["name"],
             name="web",
-            configuration=[{
+            configuration={
                 "url": bar_webhook.url,
-                "contentType": "json",
-                "insecureSsl": True,
+                "content_type": "json",
+                "insecure_ssl": True,
                 "secret": webhook_secret,
-            }],
+            },
             events=["push"])
         ```
 

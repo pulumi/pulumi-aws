@@ -261,7 +261,7 @@ namespace Pulumi.Aws.Ec2
     ///     {
     ///         Triggers = 
     ///         {
-    ///             { "rerunUponChangeOf", Std.Join.Invoke(new()
+    ///             { "rerun_upon_change_of", Std.Join.Invoke(new()
     ///             {
     ///                 Separator = ",",
     ///                 Input = exampleAwsVpcEndpoint.SecurityGroupIds,
@@ -271,8 +271,8 @@ namespace Pulumi.Aws.Ec2
     /// 
     ///     var exampleResourceProvisioner0 = new Command.Local.Command("exampleResourceProvisioner0", new()
     ///     {
-    ///         Create = @$"            aws ec2 modify-vpc-endpoint --vpc-endpoint-id {exampleAwsVpcEndpoint.Id} --remove-security-group-ids {@default.Apply(getSecurityGroupResult =&gt; getSecurityGroupResult.Id)}
-    /// ",
+    ///         Create = @default.Apply(@default =&gt; @$"            aws ec2 modify-vpc-endpoint --vpc-endpoint-id {exampleAwsVpcEndpoint.Id} --remove-security-group-ids {@default.Apply(getSecurityGroupResult =&gt; getSecurityGroupResult.Id)}
+    /// "),
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =

@@ -405,12 +405,12 @@ class Webhook(pulumi.CustomResource):
             events=["push"],
             name="example",
             repository=example_github_repository["name"],
-            configuration=[{
+            configuration={
                 "url": example.payload_url,
                 "secret": example.secret,
-                "contentType": "json",
-                "insecureSsl": False,
-            }])
+                "content_type": "json",
+                "insecure_ssl": False,
+            })
         ```
 
         ### For CodeBuild Runner Project
@@ -510,12 +510,12 @@ class Webhook(pulumi.CustomResource):
             events=["push"],
             name="example",
             repository=example_github_repository["name"],
-            configuration=[{
+            configuration={
                 "url": example.payload_url,
                 "secret": example.secret,
-                "contentType": "json",
-                "insecureSsl": False,
-            }])
+                "content_type": "json",
+                "insecure_ssl": False,
+            })
         ```
 
         ### For CodeBuild Runner Project

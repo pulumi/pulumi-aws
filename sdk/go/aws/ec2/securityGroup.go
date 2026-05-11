@@ -261,8 +261,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi-command/sdk/go/command/local"
 //	"github.com/pulumi/pulumi-null/sdk/go/null"
@@ -290,9 +288,9 @@ import (
 //				return err
 //			}
 //			_, err = local.NewCommand(ctx, "exampleProvisioner0", &local.CommandArgs{
-//				Create: "true",
-//				Update: "true",
-//				Delete: fmt.Sprintf("            ENDPOINT_ID=`aws ec2 describe-vpc-endpoints --filters \\\"Name=tag:Name,Values=%v\\\" --query \\\"VpcEndpoints[0].VpcEndpointId\\\" --output text` &&\n            aws ec2 modify-vpc-endpoint --vpc-endpoint-id ${ENDPOINT_ID} --add-security-group-ids %v --remove-security-group-ids %v\n", tags.Workaround1, tags.Workaround2, id),
+//				Create: pulumi.String("true"),
+//				Update: pulumi.String("true"),
+//				Delete: pulumi.Sprintf("            ENDPOINT_ID=`aws ec2 describe-vpc-endpoints --filters \\\"Name=tag:Name,Values=%v\\\" --query \\\"VpcEndpoints[0].VpcEndpointId\\\" --output text` &&\n            aws ec2 modify-vpc-endpoint --vpc-endpoint-id ${ENDPOINT_ID} --add-security-group-ids %v --remove-security-group-ids %v\n", tags.Workaround1, tags.Workaround2, id),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				example,
 //			}))
@@ -308,14 +306,14 @@ import (
 //			}
 //			exampleResource, err := null.NewResource(ctx, "example", &null.ResourceArgs{
 //				Triggers: pulumi.StringMap{
-//					"rerunUponChangeOf": pulumi.String(invokeJoin.Result),
+//					"rerun_upon_change_of": pulumi.String(invokeJoin.Result),
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = local.NewCommand(ctx, "exampleResourceProvisioner0", &local.CommandArgs{
-//				Create: fmt.Sprintf("            aws ec2 modify-vpc-endpoint --vpc-endpoint-id %v --remove-security-group-ids %v\n", exampleAwsVpcEndpoint.Id, _default.Id),
+//				Create: pulumi.Sprintf("            aws ec2 modify-vpc-endpoint --vpc-endpoint-id %v --remove-security-group-ids %v\n", exampleAwsVpcEndpoint.Id, _default.Id),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleResource,
 //			}))

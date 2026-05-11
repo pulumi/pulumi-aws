@@ -173,13 +173,13 @@ import * as utilities from "../utilities";
  *     dependsOn: [example],
  * });
  * const exampleResource = new _null.Resource("example", {triggers: {
- *     rerunUponChangeOf: std.join({
+ *     rerun_upon_change_of: std.join({
  *         separator: ",",
  *         input: exampleAwsVpcEndpoint.securityGroupIds,
  *     }).then(invoke => invoke.result),
  * }});
- * const exampleResourceProvisioner0 = new command.local.Command("exampleResourceProvisioner0", {create: `            aws ec2 modify-vpc-endpoint --vpc-endpoint-id ${exampleAwsVpcEndpoint.id} --remove-security-group-ids ${_default.id}
- * `}, {
+ * const exampleResourceProvisioner0 = new command.local.Command("exampleResourceProvisioner0", {create: _default.then(_default => `            aws ec2 modify-vpc-endpoint --vpc-endpoint-id ${exampleAwsVpcEndpoint.id} --remove-security-group-ids ${_default.id}
+ * `)}, {
  *     dependsOn: [exampleResource],
  * });
  * ```

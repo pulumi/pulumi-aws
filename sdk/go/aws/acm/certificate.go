@@ -108,11 +108,9 @@ import (
 //			exampleSelfSignedCert, err := tls.NewSelfSignedCert(ctx, "example", &tls.SelfSignedCertArgs{
 //				KeyAlgorithm:  "RSA",
 //				PrivateKeyPem: example.PrivateKeyPem,
-//				Subject: tls.SelfSignedCertSubjectArgs{
-//					map[string]interface{}{
-//						"commonName":   "example.com",
-//						"organization": "ACME Examples, Inc",
-//					},
+//				Subject: &tls.SelfSignedCertSubjectArgs{
+//					CommonName:   pulumi.String("example.com"),
+//					Organization: pulumi.String("ACME Examples, Inc"),
 //				},
 //				ValidityPeriodHours: pulumi.Int(12),
 //				AllowedUses: pulumi.StringArray{

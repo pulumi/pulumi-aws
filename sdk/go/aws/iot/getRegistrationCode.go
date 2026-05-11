@@ -41,10 +41,8 @@ import (
 //			_, err = tls.NewCertRequest(ctx, "verification", &tls.CertRequestArgs{
 //				KeyAlgorithm:  "RSA",
 //				PrivateKeyPem: verification.PrivateKeyPem,
-//				Subject: tls.CertRequestSubjectArgs{
-//					map[string]interface{}{
-//						"commonName": example.RegistrationCode,
-//					},
+//				Subject: &tls.CertRequestSubjectArgs{
+//					CommonName: pulumi.String(example.RegistrationCode),
 //				},
 //			})
 //			if err != nil {

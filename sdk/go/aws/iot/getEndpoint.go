@@ -21,7 +21,8 @@ import (
 // import (
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iot"
-//	"github.com/pulumi/pulumi-kubernetes/sdk/v4/go/kubernetes"
+//	corev1 "github.com/pulumi/pulumi-kubernetes/sdk/v4/go/kubernetes/core/v1"
+//	metav1 "github.com/pulumi/pulumi-kubernetes/sdk/v4/go/kubernetes/meta/v1"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -32,23 +33,19 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = kubernetes.NewPod(ctx, "agent", &kubernetes.PodArgs{
-//				Metadata: []map[string]interface{}{
-//					map[string]interface{}{
-//						"name": "my-device",
-//					},
+//			_, err = corev1.NewPod(ctx, "agent", &corev1.PodArgs{
+//				Metadata: &metav1.ObjectMetaArgs{
+//					Name: pulumi.String("my-device"),
 //				},
-//				Spec: []map[string]interface{}{
-//					map[string]interface{}{
-//						"container": []map[string]interface{}{
-//							map[string]interface{}{
-//								"image": "gcr.io/my-project/image-name",
-//								"name":  "image-name",
-//								"env": []map[string]interface{}{
-//									map[string]interface{}{
-//										"name":  "IOT_ENDPOINT",
-//										"value": example.EndpointAddress,
-//									},
+//				Spec: &corev1.PodSpecArgs{
+//					Container: []map[string]interface{}{
+//						map[string]interface{}{
+//							"image": "gcr.io/my-project/image-name",
+//							"name":  "image-name",
+//							"env": []map[string]interface{}{
+//								map[string]interface{}{
+//									"name":  "IOT_ENDPOINT",
+//									"value": example.EndpointAddress,
 //								},
 //							},
 //						},

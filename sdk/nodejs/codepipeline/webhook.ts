@@ -79,12 +79,12 @@ import * as utilities from "../utilities";
  * const barRepositoryWebhook = new github.RepositoryWebhook("bar", {
  *     repository: repo.name,
  *     name: "web",
- *     configuration: [{
+ *     configuration: {
  *         url: barWebhook.url,
  *         contentType: "json",
  *         insecureSsl: true,
  *         secret: webhookSecret,
- *     }],
+ *     },
  *     events: ["push"],
  * });
  * ```
