@@ -23,7 +23,6 @@ package examples
 import (
 	"bytes"
 	"fmt"
-	"io"
 	"math/rand"
 	"os"
 	"os/exec"
@@ -514,28 +513,6 @@ func TestIMDSAuth(t *testing.T) {
 		t.Logf("stderr: %s", result.StdErr)
 		t.Logf("commandOut: %v", result.Outputs["commandOut"].Value)
 	})
-}
-
-func copyFile(src, dst string) error {
-	srcFile, err := os.Open(src)
-	if err != nil {
-		return err
-	}
-	defer srcFile.Close()
-
-	dstFile, err := os.Create(dst)
-	if err != nil {
-		return err
-	}
-	defer dstFile.Close()
-
-	_, err = io.Copy(dstFile, srcFile)
-	if err != nil {
-		return err
-	}
-
-	err = dstFile.Sync()
-	return err
 }
 
 // Assert that the provider does not regress on emitting an unexpected deprecation.

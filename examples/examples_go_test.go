@@ -230,6 +230,11 @@ func (st tagsState) validateTransitionTo(t *testing.T, testIdent int, st2 tagsSt
 		opttest.SkipInstall(),
 		opttest.SkipStackCreate(),
 	)
+	wd := test2.WorkingDir()
+	sourceGoMod := filepath.Join(getCwd(t), "go.mod")
+	sourceGoSum := filepath.Join(getCwd(t), "go.sum")
+	copyFile(sourceGoMod, filepath.Join(wd, "go.mod"))
+	copyFile(sourceGoSum, filepath.Join(wd, "go.sum"))
 	test2.NewStack(t, "")
 
 	test2.SetConfig(t, "aws:region", getEnvRegion(t))
