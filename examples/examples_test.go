@@ -3,7 +3,6 @@
 package examples
 
 import (
-	"context"
 	"io"
 	"math/rand"
 	"net/http"
@@ -11,14 +10,8 @@ import (
 	"testing"
 	"time"
 
-	testreplay "github.com/pulumi/providertest/replay"
-	pfbridge "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/pf/tfbridge"
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
 	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/require"
-
-	aws "github.com/pulumi/pulumi-aws/provider/v7"
-	version "github.com/pulumi/pulumi-aws/provider/v7/pkg/version"
 )
 
 func createEditDir(dir string) integration.EditDir {
@@ -70,28 +63,6 @@ func validateAPITest(isValid func(body string)) func(t *testing.T, stack integra
 		assert.NoError(t, err)
 		isValid(string(body))
 	}
-}
-
-func init() {
-	// This is necessary for gRPC testing. It doesn't effect integration tests, since
-	// they use their own binary.
-	version.Version = "7.0.0"
-}
-
-func replay(t *testing.T, sequence string) {
-	info := *aws.Provider()
-	ctx := context.Background()
-	p, err := pfbridge.MakeMuxedServer(ctx, info.Name, info,
-		/*
-		 * We leave the schema blank. This will result in incorrect calls to
-		 * GetSchema, but otherwise does not effect the provider. It reduces the
-		 * time to test start by minutes.
-		 */
-		[]byte("{}"),
-	)(nil)
-	require.NoError(t, err)
-
-	testreplay.ReplaySequence(t, p, sequence)
 }
 
 var letterRunes = []rune("1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
