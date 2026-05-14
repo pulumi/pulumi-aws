@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Lambda.Outputs
     public sealed class FunctionFileSystemConfig
     {
         /// <summary>
-        /// ARN of the Amazon EFS Access Point.
+        /// ARN of the Amazon EFS Access Point, or the Amazon S3 Files access point.
         /// </summary>
         public readonly string Arn;
         /// <summary>

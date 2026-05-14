@@ -1668,7 +1668,7 @@ class FunctionEventInvokeConfigDestinationConfigOnSuccessArgs:
 class FunctionFileSystemConfigArgsDict(TypedDict):
     arn: pulumi.Input[_builtins.str]
     """
-    ARN of the Amazon EFS Access Point.
+    ARN of the Amazon EFS Access Point, or the Amazon S3 Files access point.
     """
     local_mount_path: pulumi.Input[_builtins.str]
     """
@@ -1681,7 +1681,7 @@ class FunctionFileSystemConfigArgs:
                  arn: pulumi.Input[_builtins.str],
                  local_mount_path: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] arn: ARN of the Amazon EFS Access Point.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Amazon EFS Access Point, or the Amazon S3 Files access point.
         :param pulumi.Input[_builtins.str] local_mount_path: Path where the function can access the file system. Must start with `/mnt/`.
         """
         pulumi.set(__self__, "arn", arn)
@@ -1691,7 +1691,7 @@ class FunctionFileSystemConfigArgs:
     @pulumi.getter
     def arn(self) -> pulumi.Input[_builtins.str]:
         """
-        ARN of the Amazon EFS Access Point.
+        ARN of the Amazon EFS Access Point, or the Amazon S3 Files access point.
         """
         return pulumi.get(self, "arn")
 

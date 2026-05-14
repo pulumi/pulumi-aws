@@ -5069,7 +5069,7 @@ func (o FunctionEventInvokeConfigDestinationConfigOnSuccessPtrOutput) Destinatio
 }
 
 type FunctionFileSystemConfig struct {
-	// ARN of the Amazon EFS Access Point.
+	// ARN of the Amazon EFS Access Point, or the Amazon S3 Files access point.
 	Arn string `pulumi:"arn"`
 	// Path where the function can access the file system. Must start with `/mnt/`.
 	LocalMountPath string `pulumi:"localMountPath"`
@@ -5087,7 +5087,7 @@ type FunctionFileSystemConfigInput interface {
 }
 
 type FunctionFileSystemConfigArgs struct {
-	// ARN of the Amazon EFS Access Point.
+	// ARN of the Amazon EFS Access Point, or the Amazon S3 Files access point.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// Path where the function can access the file system. Must start with `/mnt/`.
 	LocalMountPath pulumi.StringInput `pulumi:"localMountPath"`
@@ -5170,7 +5170,7 @@ func (o FunctionFileSystemConfigOutput) ToFunctionFileSystemConfigPtrOutputWithC
 	}).(FunctionFileSystemConfigPtrOutput)
 }
 
-// ARN of the Amazon EFS Access Point.
+// ARN of the Amazon EFS Access Point, or the Amazon S3 Files access point.
 func (o FunctionFileSystemConfigOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionFileSystemConfig) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -5204,7 +5204,7 @@ func (o FunctionFileSystemConfigPtrOutput) Elem() FunctionFileSystemConfigOutput
 	}).(FunctionFileSystemConfigOutput)
 }
 
-// ARN of the Amazon EFS Access Point.
+// ARN of the Amazon EFS Access Point, or the Amazon S3 Files access point.
 func (o FunctionFileSystemConfigPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionFileSystemConfig) *string {
 		if v == nil {

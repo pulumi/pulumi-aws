@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class FunctionFileSystemConfig {
     /**
-     * @return ARN of the Amazon EFS Access Point.
+     * @return ARN of the Amazon EFS Access Point, or the Amazon S3 Files access point.
      * 
      */
     private String arn;
@@ -23,7 +23,7 @@ public final class FunctionFileSystemConfig {
 
     private FunctionFileSystemConfig() {}
     /**
-     * @return ARN of the Amazon EFS Access Point.
+     * @return ARN of the Amazon EFS Access Point, or the Amazon S3 Files access point.
      * 
      */
     public String arn() {

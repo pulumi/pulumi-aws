@@ -186,14 +186,14 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block for EFS file system. See below.
+     * Configuration block for EFS or S3 Files file system. See below.
      * 
      */
     @Import(name="fileSystemConfig")
     private @Nullable Output<FunctionFileSystemConfigArgs> fileSystemConfig;
 
     /**
-     * @return Configuration block for EFS file system. See below.
+     * @return Configuration block for EFS or S3 Files file system. See below.
      * 
      */
     public Optional<Output<FunctionFileSystemConfigArgs>> fileSystemConfig() {
@@ -923,7 +923,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fileSystemConfig Configuration block for EFS file system. See below.
+         * @param fileSystemConfig Configuration block for EFS or S3 Files file system. See below.
          * 
          * @return builder
          * 
@@ -934,7 +934,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fileSystemConfig Configuration block for EFS file system. See below.
+         * @param fileSystemConfig Configuration block for EFS or S3 Files file system. See below.
          * 
          * @return builder
          * 

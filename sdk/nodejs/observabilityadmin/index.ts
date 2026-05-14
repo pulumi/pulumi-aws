@@ -15,10 +15,25 @@ export type TelemetryEnrichment = import("./telemetryEnrichment").TelemetryEnric
 export const TelemetryEnrichment: typeof import("./telemetryEnrichment").TelemetryEnrichment = null as any;
 utilities.lazyLoad(exports, ["TelemetryEnrichment"], () => require("./telemetryEnrichment"));
 
+export { TelemetryEvaluationArgs, TelemetryEvaluationState } from "./telemetryEvaluation";
+export type TelemetryEvaluation = import("./telemetryEvaluation").TelemetryEvaluation;
+export const TelemetryEvaluation: typeof import("./telemetryEvaluation").TelemetryEvaluation = null as any;
+utilities.lazyLoad(exports, ["TelemetryEvaluation"], () => require("./telemetryEvaluation"));
+
+export { TelemetryEvaluationForOrganizationArgs, TelemetryEvaluationForOrganizationState } from "./telemetryEvaluationForOrganization";
+export type TelemetryEvaluationForOrganization = import("./telemetryEvaluationForOrganization").TelemetryEvaluationForOrganization;
+export const TelemetryEvaluationForOrganization: typeof import("./telemetryEvaluationForOrganization").TelemetryEvaluationForOrganization = null as any;
+utilities.lazyLoad(exports, ["TelemetryEvaluationForOrganization"], () => require("./telemetryEvaluationForOrganization"));
+
 export { TelemetryPipelineArgs, TelemetryPipelineState } from "./telemetryPipeline";
 export type TelemetryPipeline = import("./telemetryPipeline").TelemetryPipeline;
 export const TelemetryPipeline: typeof import("./telemetryPipeline").TelemetryPipeline = null as any;
 utilities.lazyLoad(exports, ["TelemetryPipeline"], () => require("./telemetryPipeline"));
+
+export { TelemetryRuleArgs, TelemetryRuleState } from "./telemetryRule";
+export type TelemetryRule = import("./telemetryRule").TelemetryRule;
+export const TelemetryRule: typeof import("./telemetryRule").TelemetryRule = null as any;
+utilities.lazyLoad(exports, ["TelemetryRule"], () => require("./telemetryRule"));
 
 
 const _module = {
@@ -29,8 +44,14 @@ const _module = {
                 return new CentralizationRuleForOrganization(name, <any>undefined, { urn })
             case "aws:observabilityadmin/telemetryEnrichment:TelemetryEnrichment":
                 return new TelemetryEnrichment(name, <any>undefined, { urn })
+            case "aws:observabilityadmin/telemetryEvaluation:TelemetryEvaluation":
+                return new TelemetryEvaluation(name, <any>undefined, { urn })
+            case "aws:observabilityadmin/telemetryEvaluationForOrganization:TelemetryEvaluationForOrganization":
+                return new TelemetryEvaluationForOrganization(name, <any>undefined, { urn })
             case "aws:observabilityadmin/telemetryPipeline:TelemetryPipeline":
                 return new TelemetryPipeline(name, <any>undefined, { urn })
+            case "aws:observabilityadmin/telemetryRule:TelemetryRule":
+                return new TelemetryRule(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -38,4 +59,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "observabilityadmin/centralizationRuleForOrganization", _module)
 pulumi.runtime.registerResourceModule("aws", "observabilityadmin/telemetryEnrichment", _module)
+pulumi.runtime.registerResourceModule("aws", "observabilityadmin/telemetryEvaluation", _module)
+pulumi.runtime.registerResourceModule("aws", "observabilityadmin/telemetryEvaluationForOrganization", _module)
 pulumi.runtime.registerResourceModule("aws", "observabilityadmin/telemetryPipeline", _module)
+pulumi.runtime.registerResourceModule("aws", "observabilityadmin/telemetryRule", _module)

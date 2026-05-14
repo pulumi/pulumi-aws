@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Lambda.Inputs
     public sealed class FunctionFileSystemConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ARN of the Amazon EFS Access Point.
+        /// ARN of the Amazon EFS Access Point, or the Amazon S3 Files access point.
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;

@@ -234,6 +234,10 @@ export class DbInstance extends pulumi.CustomResource {
      */
     declare public readonly logDeliveryConfiguration: pulumi.Output<outputs.timestreaminfluxdb.DbInstanceLogDeliveryConfiguration | undefined>;
     /**
+     * Maintenance schedule for the DB instance, including the preferred maintenance window and timezone. This argument is updatable.
+     */
+    declare public readonly maintenanceSchedule: pulumi.Output<outputs.timestreaminfluxdb.DbInstanceMaintenanceSchedule | undefined>;
+    /**
      * Name that uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. DB instance names must be unique per customer and per region. The argument must start with a letter, cannot contain consecutive hyphens (`-`) and cannot end with a hyphen.
      */
     declare public readonly name: pulumi.Output<string>;
@@ -313,6 +317,7 @@ export class DbInstance extends pulumi.CustomResource {
             resourceInputs["endpoint"] = state?.endpoint;
             resourceInputs["influxAuthParametersSecretArn"] = state?.influxAuthParametersSecretArn;
             resourceInputs["logDeliveryConfiguration"] = state?.logDeliveryConfiguration;
+            resourceInputs["maintenanceSchedule"] = state?.maintenanceSchedule;
             resourceInputs["name"] = state?.name;
             resourceInputs["networkType"] = state?.networkType;
             resourceInputs["organization"] = state?.organization;
@@ -360,6 +365,7 @@ export class DbInstance extends pulumi.CustomResource {
             resourceInputs["dbStorageType"] = args?.dbStorageType;
             resourceInputs["deploymentType"] = args?.deploymentType;
             resourceInputs["logDeliveryConfiguration"] = args?.logDeliveryConfiguration;
+            resourceInputs["maintenanceSchedule"] = args?.maintenanceSchedule;
             resourceInputs["name"] = args?.name;
             resourceInputs["networkType"] = args?.networkType;
             resourceInputs["organization"] = args?.organization;
@@ -434,6 +440,10 @@ export interface DbInstanceState {
      * Configuration for sending InfluxDB engine logs to a specified S3 bucket. This argument is updatable.
      */
     logDeliveryConfiguration?: pulumi.Input<inputs.timestreaminfluxdb.DbInstanceLogDeliveryConfiguration | undefined>;
+    /**
+     * Maintenance schedule for the DB instance, including the preferred maintenance window and timezone. This argument is updatable.
+     */
+    maintenanceSchedule?: pulumi.Input<inputs.timestreaminfluxdb.DbInstanceMaintenanceSchedule | undefined>;
     /**
      * Name that uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. DB instance names must be unique per customer and per region. The argument must start with a letter, cannot contain consecutive hyphens (`-`) and cannot end with a hyphen.
      */
@@ -523,6 +533,10 @@ export interface DbInstanceArgs {
      * Configuration for sending InfluxDB engine logs to a specified S3 bucket. This argument is updatable.
      */
     logDeliveryConfiguration?: pulumi.Input<inputs.timestreaminfluxdb.DbInstanceLogDeliveryConfiguration | undefined>;
+    /**
+     * Maintenance schedule for the DB instance, including the preferred maintenance window and timezone. This argument is updatable.
+     */
+    maintenanceSchedule?: pulumi.Input<inputs.timestreaminfluxdb.DbInstanceMaintenanceSchedule | undefined>;
     /**
      * Name that uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. DB instance names must be unique per customer and per region. The argument must start with a letter, cannot contain consecutive hyphens (`-`) and cannot end with a hyphen.
      */

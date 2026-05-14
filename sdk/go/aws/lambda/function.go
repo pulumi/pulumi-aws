@@ -272,6 +272,145 @@ import (
 //
 // ```
 //
+// ### Function with S3 Files File System
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/vpc"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			currentGetRegion, err := aws.GetRegion(ctx, &aws.GetRegionArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			lambdaFileSystem, err := s3.NewBucket(ctx, "lambda_file_system", &s3.BucketArgs{
+//				Bucket:          pulumi.Sprintf("example-%v-%v-an", current.AccountId, currentGetRegion.Name),
+//				BucketNamespace: pulumi.String("account-regional"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			lambdaFileSystemBucketVersioning, err := s3.NewBucketVersioning(ctx, "lambda_file_system", &s3.BucketVersioningArgs{
+//				Bucket: lambdaFileSystem.Bucket,
+//				VersioningConfiguration: &s3.BucketVersioningVersioningConfigurationArgs{
+//					Status: pulumi.String("Enabled"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			forLambda, err := s3.NewFilesFileSystem(ctx, "for_lambda", &s3.FilesFileSystemArgs{
+//				Bucket:  lambdaFileSystem.Arn,
+//				RoleArn: pulumi.Any(s3files.Arn),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				lambdaFileSystemBucketVersioning,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			forLambdaFilesAccessPoint, err := s3.NewFilesAccessPoint(ctx, "for_lambda", &s3.FilesAccessPointArgs{
+//				FileSystemId: forLambda.ID(),
+//				RootDirectories: s3.FilesAccessPointRootDirectoryArray{
+//					&s3.FilesAccessPointRootDirectoryArgs{
+//						Path: pulumi.String("/lambda"),
+//						CreationPermissions: s3.FilesAccessPointRootDirectoryCreationPermissionArray{
+//							&s3.FilesAccessPointRootDirectoryCreationPermissionArgs{
+//								OwnerGid:    pulumi.Int(1000),
+//								OwnerUid:    pulumi.Int(1000),
+//								Permissions: pulumi.String("755"),
+//							},
+//						},
+//					},
+//				},
+//				PosixUsers: s3.FilesAccessPointPosixUserArray{
+//					&s3.FilesAccessPointPosixUserArgs{
+//						Gid: pulumi.Int(1000),
+//						Uid: pulumi.Int(1000),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			s3filesMountTargets, err := ec2.NewSecurityGroup(ctx, "s3files_mount_targets", &ec2.SecurityGroupArgs{
+//				Name:  pulumi.String("example-s3files-mount-targets-sg"),
+//				VpcId: pulumi.Any(vpcForLambda.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			lambdaS3files, err := ec2.NewSecurityGroup(ctx, "lambda_s3files", &ec2.SecurityGroupArgs{
+//				Name:  pulumi.String("example-lambda-s3files-sg"),
+//				VpcId: pulumi.Any(vpcForLambda.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = vpc.NewSecurityGroupIngressRule(ctx, "s3files_mount_targets_nfs", &vpc.SecurityGroupIngressRuleArgs{
+//				IpProtocol:                pulumi.String("tcp"),
+//				FromPort:                  pulumi.Int(2049),
+//				ToPort:                    pulumi.Int(2049),
+//				ReferencedSecurityGroupId: lambdaS3files.ID(),
+//				SecurityGroupId:           s3filesMountTargets.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = vpc.NewSecurityGroupEgressRule(ctx, "lambda_s3files_nfs", &vpc.SecurityGroupEgressRuleArgs{
+//				IpProtocol:                pulumi.String("tcp"),
+//				SecurityGroupId:           lambdaS3files.ID(),
+//				FromPort:                  pulumi.Int(2049),
+//				ToPort:                    pulumi.Int(2049),
+//				ReferencedSecurityGroupId: s3filesMountTargets.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = lambda.NewFunction(ctx, "example", &lambda.FunctionArgs{
+//				Code:    pulumi.NewFileArchive("function.zip"),
+//				Name:    pulumi.String("example_s3files_function"),
+//				Role:    pulumi.Any(iamForLambda.Arn),
+//				Handler: pulumi.String("exports.example"),
+//				Runtime: pulumi.String(lambda.RuntimeNodeJS24dX),
+//				VpcConfig: &lambda.FunctionVpcConfigArgs{
+//					SubnetIds: pulumi.StringArray{
+//						subnetForLambdaAz1.Id,
+//					},
+//					SecurityGroupIds: pulumi.StringArray{
+//						lambdaS3files.ID(),
+//					},
+//				},
+//				FileSystemConfig: &lambda.FunctionFileSystemConfigArgs{
+//					Arn:            forLambdaFilesAccessPoint.Arn,
+//					LocalMountPath: pulumi.String("/mnt/s3files"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				forLambdaAwsS3filesMountTarget,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ### Function with Advanced Logging
 //
 // ```go
@@ -789,7 +928,7 @@ type Function struct {
 	Environment FunctionEnvironmentPtrOutput `pulumi:"environment"`
 	// Amount of ephemeral storage (`/tmp`) to allocate for the Lambda Function. See below.
 	EphemeralStorage FunctionEphemeralStorageOutput `pulumi:"ephemeralStorage"`
-	// Configuration block for EFS file system. See below.
+	// Configuration block for EFS or S3 Files file system. See below.
 	FileSystemConfig FunctionFileSystemConfigPtrOutput `pulumi:"fileSystemConfig"`
 	// Function entry point in your code. Required if `packageType` is `Zip`.
 	Handler pulumi.StringPtrOutput `pulumi:"handler"`
@@ -928,7 +1067,7 @@ type functionState struct {
 	Environment *FunctionEnvironment `pulumi:"environment"`
 	// Amount of ephemeral storage (`/tmp`) to allocate for the Lambda Function. See below.
 	EphemeralStorage *FunctionEphemeralStorage `pulumi:"ephemeralStorage"`
-	// Configuration block for EFS file system. See below.
+	// Configuration block for EFS or S3 Files file system. See below.
 	FileSystemConfig *FunctionFileSystemConfig `pulumi:"fileSystemConfig"`
 	// Function entry point in your code. Required if `packageType` is `Zip`.
 	Handler *string `pulumi:"handler"`
@@ -1035,7 +1174,7 @@ type FunctionState struct {
 	Environment FunctionEnvironmentPtrInput
 	// Amount of ephemeral storage (`/tmp`) to allocate for the Lambda Function. See below.
 	EphemeralStorage FunctionEphemeralStoragePtrInput
-	// Configuration block for EFS file system. See below.
+	// Configuration block for EFS or S3 Files file system. See below.
 	FileSystemConfig FunctionFileSystemConfigPtrInput
 	// Function entry point in your code. Required if `packageType` is `Zip`.
 	Handler pulumi.StringPtrInput
@@ -1144,7 +1283,7 @@ type functionArgs struct {
 	Environment *FunctionEnvironment `pulumi:"environment"`
 	// Amount of ephemeral storage (`/tmp`) to allocate for the Lambda Function. See below.
 	EphemeralStorage *FunctionEphemeralStorage `pulumi:"ephemeralStorage"`
-	// Configuration block for EFS file system. See below.
+	// Configuration block for EFS or S3 Files file system. See below.
 	FileSystemConfig *FunctionFileSystemConfig `pulumi:"fileSystemConfig"`
 	// Function entry point in your code. Required if `packageType` is `Zip`.
 	Handler *string `pulumi:"handler"`
@@ -1230,7 +1369,7 @@ type FunctionArgs struct {
 	Environment FunctionEnvironmentPtrInput
 	// Amount of ephemeral storage (`/tmp`) to allocate for the Lambda Function. See below.
 	EphemeralStorage FunctionEphemeralStoragePtrInput
-	// Configuration block for EFS file system. See below.
+	// Configuration block for EFS or S3 Files file system. See below.
 	FileSystemConfig FunctionFileSystemConfigPtrInput
 	// Function entry point in your code. Required if `packageType` is `Zip`.
 	Handler pulumi.StringPtrInput
@@ -1436,7 +1575,7 @@ func (o FunctionOutput) EphemeralStorage() FunctionEphemeralStorageOutput {
 	return o.ApplyT(func(v *Function) FunctionEphemeralStorageOutput { return v.EphemeralStorage }).(FunctionEphemeralStorageOutput)
 }
 
-// Configuration block for EFS file system. See below.
+// Configuration block for EFS or S3 Files file system. See below.
 func (o FunctionOutput) FileSystemConfig() FunctionFileSystemConfigPtrOutput {
 	return o.ApplyT(func(v *Function) FunctionFileSystemConfigPtrOutput { return v.FileSystemConfig }).(FunctionFileSystemConfigPtrOutput)
 }

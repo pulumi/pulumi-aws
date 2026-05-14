@@ -320,6 +320,12 @@ namespace Pulumi.Aws.TimestreamInfluxDB
         public Output<Outputs.DbInstanceLogDeliveryConfiguration?> LogDeliveryConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// Maintenance schedule for the DB instance, including the preferred maintenance window and timezone. This argument is updatable.
+        /// </summary>
+        [Output("maintenanceSchedule")]
+        public Output<Outputs.DbInstanceMaintenanceSchedule?> MaintenanceSchedule { get; private set; } = null!;
+
+        /// <summary>
         /// Name that uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. DB instance names must be unique per customer and per region. The argument must start with a letter, cannot contain consecutive hyphens (`-`) and cannot end with a hyphen.
         /// </summary>
         [Output("name")]
@@ -495,6 +501,12 @@ namespace Pulumi.Aws.TimestreamInfluxDB
         public Input<Inputs.DbInstanceLogDeliveryConfigurationArgs>? LogDeliveryConfiguration { get; set; }
 
         /// <summary>
+        /// Maintenance schedule for the DB instance, including the preferred maintenance window and timezone. This argument is updatable.
+        /// </summary>
+        [Input("maintenanceSchedule")]
+        public Input<Inputs.DbInstanceMaintenanceScheduleArgs>? MaintenanceSchedule { get; set; }
+
+        /// <summary>
         /// Name that uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. DB instance names must be unique per customer and per region. The argument must start with a letter, cannot contain consecutive hyphens (`-`) and cannot end with a hyphen.
         /// </summary>
         [Input("name")]
@@ -666,6 +678,12 @@ namespace Pulumi.Aws.TimestreamInfluxDB
         /// </summary>
         [Input("logDeliveryConfiguration")]
         public Input<Inputs.DbInstanceLogDeliveryConfigurationGetArgs>? LogDeliveryConfiguration { get; set; }
+
+        /// <summary>
+        /// Maintenance schedule for the DB instance, including the preferred maintenance window and timezone. This argument is updatable.
+        /// </summary>
+        [Input("maintenanceSchedule")]
+        public Input<Inputs.DbInstanceMaintenanceScheduleGetArgs>? MaintenanceSchedule { get; set; }
 
         /// <summary>
         /// Name that uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. DB instance names must be unique per customer and per region. The argument must start with a letter, cannot contain consecutive hyphens (`-`) and cannot end with a hyphen.

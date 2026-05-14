@@ -68,14 +68,14 @@ public final class AgentcoreGatewayArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Exception level for the gateway. Valid values: `INFO`, `WARN`, `ERROR`.
+     * Exception level for the gateway. Valid values: `DEBUG`.
      * 
      */
     @Import(name="exceptionLevel")
     private @Nullable Output<String> exceptionLevel;
 
     /**
-     * @return Exception level for the gateway. Valid values: `INFO`, `WARN`, `ERROR`.
+     * @return Exception level for the gateway. Valid values: `DEBUG`.
      * 
      */
     public Optional<Output<String>> exceptionLevel() {
@@ -313,7 +313,7 @@ public final class AgentcoreGatewayArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param exceptionLevel Exception level for the gateway. Valid values: `INFO`, `WARN`, `ERROR`.
+         * @param exceptionLevel Exception level for the gateway. Valid values: `DEBUG`.
          * 
          * @return builder
          * 
@@ -324,7 +324,7 @@ public final class AgentcoreGatewayArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param exceptionLevel Exception level for the gateway. Valid values: `INFO`, `WARN`, `ERROR`.
+         * @param exceptionLevel Exception level for the gateway. Valid values: `DEBUG`.
          * 
          * @return builder
          * 

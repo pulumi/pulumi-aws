@@ -218,7 +218,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Exception level for the gateway. Valid values: `INFO`, `WARN`, `ERROR`.
+        /// Exception level for the gateway. Valid values: `DEBUG`.
         /// </summary>
         [Output("exceptionLevel")]
         public Output<string?> ExceptionLevel { get; private set; } = null!;
@@ -371,7 +371,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Exception level for the gateway. Valid values: `INFO`, `WARN`, `ERROR`.
+        /// Exception level for the gateway. Valid values: `DEBUG`.
         /// </summary>
         [Input("exceptionLevel")]
         public Input<string>? ExceptionLevel { get; set; }
@@ -468,7 +468,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Exception level for the gateway. Valid values: `INFO`, `WARN`, `ERROR`.
+        /// Exception level for the gateway. Valid values: `DEBUG`.
         /// </summary>
         [Input("exceptionLevel")]
         public Input<string>? ExceptionLevel { get; set; }
