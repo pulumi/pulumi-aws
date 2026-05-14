@@ -340,6 +340,7 @@ class Endpoints(dict):
                  deploy: Optional[_builtins.str] = None,
                  detective: Optional[_builtins.str] = None,
                  devicefarm: Optional[_builtins.str] = None,
+                 devopsagent: Optional[_builtins.str] = None,
                  devopsguru: Optional[_builtins.str] = None,
                  directconnect: Optional[_builtins.str] = None,
                  directoryservice: Optional[_builtins.str] = None,
@@ -652,6 +653,7 @@ class Endpoints(dict):
         :param _builtins.str deploy: Use this to override the default service endpoint URL
         :param _builtins.str detective: Use this to override the default service endpoint URL
         :param _builtins.str devicefarm: Use this to override the default service endpoint URL
+        :param _builtins.str devopsagent: Use this to override the default service endpoint URL
         :param _builtins.str devopsguru: Use this to override the default service endpoint URL
         :param _builtins.str directconnect: Use this to override the default service endpoint URL
         :param _builtins.str directoryservice: Use this to override the default service endpoint URL
@@ -1062,6 +1064,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "detective", detective)
         if devicefarm is not None:
             pulumi.set(__self__, "devicefarm", devicefarm)
+        if devopsagent is not None:
+            pulumi.set(__self__, "devopsagent", devopsagent)
         if devopsguru is not None:
             pulumi.set(__self__, "devopsguru", devopsguru)
         if directconnect is not None:
@@ -2272,6 +2276,14 @@ class Endpoints(dict):
         Use this to override the default service endpoint URL
         """
         return pulumi.get(self, "devicefarm")
+
+    @_builtins.property
+    @pulumi.getter
+    def devopsagent(self) -> Optional[_builtins.str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "devopsagent")
 
     @_builtins.property
     @pulumi.getter

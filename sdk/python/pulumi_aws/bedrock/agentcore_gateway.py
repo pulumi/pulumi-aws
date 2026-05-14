@@ -44,7 +44,7 @@ class AgentcoreGatewayArgs:
                The following arguments are optional:
         :param pulumi.Input['AgentcoreGatewayAuthorizerConfigurationArgs'] authorizer_configuration: Configuration for request authorization. Required when `authorizer_type` is set to `CUSTOM_JWT`. See `authorizer_configuration` below.
         :param pulumi.Input[_builtins.str] description: Description of the gateway.
-        :param pulumi.Input[_builtins.str] exception_level: Exception level for the gateway. Valid values: `INFO`, `WARN`, `ERROR`.
+        :param pulumi.Input[_builtins.str] exception_level: Exception level for the gateway. Valid values: `DEBUG`.
         :param pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayInterceptorConfigurationArgs']]] interceptor_configurations: List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptor_configuration` below.
         :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS key used to encrypt the gateway data.
         :param pulumi.Input[_builtins.str] name: Name of the gateway.
@@ -142,7 +142,7 @@ class AgentcoreGatewayArgs:
     @pulumi.getter(name="exceptionLevel")
     def exception_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Exception level for the gateway. Valid values: `INFO`, `WARN`, `ERROR`.
+        Exception level for the gateway. Valid values: `DEBUG`.
         """
         return pulumi.get(self, "exception_level")
 
@@ -259,7 +259,7 @@ class _AgentcoreGatewayState:
         :param pulumi.Input['AgentcoreGatewayAuthorizerConfigurationArgs'] authorizer_configuration: Configuration for request authorization. Required when `authorizer_type` is set to `CUSTOM_JWT`. See `authorizer_configuration` below.
         :param pulumi.Input[_builtins.str] authorizer_type: Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `authorizer_configuration` block is required.
         :param pulumi.Input[_builtins.str] description: Description of the gateway.
-        :param pulumi.Input[_builtins.str] exception_level: Exception level for the gateway. Valid values: `INFO`, `WARN`, `ERROR`.
+        :param pulumi.Input[_builtins.str] exception_level: Exception level for the gateway. Valid values: `DEBUG`.
         :param pulumi.Input[_builtins.str] gateway_arn: ARN of the Gateway.
         :param pulumi.Input[_builtins.str] gateway_id: Unique identifier of the Gateway.
         :param pulumi.Input[_builtins.str] gateway_url: URL endpoint for the gateway.
@@ -353,7 +353,7 @@ class _AgentcoreGatewayState:
     @pulumi.getter(name="exceptionLevel")
     def exception_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Exception level for the gateway. Valid values: `INFO`, `WARN`, `ERROR`.
+        Exception level for the gateway. Valid values: `DEBUG`.
         """
         return pulumi.get(self, "exception_level")
 
@@ -675,7 +675,7 @@ class AgentcoreGateway(pulumi.CustomResource):
         :param pulumi.Input[Union['AgentcoreGatewayAuthorizerConfigurationArgs', 'AgentcoreGatewayAuthorizerConfigurationArgsDict']] authorizer_configuration: Configuration for request authorization. Required when `authorizer_type` is set to `CUSTOM_JWT`. See `authorizer_configuration` below.
         :param pulumi.Input[_builtins.str] authorizer_type: Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `authorizer_configuration` block is required.
         :param pulumi.Input[_builtins.str] description: Description of the gateway.
-        :param pulumi.Input[_builtins.str] exception_level: Exception level for the gateway. Valid values: `INFO`, `WARN`, `ERROR`.
+        :param pulumi.Input[_builtins.str] exception_level: Exception level for the gateway. Valid values: `DEBUG`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreGatewayInterceptorConfigurationArgs', 'AgentcoreGatewayInterceptorConfigurationArgsDict']]]] interceptor_configurations: List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptor_configuration` below.
         :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS key used to encrypt the gateway data.
         :param pulumi.Input[_builtins.str] name: Name of the gateway.
@@ -913,7 +913,7 @@ class AgentcoreGateway(pulumi.CustomResource):
         :param pulumi.Input[Union['AgentcoreGatewayAuthorizerConfigurationArgs', 'AgentcoreGatewayAuthorizerConfigurationArgsDict']] authorizer_configuration: Configuration for request authorization. Required when `authorizer_type` is set to `CUSTOM_JWT`. See `authorizer_configuration` below.
         :param pulumi.Input[_builtins.str] authorizer_type: Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `authorizer_configuration` block is required.
         :param pulumi.Input[_builtins.str] description: Description of the gateway.
-        :param pulumi.Input[_builtins.str] exception_level: Exception level for the gateway. Valid values: `INFO`, `WARN`, `ERROR`.
+        :param pulumi.Input[_builtins.str] exception_level: Exception level for the gateway. Valid values: `DEBUG`.
         :param pulumi.Input[_builtins.str] gateway_arn: ARN of the Gateway.
         :param pulumi.Input[_builtins.str] gateway_id: Unique identifier of the Gateway.
         :param pulumi.Input[_builtins.str] gateway_url: URL endpoint for the gateway.
@@ -982,7 +982,7 @@ class AgentcoreGateway(pulumi.CustomResource):
     @pulumi.getter(name="exceptionLevel")
     def exception_level(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Exception level for the gateway. Valid values: `INFO`, `WARN`, `ERROR`.
+        Exception level for the gateway. Valid values: `DEBUG`.
         """
         return pulumi.get(self, "exception_level")
 

@@ -15,14 +15,14 @@ public final class FunctionFileSystemConfigArgs extends com.pulumi.resources.Res
     public static final FunctionFileSystemConfigArgs Empty = new FunctionFileSystemConfigArgs();
 
     /**
-     * ARN of the Amazon EFS Access Point.
+     * ARN of the Amazon EFS Access Point, or the Amazon S3 Files access point.
      * 
      */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
     /**
-     * @return ARN of the Amazon EFS Access Point.
+     * @return ARN of the Amazon EFS Access Point, or the Amazon S3 Files access point.
      * 
      */
     public Output<String> arn() {
@@ -70,7 +70,7 @@ public final class FunctionFileSystemConfigArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param arn ARN of the Amazon EFS Access Point.
+         * @param arn ARN of the Amazon EFS Access Point, or the Amazon S3 Files access point.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class FunctionFileSystemConfigArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param arn ARN of the Amazon EFS Access Point.
+         * @param arn ARN of the Amazon EFS Access Point, or the Amazon S3 Files access point.
          * 
          * @return builder
          * 

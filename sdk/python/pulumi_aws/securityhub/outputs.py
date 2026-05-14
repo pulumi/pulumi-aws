@@ -78,6 +78,10 @@ __all__ = [
     'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntList',
     'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterString',
     'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringList',
+    'ConnectorV2ConnectorProvider',
+    'ConnectorV2ConnectorProviderJiraCloud',
+    'ConnectorV2ConnectorProviderServiceNow',
+    'ConnectorV2Health',
     'InsightFilters',
     'InsightFiltersAwsAccountId',
     'InsightFiltersAwsAccountName',
@@ -2664,6 +2668,266 @@ class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurit
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
         return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class ConnectorV2ConnectorProvider(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jiraCloud":
+            suggest = "jira_cloud"
+        elif key == "serviceNow":
+            suggest = "service_now"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorV2ConnectorProvider. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorV2ConnectorProvider.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorV2ConnectorProvider.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 jira_cloud: Optional['outputs.ConnectorV2ConnectorProviderJiraCloud'] = None,
+                 service_now: Optional['outputs.ConnectorV2ConnectorProviderServiceNow'] = None):
+        """
+        :param 'ConnectorV2ConnectorProviderJiraCloudArgs' jira_cloud: Details about a Jira Cloud integration. See `jira_cloud` below.
+        :param 'ConnectorV2ConnectorProviderServiceNowArgs' service_now: Details about a ServiceNow ITSM integration. See `service_now` below.
+        """
+        if jira_cloud is not None:
+            pulumi.set(__self__, "jira_cloud", jira_cloud)
+        if service_now is not None:
+            pulumi.set(__self__, "service_now", service_now)
+
+    @_builtins.property
+    @pulumi.getter(name="jiraCloud")
+    def jira_cloud(self) -> Optional['outputs.ConnectorV2ConnectorProviderJiraCloud']:
+        """
+        Details about a Jira Cloud integration. See `jira_cloud` below.
+        """
+        return pulumi.get(self, "jira_cloud")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceNow")
+    def service_now(self) -> Optional['outputs.ConnectorV2ConnectorProviderServiceNow']:
+        """
+        Details about a ServiceNow ITSM integration. See `service_now` below.
+        """
+        return pulumi.get(self, "service_now")
+
+
+@pulumi.output_type
+class ConnectorV2ConnectorProviderJiraCloud(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "projectKey":
+            suggest = "project_key"
+        elif key == "authStatus":
+            suggest = "auth_status"
+        elif key == "authUrl":
+            suggest = "auth_url"
+        elif key == "cloudId":
+            suggest = "cloud_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorV2ConnectorProviderJiraCloud. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorV2ConnectorProviderJiraCloud.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorV2ConnectorProviderJiraCloud.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 project_key: _builtins.str,
+                 auth_status: Optional[_builtins.str] = None,
+                 auth_url: Optional[_builtins.str] = None,
+                 cloud_id: Optional[_builtins.str] = None,
+                 domain: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str project_key: Jira Cloud project key.
+        :param _builtins.str auth_status: Status of the authorization between Jira Cloud and the service.
+        :param _builtins.str auth_url: URL to provide to customers for OAuth auth code flow.
+        :param _builtins.str cloud_id: Cloud ID of the Jira Cloud.
+        :param _builtins.str domain: URL domain of the Jira Cloud instance.
+        """
+        pulumi.set(__self__, "project_key", project_key)
+        if auth_status is not None:
+            pulumi.set(__self__, "auth_status", auth_status)
+        if auth_url is not None:
+            pulumi.set(__self__, "auth_url", auth_url)
+        if cloud_id is not None:
+            pulumi.set(__self__, "cloud_id", cloud_id)
+        if domain is not None:
+            pulumi.set(__self__, "domain", domain)
+
+    @_builtins.property
+    @pulumi.getter(name="projectKey")
+    def project_key(self) -> _builtins.str:
+        """
+        Jira Cloud project key.
+        """
+        return pulumi.get(self, "project_key")
+
+    @_builtins.property
+    @pulumi.getter(name="authStatus")
+    def auth_status(self) -> Optional[_builtins.str]:
+        """
+        Status of the authorization between Jira Cloud and the service.
+        """
+        return pulumi.get(self, "auth_status")
+
+    @_builtins.property
+    @pulumi.getter(name="authUrl")
+    def auth_url(self) -> Optional[_builtins.str]:
+        """
+        URL to provide to customers for OAuth auth code flow.
+        """
+        return pulumi.get(self, "auth_url")
+
+    @_builtins.property
+    @pulumi.getter(name="cloudId")
+    def cloud_id(self) -> Optional[_builtins.str]:
+        """
+        Cloud ID of the Jira Cloud.
+        """
+        return pulumi.get(self, "cloud_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def domain(self) -> Optional[_builtins.str]:
+        """
+        URL domain of the Jira Cloud instance.
+        """
+        return pulumi.get(self, "domain")
+
+
+@pulumi.output_type
+class ConnectorV2ConnectorProviderServiceNow(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceName":
+            suggest = "instance_name"
+        elif key == "secretArn":
+            suggest = "secret_arn"
+        elif key == "authStatus":
+            suggest = "auth_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorV2ConnectorProviderServiceNow. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorV2ConnectorProviderServiceNow.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorV2ConnectorProviderServiceNow.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_name: _builtins.str,
+                 secret_arn: _builtins.str,
+                 auth_status: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str instance_name: Instance name of ServiceNow ITSM.
+        :param _builtins.str secret_arn: Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the ServiceNow credentials.
+        :param _builtins.str auth_status: Status of the authorization between ServiceNow and the service.
+        """
+        pulumi.set(__self__, "instance_name", instance_name)
+        pulumi.set(__self__, "secret_arn", secret_arn)
+        if auth_status is not None:
+            pulumi.set(__self__, "auth_status", auth_status)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceName")
+    def instance_name(self) -> _builtins.str:
+        """
+        Instance name of ServiceNow ITSM.
+        """
+        return pulumi.get(self, "instance_name")
+
+    @_builtins.property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> _builtins.str:
+        """
+        Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the ServiceNow credentials.
+        """
+        return pulumi.get(self, "secret_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="authStatus")
+    def auth_status(self) -> Optional[_builtins.str]:
+        """
+        Status of the authorization between ServiceNow and the service.
+        """
+        return pulumi.get(self, "auth_status")
+
+
+@pulumi.output_type
+class ConnectorV2Health(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectorStatus":
+            suggest = "connector_status"
+        elif key == "lastCheckedAt":
+            suggest = "last_checked_at"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorV2Health. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorV2Health.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorV2Health.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connector_status: _builtins.str,
+                 last_checked_at: _builtins.str,
+                 message: _builtins.str):
+        """
+        :param _builtins.str connector_status: Status of the connector.
+        :param _builtins.str last_checked_at: Timestamp for the time the health status was checked.
+        :param _builtins.str message: Message for the reason of `connector_status` change.
+        """
+        pulumi.set(__self__, "connector_status", connector_status)
+        pulumi.set(__self__, "last_checked_at", last_checked_at)
+        pulumi.set(__self__, "message", message)
+
+    @_builtins.property
+    @pulumi.getter(name="connectorStatus")
+    def connector_status(self) -> _builtins.str:
+        """
+        Status of the connector.
+        """
+        return pulumi.get(self, "connector_status")
+
+    @_builtins.property
+    @pulumi.getter(name="lastCheckedAt")
+    def last_checked_at(self) -> _builtins.str:
+        """
+        Timestamp for the time the health status was checked.
+        """
+        return pulumi.get(self, "last_checked_at")
+
+    @_builtins.property
+    @pulumi.getter
+    def message(self) -> _builtins.str:
+        """
+        Message for the reason of `connector_status` change.
+        """
+        return pulumi.get(self, "message")
 
 
 @pulumi.output_type

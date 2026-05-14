@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.timestreaminfluxdb.DbInstanceArgs;
 import com.pulumi.aws.timestreaminfluxdb.inputs.DbInstanceState;
 import com.pulumi.aws.timestreaminfluxdb.outputs.DbInstanceLogDeliveryConfiguration;
+import com.pulumi.aws.timestreaminfluxdb.outputs.DbInstanceMaintenanceSchedule;
 import com.pulumi.aws.timestreaminfluxdb.outputs.DbInstanceTimeouts;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -443,6 +444,20 @@ public class DbInstance extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<DbInstanceLogDeliveryConfiguration>> logDeliveryConfiguration() {
         return Codegen.optional(this.logDeliveryConfiguration);
+    }
+    /**
+     * Maintenance schedule for the DB instance, including the preferred maintenance window and timezone. This argument is updatable.
+     * 
+     */
+    @Export(name="maintenanceSchedule", refs={DbInstanceMaintenanceSchedule.class}, tree="[0]")
+    private Output</* @Nullable */ DbInstanceMaintenanceSchedule> maintenanceSchedule;
+
+    /**
+     * @return Maintenance schedule for the DB instance, including the preferred maintenance window and timezone. This argument is updatable.
+     * 
+     */
+    public Output<Optional<DbInstanceMaintenanceSchedule>> maintenanceSchedule() {
+        return Codegen.optional(this.maintenanceSchedule);
     }
     /**
      * Name that uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. DB instance names must be unique per customer and per region. The argument must start with a letter, cannot contain consecutive hyphens (`-`) and cannot end with a hyphen.

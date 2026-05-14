@@ -4,6 +4,7 @@
 package com.pulumi.aws.timestreaminfluxdb.inputs;
 
 import com.pulumi.aws.timestreaminfluxdb.inputs.DbInstanceLogDeliveryConfigurationArgs;
+import com.pulumi.aws.timestreaminfluxdb.inputs.DbInstanceMaintenanceScheduleArgs;
 import com.pulumi.aws.timestreaminfluxdb.inputs.DbInstanceTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -184,6 +185,21 @@ public final class DbInstanceState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<DbInstanceLogDeliveryConfigurationArgs>> logDeliveryConfiguration() {
         return Optional.ofNullable(this.logDeliveryConfiguration);
+    }
+
+    /**
+     * Maintenance schedule for the DB instance, including the preferred maintenance window and timezone. This argument is updatable.
+     * 
+     */
+    @Import(name="maintenanceSchedule")
+    private @Nullable Output<DbInstanceMaintenanceScheduleArgs> maintenanceSchedule;
+
+    /**
+     * @return Maintenance schedule for the DB instance, including the preferred maintenance window and timezone. This argument is updatable.
+     * 
+     */
+    public Optional<Output<DbInstanceMaintenanceScheduleArgs>> maintenanceSchedule() {
+        return Optional.ofNullable(this.maintenanceSchedule);
     }
 
     /**
@@ -406,6 +422,7 @@ public final class DbInstanceState extends com.pulumi.resources.ResourceArgs {
         this.endpoint = $.endpoint;
         this.influxAuthParametersSecretArn = $.influxAuthParametersSecretArn;
         this.logDeliveryConfiguration = $.logDeliveryConfiguration;
+        this.maintenanceSchedule = $.maintenanceSchedule;
         this.name = $.name;
         this.networkType = $.networkType;
         this.organization = $.organization;
@@ -669,6 +686,27 @@ public final class DbInstanceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder logDeliveryConfiguration(DbInstanceLogDeliveryConfigurationArgs logDeliveryConfiguration) {
             return logDeliveryConfiguration(Output.of(logDeliveryConfiguration));
+        }
+
+        /**
+         * @param maintenanceSchedule Maintenance schedule for the DB instance, including the preferred maintenance window and timezone. This argument is updatable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maintenanceSchedule(@Nullable Output<DbInstanceMaintenanceScheduleArgs> maintenanceSchedule) {
+            $.maintenanceSchedule = maintenanceSchedule;
+            return this;
+        }
+
+        /**
+         * @param maintenanceSchedule Maintenance schedule for the DB instance, including the preferred maintenance window and timezone. This argument is updatable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maintenanceSchedule(DbInstanceMaintenanceScheduleArgs maintenanceSchedule) {
+            return maintenanceSchedule(Output.of(maintenanceSchedule));
         }
 
         /**

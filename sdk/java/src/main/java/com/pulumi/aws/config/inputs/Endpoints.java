@@ -505,6 +505,11 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    private @Nullable String devopsagent;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String devopsguru;
     /**
      * @return Use this to override the default service endpoint URL
@@ -2258,6 +2263,13 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    public Optional<String> devopsagent() {
+        return Optional.ofNullable(this.devopsagent);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> devopsguru() {
         return Optional.ofNullable(this.devopsguru);
     }
@@ -3853,6 +3865,7 @@ public final class Endpoints {
         private @Nullable String deploy;
         private @Nullable String detective;
         private @Nullable String devicefarm;
+        private @Nullable String devopsagent;
         private @Nullable String devopsguru;
         private @Nullable String directconnect;
         private @Nullable String directoryservice;
@@ -4167,6 +4180,7 @@ public final class Endpoints {
     	      this.deploy = defaults.deploy;
     	      this.detective = defaults.detective;
     	      this.devicefarm = defaults.devicefarm;
+    	      this.devopsagent = defaults.devopsagent;
     	      this.devopsguru = defaults.devopsguru;
     	      this.directconnect = defaults.directconnect;
     	      this.directoryservice = defaults.directoryservice;
@@ -4968,6 +4982,12 @@ public final class Endpoints {
         public Builder devicefarm(@Nullable String devicefarm) {
 
             this.devicefarm = devicefarm;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder devopsagent(@Nullable String devopsagent) {
+
+            this.devopsagent = devopsagent;
             return this;
         }
         @CustomType.Setter
@@ -6348,6 +6368,7 @@ public final class Endpoints {
             _resultValue.deploy = deploy;
             _resultValue.detective = detective;
             _resultValue.devicefarm = devicefarm;
+            _resultValue.devopsagent = devopsagent;
             _resultValue.devopsguru = devopsguru;
             _resultValue.directconnect = directconnect;
             _resultValue.directoryservice = directoryservice;

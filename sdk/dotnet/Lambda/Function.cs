@@ -251,6 +251,145 @@ namespace Pulumi.Aws.Lambda
     /// });
     /// ```
     /// 
+    /// ### Function with S3 Files File System
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     var currentGetRegion = Aws.GetRegion.Invoke();
+    /// 
+    ///     var lambdaFileSystem = new Aws.S3.Bucket("lambda_file_system", new()
+    ///     {
+    ///         BucketName = Output.Tuple(current, currentGetRegion).Apply(values =&gt;
+    ///         {
+    ///             var current = values.Item1;
+    ///             var currentGetRegion = values.Item2;
+    ///             return $"example-{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}-{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}-an";
+    ///         }),
+    ///         BucketNamespace = "account-regional",
+    ///     });
+    /// 
+    ///     var lambdaFileSystemBucketVersioning = new Aws.S3.BucketVersioning("lambda_file_system", new()
+    ///     {
+    ///         Bucket = lambdaFileSystem.BucketName,
+    ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningVersioningConfigurationArgs
+    ///         {
+    ///             Status = "Enabled",
+    ///         },
+    ///     });
+    /// 
+    ///     var forLambda = new Aws.S3.FilesFileSystem("for_lambda", new()
+    ///     {
+    ///         Bucket = lambdaFileSystem.Arn,
+    ///         RoleArn = s3files.Arn,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             lambdaFileSystemBucketVersioning,
+    ///         },
+    ///     });
+    /// 
+    ///     var forLambdaFilesAccessPoint = new Aws.S3.FilesAccessPoint("for_lambda", new()
+    ///     {
+    ///         FileSystemId = forLambda.Id,
+    ///         RootDirectories = new[]
+    ///         {
+    ///             new Aws.S3.Inputs.FilesAccessPointRootDirectoryArgs
+    ///             {
+    ///                 Path = "/lambda",
+    ///                 CreationPermissions = new[]
+    ///                 {
+    ///                     new Aws.S3.Inputs.FilesAccessPointRootDirectoryCreationPermissionArgs
+    ///                     {
+    ///                         OwnerGid = 1000,
+    ///                         OwnerUid = 1000,
+    ///                         Permissions = "755",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         PosixUsers = new[]
+    ///         {
+    ///             new Aws.S3.Inputs.FilesAccessPointPosixUserArgs
+    ///             {
+    ///                 Gid = 1000,
+    ///                 Uid = 1000,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var s3filesMountTargets = new Aws.Ec2.SecurityGroup("s3files_mount_targets", new()
+    ///     {
+    ///         Name = "example-s3files-mount-targets-sg",
+    ///         VpcId = vpcForLambda.Id,
+    ///     });
+    /// 
+    ///     var lambdaS3files = new Aws.Ec2.SecurityGroup("lambda_s3files", new()
+    ///     {
+    ///         Name = "example-lambda-s3files-sg",
+    ///         VpcId = vpcForLambda.Id,
+    ///     });
+    /// 
+    ///     var s3filesMountTargetsNfs = new Aws.Vpc.SecurityGroupIngressRule("s3files_mount_targets_nfs", new()
+    ///     {
+    ///         IpProtocol = "tcp",
+    ///         FromPort = 2049,
+    ///         ToPort = 2049,
+    ///         ReferencedSecurityGroupId = lambdaS3files.Id,
+    ///         SecurityGroupId = s3filesMountTargets.Id,
+    ///     });
+    /// 
+    ///     var lambdaS3filesNfs = new Aws.Vpc.SecurityGroupEgressRule("lambda_s3files_nfs", new()
+    ///     {
+    ///         IpProtocol = "tcp",
+    ///         SecurityGroupId = lambdaS3files.Id,
+    ///         FromPort = 2049,
+    ///         ToPort = 2049,
+    ///         ReferencedSecurityGroupId = s3filesMountTargets.Id,
+    ///     });
+    /// 
+    ///     var example = new Aws.Lambda.Function("example", new()
+    ///     {
+    ///         Code = new FileArchive("function.zip"),
+    ///         Name = "example_s3files_function",
+    ///         Role = iamForLambda.Arn,
+    ///         Handler = "exports.example",
+    ///         Runtime = Aws.Lambda.Runtime.NodeJS24dX,
+    ///         VpcConfig = new Aws.Lambda.Inputs.FunctionVpcConfigArgs
+    ///         {
+    ///             SubnetIds = new[]
+    ///             {
+    ///                 subnetForLambdaAz1.Id,
+    ///             },
+    ///             SecurityGroupIds = new[]
+    ///             {
+    ///                 lambdaS3files.Id,
+    ///             },
+    ///         },
+    ///         FileSystemConfig = new Aws.Lambda.Inputs.FunctionFileSystemConfigArgs
+    ///         {
+    ///             Arn = forLambdaFilesAccessPoint.Arn,
+    ///             LocalMountPath = "/mnt/s3files",
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             forLambdaAwsS3filesMountTarget,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### Function with Advanced Logging
     /// 
     /// ```csharp
@@ -779,7 +918,7 @@ namespace Pulumi.Aws.Lambda
         public Output<Outputs.FunctionEphemeralStorage> EphemeralStorage { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for EFS file system. See below.
+        /// Configuration block for EFS or S3 Files file system. See below.
         /// </summary>
         [Output("fileSystemConfig")]
         public Output<Outputs.FunctionFileSystemConfig?> FileSystemConfig { get; private set; } = null!;
@@ -1133,7 +1272,7 @@ namespace Pulumi.Aws.Lambda
         public Input<Inputs.FunctionEphemeralStorageArgs>? EphemeralStorage { get; set; }
 
         /// <summary>
-        /// Configuration block for EFS file system. See below.
+        /// Configuration block for EFS or S3 Files file system. See below.
         /// </summary>
         [Input("fileSystemConfig")]
         public Input<Inputs.FunctionFileSystemConfigArgs>? FileSystemConfig { get; set; }
@@ -1413,7 +1552,7 @@ namespace Pulumi.Aws.Lambda
         public Input<Inputs.FunctionEphemeralStorageGetArgs>? EphemeralStorage { get; set; }
 
         /// <summary>
-        /// Configuration block for EFS file system. See below.
+        /// Configuration block for EFS or S3 Files file system. See below.
         /// </summary>
         [Input("fileSystemConfig")]
         public Input<Inputs.FunctionFileSystemConfigGetArgs>? FileSystemConfig { get; set; }

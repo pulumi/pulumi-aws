@@ -20,6 +20,11 @@ export type ActionTarget = import("./actionTarget").ActionTarget;
 export const ActionTarget: typeof import("./actionTarget").ActionTarget = null as any;
 utilities.lazyLoad(exports, ["ActionTarget"], () => require("./actionTarget"));
 
+export { AggregatorV2Args, AggregatorV2State } from "./aggregatorV2";
+export type AggregatorV2 = import("./aggregatorV2").AggregatorV2;
+export const AggregatorV2: typeof import("./aggregatorV2").AggregatorV2 = null as any;
+utilities.lazyLoad(exports, ["AggregatorV2"], () => require("./aggregatorV2"));
+
 export { AutomationRuleArgs, AutomationRuleState } from "./automationRule";
 export type AutomationRule = import("./automationRule").AutomationRule;
 export const AutomationRule: typeof import("./automationRule").AutomationRule = null as any;
@@ -34,6 +39,11 @@ export { ConfigurationPolicyAssociationArgs, ConfigurationPolicyAssociationState
 export type ConfigurationPolicyAssociation = import("./configurationPolicyAssociation").ConfigurationPolicyAssociation;
 export const ConfigurationPolicyAssociation: typeof import("./configurationPolicyAssociation").ConfigurationPolicyAssociation = null as any;
 utilities.lazyLoad(exports, ["ConfigurationPolicyAssociation"], () => require("./configurationPolicyAssociation"));
+
+export { ConnectorV2Args, ConnectorV2State } from "./connectorV2";
+export type ConnectorV2 = import("./connectorV2").ConnectorV2;
+export const ConnectorV2: typeof import("./connectorV2").ConnectorV2 = null as any;
+utilities.lazyLoad(exports, ["ConnectorV2"], () => require("./connectorV2"));
 
 export { FindingAggregatorArgs, FindingAggregatorState } from "./findingAggregator";
 export type FindingAggregator = import("./findingAggregator").FindingAggregator;
@@ -111,12 +121,16 @@ const _module = {
                 return new AccountV2(name, <any>undefined, { urn })
             case "aws:securityhub/actionTarget:ActionTarget":
                 return new ActionTarget(name, <any>undefined, { urn })
+            case "aws:securityhub/aggregatorV2:AggregatorV2":
+                return new AggregatorV2(name, <any>undefined, { urn })
             case "aws:securityhub/automationRule:AutomationRule":
                 return new AutomationRule(name, <any>undefined, { urn })
             case "aws:securityhub/configurationPolicy:ConfigurationPolicy":
                 return new ConfigurationPolicy(name, <any>undefined, { urn })
             case "aws:securityhub/configurationPolicyAssociation:ConfigurationPolicyAssociation":
                 return new ConfigurationPolicyAssociation(name, <any>undefined, { urn })
+            case "aws:securityhub/connectorV2:ConnectorV2":
+                return new ConnectorV2(name, <any>undefined, { urn })
             case "aws:securityhub/findingAggregator:FindingAggregator":
                 return new FindingAggregator(name, <any>undefined, { urn })
             case "aws:securityhub/insight:Insight":
@@ -145,9 +159,11 @@ const _module = {
 pulumi.runtime.registerResourceModule("aws", "securityhub/account", _module)
 pulumi.runtime.registerResourceModule("aws", "securityhub/accountV2", _module)
 pulumi.runtime.registerResourceModule("aws", "securityhub/actionTarget", _module)
+pulumi.runtime.registerResourceModule("aws", "securityhub/aggregatorV2", _module)
 pulumi.runtime.registerResourceModule("aws", "securityhub/automationRule", _module)
 pulumi.runtime.registerResourceModule("aws", "securityhub/configurationPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "securityhub/configurationPolicyAssociation", _module)
+pulumi.runtime.registerResourceModule("aws", "securityhub/connectorV2", _module)
 pulumi.runtime.registerResourceModule("aws", "securityhub/findingAggregator", _module)
 pulumi.runtime.registerResourceModule("aws", "securityhub/insight", _module)
 pulumi.runtime.registerResourceModule("aws", "securityhub/inviteAccepter", _module)

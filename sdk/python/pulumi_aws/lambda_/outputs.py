@@ -1499,7 +1499,7 @@ class FunctionFileSystemConfig(dict):
                  arn: _builtins.str,
                  local_mount_path: _builtins.str):
         """
-        :param _builtins.str arn: ARN of the Amazon EFS Access Point.
+        :param _builtins.str arn: ARN of the Amazon EFS Access Point, or the Amazon S3 Files access point.
         :param _builtins.str local_mount_path: Path where the function can access the file system. Must start with `/mnt/`.
         """
         pulumi.set(__self__, "arn", arn)
@@ -1509,7 +1509,7 @@ class FunctionFileSystemConfig(dict):
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        ARN of the Amazon EFS Access Point.
+        ARN of the Amazon EFS Access Point, or the Amazon S3 Files access point.
         """
         return pulumi.get(self, "arn")
 

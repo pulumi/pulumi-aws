@@ -9304,10 +9304,34 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "observabilityadmin/telemetryEvaluation",
+  "fqn": "pulumi_aws.observabilityadmin",
+  "classes": {
+   "aws:observabilityadmin/telemetryEvaluation:TelemetryEvaluation": "TelemetryEvaluation"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "observabilityadmin/telemetryEvaluationForOrganization",
+  "fqn": "pulumi_aws.observabilityadmin",
+  "classes": {
+   "aws:observabilityadmin/telemetryEvaluationForOrganization:TelemetryEvaluationForOrganization": "TelemetryEvaluationForOrganization"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "observabilityadmin/telemetryPipeline",
   "fqn": "pulumi_aws.observabilityadmin",
   "classes": {
    "aws:observabilityadmin/telemetryPipeline:TelemetryPipeline": "TelemetryPipeline"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "observabilityadmin/telemetryRule",
+  "fqn": "pulumi_aws.observabilityadmin",
+  "classes": {
+   "aws:observabilityadmin/telemetryRule:TelemetryRule": "TelemetryRule"
   }
  },
  {
@@ -11888,6 +11912,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "securityhub/aggregatorV2",
+  "fqn": "pulumi_aws.securityhub",
+  "classes": {
+   "aws:securityhub/aggregatorV2:AggregatorV2": "AggregatorV2"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "securityhub/automationRule",
   "fqn": "pulumi_aws.securityhub",
   "classes": {
@@ -11908,6 +11940,14 @@ _utilities.register(
   "fqn": "pulumi_aws.securityhub",
   "classes": {
    "aws:securityhub/configurationPolicyAssociation:ConfigurationPolicyAssociation": "ConfigurationPolicyAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "securityhub/connectorV2",
+  "fqn": "pulumi_aws.securityhub",
+  "classes": {
+   "aws:securityhub/connectorV2:ConnectorV2": "ConnectorV2"
   }
  },
  {

@@ -9,9 +9,11 @@ import typing
 from .account import *
 from .account_v2 import *
 from .action_target import *
+from .aggregator_v2 import *
 from .automation_rule import *
 from .configuration_policy import *
 from .configuration_policy_association import *
+from .connector_v2 import *
 from .finding_aggregator import *
 from .get_enabled_standards import *
 from .get_security_controls import *

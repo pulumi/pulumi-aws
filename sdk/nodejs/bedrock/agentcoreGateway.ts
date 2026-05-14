@@ -175,7 +175,7 @@ export class AgentcoreGateway extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * Exception level for the gateway. Valid values: `INFO`, `WARN`, `ERROR`.
+     * Exception level for the gateway. Valid values: `DEBUG`.
      */
     declare public readonly exceptionLevel: pulumi.Output<string | undefined>;
     /**
@@ -317,7 +317,7 @@ export interface AgentcoreGatewayState {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * Exception level for the gateway. Valid values: `INFO`, `WARN`, `ERROR`.
+     * Exception level for the gateway. Valid values: `DEBUG`.
      */
     exceptionLevel?: pulumi.Input<string | undefined>;
     /**
@@ -394,7 +394,7 @@ export interface AgentcoreGatewayArgs {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * Exception level for the gateway. Valid values: `INFO`, `WARN`, `ERROR`.
+     * Exception level for the gateway. Valid values: `DEBUG`.
      */
     exceptionLevel?: pulumi.Input<string | undefined>;
     /**

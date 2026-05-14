@@ -33,6 +33,7 @@ class DbInstanceArgs:
                  db_storage_type: pulumi.Input[Optional[_builtins.str]] = None,
                  deployment_type: pulumi.Input[Optional[_builtins.str]] = None,
                  log_delivery_configuration: pulumi.Input[Optional['DbInstanceLogDeliveryConfigurationArgs']] = None,
+                 maintenance_schedule: pulumi.Input[Optional['DbInstanceMaintenanceScheduleArgs']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  network_type: pulumi.Input[Optional[_builtins.str]] = None,
                  port: pulumi.Input[Optional[_builtins.int]] = None,
@@ -57,6 +58,7 @@ class DbInstanceArgs:
         :param pulumi.Input[_builtins.str] db_storage_type: Timestream for InfluxDB DB storage type to read and write InfluxDB data. You can choose between 3 different types of provisioned Influx IOPS included storage according to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS, Influx IO Included 16000 IOPS. Valid options are: `"InfluxIOIncludedT1"`, `"InfluxIOIncludedT2"`, and `"InfluxIOIncludedT3"`. If you use `"InfluxIOIncludedT2" or "InfluxIOIncludedT3", the minimum value for `allocated_storage` is 400. This argument is updatable. For a single instance, after this argument has been updated once, it can only be updated again after 6 hours have passed.
         :param pulumi.Input[_builtins.str] deployment_type: Specifies whether the DB instance will be deployed as a standalone instance or with a Multi-AZ standby for high availability. Valid options are: `"SINGLE_AZ"`, `"WITH_MULTIAZ_STANDBY"`. This argument is updatable.
         :param pulumi.Input['DbInstanceLogDeliveryConfigurationArgs'] log_delivery_configuration: Configuration for sending InfluxDB engine logs to a specified S3 bucket. This argument is updatable.
+        :param pulumi.Input['DbInstanceMaintenanceScheduleArgs'] maintenance_schedule: Maintenance schedule for the DB instance, including the preferred maintenance window and timezone. This argument is updatable.
         :param pulumi.Input[_builtins.str] name: Name that uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. DB instance names must be unique per customer and per region. The argument must start with a letter, cannot contain consecutive hyphens (`-`) and cannot end with a hyphen.
         :param pulumi.Input[_builtins.str] network_type: Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
         :param pulumi.Input[_builtins.int] port: The port on which the instance accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
@@ -80,6 +82,8 @@ class DbInstanceArgs:
             pulumi.set(__self__, "deployment_type", deployment_type)
         if log_delivery_configuration is not None:
             pulumi.set(__self__, "log_delivery_configuration", log_delivery_configuration)
+        if maintenance_schedule is not None:
+            pulumi.set(__self__, "maintenance_schedule", maintenance_schedule)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if network_type is not None:
@@ -242,6 +246,18 @@ class DbInstanceArgs:
         pulumi.set(self, "log_delivery_configuration", value)
 
     @_builtins.property
+    @pulumi.getter(name="maintenanceSchedule")
+    def maintenance_schedule(self) -> pulumi.Input[Optional['DbInstanceMaintenanceScheduleArgs']]:
+        """
+        Maintenance schedule for the DB instance, including the preferred maintenance window and timezone. This argument is updatable.
+        """
+        return pulumi.get(self, "maintenance_schedule")
+
+    @maintenance_schedule.setter
+    def maintenance_schedule(self, value: pulumi.Input[Optional['DbInstanceMaintenanceScheduleArgs']]):
+        pulumi.set(self, "maintenance_schedule", value)
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -337,6 +353,7 @@ class _DbInstanceState:
                  endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  influx_auth_parameters_secret_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  log_delivery_configuration: pulumi.Input[Optional['DbInstanceLogDeliveryConfigurationArgs']] = None,
+                 maintenance_schedule: pulumi.Input[Optional['DbInstanceMaintenanceScheduleArgs']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  network_type: pulumi.Input[Optional[_builtins.str]] = None,
                  organization: pulumi.Input[Optional[_builtins.str]] = None,
@@ -365,6 +382,7 @@ class _DbInstanceState:
         :param pulumi.Input[_builtins.str] endpoint: Endpoint used to connect to InfluxDB. The default InfluxDB port is 8086.
         :param pulumi.Input[_builtins.str] influx_auth_parameters_secret_arn: ARN of the AWS Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.
         :param pulumi.Input['DbInstanceLogDeliveryConfigurationArgs'] log_delivery_configuration: Configuration for sending InfluxDB engine logs to a specified S3 bucket. This argument is updatable.
+        :param pulumi.Input['DbInstanceMaintenanceScheduleArgs'] maintenance_schedule: Maintenance schedule for the DB instance, including the preferred maintenance window and timezone. This argument is updatable.
         :param pulumi.Input[_builtins.str] name: Name that uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. DB instance names must be unique per customer and per region. The argument must start with a letter, cannot contain consecutive hyphens (`-`) and cannot end with a hyphen.
         :param pulumi.Input[_builtins.str] network_type: Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
         :param pulumi.Input[_builtins.str] organization: Name of the initial organization for the initial admin user in InfluxDB. An InfluxDB organization is a workspace for a group of users. Along with `bucket`, `username`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute.
@@ -403,6 +421,8 @@ class _DbInstanceState:
             pulumi.set(__self__, "influx_auth_parameters_secret_arn", influx_auth_parameters_secret_arn)
         if log_delivery_configuration is not None:
             pulumi.set(__self__, "log_delivery_configuration", log_delivery_configuration)
+        if maintenance_schedule is not None:
+            pulumi.set(__self__, "maintenance_schedule", maintenance_schedule)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if network_type is not None:
@@ -563,6 +583,18 @@ class _DbInstanceState:
     @log_delivery_configuration.setter
     def log_delivery_configuration(self, value: pulumi.Input[Optional['DbInstanceLogDeliveryConfigurationArgs']]):
         pulumi.set(self, "log_delivery_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maintenanceSchedule")
+    def maintenance_schedule(self) -> pulumi.Input[Optional['DbInstanceMaintenanceScheduleArgs']]:
+        """
+        Maintenance schedule for the DB instance, including the preferred maintenance window and timezone. This argument is updatable.
+        """
+        return pulumi.get(self, "maintenance_schedule")
+
+    @maintenance_schedule.setter
+    def maintenance_schedule(self, value: pulumi.Input[Optional['DbInstanceMaintenanceScheduleArgs']]):
+        pulumi.set(self, "maintenance_schedule", value)
 
     @_builtins.property
     @pulumi.getter
@@ -745,6 +777,7 @@ class DbInstance(pulumi.CustomResource):
                  db_storage_type: pulumi.Input[Optional[_builtins.str]] = None,
                  deployment_type: pulumi.Input[Optional[_builtins.str]] = None,
                  log_delivery_configuration: pulumi.Input[Optional[Union['DbInstanceLogDeliveryConfigurationArgs', 'DbInstanceLogDeliveryConfigurationArgsDict']]] = None,
+                 maintenance_schedule: pulumi.Input[Optional[Union['DbInstanceMaintenanceScheduleArgs', 'DbInstanceMaintenanceScheduleArgsDict']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  network_type: pulumi.Input[Optional[_builtins.str]] = None,
                  organization: pulumi.Input[Optional[_builtins.str]] = None,
@@ -910,6 +943,7 @@ class DbInstance(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] db_storage_type: Timestream for InfluxDB DB storage type to read and write InfluxDB data. You can choose between 3 different types of provisioned Influx IOPS included storage according to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS, Influx IO Included 16000 IOPS. Valid options are: `"InfluxIOIncludedT1"`, `"InfluxIOIncludedT2"`, and `"InfluxIOIncludedT3"`. If you use `"InfluxIOIncludedT2" or "InfluxIOIncludedT3", the minimum value for `allocated_storage` is 400. This argument is updatable. For a single instance, after this argument has been updated once, it can only be updated again after 6 hours have passed.
         :param pulumi.Input[_builtins.str] deployment_type: Specifies whether the DB instance will be deployed as a standalone instance or with a Multi-AZ standby for high availability. Valid options are: `"SINGLE_AZ"`, `"WITH_MULTIAZ_STANDBY"`. This argument is updatable.
         :param pulumi.Input[Union['DbInstanceLogDeliveryConfigurationArgs', 'DbInstanceLogDeliveryConfigurationArgsDict']] log_delivery_configuration: Configuration for sending InfluxDB engine logs to a specified S3 bucket. This argument is updatable.
+        :param pulumi.Input[Union['DbInstanceMaintenanceScheduleArgs', 'DbInstanceMaintenanceScheduleArgsDict']] maintenance_schedule: Maintenance schedule for the DB instance, including the preferred maintenance window and timezone. This argument is updatable.
         :param pulumi.Input[_builtins.str] name: Name that uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. DB instance names must be unique per customer and per region. The argument must start with a letter, cannot contain consecutive hyphens (`-`) and cannot end with a hyphen.
         :param pulumi.Input[_builtins.str] network_type: Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
         :param pulumi.Input[_builtins.str] organization: Name of the initial organization for the initial admin user in InfluxDB. An InfluxDB organization is a workspace for a group of users. Along with `bucket`, `username`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute.
@@ -1095,6 +1129,7 @@ class DbInstance(pulumi.CustomResource):
                  db_storage_type: pulumi.Input[Optional[_builtins.str]] = None,
                  deployment_type: pulumi.Input[Optional[_builtins.str]] = None,
                  log_delivery_configuration: pulumi.Input[Optional[Union['DbInstanceLogDeliveryConfigurationArgs', 'DbInstanceLogDeliveryConfigurationArgsDict']]] = None,
+                 maintenance_schedule: pulumi.Input[Optional[Union['DbInstanceMaintenanceScheduleArgs', 'DbInstanceMaintenanceScheduleArgsDict']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  network_type: pulumi.Input[Optional[_builtins.str]] = None,
                  organization: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1129,6 +1164,7 @@ class DbInstance(pulumi.CustomResource):
             __props__.__dict__["db_storage_type"] = db_storage_type
             __props__.__dict__["deployment_type"] = deployment_type
             __props__.__dict__["log_delivery_configuration"] = log_delivery_configuration
+            __props__.__dict__["maintenance_schedule"] = maintenance_schedule
             __props__.__dict__["name"] = name
             __props__.__dict__["network_type"] = network_type
             if organization is None and not opts.urn:
@@ -1180,6 +1216,7 @@ class DbInstance(pulumi.CustomResource):
             endpoint: pulumi.Input[Optional[_builtins.str]] = None,
             influx_auth_parameters_secret_arn: pulumi.Input[Optional[_builtins.str]] = None,
             log_delivery_configuration: pulumi.Input[Optional[Union['DbInstanceLogDeliveryConfigurationArgs', 'DbInstanceLogDeliveryConfigurationArgsDict']]] = None,
+            maintenance_schedule: pulumi.Input[Optional[Union['DbInstanceMaintenanceScheduleArgs', 'DbInstanceMaintenanceScheduleArgsDict']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             network_type: pulumi.Input[Optional[_builtins.str]] = None,
             organization: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1212,6 +1249,7 @@ class DbInstance(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] endpoint: Endpoint used to connect to InfluxDB. The default InfluxDB port is 8086.
         :param pulumi.Input[_builtins.str] influx_auth_parameters_secret_arn: ARN of the AWS Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.
         :param pulumi.Input[Union['DbInstanceLogDeliveryConfigurationArgs', 'DbInstanceLogDeliveryConfigurationArgsDict']] log_delivery_configuration: Configuration for sending InfluxDB engine logs to a specified S3 bucket. This argument is updatable.
+        :param pulumi.Input[Union['DbInstanceMaintenanceScheduleArgs', 'DbInstanceMaintenanceScheduleArgsDict']] maintenance_schedule: Maintenance schedule for the DB instance, including the preferred maintenance window and timezone. This argument is updatable.
         :param pulumi.Input[_builtins.str] name: Name that uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. DB instance names must be unique per customer and per region. The argument must start with a letter, cannot contain consecutive hyphens (`-`) and cannot end with a hyphen.
         :param pulumi.Input[_builtins.str] network_type: Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
         :param pulumi.Input[_builtins.str] organization: Name of the initial organization for the initial admin user in InfluxDB. An InfluxDB organization is a workspace for a group of users. Along with `bucket`, `username`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute.
@@ -1243,6 +1281,7 @@ class DbInstance(pulumi.CustomResource):
         __props__.__dict__["endpoint"] = endpoint
         __props__.__dict__["influx_auth_parameters_secret_arn"] = influx_auth_parameters_secret_arn
         __props__.__dict__["log_delivery_configuration"] = log_delivery_configuration
+        __props__.__dict__["maintenance_schedule"] = maintenance_schedule
         __props__.__dict__["name"] = name
         __props__.__dict__["network_type"] = network_type
         __props__.__dict__["organization"] = organization
@@ -1346,6 +1385,14 @@ class DbInstance(pulumi.CustomResource):
         Configuration for sending InfluxDB engine logs to a specified S3 bucket. This argument is updatable.
         """
         return pulumi.get(self, "log_delivery_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="maintenanceSchedule")
+    def maintenance_schedule(self) -> pulumi.Output[Optional['outputs.DbInstanceMaintenanceSchedule']]:
+        """
+        Maintenance schedule for the DB instance, including the preferred maintenance window and timezone. This argument is updatable.
+        """
+        return pulumi.get(self, "maintenance_schedule")
 
     @_builtins.property
     @pulumi.getter

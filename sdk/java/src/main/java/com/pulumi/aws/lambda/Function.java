@@ -304,6 +304,144 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Function with S3 Files File System
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
+ * import com.pulumi.aws.inputs.GetRegionArgs;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
+ * import com.pulumi.aws.s3.BucketVersioning;
+ * import com.pulumi.aws.s3.BucketVersioningArgs;
+ * import com.pulumi.aws.s3.inputs.BucketVersioningVersioningConfigurationArgs;
+ * import com.pulumi.aws.s3.FilesFileSystem;
+ * import com.pulumi.aws.s3.FilesFileSystemArgs;
+ * import com.pulumi.aws.s3.FilesAccessPoint;
+ * import com.pulumi.aws.s3.FilesAccessPointArgs;
+ * import com.pulumi.aws.s3.inputs.FilesAccessPointRootDirectoryArgs;
+ * import com.pulumi.aws.s3.inputs.FilesAccessPointPosixUserArgs;
+ * import com.pulumi.aws.ec2.SecurityGroup;
+ * import com.pulumi.aws.ec2.SecurityGroupArgs;
+ * import com.pulumi.aws.vpc.SecurityGroupIngressRule;
+ * import com.pulumi.aws.vpc.SecurityGroupIngressRuleArgs;
+ * import com.pulumi.aws.vpc.SecurityGroupEgressRule;
+ * import com.pulumi.aws.vpc.SecurityGroupEgressRuleArgs;
+ * import com.pulumi.aws.lambda.Function;
+ * import com.pulumi.aws.lambda.FunctionArgs;
+ * import com.pulumi.aws.lambda.inputs.FunctionVpcConfigArgs;
+ * import com.pulumi.aws.lambda.inputs.FunctionFileSystemConfigArgs;
+ * import com.pulumi.asset.FileArchive;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
+ * 
+ *         final var currentGetRegion = AwsFunctions.getRegion(GetRegionArgs.builder()
+ *             .build());
+ * 
+ *         var lambdaFileSystem = new Bucket("lambdaFileSystem", BucketArgs.builder()
+ *             .bucket(String.format("example-%s-%s-an", current.accountId(),currentGetRegion.name()))
+ *             .bucketNamespace("account-regional")
+ *             .build());
+ * 
+ *         var lambdaFileSystemBucketVersioning = new BucketVersioning("lambdaFileSystemBucketVersioning", BucketVersioningArgs.builder()
+ *             .bucket(lambdaFileSystem.bucket())
+ *             .versioningConfiguration(BucketVersioningVersioningConfigurationArgs.builder()
+ *                 .status("Enabled")
+ *                 .build())
+ *             .build());
+ * 
+ *         var forLambda = new FilesFileSystem("forLambda", FilesFileSystemArgs.builder()
+ *             .bucket(lambdaFileSystem.arn())
+ *             .roleArn(s3files.arn())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(lambdaFileSystemBucketVersioning)
+ *                 .build());
+ * 
+ *         var forLambdaFilesAccessPoint = new FilesAccessPoint("forLambdaFilesAccessPoint", FilesAccessPointArgs.builder()
+ *             .fileSystemId(forLambda.id())
+ *             .rootDirectories(FilesAccessPointRootDirectoryArgs.builder()
+ *                 .path("/lambda")
+ *                 .creationPermissions(FilesAccessPointRootDirectoryCreationPermissionArgs.builder()
+ *                     .ownerGid(1000)
+ *                     .ownerUid(1000)
+ *                     .permissions("755")
+ *                     .build())
+ *                 .build())
+ *             .posixUsers(FilesAccessPointPosixUserArgs.builder()
+ *                 .gid(1000)
+ *                 .uid(1000)
+ *                 .build())
+ *             .build());
+ * 
+ *         var s3filesMountTargets = new SecurityGroup("s3filesMountTargets", SecurityGroupArgs.builder()
+ *             .name("example-s3files-mount-targets-sg")
+ *             .vpcId(vpcForLambda.id())
+ *             .build());
+ * 
+ *         var lambdaS3files = new SecurityGroup("lambdaS3files", SecurityGroupArgs.builder()
+ *             .name("example-lambda-s3files-sg")
+ *             .vpcId(vpcForLambda.id())
+ *             .build());
+ * 
+ *         var s3filesMountTargetsNfs = new SecurityGroupIngressRule("s3filesMountTargetsNfs", SecurityGroupIngressRuleArgs.builder()
+ *             .ipProtocol("tcp")
+ *             .fromPort(2049)
+ *             .toPort(2049)
+ *             .referencedSecurityGroupId(lambdaS3files.id())
+ *             .securityGroupId(s3filesMountTargets.id())
+ *             .build());
+ * 
+ *         var lambdaS3filesNfs = new SecurityGroupEgressRule("lambdaS3filesNfs", SecurityGroupEgressRuleArgs.builder()
+ *             .ipProtocol("tcp")
+ *             .securityGroupId(lambdaS3files.id())
+ *             .fromPort(2049)
+ *             .toPort(2049)
+ *             .referencedSecurityGroupId(s3filesMountTargets.id())
+ *             .build());
+ * 
+ *         var example = new Function("example", FunctionArgs.builder()
+ *             .code(new FileArchive("function.zip"))
+ *             .name("example_s3files_function")
+ *             .role(iamForLambda.arn())
+ *             .handler("exports.example")
+ *             .runtime("nodejs24.x")
+ *             .vpcConfig(FunctionVpcConfigArgs.builder()
+ *                 .subnetIds(subnetForLambdaAz1.id())
+ *                 .securityGroupIds(lambdaS3files.id())
+ *                 .build())
+ *             .fileSystemConfig(FunctionFileSystemConfigArgs.builder()
+ *                 .arn(forLambdaFilesAccessPoint.arn())
+ *                 .localMountPath("/mnt/s3files")
+ *                 .build())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(forLambdaAwsS3filesMountTarget)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ### Function with Advanced Logging
  * 
  * <pre>
@@ -970,14 +1108,14 @@ public class Function extends com.pulumi.resources.CustomResource {
         return this.ephemeralStorage;
     }
     /**
-     * Configuration block for EFS file system. See below.
+     * Configuration block for EFS or S3 Files file system. See below.
      * 
      */
     @Export(name="fileSystemConfig", refs={FunctionFileSystemConfig.class}, tree="[0]")
     private Output</* @Nullable */ FunctionFileSystemConfig> fileSystemConfig;
 
     /**
-     * @return Configuration block for EFS file system. See below.
+     * @return Configuration block for EFS or S3 Files file system. See below.
      * 
      */
     public Output<Optional<FunctionFileSystemConfig>> fileSystemConfig() {

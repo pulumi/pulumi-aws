@@ -8,6 +8,9 @@ import typing
 # Export this package's modules as members:
 from .centralization_rule_for_organization import *
 from .telemetry_enrichment import *
+from .telemetry_evaluation import *
+from .telemetry_evaluation_for_organization import *
 from .telemetry_pipeline import *
+from .telemetry_rule import *
 from ._inputs import *
 from . import outputs

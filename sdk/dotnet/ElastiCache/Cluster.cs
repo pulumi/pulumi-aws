@@ -24,7 +24,7 @@ namespace Pulumi.Aws.ElastiCache
     /// change immediately. Using `ApplyImmediately` can result in a brief downtime as the server reboots.
     /// See the "Changes take effect" section of the "Details" column in the AWS Documentation on Engine specific parameters for
     /// [ElastiCache for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/ParameterGroups.Engine.html#ParameterGroups.Memcached) or
-    /// [ElastiCache for Valkey and Redis OSS](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/ParameterGroups.Engine.html#ParameterGroups.Redis)
+    /// [ElastiCache for Redis OSS](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/ParameterGroups.Engine.html#ParameterGroups.Redis)
     /// for more information.
     /// 
     /// &gt; **Note:** Any attribute changes that re-create the resource will be applied immediately, regardless of the value of `ApplyImmediately`.
@@ -264,7 +264,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string> ConfigurationEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the cache engine to be used for this cache cluster. Valid values are `Memcached`, `Redis` and `Valkey`.
+        /// Name of the cache engine to be used for this cache cluster. Valid values are `Memcached`, `Redis`.
         /// </summary>
         [Output("engine")]
         public Output<string> Engine { get; private set; } = null!;
@@ -322,7 +322,7 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// The instance class used.
-        /// See AWS documentation for information on [supported node types for Valkey or Redis OSS](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/CacheNodes.SupportedTypes.html#CacheNodes.CurrentGen) and [guidance on selecting node types for Valkey or Redis OSS](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/CacheNodes.SelectSize.html#CacheNodes.SelectSize.redis).
+        /// See AWS documentation for information on [supported node types for Redis OSS](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/CacheNodes.SupportedTypes.html#CacheNodes.CurrentGen) and [guidance on selecting node types for Redis OSS](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/CacheNodes.SelectSize.html#CacheNodes.SelectSize.redis).
         /// See AWS documentation for information on [supported node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/CacheNodes.SupportedTypes.html#CacheNodes.CurrentGen-Memcached) and [guidance on selecting node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/CacheNodes.SelectSize.html#CacheNodes.SelectSize.Mem).
         /// For Memcached, changing this value will re-create the resource.
         /// </summary>
@@ -432,7 +432,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Enable encryption in-transit. Supported with Memcached versions `1.6.12` and later, Valkey `7.2` and later, Redis OSS versions `3.2.6`, `4.0.10` and later, running in a VPC. See the [ElastiCache in-transit encryption documentation](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/in-transit-encryption.html#in-transit-encryption-constraints) for more details.
+        /// Enable encryption in-transit. Supported with Memcached versions `1.6.12` and later, Redis OSS versions `3.2.6`, `4.0.10` and later, running in a VPC. See the [ElastiCache in-transit encryption documentation](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/in-transit-encryption.html#in-transit-encryption-constraints) for more details.
         /// </summary>
         [Output("transitEncryptionEnabled")]
         public Output<bool> TransitEncryptionEnabled { get; private set; } = null!;
@@ -516,7 +516,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? ClusterId { get; set; }
 
         /// <summary>
-        /// Name of the cache engine to be used for this cache cluster. Valid values are `Memcached`, `Redis` and `Valkey`.
+        /// Name of the cache engine to be used for this cache cluster. Valid values are `Memcached`, `Redis`.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
@@ -574,7 +574,7 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// The instance class used.
-        /// See AWS documentation for information on [supported node types for Valkey or Redis OSS](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/CacheNodes.SupportedTypes.html#CacheNodes.CurrentGen) and [guidance on selecting node types for Valkey or Redis OSS](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/CacheNodes.SelectSize.html#CacheNodes.SelectSize.redis).
+        /// See AWS documentation for information on [supported node types for Redis OSS](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/CacheNodes.SupportedTypes.html#CacheNodes.CurrentGen) and [guidance on selecting node types for Redis OSS](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/CacheNodes.SelectSize.html#CacheNodes.SelectSize.redis).
         /// See AWS documentation for information on [supported node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/CacheNodes.SupportedTypes.html#CacheNodes.CurrentGen-Memcached) and [guidance on selecting node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/CacheNodes.SelectSize.html#CacheNodes.SelectSize.Mem).
         /// For Memcached, changing this value will re-create the resource.
         /// </summary>
@@ -696,7 +696,7 @@ namespace Pulumi.Aws.ElastiCache
         }
 
         /// <summary>
-        /// Enable encryption in-transit. Supported with Memcached versions `1.6.12` and later, Valkey `7.2` and later, Redis OSS versions `3.2.6`, `4.0.10` and later, running in a VPC. See the [ElastiCache in-transit encryption documentation](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/in-transit-encryption.html#in-transit-encryption-constraints) for more details.
+        /// Enable encryption in-transit. Supported with Memcached versions `1.6.12` and later, Redis OSS versions `3.2.6`, `4.0.10` and later, running in a VPC. See the [ElastiCache in-transit encryption documentation](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/in-transit-encryption.html#in-transit-encryption-constraints) for more details.
         /// </summary>
         [Input("transitEncryptionEnabled")]
         public Input<bool>? TransitEncryptionEnabled { get; set; }
@@ -772,7 +772,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? ConfigurationEndpoint { get; set; }
 
         /// <summary>
-        /// Name of the cache engine to be used for this cache cluster. Valid values are `Memcached`, `Redis` and `Valkey`.
+        /// Name of the cache engine to be used for this cache cluster. Valid values are `Memcached`, `Redis`.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
@@ -836,7 +836,7 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// The instance class used.
-        /// See AWS documentation for information on [supported node types for Valkey or Redis OSS](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/CacheNodes.SupportedTypes.html#CacheNodes.CurrentGen) and [guidance on selecting node types for Valkey or Redis OSS](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/CacheNodes.SelectSize.html#CacheNodes.SelectSize.redis).
+        /// See AWS documentation for information on [supported node types for Redis OSS](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/CacheNodes.SupportedTypes.html#CacheNodes.CurrentGen) and [guidance on selecting node types for Redis OSS](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/CacheNodes.SelectSize.html#CacheNodes.SelectSize.redis).
         /// See AWS documentation for information on [supported node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/CacheNodes.SupportedTypes.html#CacheNodes.CurrentGen-Memcached) and [guidance on selecting node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/CacheNodes.SelectSize.html#CacheNodes.SelectSize.Mem).
         /// For Memcached, changing this value will re-create the resource.
         /// </summary>
@@ -970,7 +970,7 @@ namespace Pulumi.Aws.ElastiCache
         }
 
         /// <summary>
-        /// Enable encryption in-transit. Supported with Memcached versions `1.6.12` and later, Valkey `7.2` and later, Redis OSS versions `3.2.6`, `4.0.10` and later, running in a VPC. See the [ElastiCache in-transit encryption documentation](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/in-transit-encryption.html#in-transit-encryption-constraints) for more details.
+        /// Enable encryption in-transit. Supported with Memcached versions `1.6.12` and later, Redis OSS versions `3.2.6`, `4.0.10` and later, running in a VPC. See the [ElastiCache in-transit encryption documentation](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/in-transit-encryption.html#in-transit-encryption-constraints) for more details.
         /// </summary>
         [Input("transitEncryptionEnabled")]
         public Input<bool>? TransitEncryptionEnabled { get; set; }

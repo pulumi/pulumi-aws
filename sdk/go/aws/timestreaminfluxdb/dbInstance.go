@@ -306,6 +306,8 @@ type DbInstance struct {
 	InfluxAuthParametersSecretArn pulumi.StringOutput `pulumi:"influxAuthParametersSecretArn"`
 	// Configuration for sending InfluxDB engine logs to a specified S3 bucket. This argument is updatable.
 	LogDeliveryConfiguration DbInstanceLogDeliveryConfigurationPtrOutput `pulumi:"logDeliveryConfiguration"`
+	// Maintenance schedule for the DB instance, including the preferred maintenance window and timezone. This argument is updatable.
+	MaintenanceSchedule DbInstanceMaintenanceSchedulePtrOutput `pulumi:"maintenanceSchedule"`
 	// Name that uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. DB instance names must be unique per customer and per region. The argument must start with a letter, cannot contain consecutive hyphens (`-`) and cannot end with a hyphen.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
@@ -420,6 +422,8 @@ type dbInstanceState struct {
 	InfluxAuthParametersSecretArn *string `pulumi:"influxAuthParametersSecretArn"`
 	// Configuration for sending InfluxDB engine logs to a specified S3 bucket. This argument is updatable.
 	LogDeliveryConfiguration *DbInstanceLogDeliveryConfiguration `pulumi:"logDeliveryConfiguration"`
+	// Maintenance schedule for the DB instance, including the preferred maintenance window and timezone. This argument is updatable.
+	MaintenanceSchedule *DbInstanceMaintenanceSchedule `pulumi:"maintenanceSchedule"`
 	// Name that uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. DB instance names must be unique per customer and per region. The argument must start with a letter, cannot contain consecutive hyphens (`-`) and cannot end with a hyphen.
 	Name *string `pulumi:"name"`
 	// Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
@@ -474,6 +478,8 @@ type DbInstanceState struct {
 	InfluxAuthParametersSecretArn pulumi.StringPtrInput
 	// Configuration for sending InfluxDB engine logs to a specified S3 bucket. This argument is updatable.
 	LogDeliveryConfiguration DbInstanceLogDeliveryConfigurationPtrInput
+	// Maintenance schedule for the DB instance, including the preferred maintenance window and timezone. This argument is updatable.
+	MaintenanceSchedule DbInstanceMaintenanceSchedulePtrInput
 	// Name that uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. DB instance names must be unique per customer and per region. The argument must start with a letter, cannot contain consecutive hyphens (`-`) and cannot end with a hyphen.
 	Name pulumi.StringPtrInput
 	// Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
@@ -524,6 +530,8 @@ type dbInstanceArgs struct {
 	DeploymentType *string `pulumi:"deploymentType"`
 	// Configuration for sending InfluxDB engine logs to a specified S3 bucket. This argument is updatable.
 	LogDeliveryConfiguration *DbInstanceLogDeliveryConfiguration `pulumi:"logDeliveryConfiguration"`
+	// Maintenance schedule for the DB instance, including the preferred maintenance window and timezone. This argument is updatable.
+	MaintenanceSchedule *DbInstanceMaintenanceSchedule `pulumi:"maintenanceSchedule"`
 	// Name that uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. DB instance names must be unique per customer and per region. The argument must start with a letter, cannot contain consecutive hyphens (`-`) and cannot end with a hyphen.
 	Name *string `pulumi:"name"`
 	// Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
@@ -567,6 +575,8 @@ type DbInstanceArgs struct {
 	DeploymentType pulumi.StringPtrInput
 	// Configuration for sending InfluxDB engine logs to a specified S3 bucket. This argument is updatable.
 	LogDeliveryConfiguration DbInstanceLogDeliveryConfigurationPtrInput
+	// Maintenance schedule for the DB instance, including the preferred maintenance window and timezone. This argument is updatable.
+	MaintenanceSchedule DbInstanceMaintenanceSchedulePtrInput
 	// Name that uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. DB instance names must be unique per customer and per region. The argument must start with a letter, cannot contain consecutive hyphens (`-`) and cannot end with a hyphen.
 	Name pulumi.StringPtrInput
 	// Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
@@ -734,6 +744,11 @@ func (o DbInstanceOutput) InfluxAuthParametersSecretArn() pulumi.StringOutput {
 // Configuration for sending InfluxDB engine logs to a specified S3 bucket. This argument is updatable.
 func (o DbInstanceOutput) LogDeliveryConfiguration() DbInstanceLogDeliveryConfigurationPtrOutput {
 	return o.ApplyT(func(v *DbInstance) DbInstanceLogDeliveryConfigurationPtrOutput { return v.LogDeliveryConfiguration }).(DbInstanceLogDeliveryConfigurationPtrOutput)
+}
+
+// Maintenance schedule for the DB instance, including the preferred maintenance window and timezone. This argument is updatable.
+func (o DbInstanceOutput) MaintenanceSchedule() DbInstanceMaintenanceSchedulePtrOutput {
+	return o.ApplyT(func(v *DbInstance) DbInstanceMaintenanceSchedulePtrOutput { return v.MaintenanceSchedule }).(DbInstanceMaintenanceSchedulePtrOutput)
 }
 
 // Name that uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. DB instance names must be unique per customer and per region. The argument must start with a letter, cannot contain consecutive hyphens (`-`) and cannot end with a hyphen.

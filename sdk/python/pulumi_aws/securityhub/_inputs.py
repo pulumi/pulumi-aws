@@ -139,6 +139,14 @@ __all__ = [
     'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringArgsDict',
     'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListArgs',
     'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListArgsDict',
+    'ConnectorV2ConnectorProviderArgs',
+    'ConnectorV2ConnectorProviderArgsDict',
+    'ConnectorV2ConnectorProviderJiraCloudArgs',
+    'ConnectorV2ConnectorProviderJiraCloudArgsDict',
+    'ConnectorV2ConnectorProviderServiceNowArgs',
+    'ConnectorV2ConnectorProviderServiceNowArgsDict',
+    'ConnectorV2HealthArgs',
+    'ConnectorV2HealthArgsDict',
     'InsightFiltersArgs',
     'InsightFiltersArgsDict',
     'InsightFiltersAwsAccountIdArgs',
@@ -3867,6 +3875,296 @@ class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurit
     @values.setter
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         pulumi.set(self, "values", value)
+
+
+class ConnectorV2ConnectorProviderArgsDict(TypedDict):
+    jira_cloud: NotRequired[pulumi.Input[Optional['ConnectorV2ConnectorProviderJiraCloudArgs']]]
+    """
+    Details about a Jira Cloud integration. See `jira_cloud` below.
+    """
+    service_now: NotRequired[pulumi.Input[Optional['ConnectorV2ConnectorProviderServiceNowArgs']]]
+    """
+    Details about a ServiceNow ITSM integration. See `service_now` below.
+    """
+
+@pulumi.input_type
+class ConnectorV2ConnectorProviderArgs:
+    def __init__(__self__, *,
+                 jira_cloud: pulumi.Input[Optional['ConnectorV2ConnectorProviderJiraCloudArgs']] = None,
+                 service_now: pulumi.Input[Optional['ConnectorV2ConnectorProviderServiceNowArgs']] = None):
+        """
+        :param pulumi.Input['ConnectorV2ConnectorProviderJiraCloudArgs'] jira_cloud: Details about a Jira Cloud integration. See `jira_cloud` below.
+        :param pulumi.Input['ConnectorV2ConnectorProviderServiceNowArgs'] service_now: Details about a ServiceNow ITSM integration. See `service_now` below.
+        """
+        if jira_cloud is not None:
+            pulumi.set(__self__, "jira_cloud", jira_cloud)
+        if service_now is not None:
+            pulumi.set(__self__, "service_now", service_now)
+
+    @_builtins.property
+    @pulumi.getter(name="jiraCloud")
+    def jira_cloud(self) -> pulumi.Input[Optional['ConnectorV2ConnectorProviderJiraCloudArgs']]:
+        """
+        Details about a Jira Cloud integration. See `jira_cloud` below.
+        """
+        return pulumi.get(self, "jira_cloud")
+
+    @jira_cloud.setter
+    def jira_cloud(self, value: pulumi.Input[Optional['ConnectorV2ConnectorProviderJiraCloudArgs']]):
+        pulumi.set(self, "jira_cloud", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceNow")
+    def service_now(self) -> pulumi.Input[Optional['ConnectorV2ConnectorProviderServiceNowArgs']]:
+        """
+        Details about a ServiceNow ITSM integration. See `service_now` below.
+        """
+        return pulumi.get(self, "service_now")
+
+    @service_now.setter
+    def service_now(self, value: pulumi.Input[Optional['ConnectorV2ConnectorProviderServiceNowArgs']]):
+        pulumi.set(self, "service_now", value)
+
+
+class ConnectorV2ConnectorProviderJiraCloudArgsDict(TypedDict):
+    project_key: pulumi.Input[_builtins.str]
+    """
+    Jira Cloud project key.
+    """
+    auth_status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Status of the authorization between Jira Cloud and the service.
+    """
+    auth_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    URL to provide to customers for OAuth auth code flow.
+    """
+    cloud_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Cloud ID of the Jira Cloud.
+    """
+    domain: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    URL domain of the Jira Cloud instance.
+    """
+
+@pulumi.input_type
+class ConnectorV2ConnectorProviderJiraCloudArgs:
+    def __init__(__self__, *,
+                 project_key: pulumi.Input[_builtins.str],
+                 auth_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 auth_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloud_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] project_key: Jira Cloud project key.
+        :param pulumi.Input[_builtins.str] auth_status: Status of the authorization between Jira Cloud and the service.
+        :param pulumi.Input[_builtins.str] auth_url: URL to provide to customers for OAuth auth code flow.
+        :param pulumi.Input[_builtins.str] cloud_id: Cloud ID of the Jira Cloud.
+        :param pulumi.Input[_builtins.str] domain: URL domain of the Jira Cloud instance.
+        """
+        pulumi.set(__self__, "project_key", project_key)
+        if auth_status is not None:
+            pulumi.set(__self__, "auth_status", auth_status)
+        if auth_url is not None:
+            pulumi.set(__self__, "auth_url", auth_url)
+        if cloud_id is not None:
+            pulumi.set(__self__, "cloud_id", cloud_id)
+        if domain is not None:
+            pulumi.set(__self__, "domain", domain)
+
+    @_builtins.property
+    @pulumi.getter(name="projectKey")
+    def project_key(self) -> pulumi.Input[_builtins.str]:
+        """
+        Jira Cloud project key.
+        """
+        return pulumi.get(self, "project_key")
+
+    @project_key.setter
+    def project_key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "project_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="authStatus")
+    def auth_status(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Status of the authorization between Jira Cloud and the service.
+        """
+        return pulumi.get(self, "auth_status")
+
+    @auth_status.setter
+    def auth_status(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "auth_status", value)
+
+    @_builtins.property
+    @pulumi.getter(name="authUrl")
+    def auth_url(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        URL to provide to customers for OAuth auth code flow.
+        """
+        return pulumi.get(self, "auth_url")
+
+    @auth_url.setter
+    def auth_url(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "auth_url", value)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudId")
+    def cloud_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Cloud ID of the Jira Cloud.
+        """
+        return pulumi.get(self, "cloud_id")
+
+    @cloud_id.setter
+    def cloud_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "cloud_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def domain(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        URL domain of the Jira Cloud instance.
+        """
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "domain", value)
+
+
+class ConnectorV2ConnectorProviderServiceNowArgsDict(TypedDict):
+    instance_name: pulumi.Input[_builtins.str]
+    """
+    Instance name of ServiceNow ITSM.
+    """
+    secret_arn: pulumi.Input[_builtins.str]
+    """
+    Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the ServiceNow credentials.
+    """
+    auth_status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Status of the authorization between ServiceNow and the service.
+    """
+
+@pulumi.input_type
+class ConnectorV2ConnectorProviderServiceNowArgs:
+    def __init__(__self__, *,
+                 instance_name: pulumi.Input[_builtins.str],
+                 secret_arn: pulumi.Input[_builtins.str],
+                 auth_status: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] instance_name: Instance name of ServiceNow ITSM.
+        :param pulumi.Input[_builtins.str] secret_arn: Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the ServiceNow credentials.
+        :param pulumi.Input[_builtins.str] auth_status: Status of the authorization between ServiceNow and the service.
+        """
+        pulumi.set(__self__, "instance_name", instance_name)
+        pulumi.set(__self__, "secret_arn", secret_arn)
+        if auth_status is not None:
+            pulumi.set(__self__, "auth_status", auth_status)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceName")
+    def instance_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Instance name of ServiceNow ITSM.
+        """
+        return pulumi.get(self, "instance_name")
+
+    @instance_name.setter
+    def instance_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "instance_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the ServiceNow credentials.
+        """
+        return pulumi.get(self, "secret_arn")
+
+    @secret_arn.setter
+    def secret_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="authStatus")
+    def auth_status(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Status of the authorization between ServiceNow and the service.
+        """
+        return pulumi.get(self, "auth_status")
+
+    @auth_status.setter
+    def auth_status(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "auth_status", value)
+
+
+class ConnectorV2HealthArgsDict(TypedDict):
+    connector_status: pulumi.Input[_builtins.str]
+    """
+    Status of the connector.
+    """
+    last_checked_at: pulumi.Input[_builtins.str]
+    """
+    Timestamp for the time the health status was checked.
+    """
+    message: pulumi.Input[_builtins.str]
+    """
+    Message for the reason of `connector_status` change.
+    """
+
+@pulumi.input_type
+class ConnectorV2HealthArgs:
+    def __init__(__self__, *,
+                 connector_status: pulumi.Input[_builtins.str],
+                 last_checked_at: pulumi.Input[_builtins.str],
+                 message: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] connector_status: Status of the connector.
+        :param pulumi.Input[_builtins.str] last_checked_at: Timestamp for the time the health status was checked.
+        :param pulumi.Input[_builtins.str] message: Message for the reason of `connector_status` change.
+        """
+        pulumi.set(__self__, "connector_status", connector_status)
+        pulumi.set(__self__, "last_checked_at", last_checked_at)
+        pulumi.set(__self__, "message", message)
+
+    @_builtins.property
+    @pulumi.getter(name="connectorStatus")
+    def connector_status(self) -> pulumi.Input[_builtins.str]:
+        """
+        Status of the connector.
+        """
+        return pulumi.get(self, "connector_status")
+
+    @connector_status.setter
+    def connector_status(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "connector_status", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lastCheckedAt")
+    def last_checked_at(self) -> pulumi.Input[_builtins.str]:
+        """
+        Timestamp for the time the health status was checked.
+        """
+        return pulumi.get(self, "last_checked_at")
+
+    @last_checked_at.setter
+    def last_checked_at(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "last_checked_at", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def message(self) -> pulumi.Input[_builtins.str]:
+        """
+        Message for the reason of `connector_status` change.
+        """
+        return pulumi.get(self, "message")
+
+    @message.setter
+    def message(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "message", value)
 
 
 class InsightFiltersArgsDict(TypedDict):

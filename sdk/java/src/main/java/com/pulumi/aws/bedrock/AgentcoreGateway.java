@@ -274,14 +274,14 @@ public class AgentcoreGateway extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * Exception level for the gateway. Valid values: `INFO`, `WARN`, `ERROR`.
+     * Exception level for the gateway. Valid values: `DEBUG`.
      * 
      */
     @Export(name="exceptionLevel", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> exceptionLevel;
 
     /**
-     * @return Exception level for the gateway. Valid values: `INFO`, `WARN`, `ERROR`.
+     * @return Exception level for the gateway. Valid values: `DEBUG`.
      * 
      */
     public Output<Optional<String>> exceptionLevel() {

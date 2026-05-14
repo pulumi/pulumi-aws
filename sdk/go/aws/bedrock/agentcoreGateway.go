@@ -212,7 +212,7 @@ type AgentcoreGateway struct {
 	AuthorizerType pulumi.StringOutput `pulumi:"authorizerType"`
 	// Description of the gateway.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Exception level for the gateway. Valid values: `INFO`, `WARN`, `ERROR`.
+	// Exception level for the gateway. Valid values: `DEBUG`.
 	ExceptionLevel pulumi.StringPtrOutput `pulumi:"exceptionLevel"`
 	// ARN of the Gateway.
 	GatewayArn pulumi.StringOutput `pulumi:"gatewayArn"`
@@ -290,7 +290,7 @@ type agentcoreGatewayState struct {
 	AuthorizerType *string `pulumi:"authorizerType"`
 	// Description of the gateway.
 	Description *string `pulumi:"description"`
-	// Exception level for the gateway. Valid values: `INFO`, `WARN`, `ERROR`.
+	// Exception level for the gateway. Valid values: `DEBUG`.
 	ExceptionLevel *string `pulumi:"exceptionLevel"`
 	// ARN of the Gateway.
 	GatewayArn *string `pulumi:"gatewayArn"`
@@ -330,7 +330,7 @@ type AgentcoreGatewayState struct {
 	AuthorizerType pulumi.StringPtrInput
 	// Description of the gateway.
 	Description pulumi.StringPtrInput
-	// Exception level for the gateway. Valid values: `INFO`, `WARN`, `ERROR`.
+	// Exception level for the gateway. Valid values: `DEBUG`.
 	ExceptionLevel pulumi.StringPtrInput
 	// ARN of the Gateway.
 	GatewayArn pulumi.StringPtrInput
@@ -374,7 +374,7 @@ type agentcoreGatewayArgs struct {
 	AuthorizerType string `pulumi:"authorizerType"`
 	// Description of the gateway.
 	Description *string `pulumi:"description"`
-	// Exception level for the gateway. Valid values: `INFO`, `WARN`, `ERROR`.
+	// Exception level for the gateway. Valid values: `DEBUG`.
 	ExceptionLevel *string `pulumi:"exceptionLevel"`
 	// List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptorConfiguration` below.
 	InterceptorConfigurations []AgentcoreGatewayInterceptorConfiguration `pulumi:"interceptorConfigurations"`
@@ -405,7 +405,7 @@ type AgentcoreGatewayArgs struct {
 	AuthorizerType pulumi.StringInput
 	// Description of the gateway.
 	Description pulumi.StringPtrInput
-	// Exception level for the gateway. Valid values: `INFO`, `WARN`, `ERROR`.
+	// Exception level for the gateway. Valid values: `DEBUG`.
 	ExceptionLevel pulumi.StringPtrInput
 	// List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptorConfiguration` below.
 	InterceptorConfigurations AgentcoreGatewayInterceptorConfigurationArrayInput
@@ -532,7 +532,7 @@ func (o AgentcoreGatewayOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreGateway) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Exception level for the gateway. Valid values: `INFO`, `WARN`, `ERROR`.
+// Exception level for the gateway. Valid values: `DEBUG`.
 func (o AgentcoreGatewayOutput) ExceptionLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreGateway) pulumi.StringPtrOutput { return v.ExceptionLevel }).(pulumi.StringPtrOutput)
 }

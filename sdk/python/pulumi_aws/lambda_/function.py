@@ -78,7 +78,7 @@ class FunctionArgs:
         :param pulumi.Input['FunctionDurableConfigArgs'] durable_config: Configuration block for durable function settings. See below. `durable_config` may only be available in [limited regions](https://builder.aws.com/build/capabilities), including `us-east-2`.
         :param pulumi.Input['FunctionEnvironmentArgs'] environment: Configuration block for environment variables. See below.
         :param pulumi.Input['FunctionEphemeralStorageArgs'] ephemeral_storage: Amount of ephemeral storage (`/tmp`) to allocate for the Lambda Function. See below.
-        :param pulumi.Input['FunctionFileSystemConfigArgs'] file_system_config: Configuration block for EFS file system. See below.
+        :param pulumi.Input['FunctionFileSystemConfigArgs'] file_system_config: Configuration block for EFS or S3 Files file system. See below.
         :param pulumi.Input[_builtins.str] handler: Function entry point in your code. Required if `package_type` is `Zip`.
         :param pulumi.Input['FunctionImageConfigArgs'] image_config: Container image configuration values. See below.
         :param pulumi.Input[_builtins.str] image_uri: ECR image URI containing the function's deployment package. Conflicts with `filename` and `s3_bucket`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
@@ -326,7 +326,7 @@ class FunctionArgs:
     @pulumi.getter(name="fileSystemConfig")
     def file_system_config(self) -> pulumi.Input[Optional['FunctionFileSystemConfigArgs']]:
         """
-        Configuration block for EFS file system. See below.
+        Configuration block for EFS or S3 Files file system. See below.
         """
         return pulumi.get(self, "file_system_config")
 
@@ -739,7 +739,7 @@ class _FunctionState:
         :param pulumi.Input['FunctionDurableConfigArgs'] durable_config: Configuration block for durable function settings. See below. `durable_config` may only be available in [limited regions](https://builder.aws.com/build/capabilities), including `us-east-2`.
         :param pulumi.Input['FunctionEnvironmentArgs'] environment: Configuration block for environment variables. See below.
         :param pulumi.Input['FunctionEphemeralStorageArgs'] ephemeral_storage: Amount of ephemeral storage (`/tmp`) to allocate for the Lambda Function. See below.
-        :param pulumi.Input['FunctionFileSystemConfigArgs'] file_system_config: Configuration block for EFS file system. See below.
+        :param pulumi.Input['FunctionFileSystemConfigArgs'] file_system_config: Configuration block for EFS or S3 Files file system. See below.
         :param pulumi.Input[_builtins.str] handler: Function entry point in your code. Required if `package_type` is `Zip`.
         :param pulumi.Input['FunctionImageConfigArgs'] image_config: Container image configuration values. See below.
         :param pulumi.Input[_builtins.str] image_uri: ECR image URI containing the function's deployment package. Conflicts with `filename` and `s3_bucket`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
@@ -1021,7 +1021,7 @@ class _FunctionState:
     @pulumi.getter(name="fileSystemConfig")
     def file_system_config(self) -> pulumi.Input[Optional['FunctionFileSystemConfigArgs']]:
         """
-        Configuration block for EFS file system. See below.
+        Configuration block for EFS or S3 Files file system. See below.
         """
         return pulumi.get(self, "file_system_config")
 
@@ -1705,6 +1705,75 @@ class Function(pulumi.CustomResource):
             opts = pulumi.ResourceOptions(depends_on=[example_mount_target]))
         ```
 
+        ### Function with S3 Files File System
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_caller_identity()
+        current_get_region = aws.get_region()
+        lambda_file_system = aws.s3.Bucket("lambda_file_system",
+            bucket=f"example-{current.account_id}-{current_get_region.name}-an",
+            bucket_namespace="account-regional")
+        lambda_file_system_bucket_versioning = aws.s3.BucketVersioning("lambda_file_system",
+            bucket=lambda_file_system.bucket,
+            versioning_configuration={
+                "status": "Enabled",
+            })
+        for_lambda = aws.s3.FilesFileSystem("for_lambda",
+            bucket=lambda_file_system.arn,
+            role_arn=s3files["arn"],
+            opts = pulumi.ResourceOptions(depends_on=[lambda_file_system_bucket_versioning]))
+        for_lambda_files_access_point = aws.s3.FilesAccessPoint("for_lambda",
+            file_system_id=for_lambda.id,
+            root_directories=[{
+                "path": "/lambda",
+                "creation_permissions": [{
+                    "owner_gid": 1000,
+                    "owner_uid": 1000,
+                    "permissions": "755",
+                }],
+            }],
+            posix_users=[{
+                "gid": 1000,
+                "uid": 1000,
+            }])
+        s3files_mount_targets = aws.ec2.SecurityGroup("s3files_mount_targets",
+            name="example-s3files-mount-targets-sg",
+            vpc_id=vpc_for_lambda["id"])
+        lambda_s3files = aws.ec2.SecurityGroup("lambda_s3files",
+            name="example-lambda-s3files-sg",
+            vpc_id=vpc_for_lambda["id"])
+        s3files_mount_targets_nfs = aws.vpc.SecurityGroupIngressRule("s3files_mount_targets_nfs",
+            ip_protocol="tcp",
+            from_port=2049,
+            to_port=2049,
+            referenced_security_group_id=lambda_s3files.id,
+            security_group_id=s3files_mount_targets.id)
+        lambda_s3files_nfs = aws.vpc.SecurityGroupEgressRule("lambda_s3files_nfs",
+            ip_protocol="tcp",
+            security_group_id=lambda_s3files.id,
+            from_port=2049,
+            to_port=2049,
+            referenced_security_group_id=s3files_mount_targets.id)
+        example = aws.lambda_.Function("example",
+            code=pulumi.FileArchive("function.zip"),
+            name="example_s3files_function",
+            role=iam_for_lambda["arn"],
+            handler="exports.example",
+            runtime=aws.lambda_.Runtime.NODE_JS24D_X,
+            vpc_config={
+                "subnet_ids": [subnet_for_lambda_az1["id"]],
+                "security_group_ids": [lambda_s3files.id],
+            },
+            file_system_config={
+                "arn": for_lambda_files_access_point.arn,
+                "local_mount_path": "/mnt/s3files",
+            },
+            opts = pulumi.ResourceOptions(depends_on=[for_lambda_aws_s3files_mount_target]))
+        ```
+
         ### Function with Advanced Logging
 
         ```python
@@ -2009,7 +2078,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[Union['FunctionDurableConfigArgs', 'FunctionDurableConfigArgsDict']] durable_config: Configuration block for durable function settings. See below. `durable_config` may only be available in [limited regions](https://builder.aws.com/build/capabilities), including `us-east-2`.
         :param pulumi.Input[Union['FunctionEnvironmentArgs', 'FunctionEnvironmentArgsDict']] environment: Configuration block for environment variables. See below.
         :param pulumi.Input[Union['FunctionEphemeralStorageArgs', 'FunctionEphemeralStorageArgsDict']] ephemeral_storage: Amount of ephemeral storage (`/tmp`) to allocate for the Lambda Function. See below.
-        :param pulumi.Input[Union['FunctionFileSystemConfigArgs', 'FunctionFileSystemConfigArgsDict']] file_system_config: Configuration block for EFS file system. See below.
+        :param pulumi.Input[Union['FunctionFileSystemConfigArgs', 'FunctionFileSystemConfigArgsDict']] file_system_config: Configuration block for EFS or S3 Files file system. See below.
         :param pulumi.Input[_builtins.str] handler: Function entry point in your code. Required if `package_type` is `Zip`.
         :param pulumi.Input[Union['FunctionImageConfigArgs', 'FunctionImageConfigArgsDict']] image_config: Container image configuration values. See below.
         :param pulumi.Input[_builtins.str] image_uri: ECR image URI containing the function's deployment package. Conflicts with `filename` and `s3_bucket`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
@@ -2204,6 +2273,75 @@ class Function(pulumi.CustomResource):
                 "local_mount_path": "/mnt/data",
             },
             opts = pulumi.ResourceOptions(depends_on=[example_mount_target]))
+        ```
+
+        ### Function with S3 Files File System
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_caller_identity()
+        current_get_region = aws.get_region()
+        lambda_file_system = aws.s3.Bucket("lambda_file_system",
+            bucket=f"example-{current.account_id}-{current_get_region.name}-an",
+            bucket_namespace="account-regional")
+        lambda_file_system_bucket_versioning = aws.s3.BucketVersioning("lambda_file_system",
+            bucket=lambda_file_system.bucket,
+            versioning_configuration={
+                "status": "Enabled",
+            })
+        for_lambda = aws.s3.FilesFileSystem("for_lambda",
+            bucket=lambda_file_system.arn,
+            role_arn=s3files["arn"],
+            opts = pulumi.ResourceOptions(depends_on=[lambda_file_system_bucket_versioning]))
+        for_lambda_files_access_point = aws.s3.FilesAccessPoint("for_lambda",
+            file_system_id=for_lambda.id,
+            root_directories=[{
+                "path": "/lambda",
+                "creation_permissions": [{
+                    "owner_gid": 1000,
+                    "owner_uid": 1000,
+                    "permissions": "755",
+                }],
+            }],
+            posix_users=[{
+                "gid": 1000,
+                "uid": 1000,
+            }])
+        s3files_mount_targets = aws.ec2.SecurityGroup("s3files_mount_targets",
+            name="example-s3files-mount-targets-sg",
+            vpc_id=vpc_for_lambda["id"])
+        lambda_s3files = aws.ec2.SecurityGroup("lambda_s3files",
+            name="example-lambda-s3files-sg",
+            vpc_id=vpc_for_lambda["id"])
+        s3files_mount_targets_nfs = aws.vpc.SecurityGroupIngressRule("s3files_mount_targets_nfs",
+            ip_protocol="tcp",
+            from_port=2049,
+            to_port=2049,
+            referenced_security_group_id=lambda_s3files.id,
+            security_group_id=s3files_mount_targets.id)
+        lambda_s3files_nfs = aws.vpc.SecurityGroupEgressRule("lambda_s3files_nfs",
+            ip_protocol="tcp",
+            security_group_id=lambda_s3files.id,
+            from_port=2049,
+            to_port=2049,
+            referenced_security_group_id=s3files_mount_targets.id)
+        example = aws.lambda_.Function("example",
+            code=pulumi.FileArchive("function.zip"),
+            name="example_s3files_function",
+            role=iam_for_lambda["arn"],
+            handler="exports.example",
+            runtime=aws.lambda_.Runtime.NODE_JS24D_X,
+            vpc_config={
+                "subnet_ids": [subnet_for_lambda_az1["id"]],
+                "security_group_ids": [lambda_s3files.id],
+            },
+            file_system_config={
+                "arn": for_lambda_files_access_point.arn,
+                "local_mount_path": "/mnt/s3files",
+            },
+            opts = pulumi.ResourceOptions(depends_on=[for_lambda_aws_s3files_mount_target]))
         ```
 
         ### Function with Advanced Logging
@@ -2694,7 +2832,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[Union['FunctionDurableConfigArgs', 'FunctionDurableConfigArgsDict']] durable_config: Configuration block for durable function settings. See below. `durable_config` may only be available in [limited regions](https://builder.aws.com/build/capabilities), including `us-east-2`.
         :param pulumi.Input[Union['FunctionEnvironmentArgs', 'FunctionEnvironmentArgsDict']] environment: Configuration block for environment variables. See below.
         :param pulumi.Input[Union['FunctionEphemeralStorageArgs', 'FunctionEphemeralStorageArgsDict']] ephemeral_storage: Amount of ephemeral storage (`/tmp`) to allocate for the Lambda Function. See below.
-        :param pulumi.Input[Union['FunctionFileSystemConfigArgs', 'FunctionFileSystemConfigArgsDict']] file_system_config: Configuration block for EFS file system. See below.
+        :param pulumi.Input[Union['FunctionFileSystemConfigArgs', 'FunctionFileSystemConfigArgsDict']] file_system_config: Configuration block for EFS or S3 Files file system. See below.
         :param pulumi.Input[_builtins.str] handler: Function entry point in your code. Required if `package_type` is `Zip`.
         :param pulumi.Input[Union['FunctionImageConfigArgs', 'FunctionImageConfigArgsDict']] image_config: Container image configuration values. See below.
         :param pulumi.Input[_builtins.str] image_uri: ECR image URI containing the function's deployment package. Conflicts with `filename` and `s3_bucket`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
@@ -2886,7 +3024,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter(name="fileSystemConfig")
     def file_system_config(self) -> pulumi.Output[Optional['outputs.FunctionFileSystemConfig']]:
         """
-        Configuration block for EFS file system. See below.
+        Configuration block for EFS or S3 Files file system. See below.
         """
         return pulumi.get(self, "file_system_config")
 

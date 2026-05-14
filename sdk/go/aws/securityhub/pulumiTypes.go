@@ -8311,6 +8311,665 @@ func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecur
 	}).(pulumi.StringArrayOutput)
 }
 
+type ConnectorV2ConnectorProvider struct {
+	// Details about a Jira Cloud integration. See `jiraCloud` below.
+	JiraCloud *ConnectorV2ConnectorProviderJiraCloud `pulumi:"jiraCloud"`
+	// Details about a ServiceNow ITSM integration. See `serviceNow` below.
+	ServiceNow *ConnectorV2ConnectorProviderServiceNow `pulumi:"serviceNow"`
+}
+
+// ConnectorV2ConnectorProviderInput is an input type that accepts ConnectorV2ConnectorProviderArgs and ConnectorV2ConnectorProviderOutput values.
+// You can construct a concrete instance of `ConnectorV2ConnectorProviderInput` via:
+//
+//	ConnectorV2ConnectorProviderArgs{...}
+type ConnectorV2ConnectorProviderInput interface {
+	pulumi.Input
+
+	ToConnectorV2ConnectorProviderOutput() ConnectorV2ConnectorProviderOutput
+	ToConnectorV2ConnectorProviderOutputWithContext(context.Context) ConnectorV2ConnectorProviderOutput
+}
+
+type ConnectorV2ConnectorProviderArgs struct {
+	// Details about a Jira Cloud integration. See `jiraCloud` below.
+	JiraCloud ConnectorV2ConnectorProviderJiraCloudPtrInput `pulumi:"jiraCloud"`
+	// Details about a ServiceNow ITSM integration. See `serviceNow` below.
+	ServiceNow ConnectorV2ConnectorProviderServiceNowPtrInput `pulumi:"serviceNow"`
+}
+
+func (ConnectorV2ConnectorProviderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorV2ConnectorProvider)(nil)).Elem()
+}
+
+func (i ConnectorV2ConnectorProviderArgs) ToConnectorV2ConnectorProviderOutput() ConnectorV2ConnectorProviderOutput {
+	return i.ToConnectorV2ConnectorProviderOutputWithContext(context.Background())
+}
+
+func (i ConnectorV2ConnectorProviderArgs) ToConnectorV2ConnectorProviderOutputWithContext(ctx context.Context) ConnectorV2ConnectorProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorV2ConnectorProviderOutput)
+}
+
+func (i ConnectorV2ConnectorProviderArgs) ToConnectorV2ConnectorProviderPtrOutput() ConnectorV2ConnectorProviderPtrOutput {
+	return i.ToConnectorV2ConnectorProviderPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectorV2ConnectorProviderArgs) ToConnectorV2ConnectorProviderPtrOutputWithContext(ctx context.Context) ConnectorV2ConnectorProviderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorV2ConnectorProviderOutput).ToConnectorV2ConnectorProviderPtrOutputWithContext(ctx)
+}
+
+// ConnectorV2ConnectorProviderPtrInput is an input type that accepts ConnectorV2ConnectorProviderArgs, ConnectorV2ConnectorProviderPtr and ConnectorV2ConnectorProviderPtrOutput values.
+// You can construct a concrete instance of `ConnectorV2ConnectorProviderPtrInput` via:
+//
+//	        ConnectorV2ConnectorProviderArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectorV2ConnectorProviderPtrInput interface {
+	pulumi.Input
+
+	ToConnectorV2ConnectorProviderPtrOutput() ConnectorV2ConnectorProviderPtrOutput
+	ToConnectorV2ConnectorProviderPtrOutputWithContext(context.Context) ConnectorV2ConnectorProviderPtrOutput
+}
+
+type connectorV2ConnectorProviderPtrType ConnectorV2ConnectorProviderArgs
+
+func ConnectorV2ConnectorProviderPtr(v *ConnectorV2ConnectorProviderArgs) ConnectorV2ConnectorProviderPtrInput {
+	return (*connectorV2ConnectorProviderPtrType)(v)
+}
+
+func (*connectorV2ConnectorProviderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorV2ConnectorProvider)(nil)).Elem()
+}
+
+func (i *connectorV2ConnectorProviderPtrType) ToConnectorV2ConnectorProviderPtrOutput() ConnectorV2ConnectorProviderPtrOutput {
+	return i.ToConnectorV2ConnectorProviderPtrOutputWithContext(context.Background())
+}
+
+func (i *connectorV2ConnectorProviderPtrType) ToConnectorV2ConnectorProviderPtrOutputWithContext(ctx context.Context) ConnectorV2ConnectorProviderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorV2ConnectorProviderPtrOutput)
+}
+
+type ConnectorV2ConnectorProviderOutput struct{ *pulumi.OutputState }
+
+func (ConnectorV2ConnectorProviderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorV2ConnectorProvider)(nil)).Elem()
+}
+
+func (o ConnectorV2ConnectorProviderOutput) ToConnectorV2ConnectorProviderOutput() ConnectorV2ConnectorProviderOutput {
+	return o
+}
+
+func (o ConnectorV2ConnectorProviderOutput) ToConnectorV2ConnectorProviderOutputWithContext(ctx context.Context) ConnectorV2ConnectorProviderOutput {
+	return o
+}
+
+func (o ConnectorV2ConnectorProviderOutput) ToConnectorV2ConnectorProviderPtrOutput() ConnectorV2ConnectorProviderPtrOutput {
+	return o.ToConnectorV2ConnectorProviderPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorV2ConnectorProviderOutput) ToConnectorV2ConnectorProviderPtrOutputWithContext(ctx context.Context) ConnectorV2ConnectorProviderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorV2ConnectorProvider) *ConnectorV2ConnectorProvider {
+		return &v
+	}).(ConnectorV2ConnectorProviderPtrOutput)
+}
+
+// Details about a Jira Cloud integration. See `jiraCloud` below.
+func (o ConnectorV2ConnectorProviderOutput) JiraCloud() ConnectorV2ConnectorProviderJiraCloudPtrOutput {
+	return o.ApplyT(func(v ConnectorV2ConnectorProvider) *ConnectorV2ConnectorProviderJiraCloud { return v.JiraCloud }).(ConnectorV2ConnectorProviderJiraCloudPtrOutput)
+}
+
+// Details about a ServiceNow ITSM integration. See `serviceNow` below.
+func (o ConnectorV2ConnectorProviderOutput) ServiceNow() ConnectorV2ConnectorProviderServiceNowPtrOutput {
+	return o.ApplyT(func(v ConnectorV2ConnectorProvider) *ConnectorV2ConnectorProviderServiceNow { return v.ServiceNow }).(ConnectorV2ConnectorProviderServiceNowPtrOutput)
+}
+
+type ConnectorV2ConnectorProviderPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorV2ConnectorProviderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorV2ConnectorProvider)(nil)).Elem()
+}
+
+func (o ConnectorV2ConnectorProviderPtrOutput) ToConnectorV2ConnectorProviderPtrOutput() ConnectorV2ConnectorProviderPtrOutput {
+	return o
+}
+
+func (o ConnectorV2ConnectorProviderPtrOutput) ToConnectorV2ConnectorProviderPtrOutputWithContext(ctx context.Context) ConnectorV2ConnectorProviderPtrOutput {
+	return o
+}
+
+func (o ConnectorV2ConnectorProviderPtrOutput) Elem() ConnectorV2ConnectorProviderOutput {
+	return o.ApplyT(func(v *ConnectorV2ConnectorProvider) ConnectorV2ConnectorProvider {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorV2ConnectorProvider
+		return ret
+	}).(ConnectorV2ConnectorProviderOutput)
+}
+
+// Details about a Jira Cloud integration. See `jiraCloud` below.
+func (o ConnectorV2ConnectorProviderPtrOutput) JiraCloud() ConnectorV2ConnectorProviderJiraCloudPtrOutput {
+	return o.ApplyT(func(v *ConnectorV2ConnectorProvider) *ConnectorV2ConnectorProviderJiraCloud {
+		if v == nil {
+			return nil
+		}
+		return v.JiraCloud
+	}).(ConnectorV2ConnectorProviderJiraCloudPtrOutput)
+}
+
+// Details about a ServiceNow ITSM integration. See `serviceNow` below.
+func (o ConnectorV2ConnectorProviderPtrOutput) ServiceNow() ConnectorV2ConnectorProviderServiceNowPtrOutput {
+	return o.ApplyT(func(v *ConnectorV2ConnectorProvider) *ConnectorV2ConnectorProviderServiceNow {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceNow
+	}).(ConnectorV2ConnectorProviderServiceNowPtrOutput)
+}
+
+type ConnectorV2ConnectorProviderJiraCloud struct {
+	// Status of the authorization between Jira Cloud and the service.
+	AuthStatus *string `pulumi:"authStatus"`
+	// URL to provide to customers for OAuth auth code flow.
+	AuthUrl *string `pulumi:"authUrl"`
+	// Cloud ID of the Jira Cloud.
+	CloudId *string `pulumi:"cloudId"`
+	// URL domain of the Jira Cloud instance.
+	Domain *string `pulumi:"domain"`
+	// Jira Cloud project key.
+	ProjectKey string `pulumi:"projectKey"`
+}
+
+// ConnectorV2ConnectorProviderJiraCloudInput is an input type that accepts ConnectorV2ConnectorProviderJiraCloudArgs and ConnectorV2ConnectorProviderJiraCloudOutput values.
+// You can construct a concrete instance of `ConnectorV2ConnectorProviderJiraCloudInput` via:
+//
+//	ConnectorV2ConnectorProviderJiraCloudArgs{...}
+type ConnectorV2ConnectorProviderJiraCloudInput interface {
+	pulumi.Input
+
+	ToConnectorV2ConnectorProviderJiraCloudOutput() ConnectorV2ConnectorProviderJiraCloudOutput
+	ToConnectorV2ConnectorProviderJiraCloudOutputWithContext(context.Context) ConnectorV2ConnectorProviderJiraCloudOutput
+}
+
+type ConnectorV2ConnectorProviderJiraCloudArgs struct {
+	// Status of the authorization between Jira Cloud and the service.
+	AuthStatus pulumi.StringPtrInput `pulumi:"authStatus"`
+	// URL to provide to customers for OAuth auth code flow.
+	AuthUrl pulumi.StringPtrInput `pulumi:"authUrl"`
+	// Cloud ID of the Jira Cloud.
+	CloudId pulumi.StringPtrInput `pulumi:"cloudId"`
+	// URL domain of the Jira Cloud instance.
+	Domain pulumi.StringPtrInput `pulumi:"domain"`
+	// Jira Cloud project key.
+	ProjectKey pulumi.StringInput `pulumi:"projectKey"`
+}
+
+func (ConnectorV2ConnectorProviderJiraCloudArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorV2ConnectorProviderJiraCloud)(nil)).Elem()
+}
+
+func (i ConnectorV2ConnectorProviderJiraCloudArgs) ToConnectorV2ConnectorProviderJiraCloudOutput() ConnectorV2ConnectorProviderJiraCloudOutput {
+	return i.ToConnectorV2ConnectorProviderJiraCloudOutputWithContext(context.Background())
+}
+
+func (i ConnectorV2ConnectorProviderJiraCloudArgs) ToConnectorV2ConnectorProviderJiraCloudOutputWithContext(ctx context.Context) ConnectorV2ConnectorProviderJiraCloudOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorV2ConnectorProviderJiraCloudOutput)
+}
+
+func (i ConnectorV2ConnectorProviderJiraCloudArgs) ToConnectorV2ConnectorProviderJiraCloudPtrOutput() ConnectorV2ConnectorProviderJiraCloudPtrOutput {
+	return i.ToConnectorV2ConnectorProviderJiraCloudPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectorV2ConnectorProviderJiraCloudArgs) ToConnectorV2ConnectorProviderJiraCloudPtrOutputWithContext(ctx context.Context) ConnectorV2ConnectorProviderJiraCloudPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorV2ConnectorProviderJiraCloudOutput).ToConnectorV2ConnectorProviderJiraCloudPtrOutputWithContext(ctx)
+}
+
+// ConnectorV2ConnectorProviderJiraCloudPtrInput is an input type that accepts ConnectorV2ConnectorProviderJiraCloudArgs, ConnectorV2ConnectorProviderJiraCloudPtr and ConnectorV2ConnectorProviderJiraCloudPtrOutput values.
+// You can construct a concrete instance of `ConnectorV2ConnectorProviderJiraCloudPtrInput` via:
+//
+//	        ConnectorV2ConnectorProviderJiraCloudArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectorV2ConnectorProviderJiraCloudPtrInput interface {
+	pulumi.Input
+
+	ToConnectorV2ConnectorProviderJiraCloudPtrOutput() ConnectorV2ConnectorProviderJiraCloudPtrOutput
+	ToConnectorV2ConnectorProviderJiraCloudPtrOutputWithContext(context.Context) ConnectorV2ConnectorProviderJiraCloudPtrOutput
+}
+
+type connectorV2ConnectorProviderJiraCloudPtrType ConnectorV2ConnectorProviderJiraCloudArgs
+
+func ConnectorV2ConnectorProviderJiraCloudPtr(v *ConnectorV2ConnectorProviderJiraCloudArgs) ConnectorV2ConnectorProviderJiraCloudPtrInput {
+	return (*connectorV2ConnectorProviderJiraCloudPtrType)(v)
+}
+
+func (*connectorV2ConnectorProviderJiraCloudPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorV2ConnectorProviderJiraCloud)(nil)).Elem()
+}
+
+func (i *connectorV2ConnectorProviderJiraCloudPtrType) ToConnectorV2ConnectorProviderJiraCloudPtrOutput() ConnectorV2ConnectorProviderJiraCloudPtrOutput {
+	return i.ToConnectorV2ConnectorProviderJiraCloudPtrOutputWithContext(context.Background())
+}
+
+func (i *connectorV2ConnectorProviderJiraCloudPtrType) ToConnectorV2ConnectorProviderJiraCloudPtrOutputWithContext(ctx context.Context) ConnectorV2ConnectorProviderJiraCloudPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorV2ConnectorProviderJiraCloudPtrOutput)
+}
+
+type ConnectorV2ConnectorProviderJiraCloudOutput struct{ *pulumi.OutputState }
+
+func (ConnectorV2ConnectorProviderJiraCloudOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorV2ConnectorProviderJiraCloud)(nil)).Elem()
+}
+
+func (o ConnectorV2ConnectorProviderJiraCloudOutput) ToConnectorV2ConnectorProviderJiraCloudOutput() ConnectorV2ConnectorProviderJiraCloudOutput {
+	return o
+}
+
+func (o ConnectorV2ConnectorProviderJiraCloudOutput) ToConnectorV2ConnectorProviderJiraCloudOutputWithContext(ctx context.Context) ConnectorV2ConnectorProviderJiraCloudOutput {
+	return o
+}
+
+func (o ConnectorV2ConnectorProviderJiraCloudOutput) ToConnectorV2ConnectorProviderJiraCloudPtrOutput() ConnectorV2ConnectorProviderJiraCloudPtrOutput {
+	return o.ToConnectorV2ConnectorProviderJiraCloudPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorV2ConnectorProviderJiraCloudOutput) ToConnectorV2ConnectorProviderJiraCloudPtrOutputWithContext(ctx context.Context) ConnectorV2ConnectorProviderJiraCloudPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorV2ConnectorProviderJiraCloud) *ConnectorV2ConnectorProviderJiraCloud {
+		return &v
+	}).(ConnectorV2ConnectorProviderJiraCloudPtrOutput)
+}
+
+// Status of the authorization between Jira Cloud and the service.
+func (o ConnectorV2ConnectorProviderJiraCloudOutput) AuthStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorV2ConnectorProviderJiraCloud) *string { return v.AuthStatus }).(pulumi.StringPtrOutput)
+}
+
+// URL to provide to customers for OAuth auth code flow.
+func (o ConnectorV2ConnectorProviderJiraCloudOutput) AuthUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorV2ConnectorProviderJiraCloud) *string { return v.AuthUrl }).(pulumi.StringPtrOutput)
+}
+
+// Cloud ID of the Jira Cloud.
+func (o ConnectorV2ConnectorProviderJiraCloudOutput) CloudId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorV2ConnectorProviderJiraCloud) *string { return v.CloudId }).(pulumi.StringPtrOutput)
+}
+
+// URL domain of the Jira Cloud instance.
+func (o ConnectorV2ConnectorProviderJiraCloudOutput) Domain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorV2ConnectorProviderJiraCloud) *string { return v.Domain }).(pulumi.StringPtrOutput)
+}
+
+// Jira Cloud project key.
+func (o ConnectorV2ConnectorProviderJiraCloudOutput) ProjectKey() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorV2ConnectorProviderJiraCloud) string { return v.ProjectKey }).(pulumi.StringOutput)
+}
+
+type ConnectorV2ConnectorProviderJiraCloudPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorV2ConnectorProviderJiraCloudPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorV2ConnectorProviderJiraCloud)(nil)).Elem()
+}
+
+func (o ConnectorV2ConnectorProviderJiraCloudPtrOutput) ToConnectorV2ConnectorProviderJiraCloudPtrOutput() ConnectorV2ConnectorProviderJiraCloudPtrOutput {
+	return o
+}
+
+func (o ConnectorV2ConnectorProviderJiraCloudPtrOutput) ToConnectorV2ConnectorProviderJiraCloudPtrOutputWithContext(ctx context.Context) ConnectorV2ConnectorProviderJiraCloudPtrOutput {
+	return o
+}
+
+func (o ConnectorV2ConnectorProviderJiraCloudPtrOutput) Elem() ConnectorV2ConnectorProviderJiraCloudOutput {
+	return o.ApplyT(func(v *ConnectorV2ConnectorProviderJiraCloud) ConnectorV2ConnectorProviderJiraCloud {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorV2ConnectorProviderJiraCloud
+		return ret
+	}).(ConnectorV2ConnectorProviderJiraCloudOutput)
+}
+
+// Status of the authorization between Jira Cloud and the service.
+func (o ConnectorV2ConnectorProviderJiraCloudPtrOutput) AuthStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorV2ConnectorProviderJiraCloud) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthStatus
+	}).(pulumi.StringPtrOutput)
+}
+
+// URL to provide to customers for OAuth auth code flow.
+func (o ConnectorV2ConnectorProviderJiraCloudPtrOutput) AuthUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorV2ConnectorProviderJiraCloud) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Cloud ID of the Jira Cloud.
+func (o ConnectorV2ConnectorProviderJiraCloudPtrOutput) CloudId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorV2ConnectorProviderJiraCloud) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CloudId
+	}).(pulumi.StringPtrOutput)
+}
+
+// URL domain of the Jira Cloud instance.
+func (o ConnectorV2ConnectorProviderJiraCloudPtrOutput) Domain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorV2ConnectorProviderJiraCloud) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Domain
+	}).(pulumi.StringPtrOutput)
+}
+
+// Jira Cloud project key.
+func (o ConnectorV2ConnectorProviderJiraCloudPtrOutput) ProjectKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorV2ConnectorProviderJiraCloud) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProjectKey
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectorV2ConnectorProviderServiceNow struct {
+	// Status of the authorization between ServiceNow and the service.
+	AuthStatus *string `pulumi:"authStatus"`
+	// Instance name of ServiceNow ITSM.
+	InstanceName string `pulumi:"instanceName"`
+	// Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the ServiceNow credentials.
+	SecretArn string `pulumi:"secretArn"`
+}
+
+// ConnectorV2ConnectorProviderServiceNowInput is an input type that accepts ConnectorV2ConnectorProviderServiceNowArgs and ConnectorV2ConnectorProviderServiceNowOutput values.
+// You can construct a concrete instance of `ConnectorV2ConnectorProviderServiceNowInput` via:
+//
+//	ConnectorV2ConnectorProviderServiceNowArgs{...}
+type ConnectorV2ConnectorProviderServiceNowInput interface {
+	pulumi.Input
+
+	ToConnectorV2ConnectorProviderServiceNowOutput() ConnectorV2ConnectorProviderServiceNowOutput
+	ToConnectorV2ConnectorProviderServiceNowOutputWithContext(context.Context) ConnectorV2ConnectorProviderServiceNowOutput
+}
+
+type ConnectorV2ConnectorProviderServiceNowArgs struct {
+	// Status of the authorization between ServiceNow and the service.
+	AuthStatus pulumi.StringPtrInput `pulumi:"authStatus"`
+	// Instance name of ServiceNow ITSM.
+	InstanceName pulumi.StringInput `pulumi:"instanceName"`
+	// Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the ServiceNow credentials.
+	SecretArn pulumi.StringInput `pulumi:"secretArn"`
+}
+
+func (ConnectorV2ConnectorProviderServiceNowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorV2ConnectorProviderServiceNow)(nil)).Elem()
+}
+
+func (i ConnectorV2ConnectorProviderServiceNowArgs) ToConnectorV2ConnectorProviderServiceNowOutput() ConnectorV2ConnectorProviderServiceNowOutput {
+	return i.ToConnectorV2ConnectorProviderServiceNowOutputWithContext(context.Background())
+}
+
+func (i ConnectorV2ConnectorProviderServiceNowArgs) ToConnectorV2ConnectorProviderServiceNowOutputWithContext(ctx context.Context) ConnectorV2ConnectorProviderServiceNowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorV2ConnectorProviderServiceNowOutput)
+}
+
+func (i ConnectorV2ConnectorProviderServiceNowArgs) ToConnectorV2ConnectorProviderServiceNowPtrOutput() ConnectorV2ConnectorProviderServiceNowPtrOutput {
+	return i.ToConnectorV2ConnectorProviderServiceNowPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectorV2ConnectorProviderServiceNowArgs) ToConnectorV2ConnectorProviderServiceNowPtrOutputWithContext(ctx context.Context) ConnectorV2ConnectorProviderServiceNowPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorV2ConnectorProviderServiceNowOutput).ToConnectorV2ConnectorProviderServiceNowPtrOutputWithContext(ctx)
+}
+
+// ConnectorV2ConnectorProviderServiceNowPtrInput is an input type that accepts ConnectorV2ConnectorProviderServiceNowArgs, ConnectorV2ConnectorProviderServiceNowPtr and ConnectorV2ConnectorProviderServiceNowPtrOutput values.
+// You can construct a concrete instance of `ConnectorV2ConnectorProviderServiceNowPtrInput` via:
+//
+//	        ConnectorV2ConnectorProviderServiceNowArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectorV2ConnectorProviderServiceNowPtrInput interface {
+	pulumi.Input
+
+	ToConnectorV2ConnectorProviderServiceNowPtrOutput() ConnectorV2ConnectorProviderServiceNowPtrOutput
+	ToConnectorV2ConnectorProviderServiceNowPtrOutputWithContext(context.Context) ConnectorV2ConnectorProviderServiceNowPtrOutput
+}
+
+type connectorV2ConnectorProviderServiceNowPtrType ConnectorV2ConnectorProviderServiceNowArgs
+
+func ConnectorV2ConnectorProviderServiceNowPtr(v *ConnectorV2ConnectorProviderServiceNowArgs) ConnectorV2ConnectorProviderServiceNowPtrInput {
+	return (*connectorV2ConnectorProviderServiceNowPtrType)(v)
+}
+
+func (*connectorV2ConnectorProviderServiceNowPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorV2ConnectorProviderServiceNow)(nil)).Elem()
+}
+
+func (i *connectorV2ConnectorProviderServiceNowPtrType) ToConnectorV2ConnectorProviderServiceNowPtrOutput() ConnectorV2ConnectorProviderServiceNowPtrOutput {
+	return i.ToConnectorV2ConnectorProviderServiceNowPtrOutputWithContext(context.Background())
+}
+
+func (i *connectorV2ConnectorProviderServiceNowPtrType) ToConnectorV2ConnectorProviderServiceNowPtrOutputWithContext(ctx context.Context) ConnectorV2ConnectorProviderServiceNowPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorV2ConnectorProviderServiceNowPtrOutput)
+}
+
+type ConnectorV2ConnectorProviderServiceNowOutput struct{ *pulumi.OutputState }
+
+func (ConnectorV2ConnectorProviderServiceNowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorV2ConnectorProviderServiceNow)(nil)).Elem()
+}
+
+func (o ConnectorV2ConnectorProviderServiceNowOutput) ToConnectorV2ConnectorProviderServiceNowOutput() ConnectorV2ConnectorProviderServiceNowOutput {
+	return o
+}
+
+func (o ConnectorV2ConnectorProviderServiceNowOutput) ToConnectorV2ConnectorProviderServiceNowOutputWithContext(ctx context.Context) ConnectorV2ConnectorProviderServiceNowOutput {
+	return o
+}
+
+func (o ConnectorV2ConnectorProviderServiceNowOutput) ToConnectorV2ConnectorProviderServiceNowPtrOutput() ConnectorV2ConnectorProviderServiceNowPtrOutput {
+	return o.ToConnectorV2ConnectorProviderServiceNowPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorV2ConnectorProviderServiceNowOutput) ToConnectorV2ConnectorProviderServiceNowPtrOutputWithContext(ctx context.Context) ConnectorV2ConnectorProviderServiceNowPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorV2ConnectorProviderServiceNow) *ConnectorV2ConnectorProviderServiceNow {
+		return &v
+	}).(ConnectorV2ConnectorProviderServiceNowPtrOutput)
+}
+
+// Status of the authorization between ServiceNow and the service.
+func (o ConnectorV2ConnectorProviderServiceNowOutput) AuthStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorV2ConnectorProviderServiceNow) *string { return v.AuthStatus }).(pulumi.StringPtrOutput)
+}
+
+// Instance name of ServiceNow ITSM.
+func (o ConnectorV2ConnectorProviderServiceNowOutput) InstanceName() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorV2ConnectorProviderServiceNow) string { return v.InstanceName }).(pulumi.StringOutput)
+}
+
+// Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the ServiceNow credentials.
+func (o ConnectorV2ConnectorProviderServiceNowOutput) SecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorV2ConnectorProviderServiceNow) string { return v.SecretArn }).(pulumi.StringOutput)
+}
+
+type ConnectorV2ConnectorProviderServiceNowPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorV2ConnectorProviderServiceNowPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorV2ConnectorProviderServiceNow)(nil)).Elem()
+}
+
+func (o ConnectorV2ConnectorProviderServiceNowPtrOutput) ToConnectorV2ConnectorProviderServiceNowPtrOutput() ConnectorV2ConnectorProviderServiceNowPtrOutput {
+	return o
+}
+
+func (o ConnectorV2ConnectorProviderServiceNowPtrOutput) ToConnectorV2ConnectorProviderServiceNowPtrOutputWithContext(ctx context.Context) ConnectorV2ConnectorProviderServiceNowPtrOutput {
+	return o
+}
+
+func (o ConnectorV2ConnectorProviderServiceNowPtrOutput) Elem() ConnectorV2ConnectorProviderServiceNowOutput {
+	return o.ApplyT(func(v *ConnectorV2ConnectorProviderServiceNow) ConnectorV2ConnectorProviderServiceNow {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorV2ConnectorProviderServiceNow
+		return ret
+	}).(ConnectorV2ConnectorProviderServiceNowOutput)
+}
+
+// Status of the authorization between ServiceNow and the service.
+func (o ConnectorV2ConnectorProviderServiceNowPtrOutput) AuthStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorV2ConnectorProviderServiceNow) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthStatus
+	}).(pulumi.StringPtrOutput)
+}
+
+// Instance name of ServiceNow ITSM.
+func (o ConnectorV2ConnectorProviderServiceNowPtrOutput) InstanceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorV2ConnectorProviderServiceNow) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.InstanceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the ServiceNow credentials.
+func (o ConnectorV2ConnectorProviderServiceNowPtrOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorV2ConnectorProviderServiceNow) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectorV2Health struct {
+	// Status of the connector.
+	ConnectorStatus string `pulumi:"connectorStatus"`
+	// Timestamp for the time the health status was checked.
+	LastCheckedAt string `pulumi:"lastCheckedAt"`
+	// Message for the reason of `connectorStatus` change.
+	Message string `pulumi:"message"`
+}
+
+// ConnectorV2HealthInput is an input type that accepts ConnectorV2HealthArgs and ConnectorV2HealthOutput values.
+// You can construct a concrete instance of `ConnectorV2HealthInput` via:
+//
+//	ConnectorV2HealthArgs{...}
+type ConnectorV2HealthInput interface {
+	pulumi.Input
+
+	ToConnectorV2HealthOutput() ConnectorV2HealthOutput
+	ToConnectorV2HealthOutputWithContext(context.Context) ConnectorV2HealthOutput
+}
+
+type ConnectorV2HealthArgs struct {
+	// Status of the connector.
+	ConnectorStatus pulumi.StringInput `pulumi:"connectorStatus"`
+	// Timestamp for the time the health status was checked.
+	LastCheckedAt pulumi.StringInput `pulumi:"lastCheckedAt"`
+	// Message for the reason of `connectorStatus` change.
+	Message pulumi.StringInput `pulumi:"message"`
+}
+
+func (ConnectorV2HealthArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorV2Health)(nil)).Elem()
+}
+
+func (i ConnectorV2HealthArgs) ToConnectorV2HealthOutput() ConnectorV2HealthOutput {
+	return i.ToConnectorV2HealthOutputWithContext(context.Background())
+}
+
+func (i ConnectorV2HealthArgs) ToConnectorV2HealthOutputWithContext(ctx context.Context) ConnectorV2HealthOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorV2HealthOutput)
+}
+
+// ConnectorV2HealthArrayInput is an input type that accepts ConnectorV2HealthArray and ConnectorV2HealthArrayOutput values.
+// You can construct a concrete instance of `ConnectorV2HealthArrayInput` via:
+//
+//	ConnectorV2HealthArray{ ConnectorV2HealthArgs{...} }
+type ConnectorV2HealthArrayInput interface {
+	pulumi.Input
+
+	ToConnectorV2HealthArrayOutput() ConnectorV2HealthArrayOutput
+	ToConnectorV2HealthArrayOutputWithContext(context.Context) ConnectorV2HealthArrayOutput
+}
+
+type ConnectorV2HealthArray []ConnectorV2HealthInput
+
+func (ConnectorV2HealthArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConnectorV2Health)(nil)).Elem()
+}
+
+func (i ConnectorV2HealthArray) ToConnectorV2HealthArrayOutput() ConnectorV2HealthArrayOutput {
+	return i.ToConnectorV2HealthArrayOutputWithContext(context.Background())
+}
+
+func (i ConnectorV2HealthArray) ToConnectorV2HealthArrayOutputWithContext(ctx context.Context) ConnectorV2HealthArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorV2HealthArrayOutput)
+}
+
+type ConnectorV2HealthOutput struct{ *pulumi.OutputState }
+
+func (ConnectorV2HealthOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorV2Health)(nil)).Elem()
+}
+
+func (o ConnectorV2HealthOutput) ToConnectorV2HealthOutput() ConnectorV2HealthOutput {
+	return o
+}
+
+func (o ConnectorV2HealthOutput) ToConnectorV2HealthOutputWithContext(ctx context.Context) ConnectorV2HealthOutput {
+	return o
+}
+
+// Status of the connector.
+func (o ConnectorV2HealthOutput) ConnectorStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorV2Health) string { return v.ConnectorStatus }).(pulumi.StringOutput)
+}
+
+// Timestamp for the time the health status was checked.
+func (o ConnectorV2HealthOutput) LastCheckedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorV2Health) string { return v.LastCheckedAt }).(pulumi.StringOutput)
+}
+
+// Message for the reason of `connectorStatus` change.
+func (o ConnectorV2HealthOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorV2Health) string { return v.Message }).(pulumi.StringOutput)
+}
+
+type ConnectorV2HealthArrayOutput struct{ *pulumi.OutputState }
+
+func (ConnectorV2HealthArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConnectorV2Health)(nil)).Elem()
+}
+
+func (o ConnectorV2HealthArrayOutput) ToConnectorV2HealthArrayOutput() ConnectorV2HealthArrayOutput {
+	return o
+}
+
+func (o ConnectorV2HealthArrayOutput) ToConnectorV2HealthArrayOutputWithContext(ctx context.Context) ConnectorV2HealthArrayOutput {
+	return o
+}
+
+func (o ConnectorV2HealthArrayOutput) Index(i pulumi.IntInput) ConnectorV2HealthOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConnectorV2Health {
+		return vs[0].([]ConnectorV2Health)[vs[1].(int)]
+	}).(ConnectorV2HealthOutput)
+}
+
 type InsightFilters struct {
 	// AWS account ID that a finding is generated in. See String_Filter below for more details.
 	AwsAccountIds []InsightFiltersAwsAccountId `pulumi:"awsAccountIds"`
@@ -22413,6 +23072,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringPtrInput)(nil)).Elem(), ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListInput)(nil)).Elem(), ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListPtrInput)(nil)).Elem(), ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorV2ConnectorProviderInput)(nil)).Elem(), ConnectorV2ConnectorProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorV2ConnectorProviderPtrInput)(nil)).Elem(), ConnectorV2ConnectorProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorV2ConnectorProviderJiraCloudInput)(nil)).Elem(), ConnectorV2ConnectorProviderJiraCloudArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorV2ConnectorProviderJiraCloudPtrInput)(nil)).Elem(), ConnectorV2ConnectorProviderJiraCloudArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorV2ConnectorProviderServiceNowInput)(nil)).Elem(), ConnectorV2ConnectorProviderServiceNowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorV2ConnectorProviderServiceNowPtrInput)(nil)).Elem(), ConnectorV2ConnectorProviderServiceNowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorV2HealthInput)(nil)).Elem(), ConnectorV2HealthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorV2HealthArrayInput)(nil)).Elem(), ConnectorV2HealthArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightFiltersInput)(nil)).Elem(), InsightFiltersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightFiltersPtrInput)(nil)).Elem(), InsightFiltersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightFiltersAwsAccountIdInput)(nil)).Elem(), InsightFiltersAwsAccountIdArgs{})
@@ -22757,6 +23424,14 @@ func init() {
 	pulumi.RegisterOutputType(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListOutput{})
 	pulumi.RegisterOutputType(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListPtrOutput{})
+	pulumi.RegisterOutputType(ConnectorV2ConnectorProviderOutput{})
+	pulumi.RegisterOutputType(ConnectorV2ConnectorProviderPtrOutput{})
+	pulumi.RegisterOutputType(ConnectorV2ConnectorProviderJiraCloudOutput{})
+	pulumi.RegisterOutputType(ConnectorV2ConnectorProviderJiraCloudPtrOutput{})
+	pulumi.RegisterOutputType(ConnectorV2ConnectorProviderServiceNowOutput{})
+	pulumi.RegisterOutputType(ConnectorV2ConnectorProviderServiceNowPtrOutput{})
+	pulumi.RegisterOutputType(ConnectorV2HealthOutput{})
+	pulumi.RegisterOutputType(ConnectorV2HealthArrayOutput{})
 	pulumi.RegisterOutputType(InsightFiltersOutput{})
 	pulumi.RegisterOutputType(InsightFiltersPtrOutput{})
 	pulumi.RegisterOutputType(InsightFiltersAwsAccountIdOutput{})

@@ -780,6 +780,10 @@ class ProviderEndpointArgsDict(TypedDict):
     """
     Use this to override the default service endpoint URL
     """
+    devopsagent: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Use this to override the default service endpoint URL
+    """
     devopsguru: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Use this to override the default service endpoint URL
@@ -1734,6 +1738,7 @@ class ProviderEndpointArgs:
                  deploy: pulumi.Input[Optional[_builtins.str]] = None,
                  detective: pulumi.Input[Optional[_builtins.str]] = None,
                  devicefarm: pulumi.Input[Optional[_builtins.str]] = None,
+                 devopsagent: pulumi.Input[Optional[_builtins.str]] = None,
                  devopsguru: pulumi.Input[Optional[_builtins.str]] = None,
                  directconnect: pulumi.Input[Optional[_builtins.str]] = None,
                  directoryservice: pulumi.Input[Optional[_builtins.str]] = None,
@@ -2046,6 +2051,7 @@ class ProviderEndpointArgs:
         :param pulumi.Input[_builtins.str] deploy: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] detective: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] devicefarm: Use this to override the default service endpoint URL
+        :param pulumi.Input[_builtins.str] devopsagent: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] devopsguru: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] directconnect: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] directoryservice: Use this to override the default service endpoint URL
@@ -2456,6 +2462,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "detective", detective)
         if devicefarm is not None:
             pulumi.set(__self__, "devicefarm", devicefarm)
+        if devopsagent is not None:
+            pulumi.set(__self__, "devopsagent", devopsagent)
         if devopsguru is not None:
             pulumi.set(__self__, "devopsguru", devopsguru)
         if directconnect is not None:
@@ -4058,6 +4066,18 @@ class ProviderEndpointArgs:
     @devicefarm.setter
     def devicefarm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "devicefarm", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def devopsagent(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "devopsagent")
+
+    @devopsagent.setter
+    def devopsagent(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "devopsagent", value)
 
     @_builtins.property
     @pulumi.getter
