@@ -15,6 +15,7 @@ import (
 	"time"
 
 	"github.com/pulumi/providertest"
+	"github.com/pulumi/providertest/grpclog"
 	"github.com/pulumi/providertest/optproviderupgrade"
 	"github.com/pulumi/providertest/pulumitest"
 	"github.com/pulumi/providertest/pulumitest/assertpreview"
@@ -298,6 +299,10 @@ func testProviderCodeChanges(t *testing.T, opts *testProviderCodeChangesOptions)
 		grptLog := pt.GrpcLog(t)
 		grpcLogPath := filepath.Join(cacheDir, "grpc.json")
 		t.Logf("writing grpc log to %s", grpcLogPath)
+		grptLog.SanitizeSecrets()
+		grptLog.Entries = slices.DeleteFunc(grptLog.Entries, func(entry grpclog.GrpcLogEntry) bool {
+			return entry.Method == string(grpclog.GetSchema)
+		})
 		grptLog.WriteTo(grpcLogPath)
 
 		e := pt.ExportStack(t)
