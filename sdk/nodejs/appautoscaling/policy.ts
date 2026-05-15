@@ -14,230 +14,29 @@ import * as utilities from "../utilities";
  *
  * ### DynamoDB Table Autoscaling
  *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const dynamodbTableReadTarget = new aws.appautoscaling.Target("dynamodb_table_read_target", {
- *     maxCapacity: 100,
- *     minCapacity: 5,
- *     resourceId: "table/tableName",
- *     scalableDimension: "dynamodb:table:ReadCapacityUnits",
- *     serviceNamespace: "dynamodb",
- * });
- * const dynamodbTableReadPolicy = new aws.appautoscaling.Policy("dynamodb_table_read_policy", {
- *     name: pulumi.interpolate`DynamoDBReadCapacityUtilization:${dynamodbTableReadTarget.resourceId}`,
- *     policyType: "TargetTrackingScaling",
- *     resourceId: dynamodbTableReadTarget.resourceId,
- *     scalableDimension: dynamodbTableReadTarget.scalableDimension,
- *     serviceNamespace: dynamodbTableReadTarget.serviceNamespace,
- *     targetTrackingScalingPolicyConfiguration: {
- *         predefinedMetricSpecification: {
- *             predefinedMetricType: "DynamoDBReadCapacityUtilization",
- *         },
- *         targetValue: 70,
- *     },
- * });
- * ```
- *
  * ### ECS Service Autoscaling
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const ecsTarget = new aws.appautoscaling.Target("ecs_target", {
- *     maxCapacity: 4,
- *     minCapacity: 1,
- *     resourceId: "service/clusterName/serviceName",
- *     scalableDimension: "ecs:service:DesiredCount",
- *     serviceNamespace: "ecs",
- * });
- * const ecsPolicy = new aws.appautoscaling.Policy("ecs_policy", {
- *     name: "scale-down",
- *     policyType: "StepScaling",
- *     resourceId: ecsTarget.resourceId,
- *     scalableDimension: ecsTarget.scalableDimension,
- *     serviceNamespace: ecsTarget.serviceNamespace,
- *     stepScalingPolicyConfiguration: {
- *         adjustmentType: "ChangeInCapacity",
- *         cooldown: 60,
- *         metricAggregationType: "Maximum",
- *         stepAdjustments: [{
- *             metricIntervalUpperBound: "0",
- *             scalingAdjustment: -1,
- *         }],
- *     },
- * });
- * ```
  *
  * ### Preserve desired count when updating an autoscaled ECS Service
  *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const ecsService = new aws.ecs.Service("ecs_service", {
- *     name: "serviceName",
- *     cluster: "clusterName",
- *     taskDefinition: "taskDefinitionFamily:1",
- *     desiredCount: 2,
- * });
- * ```
+ * > To preserve the `desiredCount` of an autoscaled ECS Service during updates, use the [`ignoreChanges` resource option](https://www.pulumi.com/docs/concepts/options/ignorechanges/). This prevents Pulumi from resetting the count that autoscaling has set:
+ * > ```typescript
+ * > const ecsService = new aws.ecs.Service("ecsService", {
+ * >     name: "serviceName",
+ * >     cluster: "clusterName",
+ * >     taskDefinition: "taskDefinitionFamily:1",
+ * >     desiredCount: 2,
+ * > }, {
+ * >     ignoreChanges: ["desiredCount"],
+ * > });
+ * > ```
  *
  * ### Aurora Read Replica Autoscaling
  *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const replicas = new aws.appautoscaling.Target("replicas", {
- *     serviceNamespace: "rds",
- *     scalableDimension: "rds:cluster:ReadReplicaCount",
- *     resourceId: `cluster:${example.id}`,
- *     minCapacity: 1,
- *     maxCapacity: 15,
- * });
- * const replicasPolicy = new aws.appautoscaling.Policy("replicas", {
- *     name: "cpu-auto-scaling",
- *     serviceNamespace: replicas.serviceNamespace,
- *     scalableDimension: replicas.scalableDimension,
- *     resourceId: replicas.resourceId,
- *     policyType: "TargetTrackingScaling",
- *     targetTrackingScalingPolicyConfiguration: {
- *         predefinedMetricSpecification: {
- *             predefinedMetricType: "RDSReaderAverageCPUUtilization",
- *         },
- *         targetValue: 75,
- *         scaleInCooldown: 300,
- *         scaleOutCooldown: 300,
- *     },
- * });
- * ```
- *
  * ### Create target tracking scaling policy using metric math
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const ecsTarget = new aws.appautoscaling.Target("ecs_target", {
- *     maxCapacity: 4,
- *     minCapacity: 1,
- *     resourceId: "service/clusterName/serviceName",
- *     scalableDimension: "ecs:service:DesiredCount",
- *     serviceNamespace: "ecs",
- * });
- * const example = new aws.appautoscaling.Policy("example", {
- *     name: "foo",
- *     policyType: "TargetTrackingScaling",
- *     resourceId: ecsTarget.resourceId,
- *     scalableDimension: ecsTarget.scalableDimension,
- *     serviceNamespace: ecsTarget.serviceNamespace,
- *     targetTrackingScalingPolicyConfiguration: {
- *         targetValue: 100,
- *         customizedMetricSpecification: {
- *             metrics: [
- *                 {
- *                     label: "Get the queue size (the number of messages waiting to be processed)",
- *                     id: "m1",
- *                     metricStat: {
- *                         metric: {
- *                             metricName: "ApproximateNumberOfMessagesVisible",
- *                             namespace: "AWS/SQS",
- *                             dimensions: [{
- *                                 name: "QueueName",
- *                                 value: "my-queue",
- *                             }],
- *                         },
- *                         stat: "Sum",
- *                     },
- *                     returnData: false,
- *                 },
- *                 {
- *                     label: "Get the ECS running task count (the number of currently running tasks)",
- *                     id: "m2",
- *                     metricStat: {
- *                         metric: {
- *                             metricName: "RunningTaskCount",
- *                             namespace: "ECS/ContainerInsights",
- *                             dimensions: [
- *                                 {
- *                                     name: "ClusterName",
- *                                     value: "default",
- *                                 },
- *                                 {
- *                                     name: "ServiceName",
- *                                     value: "web-app",
- *                                 },
- *                             ],
- *                         },
- *                         stat: "Average",
- *                     },
- *                     returnData: false,
- *                 },
- *                 {
- *                     label: "Calculate the backlog per instance",
- *                     id: "e1",
- *                     expression: "m1 / m2",
- *                     returnData: true,
- *                 },
- *             ],
- *         },
- *     },
- * });
- * ```
  *
  * ### Predictive Scaling
  *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.appautoscaling.Policy("example", {
- *     name: "example-policy",
- *     resourceId: exampleAwsAppautoscalingTarget.resourceId,
- *     scalableDimension: exampleAwsAppautoscalingTarget.scalableDimension,
- *     serviceNamespace: exampleAwsAppautoscalingTarget.serviceNamespace,
- *     policyType: "PredictiveScaling",
- *     predictiveScalingPolicyConfiguration: {
- *         metricSpecifications: [{
- *             targetValue: "40",
- *             predefinedMetricPairSpecification: {
- *                 predefinedMetricType: "ECSServiceMemoryUtilization",
- *             },
- *         }],
- *     },
- * });
- * ```
- *
  * ### MSK / Kafka Autoscaling
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const mskTarget = new aws.appautoscaling.Target("msk_target", {
- *     serviceNamespace: "kafka",
- *     scalableDimension: "kafka:broker-storage:VolumeSize",
- *     resourceId: example.arn,
- *     minCapacity: 1,
- *     maxCapacity: 8,
- * });
- * const targets = new aws.appautoscaling.Policy("targets", {
- *     name: "storage-size-auto-scaling",
- *     serviceNamespace: mskTarget.serviceNamespace,
- *     scalableDimension: mskTarget.scalableDimension,
- *     resourceId: mskTarget.resourceId,
- *     policyType: "TargetTrackingScaling",
- *     targetTrackingScalingPolicyConfiguration: {
- *         predefinedMetricSpecification: {
- *             predefinedMetricType: "KafkaBrokerStorageUtilization",
- *         },
- *         targetValue: 55,
- *     },
- * });
- * ```
  *
  * ## Import
  *
