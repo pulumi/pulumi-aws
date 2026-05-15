@@ -881,15 +881,20 @@ outputs:
 }
 
 func TestSecurityGroupPreviewWarning(t *testing.T) {
-	t.Parallel()
-	pt := pulumiTest(t, filepath.Join("test-programs", "security-group", "security-group-1"))
-	pt.Up(t)
+	cwd := getCwd(t)
+	firstProgram, err := os.ReadFile(filepath.Join(cwd, "test-programs", "security-group", "security-group-1", "Pulumi.yaml"))
+	require.NoError(t, err)
+	secondProgram, err := os.ReadFile(filepath.Join(cwd, "test-programs", "security-group", "Pulumi.yaml"))
+	require.NoError(t, err)
 
-	st := pt.ExportStack(t)
-
-	pt2 := pulumiTest(t, filepath.Join("test-programs", "security-group"))
-	pt2.ImportStack(t, st)
-	prev := pt2.Preview(t, optpreview.Diff())
+	providerOpt := opttest.LocalProviderPath("aws", filepath.Join(cwd, "..", "bin"))
+	pt := testProviderCodeChanges(t, &testProviderCodeChangesOptions{
+		firstProgram:         firstProgram,
+		secondProgram:        secondProgram,
+		firstProgramOptions:  []opttest.Option{providerOpt},
+		secondProgramOptions: []opttest.Option{providerOpt},
+	})
+	prev := pt.Preview(t, optpreview.Diff())
 
 	assert.NotContains(t, prev.StdOut, "warning: Failed to calculate preview for element")
 	assert.NotContains(t, prev.StdErr, "warning: Failed to calculate preview for element")
