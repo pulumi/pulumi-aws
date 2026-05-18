@@ -231,7 +231,10 @@ lint.fix: upstream
 	exit $$LINT_EXIT
 
 .PHONY: lint lint.fix
-build_provider_cmd = VERSION=${VERSION_GENERIC} ./scripts/minimal_schema.sh;cd provider && GOOS=$(1) GOARCH=$(2) CGO_ENABLED=0 go build $(PULUMI_PROVIDER_BUILD_PARALLELISM) -o "$(3)" -ldflags "$(LDFLAGS)" $(PROJECT)/$(PROVIDER_PATH)/cmd/$(PROVIDER)
+build_provider_cmd = set -x; \
+VERSION=${VERSION_GENERIC} ./scripts/minimal_schema.sh; \
+cd provider && GOOS=$(1) GOARCH=$(2) go mod download; \
+cd provider && GOOS=$(1) GOARCH=$(2) CGO_ENABLED=0 go build -v $(PULUMI_PROVIDER_BUILD_PARALLELISM) -o "$(3)" -ldflags "$(LDFLAGS)" $(PROJECT)/$(PROVIDER_PATH)/cmd/$(PROVIDER)
 
 provider: bin/$(PROVIDER)
 
