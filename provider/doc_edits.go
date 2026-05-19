@@ -30,6 +30,7 @@ func editRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
 	return append(defaults,
 		fixUpCloudFrontPublicKey,
 		fixUpEcsServiceName,
+		fixUpAppautoscalingPolicyPreserveDesiredCount,
 		fixUpBucketReplicationConfig,
 		fixUpWebACLExample,
 		fixUpWebACLRuleGroupAssociationExample,
@@ -187,6 +188,39 @@ var fixUpEcsServiceName = tfbridge.DocsEdit{
 		return content, nil
 	},
 }
+
+// fixUpAppautoscalingPolicyPreserveDesiredCount replaces the Terraform-specific
+// lifecycle { ignore_changes = [desired_count] } example with a Pulumi note
+// explaining the equivalent ignoreChanges resource option.
+var fixUpAppautoscalingPolicyPreserveDesiredCount = targetedReplace(
+	"appautoscaling_policy.html.markdown",
+	"```terraform\n"+
+		"resource \"aws_ecs_service\" \"ecs_service\" {\n"+
+		"  name            = \"serviceName\"\n"+
+		"  cluster         = \"clusterName\"\n"+
+		"  task_definition = \"taskDefinitionFamily:1\"\n"+
+		"  desired_count   = 2\n"+
+		"\n"+
+		"  lifecycle {\n"+
+		"    ignore_changes = [desired_count]\n"+
+		"  }\n"+
+		"}\n"+
+		"```",
+	"> To preserve the `desiredCount` of an autoscaled ECS Service during updates, "+
+		"use the [`ignoreChanges` resource option](https://www.pulumi.com/docs/concepts/options/ignorechanges/). "+
+		"This prevents Pulumi from resetting the count that autoscaling has set:\n"+
+		">\n"+
+		"> ```typescript\n"+
+		"> const ecsService = new aws.ecs.Service(\"ecsService\", {\n"+
+		">     name: \"serviceName\",\n"+
+		">     cluster: \"clusterName\",\n"+
+		">     taskDefinition: \"taskDefinitionFamily:1\",\n"+
+		">     desiredCount: 2,\n"+
+		"> }, {\n"+
+		">     ignoreChanges: [\"desiredCount\"],\n"+
+		"> });\n"+
+		"> ```",
+)
 
 var fixUpWebACLExample = tfbridge.DocsEdit{
 	Path: "wafv2_web_acl.html.markdown",
